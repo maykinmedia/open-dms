@@ -141,11 +141,11 @@ jobs:
           path: image.tar
           retention-days: 1
 
-  docker_push:
-    needs:
-      - tests
-      - docker_build
-
+#  docker_push:
+#    needs:
+#      - tests
+#      - docker_build
+#
 #    name: Push Docker image
 #    runs-on: ubuntu-latest
 #    if: github.event_name == 'push' # Exclude PRs
