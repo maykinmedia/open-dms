@@ -128,6 +128,7 @@ INSTALLED_APPS = [
     # Project applications.
     "opendrc.accounts",
     "opendrc.utils",
+    "opendrc.frontend",
 ]
 
 MIDDLEWARE = [
@@ -150,7 +151,10 @@ ROOT_URLCONF = "opendrc.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [DJANGO_PROJECT_DIR / "templates"],
+        "DIRS": [
+            DJANGO_PROJECT_DIR / "templates",
+            DJANGO_PROJECT_DIR / "frontend/dist",
+        ],
         "APP_DIRS": False,  # conflicts with explicity specifying the loaders
         "OPTIONS": {
             "context_processors": [
@@ -182,7 +186,10 @@ STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "static"
 
 # Additional locations of static files
-STATICFILES_DIRS = [DJANGO_PROJECT_DIR / "static"]
+STATICFILES_DIRS = [
+    DJANGO_PROJECT_DIR / "static",
+    DJANGO_PROJECT_DIR / "frontend/dist/static",
+]
 
 # List of finder classes that know how to find static files in
 # various locations.

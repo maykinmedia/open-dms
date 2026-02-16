@@ -28,8 +28,19 @@ COPY ./requirements /app/requirements
 RUN pip install -r requirements/production.txt
 
 
-# Stage 2 - Install frontend deps and build assets
-# Nothing to see here, please disperse
+# Stage 2 - Build the Front end
+FROM node:24-bullseye-slim AS frontend-build
+
+WORKDIR /app
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  git \
+  ca-certificates \
+  && rm -rf /var/lib/apt/lists/*
+
+COPY ./src/opendrc/frontend .
+RUN npm ci
+RUN npm run build
 
 
 # Stage 3 - Build docker image suitable for production
@@ -71,7 +82,8 @@ COPY --from=backend-build /usr/local/bin/maykin-common /usr/local/bin/maykin-com
 COPY --from=backend-build /app/src/ /app/src/
 
 # copy frontend build statics
-# Nothing to see here, please disperse
+COPY --from=frontend-build /app/dist /app/src/opendrc/frontend
+
 
 # copy source code
 COPY ./src /app/src
