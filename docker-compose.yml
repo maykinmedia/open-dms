@@ -1,0 +1,87 @@
+# DISCLAIMER: THIS IS FOR DEVELOPMENT PURPOSES ONLY AND NOT SUITABLE FOR PRODUCTION.
+
+x-labels: &x-labels
+  client: dev
+  target: test
+  app: "opendrc"
+
+x-app-env: &x-app-env
+  - DJANGO_SETTINGS_MODULE=opendrc.conf.docker
+  - SECRET_KEY=${SECRET_KEY:-django-insecure-kex=ipoau_q(o_w=6bd8q6_sb2#xgkdbknq4m&hl2jtx(7#n_}
+  - DB_NAME=opendrc
+  - DB_USER=opendrc
+  - DB_HOST=db
+  # Only allow all hosts for development/testing purposes!
+  - ALLOWED_HOSTS=*
+  - STATIC_ROOT_VOLUME=/srv/static/
+  # Environment labeling
+  - SHOW_ENVIRONMENT=yes
+  - ENVIRONMENT_LABEL=docker-compose
+  - ENVIRONMENT_BACKGROUND_COLOR=#1d63ed
+  - ENVIRONMENT_FOREGROUND_COLOR=white
+  # Enabling Open Telemetry requires a target to send telemetry towards!
+  - OTEL_SDK_DISABLED=${OTEL_SDK_DISABLED:-true}
+  - OTEL_RESOURCE_ATTRIBUTES=maykin.saas.client=maykin,maykin.saas.target=dev
+  - OTEL_METRIC_EXPORT_INTERVAL=${OTEL_METRIC_EXPORT_INTERVAL:-60000}
+  - OTEL_EXPORTER_OTLP_ENDPOINT=${OTEL_EXPORTER_OTLP_ENDPOINT:-http://otel-collector:4317}  # gRPC
+  # otel:supersecret, escape spaces and = with percent encoding
+  # - OTEL_EXPORTER_OTLP_HEADERS=Authorization=Basic b3RlbDpzdXBlcnNlY3JldA==
+  - OTEL_EXPORTER_OTLP_METRICS_INSECURE=${OTEL_EXPORTER_OTLP_METRICS_INSECURE:-true}
+  - _OTEL_ENABLE_CONTAINER_RESOURCE_DETECTOR=true
+
+x-app-volumes: &x-app-volumes
+  - static:/srv/static
+  - media:/app/media
+
+services:
+  db:
+    image: postgres:${PG_VERSION:-17}
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - ./docker/init-db.sql:/docker-entrypoint-initdb.d/init_db.sql
+      - db:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:8
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 1s
+      retries: 3
+
+  prepare-volumes:
+    image: busybox
+    command: /bin/chown -R 1000 /srv/static
+    volumes:
+      - static:/srv/static
+
+  web:
+    build: .
+    image: maykinmedia/opendrc:${TAG:-latest}
+    environment: *x-app-env
+    volumes: *x-app-volumes
+    healthcheck:
+      test: ["CMD-SHELL", "maykin-common health-check"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+    labels:
+      <<: *x-labels
+      service: web
+    ports:
+      - 8000:8000
+    depends_on:
+      - prepare-volumes
+      - db
+      - redis
+
+volumes:
+  db:
+  static:
+  media:

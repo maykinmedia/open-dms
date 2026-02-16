@@ -1,0 +1,2 @@
+CREATE USER opendrc;
+CREATE DATABASE opendrc WITH OWNER opendrc;

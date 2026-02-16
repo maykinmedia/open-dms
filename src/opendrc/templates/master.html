@@ -1,0 +1,30 @@
+{% load static %}<!DOCTYPE html>
+<html lang="en" class="view {% block view_class %}view--{{ request.resolver_match.namespaces|join:'-' }}-{{ request.resolver_match.url_name }}{% endblock %}">
+    <head>
+        <meta charset="utf-8">
+        <title>{% block title %}Opendrc{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block extra_css %}{% endblock %}
+    </head>
+
+    <body class="view__body">
+        {% include "includes/header.html" %}
+
+        <main class="view__main">
+            {% block content %}
+                Override <code>{% verbatim %}{% block content %}{% endverbatim %}</code>
+                to get some actual content.
+            {% endblock %}
+        </main>
+
+        {% include "includes/footer.html" %}
+
+        {% if dsn %}
+            <script src="https://browser.sentry-cdn.com/5.10.1/bundle.min.js" integrity="sha384-sAOze6ZTBIpiWBF3VlUteSInM4rYpjxrejp1wMmmKqA9clRZ1vZJ36Ihmt1ilTrG" crossorigin="anonymous"></script>
+            <script>Sentry.init({ dsn: '{{ dsn }}'});</script>
+        {% endif %}
+
+        {% block scripts %}
+        {% endblock %}
+    </body>
+</html>
