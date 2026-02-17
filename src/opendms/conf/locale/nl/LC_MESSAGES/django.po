@@ -6,52 +6,52 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenDRC 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 10:35+0100\n"
+"POT-Creation-Date: 2026-02-17 12:39+0100\n"
 "PO-Revision-Date: 2026-02-17 00:00+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/opendrc/accounts/models.py:19
+#: src/opendms/accounts/models.py:19
 msgid "username"
 msgstr "gebruikersnaam"
 
-#: src/opendrc/accounts/models.py:23
+#: src/opendms/accounts/models.py:23
 msgid "Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."
 msgstr ""
 "Vereist. 150 tekens of minder. Alleen letters, cijfers en @/,/+/-/_ tekens "
 "zijn toegestaan."
 
-#: src/opendrc/accounts/models.py:27
+#: src/opendms/accounts/models.py:27
 msgid "A user with that username already exists."
 msgstr "Een gebruiker met deze gebruikersnaam bestaat al."
 
-#: src/opendrc/accounts/models.py:30
+#: src/opendms/accounts/models.py:30
 msgid "first name"
 msgstr "voornaam"
 
-#: src/opendrc/accounts/models.py:31
+#: src/opendms/accounts/models.py:31
 msgid "last name"
 msgstr "achternaam"
 
-#: src/opendrc/accounts/models.py:32
+#: src/opendms/accounts/models.py:32
 msgid "email address"
 msgstr "e-mailadres"
 
-#: src/opendrc/accounts/models.py:34
+#: src/opendms/accounts/models.py:34
 msgid "staff status"
 msgstr "stafstatus"
 
-#: src/opendrc/accounts/models.py:36
+#: src/opendms/accounts/models.py:36
 msgid "Designates whether the user can log into this admin site."
 msgstr "Bepaalt of de gebruiker zich op deze beheerwebsite kan aanmelden."
 
-#: src/opendrc/accounts/models.py:39
+#: src/opendms/accounts/models.py:39
 msgid "active"
 msgstr "actief"
 
-#: src/opendrc/accounts/models.py:42
+#: src/opendms/accounts/models.py:42
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
@@ -59,66 +59,66 @@ msgstr ""
 "Bepaalt of deze gebruiker als actief dient te worden behandeld. U kunt dit "
 "uitvinken in plaats van een gebruiker te verwijderen."
 
-#: src/opendrc/accounts/models.py:46
+#: src/opendms/accounts/models.py:46
 msgid "date joined"
 msgstr "datum toegetreden"
 
-#: src/opendrc/accounts/models.py:54
+#: src/opendms/accounts/models.py:54
 msgid "user"
 msgstr "gebruiker"
 
-#: src/opendrc/accounts/models.py:55
+#: src/opendms/accounts/models.py:55
 msgid "users"
 msgstr "gebruikers"
 
-#: src/opendrc/accounts/utils.py:18
+#: src/opendms/accounts/utils.py:18
 msgid "You need to be superuser to create other superusers."
 msgstr "U moet een supergebruiker zijn om andere supergebruikers aan te maken."
 
-#: src/opendrc/accounts/utils.py:44
+#: src/opendms/accounts/utils.py:44
 msgid "You cannot create or update a user with more permissions than yourself."
 msgstr ""
 "U kunt geen gebruiker aanmaken of bijwerken met meer rechten dan u zelf "
 "heeft."
 
-#: src/opendrc/templates/admin/base_site.html:5
-#: src/opendrc/templates/admin/base_site.html:24
+#: src/opendms/templates/admin/base_site.html:5
+#: src/opendms/templates/admin/base_site.html:24
 msgid "Administration"
 msgstr "Beheer"
 
-#: src/opendrc/templates/admin/base_site.html:39
+#: src/opendms/templates/admin/base_site.html:39
 msgid "View site"
 msgstr "Bekijk site"
 
-#: src/opendrc/templates/admin/base_site.html:45
+#: src/opendms/templates/admin/base_site.html:45
 msgid "Account security"
 msgstr "Accountbeveiliging"
 
-#: src/opendrc/templates/admin/base_site.html:48
+#: src/opendms/templates/admin/base_site.html:48
 msgid "Change password"
 msgstr "Wachtwoord wijzigen"
 
-#: src/opendrc/templates/admin/base_site.html:53
+#: src/opendms/templates/admin/base_site.html:53
 msgid "Log out"
 msgstr "Afmelden"
 
-#: src/opendrc/templates/hijack/contrib/admin/button.html:6
+#: src/opendms/templates/hijack/contrib/admin/button.html:6
 msgid "hijack"
 msgstr "overnemen"
 
-#: src/opendrc/templates/hijack/contrib/admin/button.html:8
+#: src/opendms/templates/hijack/contrib/admin/button.html:8
 #, python-format
 msgid "Hijack %(username)s"
 msgstr "Inloggen als %(username)s"
 
-#: src/opendrc/templates/maykin_2fa/login.html:13
+#: src/opendms/templates/maykin_2fa/login.html:13
 msgid "or"
 msgstr "of"
 
-#: src/opendrc/templates/maykin_2fa/login.html:16
+#: src/opendms/templates/maykin_2fa/login.html:16
 msgid "Login with organization account"
 msgstr "Inloggen met organisatieaccount"
 
-#: src/opendrc/templates/maykin_2fa/login.html:25
+#: src/opendms/templates/maykin_2fa/login.html:25
 msgid "Contact support"
 msgstr "Contact opnemen met ondersteuning"
