@@ -1,9 +1,10 @@
-from django.contrib.auth import get_user_model, get_user
+from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from rest_framework import status
+
 from opendms.accounts.tests.factories import UserFactory
 
 User = get_user_model()
@@ -14,15 +15,21 @@ class LoginViewTest(TestCase):
         self.path = reverse("api:v1:accounts:login")
 
     def test_incorrect_login(self):
-        response = self.client.post(self.path, data={"username": "johndoe", "password": "incorrect"})
+        response = self.client.post(
+            self.path, data={"username": "johndoe", "password": "incorrect"}
+        )
 
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        print(response.content)
-        self.assertEqual(response.data["non_field_errors"][0], _("Unable to log in with provided credentials."))
+        self.assertEqual(
+            response.data["non_field_errors"][0],
+            _("Unable to log in with provided credentials."),
+        )
 
     def test_correct_login(self):
         user = UserFactory.create(username="johndoe", password="s3cret")
-        response = self.client.post(self.path, data={"username": "johndoe", "password": "s3cret"})
+        response = self.client.post(
+            self.path, data={"username": "johndoe", "password": "s3cret"}
+        )
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["is_authenticated"], True)

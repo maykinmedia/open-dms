@@ -1,11 +1,12 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import AnonymousUser
 from django.test import TestCase
+
 from rest_framework import serializers
 from rest_framework.test import APIRequestFactory
 
 from ...tests.factories import UserFactory
-from ..serializers import UserSerializer, WhoAmISerializer, AuthSerializer
+from ..serializers import AuthSerializer, UserSerializer, WhoAmISerializer
 
 User = get_user_model()
 
@@ -13,7 +14,10 @@ User = get_user_model()
 class AuthSerializerTest(TestCase):
     def test_incorrect_login(self):
         request = APIRequestFactory().get("/")
-        serializer = AuthSerializer(data={"username": "johndoe", "password": "incorrect"}, context={"request": request})
+        serializer = AuthSerializer(
+            data={"username": "johndoe", "password": "incorrect"},
+            context={"request": request},
+        )
 
         with self.assertRaises(serializers.ValidationError):
             serializer.is_valid(raise_exception=True)
@@ -21,7 +25,10 @@ class AuthSerializerTest(TestCase):
     def test_correct_login(self):
         user = UserFactory.create(username="johndoe", password="s3cret")
         request = APIRequestFactory().get("/")
-        serializer = AuthSerializer(data={"username": "johndoe", "password": "s3cret"}, context={"request": request})
+        serializer = AuthSerializer(
+            data={"username": "johndoe", "password": "s3cret"},
+            context={"request": request},
+        )
 
         serializer.is_valid(raise_exception=True)
         self.assertEqual(serializer.validated_data["user"], user)
