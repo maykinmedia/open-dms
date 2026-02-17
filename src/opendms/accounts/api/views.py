@@ -1,11 +1,11 @@
 from typing import TYPE_CHECKING
 
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.utils.translation import gettext_lazy as _
 
 from drf_spectacular.utils import extend_schema, OpenApiResponse
 from rest_framework import status
-from rest_framework.generics import RetrieveAPIView
+from rest_framework.generics import RetrieveAPIView, CreateAPIView
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -19,10 +19,11 @@ if TYPE_CHECKING:
 
     from opendms.accounts.models import User
 
+
 @extend_schema(
     tags=["accounts"],
     summary=_("login"),
-    description=_("Authenticates the user, returns user details on successful login."),
+    description=_("Authenticates the user, returns whoami details on successful login."),
     responses={
         200: WhoAmISerializer,
         400: OpenApiResponse(
@@ -44,6 +45,19 @@ class LoginView(APIView):
         user: User = serializer.validated_data["user"]
         login(request._request, user)  # noqa - Access to a protected member _request of a class
         return Response(WhoAmISerializer(user).data, status=status.HTTP_200_OK)
+
+
+@extend_schema(
+    tags=["accounts"],
+    summary=_("logout"),
+    description=_("Remove the authenticated user's ID from the request and flush their session data."),
+)
+class LogoutView(APIView):
+    permission_classes = ()
+
+    def post(self, request: Request) -> Response:
+        logout(request._request)  # noqa - Access to a protected member _request of a class
+        return Response(status=status.HTTP_204_NO_CONTENT)
 
 
 @extend_schema(
