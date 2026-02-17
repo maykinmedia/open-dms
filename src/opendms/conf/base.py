@@ -125,8 +125,12 @@ INSTALLED_APPS = [
     "hijack",
     "hijack.contrib.admin",
     "maykin_common",
-    # Project applications.
+    "rest_framework",
+    "drf_spectacular",
+
+  # Project applications.
     "opendms.accounts",
+    "opendms.api",
     "opendms.utils",
     "opendms.frontend",
 ]
@@ -142,6 +146,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "hijack.middleware.HijackUserMiddleware",
+    "djangorestframework_camel_case.middleware.CamelCaseMiddleWare",
     # should be last according to docs
     "axes.middleware.AxesMiddleware",
 ]
@@ -155,7 +160,7 @@ TEMPLATES = [
             DJANGO_PROJECT_DIR / "templates",
             DJANGO_PROJECT_DIR / "frontend/dist",
         ],
-        "APP_DIRS": False,  # conflicts with explicity specifying the loaders
+        "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.debug",
@@ -164,10 +169,6 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
                 "opendms.utils.context_processors.settings",
             ],
-            "loaders": (
-                "django.template.loaders.filesystem.Loader",
-                "django.template.loaders.app_directories.Loader",
-            ),
         },
     },
 ]
@@ -472,6 +473,65 @@ HIJACK_PERMISSION_CHECK = "maykin_2fa.hijack.superusers_only_and_is_verified"
 HIJACK_INSERT_BEFORE = (
     '<div class="content">'  # note that this only applies to the admin
 )
+
+#
+# DJANGO REST FRAMEWORK
+#
+ENABLE_THROTTLING = config("ENABLE_THROTTLING", default=True)
+
+throttle_rate_anon = (
+    config("THROTTLE_RATE_ANON", default="2500/hour") if ENABLE_THROTTLING else None
+)
+throttle_rate_user = (
+    config("THROTTLE_RATE_USER", default="15000/hour") if ENABLE_THROTTLING else None
+)
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
+    "DEFAULT_THROTTLE_CLASSES": (
+        "rest_framework.throttling.AnonRateThrottle",
+        "rest_framework.throttling.UserRateThrottle",
+        "rest_framework.throttling.ScopedRateThrottle",
+    ),
+    "DEFAULT_THROTTLE_RATES": {
+        # used by regular throttle classes
+        "anon": throttle_rate_anon,
+        "user": throttle_rate_user,
+    },
+    "DEFAULT_RENDERER_CLASSES": [
+        "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
+        "djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer",
+    ],
+    "DEFAULT_PARSER_CLASSES": [
+        "djangorestframework_camel_case.parser.CamelCaseJSONParser",
+        "djangorestframework_camel_case.parser.CamelCaseFormParser",
+        "djangorestframework_camel_case.parser.CamelCaseMultiPartParser",
+    ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+}
+
+
+#
+# SPECTACULAR - OpenAPI schema generation
+#
+_DESCRIPTION = """
+Open DRC
+"""
+
+API_VERSION = "1.0.0"
+
+SPECTACULAR_SETTINGS = {
+    "SCHEMA_PATH_PREFIX": "/api/v1",
+    "TITLE": "Open DRC API",
+    "DESCRIPTION": _DESCRIPTION,
+    "VERSION": API_VERSION,
+    "POSTPROCESSING_HOOKS": [
+      "drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields"
+    ],
+}
 
 #
 # SENTRY - error monitoring
