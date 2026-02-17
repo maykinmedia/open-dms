@@ -3,16 +3,16 @@ from typing import TYPE_CHECKING
 from django.contrib.auth import login, logout
 from django.utils.translation import gettext_lazy as _
 
-from drf_spectacular.utils import extend_schema, OpenApiResponse
+from drf_spectacular.utils import OpenApiResponse, extend_schema
 from rest_framework import status
-from rest_framework.generics import RetrieveAPIView, CreateAPIView
+from rest_framework.generics import RetrieveAPIView
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from ...utils.serializers import NonFieldErrorsSerializer
 from .authentication import AnonCSRFSessionAuthentication
 from .serializers import AuthSerializer, WhoAmISerializer
-from ...utils.serializers import NonFieldErrorsSerializer
 
 if TYPE_CHECKING:
     from django.contrib.auth.models import AnonymousUser
@@ -23,12 +23,13 @@ if TYPE_CHECKING:
 @extend_schema(
     tags=["accounts"],
     summary=_("login"),
-    description=_("Authenticates the user, returns whoami details on successful login."),
+    description=_(
+        "Authenticates the user, returns whoami details on successful login."
+    ),
     responses={
         200: WhoAmISerializer,
         400: OpenApiResponse(
-            response=NonFieldErrorsSerializer,
-            description="Validation error"
+            response=NonFieldErrorsSerializer, description="Validation error"
         ),
     },
 )
@@ -50,7 +51,10 @@ class LoginView(APIView):
 @extend_schema(
     tags=["accounts"],
     summary=_("logout"),
-    description=_("Remove the authenticated user's ID from the request and flush their session data."),
+    description=_(
+        "Remove the authenticated user's ID from the request and flush their session "
+        "data."
+    ),
 )
 class LogoutView(APIView):
     permission_classes = ()

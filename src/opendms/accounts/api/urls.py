@@ -1,6 +1,6 @@
 from django.urls import path
 
-from opendms.accounts.api.views import WhoAmIView, LoginView, LogoutView
+from opendms.accounts.api.views import LoginView, LogoutView, WhoAmIView
 
 app_name = "accounts:api"
 

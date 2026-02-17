@@ -6,9 +6,9 @@ class AnonCSRFSessionAuthentication(authentication.SessionAuthentication):
     Enforce the CSRF checks even for non-authenticated users.
 
     DRF by default only enforces CSRF checks for authenticated users, assuming the
-    attack vector targets logged-in sessions. However, the login endpoint also needs CSRF-protection.
-    Only legitimate users who have received the CSRF-token from an endpoint are allowed to consume the API using
-    session cookies.
+    attack vector targets logged-in sessions. However, the login endpoint also needs
+    CSRF-protection. Only legitimate users who have received the CSRF-token from an
+    endpoint are allowed to consume the API using session cookies.
     """
 
     def authenticate(self, request):

@@ -25,12 +25,16 @@ urlpatterns = [
                         SpectacularJSONAPIView.as_view(schema=None),
                         name="api-schema-json",
                     ),
-                    path("schema", SpectacularAPIView.as_view(schema=None), name="schema"),
-                    path("", include("opendms.accounts.api.urls", namespace="accounts")),
+                    path(
+                        "schema", SpectacularAPIView.as_view(schema=None), name="schema"
+                    ),
+                    path(
+                        "", include("opendms.accounts.api.urls", namespace="accounts")
+                    ),
                 ],
-                "v1"
+                "v1",
             ),
-            namespace="v1"
+            namespace="v1",
         ),
     ),
 ]
