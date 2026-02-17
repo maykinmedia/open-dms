@@ -6,12 +6,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenDRC 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 12:39+0100\n"
+"POT-Creation-Date: 2026-02-17 17:44+0100\n"
 "PO-Revision-Date: 2026-02-17 00:00+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: src/opendms/accounts/api/serializers.py:12
+msgid "Username"
+msgstr "gebruikersnaam"
+
+#: src/opendms/accounts/api/serializers.py:14
+msgid "Password"
+msgstr "Wachtwoord wijzigen"
+
+#: src/opendms/accounts/api/serializers.py:32
+#: src/opendms/accounts/api/tests/test_views.py:25
+msgid "Unable to log in with provided credentials."
+msgstr "Kan niet inloggen met de opgegeven gegevens."
+
+#: src/opendms/accounts/api/views.py:25
+msgid "login"
+msgstr "inloggen"
+
+#: src/opendms/accounts/api/views.py:27
+msgid "Authenticates the user, returns whoami details on successful login."
+msgstr ""
+"Verifieert de gebruiker en retourneert whoami-gegevens bij een succesvolle "
+"login."
+
+#: src/opendms/accounts/api/views.py:53
+msgid "logout"
+msgstr "uitloggen"
+
+#: src/opendms/accounts/api/views.py:55
+msgid ""
+"Remove the authenticated user's ID from the request and flush their session "
+"data."
+msgstr ""
+"Verwijdert de ID van de geauthenticeerde gebruiker uit het verzoek en wist "
+"hun sessiegegevens."
+
+#: src/opendms/accounts/api/views.py:69
+msgid "whoami"
+msgstr "wie ben ik"
+
+#: src/opendms/accounts/api/views.py:70
+msgid "Returns the current logged in user."
+msgstr "Geeft de momenteel ingelogde gebruiker terug."
 
 #: src/opendms/accounts/models.py:19
 msgid "username"
