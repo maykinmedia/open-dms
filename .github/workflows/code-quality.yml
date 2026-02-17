@@ -23,7 +23,43 @@ jobs:
         run: ruff format --check
 
   migrations:
-    name: Check for missing translations and model changes not present in migrations
+    name: Check for model changes not present in migrations
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:17
+        env:
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 5432:5432
+        # Needed because the postgres container does not provide a healthcheck
+        options:
+          --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up backend environment
+        uses: maykinmedia/setup-django-backend@v1.3
+        with:
+          python-version: '3.14'
+          setup-node: 'no'
+
+      - name: Run makemigrations to check for missing migrations
+        run: |
+          src/manage.py makemigrations \
+            --check \
+            --dry-run
+        env:
+          DJANGO_SETTINGS_MODULE: "opendms.conf.ci"
+          DEBUG: 'true'
+          SECRET_KEY: dummy
+          DB_USER: postgres
+          DB_NAME: postgres
+          DB_PASSWORD: ''
+
+  translations:
+    name: Check for missing translations
     runs-on: ubuntu-latest
 
     services:
@@ -47,26 +83,7 @@ jobs:
 
       - name: Run makemessages to check for missing translations
         run: |
-          src/manage.py makemessages --all
-          git status
+          python src/manage.py makemessages --all
           git diff --exit-code
         env:
           DJANGO_SETTINGS_MODULE: "opendms.conf.ci"
-          DEBUG: 'true'
-          SECRET_KEY: dummy
-          DB_USER: postgres
-          DB_NAME: postgres
-          DB_PASSWORD: ''
-
-      - name: Run makemigrations to check for missing migrations
-        run: |
-          src/manage.py makemigrations \
-            --check \
-            --dry-run
-        env:
-          DJANGO_SETTINGS_MODULE: "opendms.conf.ci"
-          DEBUG: 'true'
-          SECRET_KEY: dummy
-          DB_USER: postgres
-          DB_NAME: postgres
-          DB_PASSWORD: ''
