@@ -12,8 +12,8 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_NAME: maykinmedia/opendrc
-  DJANGO_SETTINGS_MODULE: opendrc.conf.ci
+  IMAGE_NAME: maykinmedia/opendms
+  DJANGO_SETTINGS_MODULE: opendms.conf.ci
   DOCKER_BUILDKIT: '1'
 
 jobs:

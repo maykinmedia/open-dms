@@ -38,7 +38,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   ca-certificates \
   && rm -rf /var/lib/apt/lists/*
 
-COPY ./src/opendrc/frontend .
+COPY ./src/opendms/frontend .
 RUN npm ci
 RUN npm run build
 
@@ -82,7 +82,7 @@ COPY --from=backend-build /usr/local/bin/maykin-common /usr/local/bin/maykin-com
 COPY --from=backend-build /app/src/ /app/src/
 
 # copy frontend build statics
-COPY --from=frontend-build /app/dist /app/src/opendrc/frontend
+COPY --from=frontend-build /app/dist /app/src/opendms/frontend
 
 
 # copy source code
@@ -98,14 +98,14 @@ ARG COMMIT_HASH RELEASE=latest
 ENV RELEASE=${RELEASE} \
     GIT_SHA=${COMMIT_HASH} \
     PYTHONUNBUFFERED=1 \
-    DJANGO_SETTINGS_MODULE=opendrc.conf.docker
+    DJANGO_SETTINGS_MODULE=opendms.conf.docker
 
 ARG SECRET_KEY=dummy OTEL_SDK_DISABLED=true
 
 LABEL org.label-schema.vcs-ref=$COMMIT_HASH \
-      org.label-schema.vcs-url="https://github.com/maykinmedia/opendrc" \
+      org.label-schema.vcs-url="https://github.com/maykinmedia/opendms" \
       org.label-schema.version=$RELEASE \
-      org.label-schema.name="opendrc"
+      org.label-schema.name="opendms"
 
 # Run collectstatic and compilemessages, so the result is already included in
 # the image

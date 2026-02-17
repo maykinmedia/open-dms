@@ -27,7 +27,7 @@ def get_db_name(prefix):
     return f"{prefix}_{job[:lim]}_{build}"
 
 
-DATABASES["default"]["TEST"] = {"NAME": get_db_name("test_opendrc")}
+DATABASES["default"]["TEST"] = {"NAME": get_db_name("test_opendms")}
 
 LOGGING["loggers"].update(
     {

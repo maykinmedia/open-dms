@@ -58,9 +58,9 @@ USE_THOUSAND_SEPARATOR = True
 DATABASES = {
     "default": {
         "ENGINE": config("DB_ENGINE", default="django.db.backends.postgresql"),
-        "NAME": config("DB_NAME", default="opendrc"),
-        "USER": config("DB_USER", default="opendrc"),
-        "PASSWORD": config("DB_PASSWORD", default="opendrc"),
+        "NAME": config("DB_NAME", default="opendms"),
+        "USER": config("DB_USER", default="opendms"),
+        "PASSWORD": config("DB_PASSWORD", default="opendms"),
         "HOST": config("DB_HOST", default="localhost"),
         "PORT": config("DB_PORT", default="5432", cast=lambda s: int(s) if s else ""),
     }
@@ -126,9 +126,9 @@ INSTALLED_APPS = [
     "hijack.contrib.admin",
     "maykin_common",
     # Project applications.
-    "opendrc.accounts",
-    "opendrc.utils",
-    "opendrc.frontend",
+    "opendms.accounts",
+    "opendms.utils",
+    "opendms.frontend",
 ]
 
 MIDDLEWARE = [
@@ -146,7 +146,7 @@ MIDDLEWARE = [
     "axes.middleware.AxesMiddleware",
 ]
 
-ROOT_URLCONF = "opendrc.urls"
+ROOT_URLCONF = "opendms.urls"
 
 TEMPLATES = [
     {
@@ -162,7 +162,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "opendrc.utils.context_processors.settings",
+                "opendms.utils.context_processors.settings",
             ],
             "loaders": (
                 "django.template.loaders.filesystem.Loader",
@@ -172,7 +172,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "opendrc.wsgi.application"
+WSGI_APPLICATION = "opendms.wsgi.application"
 
 # Translations
 LOCALE_PATHS = (DJANGO_PROJECT_DIR / "conf" / "locale",)
@@ -216,7 +216,7 @@ EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD", default="")
 EMAIL_USE_TLS = config("EMAIL_USE_TLS", default=False)
 EMAIL_TIMEOUT = 10
 
-DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default="opendrc@example.com")
+DEFAULT_FROM_EMAIL = config("DEFAULT_FROM_EMAIL", default="opendms@example.com")
 
 #
 # LOGGING
@@ -270,7 +270,7 @@ LOGGING = {
         "project": {
             "level": "DEBUG",
             "class": "logging.handlers.RotatingFileHandler",
-            "filename": LOGGING_DIR / "opendrc.log",
+            "filename": LOGGING_DIR / "opendms.log",
             "formatter": "verbose",
             "maxBytes": 1024 * 1024 * 10,  # 10 MB
             "backupCount": 10,
@@ -285,7 +285,7 @@ LOGGING = {
         },
     },
     "loggers": {
-        "opendrc": {
+        "opendms": {
             "handlers": ["project"] if not LOG_STDOUT else ["console"],
             "level": "INFO",
             "propagate": True,
@@ -324,11 +324,11 @@ AUTH_PASSWORD_VALIDATORS = [
 AUTHENTICATION_BACKENDS = [
     "axes.backends.AxesBackend",
     "mozilla_django_oidc_db.backends.OIDCAuthenticationBackend",
-    "opendrc.accounts.backends.UserModelEmailBackend",
+    "opendms.accounts.backends.UserModelEmailBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
 
-SESSION_COOKIE_NAME = "opendrc_sessionid"
+SESSION_COOKIE_NAME = "opendms_sessionid"
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 # OIDC settings
@@ -346,7 +346,7 @@ SESSION_COOKIE_SECURE = IS_HTTPS
 SESSION_COOKIE_HTTPONLY = True
 
 CSRF_COOKIE_SECURE = IS_HTTPS
-CSRF_FAILURE_VIEW = "opendrc.accounts.views.csrf_failure"
+CSRF_FAILURE_VIEW = "opendms.accounts.views.csrf_failure"
 
 X_FRAME_OPTIONS = "DENY"
 
@@ -359,7 +359,7 @@ FIXTURE_DIRS = (DJANGO_PROJECT_DIR / "fixtures",)
 #
 # Custom settings
 #
-PROJECT_NAME = "opendrc"
+PROJECT_NAME = "opendms"
 ENVIRONMENT = config("ENVIRONMENT", default="")
 
 # Displaying environment information
@@ -455,7 +455,7 @@ IPWARE_META_PRECEDENCE_ORDER = (
 # we run the admin site monkeypatch instead.
 TWO_FACTOR_PATCH_ADMIN = False
 # Relying Party name for WebAuthn (hardware tokens)
-TWO_FACTOR_WEBAUTHN_RP_NAME = "opendrc"
+TWO_FACTOR_WEBAUTHN_RP_NAME = "opendms"
 # use platform for fingerprint readers etc., or remove the setting to allow any.
 # cross-platform would limit the options to devices like phones/yubikeys
 TWO_FACTOR_WEBAUTHN_AUTHENTICATOR_ATTACHMENT = "cross-platform"
@@ -492,7 +492,7 @@ if SENTRY_DSN:
 # Elastic APM
 ELASTIC_APM_SERVER_URL = os.getenv("ELASTIC_APM_SERVER_URL", None)
 ELASTIC_APM = {
-    "SERVICE_NAME": f"opendrc {ENVIRONMENT}",
+    "SERVICE_NAME": f"opendms {ENVIRONMENT}",
     "SECRET_TOKEN": config("ELASTIC_APM_SECRET_TOKEN", default="default"),
     "SERVER_URL": ELASTIC_APM_SERVER_URL,
 }

@@ -1,2 +1,2 @@
-CREATE USER opendrc;
-CREATE DATABASE opendrc WITH OWNER opendrc;
+CREATE USER opendms;
+CREATE DATABASE opendms WITH OWNER opendms;

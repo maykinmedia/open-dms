@@ -1,6 +1,6 @@
 [project]
 requires-python = "~= 3.14.0"
-name = "opendrc"
+name = "opendms"
 version = "0.1.0"
 
 [tool.uv.pip]
@@ -77,10 +77,10 @@ values = ["dev", "beta", "rc", "final"]
 optional_value = "final"
 
 [[tool.bumpversion.files]]
-filename = "src/opendrc/__init__.py"
+filename = "src/opendms/__init__.py"
 
 [[tool.bumpversion.files]]
-filename = "src/opendrc/conf/locale/nl/LC_MESSAGES/django.po"
+filename = "src/opendms/conf/locale/nl/LC_MESSAGES/django.po"
 
 [[tool.bumpversion.files]]
 filename = "README.rst"

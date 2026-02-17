@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 
-from opendrc.setup import setup_env
+from opendms.setup import setup_env
 
 if __name__ == "__main__":
     setup_env()

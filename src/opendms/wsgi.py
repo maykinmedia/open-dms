@@ -1,5 +1,5 @@
 """
-WSGI config for opendrc project.
+WSGI config for opendms project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 
 from django.core.wsgi import get_wsgi_application
 
-from opendrc.setup import setup_env
+from opendms.setup import setup_env
 
 setup_env()
 

@@ -3,13 +3,13 @@
 x-labels: &x-labels
   client: dev
   target: test
-  app: "opendrc"
+  app: "opendms"
 
 x-app-env: &x-app-env
-  - DJANGO_SETTINGS_MODULE=opendrc.conf.docker
+  - DJANGO_SETTINGS_MODULE=opendms.conf.docker
   - SECRET_KEY=${SECRET_KEY:-django-insecure-kex=ipoau_q(o_w=6bd8q6_sb2#xgkdbknq4m&hl2jtx(7#n_}
-  - DB_NAME=opendrc
-  - DB_USER=opendrc
+  - DB_NAME=opendms
+  - DB_USER=opendms
   - DB_HOST=db
   # Only allow all hosts for development/testing purposes!
   - ALLOWED_HOSTS=*
@@ -63,7 +63,7 @@ services:
 
   web:
     build: .
-    image: maykinmedia/opendrc:${TAG:-latest}
+    image: maykinmedia/opendms:${TAG:-latest}
     environment: *x-app-env
     volumes: *x-app-volumes
     healthcheck:

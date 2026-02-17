@@ -1,13 +1,13 @@
 ==================
-opendrc
+opendms
 ==================
 
 :Version: 0.1.0
-:Source: https://bitbucket.org/maykinmedia/opendrc
+:Source: https://bitbucket.org/maykinmedia/opendms
 :Keywords: ``<keywords>``
 :PythonVersion: 3.14
 
-|build-status| |ruff|
+|ruff|
 
 ``<oneliner describing the project>``
 
@@ -30,14 +30,8 @@ commands.
 References
 ==========
 
-* `Issues <https://taiga.maykinmedia.nl/project/opendrc>`_
-* `Code <https://bitbucket.org/maykinmedia/opendrc>`_
-
-
-.. |build-status| image:: http://jenkins.maykin.nl/buildStatus/icon?job=bitbucket/opendrc/master
-    :alt: Build status
-    :target: http://jenkins.maykin.nl/job/opendrc
-
+* `Issues <https://taiga.maykinmedia.nl/project/opendms>`_
+* `Code <https://bitbucket.org/maykinmedia/opendms>`_
 .. |ruff| image:: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json
     :target: https://github.com/astral-sh/ruff
     :alt: Ruff

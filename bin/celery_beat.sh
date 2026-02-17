@@ -4,13 +4,13 @@ set -e
 
 LOGLEVEL=${CELERY_LOGLEVEL:-INFO}
 
-export OTEL_SERVICE_NAME="${OTEL_SERVICE_NAME:-opendrc-scheduler}"
+export OTEL_SERVICE_NAME="${OTEL_SERVICE_NAME:-opendms-scheduler}"
 
 mkdir -p celerybeat
 
 echo "Starting celery beat"
 exec celery beat \
-    --app opendrc \
+    --app opendms \
     -l $LOGLEVEL \
     --workdir src \
     -s ../celerybeat/beat

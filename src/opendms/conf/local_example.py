@@ -5,9 +5,9 @@
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "opendrc",
-        "USER": "opendrc",
-        "PASSWORD": "opendrc",
+        "NAME": "opendms",
+        "USER": "opendms",
+        "PASSWORD": "opendms",
         # Empty for localhost through domain sockets or '127.0.0.1' for localhost
         # through TCP.
         "HOST": "",
