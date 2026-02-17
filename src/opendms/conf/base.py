@@ -127,8 +127,7 @@ INSTALLED_APPS = [
     "maykin_common",
     "rest_framework",
     "drf_spectacular",
-
-  # Project applications.
+    # Project applications.
     "opendms.accounts",
     "opendms.api",
     "opendms.utils",
@@ -529,7 +528,7 @@ SPECTACULAR_SETTINGS = {
     "DESCRIPTION": _DESCRIPTION,
     "VERSION": API_VERSION,
     "POSTPROCESSING_HOOKS": [
-      "drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields"
+        "drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields"
     ],
 }
 
