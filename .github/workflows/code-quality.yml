@@ -23,7 +23,7 @@ jobs:
         run: ruff format --check
 
   migrations:
-    name: Check for model changes not present in migrations
+    name: Check for missing translations and model changes not present in migrations
     runs-on: ubuntu-latest
 
     services:
@@ -44,6 +44,20 @@ jobs:
         with:
           python-version: '3.14'
           setup-node: 'no'
+
+      - name: Run makemessages to check for missing translations
+        run: |
+          src/manage.py makemessages --all
+          git status
+          git diff --exit-code
+        env:
+          DJANGO_SETTINGS_MODULE: "opendms.conf.ci"
+          DEBUG: 'true'
+          SECRET_KEY: dummy
+          DB_USER: postgres
+          DB_NAME: postgres
+          DB_PASSWORD: ''
+
       - name: Run makemigrations to check for missing migrations
         run: |
           src/manage.py makemigrations \
