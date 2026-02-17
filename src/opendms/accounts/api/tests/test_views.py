@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, get_user
 from django.test import TestCase
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -27,6 +27,26 @@ class LoginViewTest(TestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data["is_authenticated"], True)
         self.assertEqual(response.data["user"]["pk"], user.pk)
+
+
+class LogoutViewTest(TestCase):
+    def setUp(self):
+        self.path = reverse("api:v1:accounts:logout")
+
+    def test_not_logged_in(self):
+        self.client.post(self.path)
+        response = self.client.get(reverse("api:v1:accounts:whoami"))
+        self.assertFalse(response.data["is_authenticated"])
+
+    def test_logged_in(self):
+        user = UserFactory.create()
+        self.client.force_login(user)
+        response = self.client.get(reverse("api:v1:accounts:whoami"))
+        self.assertTrue(response.data["is_authenticated"])
+
+        self.client.post(self.path)
+        response = self.client.get(reverse("api:v1:accounts:whoami"))
+        self.assertFalse(response.data["is_authenticated"])
 
 
 class WhoAmIViewTest(TestCase):
