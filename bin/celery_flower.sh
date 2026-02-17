@@ -1,4 +1,4 @@
 #!/bin/bash
-export OTEL_SERVICE_NAME="${OTEL_SERVICE_NAME:-opendrc-flower}"
+export OTEL_SERVICE_NAME="${OTEL_SERVICE_NAME:-opendms-flower}"
 
-exec celery flower --app opendrc --workdir src
+exec celery flower --app opendms --workdir src

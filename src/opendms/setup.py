@@ -28,7 +28,7 @@ def setup_env():
     dotenv_path = Path(__file__).resolve().parent.parent.parent / ".env"
     load_dotenv(dotenv_path)
 
-    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "opendrc.conf.dev")
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "opendms.conf.dev")
     if "OTEL_SERVICE_NAME" not in os.environ:
         warnings.warn(
             "No OTEL_SERVICE_NAME environment variable set, using a default. "
@@ -36,7 +36,7 @@ def setup_env():
             RuntimeWarning,
             stacklevel=2,
         )
-        os.environ.setdefault("OTEL_SERVICE_NAME", "opendrc")
+        os.environ.setdefault("OTEL_SERVICE_NAME", "opendms")
 
     setup_otel()
     monkeypatch_requests()

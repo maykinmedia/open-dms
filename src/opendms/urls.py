@@ -11,7 +11,7 @@ from maykin_2fa import monkeypatch_admin
 from maykin_2fa.urls import urlpatterns, webauthn_urlpatterns
 from mozilla_django_oidc_db.views import AdminLoginFailure
 
-from opendrc.accounts.views.password_reset import PasswordResetView
+from opendms.accounts.views.password_reset import PasswordResetView
 
 # Configure admin
 
@@ -20,9 +20,9 @@ monkeypatch_admin()
 handler500 = "maykin_common.views.server_error"
 
 admin.site.enable_nav_sidebar = False
-admin.site.site_header = "opendrc admin"
-admin.site.site_title = "opendrc admin"
-admin.site.index_title = "opendrc dashboard"
+admin.site.site_header = "opendms admin"
+admin.site.site_title = "opendms admin"
+admin.site.index_title = "opendms dashboard"
 
 # URL routing
 

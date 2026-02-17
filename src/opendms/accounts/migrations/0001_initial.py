@@ -5,7 +5,7 @@ import django.contrib.auth.validators
 import django.utils.timezone
 from django.db import migrations, models
 
-import opendrc.accounts.managers
+import opendms.accounts.managers
 
 
 class Migration(migrations.Migration):
@@ -126,7 +126,7 @@ class Migration(migrations.Migration):
                 "verbose_name_plural": "users",
             },
             managers=[
-                ("objects", opendrc.accounts.managers.UserManager()),
+                ("objects", opendms.accounts.managers.UserManager()),
             ],
         ),
         migrations.AddConstraint(

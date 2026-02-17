@@ -42,5 +42,5 @@ local.py
 /.env
 
 # Static files
-src/opendrc/static/bundles/
-src/opendrc/fonts/
+src/opendms/static/bundles/
+src/opendms/fonts/

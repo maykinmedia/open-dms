@@ -26,7 +26,7 @@ done
 >&2 echo "Database is up."
 
 # Set defaults for OTEL
-export OTEL_SERVICE_NAME="${OTEL_SERVICE_NAME:-opendrc}"
+export OTEL_SERVICE_NAME="${OTEL_SERVICE_NAME:-opendms}"
 
 # Apply database migrations
 >&2 echo "Apply database migrations"
@@ -47,7 +47,7 @@ exec uwsgi \
     --ini "${SCRIPTPATH}/uwsgi.ini" \
     --http :8000 \
     --http-keepalive \
-    --mount $mountpoint=opendrc.wsgi:application \
+    --mount $mountpoint=opendms.wsgi:application \
     --manage-script-name \
     --static-map /static=/app/static \
     --static-map /media=/app/media  \

@@ -11,8 +11,8 @@ Quick start
 
 #. Get the code::
 
-    git clone git@bitbucket.org:maykinmedia/opendrc.git
-    cd opendrc
+    git clone git@bitbucket.org:maykinmedia/opendms.git
+    cd opendms
 
 #. Bootstrap the virtual environment and install all required libraries. The
    ``bootstrap.py`` script basically sets the proper Django settings file to be

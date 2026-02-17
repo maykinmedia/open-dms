@@ -13,9 +13,9 @@ os.environ.setdefault(
 os.environ.setdefault("IS_HTTPS", "no")
 os.environ.setdefault("VERSION_TAG", "dev")
 
-os.environ.setdefault("DB_NAME", "opendrc")
-os.environ.setdefault("DB_USER", "opendrc")
-os.environ.setdefault("DB_PASSWORD", "opendrc")
+os.environ.setdefault("DB_NAME", "opendms")
+os.environ.setdefault("DB_USER", "opendms")
+os.environ.setdefault("DB_PASSWORD", "opendms")
 
 os.environ.setdefault("ENVIRONMENT", "development")
 os.environ.setdefault("OTEL_SDK_DISABLED", "true")
@@ -32,7 +32,7 @@ EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 LOGGING["loggers"].update(
     {
-        "opendrc": {
+        "opendms": {
             "handlers": ["console"],
             "level": "DEBUG",
             "propagate": True,

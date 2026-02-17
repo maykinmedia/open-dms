@@ -50,7 +50,7 @@ jobs:
             --check \
             --dry-run
         env:
-          DJANGO_SETTINGS_MODULE: "opendrc.conf.ci"
+          DJANGO_SETTINGS_MODULE: "opendms.conf.ci"
           DEBUG: 'true'
           SECRET_KEY: dummy
           DB_USER: postgres
