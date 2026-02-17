@@ -1,7 +1,8 @@
-from django.test import TestCase
 from django.contrib.auth import get_user_model
-from rest_framework.test import APIRequestFactory
+from django.test import TestCase
+
 from rest_framework import status
+from rest_framework.test import APIRequestFactory
 
 from opendms.accounts.api.views import WhoAmIView
 from opendms.accounts.tests.factories import UserFactory
@@ -10,7 +11,6 @@ User = get_user_model()
 
 
 class WhoAmIViewTest(TestCase):
-
     def test_whoami_anonymous_user(self):
         request = APIRequestFactory().get("/")
         view = WhoAmIView.as_view()

@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import include, path, re_path
-from django.views.generic.base import TemplateView
+from django.views.generic import TemplateView
 
 from maykin_2fa import monkeypatch_admin
 from maykin_2fa.urls import urlpatterns, webauthn_urlpatterns
@@ -56,13 +56,12 @@ urlpatterns = [
         name="password_reset_complete",
     ),
     path("", include("maykin_common.health_checks.urls")),
-
     # API
     path("api/", include("opendms.api.urls"), name="api"),
     # Handover to (React) frontend.
-    # re_path(
-    #     r"^(?:.*)/?$", TemplateView.as_view(template_name="index.html"), name="frontend"
-    # ),
+    re_path(
+        r"^(?:.*)/?$", TemplateView.as_view(template_name="index.html"), name="frontend"
+    ),
 ]
 
 # NOTE: The staticfiles_urlpatterns also discovers static files (ie. no need to run
