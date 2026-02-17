@@ -16,10 +16,11 @@ mozilla-django-oidc-db
 josepy
 
 # API libraries
-# djangorestframework
+djangorestframework
+djangorestframework-camel-case
 # django-extra-fields
 # django-filter
-# drf-spectacular
+drf-spectacular
 
 # WSGI servers & monitoring - production oriented
 uwsgi
