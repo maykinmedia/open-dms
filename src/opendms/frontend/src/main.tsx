@@ -1,11 +1,16 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router";
 
-import App from "./app.tsx";
 import "./index.css";
+import { routes } from "./routes.ts";
 
+/**
+ * Wraps the app with global providers and mounts the routes.
+ * StrictMode is enabled to help catch common problems during development.
+ */
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={routes} />
   </StrictMode>,
 );
