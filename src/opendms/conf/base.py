@@ -1,15 +1,11 @@
 # ruff: noqa: F403,F405
-import os
 from pathlib import Path
 
-# Django-hijack (and Django-hijack-admin)
-from django.urls import reverse_lazy
-
-import sentry_sdk
 from maykin_common.config import config
 from maykin_common.health_checks import (
     default_health_check_apps,
 )
+from open_api_framework.conf.base import *  # noqa
 
 from .utils import get_sentry_integrations
 
