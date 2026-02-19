@@ -29,7 +29,8 @@ urlpatterns = [
                         "schema", SpectacularAPIView.as_view(schema=None), name="schema"
                     ),
                     path(
-                        "", include("opendms.accounts.api.urls", namespace="accounts")
+                        "accounts/",
+                        include("opendms.accounts.api.urls", namespace="accounts"),
                     ),
                 ],
                 "v1",

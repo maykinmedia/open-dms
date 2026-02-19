@@ -41,7 +41,7 @@ class LogoutViewTest(TestCase):
         self.path = reverse("api:v1:accounts:logout")
 
     def test_not_logged_in(self):
-        self.client.post(self.path)
+        self.client.get(self.path)
         response = self.client.get(reverse("api:v1:accounts:whoami"))
         self.assertFalse(response.data["is_authenticated"])
 
@@ -51,7 +51,7 @@ class LogoutViewTest(TestCase):
         response = self.client.get(reverse("api:v1:accounts:whoami"))
         self.assertTrue(response.data["is_authenticated"])
 
-        self.client.post(self.path)
+        self.client.get(self.path)
         response = self.client.get(reverse("api:v1:accounts:whoami"))
         self.assertFalse(response.data["is_authenticated"])
 
