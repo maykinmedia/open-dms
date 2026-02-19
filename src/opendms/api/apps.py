@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class AccountsConfig(AppConfig):
+class ApiConfig(AppConfig):
     name = "opendms.api"

@@ -2,10 +2,17 @@ import os
 
 os.environ["_USE_STRUCTLOG"] = "True"
 
+from functools import partial
+
+from django.utils.functional import SimpleLazyObject
+
 from pathlib import Path
 
 from maykin_common.health_checks import default_health_check_apps
 from open_api_framework.conf.base import *  # noqa
+from self_certifi import EXTRA_CERTS_ENVVAR as _EXTRA_CERTS_ENVVAR
+
+from .utils import load_indexable_file_types
 from open_api_framework.conf.utils import config  # noqa
 
 from .api import *  # noqa
@@ -134,3 +141,80 @@ REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"] = {
 }
 
 TEMPLATES[0]["DIRS"] += [DJANGO_PROJECT_DIR / "frontend/dist"]
+
+
+#
+# Elasticsearch DSL custom settings
+#
+SEARCH_INDEX = {
+    "HOST": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_HOST",
+        default="",
+        group="Elastic Search",
+        help_text="Host where the ES cluster is deployed, e.g. https://es.example.com:9200",
+    ),
+    "USER": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_USER",
+        default="",
+        group="Elastic Search",
+        help_text="Username for ES authentication.",
+    ),
+    "PASSWORD": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_PASSWORD",
+        default="",
+        group="Elastic Search",
+        help_text="Password for ES authentication.",
+    ),
+    "TIMEOUT": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_TIMEOUT",
+        default=60,
+        group="Elastic Search",
+        help_text="HTTP timeout for ES API interactions.",
+    ),
+    "CA_CERTS": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_CA_CERTS",
+        default="",
+        group="Elastic Search",
+        help_text=(
+            "Path to CA bundle (in PEM) format if self-signed certificates or "
+            "a private CA are used to connect to the ES cluster. Alternatively, "
+            f"if {_EXTRA_CERTS_ENVVAR} is defined, it will be used."
+        ),
+    ),
+    # https://www.elastic.co/guide/en/elasticsearch/reference/current/docs-refresh.html
+    "REFRESH": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_REFRESH",
+        default=False,
+        group="Elastic Search",
+        help_text=(
+            "Refresh control for ES index, update, delete and bulk APIs. In "
+            "production, you should leave this to the default of 'false'."
+        ),
+    ),
+    "INDEXED_CHARS": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_INDEXED_CHARS",
+        default=100000,
+        group="Elastic Search",
+        help_text=(
+            "Attachment processor number of chars being used for "
+            "extraction to prevent huge fields.\n\n"
+            "  - Use `-1` for no limit.\n"
+            "  - default and max `100000`.\n\n"
+        ),
+    ),
+    "MAX_INDEX_FILE_SIZE": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_MAX_INDEX_FILE_SIZE",
+        default=99 / 1.33 * 1000 * 1000,  # 99mb (not mib)
+        group="Elastic Search",
+        help_text=(
+            "The maximum file size (in bytes) that leads to full text indexing of the "
+            "file content. For files larger than this limit, only the metadata is "
+            "indexed. Keep in mind that Elastic Search must be configured "
+            "appropriately to allow sufficiently large HTTP request body sizes."
+        ),
+    ),
+}
+
+SEARCH_INDEXABLE_FILE_TYPES = SimpleLazyObject(
+    partial(load_indexable_file_types, BASE_DIR)
+)

@@ -1,10 +1,18 @@
 # Core python libraries
 Pillow  # handle images
 
+elasticsearch~=8.0
+flower
+py7zr<1.0
+python-magic
+self-certifi
+
 django-hijack
 maykin-common[axes,cli,health-checks,mfa,otel]  # other extras: pdf, vcr
 josepy
 django-rosetta
+zgw-consumers
+
 # API libraries
 open-api-framework[cors,markup,geo,csp,commonground,inclusions,sanitization,server,redis,structlog]
 

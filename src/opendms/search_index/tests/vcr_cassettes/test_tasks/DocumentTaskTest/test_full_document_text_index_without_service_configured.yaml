@@ -1,0 +1,62 @@
+interactions:
+- request:
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","creatiedatum":"2026-01-01","titel":"A
+      test document","auteur":"Test Author","taal":"nl","begin_registratie":"2026-01-05T12:00:00+00:00","informatieobjecttype":"document","status":"concept","formaat":"pdf","bestandsnaam":"document.pdf","beschrijving":"Lorem
+      ipsum dolor sit amet, consectetur adipiscing elit."}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":6,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
+  response:
+    body:
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-01-05T12:00:00+00:00","beschrijving":"Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit.","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","taal":"nl","auteur":"Test
+        Author","formaat":"pdf","titel":"A test document","informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","status":"concept"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '644'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
