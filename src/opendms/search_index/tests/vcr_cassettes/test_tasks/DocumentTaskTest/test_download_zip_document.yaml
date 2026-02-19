@@ -1,0 +1,104 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Audit-Remarks:
+      - download document for indexing.
+      Audit-User-ID:
+      - GPP-Zoeken
+      Audit-User-Representation:
+      - GGP-Zoeken (system)
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost/document/zip
+  response:
+    body:
+      string: !!binary |
+        UEsDBBQAAAAAAHJuVFzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAAByblRc
+        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAHJuVFzfwKkADgAAAA4AAAAK
+        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAAcm5UXOLcsooFAAAABQAAAAgA
+        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAAcm5UXFiNuxMFAAAABQAAAAkAAAAA
+        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAHJuVFzfwKkADgAAAA4AAAAKAAAAAAAA
+        AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '328'
+      Content-Type:
+      - application/zip
+      Date:
+      - Fri, 20 Feb 2026 13:51:36 GMT
+      Server:
+      - Werkzeug/3.1.6 Python/3.12.12
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","creatiedatum":"2026-01-01","titel":"A
+      test document","auteur":"Test Author","taal":"nl","begin_registratie":"2026-01-05T12:00:00+00:00","informatieobjecttype":"document","status":"concept","formaat":"pdf","bestandsnaam":"document.pdf","beschrijving":"Lorem
+      ipsum dolor sit amet, consectetur adipiscing elit.","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
+  response:
+    body:
+      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-01-05T12:00:00+00:00","beschrijving":"Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit.","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","taal":"nl","auteur":"Test
+        Author","formaat":"pdf","titel":"A test document","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","status":"concept"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '732'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

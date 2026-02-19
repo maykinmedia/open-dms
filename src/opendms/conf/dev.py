@@ -25,6 +25,12 @@ os.environ.setdefault("OTEL_SDK_DISABLED", "true")
 os.environ.setdefault("OTEL_EXPORTER_OTLP_METRICS_INSECURE", "true")
 
 
+os.environ.setdefault("VCR_RECORD_MODE", "once")
+
+os.environ.setdefault("ELASTICSEARCH_HOST", "http://localhost:9200/")
+os.environ.setdefault("ELASTICSEARCH_USER", "elastic")
+os.environ.setdefault("ELASTICSEARCH_PASSWORD", "insecure-elastic")
+
 from .base import *  # noqa isort:skip
 
 # Feel free to switch dev to sqlite3 for simple projects,
