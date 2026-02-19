@@ -1,0 +1,117 @@
+interactions:
+- request:
+    body: '{"uuid":"ad4d66a8-1503-4743-ae55-d1765512530c","url":"http://www.lewis-rivera.org/","identificatie":"7b40f677-e3e0-4711-9d20-09fe3297390d","bronorganisatie":"Adams-Chaney","creatiedatum":"2026-02-11","titel":"South
+      probably be specific keep easy artist can.","auteur":"James Hansen","taal":"bho","begin_registratie":"2026-01-27T17:21:56.522540","informatieobjecttype":"suggest","vertrouwelijkheidaanduiding":"between","status":"training","formaat":"txt","bestandsnaam":"administration.docx","link":"http://www.collier-gonzalez.com/","beschrijving":"Help
+      with myself turn. Else message prepare behavior there happy popular. Military
+      instead trial me southern president work.","ontvangstdatum":"2026-01-21","verzenddatum":"2026-01-22","verschijningsvorm":"we"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/ad4d66a8-1503-4743-ae55-d1765512530c?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"ad4d66a8-1503-4743-ae55-d1765512530c","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/ad4d66a8-1503-4743-ae55-d1765512530c
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/ad4d66a8-1503-4743-ae55-d1765512530c
+  response:
+    body:
+      string: '{"_index":"document","_id":"ad4d66a8-1503-4743-ae55-d1765512530c","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-01-27T17:21:56.522540","beschrijving":"Help
+        with myself turn. Else message prepare behavior there happy popular. Military
+        instead trial me southern president work.","verschijningsvorm":"we","identificatie":"7b40f677-e3e0-4711-9d20-09fe3297390d","bronorganisatie":"Adams-Chaney","link":"http://www.collier-gonzalez.com/","uuid":"ad4d66a8-1503-4743-ae55-d1765512530c","url":"http://www.lewis-rivera.org/","taal":"bho","verzenddatum":"2026-01-22","auteur":"James
+        Hansen","formaat":"txt","titel":"South probably be specific keep easy artist
+        can.","vertrouwelijkheidaanduiding":"between","informatieobjecttype":"suggest","bestandsnaam":"administration.docx","ontvangstdatum":"2026-01-21","creatiedatum":"2026-02-11","status":"training"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '891'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: DELETE
+    uri: http://localhost:9201/document/_doc/ad4d66a8-1503-4743-ae55-d1765512530c?if_primary_term=1&if_seq_no=0
+  response:
+    body:
+      string: '{"_index":"document","_id":"ad4d66a8-1503-4743-ae55-d1765512530c","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/ad4d66a8-1503-4743-ae55-d1765512530c
+  response:
+    body:
+      string: '{"_index":"document","_id":"ad4d66a8-1503-4743-ae55-d1765512530c","found":false}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '80'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 404
+      message: Not Found
+version: 1

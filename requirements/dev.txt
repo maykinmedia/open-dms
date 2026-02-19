@@ -71,6 +71,11 @@ boltons==25.0.0
     #   glom
 bracex==2.6
     # via wcmatch
+brotli==1.2.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 bump-my-version==1.2.7
     # via -r requirements/dev.in
 cbor2==5.8.0
@@ -82,15 +87,18 @@ celery==5.6.2
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   flower
     #   notifications-api-common
 certifi==2026.1.4
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   elastic-apm
+    #   elastic-transport
     #   httpcore
     #   httpx
     #   requests
+    #   self-certifi
     #   sentry-sdk
 cffi==2.0.0
     # via
@@ -419,6 +427,15 @@ elastic-apm==6.25.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   open-api-framework
+elastic-transport==8.17.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   elasticsearch
+elasticsearch==8.19.3
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
 face==26.0.0
     # via
     #   -c requirements/ci.txt
@@ -433,6 +450,10 @@ faker==40.4.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   factory-boy
+flower==2.0.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
 freezegun==1.5.5
     # via
     #   -c requirements/ci.txt
@@ -468,6 +489,11 @@ httpcore==1.0.9
     # via httpx
 httpx==0.28.1
     # via bump-my-version
+humanize==4.15.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   flower
 idna==3.11
     # via
     #   -c requirements/ci.txt
@@ -485,6 +511,11 @@ importlib-metadata==8.7.1
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   opentelemetry-api
+inflate64==1.0.4
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 inflection==0.5.1
     # via
     #   -c requirements/ci.txt
@@ -519,6 +550,11 @@ kombu==5.6.2
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   celery
+legacy-cgi==2.6.4
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   webob
 lxml==6.0.2
     # via
     #   -c requirements/ci.txt
@@ -563,6 +599,11 @@ mozilla-django-oidc-db==1.1.1
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   open-api-framework
+multivolumefile==0.2.3
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 notifications-api-common==0.10.1
     # via
     #   -c requirements/ci.txt
@@ -713,6 +754,11 @@ polib==1.2.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   django-rosetta
+prometheus-client==0.24.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   flower
 prompt-toolkit==3.0.52
     # via
     #   -c requirements/ci.txt
@@ -725,6 +771,11 @@ protobuf==6.33.5
     #   -r requirements/ci.txt
     #   googleapis-common-protos
     #   opentelemetry-proto
+psutil==7.2.2
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 psycopg==3.3.2
     # via
     #   -c requirements/ci.txt
@@ -739,16 +790,30 @@ psycopg2-binary==2.9.11
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+py7zr==0.22.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
 pyasn1==0.6.2
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   webauthn
+pybcj==1.0.7
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 pycparser==3.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   cffi
+pycryptodomex==3.23.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 pydantic==2.12.5
     # via
     #   -c requirements/ci.txt
@@ -786,6 +851,11 @@ pyopenssl==25.3.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   webauthn
+pyppmd==1.1.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 pyquery==2.0.1
     # via
     #   -c requirements/ci.txt
@@ -796,6 +866,7 @@ python-dateutil==2.9.0.post0
     #   -r requirements/ci.txt
     #   celery
     #   django-relativedelta
+    #   elasticsearch
     #   freezegun
 python-decouple==3.8
     # via
@@ -814,6 +885,15 @@ python-ipware==3.0.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   django-ipware
+python-magic==0.4.27
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+pytz==2025.2
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   flower
 pyyaml==6.0.3
     # via
     #   -c requirements/ci.txt
@@ -822,6 +902,11 @@ pyyaml==6.0.3
     #   oyaml
     #   pydantic-settings
     #   vcrpy
+pyzstd==0.19.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 qrcode==8.2
     # via
     #   -c requirements/ci.txt
@@ -888,6 +973,10 @@ ruamel-yaml==0.19.1
     #   -r requirements/ci.txt
     #   django-setup-configuration
 ruff==0.15.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+self-certifi==2.0.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -998,8 +1087,18 @@ tblib==3.2.2
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+texttable==1.7.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   py7zr
 tomlkit==0.14.0
     # via bump-my-version
+tornado==6.5.4
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   flower
 typer==0.23.1
     # via
     #   -c requirements/ci.txt
@@ -1012,8 +1111,8 @@ typing-extensions==4.15.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
-    #   anyio
     #   beautifulsoup4
+    #   elasticsearch
     #   grpcio
     #   mozilla-django-oidc-db
     #   opentelemetry-api
@@ -1021,11 +1120,8 @@ typing-extensions==4.15.0
     #   opentelemetry-exporter-otlp-proto-http
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
-    #   psycopg
     #   pydantic
     #   pydantic-core
-    #   pyopenssl
-    #   referencing
     #   typing-inspection
     #   zgw-consumers
 typing-inspection==0.4.2
@@ -1054,6 +1150,7 @@ urllib3==2.6.3
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   elastic-apm
+    #   elastic-transport
     #   requests
     #   sentry-sdk
     #   types-requests
