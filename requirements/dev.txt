@@ -8,7 +8,10 @@ annotated-doc==0.0.4
     #   -r requirements/ci.txt
     #   typer
 annotated-types==0.7.0
-    # via pydantic
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   pydantic
 anyio==4.12.1
     # via httpx
 asgiref==3.11.1
@@ -94,36 +97,57 @@ django==5.2.11
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   django-admin-index
+    #   django-appconf
     #   django-axes
     #   django-debug-toolbar
     #   django-extensions
+    #   django-filter
     #   django-formtools
     #   django-health-check
     #   django-hijack
     #   django-jsonform
+    #   django-log-outgoing-requests
     #   django-otp
     #   django-phonenumber-field
     #   django-redis
     #   django-rosetta
+    #   django-sessionprofile
+    #   django-setup-configuration
+    #   django-solo
     #   django-two-factor-auth
+    #   django-upgrade-check
     #   djangorestframework
     #   drf-spectacular
+    #   drf-spectacular-sidecar
     #   maykin-2fa
     #   maykin-common
     #   mozilla-django-oidc
     #   mozilla-django-oidc-db
+    #   open-api-framework
 django-admin-index==4.0.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   open-api-framework
+django-appconf==1.2.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   django-log-outgoing-requests
 django-axes==8.3.1
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   open-api-framework
 django-debug-toolbar==6.2.0
     # via -r requirements/dev.in
 django-extensions==4.1
     # via -r requirements/dev.in
+django-filter==25.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   open-api-framework
 django-formtools==2.5.1
     # via
     #   -c requirements/ci.txt
@@ -146,6 +170,12 @@ django-jsonform==2.23.2
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   mozilla-django-oidc-db
+    #   open-api-framework
+django-log-outgoing-requests==0.7.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   open-api-framework
 django-ordered-model==3.7.4
     # via
     #   -c requirements/ci.txt
@@ -170,11 +200,31 @@ django-rosetta==0.10.3
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+django-sessionprofile==3.0.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   open-api-framework
+django-setup-configuration==0.11.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   open-api-framework
+django-solo==2.5.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   django-log-outgoing-requests
 django-two-factor-auth==1.18.1
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   maykin-2fa
+django-upgrade-check==1.1.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   open-api-framework
 django-webtest==1.9.14
     # via
     #   -c requirements/ci.txt
@@ -184,6 +234,7 @@ djangorestframework==3.16.1
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   drf-spectacular
+    #   open-api-framework
 djangorestframework-camel-case==1.4.2
     # via
     #   -c requirements/ci.txt
@@ -195,12 +246,21 @@ dnspython==2.8.0
     #   django-health-check
 docutils==0.22.4
     # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   django-setup-configuration
     #   sphinx
     #   sphinx-rtd-theme
 drf-spectacular==0.29.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   open-api-framework
+drf-spectacular-sidecar==2026.1.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   drf-spectacular
 ecs-logging==2.3.0
     # via
     #   -c requirements/ci.txt
@@ -210,6 +270,7 @@ elastic-apm==6.25.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   open-api-framework
 face==26.0.0
     # via
     #   -c requirements/ci.txt
@@ -310,6 +371,7 @@ maykin-2fa==2.0.1
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   open-api-framework
 maykin-common==0.18.0
     # via
     #   -c requirements/ci.txt
@@ -325,6 +387,11 @@ mozilla-django-oidc==5.0.2
     #   -r requirements/ci.txt
     #   mozilla-django-oidc-db
 mozilla-django-oidc-db==1.1.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   open-api-framework
+open-api-framework==0.13.4
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -469,6 +536,12 @@ psycopg==3.3.2
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   open-api-framework
+psycopg-binary==3.3.2
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   psycopg
 psycopg2-binary==2.9.11
     # via
     #   -c requirements/ci.txt
@@ -485,12 +558,22 @@ pycparser==3.0
     #   cffi
 pydantic==2.12.5
     # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
     #   bump-my-version
+    #   django-setup-configuration
     #   pydantic-settings
 pydantic-core==2.41.5
-    # via pydantic
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   pydantic
 pydantic-settings==2.13.0
-    # via bump-my-version
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   bump-my-version
+    #   django-setup-configuration
 pygments==2.19.2
     # via
     #   -c requirements/ci.txt
@@ -521,10 +604,12 @@ python-decouple==3.8
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   maykin-common
+    #   open-api-framework
 python-dotenv==1.2.1
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   open-api-framework
     #   pydantic-settings
 python-ipware==3.0.0
     # via
@@ -536,6 +621,7 @@ pyyaml==6.0.3
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   drf-spectacular
+    #   pydantic-settings
 qrcode==8.2
     # via
     #   -c requirements/ci.txt
@@ -558,8 +644,10 @@ requests==2.32.5
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   django-log-outgoing-requests
     #   django-rosetta
     #   mozilla-django-oidc
+    #   open-api-framework
     #   opentelemetry-exporter-otlp-proto-http
     #   sphinx
 rich==14.3.2
@@ -579,14 +667,25 @@ rpds-py==0.30.0
     #   -r requirements/ci.txt
     #   jsonschema
     #   referencing
+ruamel-yaml==0.19.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   django-setup-configuration
 ruff==0.15.1
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+semantic-version==2.10.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   django-upgrade-check
 sentry-sdk==2.52.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   open-api-framework
 shellingham==1.5.4
     # via
     #   -c requirements/ci.txt
@@ -660,6 +759,8 @@ typing-extensions==4.15.0
     #   typing-inspection
 typing-inspection==0.4.2
     # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
     #   pydantic
     #   pydantic-settings
 uritemplate==4.2.0
