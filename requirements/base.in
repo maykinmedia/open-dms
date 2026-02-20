@@ -1,27 +1,12 @@
 # Core python libraries
 Pillow  # handle images
-psycopg  # database driver
-python-dotenv  # environment variables for secrets
 
-# Framework libraries
-django ~= 5.2
-django-admin-index
-django-axes[ipware]
 django-hijack
-django-redis
-django-rosetta
-maykin-2fa
 maykin-common[axes,cli,health-checks,mfa,otel]  # other extras: pdf, vcr
-mozilla-django-oidc-db
 josepy
-
+django-rosetta
 # API libraries
-open-api-framework[cors,markup,csp,commonground,structlog]
-
-# WSGI servers & monitoring - production oriented
-uwsgi
-sentry-sdk  # error monitoring
-elastic-apm  # Elastic APM integration
+open-api-framework[cors,markup,geo,csp,commonground,inclusions,sanitization,server,redis,structlog]
 
 #postgres package
 psycopg2-binary
