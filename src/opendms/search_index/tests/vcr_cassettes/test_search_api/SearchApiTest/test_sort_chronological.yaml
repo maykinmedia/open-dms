@@ -1,0 +1,102 @@
+interactions:
+- request:
+    body: '{"uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://goodwin.com/","identificatie":"0d51b08f-b9d8-43a7-87b6-50d274bc0032","bronorganisatie":"May
+      Inc","creatiedatum":"2026-01-02","titel":"Town should better organization reach
+      today.","auteur":"Marcus Woods","taal":"lo","begin_registratie":"2026-02-08T10:24:18.894689","informatieobjecttype":"south","vertrouwelijkheidaanduiding":"report","status":"better","formaat":"avi","bestandsnaam":"you.wav","link":"https://obrien.com/","beschrijving":"Similar
+      hour price. Employee large onto. Score mouth economic.","ontvangstdatum":"2026-01-29","verzenddatum":"2026-02-03","verschijningsvorm":"anything"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/3b3f4514-7d8b-4e31-83ca-fa9376ff6522?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":30,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/3b3f4514-7d8b-4e31-83ca-fa9376ff6522
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"http://diaz.biz/","identificatie":"b992cb80-df01-4041-b818-93b50327ec15","bronorganisatie":"Bates,
+      Carlson and Carey","creatiedatum":"2026-01-03","titel":"Strong body order car.","auteur":"William
+      Brown","taal":"brx","begin_registratie":"2026-02-01T19:15:32.999938","informatieobjecttype":"make","vertrouwelijkheidaanduiding":"industry","status":"fire","formaat":"flac","bestandsnaam":"white.docx","link":"http://alvarez-fletcher.com/","beschrijving":"Medical
+      how difficult the. Inside free save for gas ready standard mind.","ontvangstdatum":"2026-02-18","verzenddatum":"2026-02-11","verschijningsvorm":"audience"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/4b3f4514-7d8b-4e31-83ca-fa9376ff6523?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":31,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/4b3f4514-7d8b-4e31-83ca-fa9376ff6523
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":[{"creatiedatum":{"order":"desc"}},"_score"],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","_score":0.51528764,"_source":{"begin_registratie":"2026-02-01T19:15:32.999938","beschrijving":"Medical
+        how difficult the. Inside free save for gas ready standard mind.","verschijningsvorm":"audience","identificatie":"b992cb80-df01-4041-b818-93b50327ec15","bronorganisatie":"Bates,
+        Carlson and Carey","link":"http://alvarez-fletcher.com/","uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"http://diaz.biz/","taal":"brx","verzenddatum":"2026-02-11","auteur":"William
+        Brown","formaat":"flac","titel":"Strong body order car.","vertrouwelijkheidaanduiding":"industry","informatieobjecttype":"make","bestandsnaam":"white.docx","ontvangstdatum":"2026-02-18","creatiedatum":"2026-01-03","status":"fire"},"sort":[1767398400000,0.51528764]},{"_index":"document","_id":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","_score":0.81946,"_source":{"begin_registratie":"2026-02-08T10:24:18.894689","beschrijving":"Similar
+        hour price. Employee large onto. Score mouth economic.","verschijningsvorm":"anything","identificatie":"0d51b08f-b9d8-43a7-87b6-50d274bc0032","bronorganisatie":"May
+        Inc","link":"https://obrien.com/","uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://goodwin.com/","taal":"lo","verzenddatum":"2026-02-03","auteur":"Marcus
+        Woods","formaat":"avi","titel":"Town should better organization reach today.","vertrouwelijkheidaanduiding":"report","informatieobjecttype":"south","bestandsnaam":"you.wav","ontvangstdatum":"2026-01-29","creatiedatum":"2026-01-02","status":"better"},"sort":[1767312000000,0.81946]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

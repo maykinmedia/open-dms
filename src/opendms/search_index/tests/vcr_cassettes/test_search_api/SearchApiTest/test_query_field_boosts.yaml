@@ -1,0 +1,174 @@
+interactions:
+- request:
+    body: '{"uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"http://cohen.biz/","identificatie":"snowflake","bronorganisatie":"Doyle
+      Ltd","creatiedatum":"2026-02-01","titel":"Enjoy question your project far available.","auteur":"Joseph
+      Black","taal":"sl","begin_registratie":"2026-02-08T17:36:41.551348","informatieobjecttype":"everybody","vertrouwelijkheidaanduiding":"speech","status":"physical","formaat":"html","bestandsnaam":"professor.webm","link":"http://turner.net/","beschrijving":"Still
+      watch time represent your particularly. Could although agent everyone. Place
+      hotel space month buy ten.","ontvangstdatum":"2026-02-09","verzenddatum":"2026-01-25","verschijningsvorm":"professor"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/3916925a-4260-4505-bfbb-0942113efd49?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"3916925a-4260-4505-bfbb-0942113efd49","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":18,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/3916925a-4260-4505-bfbb-0942113efd49
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"http://www.sullivan.com/","identificatie":"document2","bronorganisatie":"Davis,
+      Robertson and Miranda","creatiedatum":"2026-02-15","titel":"snowflake","auteur":"Melissa
+      Camacho","taal":"zh","begin_registratie":"2026-01-27T00:03:26.783861","informatieobjecttype":"eye","vertrouwelijkheidaanduiding":"popular","status":"receive","formaat":"mp3","bestandsnaam":"lose.webm","link":"http://www.hood.com/","beschrijving":"Task
+      little safe newspaper door ready. By very school cost.","ontvangstdatum":"2026-01-30","verzenddatum":"2026-02-08","verschijningsvorm":"town"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/d49bc304-01a1-4eda-a914-a8dda5c901e2?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"d49bc304-01a1-4eda-a914-a8dda5c901e2","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":19,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/d49bc304-01a1-4eda-a914-a8dda5c901e2
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"https://moran.org/","identificatie":"document3","bronorganisatie":"snowflake","creatiedatum":"2026-02-06","titel":"Worker
+      across law area dream history compare.","auteur":"Shane Douglas","taal":"os","begin_registratie":"2026-02-18T01:19:35.794847","informatieobjecttype":"mention","vertrouwelijkheidaanduiding":"reduce","status":"military","formaat":"webm","bestandsnaam":"down.png","link":"https://williams-mitchell.info/","beschrijving":"Cover
+      court name sell example. Real cause safe might reduce color writer.","ontvangstdatum":"2026-01-31","verzenddatum":"2026-02-14","verschijningsvorm":"look"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/bdcc4cea-b186-425e-8dcd-9fecb6818563?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"bdcc4cea-b186-425e-8dcd-9fecb6818563","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":20,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/bdcc4cea-b186-425e-8dcd-9fecb6818563
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"https://www.boyd.com/","identificatie":"document4","bronorganisatie":"Allen-Garcia","creatiedatum":"2026-02-07","titel":"Education
+      pattern sure threat arm power piece.","auteur":"Daniel Arroyo","taal":"mr","begin_registratie":"2026-02-03T17:53:59.295593","informatieobjecttype":"respond","vertrouwelijkheidaanduiding":"window","status":"pull","formaat":"png","bestandsnaam":"snowflake","link":"http://miller-estes.info/","beschrijving":"Create
+      address evening marriage. Include nice down town conference mother might. Teach
+      nearly stock name surface apply.","ontvangstdatum":"2026-02-04","verzenddatum":"2026-02-15","verschijningsvorm":"she"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/7eade718-bccb-4876-9f00-a095beebc360?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"7eade718-bccb-4876-9f00-a095beebc360","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":21,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/7eade718-bccb-4876-9f00-a095beebc360
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"snowflake","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":4,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"3916925a-4260-4505-bfbb-0942113efd49","_score":18.572538,"_source":{"begin_registratie":"2026-02-08T17:36:41.551348","beschrijving":"Still
+        watch time represent your particularly. Could although agent everyone. Place
+        hotel space month buy ten.","verschijningsvorm":"professor","identificatie":"snowflake","bronorganisatie":"Doyle
+        Ltd","link":"http://turner.net/","uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"http://cohen.biz/","taal":"sl","verzenddatum":"2026-01-25","auteur":"Joseph
+        Black","formaat":"html","titel":"Enjoy question your project far available.","vertrouwelijkheidaanduiding":"speech","informatieobjecttype":"everybody","bestandsnaam":"professor.webm","ontvangstdatum":"2026-02-09","creatiedatum":"2026-02-01","status":"physical"},"sort":[18.572538,1769904000000]},{"_index":"document","_id":"d49bc304-01a1-4eda-a914-a8dda5c901e2","_score":4.4889245,"_source":{"begin_registratie":"2026-01-27T00:03:26.783861","beschrijving":"Task
+        little safe newspaper door ready. By very school cost.","verschijningsvorm":"town","identificatie":"document2","bronorganisatie":"Davis,
+        Robertson and Miranda","link":"http://www.hood.com/","uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"http://www.sullivan.com/","taal":"zh","verzenddatum":"2026-02-08","auteur":"Melissa
+        Camacho","formaat":"mp3","titel":"snowflake","vertrouwelijkheidaanduiding":"popular","informatieobjecttype":"eye","bestandsnaam":"lose.webm","ontvangstdatum":"2026-01-30","creatiedatum":"2026-02-15","status":"receive"},"sort":[4.4889245,1771113600000]},{"_index":"document","_id":"bdcc4cea-b186-425e-8dcd-9fecb6818563","_score":4.4671845,"_source":{"begin_registratie":"2026-02-18T01:19:35.794847","beschrijving":"Cover
+        court name sell example. Real cause safe might reduce color writer.","verschijningsvorm":"look","identificatie":"document3","bronorganisatie":"snowflake","link":"https://williams-mitchell.info/","uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"https://moran.org/","taal":"os","verzenddatum":"2026-02-14","auteur":"Shane
+        Douglas","formaat":"webm","titel":"Worker across law area dream history compare.","vertrouwelijkheidaanduiding":"reduce","informatieobjecttype":"mention","bestandsnaam":"down.png","ontvangstdatum":"2026-01-31","creatiedatum":"2026-02-06","status":"military"},"sort":[4.4671845,1770336000000]},{"_index":"document","_id":"7eade718-bccb-4876-9f00-a095beebc360","_score":1.6273147,"_source":{"begin_registratie":"2026-02-03T17:53:59.295593","beschrijving":"Create
+        address evening marriage. Include nice down town conference mother might.
+        Teach nearly stock name surface apply.","verschijningsvorm":"she","identificatie":"document4","bronorganisatie":"Allen-Garcia","link":"http://miller-estes.info/","uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"https://www.boyd.com/","taal":"mr","verzenddatum":"2026-02-15","auteur":"Daniel
+        Arroyo","formaat":"png","titel":"Education pattern sure threat arm power piece.","vertrouwelijkheidaanduiding":"window","informatieobjecttype":"respond","bestandsnaam":"snowflake","ontvangstdatum":"2026-02-04","creatiedatum":"2026-02-07","status":"pull"},"sort":[1.6273147,1770422400000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":4}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

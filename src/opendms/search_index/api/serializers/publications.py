@@ -6,150 +6,52 @@ from rest_framework import serializers
 from ...typing import DocumentIndexType
 
 
-class NestedPublisherSerializer(serializers.Serializer):
-    uuid = serializers.CharField()
-    naam = serializers.CharField(max_length=255)
-
-
-class NestedInformationCategorySerializer(serializers.Serializer):
-    uuid = serializers.CharField()
-    naam = serializers.CharField(max_length=255)
-
-
-class NestedTopicSerializer(serializers.Serializer):
-    uuid = serializers.CharField()
-    officiele_titel = serializers.CharField(max_length=255)
-
-
-@extend_schema_serializer(deprecate_fields=("identifier",))
+@extend_schema_serializer()
 class DocumentSerializer(serializers.Serializer):
     uuid = serializers.CharField()
-    publicatie = serializers.CharField(
-        help_text=_("The unique identifier of the publication."),
-    )
-    informatie_categorieen = NestedInformationCategorySerializer(
-        help_text=_(
-            "The information categories present on the publication that the document "
-            "belongs to."
-        ),
-        required=True,
-        many=True,
-    )
-    onderwerpen = NestedTopicSerializer(
-        help_text=_(
-            "The topics present on the publication that the document belongs to. "
-            "Topics capture socially relevant information that spans multiple "
-            "publications. They can remain relevant for tens of years and exceed the "
-            "life span of a single publication."
-        ),
-        required=False,
-        many=True,
-        allow_null=True,
-        default=list,
-    )
-    publisher = NestedPublisherSerializer(
-        help_text=_(
-            "The organisation which publishes the publication of this document."
-        )
-    )
-    identifier = serializers.CharField(
-        help_text=_("The (primary) unique identifier."),
-        max_length=255,
-        required=False,
-        allow_blank=True,
-        default="",
-    )
-    identifiers = serializers.ListField(
-        help_text=_("The document identifiers attached to this document."),
-        child=serializers.CharField(
-            max_length=255,
-            help_text=_(
-                "An identifier specific to this document. Note that multiple "
-                "documents can share identifiers, as additional context is "
-                "required to uniquely identify it, but this context "
-                "is deliberately not indexed."
-            ),
-        ),
-        required=False,
-        default=list,
-    )
-    officiele_titel = serializers.CharField(max_length=255)
-    verkorte_titel = serializers.CharField(
-        max_length=255,
-        required=False,
-        allow_blank=True,
-        default="",
-    )
-    omschrijving = serializers.CharField(
-        required=False,
-        allow_blank=True,
-        default="",
-    )
-    creatiedatum = serializers.DateField(
-        help_text=_(
-            "Date when the (physical) document came into existence. Not to be confused "
-            "with the registration timestamp of the document - the creation date is "
-            "typically *before* the registration date."
-        )
-    )
-    gepubliceerd_op = serializers.DateTimeField(
-        help_text=_(
-            "System timestamp reflecting when the document was published in the "
-            "GPP-Publicatiebank."
-        ),
-        allow_null=True,
-        required=False,
-    )
-    registratiedatum = serializers.DateTimeField(
-        help_text=_(
-            "System timestamp reflecting when the document was registered in the "
-            "GPP-Publicatiebank. Not to be confused with the creation date of the "
-            "document, which is usually *before* the registration date."
-        )
-    )
-    laatst_gewijzigd_datum = serializers.DateTimeField(
-        help_text=_(
-            "System timestamp reflecting when the document was last modified in the "
-            "GPP-Publicatiebank."
-        ),
-    )
+    url = serializers.URLField()
+    identificatie = serializers.CharField()
+    bronorganisatie = serializers.CharField()
+    creatiedatum = serializers.DateField()
+    titel = serializers.CharField()
+    auteur = serializers.CharField()
+    taal = serializers.CharField()
+    begin_registratie = serializers.DateTimeField()
+    informatieobjecttype = serializers.CharField()
+    vertrouwelijkheidaanduiding = serializers.CharField(required=False, allow_null=True)
+    status = serializers.CharField(required=False, allow_null=True)
+    formaat = serializers.CharField(required=False, allow_null=True)
+    bestandsnaam = serializers.CharField(required=False, allow_null=True)
+    link = serializers.URLField(required=False, allow_null=True)
+    beschrijving = serializers.CharField(required=False, allow_null=True)
+    ontvangstdatum = serializers.DateField(required=False, allow_null=True)
+    verzenddatum = serializers.DateField(required=False, allow_null=True)
+    verschijningsvorm = serializers.CharField(required=False, allow_null=True)
+    bestandsomvang = serializers.IntegerField(required=False, allow_null=True)
+    inhoud = serializers.CharField(required=False, default="")
 
 
 class DocumentIndexSerializer(DocumentSerializer):
-    download_url = serializers.URLField(
-        help_text=_(
-            "The URL to where the document can be downloaded from to index the "
-            "contents."
-        ),
-        write_only=True,
-        required=False,
-        allow_blank=True,
-        default="",
+    # Optional fields for indexing content
+    inhoud = serializers.URLField(
+        required=False, allow_blank=True, default="", write_only=True
     )
-    file_size = serializers.IntegerField(
-        help_text=_("The size of the document file on disk, in bytes."),
-        write_only=True,
-        required=False,
-        allow_null=True,
-        default=None,
+    bestandsomvang = serializers.IntegerField(
+        required=False, allow_null=True, default=None, write_only=True
     )
 
     def validate(self, attrs: DocumentIndexType):
-        download_url = attrs["download_url"]
-        file_size = attrs["file_size"]
-        identifier = attrs["identifier"]
-        identifiers = attrs["identifiers"]
+        inhoud = attrs.get("inhoud")
+        bestandsomvang = attrs.get("bestandsomvang")
 
-        if not identifiers and identifier:
-            attrs["identifiers"].append(identifier)
-
-        # TODO: remove this when `gepubliceerd_op` is required
-        if not attrs.get("gepubliceerd_op"):
-            attrs["gepubliceerd_op"] = attrs["registratiedatum"]
-
-        if download_url and file_size is None:
+        # Ensure bestandsomvang is provided when inhoud is present
+        if inhoud and bestandsomvang is None:
             raise serializers.ValidationError(
-                {"file_size": _("Field is required when using `downloadUrl`.")}
+                {"bestandsomvang": _("Field is required when using `inhoud`.")}
             )
+
+        # Default `inhoud` to empty string if missing
+        if "inhoud" not in attrs or attrs["inhoud"] is None:
+            attrs["inhoud"] = ""
 
         return attrs

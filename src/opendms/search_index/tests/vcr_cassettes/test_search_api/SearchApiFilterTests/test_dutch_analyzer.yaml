@@ -1,0 +1,160 @@
+interactions:
+- request:
+    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.mitchell-silva.com/","identificatie":"b5862b4b-0c56-491a-a249-a2d3416443f8","bronorganisatie":"Taylor-Vargas","creatiedatum":"2026-02-14","titel":"Dutch
+      analyzer","auteur":"David Mccoy","taal":"sv","begin_registratie":"2026-01-26T11:22:36.964383","informatieobjecttype":"future","vertrouwelijkheidaanduiding":"method","status":"available","formaat":"mov","bestandsnaam":"trip.csv","link":"https://schultz.com/","beschrijving":"Een
+      document om de Nederlandse analyzer te testen. We doen dit door middel van een
+      willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
+      zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","ontvangstdatum":"2026-01-29","verzenddatum":"2026-02-14","verschijningsvorm":"heavy"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/828df354-b6dc-4693-815a-1b7d39b3bc95?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/828df354-b6dc-4693-815a-1b7d39b3bc95
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"lichamelijk","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.07329149,"_source":{"begin_registratie":"2026-01-26T11:22:36.964383","beschrijving":"Een
+        document om de Nederlandse analyzer te testen. We doen dit door middel van
+        een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"heavy","identificatie":"b5862b4b-0c56-491a-a249-a2d3416443f8","bronorganisatie":"Taylor-Vargas","link":"https://schultz.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.mitchell-silva.com/","taal":"sv","verzenddatum":"2026-02-14","auteur":"David
+        Mccoy","formaat":"mov","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"method","informatieobjecttype":"future","bestandsnaam":"trip.csv","ontvangstdatum":"2026-01-29","creatiedatum":"2026-02-14","status":"available"},"sort":[0.07329149,1771027200000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"lichamelijke","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.07329149,"_source":{"begin_registratie":"2026-01-26T11:22:36.964383","beschrijving":"Een
+        document om de Nederlandse analyzer te testen. We doen dit door middel van
+        een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"heavy","identificatie":"b5862b4b-0c56-491a-a249-a2d3416443f8","bronorganisatie":"Taylor-Vargas","link":"https://schultz.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.mitchell-silva.com/","taal":"sv","verzenddatum":"2026-02-14","auteur":"David
+        Mccoy","formaat":"mov","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"method","informatieobjecttype":"future","bestandsnaam":"trip.csv","ontvangstdatum":"2026-01-29","creatiedatum":"2026-02-14","status":"available"},"sort":[0.07329149,1771027200000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"lichamelijkheden","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.07329149,"_source":{"begin_registratie":"2026-01-26T11:22:36.964383","beschrijving":"Een
+        document om de Nederlandse analyzer te testen. We doen dit door middel van
+        een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"heavy","identificatie":"b5862b4b-0c56-491a-a249-a2d3416443f8","bronorganisatie":"Taylor-Vargas","link":"https://schultz.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.mitchell-silva.com/","taal":"sv","verzenddatum":"2026-02-14","auteur":"David
+        Mccoy","formaat":"mov","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"method","informatieobjecttype":"future","bestandsnaam":"trip.csv","ontvangstdatum":"2026-01-29","creatiedatum":"2026-02-14","status":"available"},"sort":[0.07329149,1771027200000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"lich","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

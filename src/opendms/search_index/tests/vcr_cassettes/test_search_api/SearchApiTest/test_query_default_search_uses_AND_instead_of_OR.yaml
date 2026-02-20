@@ -1,0 +1,134 @@
+interactions:
+- request:
+    body: '{"uuid":"9c3360b8-2ce7-4742-9051-e586b686fc48","url":"http://schneider.com/","identificatie":"0f15bcf7-eff8-4f43-ae9c-c5f6d979a91a","bronorganisatie":"Stewart-Wells","creatiedatum":"2026-01-31","titel":"You
+      task knowledge.","auteur":"Anita Gomez","taal":"ur","begin_registratie":"2026-01-27T07:30:44.193993","informatieobjecttype":"prove","vertrouwelijkheidaanduiding":"production","status":"Mrs","formaat":"doc","bestandsnaam":"pressure.docx","link":"https://www.holmes.biz/","beschrijving":"Hard
+      edge debate add question west term young. Shake fight produce clear from behavior
+      politics can.","ontvangstdatum":"2026-02-11","verzenddatum":"2026-01-28","verschijningsvorm":"although"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/9c3360b8-2ce7-4742-9051-e586b686fc48?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"9c3360b8-2ce7-4742-9051-e586b686fc48","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":12,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/9c3360b8-2ce7-4742-9051-e586b686fc48
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"37eb1144-a3da-48d1-b2fb-88075f781611","url":"https://www.bradley.net/","identificatie":"e958201c-d748-46c4-a6e4-07644daf4bc4","bronorganisatie":"Morrison,
+      Cooper and Richardson","creatiedatum":"2026-02-05","titel":"Document one of
+      many","auteur":"Jennifer Walsh","taal":"ca","begin_registratie":"2026-02-16T04:49:49.314687","informatieobjecttype":"drop","vertrouwelijkheidaanduiding":"create","status":"discover","formaat":"mp4","bestandsnaam":"lawyer.webm","link":"https://www.miller.com/","beschrijving":"American
+      bad cut pressure box Democrat work. Talk front sign event plant low. Offer buy
+      among true sit.","ontvangstdatum":"2026-02-07","verzenddatum":"2026-02-09","verschijningsvorm":"research"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/37eb1144-a3da-48d1-b2fb-88075f781611?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"37eb1144-a3da-48d1-b2fb-88075f781611","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":13,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/37eb1144-a3da-48d1-b2fb-88075f781611
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"https://rivers.com/","identificatie":"db409155-0d6b-49bc-854f-b52deedb9b49","bronorganisatie":"Gonzalez-Jones","creatiedatum":"2026-02-06","titel":"Document
+      two of many","auteur":"Derek Villarreal","taal":"gez","begin_registratie":"2026-02-20T03:26:53.166528","informatieobjecttype":"dinner","vertrouwelijkheidaanduiding":"amount","status":"trial","formaat":"gif","bestandsnaam":"situation.mp3","link":"http://neal.com/","beschrijving":"Recent
+      appear center who event enjoy military. Ten play life them report material ball.
+      According health subject at.","ontvangstdatum":"2026-02-12","verzenddatum":"2026-02-14","verschijningsvorm":"individual"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/da45268a-ab21-4a81-bfc4-b0430edf339b?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"da45268a-ab21-4a81-bfc4-b0430edf339b","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":14,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/da45268a-ab21-4a81-bfc4-b0430edf339b
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
+      two","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"da45268a-ab21-4a81-bfc4-b0430edf339b","_score":15.013622,"_source":{"begin_registratie":"2026-02-20T03:26:53.166528","beschrijving":"Recent
+        appear center who event enjoy military. Ten play life them report material
+        ball. According health subject at.","verschijningsvorm":"individual","identificatie":"db409155-0d6b-49bc-854f-b52deedb9b49","bronorganisatie":"Gonzalez-Jones","link":"http://neal.com/","uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"https://rivers.com/","taal":"gez","verzenddatum":"2026-02-14","auteur":"Derek
+        Villarreal","formaat":"gif","titel":"Document two of many","vertrouwelijkheidaanduiding":"amount","informatieobjecttype":"dinner","bestandsnaam":"situation.mp3","ontvangstdatum":"2026-02-12","creatiedatum":"2026-02-06","status":"trial"},"sort":[15.013622,1770336000000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

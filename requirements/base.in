@@ -6,6 +6,7 @@ flower
 py7zr<1.0
 python-magic
 self-certifi
+drf_polymorphic
 
 django-hijack
 maykin-common[axes,cli,health-checks,mfa,otel,vcr]  # other extras: pdf, vcr

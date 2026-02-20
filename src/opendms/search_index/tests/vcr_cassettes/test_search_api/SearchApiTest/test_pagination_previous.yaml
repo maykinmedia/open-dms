@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://sutton.info/","identificatie":"427fa8f9-1972-4b5f-aabd-97a4918c3766","bronorganisatie":"Johnson
+      PLC","creatiedatum":"2026-02-10","titel":"Could should stay off leg you nothing
+      or.","auteur":"Darrell Ward","taal":"sq","begin_registratie":"2026-01-28T16:41:12.645587","informatieobjecttype":"local","vertrouwelijkheidaanduiding":"relationship","status":"street","formaat":"docx","bestandsnaam":"area.jpeg","link":"http://www.turner-harris.com/","beschrijving":"Year
+      often mention family form cup. Soon life painting run information rest. Leave
+      lead personal woman important subject become.","ontvangstdatum":"2026-02-21","verzenddatum":"2026-02-02","verschijningsvorm":"each"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/80485d67-0b97-4ed5-8483-f2d03d012e19?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":6,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/80485d67-0b97-4ed5-8483-f2d03d012e19
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.golden-bell.com/","identificatie":"9bca47ca-9fb9-4adc-9ecd-78a98b868b66","bronorganisatie":"Garcia-Ferguson","creatiedatum":"2026-01-31","titel":"Soldier
+      compare western suffer send health.","auteur":"Tyler Webb","taal":"be","begin_registratie":"2026-01-26T17:22:24.612918","informatieobjecttype":"space","vertrouwelijkheidaanduiding":"TV","status":"really","formaat":"gif","bestandsnaam":"better.jpg","link":"https://hamilton.org/","beschrijving":"Scene
+      watch rate east tax power. Crime community realize military girl watch wait.
+      Agree rise woman cost modern threat social point.","ontvangstdatum":"2026-02-06","verzenddatum":"2026-02-14","verschijningsvorm":"natural"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/48981334-b480-4e7d-8c8d-925bbc67a969?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":7,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/48981334-b480-4e7d-8c8d-925bbc67a969
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":1,"size":1}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":0.26546344,"_source":{"begin_registratie":"2026-01-26T17:22:24.612918","beschrijving":"Scene
+        watch rate east tax power. Crime community realize military girl watch wait.
+        Agree rise woman cost modern threat social point.","verschijningsvorm":"natural","identificatie":"9bca47ca-9fb9-4adc-9ecd-78a98b868b66","bronorganisatie":"Garcia-Ferguson","link":"https://hamilton.org/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.golden-bell.com/","taal":"be","verzenddatum":"2026-02-14","auteur":"Tyler
+        Webb","formaat":"gif","titel":"Soldier compare western suffer send health.","vertrouwelijkheidaanduiding":"TV","informatieobjecttype":"space","bestandsnaam":"better.jpg","ontvangstdatum":"2026-02-06","creatiedatum":"2026-01-31","status":"really"},"sort":[0.26546344,1769817600000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

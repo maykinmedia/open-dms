@@ -4,13 +4,13 @@ from collections.abc import Collection
 from django.test import TestCase, override_settings, tag
 
 from elasticsearch.dsl import Document
-from rest_framework.test import APITestCase
 
 from opendms.conf.utils import config
 from opendms.search_index.client import get_client
 
 from ..ingest import setup_document_attachment_processor
 from ..utils import get_index_document_types
+from .api_testcase import APITestCase
 
 CI = config("CI", default=False)  # Github actions sets this to True
 

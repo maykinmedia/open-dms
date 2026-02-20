@@ -1,0 +1,223 @@
+interactions:
+- request:
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.dixon.com/","identificatie":"131b7621-710f-474c-a076-a7df84ade698","bronorganisatie":"Long,
+      Massey and Lyons","creatiedatum":"2026-02-05","titel":"Document one","auteur":"Patricia
+      Wood","taal":"sr","begin_registratie":"2026-02-21T04:27:33.293791","informatieobjecttype":"hot","vertrouwelijkheidaanduiding":"include","status":"four","formaat":"pptx","bestandsnaam":"particularly.flac","link":"https://crawford.com/","beschrijving":"snowflake1","ontvangstdatum":"2026-02-20","verzenddatum":"2026-01-29","verschijningsvorm":"specific"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/d6eacab4-cb9f-42f7-abdf-719b358da923?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/d6eacab4-cb9f-42f7-abdf-719b358da923
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.andrews.biz/","identificatie":"93fad9ff-b1ce-44d5-9b86-14e6cb146db0","bronorganisatie":"Johnson-Cole","creatiedatum":"2026-02-19","titel":"Document
+      two","auteur":"Shirley Miller","taal":"cmn","begin_registratie":"2026-02-07T20:48:21.808310","informatieobjecttype":"personal","vertrouwelijkheidaanduiding":"benefit","status":"energy","formaat":"wav","bestandsnaam":"point.txt","link":"https://www.burnett.com/","beschrijving":"snowflake2","ontvangstdatum":"2026-02-02","verzenddatum":"2026-02-04","verschijningsvorm":"wait"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/a8fce14e-88d1-4f60-a69b-bbcc7033afe9?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/a8fce14e-88d1-4f60-a69b-bbcc7033afe9
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
+      + one","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.3773437,"_source":{"begin_registratie":"2026-02-21T04:27:33.293791","beschrijving":"snowflake1","verschijningsvorm":"specific","identificatie":"131b7621-710f-474c-a076-a7df84ade698","bronorganisatie":"Long,
+        Massey and Lyons","link":"https://crawford.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.dixon.com/","taal":"sr","verzenddatum":"2026-01-29","auteur":"Patricia
+        Wood","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"include","informatieobjecttype":"hot","bestandsnaam":"particularly.flac","ontvangstdatum":"2026-02-20","creatiedatum":"2026-02-05","status":"four"},"sort":[4.3773437,1770249600000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
+      + one","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.3773437,"_source":{"begin_registratie":"2026-02-21T04:27:33.293791","beschrijving":"snowflake1","verschijningsvorm":"specific","identificatie":"131b7621-710f-474c-a076-a7df84ade698","bronorganisatie":"Long,
+        Massey and Lyons","link":"https://crawford.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.dixon.com/","taal":"sr","verzenddatum":"2026-01-29","auteur":"Patricia
+        Wood","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"include","informatieobjecttype":"hot","bestandsnaam":"particularly.flac","ontvangstdatum":"2026-02-20","creatiedatum":"2026-02-05","status":"four"},"sort":[4.3773437,1770249600000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"one
+      |two","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.465736,"_source":{"begin_registratie":"2026-02-21T04:27:33.293791","beschrijving":"snowflake1","verschijningsvorm":"specific","identificatie":"131b7621-710f-474c-a076-a7df84ade698","bronorganisatie":"Long,
+        Massey and Lyons","link":"https://crawford.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.dixon.com/","taal":"sr","verzenddatum":"2026-01-29","auteur":"Patricia
+        Wood","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"include","informatieobjecttype":"hot","bestandsnaam":"particularly.flac","ontvangstdatum":"2026-02-20","creatiedatum":"2026-02-05","status":"four"},"sort":[3.465736,1770249600000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.7585597,"_source":{"begin_registratie":"2026-02-07T20:48:21.808310","beschrijving":"snowflake2","verschijningsvorm":"wait","identificatie":"93fad9ff-b1ce-44d5-9b86-14e6cb146db0","bronorganisatie":"Johnson-Cole","link":"https://www.burnett.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.andrews.biz/","taal":"cmn","verzenddatum":"2026-02-04","auteur":"Shirley
+        Miller","formaat":"wav","titel":"Document two","vertrouwelijkheidaanduiding":"benefit","informatieobjecttype":"personal","bestandsnaam":"point.txt","ontvangstdatum":"2026-02-02","creatiedatum":"2026-02-19","status":"energy"},"sort":[2.7585597,1771459200000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.465736,"_source":{"begin_registratie":"2026-02-21T04:27:33.293791","beschrijving":"snowflake1","verschijningsvorm":"specific","identificatie":"131b7621-710f-474c-a076-a7df84ade698","bronorganisatie":"Long,
+        Massey and Lyons","link":"https://crawford.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.dixon.com/","taal":"sr","verzenddatum":"2026-01-29","auteur":"Patricia
+        Wood","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"include","informatieobjecttype":"hot","bestandsnaam":"particularly.flac","ontvangstdatum":"2026-02-20","creatiedatum":"2026-02-05","status":"four"},"sort":[3.465736,1770249600000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.7585597,"_source":{"begin_registratie":"2026-02-07T20:48:21.808310","beschrijving":"snowflake2","verschijningsvorm":"wait","identificatie":"93fad9ff-b1ce-44d5-9b86-14e6cb146db0","bronorganisatie":"Johnson-Cole","link":"https://www.burnett.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.andrews.biz/","taal":"cmn","verzenddatum":"2026-02-04","auteur":"Shirley
+        Miller","formaat":"wav","titel":"Document two","vertrouwelijkheidaanduiding":"benefit","informatieobjecttype":"personal","bestandsnaam":"point.txt","ontvangstdatum":"2026-02-02","creatiedatum":"2026-02-19","status":"energy"},"sort":[2.7585597,1771459200000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"(\"snowflake1\"
+      +  one) | (\"Document two\")","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.158883,"_source":{"begin_registratie":"2026-02-21T04:27:33.293791","beschrijving":"snowflake1","verschijningsvorm":"specific","identificatie":"131b7621-710f-474c-a076-a7df84ade698","bronorganisatie":"Long,
+        Massey and Lyons","link":"https://crawford.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.dixon.com/","taal":"sr","verzenddatum":"2026-01-29","auteur":"Patricia
+        Wood","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"include","informatieobjecttype":"hot","bestandsnaam":"particularly.flac","ontvangstdatum":"2026-02-20","creatiedatum":"2026-02-05","status":"four"},"sort":[4.158883,1770249600000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":3.4841554,"_source":{"begin_registratie":"2026-02-07T20:48:21.808310","beschrijving":"snowflake2","verschijningsvorm":"wait","identificatie":"93fad9ff-b1ce-44d5-9b86-14e6cb146db0","bronorganisatie":"Johnson-Cole","link":"https://www.burnett.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.andrews.biz/","taal":"cmn","verzenddatum":"2026-02-04","auteur":"Shirley
+        Miller","formaat":"wav","titel":"Document two","vertrouwelijkheidaanduiding":"benefit","informatieobjecttype":"personal","bestandsnaam":"point.txt","ontvangstdatum":"2026-02-02","creatiedatum":"2026-02-19","status":"energy"},"sort":[3.4841554,1771459200000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
