@@ -1,9 +1,12 @@
-# ruff: noqa: F403,F405
-from maykin_common.config import config
-from maykin_common.health_checks import (
-    default_health_check_apps,
-)
+import os
+
+os.environ["_USE_STRUCTLOG"] = "True"
+
+from pathlib import Path
+
+from maykin_common.health_checks import default_health_check_apps
 from open_api_framework.conf.base import *  # noqa
+from open_api_framework.conf.utils import config  # noqa
 
 # APPLICATIONS enabled for this project
 #
@@ -20,64 +23,18 @@ INSTALLED_APPS = INSTALLED_APPS + [
     "opendms.frontend",
 ]
 
-MIDDLEWARE = [
-    "django.middleware.security.SecurityMiddleware",
-    "django.contrib.sessions.middleware.SessionMiddleware",
-    # 'django.middleware.locale.LocaleMiddleware',
-    "django.middleware.common.CommonMiddleware",
-    "django.middleware.csrf.CsrfViewMiddleware",
-    "django.contrib.auth.middleware.AuthenticationMiddleware",
-    "maykin_2fa.middleware.OTPMiddleware",
-    "django.contrib.messages.middleware.MessageMiddleware",
-    "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "hijack.middleware.HijackUserMiddleware",
-    "djangorestframework_camel_case.middleware.CamelCaseMiddleWare",
-    # should be last according to docs
-    "axes.middleware.AxesMiddleware",
-]
-
-ROOT_URLCONF = "opendms.urls"
-
-TEMPLATES = [
-    {
-        "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [
-            DJANGO_PROJECT_DIR / "templates",
-            DJANGO_PROJECT_DIR / "frontend/dist",
-        ],
-        "APP_DIRS": True,
-        "OPTIONS": {
-            "context_processors": [
-                "django.template.context_processors.debug",
-                "django.template.context_processors.request",
-                "django.contrib.auth.context_processors.auth",
-                "django.contrib.messages.context_processors.messages",
-                "opendms.utils.context_processors.settings",
-            ],
-        },
-    },
-]
-
-
 # Additional locations of static files
-STATICFILES_DIRS = [
-    DJANGO_PROJECT_DIR / "static",
-    DJANGO_PROJECT_DIR / "frontend/dist/static",
-]
-
-LOGIN_URL = reverse_lazy("admin:login")
+STATICFILES_DIRS += [Path(DJANGO_PROJECT_DIR) / "frontend/dist/static"]
 
 #
 # SECURITY settings
 #
-
-CSRF_FAILURE_VIEW = "opendms.accounts.views.csrf_failure"
+CSRF_FAILURE_VIEW = "maykin_common.views.csrf_failure"
 
 #
 # FIXTURES
 #
-
-FIXTURE_DIRS = (DJANGO_PROJECT_DIR / "fixtures",)
+FIXTURE_DIRS = (Path(DJANGO_PROJECT_DIR) / "fixtures",)
 
 #
 # Custom settings
