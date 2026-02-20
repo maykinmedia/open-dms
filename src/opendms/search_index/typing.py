@@ -1,7 +1,5 @@
-from collections.abc import Collection
 from datetime import date, datetime
-from typing import Annotated, Literal, NotRequired, TypedDict
-from uuid import UUID
+from typing import Literal, NotRequired, TypedDict
 
 type IndexName = Literal["document"]
 
@@ -23,24 +21,31 @@ class NestedTopicType(TypedDict):
 
 class DocumentType(TypedDict):
     uuid: str
-    publicatie: str
-    informatie_categorieen: list[NestedInformationCategoryType]
-    onderwerpen: list[NestedTopicType]
-    publisher: NestedPublisherType
-    identifiers: list[str]
-    identifier: Annotated[str, DeprecationWarning("Obsoleted by identifiers")]
-    officiele_titel: str
-    verkorte_titel: str
-    omschrijving: str
+    url: str
+    identificatie: str
+    bronorganisatie: str
     creatiedatum: date
-    registratiedatum: datetime
-    gepubliceerd_op: NotRequired[datetime | None]
-    laatst_gewijzigd_datum: datetime
+    titel: str
+    auteur: str
+    taal: str
+    begin_registratie: datetime
+    informatieobjecttype: str
+    vertrouwelijkheidaanduiding: NotRequired[str | None]
+    status: NotRequired[str | None]
+    formaat: NotRequired[str | None]
+    bestandsnaam: NotRequired[str | None]
+    inhoud: NotRequired[str]
+    link: NotRequired[str | None]
+    beschrijving: NotRequired[str | None]
+    ontvangstdatum: NotRequired[date | None]
+    verzenddatum: NotRequired[date | None]
+    verschijningsvorm: NotRequired[str | None]
+    bestandsomvang: NotRequired[int | None]
 
 
 class DocumentIndexType(DocumentType):
-    download_url: str
-    file_size: int | None
+    inhoud: str
+    bestandsomvang: int | None
 
 
 class SearchParameters(TypedDict):
@@ -48,19 +53,5 @@ class SearchParameters(TypedDict):
     page: int
     page_size: int
     sort: Literal["relevance", "chronological"]
-    result_types: list[IndexName]
-    registratiedatum_vanaf: datetime | None
-    registratiedatum_tot: datetime | None
-    gepubliceerd_op_vanaf: datetime | None
-    gepubliceerd_op_tot: datetime | None
-    laatst_gewijzigd_datum_vanaf: datetime | None
-    laatst_gewijzigd_datum_tot: datetime | None
     creatiedatum_vanaf: date | None
     creatiedatum_tot_en_met: date | None
-    datum_begin_geldigheid_vanaf: datetime | None
-    datum_begin_geldigheid_tot: datetime | None
-    datum_einde_geldigheid_vanaf: datetime | None
-    datum_einde_geldigheid_tot: datetime | None
-    publishers: Collection[UUID]
-    informatie_categorieen: Collection[UUID]
-    onderwerpen: Collection[UUID]

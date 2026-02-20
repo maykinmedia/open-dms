@@ -1,6 +1,6 @@
 import os
 import re
-from collections.abc import Collection, Sequence
+from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import date
 from typing import Literal, assert_never
@@ -11,7 +11,6 @@ from django.conf import settings
 from elasticsearch import Elasticsearch
 from elasticsearch.dsl import Q, Search
 
-from .constants import ResultTypeChoices
 from .index import Document
 from .typing import IndexName
 
@@ -50,16 +49,9 @@ class SearchResult:
 
 
 @dataclass
-class ResultTypeBucket:
-    result_type: IndexName
-    count: int
-
-
-@dataclass
 class SearchResults:
     total_count: int
     results: Sequence[SearchResult]
-    result_type_buckets: Sequence[ResultTypeBucket]
 
 
 def clean_str_query(query: str) -> str:
@@ -93,7 +85,6 @@ def get_search_results(
     # query
     query: str,
     # filters
-    result_types: Collection[IndexName] | None = None,
     creatiedatum_from: date | None = None,
     creatiedatum_to: date | None = None,
     page: int = 1,
@@ -109,16 +100,7 @@ def get_search_results(
     """
 
     # build up the search object from the provided arguments
-    search = (
-        Search()
-        .doc_type(Document)
-        .index(Document.Index.name)
-        .extra(
-            indices_boost=[
-                {Document.Index.name: 1.0},
-            ]
-        )
-    )
+    search = Search().doc_type(Document).index(Document.Index.name)
 
     # process the query (terms)
     if query:
@@ -126,10 +108,11 @@ def get_search_results(
             "simple_query_string",
             query=clean_str_query(query),
             fields=[
-                "identificatie^3",
-                "titel^2",
-                "bronorganisatie^1.5",
+                "identificatie^10",
+                "titel^5",
+                "bronorganisatie^2",
                 "bestandsnaam^1.2",
+                "beschrijving^1",
                 "document_data.attachment.content",
             ],
             flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
@@ -137,15 +120,10 @@ def get_search_results(
         )
 
     if creatiedatum_from or creatiedatum_to:
-        assert result_types == ["document"]
         search = search.filter(
             "range",
             creatiedatum={"gte": creatiedatum_from, "lte": creatiedatum_to},
         )
-
-    result_type_filter = Q("terms", _index=result_types) if result_types else None
-    if result_type_filter:
-        search = search.post_filter(result_type_filter)
 
     # now, add the boosting via decay function to favour recently added documents over
     # older ones. Docs:
@@ -176,9 +154,9 @@ def get_search_results(
     # https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html#_sort_order
     match sort:
         case "relevance":
-            search = search.sort("_score", "-gepubliceerd_op")
+            search = search.sort("_score", "-creatiedatum")
         case "chronological":
-            search = search.sort("-gepubliceerd_op", "_score")
+            search = search.sort("-creatiedatum", "_score")
         case _:  # pragma: no cover
             assert_never(sort)
 
@@ -201,22 +179,7 @@ def get_search_results(
         for hit in response.hits
     ]
 
-    aggs = response.aggregations
-
-    # The ordered list of result types we want to limit and order the
-    # result_type_buckets
-    ordered_bucket_result_types: list[ResultTypeChoices] = [
-        ResultTypeChoices.document,
-    ]
-
     return SearchResults(
         total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
         results=results,
-        result_type_buckets=[
-            ResultTypeBucket(result_type=bucket.key, count=bucket.doc_count)
-            for bucket in sorted(
-                aggs.ResultType.FilteredResultType.buckets,
-                key=lambda bucket: ordered_bucket_result_types.index(bucket.key),
-            )
-        ],
     )

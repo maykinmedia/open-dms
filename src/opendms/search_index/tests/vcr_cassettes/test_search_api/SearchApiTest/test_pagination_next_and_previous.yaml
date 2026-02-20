@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"https://larson.com/","identificatie":"913c2c92-8e94-42be-93eb-a496ce21de03","bronorganisatie":"Long,
+      Howe and Cervantes","creatiedatum":"2026-02-13","titel":"Management hospital
+      budget machine choice.","auteur":"Scott Payne","taal":"brx","begin_registratie":"2026-02-21T00:24:46.207133","informatieobjecttype":"apply","vertrouwelijkheidaanduiding":"family","status":"another","formaat":"odt","bestandsnaam":"material.pptx","link":"https://phillips-ramirez.com/","beschrijving":"Different
+      fact former law discuss.","ontvangstdatum":"2026-02-06","verzenddatum":"2026-01-25","verschijningsvorm":"under"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/85a095ea-e1fa-438c-9e05-1862874f57a0?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/85a095ea-e1fa-438c-9e05-1862874f57a0
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://campos.com/","identificatie":"49be7483-64ec-4e08-91b5-b3452631c976","bronorganisatie":"Mcdonald
+      Group","creatiedatum":"2026-01-27","titel":"Consumer they like policy.","auteur":"Matthew
+      Pearson","taal":"zh","begin_registratie":"2026-02-01T04:54:00.875571","informatieobjecttype":"federal","vertrouwelijkheidaanduiding":"protect","status":"benefit","formaat":"xls","bestandsnaam":"any.jpeg","link":"http://miller.org/","beschrijving":"All
+      less about sing sort. Machine protect eat arrive husband. Move apply size he
+      thousand bill.","ontvangstdatum":"2026-02-01","verzenddatum":"2026-02-18","verschijningsvorm":"official"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/48981334-b480-4e7d-8c8d-925bbc67a969?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/48981334-b480-4e7d-8c8d-925bbc67a969
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":1}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_score":1.0,"_source":{"begin_registratie":"2026-02-21T00:24:46.207133","beschrijving":"Different
+        fact former law discuss.","verschijningsvorm":"under","identificatie":"913c2c92-8e94-42be-93eb-a496ce21de03","bronorganisatie":"Long,
+        Howe and Cervantes","link":"https://phillips-ramirez.com/","uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"https://larson.com/","taal":"brx","verzenddatum":"2026-01-25","auteur":"Scott
+        Payne","formaat":"odt","titel":"Management hospital budget machine choice.","vertrouwelijkheidaanduiding":"family","informatieobjecttype":"apply","bestandsnaam":"material.pptx","ontvangstdatum":"2026-02-06","creatiedatum":"2026-02-13","status":"another"},"sort":[1.0,1770940800000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

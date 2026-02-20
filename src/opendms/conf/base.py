@@ -20,9 +20,11 @@ from .utils import load_indexable_file_types
 INSTALLED_APPS = INSTALLED_APPS + [
     *default_health_check_apps,
     # External applications.
+    "rest_framework.authtoken",
     "hijack",
     "hijack.contrib.admin",
     "maykin_common",
+    "drf_polymorphic",
     # Project applications.
     "opendms.accounts",
     "opendms.api",

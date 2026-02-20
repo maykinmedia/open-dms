@@ -4,6 +4,10 @@ from drf_spectacular.views import SpectacularRedocView
 from vng_api_common import routers
 
 from opendms.api.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIView
+from opendms.search_index.api.views import SearchView
+from opendms.search_index.api.viewsets import (
+    DocumentViewSet,
+)
 
 from .viewsets import ServiceViewSet, ZaakTypeViewSet
 
@@ -11,6 +15,7 @@ app_name = "api"
 
 router = routers.DefaultRouter()
 router.register("services", ServiceViewSet)
+router.register("documenten", DocumentViewSet, basename="document")
 
 
 zaaktypen_router = routers.NestedSimpleRouter(router, r"services", lookup="service")
@@ -46,6 +51,8 @@ urlpatterns = [
                     SpectacularRedocView.as_view(url_name="api:schema-yaml-api"),
                     name="schema-redoc-api",
                 ),
+                path("search", SearchView.as_view(), name="search"),
+                *router.urls,
             ]
         ),
     ),
