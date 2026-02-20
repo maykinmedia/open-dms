@@ -16,8 +16,7 @@ mozilla-django-oidc-db
 josepy
 
 # API libraries
-djangorestframework-camel-case
-open-api-framework
+open-api-framework[cors,markup,csp,commonground,structlog]
 
 # WSGI servers & monitoring - production oriented
 uwsgi
