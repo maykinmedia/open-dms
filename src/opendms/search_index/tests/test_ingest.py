@@ -1,4 +1,4 @@
-from woo_search.utils.tests.vcr import VCRMixin
+from opendms.utils.tests.vcr import VCRMixin
 
 from ..client import get_client
 from ..ingest import setup_document_attachment_processor

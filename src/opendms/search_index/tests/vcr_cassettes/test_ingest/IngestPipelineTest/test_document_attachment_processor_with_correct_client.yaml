@@ -1,0 +1,30 @@
+interactions:
+- request:
+    body: '{"description":"Extract Document attachment information","processors":[{"foreach":{"field":"document_data","processor":{"attachment":{"target_field":"_ingest._value.attachment","field":"_ingest._value.document_data","properties":["content"],"remove_binary":true,"ignore_missing":true,"indexed_chars":-1}},"ignore_missing":true,"ignore_failure":true}}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/_ingest/pipeline/document_attachment
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
