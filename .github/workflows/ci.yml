@@ -24,7 +24,7 @@ jobs:
     name: Determine changed files
     steps:
 
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -153,7 +153,7 @@ jobs:
       - name: Set up backend environment
         uses: maykinmedia/setup-django-backend@v1.3
         with:
-          python-version: '3.12'
+          python-version: '3.14'
           apt-packages: "libgdal-dev gdal-bin"
           setup-node: false
 

@@ -88,7 +88,8 @@ COPY --from=frontend-build /app/dist /app/src/opendms/frontend
 # copy source code
 COPY ./src /app/src
 
-RUN useradd -M -u 1000 maykin \
+RUN groupadd -g 1000 maykin \
+    && useradd -M -u 1000 -g 1000 maykin \
     && chown -R maykin:maykin /app
 
 # drop privileges
