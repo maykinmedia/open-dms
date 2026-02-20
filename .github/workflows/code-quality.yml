@@ -12,78 +12,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  ruff:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: astral-sh/ruff-action@v3
-      - name: Linting
-        run: ruff check
-      - name: Check formatting
-        run: ruff format --check
+  open-api-workflow-code-quality:
+    uses: maykinmedia/open-api-workflows/.github/workflows/code-quality.yml@v6
+    with:
+      python-version: "3.14"
+      apt-packages: "libgdal-dev gdal-bin"
+      node-version: "24"
+      postgres-image: "postgis/postgis:16-3.5"
 
-  migrations:
-    name: Check for model changes not present in migrations
-    runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:17
-        env:
-          POSTGRES_HOST_AUTH_METHOD: trust
-        ports:
-          - 5432:5432
-        # Needed because the postgres container does not provide a healthcheck
-        options:
-          --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up backend environment
-        uses: maykinmedia/setup-django-backend@v1.3
-        with:
-          python-version: '3.14'
-          setup-node: 'no'
-
-      - name: Run makemigrations to check for missing migrations
-        run: |
-          src/manage.py makemigrations \
-            --check \
-            --dry-run
-        env:
-          DJANGO_SETTINGS_MODULE: "opendms.conf.ci"
-          DEBUG: 'true'
-          SECRET_KEY: dummy
-          DB_USER: postgres
-          DB_NAME: postgres
-          DB_PASSWORD: ''
-
-  translations:
-    name: Check for missing translations
-    runs-on: ubuntu-latest
-
-    services:
-      postgres:
-        image: postgres:17
-        env:
-          POSTGRES_HOST_AUTH_METHOD: trust
-        ports:
-          - 5432:5432
-        # Needed because the postgres container does not provide a healthcheck
-        options:
-          --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up backend environment
-        uses: maykinmedia/setup-django-backend@v1.3
-        with:
-          python-version: '3.14'
-          setup-node: 'no'
-
-      - name: Run makemessages to check for missing translations
-        run: |
-          python src/manage.py makemessages --all
-          git diff --exit-code
-        env:
-          DJANGO_SETTINGS_MODULE: "opendms.conf.ci"
+      django-settings-module: "openvtb.conf.ci"
+      django-secret-key: dummy
