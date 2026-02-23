@@ -22,7 +22,7 @@ export function Login() {
   ];
 
   const handleSubmit = (_: FormEvent<HTMLFormElement>, data: LoginFormType) => {
-    submit(data as SubmitTarget, { method: "post" });
+    void submit(data as SubmitTarget, { method: "post" });
   };
 
   return (
