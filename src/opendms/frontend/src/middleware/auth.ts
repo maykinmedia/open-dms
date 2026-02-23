@@ -1,5 +1,6 @@
 import { type MiddlewareFunction, redirect } from "react-router";
 import { apiRequest } from "~/lib";
+import type { User } from "~/types";
 
 import { userContext } from "../context.ts";
 
@@ -13,7 +14,7 @@ export const authMiddleware: MiddlewareFunction<unknown> = async (
 ) => {
   const whoAmI = await apiRequest<{
     isAuthenticated: boolean;
-    user: object | null;
+    user: User | null;
   }>("/api/v1/accounts/whoami", "GET");
 
   if (!whoAmI.isAuthenticated) {

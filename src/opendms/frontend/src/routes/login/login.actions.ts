@@ -12,10 +12,6 @@ export async function loginAction({
   request,
 }: ActionFunctionArgs): Promise<Response> {
   const formData = await request.formData();
-  await apiRequest<{ user: unknown }>(
-    "/api/v1/accounts/login",
-    "POST",
-    formData,
-  );
+  await apiRequest("/api/v1/accounts/login", "POST", formData);
   return redirect("/");
 }
