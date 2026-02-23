@@ -91,6 +91,30 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
+  frontend_test:
+    name: Run the frontend test suite
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: src/opendms/frontend
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: 'src/opendms/frontend/.nvmrc'
+
+      - name: Build Javascript
+        run: |
+          npm ci
+          npm run build
+
+      - name: Run the frontend test suite
+        run: |
+          npx playwright install
+          npm run test
+
   # docs:
   #   name: Build and check documentation
   #   runs-on: ubuntu-latest
