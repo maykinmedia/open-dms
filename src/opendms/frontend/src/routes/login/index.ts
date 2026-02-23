@@ -1,2 +1,2 @@
 export * from "./login.actions";
-export * from "./login.component";
+export * from "./login.tsx";
