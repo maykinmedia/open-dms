@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://smith.info/","identificatie":"ffcba079-985e-4f74-a5e5-1e1396c11564","bronorganisatie":"Mitchell-Wright","creatiedatum":"2024-02-11","titel":"Car
-      church west move specific pattern.","auteur":"Sandra Johnson","taal":"mai","begin_registratie":"2026-02-19T13:44:05.665432","informatieobjecttype":"may","vertrouwelijkheidaanduiding":"somebody","status":"mind","formaat":"docx","bestandsnaam":"process.tiff","link":"http://cooper-evans.com/","beschrijving":"System
-      executive have face open throughout source nice.","ontvangstdatum":"2026-02-14","verzenddatum":"2026-02-13","verschijningsvorm":"conference"}'
+    body: '{"uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.garcia-mason.com/","identificatie":"eeb1e61c-cb6b-40c0-9a31-1c42c02461e4","bronorganisatie":"Hoover
+      Group","creatiedatum":"2024-02-11","titel":"Lead within husband cost light mind
+      standard.","auteur":"Gail Mejia","taal":"ro","begin_registratie":"2026-02-10T16:20:22.376070","informatieobjecttype":"around","vertrouwelijkheidaanduiding":"tree","status":"city","formaat":"gif","bestandsnaam":"break.flac","link":"http://www.burns.com/","beschrijving":"If
+      contain adult. Available learn know should although room.","ontvangstdatum":"2026-01-25","verzenddatum":"2026-02-11","verschijningsvorm":"successful"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -18,7 +19,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/6aac4fb2-d532-490b-bd6b-87b0257c0236?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+      string: '{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/6aac4fb2-d532-490b-bd6b-87b0257c0236
@@ -32,11 +33,9 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://mendoza.info/","identificatie":"83bcc424-4263-4844-889e-48b5ffec4056","bronorganisatie":"Walton,
-      Keller and Curtis","creatiedatum":"2022-12-10","titel":"Pay officer low easy
-      if.","auteur":"Dana Gomez","taal":"ms","begin_registratie":"2026-01-29T17:31:08.719503","informatieobjecttype":"defense","vertrouwelijkheidaanduiding":"answer","status":"president","formaat":"webm","bestandsnaam":"member.csv","link":"https://graves.com/","beschrijving":"Trip
-      suddenly truth attorney fly worry place. Film conference garden hotel. Especially
-      their available where.","ontvangstdatum":"2026-02-03","verzenddatum":"2026-02-01","verschijningsvorm":"inside"}'
+    body: '{"uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://wright-mccullough.biz/","identificatie":"abd5b434-9160-4302-8490-84c31bbaebd4","bronorganisatie":"Mckinney-Jones","creatiedatum":"2022-12-10","titel":"Theory
+      over walk anything hear and who describe.","auteur":"Jessica Knight","taal":"byn","begin_registratie":"2026-02-15T12:14:35.531213","informatieobjecttype":"recently","vertrouwelijkheidaanduiding":"understand","status":"child","formaat":"html","bestandsnaam":"purpose.flac","link":"http://www.salas.com/","beschrijving":"Might
+      test method perhaps. Few city few prove. Car card government poor four decision.","ontvangstdatum":"2026-01-30","verzenddatum":"2026-01-24","verschijningsvorm":"agent"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -52,7 +51,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/62fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+      string: '{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/62fceb92-98bd-475c-b184-49ee8a274787
@@ -66,9 +65,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"https://www.conley-stone.info/","identificatie":"6b37450e-aaab-495b-8f1a-20f96cc87b85","bronorganisatie":"Mills-Henry","creatiedatum":"2025-01-14","titel":"Peace
-      life forget Congress community rule think.","auteur":"Courtney Kelly","taal":"nds","begin_registratie":"2026-02-22T20:49:44.193372","informatieobjecttype":"I","vertrouwelijkheidaanduiding":"land","status":"list","formaat":"mp3","bestandsnaam":"easy.webm","link":"http://torres.com/","beschrijving":"Focus
-      station avoid.","ontvangstdatum":"2026-02-02","verzenddatum":"2026-02-05","verschijningsvorm":"may"}'
+    body: '{"uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"https://parker.com/","identificatie":"614459e9-01f7-47fc-9df3-9c8490fba460","bronorganisatie":"Aguirre
+      and Sons","creatiedatum":"2025-01-14","titel":"Reflect here build understand
+      in number ground.","auteur":"Dalton Young","taal":"yi","begin_registratie":"2026-02-09T23:15:56.604275","informatieobjecttype":"bad","vertrouwelijkheidaanduiding":"marriage","status":"despite","formaat":"mov","bestandsnaam":"compare.mp3","link":"https://kidd-ellis.net/","beschrijving":"Generation
+      general machine give seem sound. Fish will past issue choice.","ontvangstdatum":"2026-02-04","verzenddatum":"2026-02-20","verschijningsvorm":"six"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -84,7 +84,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/ef1dead2-e0f8-45be-acf7-3583adc14906?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+      string: '{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/ef1dead2-e0f8-45be-acf7-3583adc14906
@@ -98,7 +98,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":"2024-02-11","lte":null}}}]}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":"2024-02-11","lte":null}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -114,12 +114,13 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_score":0.0,"_source":{"begin_registratie":"2026-02-22T20:49:44.193372","beschrijving":"Focus
-        station avoid.","verschijningsvorm":"may","identificatie":"6b37450e-aaab-495b-8f1a-20f96cc87b85","bronorganisatie":"Mills-Henry","link":"http://torres.com/","uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"https://www.conley-stone.info/","taal":"nds","verzenddatum":"2026-02-05","auteur":"Courtney
-        Kelly","formaat":"mp3","titel":"Peace life forget Congress community rule
-        think.","vertrouwelijkheidaanduiding":"land","informatieobjecttype":"I","bestandsnaam":"easy.webm","ontvangstdatum":"2026-02-02","creatiedatum":"2025-01-14","status":"list"},"sort":[0.0,1736812800000]},{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"begin_registratie":"2026-02-19T13:44:05.665432","beschrijving":"System
-        executive have face open throughout source nice.","verschijningsvorm":"conference","identificatie":"ffcba079-985e-4f74-a5e5-1e1396c11564","bronorganisatie":"Mitchell-Wright","link":"http://cooper-evans.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://smith.info/","taal":"mai","verzenddatum":"2026-02-13","auteur":"Sandra
-        Johnson","formaat":"docx","titel":"Car church west move specific pattern.","vertrouwelijkheidaanduiding":"somebody","informatieobjecttype":"may","bestandsnaam":"process.tiff","ontvangstdatum":"2026-02-14","creatiedatum":"2024-02-11","status":"mind"},"sort":[0.0,1707609600000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_score":0.0,"_source":{"begin_registratie":"2026-02-09T23:15:56.604275","beschrijving":"Generation
+        general machine give seem sound. Fish will past issue choice.","verschijningsvorm":"six","identificatie":"614459e9-01f7-47fc-9df3-9c8490fba460","bronorganisatie":"Aguirre
+        and Sons","link":"https://kidd-ellis.net/","uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"https://parker.com/","taal":"yi","verzenddatum":"2026-02-20","auteur":"Dalton
+        Young","formaat":"mov","titel":"Reflect here build understand in number ground.","vertrouwelijkheidaanduiding":"marriage","informatieobjecttype":"bad","bestandsnaam":"compare.mp3","ontvangstdatum":"2026-02-04","creatiedatum":"2025-01-14","status":"despite"},"sort":[0.0,1736812800000]},{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"begin_registratie":"2026-02-10T16:20:22.376070","beschrijving":"If
+        contain adult. Available learn know should although room.","verschijningsvorm":"successful","identificatie":"eeb1e61c-cb6b-40c0-9a31-1c42c02461e4","bronorganisatie":"Hoover
+        Group","link":"http://www.burns.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.garcia-mason.com/","taal":"ro","verzenddatum":"2026-02-11","auteur":"Gail
+        Mejia","formaat":"gif","titel":"Lead within husband cost light mind standard.","vertrouwelijkheidaanduiding":"tree","informatieobjecttype":"around","bestandsnaam":"break.flac","ontvangstdatum":"2026-01-25","creatiedatum":"2024-02-11","status":"city"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -131,7 +132,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":null,"lte":"2022-12-10"}}}]}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":null,"lte":"2022-12-10"}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -147,11 +148,9 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"begin_registratie":"2026-01-29T17:31:08.719503","beschrijving":"Trip
-        suddenly truth attorney fly worry place. Film conference garden hotel. Especially
-        their available where.","verschijningsvorm":"inside","identificatie":"83bcc424-4263-4844-889e-48b5ffec4056","bronorganisatie":"Walton,
-        Keller and Curtis","link":"https://graves.com/","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://mendoza.info/","taal":"ms","verzenddatum":"2026-02-01","auteur":"Dana
-        Gomez","formaat":"webm","titel":"Pay officer low easy if.","vertrouwelijkheidaanduiding":"answer","informatieobjecttype":"defense","bestandsnaam":"member.csv","ontvangstdatum":"2026-02-03","creatiedatum":"2022-12-10","status":"president"},"sort":[0.0,1670630400000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"begin_registratie":"2026-02-15T12:14:35.531213","beschrijving":"Might
+        test method perhaps. Few city few prove. Car card government poor four decision.","verschijningsvorm":"agent","identificatie":"abd5b434-9160-4302-8490-84c31bbaebd4","bronorganisatie":"Mckinney-Jones","link":"http://www.salas.com/","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://wright-mccullough.biz/","taal":"byn","verzenddatum":"2026-01-24","auteur":"Jessica
+        Knight","formaat":"html","titel":"Theory over walk anything hear and who describe.","vertrouwelijkheidaanduiding":"understand","informatieobjecttype":"recently","bestandsnaam":"purpose.flac","ontvangstdatum":"2026-01-30","creatiedatum":"2022-12-10","status":"child"},"sort":[0.0,1670630400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -163,7 +162,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":"2024-01-01","lte":"2024-12-31"}}}]}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":"2024-01-01","lte":"2024-12-31"}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -179,9 +178,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"begin_registratie":"2026-02-19T13:44:05.665432","beschrijving":"System
-        executive have face open throughout source nice.","verschijningsvorm":"conference","identificatie":"ffcba079-985e-4f74-a5e5-1e1396c11564","bronorganisatie":"Mitchell-Wright","link":"http://cooper-evans.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://smith.info/","taal":"mai","verzenddatum":"2026-02-13","auteur":"Sandra
-        Johnson","formaat":"docx","titel":"Car church west move specific pattern.","vertrouwelijkheidaanduiding":"somebody","informatieobjecttype":"may","bestandsnaam":"process.tiff","ontvangstdatum":"2026-02-14","creatiedatum":"2024-02-11","status":"mind"},"sort":[0.0,1707609600000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"begin_registratie":"2026-02-10T16:20:22.376070","beschrijving":"If
+        contain adult. Available learn know should although room.","verschijningsvorm":"successful","identificatie":"eeb1e61c-cb6b-40c0-9a31-1c42c02461e4","bronorganisatie":"Hoover
+        Group","link":"http://www.burns.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.garcia-mason.com/","taal":"ro","verzenddatum":"2026-02-11","auteur":"Gail
+        Mejia","formaat":"gif","titel":"Lead within husband cost light mind standard.","vertrouwelijkheidaanduiding":"tree","informatieobjecttype":"around","bestandsnaam":"break.flac","ontvangstdatum":"2026-01-25","creatiedatum":"2024-02-11","status":"city"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

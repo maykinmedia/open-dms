@@ -1,3 +1,4 @@
+from datetime import UTC, datetime
 from unittest.mock import patch
 from uuid import uuid4
 
@@ -6,36 +7,26 @@ from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
 
 from rest_framework import status
-from rest_framework.test import APITestCase
 
-from opendms.api.tests.mixin import APIKeyUnAuthorizedMixin, TokenAuthMixin
 from opendms.search_index.client import get_client
+from opendms.search_index.tests.base import ElasticSearchAPITestCase
 from opendms.utils.tests.vcr import VCRMixin
 
 from ..index import Document
 from .factories import IndexDocumentFactory
 
 
-class DocumentAuthorizationApiTest(APIKeyUnAuthorizedMixin, APITestCase):
-    def test_api_with_wrong_credentials_blocks_access(self):
-        with self.subTest("create endpoint"):
-            url = reverse("api:document-list")
-            self.assertWrongApiKeyProhibitsPostEndpointAccess(url)
-
-        with self.subTest("delete endpoint"):
-            detail_url = reverse("api:document-detail", kwargs={"uuid": uuid4()})
-            self.assertWrongApiKeyProhibitsDeleteEndpointAccess(detail_url)
-
-
-class DocumentAPITests(TokenAuthMixin, APITestCase):
+class DocumentAPITests(ElasticSearchAPITestCase):
     url = reverse_lazy("api:document-list")
 
     @patch("opendms.search_index.api.viewsets.index_document.delay")
     def test_document_api_happy_flow(self, patched_index_document):
         data = IndexDocumentFactory.build(
             uuid="0c5730c7-17ed-42a7-bc3b-5ee527ef3326",
-            download_url="https://www.example.com/downloads/1",
-            file_size=3124,
+            titel="test document",
+            inhoud="https://www.example.com/downloads/1",
+            begin_registratie=datetime(2025, 2, 4, 0, 0, 0, tzinfo=UTC),
+            bestandsomvang=3124,
         )
 
         response = self.client.post(self.url, data)
@@ -46,14 +37,12 @@ class DocumentAPITests(TokenAuthMixin, APITestCase):
         patched_index_document.assert_called_once_with(**snake_case_data)
 
     def test_document_api_with_download_url_and_without_filesize_result_in_error(self):
-        data = IndexDocumentFactory.build(
-            download_url="https://www.example.com/downloads/1"
-        )
+        data = IndexDocumentFactory.build(inhoud="https://www.example.com/downloads/1")
         response = self.client.post(self.url, data)
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(
-            response.json()["file_size"][0],
-            _("Field is required when using `downloadUrl`."),
+            response.json()["bestandsomvang"][0],
+            _("Field is required when using `inhoud`."),
         )
 
     @patch("opendms.search_index.api.viewsets.index_document.delay")
@@ -65,7 +54,7 @@ class DocumentAPITests(TokenAuthMixin, APITestCase):
         patched_index_document.assert_not_called()
 
 
-class RemoveDocumentFromIndexAPITests(TokenAuthMixin, APITestCase):
+class RemoveDocumentFromIndexAPITests(ElasticSearchAPITestCase):
     @patch("opendms.search_index.api.viewsets.remove_document_from_index.delay")
     def test_remove_document_from_index(self, patched_remove_document):
         patched_remove_document.return_value.id = "my-task-id"
@@ -78,14 +67,14 @@ class RemoveDocumentFromIndexAPITests(TokenAuthMixin, APITestCase):
         patched_remove_document.assert_called_once_with(uuid=document_id)
 
 
-class DocumentApiE2ETest(TokenAuthMixin, VCRMixin, APITestCase):
+class DocumentApiE2ETest(VCRMixin, ElasticSearchAPITestCase):
     @override_settings(CELERY_TASK_ALWAYS_EAGER=True)
     def test_document_creation_happy_flow(self):
         url = reverse_lazy("api:document-list")
         data = IndexDocumentFactory.build(
             uuid="0c5730c7-17ed-42a7-bc3b-5ee527ef3326",
-            download_url="https://www.example.com/downloads/1",
-            file_size=3124,
+            inhoud="https://www.example.com/downloads/1",
+            bestandsomvang=3124,
         )
 
         response = self.client.post(url, data)

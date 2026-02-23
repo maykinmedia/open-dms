@@ -169,6 +169,9 @@ django==5.2.11
     #   django-two-factor-auth
     #   django-upgrade-check
     #   djangorestframework
+    #   djangorestframework-gis
+    #   djangorestframework-inclusions
+    #   drf-nested-routers
     #   drf-polymorphic
     #   drf-spectacular
     #   drf-spectacular-sidecar
@@ -329,6 +332,10 @@ djangorestframework==3.16.1
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
+    #   commonground-api-common
+    #   djangorestframework-gis
+    #   djangorestframework-inclusions
+    #   drf-nested-routers
     #   drf-polymorphic
     #   drf-spectacular
     #   notifications-api-common
@@ -357,6 +364,15 @@ docutils==0.22.4
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   django-setup-configuration
+    #   recommonmark
+    #   sphinx
+    #   sphinx-rtd-theme
+    #   sphinx-tabs
+drf-nested-routers==0.95.0
+    # via
+    #   -c requirements/base.txt
+    #   -r requirements/base.txt
+    #   commonground-api-common
 drf-polymorphic==2.1.1
     # via
     #   -c requirements/base.txt

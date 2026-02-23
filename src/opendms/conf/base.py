@@ -12,7 +12,7 @@ from open_api_framework.conf.base import *  # noqa
 from open_api_framework.conf.utils import config  # noqa
 from self_certifi import EXTRA_CERTS_ENVVAR as _EXTRA_CERTS_ENVVAR
 
-from .api import *  # noqa
+from .api import *  # noqa  # noqa
 from .utils import load_indexable_file_types
 
 # APPLICATIONS enabled for this project
@@ -28,6 +28,7 @@ INSTALLED_APPS = INSTALLED_APPS + [
     # Project applications.
     "opendms.accounts",
     "opendms.api",
+    "opendms.search_index",
     "opendms.utils",
     "opendms.frontend",
 ]

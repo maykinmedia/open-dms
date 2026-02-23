@@ -104,6 +104,7 @@ linkcheck_ignore = [
     r"http://localhost:\d+/",
     r"https://.*sentry.*",
     r"https://example.com*",
+    r"https?://.*\.example.com*",
     r"https://portal.azure.com*",
     r"https://.*kvk\.nl*",
     r"https://gdpr.eu*",

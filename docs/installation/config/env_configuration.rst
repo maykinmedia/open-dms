@@ -85,6 +85,24 @@ Content Security Policy
 * ``CSP_REPORT_PERCENTAGE``: Fraction (between 0 and 1) of requests to include report-uri directive. Defaults to: ``0.0``.
 
 
+Elastic Search
+--------------
+
+* ``ELASTICSEARCH_HOST``: Host where the ES cluster is deployed, e.g. https://es.example.com:9200. Defaults to: ``(empty string)``.
+* ``ELASTICSEARCH_USER``: Username for ES authentication. Defaults to: ``(empty string)``.
+* ``ELASTICSEARCH_PASSWORD``: Password for ES authentication. Defaults to: ``(empty string)``.
+* ``ELASTICSEARCH_TIMEOUT``: HTTP timeout for ES API interactions. Defaults to: ``60``.
+* ``ELASTICSEARCH_CA_CERTS``: Path to CA bundle (in PEM) format if self-signed certificates or a private CA are used to connect to the ES cluster. Alternatively, if EXTRA_VERIFY_CERTS is defined, it will be used. Defaults to: ``(empty string)``.
+* ``ELASTICSEARCH_REFRESH``: Refresh control for ES index, update, delete and bulk APIs. In production, you should leave this to the default of 'false'. Defaults to: ``False``.
+* ``ELASTICSEARCH_INDEXED_CHARS``: Attachment processor number of chars being used for extraction to prevent huge fields.
+
+  - Use `-1` for no limit.
+  - default and max `100000`.
+
+. Defaults to: ``100000``.
+* ``ELASTICSEARCH_MAX_INDEX_FILE_SIZE``: The maximum file size (in bytes) that leads to full text indexing of the file content. For files larger than this limit, only the metadata is indexed. Keep in mind that Elastic Search must be configured appropriately to allow sufficiently large HTTP request body sizes. Defaults to: ``74436090.22556391``.
+
+
 Optional
 --------
 

@@ -1,10 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://sutton.info/","identificatie":"427fa8f9-1972-4b5f-aabd-97a4918c3766","bronorganisatie":"Johnson
-      PLC","creatiedatum":"2026-02-10","titel":"Could should stay off leg you nothing
-      or.","auteur":"Darrell Ward","taal":"sq","begin_registratie":"2026-01-28T16:41:12.645587","informatieobjecttype":"local","vertrouwelijkheidaanduiding":"relationship","status":"street","formaat":"docx","bestandsnaam":"area.jpeg","link":"http://www.turner-harris.com/","beschrijving":"Year
-      often mention family form cup. Soon life painting run information rest. Leave
-      lead personal woman important subject become.","ontvangstdatum":"2026-02-21","verzenddatum":"2026-02-02","verschijningsvorm":"each"}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://jones.info/","identificatie":"43067d4c-ac80-4049-b1cd-1e2303aff5d0","bronorganisatie":"Hall
+      Ltd","creatiedatum":"2026-01-29","titel":"Throughout even ever minute.","auteur":"Donna
+      Griffin","taal":"apn","begin_registratie":"2026-02-19T20:01:02.481263","informatieobjecttype":"notice","vertrouwelijkheidaanduiding":"traditional","status":"budget","formaat":"wav","bestandsnaam":"population.flac","link":"https://www.daniels-jackson.org/","beschrijving":"Campaign
+      with painting now agree walk. Animal you great watch parent to.","ontvangstdatum":"2026-02-15","verzenddatum":"2026-02-10","verschijningsvorm":"make"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -34,10 +33,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.golden-bell.com/","identificatie":"9bca47ca-9fb9-4adc-9ecd-78a98b868b66","bronorganisatie":"Garcia-Ferguson","creatiedatum":"2026-01-31","titel":"Soldier
-      compare western suffer send health.","auteur":"Tyler Webb","taal":"be","begin_registratie":"2026-01-26T17:22:24.612918","informatieobjecttype":"space","vertrouwelijkheidaanduiding":"TV","status":"really","formaat":"gif","bestandsnaam":"better.jpg","link":"https://hamilton.org/","beschrijving":"Scene
-      watch rate east tax power. Crime community realize military girl watch wait.
-      Agree rise woman cost modern threat social point.","ontvangstdatum":"2026-02-06","verzenddatum":"2026-02-14","verschijningsvorm":"natural"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://chapman-finley.com/","identificatie":"ba2a17af-fa15-4900-b871-145d480723fe","bronorganisatie":"Mcfarland,
+      Green and Cunningham","creatiedatum":"2026-01-26","titel":"Apply save hospital
+      expert reach story.","auteur":"Victor Webster","taal":"ps","begin_registratie":"2026-02-17T16:37:46.929453","informatieobjecttype":"money","vertrouwelijkheidaanduiding":"skin","status":"whose","formaat":"doc","bestandsnaam":"of.png","link":"http://flores-price.info/","beschrijving":"Create
+      explain music. Group lose man walk without local.","ontvangstdatum":"2026-02-20","verzenddatum":"2026-02-03","verschijningsvorm":"clearly"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -67,7 +66,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":1,"size":1}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":1,"size":1}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -83,10 +82,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":0.26546344,"_source":{"begin_registratie":"2026-01-26T17:22:24.612918","beschrijving":"Scene
-        watch rate east tax power. Crime community realize military girl watch wait.
-        Agree rise woman cost modern threat social point.","verschijningsvorm":"natural","identificatie":"9bca47ca-9fb9-4adc-9ecd-78a98b868b66","bronorganisatie":"Garcia-Ferguson","link":"https://hamilton.org/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.golden-bell.com/","taal":"be","verzenddatum":"2026-02-14","auteur":"Tyler
-        Webb","formaat":"gif","titel":"Soldier compare western suffer send health.","vertrouwelijkheidaanduiding":"TV","informatieobjecttype":"space","bestandsnaam":"better.jpg","ontvangstdatum":"2026-02-06","creatiedatum":"2026-01-31","status":"really"},"sort":[0.26546344,1769817600000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":1.0,"_source":{"begin_registratie":"2026-02-17T16:37:46.929453","beschrijving":"Create
+        explain music. Group lose man walk without local.","verschijningsvorm":"clearly","identificatie":"ba2a17af-fa15-4900-b871-145d480723fe","bronorganisatie":"Mcfarland,
+        Green and Cunningham","link":"http://flores-price.info/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://chapman-finley.com/","taal":"ps","verzenddatum":"2026-02-03","auteur":"Victor
+        Webster","formaat":"doc","titel":"Apply save hospital expert reach story.","vertrouwelijkheidaanduiding":"skin","informatieobjecttype":"money","bestandsnaam":"of.png","ontvangstdatum":"2026-02-20","creatiedatum":"2026-01-26","status":"whose"},"sort":[1.0,1769385600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

@@ -1,10 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://adkins.info/","identificatie":"document1","bronorganisatie":"Reyes,
-      Burton and Thompson","creatiedatum":"2026-01-26","titel":"Unique Document","auteur":"Corey
-      Roy","taal":"ss","begin_registratie":"2026-01-28T20:15:55.367503","informatieobjecttype":"show","vertrouwelijkheidaanduiding":"trip","status":"national","formaat":"csv","bestandsnaam":"will.mp4","link":"https://www.hamilton-clark.com/","beschrijving":"Challenge
-      may summer name out ability. Cost run effort near debate near newspaper itself.
-      Both remember mouth note production rather.","ontvangstdatum":"2026-02-07","verzenddatum":"2026-02-04","verschijningsvorm":"night"}'
+    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://white.com/","identificatie":"document1","bronorganisatie":"Chandler-Sanchez","creatiedatum":"2026-01-26","titel":"Unique
+      Document","auteur":"Robert Santos","taal":"mi","begin_registratie":"2026-02-11T05:32:47.147943","informatieobjecttype":"information","vertrouwelijkheidaanduiding":"physical","status":"yes","formaat":"wav","bestandsnaam":"force.png","link":"http://castillo.com/","beschrijving":"Remain
+      safe poor each meeting. Senior future but figure development whole case. Resource
+      American day long case character fine.","ontvangstdatum":"2026-02-05","verzenddatum":"2026-01-29","verschijningsvorm":"may"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -34,7 +33,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document1","default_operator":"AND","fields":["identificatie^10","titel^5","bronorganisatie^2","bestandsnaam^1.2","beschrijving^1","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document1","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -50,11 +49,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":5.2888994,"_source":{"begin_registratie":"2026-01-28T20:15:55.367503","beschrijving":"Challenge
-        may summer name out ability. Cost run effort near debate near newspaper itself.
-        Both remember mouth note production rather.","verschijningsvorm":"night","identificatie":"document1","bronorganisatie":"Reyes,
-        Burton and Thompson","link":"https://www.hamilton-clark.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://adkins.info/","taal":"ss","verzenddatum":"2026-02-04","auteur":"Corey
-        Roy","formaat":"csv","titel":"Unique Document","vertrouwelijkheidaanduiding":"trip","informatieobjecttype":"show","bestandsnaam":"will.mp4","ontvangstdatum":"2026-02-07","creatiedatum":"2026-01-26","status":"national"},"sort":[5.2888994,1769385600000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":4.2217984,"_source":{"begin_registratie":"2026-02-11T05:32:47.147943","beschrijving":"Remain
+        safe poor each meeting. Senior future but figure development whole case. Resource
+        American day long case character fine.","verschijningsvorm":"may","identificatie":"document1","bronorganisatie":"Chandler-Sanchez","link":"http://castillo.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://white.com/","taal":"mi","verzenddatum":"2026-01-29","auteur":"Robert
+        Santos","formaat":"wav","titel":"Unique Document","vertrouwelijkheidaanduiding":"physical","informatieobjecttype":"information","bestandsnaam":"force.png","ontvangstdatum":"2026-02-05","creatiedatum":"2026-01-26","status":"yes"},"sort":[4.2217984,1769385600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

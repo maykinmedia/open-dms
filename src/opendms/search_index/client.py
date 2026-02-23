@@ -108,11 +108,10 @@ def get_search_results(
             "simple_query_string",
             query=clean_str_query(query),
             fields=[
-                "identificatie^10",
-                "titel^5",
-                "bronorganisatie^2",
-                "bestandsnaam^1.2",
-                "beschrijving^1",
+                "identificatie^3",
+                "titel^2",
+                "bestandsnaam^1.5",
+                "beschrijving^1.2",
                 "document_data.attachment.content",
             ],
             flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
@@ -147,8 +146,6 @@ def get_search_results(
         ],
         score_mode="multiply",
     )
-
-    search.aggs.bucket("ResultType", "terms", field="_index")
 
     # add ordering configuration. note that sorting on score defaults to DESC, see:
     # https://www.elastic.co/guide/en/elasticsearch/reference/current/sort-search-results.html#_sort_order

@@ -1,0 +1,65 @@
+interactions:
+- request:
+    body: '{"uuid":"0c5730c7-17ed-42a7-bc3b-5ee527ef3326","url":"http://www.wiggins.com/","identificatie":"51a44238-5cb0-4e29-ac20-c96a01e6234a","bronorganisatie":"Webb,
+      Parks and Peterson","creatiedatum":"2026-01-31","titel":"However painting should
+      end significant figure human.","auteur":"Kevin Thompson","taal":"raj","begin_registratie":"2026-02-19T02:17:21.076272+00:00","informatieobjecttype":"condition","vertrouwelijkheidaanduiding":"executive","status":"image","formaat":"jpeg","bestandsnaam":"left.jpg","link":"http://frey.biz/","beschrijving":"Simply
+      both husband vote miss save put. Ability chance option tough receive they.","ontvangstdatum":"2026-01-24","verzenddatum":"2026-02-17","verschijningsvorm":"already"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/0c5730c7-17ed-42a7-bc3b-5ee527ef3326?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"0c5730c7-17ed-42a7-bc3b-5ee527ef3326","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/0c5730c7-17ed-42a7-bc3b-5ee527ef3326
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/0c5730c7-17ed-42a7-bc3b-5ee527ef3326
+  response:
+    body:
+      string: '{"_index":"document","_id":"0c5730c7-17ed-42a7-bc3b-5ee527ef3326","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-02-19T02:17:21.076272+00:00","beschrijving":"Simply
+        both husband vote miss save put. Ability chance option tough receive they.","verschijningsvorm":"already","identificatie":"51a44238-5cb0-4e29-ac20-c96a01e6234a","bronorganisatie":"Webb,
+        Parks and Peterson","link":"http://frey.biz/","uuid":"0c5730c7-17ed-42a7-bc3b-5ee527ef3326","url":"http://www.wiggins.com/","taal":"raj","verzenddatum":"2026-02-17","auteur":"Kevin
+        Thompson","formaat":"jpeg","titel":"However painting should end significant
+        figure human.","vertrouwelijkheidaanduiding":"executive","informatieobjecttype":"condition","bestandsnaam":"left.jpg","ontvangstdatum":"2026-01-24","creatiedatum":"2026-01-31","status":"image"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '848'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
