@@ -10,7 +10,7 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from ...utils.serializers import NonFieldErrorsSerializer
+from ...api.serializers import ValidationErrorsSerializer
 from .authentication import AnonCSRFSessionAuthentication
 from .serializers import AuthSerializer, WhoAmISerializer
 
@@ -29,7 +29,7 @@ if TYPE_CHECKING:
     responses={
         200: WhoAmISerializer,
         400: OpenApiResponse(
-            response=NonFieldErrorsSerializer, description="Validation error"
+            response=ValidationErrorsSerializer, description="Validation error"
         ),
     },
 )
