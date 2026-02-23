@@ -1,6 +1,6 @@
 from django.core.management import BaseCommand, CommandError
 
-from elastic_transport import ConnectionError
+from elastic_transport import ConnectionError as ElasticConnectionError
 from elasticsearch import ApiError
 
 from ...client import get_client
@@ -47,7 +47,7 @@ class Command(BaseCommand):
                 try:
                     # single node clusters are always yellow
                     health = client.cluster.health(wait_for_status="yellow")
-                except (ConnectionError, ApiError) as exc:
+                except (ElasticConnectionError, ApiError) as exc:
                     raise CommandError("Could not connect to cluster") from exc
                 else:
                     status = health["status"]

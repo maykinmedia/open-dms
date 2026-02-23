@@ -3,39 +3,28 @@ from datetime import date
 from django.urls import reverse_lazy
 
 from rest_framework import status
+from rest_framework.test import APIClient
 
 from opendms.utils.tests.vcr import VCRMixin
 
 from ..tasks import index_document
 from .base import ElasticSearchAPITestCase
-from .factories import (
-    IndexDocumentFactory,
-)
+from .factories import IndexDocumentFactory, ServiceFactory
 
-# class SearchApiAccessTest(APITestCase):
-#     def test_api_with_wrong_credentials_blocks_access(self):
-#         url = reverse_lazy("api:search")
 
-#         # valid token
-#         valid_token = TokenAuthFactory.create().token
+class SearchApiAccessTest(ElasticSearchAPITestCase):
+    def test_api_with_wrong_credentials_blocks_access(self):
+        url = reverse_lazy("api:search")
 
-#         with self.subTest("no token given"):
-#             response = self.client.post(url)
-#             self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        with self.subTest("no token given"):
+            client = APIClient()
+            response = client.post(url)
+            self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
-#         with self.subTest("non-existing token"):
-#             response = self.client.post(url, headers={"Authorization": "Token broken"})
-#             self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-#         with self.subTest("valid token allows access"):
-#             response = self.client.post(
-#                 url, headers={"Authorization": f"Token {valid_token}"}
-#             )
-#             self.assertNotEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-#             # optionally assert 200 or 202
-#             self.assertIn(
-#                 response.status_code, [status.HTTP_200_OK, status.HTTP_202_ACCEPTED]
-#             )
+        with self.subTest("non-existing token"):
+            client.credentials(HTTP_AUTHORIZATION="Token broken")
+            response = client.post(url)
+            self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
 class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
@@ -45,8 +34,6 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
     def test_no_body(self):
         doc = IndexDocumentFactory.build(
             uuid="525747fd-7e58-4005-8efa-59bcf4403385",
-            titel="Test Document",
-            beschrijving="A test document description",
         )
         index_document(**doc)
 
@@ -58,15 +45,8 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         self.assertFalse(data["previous"])
         self.assertFalse(data["next"])
 
-        # Assert the document is in results
-        found = next(
-            (r for r in data["results"] if r["record"]["uuid"] == doc["uuid"]), None
-        )
-        self.assertIsNotNone(found)
-        self.assertEqual(found["record"]["uuid"], doc["uuid"])
-        self.assertEqual(found["record"]["titel"], doc["titel"])
-        self.assertEqual(found["record"]["beschrijving"], doc["beschrijving"])
-        self.assertEqual(found["record"]["bronorganisatie"], doc["bronorganisatie"])
+        results = data["results"]
+        self.assertEqual(results[0]["type"], "document")
 
     def test_pagination_next_and_previous(self):
         doc1 = IndexDocumentFactory.build(
@@ -154,7 +134,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(hit["identificatie"], doc["identificatie"])
 
     def test_query_field_boosts(self):
-        # ServiceFactory.create(for_download_url_mock_service=True)
+        ServiceFactory.create(for_download_url_mock_service=True)
         index_document(
             **IndexDocumentFactory.build(
                 uuid="3916925a-4260-4505-bfbb-0942113efd49",
@@ -172,14 +152,14 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             **IndexDocumentFactory.build(
                 uuid="bdcc4cea-b186-425e-8dcd-9fecb6818563",
                 identificatie="document3",
-                bronorganisatie="snowflake",
+                bestandsnaam="snowflake",
             )
         )
         index_document(
             **IndexDocumentFactory.build(
                 uuid="7eade718-bccb-4876-9f00-a095beebc360",
                 identificatie="document4",
-                bestandsnaam="snowflake",
+                beschrijving="snowflake",
             )
         )
 

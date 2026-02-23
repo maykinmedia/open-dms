@@ -1,9 +1,10 @@
 interactions:
 - request:
-    body: '{"uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://goodwin.com/","identificatie":"0d51b08f-b9d8-43a7-87b6-50d274bc0032","bronorganisatie":"May
-      Inc","creatiedatum":"2026-01-02","titel":"Town should better organization reach
-      today.","auteur":"Marcus Woods","taal":"lo","begin_registratie":"2026-02-08T10:24:18.894689","informatieobjecttype":"south","vertrouwelijkheidaanduiding":"report","status":"better","formaat":"avi","bestandsnaam":"you.wav","link":"https://obrien.com/","beschrijving":"Similar
-      hour price. Employee large onto. Score mouth economic.","ontvangstdatum":"2026-01-29","verzenddatum":"2026-02-03","verschijningsvorm":"anything"}'
+    body: '{"uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://www.armstrong.com/","identificatie":"7dfa72c6-ae1c-4a1f-bbbd-6ee4d802ee8d","bronorganisatie":"Green
+      Ltd","creatiedatum":"2026-01-02","titel":"Bed walk common strategy.","auteur":"Gabriel
+      Rose","taal":"ti","begin_registratie":"2026-02-08T14:56:59.860843","informatieobjecttype":"agency","vertrouwelijkheidaanduiding":"draw","status":"possible","formaat":"avi","bestandsnaam":"begin.bmp","link":"https://www.lang-miller.com/","beschrijving":"Surface
+      one himself. Fast travel team difference rich certainly land. Get loss many
+      daughter.","ontvangstdatum":"2026-01-29","verzenddatum":"2026-02-03","verschijningsvorm":"air"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -19,7 +20,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/3b3f4514-7d8b-4e31-83ca-fa9376ff6522?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":30,"_primary_term":1}'
+      string: '{"_index":"document","_id":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":34,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/3b3f4514-7d8b-4e31-83ca-fa9376ff6522
@@ -33,10 +34,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"http://diaz.biz/","identificatie":"b992cb80-df01-4041-b818-93b50327ec15","bronorganisatie":"Bates,
-      Carlson and Carey","creatiedatum":"2026-01-03","titel":"Strong body order car.","auteur":"William
-      Brown","taal":"brx","begin_registratie":"2026-02-01T19:15:32.999938","informatieobjecttype":"make","vertrouwelijkheidaanduiding":"industry","status":"fire","formaat":"flac","bestandsnaam":"white.docx","link":"http://alvarez-fletcher.com/","beschrijving":"Medical
-      how difficult the. Inside free save for gas ready standard mind.","ontvangstdatum":"2026-02-18","verzenddatum":"2026-02-11","verschijningsvorm":"audience"}'
+    body: '{"uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"http://www.bailey.org/","identificatie":"54296927-93e5-46a2-bb24-9c50390d14c9","bronorganisatie":"Parker-Bauer","creatiedatum":"2026-01-03","titel":"Eye
+      dog before control its run police other.","auteur":"Kelsey Elliott","taal":"lo","begin_registratie":"2026-02-04T15:13:27.112344","informatieobjecttype":"music","vertrouwelijkheidaanduiding":"if","status":"look","formaat":"gif","bestandsnaam":"no.wav","link":"http://ford.info/","beschrijving":"System
+      over world family feeling concern start. Direction audience financial television.
+      Compare middle perhaps together radio maybe analysis.","ontvangstdatum":"2026-02-10","verzenddatum":"2026-02-02","verschijningsvorm":"affect"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -52,7 +53,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/4b3f4514-7d8b-4e31-83ca-fa9376ff6523?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":31,"_primary_term":1}'
+      string: '{"_index":"document","_id":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":35,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/4b3f4514-7d8b-4e31-83ca-fa9376ff6523
@@ -66,7 +67,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":[{"creatiedatum":{"order":"desc"}},"_score"],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"sort":[{"creatiedatum":{"order":"desc"}},"_score"],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -82,13 +83,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","_score":0.51528764,"_source":{"begin_registratie":"2026-02-01T19:15:32.999938","beschrijving":"Medical
-        how difficult the. Inside free save for gas ready standard mind.","verschijningsvorm":"audience","identificatie":"b992cb80-df01-4041-b818-93b50327ec15","bronorganisatie":"Bates,
-        Carlson and Carey","link":"http://alvarez-fletcher.com/","uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"http://diaz.biz/","taal":"brx","verzenddatum":"2026-02-11","auteur":"William
-        Brown","formaat":"flac","titel":"Strong body order car.","vertrouwelijkheidaanduiding":"industry","informatieobjecttype":"make","bestandsnaam":"white.docx","ontvangstdatum":"2026-02-18","creatiedatum":"2026-01-03","status":"fire"},"sort":[1767398400000,0.51528764]},{"_index":"document","_id":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","_score":0.81946,"_source":{"begin_registratie":"2026-02-08T10:24:18.894689","beschrijving":"Similar
-        hour price. Employee large onto. Score mouth economic.","verschijningsvorm":"anything","identificatie":"0d51b08f-b9d8-43a7-87b6-50d274bc0032","bronorganisatie":"May
-        Inc","link":"https://obrien.com/","uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://goodwin.com/","taal":"lo","verzenddatum":"2026-02-03","auteur":"Marcus
-        Woods","formaat":"avi","titel":"Town should better organization reach today.","vertrouwelijkheidaanduiding":"report","informatieobjecttype":"south","bestandsnaam":"you.wav","ontvangstdatum":"2026-01-29","creatiedatum":"2026-01-02","status":"better"},"sort":[1767312000000,0.81946]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":2}]}}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","_score":0.6410186,"_source":{"begin_registratie":"2026-02-04T15:13:27.112344","beschrijving":"System
+        over world family feeling concern start. Direction audience financial television.
+        Compare middle perhaps together radio maybe analysis.","verschijningsvorm":"affect","identificatie":"54296927-93e5-46a2-bb24-9c50390d14c9","bronorganisatie":"Parker-Bauer","link":"http://ford.info/","uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"http://www.bailey.org/","taal":"lo","verzenddatum":"2026-02-02","auteur":"Kelsey
+        Elliott","formaat":"gif","titel":"Eye dog before control its run police other.","vertrouwelijkheidaanduiding":"if","informatieobjecttype":"music","bestandsnaam":"no.wav","ontvangstdatum":"2026-02-10","creatiedatum":"2026-01-03","status":"look"},"sort":[1767398400000,0.6410186]},{"_index":"document","_id":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","_score":0.8200021,"_source":{"begin_registratie":"2026-02-08T14:56:59.860843","beschrijving":"Surface
+        one himself. Fast travel team difference rich certainly land. Get loss many
+        daughter.","verschijningsvorm":"air","identificatie":"7dfa72c6-ae1c-4a1f-bbbd-6ee4d802ee8d","bronorganisatie":"Green
+        Ltd","link":"https://www.lang-miller.com/","uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://www.armstrong.com/","taal":"ti","verzenddatum":"2026-02-03","auteur":"Gabriel
+        Rose","formaat":"avi","titel":"Bed walk common strategy.","vertrouwelijkheidaanduiding":"draw","informatieobjecttype":"agency","bestandsnaam":"begin.bmp","ontvangstdatum":"2026-01-29","creatiedatum":"2026-01-02","status":"possible"},"sort":[1767312000000,0.8200021]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

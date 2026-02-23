@@ -18,7 +18,7 @@ class SearchSerializer(serializers.Serializer):
             "- `identificatie`\n"
             "- `titel`\n"
             "- `bronorganisatie`\n"
-            "- `bestandsnaam`\n"
+            "- `beschrijving`\n"
             "- `document_data.attachment.content`\n\n"
             "You can use double quotes for exact matches and `AND`/`OR` syntax for complex queries."
         ),

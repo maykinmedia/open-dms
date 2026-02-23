@@ -1,8 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://clark.info/","identificatie":"6db5dc64-801e-4a07-8d0b-6601150a1000","bronorganisatie":"Bryan-Todd","creatiedatum":"2026-02-01","titel":"Test
-      Document","auteur":"Joshua Pierce","taal":"nds","begin_registratie":"2026-02-04T21:39:26.123762","informatieobjecttype":"interest","vertrouwelijkheidaanduiding":"order","status":"in","formaat":"mov","bestandsnaam":"let.pages","link":"http://ruiz.net/","beschrijving":"A
-      test document description","ontvangstdatum":"2026-02-10","verzenddatum":"2026-02-09","verschijningsvorm":"share"}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://townsend.biz/","identificatie":"dbfa9db3-0479-4b6d-b292-9ba79abaa7aa","bronorganisatie":"Lewis
+      Group","creatiedatum":"2026-02-06","titel":"Test Document","auteur":"Michael
+      Rice","taal":"tn","begin_registratie":"2026-01-29T21:10:31.581809","informatieobjecttype":"join","vertrouwelijkheidaanduiding":"audience","status":"clearly","formaat":"html","bestandsnaam":"exist.webm","link":"https://bradford.com/","beschrijving":"A
+      test document description","ontvangstdatum":"2026-02-19","verzenddatum":"2026-02-20","verschijningsvorm":"foreign"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -32,7 +33,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"aggs":{"ResultType":{"terms":{"field":"_index"}}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"begin_registratie":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -48,9 +49,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.6620462,"_source":{"begin_registratie":"2026-02-04T21:39:26.123762","beschrijving":"A
-        test document description","verschijningsvorm":"share","identificatie":"6db5dc64-801e-4a07-8d0b-6601150a1000","bronorganisatie":"Bryan-Todd","link":"http://ruiz.net/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://clark.info/","taal":"nds","verzenddatum":"2026-02-09","auteur":"Joshua
-        Pierce","formaat":"mov","titel":"Test Document","vertrouwelijkheidaanduiding":"order","informatieobjecttype":"interest","bestandsnaam":"let.pages","ontvangstdatum":"2026-02-10","creatiedatum":"2026-02-01","status":"in"},"sort":[0.6620462,1769904000000]}]},"aggregations":{"ResultType":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[{"key":"document","doc_count":1}]}}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.37817475,"_source":{"begin_registratie":"2026-01-29T21:10:31.581809","beschrijving":"A
+        test document description","verschijningsvorm":"foreign","identificatie":"dbfa9db3-0479-4b6d-b292-9ba79abaa7aa","bronorganisatie":"Lewis
+        Group","link":"https://bradford.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://townsend.biz/","taal":"tn","verzenddatum":"2026-02-20","auteur":"Michael
+        Rice","formaat":"html","titel":"Test Document","vertrouwelijkheidaanduiding":"audience","informatieobjecttype":"join","bestandsnaam":"exist.webm","ontvangstdatum":"2026-02-19","creatiedatum":"2026-02-06","status":"clearly"},"sort":[0.37817475,1770336000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
