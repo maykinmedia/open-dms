@@ -8,6 +8,11 @@ import { type SubmitTarget, useSubmit } from "react-router";
 
 type LoginFormType = TypedSerializedFormData<"username" | "password">;
 
+const LOGIN_FORM_FIELDS: FormField[] = [
+  { name: "username", label: "Gebruikersnaam", type: "text" },
+  { name: "password", label: "Wachtwoord", type: "password" },
+];
+
 /**
  * Renders the LoginComponent component, which displays a login form for user authentication.
  *
@@ -16,18 +21,17 @@ type LoginFormType = TypedSerializedFormData<"username" | "password">;
 export function Login() {
   const submit = useSubmit();
 
-  const fields: FormField[] = [
-    { name: "username", label: "Gebruikersnaam", type: "text" },
-    { name: "password", label: "Wachtwoord", type: "password" },
-  ];
-
   const handleSubmit = (_: FormEvent<HTMLFormElement>, data: LoginFormType) => {
     void submit(data as SubmitTarget, { method: "post" });
   };
 
   return (
     <LoginTemplate<LoginFormType>
-      formProps={{ fields, labelSubmit: "Inloggen", onSubmit: handleSubmit }}
+      formProps={{
+        fields: LOGIN_FORM_FIELDS,
+        labelSubmit: "Inloggen",
+        onSubmit: handleSubmit,
+      }}
     />
   );
 }
