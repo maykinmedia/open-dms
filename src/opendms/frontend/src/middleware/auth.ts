@@ -1,23 +1,26 @@
 import { type MiddlewareFunction, redirect } from "react-router";
+import { apiRequest } from "~/lib";
+import type { User } from "~/types";
 
-import { type User, userContext } from "../context.ts";
+import { userContext } from "../context.ts";
 
 /**
  * Middleware that checks if a user is authenticated and/or has correct roles
- * before either allowing, or disallowing entry to the route
+ * before either allowing or disallowing entry to the route
  */
 export const authMiddleware: MiddlewareFunction<unknown> = async (
   { context },
   next,
 ) => {
-  // TODO: Replace with real session/user api call/check
-  const user: User | null = null;
+  const whoAmI = await apiRequest<{
+    isAuthenticated: boolean;
+    user: User | null;
+  }>("/api/v1/accounts/whoami", "GET");
 
-  if (!user) {
-    throw redirect("/");
+  if (!whoAmI.isAuthenticated) {
+    throw redirect("/login");
   }
 
-  context.set(userContext, user);
-
+  context.set(userContext, whoAmI.user);
   await next();
 };

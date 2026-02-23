@@ -1,8 +1,8 @@
 import { createBrowserRouter } from "react-router";
+import { Login, loginAction } from "~/routes/index.ts";
 
 import { authMiddleware } from "./middleware/auth.ts";
-import { Layout } from "./root.tsx";
-import { Index } from "./routes/_index.tsx";
+import { AuthenticatedLayout, Layout } from "./root.tsx";
 
 /**
  * Built in "Data Mode" style using createBrowserRouter. https://reactrouter.com/start/modes#data
@@ -11,21 +11,24 @@ import { Index } from "./routes/_index.tsx";
  */
 export const routes = createBrowserRouter([
   {
-    Component: Layout,
+    Component: Layout, // Public layout
     children: [
-      { index: true, Component: Index },
       {
-        middleware: [authMiddleware],
-        children: [
-          {
-            path: "auth",
-          },
-        ],
+        path: "login",
+        Component: Login,
+        action: loginAction,
       },
     ],
   },
-  //     // TODO: Implement 404:
-  //     // { path: "*", element: <NotFound /> },
-  //   ],
-  // },
+  {
+    Component: AuthenticatedLayout,
+    middleware: [authMiddleware],
+    children: [
+      {
+        index: true,
+        Component: () => "Authenticated",
+      },
+      // other protected routes here
+    ],
+  },
 ]);

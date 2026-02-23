@@ -159,7 +159,7 @@ msgid "or"
 msgstr "of"
 
 #: src/opendms/templates/maykin_2fa/login.html:16
-msgid "Login with organization account"
+msgid "LoginComponent with organization account"
 msgstr "Inloggen met organisatieaccount"
 
 #: src/opendms/templates/maykin_2fa/login.html:25
