@@ -12,6 +12,7 @@ export async function loginAction({
   request,
 }: ActionFunctionArgs): Promise<Response> {
   const formData = await request.formData();
-  await apiRequest("/api/v1/accounts/login", "POST", formData);
-  return redirect("/");
+  return apiRequest("/api/v1/accounts/login", "POST", formData)
+    .then(() => redirect("/"))
+    .catch((error) => error);
 }

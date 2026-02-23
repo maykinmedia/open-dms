@@ -4,7 +4,8 @@ import {
   type TypedSerializedFormData,
 } from "@maykin-ui/admin-ui";
 import type { FormEvent } from "react";
-import { type SubmitTarget, useSubmit } from "react-router";
+import { type SubmitTarget, useActionData, useSubmit } from "react-router";
+import type { ValidationErrors } from "~/types";
 
 type LoginFormType = TypedSerializedFormData<"username" | "password">;
 
@@ -19,6 +20,7 @@ const LOGIN_FORM_FIELDS: FormField[] = [
  * @return {JSX.Element} The LoginComponent component containing a form with fields for username and password.
  */
 export function Login() {
+  const validationErrors = useActionData<ValidationErrors>();
   const submit = useSubmit();
 
   const handleSubmit = (_: FormEvent<HTMLFormElement>, data: LoginFormType) => {
@@ -30,6 +32,7 @@ export function Login() {
       formProps={{
         fields: LOGIN_FORM_FIELDS,
         labelSubmit: "Inloggen",
+        nonFieldErrors: validationErrors?.nonFieldErrors,
         onSubmit: handleSubmit,
       }}
     />

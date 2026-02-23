@@ -5,3 +5,8 @@ export type User = {
   lastName: string;
   username: string;
 };
+
+export type ValidationErrors = {
+  nonFieldErrors: string[];
+  [index: string]: string[];
+};
