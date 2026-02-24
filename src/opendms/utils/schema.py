@@ -1,5 +1,6 @@
 from django.utils.translation import gettext_lazy as _
 
+from drf_spectacular.extensions import OpenApiAuthenticationExtension
 from drf_spectacular.openapi import AutoSchema as _AutoSchema
 from drf_spectacular.utils import OpenApiParameter
 from rest_framework import serializers
@@ -43,3 +44,15 @@ class AutoSchema(_AutoSchema):
             schema["type"] = "object"
 
         return schema
+
+
+class AnonCSRFSessionAuthenticationExtension(OpenApiAuthenticationExtension):
+    target_class = "opendms.accounts.api.authentication.AnonCSRFSessionAuthentication"
+    name = "AnonCSRFSession"
+
+    def get_security_definition(self, auto_schema):
+        return {
+            "type": "apiKey",
+            "in": "header",
+            "name": "X-CSRFToken",
+        }

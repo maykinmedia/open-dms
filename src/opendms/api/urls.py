@@ -23,7 +23,6 @@ urlpatterns = [
                     "openapi.json",
                     SpectacularJSONAPIView.as_view(
                         urlconf="opendms.api.urls",
-                        custom_settings=custom_settings,
                     ),
                     name="schema-json-api",
                 ),
@@ -31,7 +30,6 @@ urlpatterns = [
                     "openapi.yaml",
                     SpectacularYAMLAPIView.as_view(
                         urlconf="opendms.api.urls",
-                        custom_settings=custom_settings,
                     ),
                     name="schema-yaml-api",
                 ),
