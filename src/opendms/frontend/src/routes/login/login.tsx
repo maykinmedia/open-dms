@@ -3,7 +3,7 @@ import {
   LoginTemplate,
   type TypedSerializedFormData,
 } from "@maykin-ui/admin-ui";
-import type { FormEvent } from "react";
+import type { SyntheticEvent } from "react";
 import { type SubmitTarget, useActionData, useSubmit } from "react-router";
 import type { ValidationErrors } from "~/types";
 
@@ -23,7 +23,10 @@ export function Login() {
   const validationErrors = useActionData<ValidationErrors>();
   const submit = useSubmit();
 
-  const handleSubmit = (_: FormEvent<HTMLFormElement>, data: LoginFormType) => {
+  const handleSubmit = (
+    _: SyntheticEvent<HTMLFormElement>,
+    data: LoginFormType,
+  ) => {
     void submit(data as SubmitTarget, { method: "post" });
   };
 
