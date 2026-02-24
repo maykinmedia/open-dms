@@ -15,6 +15,8 @@ env:
   IMAGE_NAME: maykinmedia/opendms
   DJANGO_SETTINGS_MODULE: opendms.conf.ci
   DOCKER_BUILDKIT: '1'
+  DB_PASSWORD: ''
+  DB_USER: postgres
 
 jobs:
 
@@ -40,32 +42,6 @@ jobs:
       changed-py-files: ${{ steps.changed-py-files.outputs.any_changed }}
       changed-requirements: ${{ steps.changed-requirements.outputs.any_changed }}
 
-  setup:
-    name: Set up the build variables
-    runs-on: ubuntu-latest
-    outputs:
-      tag: ${{ steps.vars.outputs.tag }}
-      git_hash: ${{ steps.vars.outputs.git_hash }}
-
-    steps:
-      - name: Extract version information
-        id: vars
-        run: |
-          # Strip git ref prefix from version
-          VERSION=$(echo "${{ github.ref }}" | sed -e 's,.*/\(.*\),\1,')
-
-          # Strip "v" prefix from tag name (if present at all)
-          [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
-
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "main" ] && VERSION=latest
-
-          # PRs result in version 'merge' -> transform that into 'latest'
-          [ "$VERSION" == "merge" ] && VERSION=latest
-
-          echo "tag=${VERSION}" >> $GITHUB_OUTPUT
-          echo "git_hash=${GITHUB_SHA}" >> $GITHUB_OUTPUT
-
   tests:
     name: Tests (PG ${{ matrix.postgres }})
     runs-on: ubuntu-latest
@@ -78,10 +54,6 @@ jobs:
     strategy:
       matrix:
         postgres: ["14", "15", "16", "17"]
-        use_pooling: [false]
-        include:
-          - postgres: "17"
-            use_pooling: true
 
     services:
       postgres:
@@ -103,13 +75,10 @@ jobs:
         uses: maykinmedia/setup-django-backend@v1.3
         with:
           python-version: '3.14'
-          optimize-postgres: 'yes'
-          pg-service: 'postgres'
-          setup-node: 'no'
+          setup-node: true
 
       - name: Run tests
         run: |
-          python src/manage.py compilemessages
           python src/manage.py collectstatic --noinput --link
           coverage run src/manage.py test src
         env:
@@ -184,35 +153,21 @@ jobs:
       - store-reusable-workflow-vars
     with:
       apt-packages: 'graphviz graphviz-dev'
-      main-branch: 'master'
+      main-branch: 'main'
       run-docs: true
       python-version: '3.14'
       docker-image-name: ${{ needs.store-reusable-workflow-vars.outputs.image-name }}
       django-settings-module: opendms.conf.ci
 
-#  docker_push:
+#  open-api-publish:
+#    uses: maykinmedia/open-api-workflows/.github/workflows/publish.yml@v6
 #    needs:
+#      - store-reusable-workflow-vars
+#      - open-api-ci
 #      - tests
-#      - docker_build
-#
-#    name: Push Docker image
-#    runs-on: ubuntu-latest
-#    if: github.event_name == 'push' # Exclude PRs
-#
-#    steps:
-#      - name: Download built image
-#        uses: actions/download-artifact@v4
-#        with:
-#          name: docker-image
-#
-#      - name: Load image
-#        run: |
-#          docker image load -i image.tar
-#
-#      - name: Log into registry
-#        run:
-#          echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u ${{ secrets.DOCKER_USERNAME }}
-#          --password-stdin
-#
-#      - name: Push the Docker image (production)
-#        run: docker push ${{ needs.docker_build.outputs.image_tag }}
+#    with:
+#      docker-image-name: ${{ needs.store-reusable-workflow-vars.outputs.image-name }}
+#      repository-owner: 'maykinmedia'
+#    secrets:
+#      docker-username: ${{ secrets.DOCKER_USERNAME }}
+#      docker-token: ${{ secrets.DOCKER_TOKEN }}
