@@ -1,16 +1,17 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from rest_framework import status
+from rest_framework.test import APITestCase
+from vng_api_common.tests import get_validation_errors
 
 from opendms.accounts.tests.factories import UserFactory
 
 User = get_user_model()
 
 
-class LoginViewTest(TestCase):
+class LoginViewTest(APITestCase):
     def setUp(self):
         self.path = reverse("api:v1:accounts:login")
 
@@ -18,11 +19,14 @@ class LoginViewTest(TestCase):
         response = self.client.post(
             self.path, data={"username": "johndoe", "password": "incorrect"}
         )
-
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         self.assertEqual(
-            response.data["non_field_errors"][0],
-            _("Unable to log in with provided credentials."),
+            get_validation_errors(response, "nonFieldErrors"),
+            {
+                "name": "nonFieldErrors",
+                "code": "authorization",
+                "reason": _("Unable to log in with provided credentials."),
+            },
         )
 
     def test_correct_login(self):
@@ -36,7 +40,7 @@ class LoginViewTest(TestCase):
         self.assertEqual(response.data["user"]["pk"], user.pk)
 
 
-class LogoutViewTest(TestCase):
+class LogoutViewTest(APITestCase):
     def setUp(self):
         self.path = reverse("api:v1:accounts:logout")
 
@@ -56,7 +60,7 @@ class LogoutViewTest(TestCase):
         self.assertFalse(response.data["is_authenticated"])
 
 
-class WhoAmIViewTest(TestCase):
+class WhoAmIViewTest(APITestCase):
     def setUp(self):
         self.path = reverse("api:v1:accounts:whoami")
 

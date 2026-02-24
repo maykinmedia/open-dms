@@ -459,6 +459,8 @@ kombu==5.6.2
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   celery
+legacy-cgi==2.6.4
+    # via webob
 lxml==6.0.2
     # via pyquery
 markdown==3.10.2
@@ -776,8 +778,11 @@ requests==2.32.5
     #   mozilla-django-oidc
     #   open-api-framework
     #   opentelemetry-exporter-otlp-proto-http
+    #   requests-mock
     #   sphinx
     #   zgw-consumers
+requests-mock==1.12.1
+    # via -r requirements/test-tools.in
 rich==14.3.2
     # via
     #   -c requirements/base.txt
@@ -880,11 +885,8 @@ typing-extensions==4.15.0
     #   opentelemetry-exporter-otlp-proto-http
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
-    #   psycopg
     #   pydantic
     #   pydantic-core
-    #   pyopenssl
-    #   referencing
     #   typing-inspection
     #   zgw-consumers
 typing-inspection==0.4.2
