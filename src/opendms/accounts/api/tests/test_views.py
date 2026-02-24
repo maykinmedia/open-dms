@@ -1,10 +1,9 @@
 from django.contrib.auth import get_user_model
-from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 from rest_framework import status
 from rest_framework.test import APITestCase
-from vng_api_common.tests import get_validation_errors
+from vng_api_common.tests import get_validation_errors, reverse
 
 from opendms.accounts.tests.factories import UserFactory
 
@@ -13,7 +12,7 @@ User = get_user_model()
 
 class LoginViewTest(APITestCase):
     def setUp(self):
-        self.path = reverse("api:v1:accounts:login")
+        self.path = reverse("accounts:login")
 
     def test_incorrect_login(self):
         response = self.client.post(
@@ -42,27 +41,27 @@ class LoginViewTest(APITestCase):
 
 class LogoutViewTest(APITestCase):
     def setUp(self):
-        self.path = reverse("api:v1:accounts:logout")
+        self.path = reverse("accounts:logout")
 
     def test_not_logged_in(self):
         self.client.get(self.path)
-        response = self.client.get(reverse("api:v1:accounts:whoami"))
+        response = self.client.get(reverse("accounts:whoami"))
         self.assertFalse(response.data["is_authenticated"])
 
     def test_logged_in(self):
         user = UserFactory.create()
         self.client.force_login(user)
-        response = self.client.get(reverse("api:v1:accounts:whoami"))
+        response = self.client.get(reverse("accounts:whoami"))
         self.assertTrue(response.data["is_authenticated"])
 
         self.client.get(self.path)
-        response = self.client.get(reverse("api:v1:accounts:whoami"))
+        response = self.client.get(reverse("accounts:whoami"))
         self.assertFalse(response.data["is_authenticated"])
 
 
 class WhoAmIViewTest(APITestCase):
     def setUp(self):
-        self.path = reverse("api:v1:accounts:whoami")
+        self.path = reverse("accounts:whoami")
 
     def test_whoami_anonymous_user(self):
         response = self.client.get(self.path)

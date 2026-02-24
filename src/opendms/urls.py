@@ -58,6 +58,7 @@ urlpatterns = [
     path("", include("maykin_common.health_checks.urls")),
     # API
     path("api/", include("opendms.api.urls", namespace="api")),
+    path("api/", include("opendms.accounts.api.urls", namespace="accounts")),
     # Handover to (React) frontend.
     re_path(
         r"^(?:.*)/?$", TemplateView.as_view(template_name="index.html"), name="frontend"

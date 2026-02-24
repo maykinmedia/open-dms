@@ -61,7 +61,7 @@ class LoginView(APIView):
 class LogoutView(APIView):
     permission_classes = ()
 
-    def get(self, request: Request) -> Response:
+    def get(self, request: Request, *args, **kwargs) -> Response:
         logout(request._request)  # noqa - Access to a protected member _request of a class
         return Response(status=status.HTTP_204_NO_CONTENT)
 
