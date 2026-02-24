@@ -32,11 +32,6 @@ STATICFILES_DIRS += [Path(DJANGO_PROJECT_DIR) / "frontend/dist/static"]
 CSRF_FAILURE_VIEW = "maykin_common.views.csrf_failure"
 
 #
-# FIXTURES
-#
-FIXTURE_DIRS = (Path(DJANGO_PROJECT_DIR) / "fixtures",)
-
-#
 # Custom settings
 #
 PROJECT_NAME = "Open DMS"
