@@ -59,9 +59,6 @@ CACHES = {
 
 ELASTIC_APM["DEBUG"] = True
 
-# disable 2 FA in tests
-MAYKIN_2FA_ALLOW_MFA_BYPASS_BACKENDS = AUTHENTICATION_BACKENDS
-
 # THOU SHALT NOT USE NAIVE DATETIMES
 warnings.filterwarnings(
     "error",

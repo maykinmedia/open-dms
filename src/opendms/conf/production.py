@@ -66,6 +66,7 @@ INSTALLED_APPS = INSTALLED_APPS + [
     "elasticapm.contrib.django",
 ]
 
-if SUBPATH and SUBPATH != "/":
-    STATIC_URL = f"{SUBPATH}{STATIC_URL}"
-    MEDIA_URL = f"{SUBPATH}{MEDIA_URL}"
+# Deal with being hosted on a subpath
+if subpath and subpath != "/":
+    STATIC_URL = f"{subpath}{STATIC_URL}"
+    MEDIA_URL = f"{subpath}{MEDIA_URL}"

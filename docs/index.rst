@@ -1,15 +1,16 @@
 .. _index:
 
-===================
+======================
+Open DMS Documentation
+======================
 
-===================
-
-Welcome to the documentation for the  project.
-
-
-Documentation
-=============
+Getting Started
+---------------
 
 .. toctree::
-    :maxdepth: 3
+   :maxdepth: 3
+   :hidden:
 
+   installation/index
+   testing
+   changelog

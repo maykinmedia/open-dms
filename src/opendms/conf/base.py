@@ -42,10 +42,26 @@ FIXTURE_DIRS = (Path(DJANGO_PROJECT_DIR) / "fixtures",)
 PROJECT_NAME = "Open DMS"
 
 # Displaying environment information
-ENVIRONMENT_LABEL = config("ENVIRONMENT_LABEL", default=ENVIRONMENT)
-ENVIRONMENT_BACKGROUND_COLOR = config("ENVIRONMENT_BACKGROUND_COLOR", default="orange")
-ENVIRONMENT_FOREGROUND_COLOR = config("ENVIRONMENT_FOREGROUND_COLOR", default="black")
-SHOW_ENVIRONMENT = config("SHOW_ENVIRONMENT", default=True)
+ENVIRONMENT_LABEL = config(
+    "ENVIRONMENT_LABEL",
+    default=ENVIRONMENT,
+    add_to_docs=False,
+)
+ENVIRONMENT_BACKGROUND_COLOR = config(
+    "ENVIRONMENT_BACKGROUND_COLOR",
+    default="orange",
+    add_to_docs=False,
+)
+ENVIRONMENT_FOREGROUND_COLOR = config(
+    "ENVIRONMENT_FOREGROUND_COLOR",
+    default="black",
+    add_to_docs=False,
+)
+SHOW_ENVIRONMENT = config(
+    "SHOW_ENVIRONMENT",
+    default=True,
+    add_to_docs=False,
+)
 
 # This setting is used by the csrf_failure view (accounts app).
 # You can specify any path that should match the request.path
@@ -84,13 +100,28 @@ HIJACK_INSERT_BEFORE = (
 #
 # DJANGO REST FRAMEWORK
 #
-ENABLE_THROTTLING = config("ENABLE_THROTTLING", default=True)
-
+ENABLE_THROTTLING = config(
+    "ENABLE_THROTTLING",
+    default=True,
+    add_to_docs=False,
+)
 throttle_rate_anon = (
-    config("THROTTLE_RATE_ANON", default="2500/hour") if ENABLE_THROTTLING else None
+    config(
+        "THROTTLE_RATE_ANON",
+        default="2500/hour",
+        add_to_docs=False,
+    )
+    if ENABLE_THROTTLING
+    else None
 )
 throttle_rate_user = (
-    config("THROTTLE_RATE_USER", default="15000/hour") if ENABLE_THROTTLING else None
+    config(
+        "THROTTLE_RATE_USER",
+        default="15000/hour",
+        add_to_docs=False,
+    )
+    if ENABLE_THROTTLING
+    else None
 )
 
 REST_FRAMEWORK = {
@@ -119,13 +150,6 @@ REST_FRAMEWORK = {
     ],
     "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
-
-# Subpath (optional)
-# This environment variable can be configured during deployment.
-SUBPATH = config("SUBPATH", default="")
-if SUBPATH:
-    SUBPATH = f"/{SUBPATH.strip('/')}"
-
 
 #
 # SPECTACULAR - OpenAPI schema generation
