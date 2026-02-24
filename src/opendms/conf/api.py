@@ -39,10 +39,16 @@ SPECTACULAR_SETTINGS = {
         "drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields",
         "maykin_common.drf_spectacular.hooks.remove_invalid_url_defaults",
     ],
+    "CONTACT": {
+        "email": "standaarden.ondersteuning@vng.nl",
+        "name": "VNG",
+        "url": "https://zaakgerichtwerken.vng.cloud",
+    },
     "LICENSE": {
         "name": "EUPL 1.2",
         "url": "https://opensource.org/licenses/EUPL-1.2",
     },
+    "SERVERS": [{"url": "api/v1/"}],
 }
 
 VNG_COMPONENTS_BRANCH = "master"

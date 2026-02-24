@@ -47,6 +47,8 @@ class LoginView(APIView):
         serializer.is_valid(raise_exception=True)
         user: User = serializer.validated_data["user"]
         login(request._request, user)  # noqa - Access to a protected member _request of a class
+        # TODO check if we can return simple message instead of user data
+        # TODO check camelCase on user data
         return Response(WhoAmISerializer(user).data, status=status.HTTP_200_OK)
 
 
