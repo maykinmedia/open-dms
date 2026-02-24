@@ -5,7 +5,6 @@ from vng_api_common import routers
 
 from opendms.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIView
 
-from .schema import custom_settings
 from .viewsets import ServiceViewset
 
 app_name = "api"

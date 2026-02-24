@@ -77,7 +77,7 @@ class LogoutView(APIView):
 )
 class WhoAmIView(RetrieveAPIView):
     serializer_class = WhoAmISerializer
-    permission_classes = []
+    permission_classes = ()
 
     def get_object(self) -> User | AnonymousUser:
         return self.request.user

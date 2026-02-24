@@ -1,0 +1,167 @@
+from rest_framework import status
+from vng_api_common.tests import reverse
+from zgw_consumers.constants import APITypes, AuthTypes
+from zgw_consumers.models import Service
+from zgw_consumers.test.factories import ServiceFactory
+
+from opendms.utils.api_testcase import APITestCase
+
+
+class ServiceTests(APITestCase):
+    list_url = reverse("api:service-list")
+    maxDiff = None
+
+    def test_list(self):
+        response = self.client.get(self.list_url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 0)
+        self.assertFalse(Service.objects.exists())
+
+        # create Service
+        ServiceFactory.create(
+            slug="slug-test",
+            api_type=APITypes.zrc,
+            api_root="http://web:8000/api/v1/",
+            auth_type=AuthTypes.zgw,
+        )
+        response = self.client.get(self.list_url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 1)
+        self.assertEqual(Service.objects.all().count(), 1)
+
+        self.assertEqual(
+            response.json(),
+            {
+                "count": 1,
+                "next": None,
+                "previous": None,
+                "results": [
+                    {
+                        "slug": "slug-test",
+                        "apiType": APITypes.zrc,
+                        "apiRoot": "http://web:8000/api/v1/",
+                        "authType": AuthTypes.zgw,
+                    }
+                ],
+            },
+        )
+
+        ServiceFactory.create_batch(5)
+        response = self.client.get(self.list_url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 6)
+        self.assertEqual(Service.objects.all().count(), 6)
+
+    def test_list_pagination_pagesize_param(self):
+        ServiceFactory.create_batch(10)
+        response = self.client.get(self.list_url, {"pageSize": 5})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        data = response.json()
+
+        self.assertEqual(response.json()["count"], 10)
+        self.assertEqual(len(response.json()["results"]), 5)
+        self.assertEqual(
+            data["next"], f"http://testserver{self.list_url}?page=2&pageSize=5"
+        )
+
+    def test_detail(self):
+        # create Service
+        service = ServiceFactory.create(
+            slug="slug-test",
+            api_type=APITypes.zrc,
+            api_root="http://web:8000/api/v1/",
+            auth_type=AuthTypes.zgw,
+        )
+
+        detail_url = reverse("api:service-detail", kwargs={"slug": service.slug})
+        response = self.client.get(detail_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            response.json(),
+            {
+                "slug": "slug-test",
+                "apiType": APITypes.zrc,
+                "apiRoot": "http://web:8000/api/v1/",
+                "authType": AuthTypes.zgw,
+            },
+        )
+
+    def test_detail_service_not_found(self):
+        detail_url = reverse("api:service-detail", kwargs={"slug": "test"})
+        response = self.client.get(detail_url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(response.data["code"], "not_found")
+        self.assertEqual(response.data["detail"], "Niet gevonden.")
+
+    def test_read_only(self):
+        service = ServiceFactory.create()
+        detail_url = reverse("api:service-detail", kwargs={"slug": service.slug})
+
+        # POST
+        data = {}
+        response = self.client.post(self.list_url, data)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+        self.assertEqual(response.data["code"], "method_not_allowed")
+        self.assertEqual(response.data["detail"], 'Methode "POST" niet toegestaan.')
+
+        # PATCH
+        response = self.client.patch(detail_url, data)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+        self.assertEqual(response.data["code"], "method_not_allowed")
+        self.assertEqual(response.data["detail"], 'Methode "PATCH" niet toegestaan.')
+
+        # PUT
+        response = self.client.put(detail_url, data)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+        self.assertEqual(response.data["code"], "method_not_allowed")
+        self.assertEqual(response.data["detail"], 'Methode "PUT" niet toegestaan.')
+
+        # DELETE
+        response = self.client.delete(detail_url)
+        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
+        self.assertEqual(response.data["code"], "method_not_allowed")
+        self.assertEqual(response.data["detail"], 'Methode "DELETE" niet toegestaan.')
+
+
+class ServicePermissionTests(APITestCase):
+    list_url = reverse("api:service-list")
+    maxDiff = None
+
+    def test_list_permissions(self):
+        # logout first
+        self.client.logout()
+
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.data["code"], "not_authenticated")
+        self.assertEqual(
+            response.data["detail"], "Authenticatiegegevens zijn niet opgegeven."
+        )
+
+        # login
+        self.client.force_login(self.user)
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_detail_permissions(self):
+        service = ServiceFactory.create()
+        detail_url = reverse("api:service-detail", kwargs={"slug": service.slug})
+
+        # logout first
+        self.client.logout()
+
+        response = self.client.get(detail_url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(response.data["code"], "not_authenticated")
+        self.assertEqual(
+            response.data["detail"], "Authenticatiegegevens zijn niet opgegeven."
+        )
+
+        # login
+        self.client.force_login(self.user)
+        response = self.client.get(detail_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)

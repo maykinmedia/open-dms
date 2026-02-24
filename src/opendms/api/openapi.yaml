@@ -124,15 +124,17 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedServiceList'
           description: ''
-  /api/v1/services/{uuid}:
+  /api/v1/services/{slug}:
     get:
       operationId: apiV1ServicesRetrieve
       parameters:
       - in: path
-        name: uuid
+        name: slug
         schema:
           type: string
-          format: uuid
+          title: Service slug
+          description: A unique, human-friendly slug to identify this service. Primarily
+            useful for cross-instance import/export.
         required: true
       tags:
       - api
@@ -153,6 +155,19 @@ paths:
           description: ''
 components:
   schemas:
+    ApiTypeEnum:
+      enum:
+      - ac
+      - nrc
+      - zrc
+      - ztc
+      - drc
+      - brc
+      - cmc
+      - kc
+      - vrc
+      - orc
+      type: string
     Auth:
       type: object
       properties:
@@ -165,6 +180,13 @@ components:
       required:
       - password
       - username
+    AuthTypeEnum:
+      enum:
+      - no_auth
+      - api_key
+      - zgw
+      - oauth2_client_credentials
+      type: string
     PaginatedServiceList:
       type: object
       required:
@@ -191,9 +213,32 @@ components:
     Service:
       type: object
       properties:
-        uuid:
+        slug:
           type: string
-          format: uuid
+          title: Service slug
+          description: A unique, human-friendly slug to identify this service. Primarily
+            useful for cross-instance import/export.
+          maxLength: 255
+          pattern: ^[-a-zA-Z0-9_]+$
+        apiType:
+          allOf:
+          - $ref: '#/components/schemas/ApiTypeEnum'
+          title: Type
+        apiRoot:
+          type: string
+          title: Api root url
+          description: The root URL of the service that will be used to construct
+            the URLs when making requests.
+          maxLength: 255
+        authType:
+          allOf:
+          - $ref: '#/components/schemas/AuthTypeEnum'
+          title: Authorization type
+          description: The type of authorization to use for this service.
+      required:
+      - apiRoot
+      - apiType
+      - slug
     User:
       type: object
       properties:
