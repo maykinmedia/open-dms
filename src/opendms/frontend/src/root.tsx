@@ -44,7 +44,7 @@ export const AuthenticatedLayout = () => {
   return (
     <BaseTemplate
       primaryNavigationItems={[
-        <Logo abbreviated variant="contrast" />,
+        <Logo abbreviated variant="contrast" key={"logo"} />,
         "spacer",
         {
           type: "button",
@@ -53,7 +53,10 @@ export const AuthenticatedLayout = () => {
           onClick: handleLogout,
         },
       ]}
-      sidebarItems={[<H2>Open DMS</H2>, <Hr />]}
+      sidebarItems={[
+        <H2 key={"sidebar-h2"}>Open DMS</H2>,
+        <Hr key={"sidebar-hr"} />,
+      ]}
     >
       <ConfigContext.Provider
         value={{
