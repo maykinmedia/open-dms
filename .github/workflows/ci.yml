@@ -74,7 +74,7 @@ jobs:
       - name: Set up backend environment
         uses: maykinmedia/setup-django-backend@v1.3
         with:
-          python-version: '3.14'
+          python-version: '3.12'
           setup-node: true
 
       - name: Run tests
@@ -122,7 +122,7 @@ jobs:
       - name: Set up backend environment
         uses: maykinmedia/setup-django-backend@v1.3
         with:
-          python-version: '3.14'
+          python-version: '3.12'
           apt-packages: "libgdal-dev gdal-bin"
           setup-node: false
 
@@ -155,7 +155,7 @@ jobs:
       apt-packages: 'graphviz graphviz-dev'
       main-branch: 'main'
       run-docs: true
-      python-version: '3.14'
+      python-version: '3.12'
       docker-image-name: ${{ needs.store-reusable-workflow-vars.outputs.image-name }}
       django-settings-module: opendms.conf.ci
 
