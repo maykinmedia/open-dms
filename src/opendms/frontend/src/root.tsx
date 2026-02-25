@@ -4,11 +4,14 @@ import {
   H2,
   Hr,
   Logo,
+  type Option,
   Outline,
 } from "@maykin-ui/admin-ui";
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
-import { Outlet, useNavigate } from "react-router";
+import type { FC } from "react";
+import { Outlet, useLoaderData, useNavigate } from "react-router";
+import { ServiceSelect } from "~/components/service-select/service-select.tsx";
 import { apiRequest } from "~/lib";
 
 /**
@@ -28,13 +31,32 @@ export const Layout = () => {
   );
 };
 
+// TODO: From backend?
+type authenticatedLayoutLoaderData = {
+  serviceOptions: Option[];
+};
+
+export async function authenticatedLayoutLoader() {
+  // TODO: Refine once API is clear, draft for now
+  const response = await apiRequest<Response>("/api/v1/service/options", "GET");
+
+  if (!response.ok) {
+    throw new Response("Failed to load options", { status: response.status });
+  }
+
+  const serviceOptions: authenticatedLayoutLoaderData["serviceOptions"] =
+    await response.json();
+  return { serviceOptions };
+}
+
 /**
  * Represents a layout component tailored for authenticated users.
  *
  * @returns {JSX.Element} The rendered layout structure for the application.
  */
-export const AuthenticatedLayout = () => {
+export const AuthenticatedLayout: FC = () => {
   const navigate = useNavigate();
+  const { serviceOptions } = useLoaderData() as authenticatedLayoutLoaderData;
 
   const handleLogout = async () => {
     await apiRequest("/api/v1/accounts/logout");
@@ -56,6 +78,7 @@ export const AuthenticatedLayout = () => {
       sidebarItems={[
         <H2 key={"sidebar-h2"}>Open DMS</H2>,
         <Hr key={"sidebar-hr"} />,
+        <ServiceSelect key="service-select" options={serviceOptions} />,
       ]}
     >
       <ConfigContext.Provider

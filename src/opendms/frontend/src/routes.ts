@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router";
+import { authMiddleware } from "~/middleware/auth.ts";
 import { Login, loginAction } from "~/routes/index.ts";
 
-import { authMiddleware } from "./middleware/auth.ts";
-import { AuthenticatedLayout, Layout } from "./root.tsx";
+import {
+  AuthenticatedLayout,
+  Layout,
+  authenticatedLayoutLoader,
+} from "./root.tsx";
 
 /**
  * Built in "Data Mode" style using createBrowserRouter. https://reactrouter.com/start/modes#data
@@ -23,6 +27,7 @@ export const routes = createBrowserRouter([
   {
     Component: AuthenticatedLayout,
     middleware: [authMiddleware],
+    loader: authenticatedLayoutLoader,
     children: [
       {
         index: true,
