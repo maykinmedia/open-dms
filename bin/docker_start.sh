@@ -40,6 +40,14 @@ export UWSGI_THREADS=${UWSGI_THREADS:-1}
 # Periodically recycle workers - recover memory in the event of memory leaks
 export UWSGI_MAX_REQUESTS=${UWSGI_MAX_REQUESTS:-1000}
 
+# run management command to initialize the ES cluster - this is idempotent.
+if [ $INIT_ES_INDICES = "true" ]; then
+    es_host=$(echo "$ELASTICSEARCH_HOST" | sed -E 's|https?://||' | sed 's|/$||')
+    ${SCRIPTPATH}/wait_for_it.sh "$es_host" -t 60 -- echo "ES is up"
+    python src/manage.py initialize_mappings --wait
+    unset INIT_ES_INDICES
+fi
+
 # Start server
 >&2 echo "Starting server"
 exec uwsgi \

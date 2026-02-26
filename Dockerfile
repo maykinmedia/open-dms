@@ -53,6 +53,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
         nano \
         mime-support \
         postgresql-client \
+        libmagic1 \
         gettext \
         shared-mime-info \
         libpcre3 \
@@ -62,6 +63,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-reco
 
 WORKDIR /app
 COPY ./bin/docker_start.sh /start.sh
+COPY ./bin/wait_for_it.sh /
 COPY ./bin/uwsgi.ini \
     # Uncomment if you use celery
     # ./bin/celery_worker.sh \
