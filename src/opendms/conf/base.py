@@ -8,6 +8,8 @@ from maykin_common.health_checks import default_health_check_apps
 from open_api_framework.conf.base import *  # noqa
 from open_api_framework.conf.utils import config  # noqa
 
+from .api import *  # noqa
+
 # APPLICATIONS enabled for this project
 #
 INSTALLED_APPS = INSTALLED_APPS + [
@@ -30,11 +32,6 @@ STATICFILES_DIRS += [Path(DJANGO_PROJECT_DIR) / "frontend/dist/static"]
 # SECURITY settings
 #
 CSRF_FAILURE_VIEW = "maykin_common.views.csrf_failure"
-
-#
-# FIXTURES
-#
-FIXTURE_DIRS = (Path(DJANGO_PROJECT_DIR) / "fixtures",)
 
 #
 # Custom settings
@@ -100,6 +97,7 @@ HIJACK_INSERT_BEFORE = (
 #
 # DJANGO REST FRAMEWORK
 #
+
 ENABLE_THROTTLING = config(
     "ENABLE_THROTTLING",
     default=True,
@@ -124,48 +122,15 @@ throttle_rate_user = (
     else None
 )
 
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.SessionAuthentication",
-    ],
-    "DEFAULT_PERMISSION_CLASSES": ("rest_framework.permissions.IsAuthenticated",),
-    "DEFAULT_THROTTLE_CLASSES": (
-        "rest_framework.throttling.AnonRateThrottle",
-        "rest_framework.throttling.UserRateThrottle",
-        "rest_framework.throttling.ScopedRateThrottle",
-    ),
-    "DEFAULT_THROTTLE_RATES": {
-        # used by regular throttle classes
-        "anon": throttle_rate_anon,
-        "user": throttle_rate_user,
-    },
-    "DEFAULT_RENDERER_CLASSES": [
-        "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
-        "djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer",
-    ],
-    "DEFAULT_PARSER_CLASSES": [
-        "djangorestframework_camel_case.parser.CamelCaseJSONParser",
-        "djangorestframework_camel_case.parser.CamelCaseFormParser",
-        "djangorestframework_camel_case.parser.CamelCaseMultiPartParser",
-    ],
-    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
+REST_FRAMEWORK["DEFAULT_THROTTLE_CLASSES"] = (
+    "rest_framework.throttling.AnonRateThrottle",
+    "rest_framework.throttling.UserRateThrottle",
+    "rest_framework.throttling.ScopedRateThrottle",
+)
+REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"] = {
+    # used by regular throttle classes
+    "anon": throttle_rate_anon,
+    "user": throttle_rate_user,
 }
 
-#
-# SPECTACULAR - OpenAPI schema generation
-#
-_DESCRIPTION = """
-Open DMS
-"""
-
-API_VERSION = "1.0.0"
-
-SPECTACULAR_SETTINGS = {
-    "SCHEMA_PATH_PREFIX": "/api/v1",
-    "TITLE": "Open DMS API",
-    "DESCRIPTION": _DESCRIPTION,
-    "VERSION": API_VERSION,
-    "POSTPROCESSING_HOOKS": [
-        "drf_spectacular.contrib.djangorestframework_camel_case.camelize_serializer_fields"
-    ],
-}
+TEMPLATES[0]["DIRS"] += [DJANGO_PROJECT_DIR / "frontend/dist"]

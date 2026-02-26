@@ -1,4 +1,14 @@
 from rest_framework import serializers
+from zgw_consumers.models import Service
+
+
+class ServiceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Service
+        fields = (
+            "slug",
+            "label",
+        )
 
 
 class ValidationErrorsSerializer(serializers.Serializer):

@@ -22,6 +22,7 @@ if TYPE_CHECKING:
     from opendms.accounts.models import User
 
 
+# TODO check schema, use generic responses
 @extend_schema(
     tags=["accounts"],
     summary=_("login"),
@@ -47,6 +48,8 @@ class LoginView(APIView):
         serializer.is_valid(raise_exception=True)
         user: User = serializer.validated_data["user"]
         login(request._request, user)  # noqa - Access to a protected member _request of a class
+        # TODO check if we can return simple message instead of user data
+        # TODO check camelCase on user data
         return Response(WhoAmISerializer(user).data, status=status.HTTP_200_OK)
 
 
@@ -60,8 +63,9 @@ class LoginView(APIView):
 )
 class LogoutView(APIView):
     permission_classes = ()
+    serializer_class = None
 
-    def get(self, request: Request) -> Response:
+    def get(self, request: Request, *args, **kwargs) -> Response:
         logout(request._request)  # noqa - Access to a protected member _request of a class
         return Response(status=status.HTTP_204_NO_CONTENT)
 
@@ -76,7 +80,7 @@ class LogoutView(APIView):
 )
 class WhoAmIView(RetrieveAPIView):
     serializer_class = WhoAmISerializer
-    permission_classes = []
+    permission_classes = ()
 
     def get_object(self) -> User | AnonymousUser:
         return self.request.user

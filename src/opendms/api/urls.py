@@ -1,41 +1,47 @@
-from django.urls import include, path
+from django.urls import include, path, re_path
 
-from drf_spectacular.views import (
-    SpectacularAPIView,
-    SpectacularJSONAPIView,
-    SpectacularRedocView,
-)
+from drf_spectacular.views import SpectacularRedocView
+from vng_api_common import routers
+
+from opendms.api.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIView
+
+from .viewsets import ServiceViewset
 
 app_name = "api"
 
+router = routers.DefaultRouter()
+router.register("services", ServiceViewset)
+
 urlpatterns = [
-    # API documentation
-    path(
-        "docs/",
-        SpectacularRedocView.as_view(url_name="api:v1:api-schema-json"),
-        name="api-docs",
-    ),
-    path(
-        "v1/",
+    re_path(
+        r"^v(?P<version>\d+)/",
         include(
-            (
-                [
-                    path(
-                        "",
-                        SpectacularJSONAPIView.as_view(schema=None),
-                        name="api-schema-json",
+            [
+                re_path(r"^", include(router.urls)),
+                path(
+                    "accounts/",
+                    include("opendms.accounts.api.urls", namespace="accounts"),
+                ),
+                path(
+                    "openapi.json",
+                    SpectacularJSONAPIView.as_view(
+                        urlconf="opendms.api.urls",
                     ),
-                    path(
-                        "schema", SpectacularAPIView.as_view(schema=None), name="schema"
+                    name="schema-json-api",
+                ),
+                path(
+                    "openapi.yaml",
+                    SpectacularYAMLAPIView.as_view(
+                        urlconf="opendms.api.urls",
                     ),
-                    path(
-                        "accounts/",
-                        include("opendms.accounts.api.urls", namespace="accounts"),
-                    ),
-                ],
-                "v1",
-            ),
-            namespace="v1",
+                    name="schema-yaml-api",
+                ),
+                path(
+                    "schema/",
+                    SpectacularRedocView.as_view(url_name="api:schema-yaml-api"),
+                    name="schema-redoc-api",
+                ),
+            ]
         ),
     ),
 ]

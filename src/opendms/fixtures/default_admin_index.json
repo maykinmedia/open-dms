@@ -1,0 +1,92 @@
+[
+{
+    "model": "admin_index.appgroup",
+    "fields": {
+        "order": 1,
+        "translations": {
+            "en": "Accounts",
+            "nl": "Accounts"
+        },
+        "name": "Accounts",
+        "slug": "accounts",
+        "models": [
+            [
+                "accounts",
+                "user"
+            ],
+            [
+                "auth",
+                "group"
+            ],
+            [
+                "mozilla_django_oidc_db",
+                "oidcclient"
+            ],
+            [
+                "mozilla_django_oidc_db",
+                "oidcprovider"
+            ],
+            [
+                "otp_totp",
+                "totpdevice"
+            ],
+            [
+                "sessionprofile",
+                "sessionprofile"
+            ],
+            [
+                "two_factor_webauthn",
+                "webauthndevice"
+            ]
+        ]
+    }
+},
+{
+    "model": "admin_index.appgroup",
+    "fields": {
+        "order": 2,
+        "translations": {
+            "en": "Configuration",
+            "nl": "Configuratie"
+        },
+        "name": "Configuratie",
+        "slug": "configuratie",
+        "models": [
+            [
+                "admin_index",
+                "appgroup"
+            ],
+            [
+                "log_outgoing_requests",
+                "outgoingrequestslogconfig"
+            ]
+        ]
+    }
+},
+{
+    "model": "admin_index.appgroup",
+    "fields": {
+        "order": 3,
+        "translations": {
+            "en": "Logging",
+            "nl": "Logging"
+        },
+        "name": "Logging",
+        "slug": "logging",
+        "models": [
+            [
+                "axes",
+                "accessattempt"
+            ],
+            [
+                "axes",
+                "accesslog"
+            ],
+            [
+                "log_outgoing_requests",
+                "outgoingrequestslog"
+            ]
+        ]
+    }
+}
+]

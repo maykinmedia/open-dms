@@ -1,0 +1,275 @@
+openapi: 3.0.3
+info:
+  title: Open DMS API
+  version: 1.0.0
+  description: |2
+
+    Open DMS
+  contact:
+    email: standaarden.ondersteuning@vng.nl
+    name: VNG
+    url: https://zaakgerichtwerken.vng.cloud
+  license:
+    name: EUPL 1.2
+    url: https://opensource.org/licenses/EUPL-1.2
+paths:
+  /api/v1/accounts/login:
+    post:
+      operationId: apiV1AccountsLoginCreate
+      description: Authenticates the user, returns whoami details on successful login.
+      summary: login
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Auth'
+        required: true
+      security:
+      - AnonCSRFSession: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhoAmI'
+          description: ''
+        '400':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrors'
+          description: Validation error
+  /api/v1/accounts/logout:
+    get:
+      operationId: apiV1AccountsLogoutRetrieve
+      description: Remove the authenticated user's ID from the request and flush their
+        session data.
+      summary: logout
+      tags:
+      - accounts
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description: No response body
+  /api/v1/accounts/whoami:
+    get:
+      operationId: apiV1AccountsWhoamiRetrieve
+      description: Returns the current logged in user.
+      summary: whoami
+      tags:
+      - accounts
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WhoAmI'
+          description: ''
+  /api/v1/services:
+    get:
+      operationId: apiV1ServicesList
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: 'Het aantal resultaten terug te geven per pagina. (default: 100,
+          maximum: 500).'
+        schema:
+          type: integer
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedServiceList'
+          description: ''
+  /api/v1/services/{slug}:
+    get:
+      operationId: apiV1ServicesRetrieve
+      parameters:
+      - in: path
+        name: slug
+        schema:
+          type: string
+          title: Service slug
+          description: A unique, human-friendly slug to identify this service. Primarily
+            useful for cross-instance import/export.
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Service'
+          description: ''
+components:
+  schemas:
+    Auth:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - password
+      - username
+    PaginatedServiceList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Service'
+    Service:
+      type: object
+      properties:
+        slug:
+          type: string
+          title: Service slug
+          description: A unique, human-friendly slug to identify this service. Primarily
+            useful for cross-instance import/export.
+          maxLength: 255
+          pattern: ^[-a-zA-Z0-9_]+$
+        label:
+          type: string
+          maxLength: 100
+      required:
+      - label
+      - slug
+    User:
+      type: object
+      properties:
+        pk:
+          type: integer
+          readOnly: true
+          title: ID
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        firstName:
+          type: string
+          maxLength: 255
+        lastName:
+          type: string
+          maxLength: 255
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+      required:
+      - pk
+      - username
+    ValidationErrors:
+      type: object
+      properties:
+        nonFieldErrors:
+          type: array
+          items:
+            type: string
+        fieldErrors:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+    WhoAmI:
+      type: object
+      properties:
+        isAuthenticated:
+          type: boolean
+        user:
+          allOf:
+          - $ref: '#/components/schemas/User'
+          readOnly: true
+      required:
+      - isAuthenticated
+      - user
+  securitySchemes:
+    AnonCSRFSession:
+      type: apiKey
+      in: header
+      name: X-CSRFToken
+    cookieAuth:
+      type: apiKey
+      in: cookie
+      name: opendms_sessionid
+servers:
+- url: /api/v1/
