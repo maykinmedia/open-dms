@@ -132,3 +132,5 @@ REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"] = {
     "anon": throttle_rate_anon,
     "user": throttle_rate_user,
 }
+
+TEMPLATES[0]["DIRS"] += [DJANGO_PROJECT_DIR / "frontend/dist"]

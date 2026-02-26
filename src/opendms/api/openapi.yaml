@@ -159,19 +159,6 @@ paths:
           description: ''
 components:
   schemas:
-    ApiTypeEnum:
-      enum:
-      - ac
-      - nrc
-      - zrc
-      - ztc
-      - drc
-      - brc
-      - cmc
-      - kc
-      - vrc
-      - orc
-      type: string
     Auth:
       type: object
       properties:
@@ -184,13 +171,6 @@ components:
       required:
       - password
       - username
-    AuthTypeEnum:
-      enum:
-      - no_auth
-      - api_key
-      - zgw
-      - oauth2_client_credentials
-      type: string
     PaginatedServiceList:
       type: object
       required:
@@ -227,24 +207,7 @@ components:
         label:
           type: string
           maxLength: 100
-        apiType:
-          allOf:
-          - $ref: '#/components/schemas/ApiTypeEnum'
-          title: Type
-        apiRoot:
-          type: string
-          title: Api root url
-          description: The root URL of the service that will be used to construct
-            the URLs when making requests.
-          maxLength: 255
-        authType:
-          allOf:
-          - $ref: '#/components/schemas/AuthTypeEnum'
-          title: Authorization type
-          description: The type of authorization to use for this service.
       required:
-      - apiRoot
-      - apiType
       - label
       - slug
     User:
@@ -309,4 +272,4 @@ components:
       in: cookie
       name: opendms_sessionid
 servers:
-- url: api/v1/
+- url: /api/v1/

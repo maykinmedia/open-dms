@@ -48,7 +48,7 @@ SPECTACULAR_SETTINGS = {
         "name": "EUPL 1.2",
         "url": "https://opensource.org/licenses/EUPL-1.2",
     },
-    "SERVERS": [{"url": "api/v1/"}],
+    "SERVERS": [{"url": "/api/v1/"}],
 }
 
 VNG_COMPONENTS_BRANCH = "master"
