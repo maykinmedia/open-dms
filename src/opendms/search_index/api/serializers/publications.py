@@ -43,7 +43,6 @@ class DocumentIndexSerializer(DocumentSerializer):
     def validate(self, attrs: DocumentIndexType):
         inhoud = attrs.get("inhoud")
         bestandsomvang = attrs.get("bestandsomvang")
-
         # Ensure bestandsomvang is provided when inhoud is present
         if inhoud and bestandsomvang is None:
             raise serializers.ValidationError(

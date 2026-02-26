@@ -4,21 +4,6 @@ from typing import Literal, NotRequired, TypedDict
 type IndexName = Literal["document"]
 
 
-class NestedPublisherType(TypedDict):
-    uuid: str
-    naam: str
-
-
-class NestedInformationCategoryType(TypedDict):
-    uuid: str
-    naam: str
-
-
-class NestedTopicType(TypedDict):
-    uuid: str
-    officiele_titel: str
-
-
 class DocumentType(TypedDict):
     uuid: str
     url: str

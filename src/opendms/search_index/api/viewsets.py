@@ -1,6 +1,8 @@
+from uuid import UUID
+
 from django.utils.translation import gettext_lazy as _
 
-from drf_spectacular.utils import extend_schema
+from drf_spectacular.utils import OpenApiParameter, extend_schema
 from rest_framework import status, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
@@ -27,7 +29,7 @@ class DocumentViewSet(viewsets.ViewSet):
         ),
         responses={202: CeleryTaskIdSerializer},
     )
-    def create(self, request):
+    def create(self, request, *args, **kwargs):
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         validated_data: DocumentIndexType = serializer.validated_data
@@ -71,7 +73,15 @@ class DocumentViewSet(viewsets.ViewSet):
             "This schedules a background task to perform the actual removal."
         ),
         responses={202: CeleryTaskIdSerializer},
+        parameters=[
+            OpenApiParameter(
+                name="uuid",
+                type=UUID,
+                location=OpenApiParameter.PATH,
+                description=_("UUID of the document to remove"),
+            )
+        ],
     )
-    def destroy(self, request: Request, uuid: str):
+    def destroy(self, request: Request, uuid: str, *args, **kwargs):
         result = remove_document_from_index.delay(uuid=uuid)
         return Response(data={"task_id": result.id}, status=status.HTTP_202_ACCEPTED)

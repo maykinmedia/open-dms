@@ -9,9 +9,9 @@ interactions:
       Audit-Remarks:
       - download document for indexing.
       Audit-User-ID:
-      - GPP-Zoeken
+      - Open DMS
       Audit-User-Representation:
-      - GGP-Zoeken (system)
+      - Open DMS (system)
       Connection:
       - keep-alive
       User-Agent:
@@ -21,11 +21,11 @@ interactions:
   response:
     body:
       string: !!binary |
-        UEsDBBQAAAAAAPdUWlzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAAD3VFpc
-        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAPdUWlzfwKkADgAAAA4AAAAK
-        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAA91RaXOLcsooFAAAABQAAAAgA
-        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAA91RaXFiNuxMFAAAABQAAAAkAAAAA
-        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAPdUWlzfwKkADgAAAA4AAAAKAAAAAAAA
+        UEsDBBQAAAAAAApMYlzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAAAKTGJc
+        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAApMYlzfwKkADgAAAA4AAAAK
+        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAACkxiXOLcsooFAAAABQAAAAgA
+        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAACkxiXFiNuxMFAAAABQAAAAkAAAAA
+        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAApMYlzfwKkADgAAAA4AAAAKAAAAAAAA
         AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
     headers:
       Connection:
@@ -35,7 +35,7 @@ interactions:
       Content-Type:
       - application/zip
       Date:
-      - Thu, 26 Feb 2026 10:39:46 GMT
+      - Mon, 02 Mar 2026 09:32:21 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.12
     status:

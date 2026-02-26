@@ -133,7 +133,7 @@ def get_search_results(
         functions=[
             {
                 "gauss": {
-                    "begin_registratie": {
+                    "creatiedatum": {
                         "origin": "now",
                         # after ~two weeks, the decay will be 0.5
                         "scale": "15d",
