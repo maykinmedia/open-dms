@@ -7,9 +7,7 @@ class ServiceSerializer(serializers.ModelSerializer):
         model = Service
         fields = (
             "slug",
-            "api_type",
-            "api_root",
-            "auth_type",
+            "label",
         )
 
 

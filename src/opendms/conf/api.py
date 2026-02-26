@@ -16,7 +16,7 @@ REST_FRAMEWORK["DEFAULT_PERMISSION_CLASSES"] = (
     "rest_framework.permissions.IsAuthenticated",
 )
 
-REST_FRAMEWORK["DEFAULT_SCHEMA_CLASS"] = "opendms.utils.schema.AutoSchema"
+REST_FRAMEWORK["DEFAULT_SCHEMA_CLASS"] = "opendms.api.utils.schema.AutoSchema"
 #
 # SPECTACULAR - OpenAPI schema generation
 #

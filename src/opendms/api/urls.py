@@ -3,7 +3,7 @@ from django.urls import include, path, re_path
 from drf_spectacular.views import SpectacularRedocView
 from vng_api_common import routers
 
-from opendms.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIView
+from opendms.api.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIView
 
 from .viewsets import ServiceViewset
 
@@ -18,6 +18,10 @@ urlpatterns = [
         include(
             [
                 re_path(r"^", include(router.urls)),
+                path(
+                    "accounts/",
+                    include("opendms.accounts.api.urls", namespace="accounts"),
+                ),
                 path(
                     "openapi.json",
                     SpectacularJSONAPIView.as_view(

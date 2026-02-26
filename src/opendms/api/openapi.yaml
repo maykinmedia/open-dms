@@ -224,6 +224,9 @@ components:
             useful for cross-instance import/export.
           maxLength: 255
           pattern: ^[-a-zA-Z0-9_]+$
+        label:
+          type: string
+          maxLength: 100
         apiType:
           allOf:
           - $ref: '#/components/schemas/ApiTypeEnum'
@@ -242,6 +245,7 @@ components:
       required:
       - apiRoot
       - apiType
+      - label
       - slug
     User:
       type: object

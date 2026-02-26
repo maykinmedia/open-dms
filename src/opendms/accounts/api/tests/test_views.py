@@ -12,7 +12,7 @@ User = get_user_model()
 
 class LoginViewTest(APITestCase):
     def setUp(self):
-        self.path = reverse("accounts:login")
+        self.path = reverse("api:accounts:login")
 
     def test_incorrect_login(self):
         response = self.client.post(
@@ -41,27 +41,27 @@ class LoginViewTest(APITestCase):
 
 class LogoutViewTest(APITestCase):
     def setUp(self):
-        self.path = reverse("accounts:logout")
+        self.path = reverse("api:accounts:logout")
 
     def test_not_logged_in(self):
         self.client.get(self.path)
-        response = self.client.get(reverse("accounts:whoami"))
+        response = self.client.get(reverse("api:accounts:whoami"))
         self.assertFalse(response.data["is_authenticated"])
 
     def test_logged_in(self):
         user = UserFactory.create()
         self.client.force_login(user)
-        response = self.client.get(reverse("accounts:whoami"))
+        response = self.client.get(reverse("api:accounts:whoami"))
         self.assertTrue(response.data["is_authenticated"])
 
         self.client.get(self.path)
-        response = self.client.get(reverse("accounts:whoami"))
+        response = self.client.get(reverse("api:accounts:whoami"))
         self.assertFalse(response.data["is_authenticated"])
 
 
 class WhoAmIViewTest(APITestCase):
     def setUp(self):
-        self.path = reverse("accounts:whoami")
+        self.path = reverse("api:accounts:whoami")
 
     def test_whoami_anonymous_user(self):
         response = self.client.get(self.path)

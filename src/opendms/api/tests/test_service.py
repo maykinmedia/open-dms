@@ -1,10 +1,10 @@
 from rest_framework import status
 from vng_api_common.tests import reverse
-from zgw_consumers.constants import APITypes, AuthTypes
+from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
 from zgw_consumers.test.factories import ServiceFactory
 
-from opendms.utils.api_testcase import APITestCase
+from .api_testcase import APITestCase
 
 
 class ServiceTests(APITestCase):
@@ -20,10 +20,7 @@ class ServiceTests(APITestCase):
 
         # create Service
         ServiceFactory.create(
-            slug="slug-test",
-            api_type=APITypes.zrc,
-            api_root="http://web:8000/api/v1/",
-            auth_type=AuthTypes.zgw,
+            label="label-test", slug="slug-test", api_type=APITypes.ztc
         )
         response = self.client.get(self.list_url)
 
@@ -37,26 +34,24 @@ class ServiceTests(APITestCase):
                 "count": 1,
                 "next": None,
                 "previous": None,
-                "results": [
-                    {
-                        "slug": "slug-test",
-                        "apiType": APITypes.zrc,
-                        "apiRoot": "http://web:8000/api/v1/",
-                        "authType": AuthTypes.zgw,
-                    }
-                ],
+                "results": [{"slug": "slug-test", "label": "label-test"}],
             },
         )
+        # should be displayed
+        ServiceFactory.create(api_type=APITypes.ztc)
+        ServiceFactory.create(api_type=APITypes.ztc)
 
-        ServiceFactory.create_batch(5)
+        # should not be displayed
+        ServiceFactory.create(api_type=APITypes.orc)
+
         response = self.client.get(self.list_url)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 6)
-        self.assertEqual(Service.objects.all().count(), 6)
+        self.assertEqual(len(response.json()["results"]), 3)
+        self.assertEqual(Service.objects.all().count(), 4)
 
     def test_list_pagination_pagesize_param(self):
-        ServiceFactory.create_batch(10)
+        ServiceFactory.create_batch(10, api_type=APITypes.ztc)
         response = self.client.get(self.list_url, {"pageSize": 5})
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -71,10 +66,7 @@ class ServiceTests(APITestCase):
     def test_detail(self):
         # create Service
         service = ServiceFactory.create(
-            slug="slug-test",
-            api_type=APITypes.zrc,
-            api_root="http://web:8000/api/v1/",
-            auth_type=AuthTypes.zgw,
+            label="label-test", slug="slug-test", api_type=APITypes.ztc
         )
 
         detail_url = reverse("api:service-detail", kwargs={"slug": service.slug})
@@ -82,12 +74,7 @@ class ServiceTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
             response.json(),
-            {
-                "slug": "slug-test",
-                "apiType": APITypes.zrc,
-                "apiRoot": "http://web:8000/api/v1/",
-                "authType": AuthTypes.zgw,
-            },
+            {"slug": "slug-test", "label": "label-test"},
         )
 
     def test_detail_service_not_found(self):
@@ -148,7 +135,7 @@ class ServicePermissionTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_detail_permissions(self):
-        service = ServiceFactory.create()
+        service = ServiceFactory.create(api_type=APITypes.ztc)
         detail_url = reverse("api:service-detail", kwargs={"slug": service.slug})
 
         # logout first

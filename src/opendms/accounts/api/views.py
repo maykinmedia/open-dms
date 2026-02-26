@@ -22,6 +22,7 @@ if TYPE_CHECKING:
     from opendms.accounts.models import User
 
 
+# TODO check schema, use generic responses
 @extend_schema(
     tags=["accounts"],
     summary=_("login"),
