@@ -5,7 +5,7 @@ opendms
 :Version: 0.1.0
 :Source: https://bitbucket.org/maykinmedia/opendms
 :Keywords: ``<keywords>``
-:PythonVersion: 3.14
+:PythonVersion: 3.12
 
 |ruff|
 

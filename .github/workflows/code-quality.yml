@@ -16,7 +16,7 @@ jobs:
   open-api-workflow-code-quality:
     uses: maykinmedia/open-api-workflows/.github/workflows/code-quality.yml@v6
     with:
-      python-version: "3.14"
+      python-version: "3.12"
       node-version: "24"
 
       django-settings-module: "opendms.conf.ci"
