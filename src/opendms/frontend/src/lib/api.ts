@@ -1,87 +1,90 @@
 import { invariant } from "@maykin-ui/client-common";
-
-type RequestMethod =
-  | "GET"
-  | "POST"
-  | "PUT"
-  | "PATCH"
-  | "DELETE"
-  | "CONNECT"
-  | "HEAD"
-  | "OPTIONS"
-  | "TRACE";
+import createClient, { type Middleware } from "openapi-fetch";
+import type { ValidatieFout, paths } from "~/types";
 
 /**
- * Sends an HTTP request and returns the parsed JSON response.
+ * Middleware that ensures the "Content-Type" header is set to "application/json" for outgoing requests.
  *
- * @param {string} path - The endpoint URL to send the request to.
- * @param {RequestMethod} [method="POST"] - The HTTP method to use for the request.
- * @param {FormData|unknown} [data] - The request payload or form data to be sent in the body of the request.
- * @param {AbortSignal} [signal] - An optional signal to abort the request.
- * @return {Promise<T>} A promise that resolves to the parsed JSON response of type T.
- * @throws {Response} Throws the response object if the request fails (response.ok is false).
+ * This middleware modifies the request's headers by adding or overriding the "Content-Type" field
+ * with the value "application/json". This is useful for guaranteeing that the request is sent
+ * with the appropriate content type for JSON payloads.
+ *
+ * @type {Middleware}
  */
-export async function apiRequest<T>(
-  path: string,
-  method: RequestMethod = "GET",
-  data?: FormData | unknown,
-  signal?: AbortSignal,
-): Promise<T> {
-  const response = await fetch(path, {
-    method: method,
-    headers: getRequestHeaders(method),
-    body: getRequestBody(data),
-    signal,
-  });
-
-  if (!response.ok) {
-    throw response;
-  }
-
-  if (response.status === 204) return null as T; // No content
-  return (await response.json()) as T;
-}
+const contentTypeJSONMiddleware: Middleware = {
+  async onRequest({ request }) {
+    request.headers.set("Content-Type", "application/json");
+  },
+};
 
 /**
- * Generates and returns the appropriate request headers based on the HTTP method.
+ * Middleware responsible for handling client-side CSRF protection by automatically
+ * attaching a CSRF token to the headers of HTTP requests that require it.
  *
- * @param {RequestMethod} method The HTTP request method (e.g., GET, POST, PUT).
- * @return {Record<string, string>} An object containing the headers for the request.
- *                                  Includes "Content-Type" as "application/json" by default.
- *                                  Adds "X-CSRFToken" for methods that require a CSRF token.
+ * This middleware fetches the CSRF token from an input field added via Django templates
+ * (using the `{% csrf_token %}` template tag) and ensures it is included in the
+ * `X-CSRFToken` header of requests. It will only attach the token for methods that
+ * modify server-side state (e.g., "POST", "PUT", "DELETE", etc.).
+ *
+ * Note:
+ * - Requests with HTTP methods such as "GET", "HEAD", "CONNECT", "OPTIONS", and "TRACE"
+ *   are considered to not require a CSRF token and will not include the header.
+ * - The middleware will throw an error if the CSRF token cannot be found, indicating
+ *   that the page might not have been rendered through Django or the token was not
+ *   correctly embedded.
+ *
+ * Middleware type: {@link Middleware}
  */
-function getRequestHeaders(method: RequestMethod): Record<string, string> {
-  const baseHeaders = {
-    "Content-Type": "application/json",
-  };
+const csrfClientMiddleware: Middleware = {
+  async onRequest({ request }) {
+    // These requests do not require CSRF token.
+    if (["GET", "HEAD", "CONNECT", "OPTIONS", "TRACE"].includes(request.method))
+      return;
 
-  // These requests do not require CSRF token.
-  if (["GET", "HEAD", "CONNECT", "OPTIONS", "TRACE"].includes(method))
-    return baseHeaders;
+    // The token is obtaines using Django's {% csrf_token %}.
+    const csrftoken = document.querySelector<HTMLInputElement>(
+      "[name=csrfmiddlewaretoken]",
+    )?.value;
 
-  // The token is obtaines using Django's {% csrf_token %}.
-  const csrftoken = document.querySelector<HTMLInputElement>(
-    "[name=csrfmiddlewaretoken]",
-  )?.value;
+    // Assert that the token is resolved.
+    invariant(
+      csrftoken,
+      `CSRF token not found in template, are you requesting the page via Django?`,
+    );
 
-  // Assert that the token is resolved.
-  invariant(
-    csrftoken,
-    `CSRF token not found in template, are you requesting the page via Django?`,
-  );
-
-  // Return the token along with the base headers.
-  return { ...baseHeaders, "X-CSRFToken": csrftoken };
-}
+    request.headers.set("X-CSRFToken", csrftoken);
+  },
+};
 
 /**
- * Converts the provided data into a JSON string representation if it is defined.
- * If the data is an instance of FormData, it is transformed into an object before stringification.
+ * An instance of the API client created using the `createClient` function.
+ * The client is configured with the base URL derived from the current window's origin.
  *
- * @param {FormData | unknown} data - The input data to be processed. Can either be a FormData instance or any other data type.
- * @return {string | undefined} The JSON string representation of the input data, or undefined if the input data is not provided.
+ * This client is used for making HTTP requests to interact with the server-side API
+ * and adheres to the defined paths structure for endpoint typing and safety.
  */
-function getRequestBody(data: FormData | unknown): string | undefined {
-  const _data = data instanceof FormData ? Object.fromEntries(data) : data;
-  return data ? JSON.stringify(_data) : undefined;
+export const apiClient = createClient<paths>({
+  baseUrl: window.location.origin,
+});
+apiClient.use(contentTypeJSONMiddleware);
+apiClient.use(csrfClientMiddleware);
+
+/**
+ * For endpoints optionally returning `ValidatieFout`, this can be used to create
+ * an object containing `nonFieldErrors` and `errors`. These can be passed to form
+ * instances to show meaningful error messages.
+ * @param validatieFout
+ */
+export function validatieFoute2FormErrors(
+  validatieFout: ValidatieFout | undefined,
+) {
+  const invalidParams = validatieFout?.invalidParams || [];
+  const nonFieldErrors = invalidParams.find(
+    ({ name }) => name === "nonFieldErrors",
+  )?.reason;
+  const errors = invalidParams
+    .filter(({ name }) => name !== "nonFieldErrors")
+    .reduce((acc, { name, reason }) => ({ ...acc, [name]: reason }), {});
+
+  return { nonFieldErrors, errors };
 }

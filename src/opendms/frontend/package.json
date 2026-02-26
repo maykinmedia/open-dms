@@ -12,12 +12,13 @@
     "build-storybook": "storybook build",
     "test-storybook": "vitest --project=storybook",
     "test": "vitest",
-    "update-types": "npx openapi-typescript ../api/openapi.yaml -o ./src/types/schema.d.ts",
-    "check-types": "npx openapi-typescript ../api/openapi.yaml -o ./src/types/schema.d.ts --check"
+    "update-types": "npx openapi-typescript ../api/openapi.yaml -o src/types/schema.d.ts",
+    "check-types": "npx openapi-typescript ../api/openapi.yaml -o src/types/schema.d.ts --check"
   },
   "dependencies": {
     "@maykin-ui/admin-ui": "^2.0.0",
     "@maykin-ui/client-common": "^0.0.7",
+    "openapi-fetch": "^0.17.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-router": "^7.13.0"
@@ -51,6 +52,7 @@
     "globals": "^16.5.0",
     "msw": "^2.12.10",
     "msw-storybook-addon": "^2.0.6",
+    "openapi-typescript": "^7.13.0",
     "playwright": "^1.58.2",
     "storybook": "^10.2.10",
     "storybook-addon-remix-react-router": "^6.0.0",

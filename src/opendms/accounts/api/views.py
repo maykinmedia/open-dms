@@ -5,14 +5,14 @@ from typing import TYPE_CHECKING
 from django.contrib.auth import login, logout
 from django.utils.translation import gettext_lazy as _
 
-from drf_spectacular.utils import OpenApiResponse, extend_schema
+from drf_spectacular.utils import extend_schema
 from rest_framework import status
 from rest_framework.generics import RetrieveAPIView
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from vng_api_common.serializers import ValidatieFoutSerializer
 
-from ...api.serializers import ValidationErrorsSerializer
 from .authentication import AnonCSRFSessionAuthentication
 from .serializers import AuthSerializer, WhoAmISerializer
 
@@ -29,12 +29,7 @@ if TYPE_CHECKING:
     description=_(
         "Authenticates the user, returns whoami details on successful login."
     ),
-    responses={
-        200: WhoAmISerializer,
-        400: OpenApiResponse(
-            response=ValidationErrorsSerializer, description="Validation error"
-        ),
-    },
+    responses={200: WhoAmISerializer, 400: ValidatieFoutSerializer},
 )
 class LoginView(APIView):
     authentication_classes = (AnonCSRFSessionAuthentication,)

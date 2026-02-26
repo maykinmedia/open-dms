@@ -1,5 +1,7 @@
+import type { components } from "~/types/schema.d.ts";
+
 export * from "./schema.d.ts";
 
 // Aliases
 export type User = components["schemas"]["User"];
-export type ValidationErrors = components["schemas"]["ValidationErrors"];
+export type ValidatieFout = components["schemas"]["ValidatieFout"];
