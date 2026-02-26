@@ -519,11 +519,6 @@ kombu==5.6.2
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   celery
-legacy-cgi==2.6.4
-    # via
-    #   -c requirements/ci.txt
-    #   -r requirements/ci.txt
-    #   webob
 lxml==6.0.2
     # via
     #   -c requirements/ci.txt
@@ -1012,6 +1007,7 @@ typing-extensions==4.15.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   anyio
     #   beautifulsoup4
     #   grpcio
     #   mozilla-django-oidc-db
@@ -1020,8 +1016,11 @@ typing-extensions==4.15.0
     #   opentelemetry-exporter-otlp-proto-http
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
+    #   psycopg
     #   pydantic
     #   pydantic-core
+    #   pyopenssl
+    #   referencing
     #   typing-inspection
     #   zgw-consumers
 typing-inspection==0.4.2

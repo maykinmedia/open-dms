@@ -458,8 +458,11 @@ typing-extensions==4.15.0
     #   opentelemetry-exporter-otlp-proto-http
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
+    #   psycopg
     #   pydantic
     #   pydantic-core
+    #   pyopenssl
+    #   referencing
     #   typing-inspection
     #   zgw-consumers
 typing-inspection==0.4.2
