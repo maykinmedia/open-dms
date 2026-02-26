@@ -31,6 +31,11 @@ x-app-env: &x-app-env
   # - OTEL_EXPORTER_OTLP_HEADERS=Authorization=Basic b3RlbDpzdXBlcnNlY3JldA==
   - OTEL_EXPORTER_OTLP_METRICS_INSECURE=${OTEL_EXPORTER_OTLP_METRICS_INSECURE:-true}
   - _OTEL_ENABLE_CONTAINER_RESOURCE_DETECTOR=true
+  # ES settings
+  - INIT_ES_INDICES=true
+  - ELASTICSEARCH_HOST=http://es:9200/
+  - ELASTICSEARCH_USER=elastic
+  - ELASTICSEARCH_PASSWORD=insecure-elastic
 
 x-app-volumes: &x-app-volumes
   - static:/srv/static
@@ -62,6 +67,44 @@ services:
     networks:
       - open-dms-dev
 
+  # Based on https://www.elastic.co/guide/en/elasticsearch/reference/current/run-elasticsearch-locally.html
+  # Log in with `elastic` / `insecure-elastic` (or whatever you set the envvar `ES_PASSWORD` to).
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ES_VERSION:-8.17.1}
+    environment:
+      - discovery.type=single-node
+      - cluster.name=opendms-dev
+      - node.name=es01
+      - node.roles=master,data,ingest
+      - ingest.geoip.downloader.enabled=false
+      - ELASTIC_PASSWORD=${ES_PASSWORD:-insecure-elastic}
+      - xpack.security.enabled=true
+      - xpack.security.http.ssl.enabled=false
+      # - xpack.license.self_generated.type=trial
+      - xpack.ml.use_auto_machine_memory_percent=true
+      - ES_JAVA_OPTS=-Xms${ES_HEAP_INIT:-128m} -Xmx${ES_HEAP_MAX:-2g}
+      - cluster.routing.allocation.disk.watermark.low=${ES_DISK_SPACE_REQUIRED:-1gb}
+      - cluster.routing.allocation.disk.watermark.high=${ES_DISK_SPACE_REQUIRED:-1gb}
+      - cluster.routing.allocation.disk.watermark.flood_stage=${ES_DISK_SPACE_REQUIRED:-1gb}
+    volumes:
+      - es-data:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "curl --output /dev/null --silent --head --fail -u elastic:${ES_PASSWORD:-insecure-elastic} http://es:9200",
+        ]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+    ports:
+      - 9200:9200
+      # - "9300:9300"
+
   prepare-volumes:
     image: busybox
     command: /bin/chown -R 1000 /srv/static
@@ -87,6 +130,7 @@ services:
       - prepare-volumes
       - db
       - redis
+      - es
     networks:
       - open-dms-dev
 
@@ -94,6 +138,7 @@ volumes:
   db:
   static:
   media:
+  es-data:
 
 networks:
   open-dms-dev:
