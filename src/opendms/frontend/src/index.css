@@ -1,7 +1,10 @@
 :root {
 }
 
-html, body, #root, #storybook-root {
+html,
+body,
+#root,
+#storybook-root {
   height: 100%;
 }
 

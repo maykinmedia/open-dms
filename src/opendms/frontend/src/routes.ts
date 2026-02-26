@@ -26,9 +26,17 @@ export const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: () => "Authenticated",
+        Component: () => "Authenticated (with no service selected)",
       },
-      // other protected routes here
+      {
+        path: ":service_slug",
+        children: [
+          {
+            index: true,
+            Component: () => "I have selected a service",
+          },
+        ],
+      },
     ],
   },
 ]);
