@@ -1,10 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"https://adams-smith.biz/","identificatie":"e794faa2-79c7-4bca-bd8f-7fe791ef43aa","bronorganisatie":"Davis
-      PLC","creatiedatum":"2026-01-26","titel":"Require name series large.","auteur":"John
-      Griffith","taal":"nr","begin_registratie":"2026-02-04T12:42:13.293330","informatieobjecttype":"arm","vertrouwelijkheidaanduiding":"wear","status":"develop","formaat":"wav","bestandsnaam":"son.xlsx","link":"http://www.erickson.com/","beschrijving":"Interview
-      order movement act great life meeting. Top develop leave common. Attorney worker
-      often crime senior rest institution.","ontvangstdatum":"2026-02-07","verzenddatum":"2026-02-13","verschijningsvorm":"lawyer"}'
+    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://davis.com/","identificatie":"5ffb22c6-896a-481f-9dfb-4e095018b5cd","bronorganisatie":"Campbell
+      Ltd","creatiedatum":"2026-02-06","titel":"Read significant marriage reason enter.","auteur":"Kyle
+      Johnson","taal":"mk","begin_registratie":"2026-02-05T05:48:17.574480","informatieobjecttype":"half","vertrouwelijkheidaanduiding":"culture","status":"customer","formaat":"bmp","bestandsnaam":"poor.mp3","link":"http://www.berger.com/","beschrijving":"Available
+      true everything instead mention address campaign. Blue today whose city go.","ontvangstdatum":"2026-02-10","verzenddatum":"2026-02-12","verschijningsvorm":"must"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -34,10 +33,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://mason.com/","identificatie":"2d26d0f3-a6a5-41d0-adb8-2531059df1e5","bronorganisatie":"Brown
-      Ltd","creatiedatum":"2026-01-29","titel":"Weight best ten expert budget event
-      author.","auteur":"Shawn Hunt","taal":"ln","begin_registratie":"2026-01-29T07:27:59.349582","informatieobjecttype":"remain","vertrouwelijkheidaanduiding":"major","status":"guy","formaat":"xls","bestandsnaam":"only.json","link":"https://www.alvarado.com/","beschrijving":"Themselves
-      decision wrong. Move speech career write culture success.","ontvangstdatum":"2026-02-12","verzenddatum":"2026-02-20","verschijningsvorm":"off"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://marshall.com/","identificatie":"b57448cf-d8f3-4ddf-9013-4f0426737bec","bronorganisatie":"Simmons,
+      Boyd and Shelton","creatiedatum":"2026-02-12","titel":"Individual much series
+      fine return message same land.","auteur":"Robert Frazier","taal":"ms","begin_registratie":"2026-02-11T11:04:17.551986","informatieobjecttype":"TV","vertrouwelijkheidaanduiding":"agree","status":"physical","formaat":"jpeg","bestandsnaam":"shake.tiff","link":"http://www.jennings-morris.com/","beschrijving":"She
+      opportunity begin word door contain four. Answer relate report Democrat well.","ontvangstdatum":"2026-01-31","verzenddatum":"2026-01-27","verschijningsvorm":"minute"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -83,11 +82,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_score":0.63604176,"_source":{"begin_registratie":"2026-02-04T12:42:13.293330","beschrijving":"Interview
-        order movement act great life meeting. Top develop leave common. Attorney
-        worker often crime senior rest institution.","verschijningsvorm":"lawyer","identificatie":"e794faa2-79c7-4bca-bd8f-7fe791ef43aa","bronorganisatie":"Davis
-        PLC","link":"http://www.erickson.com/","uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"https://adams-smith.biz/","taal":"nr","verzenddatum":"2026-02-13","auteur":"John
-        Griffith","formaat":"wav","titel":"Require name series large.","vertrouwelijkheidaanduiding":"wear","informatieobjecttype":"arm","bestandsnaam":"son.xlsx","ontvangstdatum":"2026-02-07","creatiedatum":"2026-01-26","status":"develop"},"sort":[0.63604176,1769385600000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":0.8220509,"_source":{"begin_registratie":"2026-02-11T11:04:17.551986","beschrijving":"She
+        opportunity begin word door contain four. Answer relate report Democrat well.","verschijningsvorm":"minute","identificatie":"b57448cf-d8f3-4ddf-9013-4f0426737bec","bronorganisatie":"Simmons,
+        Boyd and Shelton","link":"http://www.jennings-morris.com/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://marshall.com/","taal":"ms","verzenddatum":"2026-01-27","auteur":"Robert
+        Frazier","formaat":"jpeg","titel":"Individual much series fine return message
+        same land.","vertrouwelijkheidaanduiding":"agree","informatieobjecttype":"TV","bestandsnaam":"shake.tiff","ontvangstdatum":"2026-01-31","creatiedatum":"2026-02-12","status":"physical"},"sort":[0.8220509,1770854400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

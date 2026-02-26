@@ -3,7 +3,6 @@ from datetime import date
 from django.urls import reverse_lazy
 
 from rest_framework import status
-from rest_framework.test import APIClient
 
 from opendms.utils.tests.vcr import VCRMixin
 
@@ -13,18 +12,23 @@ from .factories import IndexDocumentFactory, ServiceFactory
 
 
 class SearchApiAccessTest(ElasticSearchAPITestCase):
-    def test_api_with_wrong_credentials_blocks_access(self):
-        url = reverse_lazy("api:search")
+    url = reverse_lazy("api:search")
+    maxDiff = None
 
-        with self.subTest("no token given"):
-            client = APIClient()
-            response = client.post(url)
-            self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+    def test_permissions(self):
+        # logout first
+        self.client.logout()
 
-        with self.subTest("non-existing token"):
-            client.credentials(HTTP_AUTHORIZATION="Token broken")
-            response = client.post(url)
-            self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        response = self.client.post(self.url)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
+        self.assertEqual(
+            response.data["detail"], "Authenticatiegegevens zijn niet opgegeven."
+        )
+
+        # login
+        self.client.force_login(self.user)
+        response = self.client.post(self.url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
 
 
 class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):

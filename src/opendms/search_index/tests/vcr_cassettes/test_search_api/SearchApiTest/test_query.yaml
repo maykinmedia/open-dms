@@ -1,9 +1,10 @@
 interactions:
 - request:
-    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://white.com/","identificatie":"document1","bronorganisatie":"Chandler-Sanchez","creatiedatum":"2026-01-26","titel":"Unique
-      Document","auteur":"Robert Santos","taal":"mi","begin_registratie":"2026-02-11T05:32:47.147943","informatieobjecttype":"information","vertrouwelijkheidaanduiding":"physical","status":"yes","formaat":"wav","bestandsnaam":"force.png","link":"http://castillo.com/","beschrijving":"Remain
-      safe poor each meeting. Senior future but figure development whole case. Resource
-      American day long case character fine.","ontvangstdatum":"2026-02-05","verzenddatum":"2026-01-29","verschijningsvorm":"may"}'
+    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://www.friedman-jones.com/","identificatie":"document1","bronorganisatie":"Gutierrez
+      Ltd","creatiedatum":"2026-02-16","titel":"Unique Document","auteur":"Micheal
+      Mack","taal":"lg","begin_registratie":"2026-01-29T07:00:14.578778","informatieobjecttype":"agree","vertrouwelijkheidaanduiding":"still","status":"like","formaat":"flac","bestandsnaam":"ahead.ppt","link":"https://garner.com/","beschrijving":"Usually
+      present world why free ok. Bit inside free general already property pass realize.
+      Late say small party.","ontvangstdatum":"2026-01-30","verzenddatum":"2026-02-10","verschijningsvorm":"truth"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -49,10 +50,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":4.2217984,"_source":{"begin_registratie":"2026-02-11T05:32:47.147943","beschrijving":"Remain
-        safe poor each meeting. Senior future but figure development whole case. Resource
-        American day long case character fine.","verschijningsvorm":"may","identificatie":"document1","bronorganisatie":"Chandler-Sanchez","link":"http://castillo.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://white.com/","taal":"mi","verzenddatum":"2026-01-29","auteur":"Robert
-        Santos","formaat":"wav","titel":"Unique Document","vertrouwelijkheidaanduiding":"physical","informatieobjecttype":"information","bestandsnaam":"force.png","ontvangstdatum":"2026-02-05","creatiedatum":"2026-01-26","status":"yes"},"sort":[4.2217984,1769385600000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":1.1656698,"_source":{"begin_registratie":"2026-01-29T07:00:14.578778","beschrijving":"Usually
+        present world why free ok. Bit inside free general already property pass realize.
+        Late say small party.","verschijningsvorm":"truth","identificatie":"document1","bronorganisatie":"Gutierrez
+        Ltd","link":"https://garner.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://www.friedman-jones.com/","taal":"lg","verzenddatum":"2026-02-10","auteur":"Micheal
+        Mack","formaat":"flac","titel":"Unique Document","vertrouwelijkheidaanduiding":"still","informatieobjecttype":"agree","bestandsnaam":"ahead.ppt","ontvangstdatum":"2026-01-30","creatiedatum":"2026-02-16","status":"like"},"sort":[1.1656698,1771200000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

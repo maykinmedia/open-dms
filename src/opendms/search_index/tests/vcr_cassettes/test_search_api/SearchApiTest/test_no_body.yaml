@@ -1,9 +1,10 @@
 interactions:
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://townsend.biz/","identificatie":"dbfa9db3-0479-4b6d-b292-9ba79abaa7aa","bronorganisatie":"Lewis
-      Group","creatiedatum":"2026-02-06","titel":"Test Document","auteur":"Michael
-      Rice","taal":"tn","begin_registratie":"2026-01-29T21:10:31.581809","informatieobjecttype":"join","vertrouwelijkheidaanduiding":"audience","status":"clearly","formaat":"html","bestandsnaam":"exist.webm","link":"https://bradford.com/","beschrijving":"A
-      test document description","ontvangstdatum":"2026-02-19","verzenddatum":"2026-02-20","verschijningsvorm":"foreign"}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.thomas.net/","identificatie":"b588aa42-1e08-45a9-91c0-78ebf796d943","bronorganisatie":"Jones,
+      Vang and Greene","creatiedatum":"2026-01-31","titel":"Economic house science
+      keep bar somebody.","auteur":"Eric Clark","taal":"uk","begin_registratie":"2026-02-24T14:59:44.760509","informatieobjecttype":"win","vertrouwelijkheidaanduiding":"front","status":"activity","formaat":"txt","bestandsnaam":"fill.css","link":"https://harmon.org/","beschrijving":"Attack
+      mouth idea itself red put. Expect red seek address now. Require perform vote
+      city rise option image treat.","ontvangstdatum":"2026-02-20","verzenddatum":"2026-02-18","verschijningsvorm":"mean"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -49,10 +50,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.37817475,"_source":{"begin_registratie":"2026-01-29T21:10:31.581809","beschrijving":"A
-        test document description","verschijningsvorm":"foreign","identificatie":"dbfa9db3-0479-4b6d-b292-9ba79abaa7aa","bronorganisatie":"Lewis
-        Group","link":"https://bradford.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://townsend.biz/","taal":"tn","verzenddatum":"2026-02-20","auteur":"Michael
-        Rice","formaat":"html","titel":"Test Document","vertrouwelijkheidaanduiding":"audience","informatieobjecttype":"join","bestandsnaam":"exist.webm","ontvangstdatum":"2026-02-19","creatiedatum":"2026-02-06","status":"clearly"},"sort":[0.37817475,1770336000000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":1.0,"_source":{"begin_registratie":"2026-02-24T14:59:44.760509","beschrijving":"Attack
+        mouth idea itself red put. Expect red seek address now. Require perform vote
+        city rise option image treat.","verschijningsvorm":"mean","identificatie":"b588aa42-1e08-45a9-91c0-78ebf796d943","bronorganisatie":"Jones,
+        Vang and Greene","link":"https://harmon.org/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.thomas.net/","taal":"uk","verzenddatum":"2026-02-18","auteur":"Eric
+        Clark","formaat":"txt","titel":"Economic house science keep bar somebody.","vertrouwelijkheidaanduiding":"front","informatieobjecttype":"win","bestandsnaam":"fill.css","ontvangstdatum":"2026-02-20","creatiedatum":"2026-01-31","status":"activity"},"sort":[1.0,1769817600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

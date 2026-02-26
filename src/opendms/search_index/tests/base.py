@@ -8,9 +8,9 @@ from elasticsearch.dsl import Document
 from opendms.conf.utils import config
 from opendms.search_index.client import get_client
 
+from ...api.tests.api_testcase import APITestCase
 from ..ingest import setup_document_attachment_processor
 from ..utils import get_index_document_types
-from .api_testcase import APITestCase
 
 CI = config("CI", default=False)  # Github actions sets this to True
 
