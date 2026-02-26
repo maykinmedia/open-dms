@@ -1,10 +1,10 @@
 interactions:
 - request:
-    body: '{"uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://www.armstrong.com/","identificatie":"7dfa72c6-ae1c-4a1f-bbbd-6ee4d802ee8d","bronorganisatie":"Green
-      Ltd","creatiedatum":"2026-01-02","titel":"Bed walk common strategy.","auteur":"Gabriel
-      Rose","taal":"ti","begin_registratie":"2026-02-08T14:56:59.860843","informatieobjecttype":"agency","vertrouwelijkheidaanduiding":"draw","status":"possible","formaat":"avi","bestandsnaam":"begin.bmp","link":"https://www.lang-miller.com/","beschrijving":"Surface
-      one himself. Fast travel team difference rich certainly land. Get loss many
-      daughter.","ontvangstdatum":"2026-01-29","verzenddatum":"2026-02-03","verschijningsvorm":"air"}'
+    body: '{"uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://diaz.com/","identificatie":"82f47d7f-1cd0-4ccd-9ce6-b4e1a9d6eaa2","bronorganisatie":"Taylor
+      Group","creatiedatum":"2026-01-02","titel":"What real realize ten mother attack.","auteur":"Alexandra
+      Hickman","taal":"sat","begin_registratie":"2026-02-24T06:55:05.236962","informatieobjecttype":"tax","vertrouwelijkheidaanduiding":"point","status":"pressure","formaat":"txt","bestandsnaam":"kind.txt","link":"https://combs-hensley.com/","beschrijving":"Since
+      worker approach. Anyone decide perform can teacher shoulder time. Degree bag
+      serious nearly.","ontvangstdatum":"2026-02-19","verzenddatum":"2026-02-17","verschijningsvorm":"factor"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -34,10 +34,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"http://www.bailey.org/","identificatie":"54296927-93e5-46a2-bb24-9c50390d14c9","bronorganisatie":"Parker-Bauer","creatiedatum":"2026-01-03","titel":"Eye
-      dog before control its run police other.","auteur":"Kelsey Elliott","taal":"lo","begin_registratie":"2026-02-04T15:13:27.112344","informatieobjecttype":"music","vertrouwelijkheidaanduiding":"if","status":"look","formaat":"gif","bestandsnaam":"no.wav","link":"http://ford.info/","beschrijving":"System
-      over world family feeling concern start. Direction audience financial television.
-      Compare middle perhaps together radio maybe analysis.","ontvangstdatum":"2026-02-10","verzenddatum":"2026-02-02","verschijningsvorm":"affect"}'
+    body: '{"uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"https://www.weaver-parker.com/","identificatie":"ffd7c03b-0baf-41b5-89a0-985a2160421a","bronorganisatie":"Bush-Page","creatiedatum":"2026-01-03","titel":"Trip
+      four agency letter however itself.","auteur":"Alexis Barton","taal":"ckb","begin_registratie":"2026-02-15T22:28:54.360093","informatieobjecttype":"government","vertrouwelijkheidaanduiding":"second","status":"discover","formaat":"txt","bestandsnaam":"capital.gif","link":"http://www.davis-scott.net/","beschrijving":"Professional
+      debate investment modern industry. Power out page much region civil. Travel
+      father reduce someone first board alone.","ontvangstdatum":"2026-02-21","verzenddatum":"2026-02-23","verschijningsvorm":"professor"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -83,14 +83,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","_score":0.6410186,"_source":{"begin_registratie":"2026-02-04T15:13:27.112344","beschrijving":"System
-        over world family feeling concern start. Direction audience financial television.
-        Compare middle perhaps together radio maybe analysis.","verschijningsvorm":"affect","identificatie":"54296927-93e5-46a2-bb24-9c50390d14c9","bronorganisatie":"Parker-Bauer","link":"http://ford.info/","uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"http://www.bailey.org/","taal":"lo","verzenddatum":"2026-02-02","auteur":"Kelsey
-        Elliott","formaat":"gif","titel":"Eye dog before control its run police other.","vertrouwelijkheidaanduiding":"if","informatieobjecttype":"music","bestandsnaam":"no.wav","ontvangstdatum":"2026-02-10","creatiedatum":"2026-01-03","status":"look"},"sort":[1767398400000,0.6410186]},{"_index":"document","_id":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","_score":0.8200021,"_source":{"begin_registratie":"2026-02-08T14:56:59.860843","beschrijving":"Surface
-        one himself. Fast travel team difference rich certainly land. Get loss many
-        daughter.","verschijningsvorm":"air","identificatie":"7dfa72c6-ae1c-4a1f-bbbd-6ee4d802ee8d","bronorganisatie":"Green
-        Ltd","link":"https://www.lang-miller.com/","uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://www.armstrong.com/","taal":"ti","verzenddatum":"2026-02-03","auteur":"Gabriel
-        Rose","formaat":"avi","titel":"Bed walk common strategy.","vertrouwelijkheidaanduiding":"draw","informatieobjecttype":"agency","bestandsnaam":"begin.bmp","ontvangstdatum":"2026-01-29","creatiedatum":"2026-01-02","status":"possible"},"sort":[1767312000000,0.8200021]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","_score":0.96296114,"_source":{"begin_registratie":"2026-02-15T22:28:54.360093","beschrijving":"Professional
+        debate investment modern industry. Power out page much region civil. Travel
+        father reduce someone first board alone.","verschijningsvorm":"professor","identificatie":"ffd7c03b-0baf-41b5-89a0-985a2160421a","bronorganisatie":"Bush-Page","link":"http://www.davis-scott.net/","uuid":"4b3f4514-7d8b-4e31-83ca-fa9376ff6523","url":"https://www.weaver-parker.com/","taal":"ckb","verzenddatum":"2026-02-23","auteur":"Alexis
+        Barton","formaat":"txt","titel":"Trip four agency letter however itself.","vertrouwelijkheidaanduiding":"second","informatieobjecttype":"government","bestandsnaam":"capital.gif","ontvangstdatum":"2026-02-21","creatiedatum":"2026-01-03","status":"discover"},"sort":[1767398400000,0.96296114]},{"_index":"document","_id":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","_score":1.0,"_source":{"begin_registratie":"2026-02-24T06:55:05.236962","beschrijving":"Since
+        worker approach. Anyone decide perform can teacher shoulder time. Degree bag
+        serious nearly.","verschijningsvorm":"factor","identificatie":"82f47d7f-1cd0-4ccd-9ce6-b4e1a9d6eaa2","bronorganisatie":"Taylor
+        Group","link":"https://combs-hensley.com/","uuid":"3b3f4514-7d8b-4e31-83ca-fa9376ff6522","url":"https://diaz.com/","taal":"sat","verzenddatum":"2026-02-17","auteur":"Alexandra
+        Hickman","formaat":"txt","titel":"What real realize ten mother attack.","vertrouwelijkheidaanduiding":"point","informatieobjecttype":"tax","bestandsnaam":"kind.txt","ontvangstdatum":"2026-02-19","creatiedatum":"2026-01-02","status":"pressure"},"sort":[1767312000000,1.0]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

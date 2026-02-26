@@ -1,11 +1,11 @@
 interactions:
 - request:
-    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://sanchez.com/","identificatie":"87c50a42-357f-462b-9ec7-9a8626fd95f4","bronorganisatie":"Gilbert,
-      Melendez and Davis","creatiedatum":"2026-02-19","titel":"Dutch analyzer","auteur":"Valerie
-      Miller","taal":"mai","begin_registratie":"2026-02-19T21:28:55.012470","informatieobjecttype":"someone","vertrouwelijkheidaanduiding":"series","status":"generation","formaat":"csv","bestandsnaam":"in.xlsx","link":"http://www.caldwell.info/","beschrijving":"Een
+    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://brady.com/","identificatie":"dbe99777-3958-4629-a0ff-5a6b2dc0edd5","bronorganisatie":"Morrison,
+      Freeman and Newman","creatiedatum":"2026-02-10","titel":"Dutch analyzer","auteur":"Mr.
+      Jesse Washington","taal":"st","begin_registratie":"2026-02-12T01:14:39.547955","informatieobjecttype":"before","vertrouwelijkheidaanduiding":"fact","status":"fund","formaat":"wav","bestandsnaam":"anyone.xls","link":"https://www.jimenez.com/","beschrijving":"Een
       document om de Nederlandse analyzer te testen. We doen dit door middel van een
       willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-      zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","ontvangstdatum":"2026-01-27","verzenddatum":"2026-01-31","verschijningsvorm":"this"}'
+      zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","ontvangstdatum":"2026-02-15","verzenddatum":"2026-02-10","verschijningsvorm":"federal"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -51,12 +51,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34521848,"_source":{"begin_registratie":"2026-02-19T21:28:55.012470","beschrijving":"Een
+      string: '{"took":58,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.2918301,"_source":{"begin_registratie":"2026-02-12T01:14:39.547955","beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"this","identificatie":"87c50a42-357f-462b-9ec7-9a8626fd95f4","bronorganisatie":"Gilbert,
-        Melendez and Davis","link":"http://www.caldwell.info/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://sanchez.com/","taal":"mai","verzenddatum":"2026-01-31","auteur":"Valerie
-        Miller","formaat":"csv","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"series","informatieobjecttype":"someone","bestandsnaam":"in.xlsx","ontvangstdatum":"2026-01-27","creatiedatum":"2026-02-19","status":"generation"},"sort":[0.34521848,1771459200000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"federal","identificatie":"dbe99777-3958-4629-a0ff-5a6b2dc0edd5","bronorganisatie":"Morrison,
+        Freeman and Newman","link":"https://www.jimenez.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://brady.com/","taal":"st","verzenddatum":"2026-02-10","auteur":"Mr.
+        Jesse Washington","formaat":"wav","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"fact","informatieobjecttype":"before","bestandsnaam":"anyone.xls","ontvangstdatum":"2026-02-15","creatiedatum":"2026-02-10","status":"fund"},"sort":[0.2918301,1770681600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -84,12 +84,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34521848,"_source":{"begin_registratie":"2026-02-19T21:28:55.012470","beschrijving":"Een
+      string: '{"took":5,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.2918301,"_source":{"begin_registratie":"2026-02-12T01:14:39.547955","beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"this","identificatie":"87c50a42-357f-462b-9ec7-9a8626fd95f4","bronorganisatie":"Gilbert,
-        Melendez and Davis","link":"http://www.caldwell.info/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://sanchez.com/","taal":"mai","verzenddatum":"2026-01-31","auteur":"Valerie
-        Miller","formaat":"csv","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"series","informatieobjecttype":"someone","bestandsnaam":"in.xlsx","ontvangstdatum":"2026-01-27","creatiedatum":"2026-02-19","status":"generation"},"sort":[0.34521848,1771459200000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"federal","identificatie":"dbe99777-3958-4629-a0ff-5a6b2dc0edd5","bronorganisatie":"Morrison,
+        Freeman and Newman","link":"https://www.jimenez.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://brady.com/","taal":"st","verzenddatum":"2026-02-10","auteur":"Mr.
+        Jesse Washington","formaat":"wav","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"fact","informatieobjecttype":"before","bestandsnaam":"anyone.xls","ontvangstdatum":"2026-02-15","creatiedatum":"2026-02-10","status":"fund"},"sort":[0.2918301,1770681600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -117,12 +117,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34521848,"_source":{"begin_registratie":"2026-02-19T21:28:55.012470","beschrijving":"Een
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.2918301,"_source":{"begin_registratie":"2026-02-12T01:14:39.547955","beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"this","identificatie":"87c50a42-357f-462b-9ec7-9a8626fd95f4","bronorganisatie":"Gilbert,
-        Melendez and Davis","link":"http://www.caldwell.info/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://sanchez.com/","taal":"mai","verzenddatum":"2026-01-31","auteur":"Valerie
-        Miller","formaat":"csv","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"series","informatieobjecttype":"someone","bestandsnaam":"in.xlsx","ontvangstdatum":"2026-01-27","creatiedatum":"2026-02-19","status":"generation"},"sort":[0.34521848,1771459200000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"federal","identificatie":"dbe99777-3958-4629-a0ff-5a6b2dc0edd5","bronorganisatie":"Morrison,
+        Freeman and Newman","link":"https://www.jimenez.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://brady.com/","taal":"st","verzenddatum":"2026-02-10","auteur":"Mr.
+        Jesse Washington","formaat":"wav","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"fact","informatieobjecttype":"before","bestandsnaam":"anyone.xls","ontvangstdatum":"2026-02-15","creatiedatum":"2026-02-10","status":"fund"},"sort":[0.2918301,1770681600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -150,7 +150,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
     headers:
       Transfer-Encoding:
       - chunked

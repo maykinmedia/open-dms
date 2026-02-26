@@ -1,7 +1,7 @@
 interactions:
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://clark-beck.com/","identificatie":"9091127c-f224-4b0b-92d0-529595679ecf","bronorganisatie":"Riley-Robertson","creatiedatum":"2026-02-14","titel":"Document
-      one","auteur":"Alexis Campbell","taal":"ht","begin_registratie":"2026-02-17T04:12:15.180910","informatieobjecttype":"wear","vertrouwelijkheidaanduiding":"behind","status":"apply","formaat":"jpeg","bestandsnaam":"back.csv","link":"https://www.rowe.com/","beschrijving":"snowflake1","ontvangstdatum":"2026-02-07","verzenddatum":"2026-02-06","verschijningsvorm":"wrong"}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.harris.org/","identificatie":"a44fe10a-b735-4ccc-9cad-66d732dbf1b8","bronorganisatie":"Wiley-Gardner","creatiedatum":"2026-02-24","titel":"Document
+      one","auteur":"John Patel","taal":"de","begin_registratie":"2026-01-27T20:30:45.243172","informatieobjecttype":"newspaper","vertrouwelijkheidaanduiding":"television","status":"yes","formaat":"avi","bestandsnaam":"security.gif","link":"https://www.byrd-diaz.com/","beschrijving":"snowflake1","ontvangstdatum":"2026-02-08","verzenddatum":"2026-02-20","verschijningsvorm":"less"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -31,9 +31,9 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://vasquez.com/","identificatie":"644a2138-40df-42c3-ad57-02f08926f9e2","bronorganisatie":"Higgins,
-      Parker and Wheeler","creatiedatum":"2026-02-14","titel":"Document two","auteur":"Julia
-      James","taal":"bn","begin_registratie":"2026-02-18T04:48:39.307194","informatieobjecttype":"citizen","vertrouwelijkheidaanduiding":"place","status":"keep","formaat":"webm","bestandsnaam":"newspaper.webm","link":"http://www.espinoza-williams.com/","beschrijving":"snowflake2","ontvangstdatum":"2026-01-29","verzenddatum":"2026-02-14","verschijningsvorm":"plant"}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://hughes.info/","identificatie":"ffd62418-3fcb-4d50-98ec-7f5408debd8f","bronorganisatie":"Howell,
+      Bates and Bennett","creatiedatum":"2026-01-29","titel":"Document two","auteur":"Brandon
+      Herrera","taal":"lzh","begin_registratie":"2026-02-24T15:54:13.576896","informatieobjecttype":"here","vertrouwelijkheidaanduiding":"month","status":"receive","formaat":"odt","bestandsnaam":"way.mp3","link":"https://williams-brown.com/","beschrijving":"snowflake2","ontvangstdatum":"2026-01-31","verzenddatum":"2026-02-01","verschijningsvorm":"source"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,8 +80,8 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.0858746,"_source":{"begin_registratie":"2026-02-17T04:12:15.180910","beschrijving":"snowflake1","verschijningsvorm":"wrong","identificatie":"9091127c-f224-4b0b-92d0-529595679ecf","bronorganisatie":"Riley-Robertson","link":"https://www.rowe.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://clark-beck.com/","taal":"ht","verzenddatum":"2026-02-06","auteur":"Alexis
-        Campbell","formaat":"jpeg","titel":"Document one","vertrouwelijkheidaanduiding":"behind","informatieobjecttype":"wear","bestandsnaam":"back.csv","ontvangstdatum":"2026-02-07","creatiedatum":"2026-02-14","status":"apply"},"sort":[6.0858746,1771027200000]}]}}'
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.4620917,"_source":{"begin_registratie":"2026-01-27T20:30:45.243172","beschrijving":"snowflake1","verschijningsvorm":"less","identificatie":"a44fe10a-b735-4ccc-9cad-66d732dbf1b8","bronorganisatie":"Wiley-Gardner","link":"https://www.byrd-diaz.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.harris.org/","taal":"de","verzenddatum":"2026-02-20","auteur":"John
+        Patel","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"television","informatieobjecttype":"newspaper","bestandsnaam":"security.gif","ontvangstdatum":"2026-02-08","creatiedatum":"2026-02-24","status":"yes"},"sort":[1.4620917,1771891200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -110,8 +110,8 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.0858746,"_source":{"begin_registratie":"2026-02-17T04:12:15.180910","beschrijving":"snowflake1","verschijningsvorm":"wrong","identificatie":"9091127c-f224-4b0b-92d0-529595679ecf","bronorganisatie":"Riley-Robertson","link":"https://www.rowe.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://clark-beck.com/","taal":"ht","verzenddatum":"2026-02-06","auteur":"Alexis
-        Campbell","formaat":"jpeg","titel":"Document one","vertrouwelijkheidaanduiding":"behind","informatieobjecttype":"wear","bestandsnaam":"back.csv","ontvangstdatum":"2026-02-07","creatiedatum":"2026-02-14","status":"apply"},"sort":[6.0858746,1771027200000]}]}}'
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.4620916,"_source":{"begin_registratie":"2026-01-27T20:30:45.243172","beschrijving":"snowflake1","verschijningsvorm":"less","identificatie":"a44fe10a-b735-4ccc-9cad-66d732dbf1b8","bronorganisatie":"Wiley-Gardner","link":"https://www.byrd-diaz.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.harris.org/","taal":"de","verzenddatum":"2026-02-20","auteur":"John
+        Patel","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"television","informatieobjecttype":"newspaper","bestandsnaam":"security.gif","ontvangstdatum":"2026-02-08","creatiedatum":"2026-02-24","status":"yes"},"sort":[1.4620916,1771891200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -140,10 +140,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.3882627,"_source":{"begin_registratie":"2026-02-17T04:12:15.180910","beschrijving":"snowflake1","verschijningsvorm":"wrong","identificatie":"9091127c-f224-4b0b-92d0-529595679ecf","bronorganisatie":"Riley-Robertson","link":"https://www.rowe.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://clark-beck.com/","taal":"ht","verzenddatum":"2026-02-06","auteur":"Alexis
-        Campbell","formaat":"jpeg","titel":"Document one","vertrouwelijkheidaanduiding":"behind","informatieobjecttype":"wear","bestandsnaam":"back.csv","ontvangstdatum":"2026-02-07","creatiedatum":"2026-02-14","status":"apply"},"sort":[4.3882627,1771027200000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.3882627,"_source":{"begin_registratie":"2026-02-18T04:48:39.307194","beschrijving":"snowflake2","verschijningsvorm":"plant","identificatie":"644a2138-40df-42c3-ad57-02f08926f9e2","bronorganisatie":"Higgins,
-        Parker and Wheeler","link":"http://www.espinoza-williams.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://vasquez.com/","taal":"bn","verzenddatum":"2026-02-14","auteur":"Julia
-        James","formaat":"webm","titel":"Document two","vertrouwelijkheidaanduiding":"place","informatieobjecttype":"citizen","bestandsnaam":"newspaper.webm","ontvangstdatum":"2026-01-29","creatiedatum":"2026-02-14","status":"keep"},"sort":[4.3882627,1771027200000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.606527,"_source":{"begin_registratie":"2026-02-24T15:54:13.576896","beschrijving":"snowflake2","verschijningsvorm":"source","identificatie":"ffd62418-3fcb-4d50-98ec-7f5408debd8f","bronorganisatie":"Howell,
+        Bates and Bennett","link":"https://williams-brown.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://hughes.info/","taal":"lzh","verzenddatum":"2026-02-01","auteur":"Brandon
+        Herrera","formaat":"odt","titel":"Document two","vertrouwelijkheidaanduiding":"month","informatieobjecttype":"here","bestandsnaam":"way.mp3","ontvangstdatum":"2026-01-31","creatiedatum":"2026-01-29","status":"receive"},"sort":[4.606527,1769644800000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":0.9574213,"_source":{"begin_registratie":"2026-01-27T20:30:45.243172","beschrijving":"snowflake1","verschijningsvorm":"less","identificatie":"a44fe10a-b735-4ccc-9cad-66d732dbf1b8","bronorganisatie":"Wiley-Gardner","link":"https://www.byrd-diaz.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.harris.org/","taal":"de","verzenddatum":"2026-02-20","auteur":"John
+        Patel","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"television","informatieobjecttype":"newspaper","bestandsnaam":"security.gif","ontvangstdatum":"2026-02-08","creatiedatum":"2026-02-24","status":"yes"},"sort":[0.9574213,1771891200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -172,10 +172,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.3882627,"_source":{"begin_registratie":"2026-02-17T04:12:15.180910","beschrijving":"snowflake1","verschijningsvorm":"wrong","identificatie":"9091127c-f224-4b0b-92d0-529595679ecf","bronorganisatie":"Riley-Robertson","link":"https://www.rowe.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://clark-beck.com/","taal":"ht","verzenddatum":"2026-02-06","auteur":"Alexis
-        Campbell","formaat":"jpeg","titel":"Document one","vertrouwelijkheidaanduiding":"behind","informatieobjecttype":"wear","bestandsnaam":"back.csv","ontvangstdatum":"2026-02-07","creatiedatum":"2026-02-14","status":"apply"},"sort":[4.3882627,1771027200000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.3882627,"_source":{"begin_registratie":"2026-02-18T04:48:39.307194","beschrijving":"snowflake2","verschijningsvorm":"plant","identificatie":"644a2138-40df-42c3-ad57-02f08926f9e2","bronorganisatie":"Higgins,
-        Parker and Wheeler","link":"http://www.espinoza-williams.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://vasquez.com/","taal":"bn","verzenddatum":"2026-02-14","auteur":"Julia
-        James","formaat":"webm","titel":"Document two","vertrouwelijkheidaanduiding":"place","informatieobjecttype":"citizen","bestandsnaam":"newspaper.webm","ontvangstdatum":"2026-01-29","creatiedatum":"2026-02-14","status":"keep"},"sort":[4.3882627,1771027200000]}]}}'
+      string: '{"took":5,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.606527,"_source":{"begin_registratie":"2026-02-24T15:54:13.576896","beschrijving":"snowflake2","verschijningsvorm":"source","identificatie":"ffd62418-3fcb-4d50-98ec-7f5408debd8f","bronorganisatie":"Howell,
+        Bates and Bennett","link":"https://williams-brown.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://hughes.info/","taal":"lzh","verzenddatum":"2026-02-01","auteur":"Brandon
+        Herrera","formaat":"odt","titel":"Document two","vertrouwelijkheidaanduiding":"month","informatieobjecttype":"here","bestandsnaam":"way.mp3","ontvangstdatum":"2026-01-31","creatiedatum":"2026-01-29","status":"receive"},"sort":[4.606527,1769644800000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":0.9574213,"_source":{"begin_registratie":"2026-01-27T20:30:45.243172","beschrijving":"snowflake1","verschijningsvorm":"less","identificatie":"a44fe10a-b735-4ccc-9cad-66d732dbf1b8","bronorganisatie":"Wiley-Gardner","link":"https://www.byrd-diaz.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.harris.org/","taal":"de","verzenddatum":"2026-02-20","auteur":"John
+        Patel","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"television","informatieobjecttype":"newspaper","bestandsnaam":"security.gif","ontvangstdatum":"2026-02-08","creatiedatum":"2026-02-24","status":"yes"},"sort":[0.9574213,1771891200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -204,10 +204,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":7.7703185,"_source":{"begin_registratie":"2026-02-17T04:12:15.180910","beschrijving":"snowflake1","verschijningsvorm":"wrong","identificatie":"9091127c-f224-4b0b-92d0-529595679ecf","bronorganisatie":"Riley-Robertson","link":"https://www.rowe.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://clark-beck.com/","taal":"ht","verzenddatum":"2026-02-06","auteur":"Alexis
-        Campbell","formaat":"jpeg","titel":"Document one","vertrouwelijkheidaanduiding":"behind","informatieobjecttype":"wear","bestandsnaam":"back.csv","ontvangstdatum":"2026-02-07","creatiedatum":"2026-02-14","status":"apply"},"sort":[7.7703185,1771027200000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":6.085875,"_source":{"begin_registratie":"2026-02-18T04:48:39.307194","beschrijving":"snowflake2","verschijningsvorm":"plant","identificatie":"644a2138-40df-42c3-ad57-02f08926f9e2","bronorganisatie":"Higgins,
-        Parker and Wheeler","link":"http://www.espinoza-williams.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://vasquez.com/","taal":"bn","verzenddatum":"2026-02-14","auteur":"Julia
-        James","formaat":"webm","titel":"Document two","vertrouwelijkheidaanduiding":"place","informatieobjecttype":"citizen","bestandsnaam":"newspaper.webm","ontvangstdatum":"2026-01-29","creatiedatum":"2026-02-14","status":"keep"},"sort":[6.085875,1771027200000]}]}}'
+      string: '{"took":6,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":7.0346923,"_source":{"begin_registratie":"2026-02-24T15:54:13.576896","beschrijving":"snowflake2","verschijningsvorm":"source","identificatie":"ffd62418-3fcb-4d50-98ec-7f5408debd8f","bronorganisatie":"Howell,
+        Bates and Bennett","link":"https://williams-brown.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://hughes.info/","taal":"lzh","verzenddatum":"2026-02-01","auteur":"Brandon
+        Herrera","formaat":"odt","titel":"Document two","vertrouwelijkheidaanduiding":"month","informatieobjecttype":"here","bestandsnaam":"way.mp3","ontvangstdatum":"2026-01-31","creatiedatum":"2026-01-29","status":"receive"},"sort":[7.0346923,1769644800000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.6698378,"_source":{"begin_registratie":"2026-01-27T20:30:45.243172","beschrijving":"snowflake1","verschijningsvorm":"less","identificatie":"a44fe10a-b735-4ccc-9cad-66d732dbf1b8","bronorganisatie":"Wiley-Gardner","link":"https://www.byrd-diaz.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.harris.org/","taal":"de","verzenddatum":"2026-02-20","auteur":"John
+        Patel","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"television","informatieobjecttype":"newspaper","bestandsnaam":"security.gif","ontvangstdatum":"2026-02-08","creatiedatum":"2026-02-24","status":"yes"},"sort":[1.6698378,1771891200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

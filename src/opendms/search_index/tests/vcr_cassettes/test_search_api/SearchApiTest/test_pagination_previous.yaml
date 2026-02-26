@@ -1,9 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://jones.info/","identificatie":"43067d4c-ac80-4049-b1cd-1e2303aff5d0","bronorganisatie":"Hall
-      Ltd","creatiedatum":"2026-01-29","titel":"Throughout even ever minute.","auteur":"Donna
-      Griffin","taal":"apn","begin_registratie":"2026-02-19T20:01:02.481263","informatieobjecttype":"notice","vertrouwelijkheidaanduiding":"traditional","status":"budget","formaat":"wav","bestandsnaam":"population.flac","link":"https://www.daniels-jackson.org/","beschrijving":"Campaign
-      with painting now agree walk. Animal you great watch parent to.","ontvangstdatum":"2026-02-15","verzenddatum":"2026-02-10","verschijningsvorm":"make"}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://jones-fuller.info/","identificatie":"4ff0b63d-67c4-48b7-93af-086c884eaf01","bronorganisatie":"Wright
+      Inc","creatiedatum":"2026-02-18","titel":"Society available good life air.","auteur":"Amber
+      Perkins","taal":"ca","begin_registratie":"2026-02-08T16:44:34.889253","informatieobjecttype":"worker","vertrouwelijkheidaanduiding":"structure","status":"respond","formaat":"docx","bestandsnaam":"service.flac","link":"https://warren-smith.com/","beschrijving":"Man
+      add one top debate will certainly. Cause case watch.","ontvangstdatum":"2026-02-02","verzenddatum":"2026-01-27","verschijningsvorm":"each"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -33,10 +33,11 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://chapman-finley.com/","identificatie":"ba2a17af-fa15-4900-b871-145d480723fe","bronorganisatie":"Mcfarland,
-      Green and Cunningham","creatiedatum":"2026-01-26","titel":"Apply save hospital
-      expert reach story.","auteur":"Victor Webster","taal":"ps","begin_registratie":"2026-02-17T16:37:46.929453","informatieobjecttype":"money","vertrouwelijkheidaanduiding":"skin","status":"whose","formaat":"doc","bestandsnaam":"of.png","link":"http://flores-price.info/","beschrijving":"Create
-      explain music. Group lose man walk without local.","ontvangstdatum":"2026-02-20","verzenddatum":"2026-02-03","verschijningsvorm":"clearly"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://castillo.com/","identificatie":"214bee89-eba1-4efe-bcef-57e6ba598b46","bronorganisatie":"Nguyen
+      Inc","creatiedatum":"2026-02-08","titel":"Most leg size industry month.","auteur":"Kari
+      Baker","taal":"doi","begin_registratie":"2026-02-19T04:39:45.133142","informatieobjecttype":"person","vertrouwelijkheidaanduiding":"quickly","status":"writer","formaat":"webm","bestandsnaam":"determine.key","link":"https://mcclure.com/","beschrijving":"Head
+      camera sister run. Result opportunity drive player energy out today. Will treatment
+      fight rate goal manager skin.","ontvangstdatum":"2026-01-30","verzenddatum":"2026-02-19","verschijningsvorm":"book"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -82,10 +83,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":1.0,"_source":{"begin_registratie":"2026-02-17T16:37:46.929453","beschrijving":"Create
-        explain music. Group lose man walk without local.","verschijningsvorm":"clearly","identificatie":"ba2a17af-fa15-4900-b871-145d480723fe","bronorganisatie":"Mcfarland,
-        Green and Cunningham","link":"http://flores-price.info/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://chapman-finley.com/","taal":"ps","verzenddatum":"2026-02-03","auteur":"Victor
-        Webster","formaat":"doc","titel":"Apply save hospital expert reach story.","vertrouwelijkheidaanduiding":"skin","informatieobjecttype":"money","bestandsnaam":"of.png","ontvangstdatum":"2026-02-20","creatiedatum":"2026-01-26","status":"whose"},"sort":[1.0,1769385600000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":0.7009704,"_source":{"begin_registratie":"2026-02-08T16:44:34.889253","beschrijving":"Man
+        add one top debate will certainly. Cause case watch.","verschijningsvorm":"each","identificatie":"4ff0b63d-67c4-48b7-93af-086c884eaf01","bronorganisatie":"Wright
+        Inc","link":"https://warren-smith.com/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://jones-fuller.info/","taal":"ca","verzenddatum":"2026-01-27","auteur":"Amber
+        Perkins","formaat":"docx","titel":"Society available good life air.","vertrouwelijkheidaanduiding":"structure","informatieobjecttype":"worker","bestandsnaam":"service.flac","ontvangstdatum":"2026-02-02","creatiedatum":"2026-02-18","status":"respond"},"sort":[0.7009704,1771372800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
