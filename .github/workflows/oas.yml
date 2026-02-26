@@ -28,3 +28,14 @@ jobs:
       postman-artifact-name: opendms-api-postman-collection
       openapi-generator-version: '^2.20.0'
       spectral-ruleset: https://static.developer.overheid.nl/adr/2.1/ruleset.yaml
+
+
+  ts_types:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+
+      - name: Check generated TypeScript types
+        working-directory: src/opendms/frontend
+        run: npm run check-types
