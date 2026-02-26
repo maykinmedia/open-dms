@@ -104,6 +104,15 @@ export interface components {
             username: string;
             password: string;
         };
+        /** @description Formaat van validatiefouten. */
+        FieldValidationError: {
+            /** @description Naam van het veld met ongeldige gegevens */
+            name: string;
+            /** @description Systeemcode die het type fout aangeeft */
+            code: string;
+            /** @description Uitleg wat er precies fout is met de gegevens */
+            reason: string;
+        };
         PaginatedServiceList: {
             /** @example 123 */
             count: number;
@@ -140,11 +149,21 @@ export interface components {
              */
             email?: string;
         };
-        ValidationErrors: {
-            nonFieldErrors?: string[];
-            fieldErrors?: {
-                [key: string]: string[];
-            };
+        /** @description Formaat van HTTP 4xx en 5xx fouten. */
+        ValidatieFout: {
+            /** @description URI referentie naar het type fout, bedoeld voor developers */
+            type?: string;
+            /** @description Systeemcode die het type fout aangeeft */
+            code: string;
+            /** @description Generieke titel voor het type fout */
+            title: string;
+            /** @description De HTTP status code */
+            status: number;
+            /** @description Extra informatie bij de fout, indien beschikbaar */
+            detail: string;
+            /** @description URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld. */
+            instance: string;
+            invalidParams: components["schemas"]["FieldValidationError"][];
         };
         WhoAmI: {
             isAuthenticated: boolean;
@@ -182,7 +201,6 @@ export interface operations {
                     "application/json": components["schemas"]["WhoAmI"];
                 };
             };
-            /** @description Validation error */
             400: {
                 headers: {
                     /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
@@ -190,7 +208,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ValidationErrors"];
+                    "application/json": components["schemas"]["ValidatieFout"];
                 };
             };
         };

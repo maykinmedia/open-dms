@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import { Login, loginAction } from "~/routes/index.ts";
 
-import { authMiddleware } from "./middleware/auth.ts";
+import { authRouterMiddleware } from "./middleware/auth.ts";
 import { AuthenticatedLayout, Layout } from "./root.tsx";
 
 /**
@@ -22,7 +22,7 @@ export const routes = createBrowserRouter([
   },
   {
     Component: AuthenticatedLayout,
-    middleware: [authMiddleware],
+    middleware: [authRouterMiddleware],
     children: [
       {
         index: true,

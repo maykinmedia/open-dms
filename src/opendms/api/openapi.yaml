@@ -51,8 +51,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ValidationErrors'
-          description: Validation error
+                $ref: '#/components/schemas/ValidatieFout'
+          description: ''
   /api/v1/accounts/logout:
     get:
       operationId: apiV1AccountsLogoutRetrieve
@@ -171,6 +171,23 @@ components:
       required:
       - password
       - username
+    FieldValidationError:
+      type: object
+      description: Formaat van validatiefouten.
+      properties:
+        name:
+          type: string
+          description: Naam van het veld met ongeldige gegevens
+        code:
+          type: string
+          description: Systeemcode die het type fout aangeeft
+        reason:
+          type: string
+          description: Uitleg wat er precies fout is met de gegevens
+      required:
+      - code
+      - name
+      - reason
     PaginatedServiceList:
       type: object
       required:
@@ -237,19 +254,40 @@ components:
       required:
       - pk
       - username
-    ValidationErrors:
+    ValidatieFout:
       type: object
+      description: Formaat van HTTP 4xx en 5xx fouten.
       properties:
-        nonFieldErrors:
+        type:
+          type: string
+          description: URI referentie naar het type fout, bedoeld voor developers
+        code:
+          type: string
+          description: Systeemcode die het type fout aangeeft
+        title:
+          type: string
+          description: Generieke titel voor het type fout
+        status:
+          type: integer
+          description: De HTTP status code
+        detail:
+          type: string
+          description: Extra informatie bij de fout, indien beschikbaar
+        instance:
+          type: string
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+        invalidParams:
           type: array
           items:
-            type: string
-        fieldErrors:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
+            $ref: '#/components/schemas/FieldValidationError'
+      required:
+      - code
+      - detail
+      - instance
+      - invalidParams
+      - status
+      - title
     WhoAmI:
       type: object
       properties:

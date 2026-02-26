@@ -9,7 +9,7 @@ import {
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
 import { Outlet, useNavigate } from "react-router";
-import { apiRequest } from "~/lib";
+import { apiClient } from "~/lib";
 
 /**
  * Represents a layout component tailored for unauthenticated users.
@@ -37,7 +37,7 @@ export const AuthenticatedLayout = () => {
   const navigate = useNavigate();
 
   const handleLogout = async () => {
-    await apiRequest("/api/v1/accounts/logout");
+    await apiClient.GET("/api/v1/accounts/logout");
     navigate("/login");
   };
 
