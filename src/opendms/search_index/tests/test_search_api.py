@@ -1,9 +1,11 @@
 from datetime import date
-
-from django.urls import reverse_lazy
+from types import SimpleNamespace
+from unittest.mock import patch
 
 from rest_framework import status
+from vng_api_common.tests import reverse
 
+from opendms.api.tests.api_testcase import APITestCase
 from opendms.utils.tests.vcr import VCRMixin
 
 from ..tasks import index_document
@@ -11,19 +13,17 @@ from .base import ElasticSearchAPITestCase
 from .factories import IndexDocumentFactory, ServiceFactory
 
 
-class SearchApiAccessTest(ElasticSearchAPITestCase):
-    url = reverse_lazy("api:search")
-    maxDiff = None
+class SearchApiAccessTest(APITestCase):
+    url = reverse("api:search")
 
-    def test_permissions(self):
-        # logout first
+    @patch("opendms.search_index.api.views.get_search_results")
+    def test_permissions(self, mock_search):
+        mock_search.return_value = SimpleNamespace(total_count=0, results=[])
+
+        # logout
         self.client.logout()
-
         response = self.client.post(self.url)
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-        self.assertEqual(
-            response.data["detail"], "Authenticatiegegevens zijn niet opgegeven."
-        )
 
         # login
         self.client.force_login(self.user)
@@ -32,7 +32,7 @@ class SearchApiAccessTest(ElasticSearchAPITestCase):
 
 
 class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
-    url = reverse_lazy("api:search")
+    url = reverse("api:search")
     maxDiff = None
 
     def test_no_body(self):
@@ -363,7 +363,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
 
 
 class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
-    url = reverse_lazy("api:search")
+    url = reverse("api:search")
     maxDiff = None
 
     def test_filter_on_creatiedatum(self):

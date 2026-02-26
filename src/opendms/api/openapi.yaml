@@ -94,6 +94,95 @@ paths:
               schema:
                 $ref: '#/components/schemas/WhoAmI'
           description: ''
+  /api/v1/documenten:
+    post:
+      operationId: apiV1DocumentenCreate
+      description: Index the received document metadata from the Register API in Elasticsearch.
+      summary: Index document metadata.
+      tags:
+      - index
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentIndex'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '202':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CeleryTaskId'
+          description: ''
+  /api/v1/documenten/{uuid}:
+    delete:
+      operationId: apiV1DocumentenDestroy
+      description: |-
+        Remove the referenced document data from the index.
+        This schedules a background task to perform the actual removal.
+      summary: Remove document from index.
+      parameters:
+      - in: path
+        name: uuid
+        schema:
+          type: string
+          format: uuid
+        description: UUID of the document to remove
+        required: true
+      tags:
+      - index
+      security:
+      - cookieAuth: []
+      responses:
+        '202':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CeleryTaskId'
+          description: ''
+  /api/v1/search:
+    post:
+      operationId: search
+      description: Search the document records.
+      summary: Search
+      tags:
+      - search
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Search'
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SearchResponse'
+          description: ''
   /api/v1/services:
     get:
       operationId: apiV1ServicesList
@@ -249,6 +338,171 @@ components:
       required:
       - password
       - username
+    CeleryTaskId:
+      type: object
+      properties:
+        taskId:
+          type: string
+          format: uuid
+      required:
+      - taskId
+    Document:
+      type: object
+      properties:
+        uuid:
+          type: string
+        url:
+          type: string
+          format: uri
+        identificatie:
+          type: string
+        bronorganisatie:
+          type: string
+        creatiedatum:
+          type: string
+          format: date
+        titel:
+          type: string
+        auteur:
+          type: string
+        taal:
+          type: string
+        beginRegistratie:
+          type: string
+          format: date-time
+        informatieobjecttype:
+          type: string
+        vertrouwelijkheidaanduiding:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        formaat:
+          type: string
+          nullable: true
+        bestandsnaam:
+          type: string
+          nullable: true
+        link:
+          type: string
+          format: uri
+          nullable: true
+        beschrijving:
+          type: string
+          nullable: true
+        ontvangstdatum:
+          type: string
+          format: date
+          nullable: true
+        verzenddatum:
+          type: string
+          format: date
+          nullable: true
+        verschijningsvorm:
+          type: string
+          nullable: true
+        bestandsomvang:
+          type: integer
+          nullable: true
+        inhoud:
+          type: string
+          default: ''
+      required:
+      - auteur
+      - beginRegistratie
+      - bronorganisatie
+      - creatiedatum
+      - identificatie
+      - informatieobjecttype
+      - taal
+      - titel
+      - url
+      - uuid
+    DocumentIndex:
+      type: object
+      properties:
+        uuid:
+          type: string
+        url:
+          type: string
+          format: uri
+        identificatie:
+          type: string
+        bronorganisatie:
+          type: string
+        creatiedatum:
+          type: string
+          format: date
+        titel:
+          type: string
+        auteur:
+          type: string
+        taal:
+          type: string
+        beginRegistratie:
+          type: string
+          format: date-time
+        informatieobjecttype:
+          type: string
+        vertrouwelijkheidaanduiding:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        formaat:
+          type: string
+          nullable: true
+        bestandsnaam:
+          type: string
+          nullable: true
+        link:
+          type: string
+          format: uri
+          nullable: true
+        beschrijving:
+          type: string
+          nullable: true
+        ontvangstdatum:
+          type: string
+          format: date
+          nullable: true
+        verzenddatum:
+          type: string
+          format: date
+          nullable: true
+        verschijningsvorm:
+          type: string
+          nullable: true
+        bestandsomvang:
+          type: integer
+          writeOnly: true
+          nullable: true
+        inhoud:
+          type: string
+          format: uri
+          writeOnly: true
+      required:
+      - auteur
+      - beginRegistratie
+      - bronorganisatie
+      - creatiedatum
+      - identificatie
+      - informatieobjecttype
+      - taal
+      - titel
+      - url
+      - uuid
+    DocumentResult:
+      type: object
+      properties:
+        record:
+          allOf:
+          - $ref: '#/components/schemas/Document'
+          readOnly: true
+      required:
+      - record
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.
@@ -328,6 +582,11 @@ components:
       required:
       - label
       - slug
+    SortEnum:
+      enum:
+      - relevance
+      - chronological
+      type: string
     User:
       type: object
       properties:

@@ -103,8 +103,8 @@ def _download_document(document_url: str) -> NestedDocumentData | None:
             response = client.get(
                 url=document_url,
                 headers={  # TODO: improve the way we set the headers
-                    "Audit-User-Representation": "GGP-Zoeken (system)",
-                    "Audit-User-ID": "GPP-Zoeken",
+                    "Audit-User-Representation": "Open DMS (system)",
+                    "Audit-User-ID": "Open DMS",
                     "Audit-Remarks": "download document for indexing.",
                 },
             )

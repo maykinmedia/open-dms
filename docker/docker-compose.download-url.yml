@@ -1,4 +1,4 @@
-# download-url mock for mocking download urls behavior from the GPP-Publicatiebank
+# download-url mock for mocking download urls behavior from Open Zaak
 # Uses Token Authorization with hardcoded token "insecure"
 
 version: '3.8'

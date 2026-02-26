@@ -130,9 +130,9 @@ interactions:
       Audit-Remarks:
       - download document for indexing.
       Audit-User-ID:
-      - GPP-Zoeken
+      - Open DMS
       Audit-User-Representation:
-      - GGP-Zoeken (system)
+      - Open DMS (system)
       Connection:
       - keep-alive
       User-Agent:
@@ -150,7 +150,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 26 Feb 2026 10:39:54 GMT
+      - Mon, 02 Mar 2026 09:32:29 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.12
     status:
