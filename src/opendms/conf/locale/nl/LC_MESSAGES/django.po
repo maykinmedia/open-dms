@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenDRC 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-17 17:44+0100\n"
+"POT-Creation-Date: 2026-02-27 11:34+0000\n"
 "PO-Revision-Date: 2026-02-17 00:00+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -22,25 +22,25 @@ msgid "Password"
 msgstr "Wachtwoord wijzigen"
 
 #: src/opendms/accounts/api/serializers.py:32
-#: src/opendms/accounts/api/tests/test_views.py:25
+#: src/opendms/accounts/api/tests/test_views.py:27
 msgid "Unable to log in with provided credentials."
 msgstr "Kan niet inloggen met de opgegeven gegevens."
 
-#: src/opendms/accounts/api/views.py:25
+#: src/opendms/accounts/api/views.py:28
 msgid "login"
 msgstr "inloggen"
 
-#: src/opendms/accounts/api/views.py:27
+#: src/opendms/accounts/api/views.py:30
 msgid "Authenticates the user, returns whoami details on successful login."
 msgstr ""
 "Verifieert de gebruiker en retourneert whoami-gegevens bij een succesvolle "
 "login."
 
-#: src/opendms/accounts/api/views.py:53
+#: src/opendms/accounts/api/views.py:58
 msgid "logout"
 msgstr "uitloggen"
 
-#: src/opendms/accounts/api/views.py:55
+#: src/opendms/accounts/api/views.py:60
 msgid ""
 "Remove the authenticated user's ID from the request and flush their session "
 "data."
@@ -48,11 +48,11 @@ msgstr ""
 "Verwijdert de ID van de geauthenticeerde gebruiker uit het verzoek en wist "
 "hun sessiegegevens."
 
-#: src/opendms/accounts/api/views.py:69
+#: src/opendms/accounts/api/views.py:75
 msgid "whoami"
 msgstr "wie ben ik"
 
-#: src/opendms/accounts/api/views.py:70
+#: src/opendms/accounts/api/views.py:76
 msgid "Returns the current logged in user."
 msgstr "Geeft de momenteel ingelogde gebruiker terug."
 
@@ -123,6 +123,16 @@ msgid "You cannot create or update a user with more permissions than yourself."
 msgstr ""
 "U kunt geen gebruiker aanmaken of bijwerken met meer rechten dan u zelf "
 "heeft."
+
+#: src/opendms/api/utils/schema.py:33
+msgid ""
+"Geeft een specifieke API-versie aan in de context van een specifieke "
+"aanroep. Voorbeeld: 1.2.1."
+msgstr ""
+
+#: src/opendms/api/viewsets.py:19
+msgid "Search"
+msgstr "Zoeken"
 
 #: src/opendms/templates/admin/base_site.html:5
 #: src/opendms/templates/admin/base_site.html:24
