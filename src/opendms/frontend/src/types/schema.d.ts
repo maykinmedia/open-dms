@@ -261,6 +261,8 @@ export interface operations {
                 page?: number;
                 /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
                 pageSize?: number;
+                /** @description A search term. */
+                search?: string;
             };
             header?: never;
             path?: never;

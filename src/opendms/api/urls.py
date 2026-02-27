@@ -5,12 +5,12 @@ from vng_api_common import routers
 
 from opendms.api.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIView
 
-from .viewsets import ServiceViewset
+from .viewsets import ServiceViewSet
 
 app_name = "api"
 
 router = routers.DefaultRouter()
-router.register("services", ServiceViewset)
+router.register("services", ServiceViewSet)
 
 urlpatterns = [
     re_path(

@@ -152,3 +152,53 @@ class ServicePermissionTests(APITestCase):
         self.client.force_login(self.user)
         response = self.client.get(detail_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_search(self):
+        # should be displayed
+        service_0 = ServiceFactory.create(
+            api_type=APITypes.ztc,
+            slug="foo",
+            api_root="http://www.example.com/bar",
+            label="bar",
+        )
+        service_1 = ServiceFactory.create(
+            api_type=APITypes.ztc,
+            slug="bar1",
+            api_root="http://www.example.com/foo",
+            label="bar",
+        )
+        service_2 = ServiceFactory.create(
+            api_type=APITypes.ztc,
+            slug="bar2",
+            api_root="http://www.example.com/bar2",
+            label="foo",
+        )
+
+        # should not be displayed
+        ServiceFactory.create(
+            api_type=APITypes.ztc,
+            slug="bar3",
+            api_root="http://www.example.com/bar3",
+            label="bar",
+        )
+        ServiceFactory.create(
+            api_type=APITypes.ztc,
+            slug="bar4",
+            api_root="http://www.example.com/bar4",
+            label="bar",
+        )
+        ServiceFactory.create(
+            api_type=APITypes.ztc,
+            slug="bar5",
+            api_root="http://www.example.com/bar5",
+            label="bar",
+        )
+
+        response = self.client.get(self.list_url, query_params={"search": "fo"})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 3)
+        self.assertEqual(Service.objects.all().count(), 6)
+        self.assertEqual(response.json()["results"][0]["slug"], service_0.slug)
+        self.assertEqual(response.json()["results"][1]["slug"], service_1.slug)
+        self.assertEqual(response.json()["results"][2]["slug"], service_2.slug)
