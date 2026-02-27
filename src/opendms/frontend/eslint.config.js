@@ -5,7 +5,7 @@ import maykin from "@maykinmedia/eslint-config/recommended";
 const config = [
   ignoreBuildArtifacts(["build"]),
   {
-    ignores: ["dist"],
+    ignores: ["dist", "src/types/schema.d.ts "],
   },
   ...maykin,
   {

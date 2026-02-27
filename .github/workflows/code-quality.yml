@@ -21,3 +21,16 @@ jobs:
 
       django-settings-module: "opendms.conf.ci"
       django-secret-key: dummy
+
+
+  lint-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+
+      - name: Run eslint
+        working-directory: src/opendms/frontend
+        run: |
+          npm ci
+          npm run lint
