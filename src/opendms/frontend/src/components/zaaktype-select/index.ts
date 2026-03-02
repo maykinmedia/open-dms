@@ -1,2 +1,1 @@
-export * from "./service-select";
 export * from "./zaaktype-select";

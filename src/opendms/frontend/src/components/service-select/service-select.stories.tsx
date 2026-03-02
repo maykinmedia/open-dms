@@ -27,7 +27,7 @@ const meta: Meta<typeof ServiceSelect> = {
   loaders: [mswLoader],
   parameters: {
     reactRouter: reactRouterParameters({
-      routing: { path: "/:service_slug?" },
+      routing: { path: "/:serviceSlug?" },
     }),
   },
 };

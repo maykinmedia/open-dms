@@ -58,6 +58,7 @@ export const AuthenticatedLayout = () => {
         <H2 key={"sidebar-h2"}>Open DMS</H2>,
         <Hr key={"sidebar-hr"} />,
         <ServiceSelect key="service-select" />,
+        <ZaaktypeSelect key="zaaktype-select" />,
       ]}
     >
       <ConfigContext.Provider
