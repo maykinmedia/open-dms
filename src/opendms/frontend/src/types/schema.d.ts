@@ -80,6 +80,40 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/services/{serviceSlug}/zaaktypen": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Exposes Zaaktypen from a ZGW service. */
+        get: operations["apiV1ServicesZaaktypenList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /** @description Exposes Zaaktypen from a ZGW service. */
+        get: operations["apiV1ServicesZaaktypenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/services/{slug}": {
         parameters: {
             query?: never;
@@ -128,6 +162,21 @@ export interface components {
             previous?: string | null;
             results: components["schemas"]["Service"][];
         };
+        PaginatedZaakTypeList: {
+            /** @example 123 */
+            count: number;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=4
+             */
+            next?: string | null;
+            /**
+             * Format: uri
+             * @example http://api.example.org/accounts/?page=2
+             */
+            previous?: string | null;
+            results: components["schemas"]["ZaakType"][];
+        };
         Service: {
             /**
              * Service slug
@@ -168,6 +217,22 @@ export interface components {
         WhoAmI: {
             isAuthenticated: boolean;
             readonly user: components["schemas"]["User"];
+        };
+        ZaakType: {
+            /**
+             * Format: uuid
+             * @description UUID van dit object. Dit is de unieke identificatiecode van dit object.
+             */
+            uuid: string;
+            /**
+             * Format: uri
+             * @description URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort.
+             */
+            catalogus: string;
+            /** @description Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin het ZAAKTYPE voorkomt. */
+            identificatie: string;
+            /** @description Omschrijving van de aard van ZAAKen van het ZAAKTYPE. */
+            omschrijving: string;
         };
     };
     responses: never;
@@ -278,6 +343,58 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PaginatedServiceList"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaaktypenList: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
+                pageSize?: number;
+            };
+            header?: never;
+            path: {
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedZaakTypeList"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaaktypenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                serviceSlug: string;
+                zaaktypeUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ZaakType"];
                 };
             };
         };

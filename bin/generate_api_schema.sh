@@ -22,4 +22,12 @@ src/manage.py spectacular \
     --lang=en \
     --file "$OUTFILE"
 
-echo "Done."
+echo "Done generating OpenAPI schema."
+
+
+echo "Generating TypeScript schema"
+
+cd src/opendms/frontend
+npm run update-types
+
+echo "Done generating TypeScript types."
