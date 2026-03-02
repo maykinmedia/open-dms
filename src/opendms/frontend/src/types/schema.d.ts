@@ -64,6 +64,67 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/documenten": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Index document metadata.
+         * @description Index the received document metadata from the Register API in Elasticsearch.
+         */
+        post: operations["apiV1DocumentenCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/documenten/{uuid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        /**
+         * Remove document from index.
+         * @description Remove the referenced document data from the index.
+         *     This schedules a background task to perform the actual removal.
+         */
+        delete: operations["apiV1DocumentenDestroy"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/search": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Search
+         * @description Search the document records.
+         */
+        post: operations["search"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/services": {
         parameters: {
             query?: never;
@@ -138,6 +199,73 @@ export interface components {
             username: string;
             password: string;
         };
+        CeleryTaskId: {
+            /** Format: uuid */
+            taskId: string;
+        };
+        Document: {
+            uuid: string;
+            /** Format: uri */
+            url: string;
+            identificatie: string;
+            bronorganisatie: string;
+            /** Format: date */
+            creatiedatum: string;
+            titel: string;
+            auteur: string;
+            taal: string;
+            /** Format: date-time */
+            beginRegistratie: string;
+            informatieobjecttype: string;
+            vertrouwelijkheidaanduiding?: string | null;
+            status?: string | null;
+            formaat?: string | null;
+            bestandsnaam?: string | null;
+            /** Format: uri */
+            link?: string | null;
+            beschrijving?: string | null;
+            /** Format: date */
+            ontvangstdatum?: string | null;
+            /** Format: date */
+            verzenddatum?: string | null;
+            verschijningsvorm?: string | null;
+            bestandsomvang?: number | null;
+            /** @default  */
+            inhoud: string;
+        };
+        DocumentIndex: {
+            uuid: string;
+            /** Format: uri */
+            url: string;
+            identificatie: string;
+            bronorganisatie: string;
+            /** Format: date */
+            creatiedatum: string;
+            titel: string;
+            auteur: string;
+            taal: string;
+            /** Format: date-time */
+            beginRegistratie: string;
+            informatieobjecttype: string;
+            vertrouwelijkheidaanduiding?: string | null;
+            status?: string | null;
+            formaat?: string | null;
+            bestandsnaam?: string | null;
+            /** Format: uri */
+            link?: string | null;
+            beschrijving?: string | null;
+            /** Format: date */
+            ontvangstdatum?: string | null;
+            /** Format: date */
+            verzenddatum?: string | null;
+            verschijningsvorm?: string | null;
+            bestandsomvang?: number | null;
+            /** Format: uri */
+            inhoud?: string;
+        };
+        DocumentResult: {
+            readonly record: components["schemas"]["Document"];
+        };
         /** @description Formaat van validatiefouten. */
         FieldValidationError: {
             /** @description Naam van het veld met ongeldige gegevens */
@@ -177,6 +305,79 @@ export interface components {
             previous?: string | null;
             results: components["schemas"]["ZaakType"][];
         };
+        Search: {
+            /**
+             * @description Filtering records based on the provided search term. This search is applied to the following fields:
+             *
+             *     - `identificatie`
+             *     - `titel`
+             *     - `bronorganisatie`
+             *     - `beschrijving`
+             *     - `document_data.attachment.content`
+             *
+             *     You can use double quotes for exact matches and `AND`/`OR` syntax for complex queries.
+             * @default
+             */
+            query: string;
+            /**
+             * @description Page number.
+             * @default 1
+             */
+            page: number;
+            /**
+             * @description Number of results per page.
+             * @default 10
+             */
+            pageSize: number;
+            /** @default relevance */
+            sort: components["schemas"]["SortEnum"];
+            /**
+             * Format: date
+             * @description Filter documents created on or after this date.
+             */
+            creatiedatumVanaf?: string | null;
+            /**
+             * Format: date
+             * @description Filter documents created on or before this date.
+             */
+            creatiedatumTotEnMet?: string | null;
+        };
+        SearchResponse: {
+            count: number;
+            readonly next: boolean;
+            readonly previous: boolean;
+            results: components["schemas"]["SearchResults"][];
+        };
+        SearchResults: components["schemas"]["SearchResultsDocumentResult"];
+        SearchResultsDocumentResult: components["schemas"]["SearchResultsShared"] & components["schemas"]["DocumentResult"] & {
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            type: "document";
+        };
+        /**
+         * @description Polymorphic serializer base class.
+         *
+         *     Note that the discriminator field must exist at the same depth as the mapped
+         *     serializer fields for the OpenAPI introspection. See
+         *     https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/ for
+         *     more information. As such, it's not possible to define something like:
+         *
+         *     {
+         *         "object_type": "foo",
+         *         "polymorphic_context": {
+         *             <foo-specific fields>
+         *         }
+         *     }
+         *
+         *     without explicitly wrapping this in a parent serializer, i.e. -
+         *     ``polymorphic_context`` can not be a PolymorphicSerializer itself, as it requires
+         *     access to the ``object_type`` in the parent scope.
+         */
+        SearchResultsShared: {
+            type: string;
+        };
         Service: {
             /**
              * Service slug
@@ -185,6 +386,8 @@ export interface components {
             slug: string;
             label: string;
         };
+        /** @enum {string} */
+        SortEnum: "relevance" | "chronological";
         User: {
             /** ID */
             readonly pk: number;
@@ -325,6 +528,80 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["WhoAmI"];
+                };
+            };
+        };
+    };
+    apiV1DocumentenCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DocumentIndex"];
+            };
+        };
+        responses: {
+            202: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CeleryTaskId"];
+                };
+            };
+        };
+    };
+    apiV1DocumentenDestroy: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                /** @description UUID of the document to remove */
+                uuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            202: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["CeleryTaskId"];
+                };
+            };
+        };
+    };
+    search: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": components["schemas"]["Search"];
+            };
+        };
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["SearchResponse"][];
                 };
             };
         };

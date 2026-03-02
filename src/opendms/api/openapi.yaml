@@ -566,6 +566,100 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/ZaakType'
+    Search:
+      type: object
+      properties:
+        query:
+          type: string
+          default: ''
+          description: |-
+            Filtering records based on the provided search term. This search is applied to the following fields:
+
+            - `identificatie`
+            - `titel`
+            - `bronorganisatie`
+            - `beschrijving`
+            - `document_data.attachment.content`
+
+            You can use double quotes for exact matches and `AND`/`OR` syntax for complex queries.
+        page:
+          type: integer
+          default: 1
+          description: Page number.
+        pageSize:
+          type: integer
+          default: 10
+          description: Number of results per page.
+        sort:
+          allOf:
+          - $ref: '#/components/schemas/SortEnum'
+          default: relevance
+        creatiedatumVanaf:
+          type: string
+          format: date
+          nullable: true
+          description: Filter documents created on or after this date.
+        creatiedatumTotEnMet:
+          type: string
+          format: date
+          nullable: true
+          description: Filter documents created on or before this date.
+    SearchResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+        next:
+          type: boolean
+          readOnly: true
+        previous:
+          type: boolean
+          readOnly: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResults'
+      required:
+      - count
+      - next
+      - previous
+      - results
+    SearchResults:
+      oneOf:
+      - $ref: '#/components/schemas/SearchResultsDocumentResult'
+      discriminator:
+        propertyName: type
+        mapping:
+          document: '#/components/schemas/SearchResultsDocumentResult'
+    SearchResultsDocumentResult:
+      allOf:
+      - $ref: '#/components/schemas/SearchResultsShared'
+      - $ref: '#/components/schemas/DocumentResult'
+    SearchResultsShared:
+      type: object
+      description: |-
+        Polymorphic serializer base class.
+
+        Note that the discriminator field must exist at the same depth as the mapped
+        serializer fields for the OpenAPI introspection. See
+        https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/ for
+        more information. As such, it's not possible to define something like:
+
+        {
+            "object_type": "foo",
+            "polymorphic_context": {
+                <foo-specific fields>
+            }
+        }
+
+        without explicitly wrapping this in a parent serializer, i.e. -
+        ``polymorphic_context`` can not be a PolymorphicSerializer itself, as it requires
+        access to the ``object_type`` in the parent scope.
+      properties:
+        type:
+          type: string
+      required:
+      - type
     Service:
       type: object
       properties:
