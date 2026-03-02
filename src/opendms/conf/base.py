@@ -134,3 +134,10 @@ REST_FRAMEWORK["DEFAULT_THROTTLE_RATES"] = {
 }
 
 TEMPLATES[0]["DIRS"] += [DJANGO_PROJECT_DIR / "frontend/dist"]
+
+#
+# Django setup configuration
+#
+SETUP_CONFIGURATION_STEPS = (
+    "zgw_consumers.contrib.setup_configuration.steps.ServiceConfigurationStep",
+)
