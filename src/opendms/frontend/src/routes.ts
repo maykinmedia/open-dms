@@ -29,7 +29,7 @@ export const routes = createBrowserRouter([
         Component: () => "Authenticated (with no service selected)",
       },
       {
-        path: ":service_slug",
+        path: ":serviceSlug/:zaaktypeUuid?",
         children: [
           {
             index: true,

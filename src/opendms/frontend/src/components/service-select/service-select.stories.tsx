@@ -21,13 +21,13 @@ const MOCK_SERVICE_OPTIONS = http.get("/api/v1/services", () =>
 );
 
 const meta: Meta<typeof ServiceSelect> = {
-  title: "Routes/ServiceSelect",
+  title: "Context/ServiceSelect",
   component: ServiceSelect,
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],
   parameters: {
     reactRouter: reactRouterParameters({
-      routing: { path: "/:service_slug?" },
+      routing: { path: "/:serviceSlug?" },
     }),
   },
 };
