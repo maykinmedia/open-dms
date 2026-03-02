@@ -9,7 +9,7 @@ import {
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
 import { Outlet, useNavigate } from "react-router";
-import { ServiceSelect, ZaaktypeSelect } from "~/components";
+import { ServiceSelect, YearSelect, ZaaktypeSelect } from "~/components";
 import { apiClient } from "~/lib";
 
 /**
@@ -59,6 +59,7 @@ export const AuthenticatedLayout = () => {
         <Hr key={"sidebar-hr"} />,
         <ServiceSelect key="service-select" />,
         <ZaaktypeSelect key="zaaktype-select" />,
+        <YearSelect key="year-select" />,
       ]}
     >
       <ConfigContext.Provider
