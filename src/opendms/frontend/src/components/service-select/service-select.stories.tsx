@@ -1,25 +1,23 @@
-import type { LoadOptionsFn } from "@maykin-ui/admin-ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { HttpResponse, http } from "msw";
 import { initialize, mswLoader } from "msw-storybook-addon";
-import { withRouter } from "storybook-addon-remix-react-router";
-import { userEvent } from "storybook/test";
-import { ServiceSelect } from "~/components/service-select/service-select.tsx";
-
-import { withCSRF } from "../../../.storybook/decorators.tsx";
+import {
+  reactRouterParameters,
+  withRouter,
+} from "storybook-addon-remix-react-router";
+import { userEvent, within } from "storybook/test";
+import { withCSRF } from "~/../.storybook/decorators.tsx";
+import { ServiceSelect } from "~/components";
 
 initialize();
 
-const loadOptions: LoadOptionsFn = async () => {
-  const res = await fetch("/api/v1/services", { method: "POST" });
-  return res.json();
-};
-
-const MOCK_SERVICE_OPTIONS = http.post("/api/v1/services", () =>
-  HttpResponse.json([
-    { label: "Option 1", value: "option 1" },
-    { label: "Option 2", value: "option 2" },
-  ]),
+const MOCK_SERVICE_OPTIONS = http.get("/api/v1/services", () =>
+  HttpResponse.json({
+    results: [
+      { label: "Service 1", slug: "service_1" },
+      { label: "Service 2", slug: "service_2" },
+    ],
+  }),
 );
 
 const meta: Meta<typeof ServiceSelect> = {
@@ -27,8 +25,10 @@ const meta: Meta<typeof ServiceSelect> = {
   component: ServiceSelect,
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],
-  args: {
-    options: loadOptions,
+  parameters: {
+    reactRouter: reactRouterParameters({
+      routing: { path: "/:service_slug?" },
+    }),
   },
 };
 
@@ -39,17 +39,18 @@ type Story = StoryObj<typeof ServiceSelect>;
 export const SelectService: Story = {
   parameters: { msw: { handlers: [MOCK_SERVICE_OPTIONS] } },
   play: async ({ canvasElement }) => {
-    const select = canvasElement.querySelector("select") as HTMLSelectElement;
-    await userEvent.click(select);
+    const serviceSelect =
+      await within(canvasElement).findByText("Selecteer service");
 
-    const dropdown = canvasElement.querySelector(
-      ".mykn-select__options",
-    ) as HTMLDivElement;
+    await userEvent.click(serviceSelect);
 
-    const firstOption = dropdown.querySelector(
-      ".mykn-option",
-    ) as HTMLDivElement;
+    const searchInput =
+      await within(canvasElement).findByPlaceholderText("Zoeken");
 
-    await userEvent.click(firstOption);
+    await userEvent.type(searchInput, "service");
+
+    const optionService2 = await within(canvasElement).findByText("Service 2");
+
+    await userEvent.click(optionService2);
   },
 };
