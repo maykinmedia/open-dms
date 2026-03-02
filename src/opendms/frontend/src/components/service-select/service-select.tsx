@@ -4,12 +4,12 @@ import { apiClient } from "~/lib";
 
 /**
  * Allows selection of a service, powered by a loader function.
- * Updates the route to `/:service_slug` upon selection
+ * Updates the route to `/:serviceSlug` upon selection
  */
 export function ServiceSelect() {
   const navigate = useNavigate();
   // TODO: Validation. See issue gh-#42
-  const { service_slug } = useParams() as { service_slug: string | undefined };
+  const { serviceSlug } = useParams() as { serviceSlug: string | undefined };
 
   /**
    * Fetches the service options from the backend (client-side)
@@ -36,7 +36,7 @@ export function ServiceSelect() {
   };
 
   /**
-   * Routes to `:service_slug`
+   * Routes to `:serviceSlug`
    * @param value
    */
   const setSelectedService = (value: string) => {
@@ -49,7 +49,7 @@ export function ServiceSelect() {
       options={getServiceOptions}
       placeholder="Selecteer service"
       placeholderSearch="Zoeken"
-      value={service_slug}
+      value={serviceSlug}
       variant="secondary"
       onChange={({ target }) => setSelectedService(target.value)}
     />
