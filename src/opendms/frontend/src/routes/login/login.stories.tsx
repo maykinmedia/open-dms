@@ -1,39 +1,17 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { HttpResponse, http } from "msw";
 import { initialize, mswLoader } from "msw-storybook-addon";
-import {
-  reactRouterParameters,
-  withRouter,
-} from "storybook-addon-remix-react-router";
+import { withRouter } from "storybook-addon-remix-react-router";
 import { userEvent, within } from "storybook/test";
 
 import { withCSRF } from "../../../.storybook/decorators.tsx";
+import {
+  MOCK_CORRECT_LOGIN,
+  MOCK_INCORRECT_LOGIN,
+} from "../../../.storybook/mocks.ts";
+import { sanitizedReactRouterParameters } from "../../../.storybook/utils.ts";
 import { Login } from "./login";
-import { loginAction } from "./login.actions";
 
 initialize();
-
-const MOCK_CORRECT_LOGIN = http.post("/api/v1/accounts/login", () =>
-  HttpResponse.json({
-    isAuthenticated: true,
-    user: {
-      pk: 1,
-      email: "johndoe@example.com",
-      firstName: "John",
-      lastName: "Doe",
-      username: "johndoe",
-    },
-  }),
-);
-
-const MOCK_INCORRECT_LOGIN = http.post("/api/v1/accounts/login", () =>
-  HttpResponse.json(
-    {
-      nonFieldErrors: ["Kan niet inloggen met de opgegeven gegevens.\n"],
-    },
-    { status: 400 },
-  ),
-);
 
 const meta: Meta<typeof Login> = {
   title: "Routes/Login",
@@ -41,11 +19,7 @@ const meta: Meta<typeof Login> = {
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],
   parameters: {
-    reactRouter: reactRouterParameters({
-      routing: {
-        action: loginAction,
-      },
-    }),
+    reactRouter: sanitizedReactRouterParameters("/login"),
   },
 };
 

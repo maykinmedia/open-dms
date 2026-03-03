@@ -1,34 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { HttpResponse, http } from "msw";
 import { initialize, mswLoader } from "msw-storybook-addon";
-import {
-  reactRouterParameters,
-  withRouter,
-} from "storybook-addon-remix-react-router";
+import { withRouter } from "storybook-addon-remix-react-router";
 import { userEvent, within } from "storybook/test";
 import { withCSRF } from "~/../.storybook/decorators.tsx";
 import { ServiceSelect } from "~/components";
 
+import { MOCK_SERVICE_OPTIONS } from "../../../.storybook/mocks.ts";
+import { sanitizedReactRouterParameters } from "../../../.storybook/utils.ts";
+
 initialize();
 
-const MOCK_SERVICE_OPTIONS = http.get("/api/v1/services", () =>
-  HttpResponse.json({
-    results: [
-      { label: "Service 1", slug: "service_1" },
-      { label: "Service 2", slug: "service_2" },
-    ],
-  }),
-);
-
 const meta: Meta<typeof ServiceSelect> = {
-  title: "Context/ServiceSelect",
+  title: "Context",
   component: ServiceSelect,
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],
   parameters: {
-    reactRouter: reactRouterParameters({
-      routing: { path: "/:serviceSlug?" },
-    }),
+    reactRouter: sanitizedReactRouterParameters(),
   },
 };
 

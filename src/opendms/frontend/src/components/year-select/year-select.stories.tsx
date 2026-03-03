@@ -1,64 +1,27 @@
 import { Sidebar, Toolbar } from "@maykin-ui/admin-ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { HttpResponse, http } from "msw";
 import { initialize, mswLoader } from "msw-storybook-addon";
-import {
-  reactRouterParameters,
-  withRouter,
-} from "storybook-addon-remix-react-router";
+import { withRouter } from "storybook-addon-remix-react-router";
 import { userEvent, within } from "storybook/test";
 import { withCSRF } from "~/../.storybook/decorators.tsx";
 import { ServiceSelect, YearSelect, ZaaktypeSelect } from "~/components";
-import type { ZaakType } from "~/types";
+
+import {
+  MOCK_SERVICE_OPTIONS,
+  MOCK_ZAAKTYPE,
+  MOCK_ZAAKTYPE_OPTIONS,
+} from "../../../.storybook/mocks.ts";
+import { sanitizedReactRouterParameters } from "../../../.storybook/utils.ts";
 
 initialize();
 
-const MOCK_SERVICE_OPTIONS = http.get("/api/v1/services", () =>
-  HttpResponse.json({
-    results: [
-      { label: "Service 1", slug: "service_1" },
-      { label: "Service 2", slug: "service_2" },
-    ],
-  }),
-);
-
-const MOCK_ZAAKTYPE_OPTIONS = http.get(
-  "/api/v1/services/:serviceSlug/zaaktypen",
-  () =>
-    HttpResponse.json({
-      results: [
-        {
-          identificatie: "Zaaktype 1",
-          uuid: "11111111-1111-1111-1111-111111111111",
-        },
-        {
-          identificatie: "Zaaktype 2",
-          uuid: "22222222-2222-2222-2222-222222222222",
-        },
-      ],
-    }),
-);
-
-const MOCK_ZAAKTYPE = http.get(
-  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222",
-  () =>
-    HttpResponse.json({
-      identificatie: "Zaaktype 2",
-      uuid: "22222222-2222-2222-2222-222222222222",
-      beginGeldigheid: "01-01-2020",
-      eindeGeldigheid: "01-01-2026",
-    } as Partial<ZaakType>),
-);
-
 const meta: Meta<typeof YearSelect> = {
-  title: "Context/YearSelect",
+  title: "Context",
   component: YearSelect,
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],
   parameters: {
-    reactRouter: reactRouterParameters({
-      routing: { path: "/:serviceSlug?/:zaaktypeUuid?/:zaakYear?" },
-    }),
+    reactRouter: sanitizedReactRouterParameters(),
   },
   render: () => (
     <Sidebar>
