@@ -127,3 +127,84 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
         self.assertEqual(response.data["code"], "method_not_allowed")
         self.assertEqual(response.data["detail"], 'Methode "DELETE" niet toegestaan.')
+
+
+class ZaakTypeFiltersTests(VCRMixin, APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+
+        cls.service = ServiceFactory.create(
+            label="Catalogi API",
+            slug="catalogi-api",
+            api_root="http://localhost:8003/catalogi/api/v1/",
+            api_type=APITypes.ztc,
+            auth_type=AuthTypes.zgw,
+            client_id="test_client_id",
+            secret="test_secret_key",
+        )
+        cls.list_url = reverse(
+            "api:zaaktypen-list", kwargs={"service_slug": cls.service.slug}
+        )
+
+    def test_search(self):
+        # no params
+        response = self.client.get(self.list_url, query_params={})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 7)  # from openzaak container
+
+        # search random value
+        response = self.client.get(self.list_url, query_params={"search": "random"})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 0)
+
+        # search exact value
+        response = self.client.get(
+            self.list_url, query_params={"search": "ZAAKTYPE-2020-0000000002"}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 1)
+        self.assertEqual(
+            response.json(),
+            {
+                "count": 1,
+                "next": None,
+                "previous": None,
+                "results": [
+                    {
+                        "uuid": "a516793a-cb5f-446d-bfa3-56077c1897be",
+                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/e035387e-6374-4eb9-b3d1-416294402bae",
+                        "identificatie": "ZAAKTYPE-2020-0000000002",
+                        "omschrijving": "Case type for children component",
+                        "beginGeldigheid": "2020-06-20",
+                        "eindeGeldigheid": None,
+                    }
+                ],
+            },
+        )
+
+        # search multiple result
+        response = self.client.get(
+            self.list_url, query_params={"search": "ZAAKTYPE-2020"}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+
+        ids = [record["identificatie"] for record in response.json()["results"]]
+        self.assertIn("ZAAKTYPE-2020-0000000001", ids)
+        self.assertIn("ZAAKTYPE-2020-0000000002", ids)
+
+        uuids = [record["uuid"] for record in response.json()["results"]]
+        self.assertIn("a516793a-cb5f-446d-bfa3-56077c1897be", uuids)
+        self.assertIn("77543c85-e5cd-4b3e-b7a5-27165e1334b1", uuids)
+
+    def test_not_valid_search_param(self):
+        response = self.client.get(self.list_url, query_params={"test": "random"})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(
+            response.json()["invalidParams"][0]["code"], "unknown-parameters"
+        )
+        self.assertEqual(
+            response.json()["invalidParams"][0]["reason"],
+            "Unexpected parameters: test. Only 'search' is allowed.",
+        )

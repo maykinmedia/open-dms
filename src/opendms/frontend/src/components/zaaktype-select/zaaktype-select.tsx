@@ -32,7 +32,6 @@ export function ZaaktypeSelect() {
         params: {
           path: { serviceSlug },
           query: {
-            // @ts-expect-error: api not yet ready
             search,
           },
         },
