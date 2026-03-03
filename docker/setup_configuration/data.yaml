@@ -1,0 +1,18 @@
+zgw_consumers_config_enable: true
+zgw_consumers:
+  services:
+    - identifier: catalogi-api
+      label: Catalogi Test API
+      api_root: http://localhost:8003/catalogi/api/v1/
+      api_type: ztc
+      auth_type: zgw
+      client_id: test_client_id
+      secret: test_secret_key
+
+    - identifier: zaken-api
+      label: Zaken Test API
+      api_root: http://localhost:8003/zaken/api/v1/
+      api_type: zrc
+      auth_type: zgw
+      client_id: test_client_id
+      secret: test_secret_key

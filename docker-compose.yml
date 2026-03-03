@@ -14,6 +14,9 @@ x-app-env: &x-app-env
   # Only allow all hosts for development/testing purposes!
   - ALLOWED_HOSTS=*
   - STATIC_ROOT_VOLUME=/srv/static/
+  - CACHE_DEFAULT=redis:6379/0
+  - CACHE_AXES=redis:6379/0
+  - DISABLE_2FA=true
   # Environment labeling
   - SHOW_ENVIRONMENT=yes
   - ENVIRONMENT_LABEL=docker-compose
@@ -46,6 +49,8 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    networks:
+      - open-dms-dev
 
   redis:
     image: redis:8
@@ -54,6 +59,8 @@ services:
       interval: 30s
       timeout: 1s
       retries: 3
+    networks:
+      - open-dms-dev
 
   prepare-volumes:
     image: busybox
@@ -80,8 +87,14 @@ services:
       - prepare-volumes
       - db
       - redis
+    networks:
+      - open-dms-dev
 
 volumes:
   db:
   static:
   media:
+
+networks:
+  open-dms-dev:
+    name: open-dms-dev

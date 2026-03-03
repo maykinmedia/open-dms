@@ -153,6 +153,11 @@ class ServicePermissionTests(APITestCase):
         response = self.client.get(detail_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
+
+class ServiceFiltersTests(APITestCase):
+    list_url = reverse("api:service-list")
+    maxDiff = None
+
     def test_search(self):
         # should be displayed
         service_0 = ServiceFactory.create(

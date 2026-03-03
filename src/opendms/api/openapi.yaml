@@ -134,6 +134,78 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedServiceList'
           description: ''
+  /api/v1/services/{serviceSlug}/zaaktypen:
+    get:
+      operationId: apiV1ServicesZaaktypenList
+      description: Exposes Zaaktypen from a ZGW service.
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: 'Het aantal resultaten terug te geven per pagina. (default: 100,
+          maximum: 500).'
+        schema:
+          type: integer
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedZaakTypeList'
+          description: ''
+  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}:
+    get:
+      operationId: apiV1ServicesZaaktypenRetrieve
+      description: Exposes Zaaktypen from a ZGW service.
+      parameters:
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zaaktypeUuid
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ZaakType'
+          description: ''
   /api/v1/services/{slug}:
     get:
       operationId: apiV1ServicesRetrieve
@@ -217,6 +289,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Service'
+    PaginatedZaakTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ZaakType'
     Service:
       type: object
       properties:
@@ -306,6 +401,40 @@ components:
       required:
       - isAuthenticated
       - user
+    ZaakType:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: UUID van dit object. Dit is de unieke identificatiecode van
+            dit object.
+        catalogus:
+          type: string
+          format: uri
+          description: URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort.
+        identificatie:
+          type: string
+          description: Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin
+            het ZAAKTYPE voorkomt.
+        omschrijving:
+          type: string
+          description: Omschrijving van de aard van ZAAKen van het ZAAKTYPE.
+        beginGeldigheid:
+          type: string
+          format: date
+          description: De datum waarop het is ontstaan.
+        eindeGeldigheid:
+          type: string
+          format: date
+          description: De datum waarop het is opgeheven.
+      required:
+      - beginGeldigheid
+      - catalogus
+      - eindeGeldigheid
+      - identificatie
+      - omschrijving
+      - uuid
   securitySchemes:
     AnonCSRFSession:
       type: apiKey

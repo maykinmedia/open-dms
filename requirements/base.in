@@ -2,7 +2,7 @@
 Pillow  # handle images
 
 django-hijack
-maykin-common[axes,cli,health-checks,mfa,otel]  # other extras: pdf, vcr
+maykin-common[axes,cli,health-checks,mfa,otel,vcr]  # other extras: pdf, vcr
 josepy
 django-rosetta
 # API libraries
