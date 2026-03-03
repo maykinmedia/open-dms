@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@maykin-ui/admin-ui": "^3.0.0-alpha.2",
-    "@maykin-ui/client-common": "^0.0.7",
+    "@maykin-ui/client-common": "^0.0.8",
     "openapi-fetch": "^0.17.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

@@ -76,7 +76,7 @@ apiClient.use(csrfClientMiddleware);
  * instances to show meaningful error messages.
  * @param validatieFout
  */
-export function validatieFoute2FormErrors(
+export function validatieFout2FormErrors(
   validatieFout: ValidatieFout | undefined,
 ) {
   const invalidParams = validatieFout?.invalidParams || [];
@@ -88,4 +88,16 @@ export function validatieFoute2FormErrors(
     .reduce((acc, { name, reason }) => ({ ...acc, [name]: reason }), {});
 
   return { nonFieldErrors, errors };
+}
+
+/**
+ * Retrieves the current page number from the provided URL search parameters.
+ *
+ * @param {URLSearchParams} searchParams - The URL search parameters to extract the page number from.
+ * @return {number} The page number. If the page parameter is not present, invalid, or less than 1, defaults to 1.
+ */
+export function getPageFromSearchParams(searchParams: URLSearchParams): number {
+  const raw = searchParams.get("page");
+  const parsed = parseInt(raw ?? "1");
+  return isNaN(parsed) || parsed < 1 ? 1 : parsed;
 }

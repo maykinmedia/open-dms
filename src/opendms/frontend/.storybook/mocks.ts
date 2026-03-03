@@ -1,6 +1,8 @@
 import { HttpResponse, http } from "msw";
 import type { ZaakType } from "~/types";
 
+import { batchFactory, zaakFactory } from "./factories.ts";
+
 //
 // accounts
 //
@@ -79,4 +81,17 @@ export const MOCK_ZAAKTYPE = http.get(
       beginGeldigheid: "01-01-2020",
       eindeGeldigheid: "01-01-2026",
     } as Partial<ZaakType>),
+);
+
+export const MOCK_ZAKEN = http.get(
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken",
+  () =>
+    HttpResponse.json({
+      count: 300,
+      previous: null,
+      next: "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken?page=2",
+      results: batchFactory(zaakFactory, 100, {
+        identificatie: "zaak-{index}",
+      }),
+    }),
 );

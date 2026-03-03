@@ -6,3 +6,9 @@ export * from "./schema.d.ts";
 export type User = components["schemas"]["User"];
 export type ValidatieFout = components["schemas"]["ValidatieFout"];
 export type ZaakType = components["schemas"]["ZaakType"];
+
+// TODO
+export type Zaak = {
+  identificatie: string;
+  omschrijving: string;
+};
