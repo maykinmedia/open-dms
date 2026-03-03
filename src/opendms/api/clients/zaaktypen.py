@@ -1,3 +1,4 @@
+from datetime import date
 from typing import TypedDict
 from uuid import UUID
 
@@ -17,6 +18,8 @@ class ZaakTypeAPI(TypedDict):
     catalogus: str
     identificatie: str
     omschrijving: str
+    beginGeldigheid: date | None
+    eindeGeldigheid: date | None
 
 
 class ZaakTypeClient(NLXClient):
@@ -30,13 +33,14 @@ class ZaakTypeClient(NLXClient):
         response = self.get(self.endpoint)
         response.raise_for_status()
         data = response.json()
-
         return [
             ZaakTypeAPI(
                 uuid=extract_uuid(record["url"]),
                 catalogus=record["catalogus"],
                 identificatie=record["identificatie"],
                 omschrijving=record["omschrijving"],
+                beginGeldigheid=record["beginGeldigheid"],
+                eindeGeldigheid=record["eindeGeldigheid"],
             )
             for record in pagination_helper(self, data)
         ]
@@ -51,6 +55,8 @@ class ZaakTypeClient(NLXClient):
             catalogus=data["catalogus"],
             identificatie=data["identificatie"],
             omschrijving=data["omschrijving"],
+            beginGeldigheid=data["beginGeldigheid"],
+            eindeGeldigheid=data["eindeGeldigheid"],
         )
 
     def get_cached_items(

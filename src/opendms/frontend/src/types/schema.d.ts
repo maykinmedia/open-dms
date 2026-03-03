@@ -233,6 +233,16 @@ export interface components {
             identificatie: string;
             /** @description Omschrijving van de aard van ZAAKen van het ZAAKTYPE. */
             omschrijving: string;
+            /**
+             * Format: date
+             * @description De datum waarop het is ontstaan.
+             */
+            beginGeldigheid: string;
+            /**
+             * Format: date
+             * @description De datum waarop het is opgeheven.
+             */
+            eindeGeldigheid: string;
         };
     };
     responses: never;

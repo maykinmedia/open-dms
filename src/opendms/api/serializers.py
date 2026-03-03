@@ -30,12 +30,9 @@ class ZaakTypeSerializer(serializers.Serializer):
     omschrijving = serializers.CharField(
         help_text=_("Omschrijving van de aard van ZAAKen van het ZAAKTYPE."),
     )
-
-
-class ValidationErrorsSerializer(serializers.Serializer):
-    non_field_errors = serializers.ListField(
-        child=serializers.CharField(), required=False
+    beginGeldigheid = serializers.DateField(
+        help_text=_("De datum waarop het is ontstaan."),
     )
-    field_errors = serializers.DictField(
-        child=serializers.ListField(child=serializers.CharField()), required=False
+    eindeGeldigheid = serializers.DateField(
+        help_text=_("De datum waarop het is opgeheven."),
     )

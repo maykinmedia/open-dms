@@ -420,8 +420,18 @@ components:
         omschrijving:
           type: string
           description: Omschrijving van de aard van ZAAKen van het ZAAKTYPE.
+        beginGeldigheid:
+          type: string
+          format: date
+          description: De datum waarop het is ontstaan.
+        eindeGeldigheid:
+          type: string
+          format: date
+          description: De datum waarop het is opgeheven.
       required:
+      - beginGeldigheid
       - catalogus
+      - eindeGeldigheid
       - identificatie
       - omschrijving
       - uuid

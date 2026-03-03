@@ -67,6 +67,12 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
     @property
     def service(self) -> Service:
+        """
+        Returns the Service configuration associated with the request.
+
+        The service is resolved using the ``service_slug`` URL parameter
+        and cached on first access for reuse during the request lifecycle.
+        """
         if self._service is None:
             service_slug = self.kwargs.get("service_slug")
             if not service_slug:
@@ -77,6 +83,13 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         return self._service
 
     def get_object(self) -> ZaakTypeAPI:
+        """
+        Retrieve a single ZaakType from the external service by UUID.
+
+        This method is overridden because the ViewSet does not use a Django
+        model or ORM queryset. Instead, the requested ZaakType is fetched
+        directly from the external Zaaktypen API using the client.
+        """
         uuid = self.kwargs.get(self.lookup_field)
         try:
             with get_zaaktypen_client(self.service) as client:
@@ -87,12 +100,19 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             )
 
     def get_queryset(self) -> list[ZaakTypeAPI]:
+        """
+        Retrieve all Zaaktypen available for the configured service.
+
+        This method is overridden because no Django model queryset exists.
+        ZaakType data is retrieved dynamically from the external Zaaktypen
+        API via the configured client.
+        """
         try:
             with get_zaaktypen_client(self.service) as client:
                 return client.get_cached_items(self.service.slug)
         except RequestException as exc:
             raise ExternalServiceUnavailable(
-                _("External service '{self.service.slug}' unreachable.").format(
-                    service_slug=self.service.slug
+                _("External service '{service_slug}' unreachable.").format(
+                    service_slug=self.service.slug,
                 )
             ) from exc
