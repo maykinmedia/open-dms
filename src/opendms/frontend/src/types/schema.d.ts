@@ -364,6 +364,8 @@ export interface operations {
                 page?: number;
                 /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
                 pageSize?: number;
+                /** @description A search term for the ZaakType service. The search is performed against the `identificatie__icontains` field. */
+                search?: string;
             };
             header?: never;
             path: {

@@ -1,4 +1,5 @@
 from datetime import date
+from functools import partial
 from typing import TypedDict
 from uuid import UUID
 
@@ -29,8 +30,8 @@ class ZaakTypeClient(NLXClient):
 
     endpoint = "zaaktypen"
 
-    def get_items(self) -> list[ZaakTypeAPI]:
-        response = self.get(self.endpoint)
+    def get_items(self, params: dict) -> list[ZaakTypeAPI]:
+        response = self.get(self.endpoint, params=params)
         response.raise_for_status()
         data = response.json()
         return [
@@ -60,15 +61,17 @@ class ZaakTypeClient(NLXClient):
         )
 
     def get_cached_items(
-        self, service_slug: str, cache_timeout: int = 300
+        self, service_slug: str, params: dict, cache_timeout: int = 300
     ) -> list[ZaakTypeAPI]:
-        cache_key = f"zaaktypen:{service_slug}"
-        items: list[ZaakTypeAPI] | None = cache.get(cache_key)
 
-        if items is None:
-            items = self.get_items()
-            cache.set(cache_key, items, cache_timeout)
-        return items
+        if params:
+            return self.get_items(params)
+
+        return cache.get_or_set(
+            key=f"zaaktypen:{service_slug}:",
+            default=partial(self.get_items, params),
+            timeout=cache_timeout,
+        )
 
 
 def get_zaaktypen_client(service: Service) -> ZaakTypeClient:

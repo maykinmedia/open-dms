@@ -152,6 +152,12 @@ paths:
           maximum: 500).'
         schema:
           type: integer
+      - in: query
+        name: search
+        schema:
+          type: string
+        description: A search term for the ZaakType service. The search is performed
+          against the `identificatie__icontains` field.
       - in: path
         name: serviceSlug
         schema:
