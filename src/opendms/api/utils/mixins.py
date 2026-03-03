@@ -11,7 +11,7 @@ class ReadOnlyViewSetMixin:
         return self.serializer_class(*args, **kwargs)
 
     def list(self, request: Request, *args, **kwargs) -> Response:
-        items = self.get_queryset()
+        items = self.get_queryset(request.query_params)
         paginator = self.pagination_class()
         page = paginator.paginate_queryset(items, request)
         if page is not None:
