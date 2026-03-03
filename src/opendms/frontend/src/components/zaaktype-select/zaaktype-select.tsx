@@ -27,11 +27,12 @@ export function ZaaktypeSelect() {
     if (!serviceSlug) return [];
 
     const { data } = await apiClient.GET(
-      // @ts-expect-error: api not yet rady
-      `/api/v1/services/${serviceSlug}/zaaktypen`,
+      `/api/v1/services/{serviceSlug}/zaaktypen`,
       {
         params: {
+          path: { serviceSlug },
           query: {
+            // @ts-expect-error: api not yet ready
             search,
           },
         },
@@ -39,7 +40,6 @@ export function ZaaktypeSelect() {
     );
 
     return (
-      // @ts-expect-error: api not yet rady
       data?.results.map(({ identificatie, uuid }) => ({
         label: identificatie,
         value: uuid,
@@ -57,9 +57,9 @@ export function ZaaktypeSelect() {
   };
 
   return (
-    serviceSlug && ( // https://github.com/maykinmedia/admin-ui/issues/301
+    serviceSlug && ( // TODO: https://github.com/maykinmedia/admin-ui/issues/301
       <Select
-        disabled={!serviceSlug} // https://github.com/maykinmedia/admin-ui/issues/301
+        disabled={!serviceSlug} // TODO: https://github.com/maykinmedia/admin-ui/issues/301
         labelNoOptions="Geen resultaten"
         options={getZaaktypeOptions}
         placeholder="Selecteer zaaktype"
