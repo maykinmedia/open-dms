@@ -1033,10 +1033,6 @@ vcrpy==8.1.1
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
-vcrpy==8.1.1
-    # via
-    #   -c requirements/base.txt
-    #   -r requirements/base.txt
 vine==5.1.0
     # via
     #   -c requirements/base.txt
