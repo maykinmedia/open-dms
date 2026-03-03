@@ -22,7 +22,6 @@ export function YearSelect() {
   useEffect(() => {
     if (!serviceSlug || !zaaktypeUuid) return;
     apiClient
-      // @ts-expect-error: api not yet rady
       .GET("/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}", {
         params: {
           path: {
