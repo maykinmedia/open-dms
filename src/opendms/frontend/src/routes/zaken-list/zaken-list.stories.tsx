@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react-vite";
 import { initialize, mswLoader } from "msw-storybook-addon";
 import { withRouter } from "storybook-addon-remix-react-router";
 import { expect, userEvent, within } from "storybook/test";
+import { ZakenList } from "~/routes";
 
 import { withCSRF } from "../../../.storybook/decorators.tsx";
 import {
@@ -15,7 +16,6 @@ import {
   waitForIdle,
   waitForLoading,
 } from "../../../.storybook/utils.ts";
-import { ZakenList } from "./zaken-list";
 
 initialize();
 
