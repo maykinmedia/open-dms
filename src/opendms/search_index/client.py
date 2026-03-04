@@ -14,10 +14,10 @@ from elasticsearch.dsl import Q, Search
 from .index import Document
 from .typing import IndexName
 
-__all__ = ["get_client", "get_search_results"]
+__all__ = ["get_elasticsearch_client", "get_search_results"]
 
 
-def get_client() -> Elasticsearch:
+def get_elasticsearch_client() -> Elasticsearch:
     host = settings.SEARCH_INDEX["HOST"]
     username = settings.SEARCH_INDEX["USER"]
     password = settings.SEARCH_INDEX["PASSWORD"]
@@ -162,7 +162,7 @@ def get_search_results(
     search = search[page_from : page_from + page_size]
 
     # bind it to the client containing the connection details
-    with get_client() as client:
+    with get_elasticsearch_client() as client:
         search = search.using(client)
         response = search.execute()
 

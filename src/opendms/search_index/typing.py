@@ -22,8 +22,6 @@ class DocumentType(TypedDict):
     inhoud: NotRequired[str]
     link: NotRequired[str | None]
     beschrijving: NotRequired[str | None]
-    ontvangstdatum: NotRequired[date | None]
-    verzenddatum: NotRequired[date | None]
     verschijningsvorm: NotRequired[str | None]
     bestandsomvang: NotRequired[int | None]
 

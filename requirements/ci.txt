@@ -72,7 +72,6 @@ celery==5.6.2
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
-    #   flower
     #   notifications-api-common
 certifi==2026.1.4
     # via
@@ -172,7 +171,6 @@ django==5.2.11
     #   djangorestframework-gis
     #   djangorestframework-inclusions
     #   drf-nested-routers
-    #   drf-polymorphic
     #   drf-spectacular
     #   drf-spectacular-sidecar
     #   maykin-2fa
@@ -336,7 +334,6 @@ djangorestframework==3.16.1
     #   djangorestframework-gis
     #   djangorestframework-inclusions
     #   drf-nested-routers
-    #   drf-polymorphic
     #   drf-spectacular
     #   notifications-api-common
     #   open-api-framework
@@ -373,10 +370,6 @@ drf-nested-routers==0.95.0
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   commonground-api-common
-drf-polymorphic==2.1.1
-    # via
-    #   -c requirements/base.txt
-    #   -r requirements/base.txt
 drf-spectacular==0.29.0
     # via
     #   -c requirements/base.txt
@@ -416,10 +409,6 @@ factory-boy==3.3.3
     # via -r requirements/test-tools.in
 faker==40.4.0
     # via factory-boy
-flower==2.0.1
-    # via
-    #   -c requirements/base.txt
-    #   -r requirements/base.txt
 freezegun==1.5.5
     # via -r requirements/test-tools.in
 furl==2.1.4
@@ -443,11 +432,6 @@ grpcio==1.78.0
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   opentelemetry-exporter-otlp-proto-grpc
-humanize==4.15.0
-    # via
-    #   -c requirements/base.txt
-    #   -r requirements/base.txt
-    #   flower
 idna==3.11
     # via
     #   -c requirements/base.txt
@@ -688,11 +672,6 @@ polib==1.2.0
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   django-rosetta
-prometheus-client==0.24.1
-    # via
-    #   -c requirements/base.txt
-    #   -r requirements/base.txt
-    #   flower
 prompt-toolkit==3.0.52
     # via
     #   -c requirements/base.txt
@@ -818,11 +797,6 @@ python-magic==0.4.27
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
-pytz==2025.2
-    # via
-    #   -c requirements/base.txt
-    #   -r requirements/base.txt
-    #   flower
 pyyaml==6.0.3
     # via
     #   -c requirements/base.txt
@@ -965,11 +939,6 @@ texttable==1.7.0
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   py7zr
-tornado==6.5.4
-    # via
-    #   -c requirements/base.txt
-    #   -r requirements/base.txt
-    #   flower
 typer==0.23.1
     # via
     #   -c requirements/base.txt

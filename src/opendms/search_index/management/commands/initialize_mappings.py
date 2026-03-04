@@ -3,7 +3,7 @@ from django.core.management import BaseCommand, CommandError
 from elastic_transport import ConnectionError as ElasticConnectionError
 from elasticsearch import ApiError
 
-from ...client import get_client
+from ...client import get_elasticsearch_client
 from ...constants import DOCUMENT_ATTACHMENT_PIPELINE_ID
 from ...ingest import setup_document_attachment_processor
 from ...utils import get_index_document_types
@@ -26,7 +26,7 @@ class Command(BaseCommand):
 
     def handle(self, **options):  # pragma: no cover
         verbosity = options["verbosity"]
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             if verbosity >= 1:
                 self.stdout.write("Pinging cluster...", ending=" ")
 

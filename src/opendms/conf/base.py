@@ -20,11 +20,9 @@ from .utils import load_indexable_file_types
 INSTALLED_APPS = INSTALLED_APPS + [
     *default_health_check_apps,
     # External applications.
-    "rest_framework.authtoken",
     "hijack",
     "hijack.contrib.admin",
     "maykin_common",
-    "drf_polymorphic",
     # Project applications.
     "opendms.accounts",
     "opendms.api",
@@ -220,6 +218,12 @@ SEARCH_INDEX = {
             "indexed. Keep in mind that Elastic Search must be configured "
             "appropriately to allow sufficiently large HTTP request body sizes."
         ),
+    ),
+    "ANALYZER": config(  # pyright: ignore[reportCallIssue]
+        "ELASTICSEARCH_ANALYZER",
+        default="dutch",
+        group="Elastic Search",
+        help_text="Default analyzer to use for text fields in Elasticsearch mappings.",
     ),
 }
 

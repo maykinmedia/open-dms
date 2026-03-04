@@ -13,7 +13,6 @@ from .serializers import SearchResponseSerializer, SearchSerializer
 
 
 class SearchView(APIView):
-    # authentication_classes = (TokenAuthentication,)
     permission_classes = (IsAuthenticated,)
 
     @extend_schema(
@@ -25,27 +24,23 @@ class SearchView(APIView):
         responses={200: SearchResponseSerializer(many=True)},
     )
     def post(self, request, *args, **kwargs):
-        # Validate input
         query_serializer = SearchSerializer(data=request.data)
         query_serializer.is_valid(raise_exception=True)
         params: SearchParameters = query_serializer.validated_data
 
         # Fetch search results with supported filters only
         search_results = get_search_results(
-            query=params.get("query", ""),
-            creatiedatum_from=params.get("creatiedatum_vanaf"),
-            creatiedatum_to=params.get("creatiedatum_tot_en_met"),
-            page=params.get("page", 1),
-            page_size=params.get("page_size", 10),
-            sort=params.get("sort", "relevance"),
+            query=params["query"],
+            creatiedatum_from=params["creatiedatum_vanaf"],
+            creatiedatum_to=params["creatiedatum_tot_en_met"],
+            page=(page := params["page"]),
+            page_size=(page_size := params["page_size"]),
+            sort=params["sort"],
         )
 
         # Serialize and return response
         response = SearchResponseSerializer(
             instance=search_results,
-            context={
-                "page": params.get("page", 1),
-                "page_size": params.get("page_size", 10),
-            },
+            context={"page": page, "page_size": page_size},
         )
         return Response(response.data)

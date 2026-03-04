@@ -1,0 +1,102 @@
+interactions:
+- request:
+    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"https://www.klein-knight.com/","identificatie":"843b590b-d82c-4819-8847-9d86946cf898","bronorganisatie":"Hughes,
+      Diaz and Shepherd","creatiedatum":"2026-02-27","titel":"Time task level effect
+      window challenge parent.","auteur":"Maria Vega","taal":"gez","begin_registratie":"2026-02-19T14:53:17.324041","informatieobjecttype":"worry","vertrouwelijkheidaanduiding":"maybe","status":"himself","formaat":"mov","bestandsnaam":"television.mp4","link":"http://taylor.info/","beschrijving":"Tonight
+      better learn article up sure I. Seek special simple newspaper. Personal become
+      city game natural audience.","ontvangstdatum":"2026-02-05","verzenddatum":"2026-02-03","verschijningsvorm":"low"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/85a095ea-e1fa-438c-9e05-1862874f57a0?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/85a095ea-e1fa-438c-9e05-1862874f57a0
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.huffman.com/","identificatie":"c83bd83c-64b3-4e4b-b464-1843747d3fc6","bronorganisatie":"Cunningham
+      Inc","creatiedatum":"2026-02-22","titel":"Step view significant investment.","auteur":"David
+      Wood","taal":"sr","begin_registratie":"2026-02-04T16:34:08.587830","informatieobjecttype":"fight","vertrouwelijkheidaanduiding":"away","status":"total","formaat":"flac","bestandsnaam":"Mr.mp3","link":"https://walker.com/","beschrijving":"Movement
+      up value. Focus step citizen crime town easy. Total option across all. Author
+      soon rather if member music most.","ontvangstdatum":"2026-02-10","verzenddatum":"2026-02-25","verschijningsvorm":"medical"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/48981334-b480-4e7d-8c8d-925bbc67a969?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/48981334-b480-4e7d-8c8d-925bbc67a969
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":1}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_score":1.0,"_source":{"begin_registratie":"2026-02-19T14:53:17.324041","beschrijving":"Tonight
+        better learn article up sure I. Seek special simple newspaper. Personal become
+        city game natural audience.","verschijningsvorm":"low","identificatie":"843b590b-d82c-4819-8847-9d86946cf898","bronorganisatie":"Hughes,
+        Diaz and Shepherd","link":"http://taylor.info/","uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"https://www.klein-knight.com/","taal":"gez","verzenddatum":"2026-02-03","auteur":"Maria
+        Vega","formaat":"mov","titel":"Time task level effect window challenge parent.","vertrouwelijkheidaanduiding":"maybe","informatieobjecttype":"worry","bestandsnaam":"television.mp4","ontvangstdatum":"2026-02-05","creatiedatum":"2026-02-27","status":"himself"},"sort":[1.0,1772150400000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

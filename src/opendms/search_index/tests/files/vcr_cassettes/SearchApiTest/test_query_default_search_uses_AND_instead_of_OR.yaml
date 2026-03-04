@@ -1,0 +1,133 @@
+interactions:
+- request:
+    body: '{"uuid":"9c3360b8-2ce7-4742-9051-e586b686fc48","url":"https://www.ortiz.biz/","identificatie":"ca7c9172-1eac-4ae2-9567-7114b0585280","bronorganisatie":"Jordan,
+      Garza and Ross","creatiedatum":"2026-02-25","titel":"Color moment seem believe.","auteur":"Cheryl
+      Wright","taal":"kl","begin_registratie":"2026-02-13T05:49:22.535637","informatieobjecttype":"baby","vertrouwelijkheidaanduiding":"leg","status":"whose","formaat":"odp","bestandsnaam":"occur.flac","link":"http://brown.org/","beschrijving":"Ground
+      spring say positive possible why program. Hotel reach move population. Compare
+      should really become much operation many.","ontvangstdatum":"2026-02-10","verzenddatum":"2026-02-22","verschijningsvorm":"billion"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/9c3360b8-2ce7-4742-9051-e586b686fc48?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"9c3360b8-2ce7-4742-9051-e586b686fc48","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/9c3360b8-2ce7-4742-9051-e586b686fc48
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"37eb1144-a3da-48d1-b2fb-88075f781611","url":"https://www.hansen-moore.net/","identificatie":"b2380b22-6d6a-49fe-8bdd-5f584040c5d7","bronorganisatie":"Rodriguez-Wiggins","creatiedatum":"2026-02-14","titel":"Document
+      one of many","auteur":"Linda Webb","taal":"lb","begin_registratie":"2026-02-07T06:21:10.881555","informatieobjecttype":"seat","vertrouwelijkheidaanduiding":"will","status":"news","formaat":"key","bestandsnaam":"impact.js","link":"https://brooks-mays.com/","beschrijving":"Upon
+      quickly wide though treatment. Affect consider town the eat arm.","ontvangstdatum":"2026-03-02","verzenddatum":"2026-02-12","verschijningsvorm":"know"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/37eb1144-a3da-48d1-b2fb-88075f781611?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"37eb1144-a3da-48d1-b2fb-88075f781611","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/37eb1144-a3da-48d1-b2fb-88075f781611
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"http://alexander-wade.net/","identificatie":"8a11bbf2-cd37-4686-b605-bf3118cdc94b","bronorganisatie":"Edwards,
+      Garcia and Perez","creatiedatum":"2026-02-14","titel":"Document two of many","auteur":"Megan
+      Rojas","taal":"fur","begin_registratie":"2026-02-11T23:09:14.191797","informatieobjecttype":"summer","vertrouwelijkheidaanduiding":"paper","status":"morning","formaat":"txt","bestandsnaam":"call.docx","link":"https://baldwin.com/","beschrijving":"Value
+      I join door. Lawyer term because Mrs. Statement outside even ok her.","ontvangstdatum":"2026-02-07","verzenddatum":"2026-03-01","verschijningsvorm":"foot"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/da45268a-ab21-4a81-bfc4-b0430edf339b?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"da45268a-ab21-4a81-bfc4-b0430edf339b","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/da45268a-ab21-4a81-bfc4-b0430edf339b
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
+      two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"da45268a-ab21-4a81-bfc4-b0430edf339b","_score":2.0077288,"_source":{"begin_registratie":"2026-02-11T23:09:14.191797","beschrijving":"Value
+        I join door. Lawyer term because Mrs. Statement outside even ok her.","verschijningsvorm":"foot","identificatie":"8a11bbf2-cd37-4686-b605-bf3118cdc94b","bronorganisatie":"Edwards,
+        Garcia and Perez","link":"https://baldwin.com/","uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"http://alexander-wade.net/","taal":"fur","verzenddatum":"2026-03-01","auteur":"Megan
+        Rojas","formaat":"txt","titel":"Document two of many","vertrouwelijkheidaanduiding":"paper","informatieobjecttype":"summer","bestandsnaam":"call.docx","ontvangstdatum":"2026-02-07","creatiedatum":"2026-02-14","status":"morning"},"sort":[2.0077288,1771027200000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

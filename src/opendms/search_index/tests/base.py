@@ -6,7 +6,7 @@ from django.test import TestCase, override_settings, tag
 from elasticsearch.dsl import Document
 
 from opendms.conf.utils import config
-from opendms.search_index.client import get_client
+from opendms.search_index.client import get_elasticsearch_client
 
 from ...api.tests.api_testcase import APITestCase
 from ..ingest import setup_document_attachment_processor
@@ -53,7 +53,7 @@ class ElasticSearchMixin:
 
         # create the indices
         with override_es_settings:
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 cls._es_online = client.ping()
                 if not cls._es_online:
                     level = logging.WARNING if not CI else logging.DEBUG
@@ -83,7 +83,7 @@ class ElasticSearchMixin:
                 return
 
             with override_es_settings:
-                with get_client() as client:
+                with get_elasticsearch_client() as client:
                     client.indices.delete(index=list(_index_names))
 
         cls.addClassCleanup(teardown)  # pyright: ignore[reportAttributeAccessIssue]
@@ -95,7 +95,7 @@ class ElasticSearchMixin:
             return
 
         with override_es_settings:
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 # empty index before tests
                 client.delete_by_query(
                     index=list(self._es_indexes),

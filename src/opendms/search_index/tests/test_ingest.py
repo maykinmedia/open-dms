@@ -1,13 +1,13 @@
-from opendms.utils.tests.vcr import VCRMixin
+from maykin_common.vcr import VCRMixin
 
-from ..client import get_client
+from ..client import get_elasticsearch_client
 from ..ingest import setup_document_attachment_processor
 from .base import ElasticSearchTestCase
 
 
 class IngestPipelineTest(VCRMixin, ElasticSearchTestCase):
     def test_document_attachment_processor_with_correct_client(self):
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             success = setup_document_attachment_processor(client=client)
 
         self.assertTrue(success)

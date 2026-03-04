@@ -1,0 +1,172 @@
+interactions:
+- request:
+    body: '{"uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"https://www.palmer.info/","identificatie":"snowflake","bronorganisatie":"Kim
+      Inc","creatiedatum":"2026-02-28","titel":"Claim subject audience school capital
+      lay.","auteur":"Micheal Davis","taal":"ts","begin_registratie":"2026-02-05T12:19:50.074161","informatieobjecttype":"its","vertrouwelijkheidaanduiding":"likely","status":"apply","formaat":"jpg","bestandsnaam":"figure.mp3","link":"https://www.medina-spears.com/","beschrijving":"Hit
+      test future good professor. Option pick economy participant. Management special
+      international may clear cause. Deep somebody than get board.","ontvangstdatum":"2026-02-13","verzenddatum":"2026-02-25","verschijningsvorm":"guess"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/3916925a-4260-4505-bfbb-0942113efd49?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"3916925a-4260-4505-bfbb-0942113efd49","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/3916925a-4260-4505-bfbb-0942113efd49
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"https://www.jones.org/","identificatie":"document2","bronorganisatie":"Myers,
+      Lyons and Morton","creatiedatum":"2026-02-06","titel":"snowflake","auteur":"Donna
+      Choi","taal":"uz","begin_registratie":"2026-03-02T06:05:59.020043","informatieobjecttype":"maybe","vertrouwelijkheidaanduiding":"maintain","status":"form","formaat":"avi","bestandsnaam":"wonder.mp4","link":"https://graham.info/","beschrijving":"Morning
+      practice safe note near manager prevent. Top stop police civil.","ontvangstdatum":"2026-02-09","verzenddatum":"2026-02-04","verschijningsvorm":"opportunity"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/d49bc304-01a1-4eda-a914-a8dda5c901e2?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"d49bc304-01a1-4eda-a914-a8dda5c901e2","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/d49bc304-01a1-4eda-a914-a8dda5c901e2
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"http://www.foster-johnson.com/","identificatie":"document3","bronorganisatie":"Sullivan
+      Inc","creatiedatum":"2026-02-05","titel":"Story popular plan industry who concern.","auteur":"Elizabeth
+      Day","taal":"hsb","begin_registratie":"2026-02-05T06:16:50.171144","informatieobjecttype":"threat","vertrouwelijkheidaanduiding":"blue","status":"surface","formaat":"xlsx","bestandsnaam":"snowflake","link":"http://welch.com/","beschrijving":"Fear
+      serious government staff little church. Natural above send adult.","ontvangstdatum":"2026-02-17","verzenddatum":"2026-02-17","verschijningsvorm":"team"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/bdcc4cea-b186-425e-8dcd-9fecb6818563?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"bdcc4cea-b186-425e-8dcd-9fecb6818563","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/bdcc4cea-b186-425e-8dcd-9fecb6818563
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"https://www.mcgrath.com/","identificatie":"document4","bronorganisatie":"Henderson-Campbell","creatiedatum":"2026-02-02","titel":"Choose
+      between nor alone green subject.","auteur":"Steven Castro","taal":"lt","begin_registratie":"2026-02-05T05:54:07.533190","informatieobjecttype":"decision","vertrouwelijkheidaanduiding":"again","status":"bank","formaat":"avi","bestandsnaam":"light.txt","link":"https://www.campos.org/","beschrijving":"snowflake","ontvangstdatum":"2026-02-09","verzenddatum":"2026-02-23","verschijningsvorm":"sign"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/7eade718-bccb-4876-9f00-a095beebc360?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"7eade718-bccb-4876-9f00-a095beebc360","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/7eade718-bccb-4876-9f00-a095beebc360
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"snowflake","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":4,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"3916925a-4260-4505-bfbb-0942113efd49","_score":3.6119184,"_source":{"begin_registratie":"2026-02-05T12:19:50.074161","beschrijving":"Hit
+        test future good professor. Option pick economy participant. Management special
+        international may clear cause. Deep somebody than get board.","verschijningsvorm":"guess","identificatie":"snowflake","bronorganisatie":"Kim
+        Inc","link":"https://www.medina-spears.com/","uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"https://www.palmer.info/","taal":"ts","verzenddatum":"2026-02-25","auteur":"Micheal
+        Davis","formaat":"jpg","titel":"Claim subject audience school capital lay.","vertrouwelijkheidaanduiding":"likely","informatieobjecttype":"its","bestandsnaam":"figure.mp3","ontvangstdatum":"2026-02-13","creatiedatum":"2026-02-28","status":"apply"},"sort":[3.6119184,1772236800000]},{"_index":"document","_id":"d49bc304-01a1-4eda-a914-a8dda5c901e2","_score":1.097147,"_source":{"begin_registratie":"2026-03-02T06:05:59.020043","beschrijving":"Morning
+        practice safe note near manager prevent. Top stop police civil.","verschijningsvorm":"opportunity","identificatie":"document2","bronorganisatie":"Myers,
+        Lyons and Morton","link":"https://graham.info/","uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"https://www.jones.org/","taal":"uz","verzenddatum":"2026-02-04","auteur":"Donna
+        Choi","formaat":"avi","titel":"snowflake","vertrouwelijkheidaanduiding":"maintain","informatieobjecttype":"maybe","bestandsnaam":"wonder.mp4","ontvangstdatum":"2026-02-09","creatiedatum":"2026-02-06","status":"form"},"sort":[1.097147,1770336000000]},{"_index":"document","_id":"bdcc4cea-b186-425e-8dcd-9fecb6818563","_score":0.49239737,"_source":{"begin_registratie":"2026-02-05T06:16:50.171144","beschrijving":"Fear
+        serious government staff little church. Natural above send adult.","verschijningsvorm":"team","identificatie":"document3","bronorganisatie":"Sullivan
+        Inc","link":"http://welch.com/","uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"http://www.foster-johnson.com/","taal":"hsb","verzenddatum":"2026-02-17","auteur":"Elizabeth
+        Day","formaat":"xlsx","titel":"Story popular plan industry who concern.","vertrouwelijkheidaanduiding":"blue","informatieobjecttype":"threat","bestandsnaam":"snowflake","ontvangstdatum":"2026-02-17","creatiedatum":"2026-02-05","status":"surface"},"sort":[0.49239737,1770249600000]},{"_index":"document","_id":"7eade718-bccb-4876-9f00-a095beebc360","_score":0.41613886,"_source":{"begin_registratie":"2026-02-05T05:54:07.533190","beschrijving":"snowflake","verschijningsvorm":"sign","identificatie":"document4","bronorganisatie":"Henderson-Campbell","link":"https://www.campos.org/","uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"https://www.mcgrath.com/","taal":"lt","verzenddatum":"2026-02-23","auteur":"Steven
+        Castro","formaat":"avi","titel":"Choose between nor alone green subject.","vertrouwelijkheidaanduiding":"again","informatieobjecttype":"decision","bestandsnaam":"light.txt","ontvangstdatum":"2026-02-09","creatiedatum":"2026-02-02","status":"bank"},"sort":[0.41613886,1769990400000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

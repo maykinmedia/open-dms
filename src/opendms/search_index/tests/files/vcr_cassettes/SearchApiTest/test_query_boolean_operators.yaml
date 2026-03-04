@@ -1,0 +1,223 @@
+interactions:
+- request:
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.murphy.net/","identificatie":"79387d00-b164-4420-8afa-e8c318094ef8","bronorganisatie":"Montes,
+      Garcia and Harris","creatiedatum":"2026-03-01","titel":"Document one","auteur":"Charles
+      Palmer","taal":"tt","begin_registratie":"2026-02-20T17:12:32.214157","informatieobjecttype":"American","vertrouwelijkheidaanduiding":"ahead","status":"hair","formaat":"avi","bestandsnaam":"place.mp3","link":"https://www.barnes-hopkins.com/","beschrijving":"snowflake1","ontvangstdatum":"2026-02-21","verzenddatum":"2026-03-01","verschijningsvorm":"truth"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/d6eacab4-cb9f-42f7-abdf-719b358da923?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":12,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/d6eacab4-cb9f-42f7-abdf-719b358da923
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://hansen.com/","identificatie":"d201a149-cbcb-4249-bf2d-e60e065dbe56","bronorganisatie":"Bradford-Bishop","creatiedatum":"2026-02-23","titel":"Document
+      two","auteur":"Isaac Johnson","taal":"ga","begin_registratie":"2026-02-13T09:29:12.239921","informatieobjecttype":"direction","vertrouwelijkheidaanduiding":"close","status":"no","formaat":"doc","bestandsnaam":"worker.jpeg","link":"https://www.barron.com/","beschrijving":"snowflake2","ontvangstdatum":"2026-02-10","verzenddatum":"2026-03-01","verschijningsvorm":"blue"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/a8fce14e-88d1-4f60-a69b-bbcc7033afe9?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":13,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/a8fce14e-88d1-4f60-a69b-bbcc7033afe9
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
+      + one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.763692,"_source":{"begin_registratie":"2026-02-20T17:12:32.214157","beschrijving":"snowflake1","verschijningsvorm":"truth","identificatie":"79387d00-b164-4420-8afa-e8c318094ef8","bronorganisatie":"Montes,
+        Garcia and Harris","link":"https://www.barnes-hopkins.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.murphy.net/","taal":"tt","verzenddatum":"2026-03-01","auteur":"Charles
+        Palmer","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"ahead","informatieobjecttype":"American","bestandsnaam":"place.mp3","ontvangstdatum":"2026-02-21","creatiedatum":"2026-03-01","status":"hair"},"sort":[6.763692,1772323200000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
+      + one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.763692,"_source":{"begin_registratie":"2026-02-20T17:12:32.214157","beschrijving":"snowflake1","verschijningsvorm":"truth","identificatie":"79387d00-b164-4420-8afa-e8c318094ef8","bronorganisatie":"Montes,
+        Garcia and Harris","link":"https://www.barnes-hopkins.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.murphy.net/","taal":"tt","verzenddatum":"2026-03-01","auteur":"Charles
+        Palmer","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"ahead","informatieobjecttype":"American","bestandsnaam":"place.mp3","ontvangstdatum":"2026-02-21","creatiedatum":"2026-03-01","status":"hair"},"sort":[6.763692,1772323200000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"one
+      |two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.429068,"_source":{"begin_registratie":"2026-02-20T17:12:32.214157","beschrijving":"snowflake1","verschijningsvorm":"truth","identificatie":"79387d00-b164-4420-8afa-e8c318094ef8","bronorganisatie":"Montes,
+        Garcia and Harris","link":"https://www.barnes-hopkins.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.murphy.net/","taal":"tt","verzenddatum":"2026-03-01","auteur":"Charles
+        Palmer","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"ahead","informatieobjecttype":"American","bestandsnaam":"place.mp3","ontvangstdatum":"2026-02-21","creatiedatum":"2026-03-01","status":"hair"},"sort":[4.429068,1772323200000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.3423395,"_source":{"begin_registratie":"2026-02-13T09:29:12.239921","beschrijving":"snowflake2","verschijningsvorm":"blue","identificatie":"d201a149-cbcb-4249-bf2d-e60e065dbe56","bronorganisatie":"Bradford-Bishop","link":"https://www.barron.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://hansen.com/","taal":"ga","verzenddatum":"2026-03-01","auteur":"Isaac
+        Johnson","formaat":"doc","titel":"Document two","vertrouwelijkheidaanduiding":"close","informatieobjecttype":"direction","bestandsnaam":"worker.jpeg","ontvangstdatum":"2026-02-10","creatiedatum":"2026-02-23","status":"no"},"sort":[4.3423395,1771804800000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.429068,"_source":{"begin_registratie":"2026-02-20T17:12:32.214157","beschrijving":"snowflake1","verschijningsvorm":"truth","identificatie":"79387d00-b164-4420-8afa-e8c318094ef8","bronorganisatie":"Montes,
+        Garcia and Harris","link":"https://www.barnes-hopkins.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.murphy.net/","taal":"tt","verzenddatum":"2026-03-01","auteur":"Charles
+        Palmer","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"ahead","informatieobjecttype":"American","bestandsnaam":"place.mp3","ontvangstdatum":"2026-02-21","creatiedatum":"2026-03-01","status":"hair"},"sort":[4.429068,1772323200000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.3423395,"_source":{"begin_registratie":"2026-02-13T09:29:12.239921","beschrijving":"snowflake2","verschijningsvorm":"blue","identificatie":"d201a149-cbcb-4249-bf2d-e60e065dbe56","bronorganisatie":"Bradford-Bishop","link":"https://www.barron.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://hansen.com/","taal":"ga","verzenddatum":"2026-03-01","auteur":"Isaac
+        Johnson","formaat":"doc","titel":"Document two","vertrouwelijkheidaanduiding":"close","informatieobjecttype":"direction","bestandsnaam":"worker.jpeg","ontvangstdatum":"2026-02-10","creatiedatum":"2026-02-23","status":"no"},"sort":[4.3423395,1771804800000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"(\"snowflake1\"
+      +  one) | (\"Document two\")","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":7.8692465,"_source":{"begin_registratie":"2026-02-20T17:12:32.214157","beschrijving":"snowflake1","verschijningsvorm":"truth","identificatie":"79387d00-b164-4420-8afa-e8c318094ef8","bronorganisatie":"Montes,
+        Garcia and Harris","link":"https://www.barnes-hopkins.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.murphy.net/","taal":"tt","verzenddatum":"2026-03-01","auteur":"Charles
+        Palmer","formaat":"avi","titel":"Document one","vertrouwelijkheidaanduiding":"ahead","informatieobjecttype":"American","bestandsnaam":"place.mp3","ontvangstdatum":"2026-02-21","creatiedatum":"2026-03-01","status":"hair"},"sort":[7.8692465,1772323200000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":6.6312475,"_source":{"begin_registratie":"2026-02-13T09:29:12.239921","beschrijving":"snowflake2","verschijningsvorm":"blue","identificatie":"d201a149-cbcb-4249-bf2d-e60e065dbe56","bronorganisatie":"Bradford-Bishop","link":"https://www.barron.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://hansen.com/","taal":"ga","verzenddatum":"2026-03-01","auteur":"Isaac
+        Johnson","formaat":"doc","titel":"Document two","vertrouwelijkheidaanduiding":"close","informatieobjecttype":"direction","bestandsnaam":"worker.jpeg","ontvangstdatum":"2026-02-10","creatiedatum":"2026-02-23","status":"no"},"sort":[6.6312475,1771804800000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

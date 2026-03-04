@@ -36,7 +36,3 @@ class ZaakTypeSerializer(serializers.Serializer):
     eindeGeldigheid = serializers.DateField(
         help_text=_("De datum waarop het is opgeheven."),
     )
-
-
-class CeleryTaskIdSerializer(serializers.Serializer):
-    task_id = serializers.UUIDField()

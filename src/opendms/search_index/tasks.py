@@ -15,9 +15,8 @@ from elasticsearch import NotFoundError
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 
-from opendms.celery import app
-
-from .client import get_client
+# from opendms.celery import app
+from .client import get_elasticsearch_client
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID
 from .index import Document
 
@@ -143,7 +142,6 @@ def _download_document(document_url: str) -> NestedDocumentData | None:
                 ]
 
 
-@app.task()
 def index_document(
     *,
     uuid: str,
@@ -163,8 +161,6 @@ def index_document(
     inhoud: str = "",
     link: str | None,
     beschrijving: str | None,
-    ontvangstdatum: date | None,
-    verzenddatum: date | None,
     verschijningsvorm: str | None,
     bestandsomvang: int | None = None,
 ):
@@ -186,8 +182,6 @@ def index_document(
         bestandsnaam=bestandsnaam,
         link=link,
         beschrijving=beschrijving,
-        ontvangstdatum=ontvangstdatum,
-        verzenddatum=verzenddatum,
         verschijningsvorm=verschijningsvorm,
     )
 
@@ -198,7 +192,7 @@ def index_document(
     ):
         document.document_data = _download_document(document_url=inhoud)
 
-    with get_client() as client:
+    with get_elasticsearch_client() as client:
         document.save(
             using=client,
             refresh=settings.SEARCH_INDEX["REFRESH"],
@@ -206,14 +200,13 @@ def index_document(
         )
 
 
-@app.task()
 def remove_document_from_index(uuid: str) -> None:
     """
     If the document with specified ``uuid`` is present in the index, remove it.
 
     :arg uuid: The ID of the document in Elastic Search.
     """
-    with get_client() as client:
+    with get_elasticsearch_client() as client:
         try:
             document = Document.get(using=client, id=uuid)
             assert document is not None
