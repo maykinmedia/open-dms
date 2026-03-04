@@ -29,8 +29,6 @@ class IndexDocumentFactory(factory.Factory):
     inhoud = factory.Faker("paragraph")
     link = factory.Faker("url")
     creatiedatum = factory.Faker("past_date")
-    ontvangstdatum = factory.Faker("past_date")
-    verzenddatum = factory.Faker("past_date")
     begin_registratie = factory.Faker("past_datetime")
 
     class Meta:

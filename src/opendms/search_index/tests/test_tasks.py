@@ -3,10 +3,9 @@ from datetime import UTC, date, datetime
 from django.test import override_settings
 
 from elasticsearch import NotFoundError
+from maykin_common.vcr import VCRMixin
 
-from opendms.utils.tests.vcr import VCRMixin
-
-from ..client import get_client
+from ..client import get_elasticsearch_client
 from ..index import Document
 from ..tasks import (
     index_document,
@@ -40,14 +39,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             bestandsnaam="document.pdf",
             link=None,
             beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            ontvangstdatum=None,
-            verzenddatum=None,
             verschijningsvorm=None,
             bestandsomvang=1000,  # was file_size
         )
 
         # verify that it's indexed
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             doc = Document.get(
                 using=client,
                 id=document_uuid,
@@ -81,8 +78,6 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
         self.assertIsNone(doc.link)
 
         self.assertEqual(doc.creatiedatum, date(2026, 1, 1))
-        self.assertIsNone(doc.ontvangstdatum)
-        self.assertIsNone(doc.verzenddatum)
 
         self.assertEqual(
             doc.begin_registratie,
@@ -107,13 +102,11 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 bestandsnaam="changed.docx",
                 link="http://example.com",
                 beschrijving="Changed description",
-                ontvangstdatum=None,
-                verzenddatum=None,
                 verschijningsvorm=None,
                 bestandsomvang=500,
             )
 
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 updated_doc = Document.get(
                     using=client,
                     id=document_uuid,
@@ -150,14 +143,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 inhoud="http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb",
                 link=None,
                 beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                ontvangstdatum=None,
-                verzenddatum=None,
                 verschijningsvorm=None,
                 bestandsomvang=1000,
             )
 
             # verify that it's indexed
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 doc_source = client.get(index="document", id=document_uuid)["_source"]
 
             self.assertEqual(
@@ -188,14 +179,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 inhoud="http://localhost/document/empty",
                 link=None,
                 beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                ontvangstdatum=None,
-                verzenddatum=None,
                 verschijningsvorm=None,
                 bestandsomvang=1000,
             )
 
             # verify that it's indexed
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 doc_source = client.get(index="document", id=document_uuid)["_source"]
 
             self.assertEqual(doc_source["document_data"][0]["attachment"], {})
@@ -223,14 +212,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 inhoud="http://localhost/document/error",
                 link=None,
                 beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                ontvangstdatum=None,
-                verzenddatum=None,
                 verschijningsvorm=None,
                 bestandsomvang=1000,
             )
 
             # verify that it's indexed
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 doc_source = client.get(index="document", id=document_uuid)["_source"]
 
             self.assertNotIn("document_data", doc_source)
@@ -260,14 +247,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             inhoud="https://www.example.com/downloads/1",
             link=None,
             beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            ontvangstdatum=None,
-            verzenddatum=None,
             verschijningsvorm=None,
             bestandsomvang=1000,
         )
 
         # verify that it's indexed
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             doc_source = client.get(index="document", id=document_uuid)["_source"]
 
         self.assertNotIn("document_data", doc_source)
@@ -310,13 +295,11 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 inhoud="http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb",
                 link=None,
                 beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                ontvangstdatum=None,
-                verzenddatum=None,
                 verschijningsvorm=None,
             )
 
             # verify that it's indexed
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 doc_source = client.get(index="document", id=document_uuid)["_source"]
 
             self.assertNotIn("document_data", doc_source)
@@ -345,14 +328,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 inhoud="http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb",
                 link=None,
                 beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                ontvangstdatum=None,
-                verzenddatum=None,
                 verschijningsvorm=None,
                 bestandsomvang=2000,
             )
 
             # verify that it's indexed
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 doc_source = client.get(index="document", id=document_uuid)["_source"]
 
             self.assertNotIn("attachment", doc_source)
@@ -381,14 +362,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 inhoud="http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb",
                 link=None,
                 beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                ontvangstdatum=None,
-                verzenddatum=None,
                 verschijningsvorm=None,
                 bestandsomvang=800,
             )
 
             # verify that it's indexed
-            with get_client() as client:
+            with get_elasticsearch_client() as client:
                 doc_source = client.get(index="document", id=document_uuid)["_source"]
 
             self.assertEqual(
@@ -418,14 +397,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             inhoud="http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff",
             link=None,
             beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            ontvangstdatum=None,
-            verzenddatum=None,
             verschijningsvorm=None,
             bestandsomvang=1000,
         )
 
         # verify that it's indexed
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             doc_source = client.get(index="document", id=document_uuid)["_source"]
 
         self.assertEqual(
@@ -452,14 +429,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             inhoud="http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8",
             link=None,
             beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            ontvangstdatum=None,
-            verzenddatum=None,
             verschijningsvorm=None,
             bestandsomvang=1000,
         )
 
         # verify that it's indexed
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             doc_source = client.get(index="document", id=document_uuid)["_source"]
 
         self.assertEqual(
@@ -489,13 +464,11 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             inhoud="http://localhost/document/zip",
             link=None,
             beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            ontvangstdatum=None,
-            verzenddatum=None,
             verschijningsvorm=None,
             bestandsomvang=1000,
         )
         # verify that it's indexed
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             doc_source = client.get(index="document", id=document_uuid)["_source"]
 
         self.assertEqual(len(doc_source["document_data"]), 2)
@@ -542,14 +515,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             inhoud="http://localhost/document/7zip",
             link=None,
             beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            ontvangstdatum=None,
-            verzenddatum=None,
             verschijningsvorm=None,
             bestandsomvang=401,
         )
 
         # verify that it's indexed
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             doc_source = client.get(index="document", id=document_uuid)["_source"]
 
         # test that only files up to 1000 bytes get indexed.
@@ -598,14 +569,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             inhoud="http://localhost/document/smol7zip",
             link=None,
             beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            ontvangstdatum=None,
-            verzenddatum=None,
             verschijningsvorm=None,
             bestandsomvang=188,
         )
 
         # verify that it's indexed
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             doc_source = client.get(index="document", id=document_uuid)["_source"]
 
         # test that only files up to 5 bytes get indexed - the second file is discarded
@@ -632,14 +601,12 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             inhoud="http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb",
             link=None,
             beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-            ontvangstdatum=None,
-            verzenddatum=None,
             verschijningsvorm=None,
             bestandsomvang=1000,
         )
 
         # verify that it's indexed
-        with get_client() as client:
+        with get_elasticsearch_client() as client:
             doc_source = client.get(index="document", id=document_uuid)["_source"]
 
         self.assertNotIn("document_data", doc_source)
@@ -659,7 +626,7 @@ class RemoveFromIndexTaskTests(VCRMixin, ElasticSearchTestCase):
 
         self.assertIsNone(result)
         with (
-            get_client() as client,
+            get_elasticsearch_client() as client,
             self.assertRaises(NotFoundError),
         ):
             Document.get(id="ad4d66a8-1503-4743-ae55-d1765512530c", using=client)

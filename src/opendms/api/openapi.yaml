@@ -94,66 +94,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/WhoAmI'
           description: ''
-  /api/v1/documenten:
-    post:
-      operationId: apiV1DocumentenCreate
-      description: Index the received document metadata from the Register API in Elasticsearch.
-      summary: Index document metadata.
-      tags:
-      - index
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/DocumentIndex'
-        required: true
-      security:
-      - cookieAuth: []
-      responses:
-        '202':
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CeleryTaskId'
-          description: ''
-  /api/v1/documenten/{uuid}:
-    delete:
-      operationId: apiV1DocumentenDestroy
-      description: |-
-        Remove the referenced document data from the index.
-        This schedules a background task to perform the actual removal.
-      summary: Remove document from index.
-      parameters:
-      - in: path
-        name: uuid
-        schema:
-          type: string
-          format: uuid
-        description: UUID of the document to remove
-        required: true
-      tags:
-      - index
-      security:
-      - cookieAuth: []
-      responses:
-        '202':
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CeleryTaskId'
-          description: ''
   /api/v1/search:
     post:
       operationId: search
@@ -344,151 +284,92 @@ components:
       required:
       - password
       - username
-    CeleryTaskId:
-      type: object
-      properties:
-        taskId:
-          type: string
-          format: uuid
-      required:
-      - taskId
     Document:
       type: object
       properties:
         uuid:
           type: string
+          description: Unieke resource identifier (UUID4)
         url:
           type: string
           format: uri
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
         identificatie:
           type: string
+          description: Een binnen een gegeven context ondubbelzinnige referentie naar
+            het INFORMATIEOBJECT.
         bronorganisatie:
           type: string
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die het informatieobject heeft gecreëerd of heeft ontvangen en als eerste
+            in een samenwerkingsketen heeft vastgelegd.
         creatiedatum:
           type: string
           format: date
+          description: Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
         titel:
           type: string
+          description: De naam waaronder het INFORMATIEOBJECT formeel bekend is.
         auteur:
           type: string
+          description: De persoon of organisatie die dit informatie object heeft aangemaakt
         taal:
           type: string
+          description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+            is vastgelegd. Voorbeeld: `dut`. Zie: https://www.iso.org/standard/4767.html'
         beginRegistratie:
           type: string
           format: date-time
+          description: Een datumtijd in ISO8601 formaat waarop deze versie van het
+            INFORMATIEOBJECT is aangemaakt of gewijzigd.
         informatieobjecttype:
           type: string
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
+            API).
         vertrouwelijkheidaanduiding:
           type: string
           nullable: true
+          description: Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
+            openbaarheid bestemd is.
         status:
           type: string
           nullable: true
+          description: 'Aanduiding van de stand van zaken van een INFORMATIEOBJECT. '
         formaat:
           type: string
           nullable: true
+          description: 'Het "Media Type" (voorheen "MIME type") voor de wijze waaropde
+            inhoud van het INFORMATIEOBJECT is vastgelegd in een computerbestand.
+            Voorbeeld: `application/msword`. Zie: https://www.iana.org/assignments/media-types/media-types.xhtml'
         bestandsnaam:
           type: string
           nullable: true
+          description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
+            is vastgelegd, inclusief extensie.
         link:
           type: string
           format: uri
           nullable: true
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
+            is.
         beschrijving:
           type: string
           nullable: true
-        ontvangstdatum:
-          type: string
-          format: date
-          nullable: true
-        verzenddatum:
-          type: string
-          format: date
-          nullable: true
+          description: Een generieke beschrijving van de inhoud van het INFORMATIEOBJECT.
         verschijningsvorm:
           type: string
           nullable: true
+          description: De essentiële opmaakaspecten van een INFORMATIEOBJECT.
         bestandsomvang:
           type: integer
           nullable: true
+          description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
         inhoud:
           type: string
           default: ''
-      required:
-      - auteur
-      - beginRegistratie
-      - bronorganisatie
-      - creatiedatum
-      - identificatie
-      - informatieobjecttype
-      - taal
-      - titel
-      - url
-      - uuid
-    DocumentIndex:
-      type: object
-      properties:
-        uuid:
-          type: string
-        url:
-          type: string
-          format: uri
-        identificatie:
-          type: string
-        bronorganisatie:
-          type: string
-        creatiedatum:
-          type: string
-          format: date
-        titel:
-          type: string
-        auteur:
-          type: string
-        taal:
-          type: string
-        beginRegistratie:
-          type: string
-          format: date-time
-        informatieobjecttype:
-          type: string
-        vertrouwelijkheidaanduiding:
-          type: string
-          nullable: true
-        status:
-          type: string
-          nullable: true
-        formaat:
-          type: string
-          nullable: true
-        bestandsnaam:
-          type: string
-          nullable: true
-        link:
-          type: string
-          format: uri
-          nullable: true
-        beschrijving:
-          type: string
-          nullable: true
-        ontvangstdatum:
-          type: string
-          format: date
-          nullable: true
-        verzenddatum:
-          type: string
-          format: date
-          nullable: true
-        verschijningsvorm:
-          type: string
-          nullable: true
-        bestandsomvang:
-          type: integer
-          writeOnly: true
-          nullable: true
-        inhoud:
-          type: string
-          format: uri
-          writeOnly: true
+          description: De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen
+            in de index.
       required:
       - auteur
       - beginRegistratie
@@ -624,48 +505,12 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/SearchResults'
+            $ref: '#/components/schemas/DocumentResult'
       required:
       - count
       - next
       - previous
       - results
-    SearchResults:
-      oneOf:
-      - $ref: '#/components/schemas/SearchResultsDocumentResult'
-      discriminator:
-        propertyName: type
-        mapping:
-          document: '#/components/schemas/SearchResultsDocumentResult'
-    SearchResultsDocumentResult:
-      allOf:
-      - $ref: '#/components/schemas/SearchResultsShared'
-      - $ref: '#/components/schemas/DocumentResult'
-    SearchResultsShared:
-      type: object
-      description: |-
-        Polymorphic serializer base class.
-
-        Note that the discriminator field must exist at the same depth as the mapped
-        serializer fields for the OpenAPI introspection. See
-        https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/ for
-        more information. As such, it's not possible to define something like:
-
-        {
-            "object_type": "foo",
-            "polymorphic_context": {
-                <foo-specific fields>
-            }
-        }
-
-        without explicitly wrapping this in a parent serializer, i.e. -
-        ``polymorphic_context`` can not be a PolymorphicSerializer itself, as it requires
-        access to the ``object_type`` in the parent scope.
-      properties:
-        type:
-          type: string
-      required:
-      - type
     Service:
       type: object
       properties:

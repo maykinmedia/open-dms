@@ -1,3 +1,4 @@
+import os
 from datetime import date, datetime
 from typing import TYPE_CHECKING
 
@@ -18,9 +19,11 @@ from .typing import (
     IndexName,
 )
 
+DEFAULT_ANALYZER = os.environ.get("ELASTICSEARCH_ANALYZER", "dutch")
+
 
 class DocumentData(InnerDoc):
-    attachment = Object(properties={"content": Text(analyzer="dutch")})
+    attachment = Object(properties={"content": Text(analyzer=DEFAULT_ANALYZER)})
 
 
 # create empty base mapping instance
@@ -37,23 +40,23 @@ class Document(ES_Document):
     identificatie: M[str] = mapped_field(Keyword(required=True))
     bronorganisatie: M[str] = mapped_field(Keyword(required=True))
 
-    titel: M[str] = mapped_field(Text(analyzer="dutch", required=True))
-    beschrijving: M[str | None] = mapped_field(Text(analyzer="dutch"))
-    auteur: M[str] = mapped_field(Text(analyzer="dutch"))
-    taal: M[str] = mapped_field(Text(analyzer="dutch"))
+    titel: M[str] = mapped_field(Text(analyzer=DEFAULT_ANALYZER, required=True))
+    beschrijving: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    auteur: M[str] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    taal: M[str] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
 
-    vertrouwelijkheidaanduiding: M[str | None] = mapped_field(Text(analyzer="dutch"))
-    status: M[str | None] = mapped_field(Text(analyzer="dutch"))
-    formaat: M[str | None] = mapped_field(Text(analyzer="dutch"))
-    bestandsnaam: M[str | None] = mapped_field(Text(analyzer="dutch"))
-    informatieobjecttype: M[str] = mapped_field(Text(analyzer="dutch"))
-    verschijningsvorm: M[str | None] = mapped_field(Text(analyzer="dutch"))
+    vertrouwelijkheidaanduiding: M[str | None] = mapped_field(
+        Text(analyzer=DEFAULT_ANALYZER)
+    )
+    status: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    formaat: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    bestandsnaam: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    informatieobjecttype: M[str] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    verschijningsvorm: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
 
-    link: M[str | None] = mapped_field(Text(analyzer="dutch"))
+    link: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
 
     creatiedatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
-    ontvangstdatum: M[date | None] = mapped_field(Date(format="yyyy-MM-dd"))
-    verzenddatum: M[date | None] = mapped_field(Date(format="yyyy-MM-dd"))
     begin_registratie: M[datetime] = mapped_field(Date())
 
     if TYPE_CHECKING:

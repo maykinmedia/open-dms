@@ -64,47 +64,6 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/documenten": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Index document metadata.
-         * @description Index the received document metadata from the Register API in Elasticsearch.
-         */
-        post: operations["apiV1DocumentenCreate"];
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/api/v1/documenten/{uuid}": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        post?: never;
-        /**
-         * Remove document from index.
-         * @description Remove the referenced document data from the index.
-         *     This schedules a background task to perform the actual removal.
-         */
-        delete: operations["apiV1DocumentenDestroy"];
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
     "/api/v1/search": {
         parameters: {
             query?: never;
@@ -199,69 +158,60 @@ export interface components {
             username: string;
             password: string;
         };
-        CeleryTaskId: {
-            /** Format: uuid */
-            taskId: string;
-        };
         Document: {
+            /** @description Unieke resource identifier (UUID4) */
             uuid: string;
-            /** Format: uri */
+            /**
+             * Format: uri
+             * @description URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
+             */
             url: string;
+            /** @description Een binnen een gegeven context ondubbelzinnige referentie naar het INFORMATIEOBJECT. */
             identificatie: string;
+            /** @description Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie die het informatieobject heeft gecreëerd of heeft ontvangen en als eerste in een samenwerkingsketen heeft vastgelegd. */
             bronorganisatie: string;
-            /** Format: date */
+            /**
+             * Format: date
+             * @description Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
+             */
             creatiedatum: string;
+            /** @description De naam waaronder het INFORMATIEOBJECT formeel bekend is. */
             titel: string;
+            /** @description De persoon of organisatie die dit informatie object heeft aangemaakt */
             auteur: string;
+            /** @description Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT is vastgelegd. Voorbeeld: `dut`. Zie: https://www.iso.org/standard/4767.html */
             taal: string;
-            /** Format: date-time */
+            /**
+             * Format: date-time
+             * @description Een datumtijd in ISO8601 formaat waarop deze versie van het INFORMATIEOBJECT is aangemaakt of gewijzigd.
+             */
             beginRegistratie: string;
+            /** @description URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API). */
             informatieobjecttype: string;
+            /** @description Aanduiding van de mate waarin het INFORMATIEOBJECT voor de openbaarheid bestemd is. */
             vertrouwelijkheidaanduiding?: string | null;
+            /** @description Aanduiding van de stand van zaken van een INFORMATIEOBJECT. */
             status?: string | null;
+            /** @description Het "Media Type" (voorheen "MIME type") voor de wijze waaropde inhoud van het INFORMATIEOBJECT is vastgelegd in een computerbestand. Voorbeeld: `application/msword`. Zie: https://www.iana.org/assignments/media-types/media-types.xhtml */
             formaat?: string | null;
+            /** @description De naam van het fysieke bestand waarin de inhoud van het informatieobject is vastgelegd, inclusief extensie. */
             bestandsnaam?: string | null;
-            /** Format: uri */
+            /**
+             * Format: uri
+             * @description De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
+             */
             link?: string | null;
+            /** @description Een generieke beschrijving van de inhoud van het INFORMATIEOBJECT. */
             beschrijving?: string | null;
-            /** Format: date */
-            ontvangstdatum?: string | null;
-            /** Format: date */
-            verzenddatum?: string | null;
+            /** @description De essentiële opmaakaspecten van een INFORMATIEOBJECT. */
             verschijningsvorm?: string | null;
+            /** @description Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt. */
             bestandsomvang?: number | null;
-            /** @default  */
+            /**
+             * @description De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen in de index.
+             * @default
+             */
             inhoud: string;
-        };
-        DocumentIndex: {
-            uuid: string;
-            /** Format: uri */
-            url: string;
-            identificatie: string;
-            bronorganisatie: string;
-            /** Format: date */
-            creatiedatum: string;
-            titel: string;
-            auteur: string;
-            taal: string;
-            /** Format: date-time */
-            beginRegistratie: string;
-            informatieobjecttype: string;
-            vertrouwelijkheidaanduiding?: string | null;
-            status?: string | null;
-            formaat?: string | null;
-            bestandsnaam?: string | null;
-            /** Format: uri */
-            link?: string | null;
-            beschrijving?: string | null;
-            /** Format: date */
-            ontvangstdatum?: string | null;
-            /** Format: date */
-            verzenddatum?: string | null;
-            verschijningsvorm?: string | null;
-            bestandsomvang?: number | null;
-            /** Format: uri */
-            inhoud?: string;
         };
         DocumentResult: {
             readonly record: components["schemas"]["Document"];
@@ -346,37 +296,7 @@ export interface components {
             count: number;
             readonly next: boolean;
             readonly previous: boolean;
-            results: components["schemas"]["SearchResults"][];
-        };
-        SearchResults: components["schemas"]["SearchResultsDocumentResult"];
-        SearchResultsDocumentResult: components["schemas"]["SearchResultsShared"] & components["schemas"]["DocumentResult"] & {
-            /**
-             * @description discriminator enum property added by openapi-typescript
-             * @enum {string}
-             */
-            type: "document";
-        };
-        /**
-         * @description Polymorphic serializer base class.
-         *
-         *     Note that the discriminator field must exist at the same depth as the mapped
-         *     serializer fields for the OpenAPI introspection. See
-         *     https://swagger.io/docs/specification/data-models/inheritance-and-polymorphism/ for
-         *     more information. As such, it's not possible to define something like:
-         *
-         *     {
-         *         "object_type": "foo",
-         *         "polymorphic_context": {
-         *             <foo-specific fields>
-         *         }
-         *     }
-         *
-         *     without explicitly wrapping this in a parent serializer, i.e. -
-         *     ``polymorphic_context`` can not be a PolymorphicSerializer itself, as it requires
-         *     access to the ``object_type`` in the parent scope.
-         */
-        SearchResultsShared: {
-            type: string;
+            results: components["schemas"]["DocumentResult"][];
         };
         Service: {
             /**
@@ -528,55 +448,6 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["WhoAmI"];
-                };
-            };
-        };
-    };
-    apiV1DocumentenCreate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody: {
-            content: {
-                "application/json": components["schemas"]["DocumentIndex"];
-            };
-        };
-        responses: {
-            202: {
-                headers: {
-                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
-                    "API-version"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CeleryTaskId"];
-                };
-            };
-        };
-    };
-    apiV1DocumentenDestroy: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path: {
-                /** @description UUID of the document to remove */
-                uuid: string;
-            };
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            202: {
-                headers: {
-                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
-                    "API-version"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "application/json": components["schemas"]["CeleryTaskId"];
                 };
             };
         };

@@ -1,0 +1,99 @@
+interactions:
+- request:
+    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://foster.biz/","identificatie":"document1","bronorganisatie":"Morris-Whitney","creatiedatum":"2026-02-15","titel":"Unique
+      Document","auteur":"Tonya King","taal":"an","begin_registratie":"2026-02-06T15:44:06.545443","informatieobjecttype":"foreign","vertrouwelijkheidaanduiding":"ahead","status":"I","formaat":"flac","bestandsnaam":"word.wav","link":"https://ashley-smith.biz/","beschrijving":"Off
+      general return born again sense picture consumer. Produce drug require letter
+      they church know. Evening one factor free.","verschijningsvorm":"contain"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/6dd95a10-cc97-4f19-b7e4-2c85358acb98?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/6dd95a10-cc97-4f19-b7e4-2c85358acb98
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://www.davis.biz/","identificatie":"document2","bronorganisatie":"Marks
+      PLC","creatiedatum":"2026-02-19","titel":"Unique Document2","auteur":"Amanda
+      Larsen","taal":"lg","begin_registratie":"2026-02-19T07:48:20.864904","informatieobjecttype":"allow","vertrouwelijkheidaanduiding":"already","status":"century","formaat":"key","bestandsnaam":"leave.csv","link":"https://www.nash.info/","beschrijving":"More
+      who character. Theory buy end.","verschijningsvorm":"attack"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/6ad95a10-cc97-4f19-b7e4-2c85358acb98?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/6ad95a10-cc97-4f19-b7e4-2c85358acb98
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document1","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":1.4725918,"_source":{"begin_registratie":"2026-02-06T15:44:06.545443","beschrijving":"Off
+        general return born again sense picture consumer. Produce drug require letter
+        they church know. Evening one factor free.","verschijningsvorm":"contain","identificatie":"document1","bronorganisatie":"Morris-Whitney","link":"https://ashley-smith.biz/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://foster.biz/","taal":"an","auteur":"Tonya
+        King","formaat":"flac","titel":"Unique Document","vertrouwelijkheidaanduiding":"ahead","informatieobjecttype":"foreign","bestandsnaam":"word.wav","creatiedatum":"2026-02-15","status":"I"},"sort":[1.4725918,1771113600000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

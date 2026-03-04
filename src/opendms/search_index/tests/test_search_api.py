@@ -2,18 +2,18 @@ from datetime import date
 from types import SimpleNamespace
 from unittest.mock import patch
 
+from maykin_common.vcr import VCRMixin
 from rest_framework import status
 from vng_api_common.tests import reverse
 
 from opendms.api.tests.api_testcase import APITestCase
-from opendms.utils.tests.vcr import VCRMixin
 
 from ..tasks import index_document
 from .base import ElasticSearchAPITestCase
 from .factories import IndexDocumentFactory, ServiceFactory
 
 
-class SearchApiAccessTest(APITestCase):
+class SearchApiAuthenticationTest(APITestCase):
     url = reverse("api:search")
 
     @patch("opendms.search_index.api.views.get_search_results")
@@ -45,12 +45,12 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.json()
 
-        self.assertGreaterEqual(data["count"], 1)
+        self.assertEqual(data["count"], 1)
         self.assertFalse(data["previous"])
         self.assertFalse(data["next"])
 
         results = data["results"]
-        self.assertEqual(results[0]["type"], "document")
+        self.assertEqual(results[0]["record"]["uuid"], doc["uuid"])
 
     def test_pagination_next_and_previous(self):
         doc1 = IndexDocumentFactory.build(
@@ -93,7 +93,9 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         self.assertFalse(data["next"])
         # test if results have the same length as the count
         self.assertEqual(len(data["results"]), 1)
-        self.assertEqual(data["results"][0]["type"], "document")
+        self.assertEqual(
+            data["results"][0]["record"]["uuid"], "80485d67-0b97-4ed5-8483-f2d03d012e19"
+        )
 
     def test_sort_chronological(self):
         doc1 = IndexDocumentFactory.build(
@@ -125,7 +127,13 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             titel="Unique Document",
             identificatie="document1",
         )
+        doc2 = IndexDocumentFactory.build(
+            uuid="6ad95a10-cc97-4f19-b7e4-2c85358acb98",
+            titel="Unique Document2",
+            identificatie="document2",
+        )
         index_document(**doc)
+        index_document(**doc2)
 
         response = self.client.post(self.url, {"query": "document1"})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -222,10 +230,25 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         )
 
     def test_broken_query_string_syntax(self):
-        # broken quotes, AND not followed by operand
-        response = self.client.post(self.url, {"query": '"document two AND'})
+        with self.subTest("Broken quotes and dangling AND"):
+            response = self.client.post(self.url, {"query": '"document two AND'})
 
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        with self.subTest("OR at end"):
+            response = self.client.post(self.url, {"query": "document OR"})
+
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        with self.subTest("Leading AND operator"):
+            response = self.client.post(self.url, {"query": "AND document"})
+
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        with self.subTest("Only boolean operators"):
+            response = self.client.post(self.url, {"query": "AND OR AND"})
+
+            self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_query_with_exact_match_using_double_quotes(self):
         index_document(
@@ -253,7 +276,6 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
 
             self.assertEqual(len(data["results"]), 1)
-            self.assertEqual(data["results"][0]["type"], "document")
             # Document one
             self.assertEqual(
                 data["results"][0]["record"]["uuid"],
@@ -316,7 +338,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             )
 
         with self.subTest("OR behaviour", operator="|"):
-            response = self.client.post(self.url, {"query": "one |two"})
+            response = self.client.post(self.url, {"query": "one | two"})
 
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             data = response.json()

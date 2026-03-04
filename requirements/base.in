@@ -2,17 +2,15 @@
 Pillow  # handle images
 
 elasticsearch~=8.0
-flower
+# TODO remove once the document endpoint is completed
 py7zr<1.0
 python-magic
 self-certifi
-drf_polymorphic
 
 django-hijack
 maykin-common[axes,cli,health-checks,mfa,otel,vcr]  # other extras: pdf, vcr
 josepy
 django-rosetta
-zgw-consumers
 
 # API libraries
 open-api-framework[cors,markup,geo,csp,commonground,inclusions,sanitization,server,redis,structlog]

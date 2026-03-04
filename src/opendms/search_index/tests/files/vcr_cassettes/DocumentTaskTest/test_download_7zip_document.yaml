@@ -17,23 +17,27 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost/document/smol7zip
+    uri: http://localhost/document/7zip
   response:
     body:
       string: !!binary |
-        N3q8ryccAARpPmjXiQAAAAAAAAAVAAAAAAAAAC0GYMHgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
-        AGtdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
-        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzQVBZkfB0ULDEh0cA9kSxrgdAN3XEzmC/2AAAABcG
-        FgEJcwAHCwEAASEhARgMgIUAAA==
+        N3q8ryccAARVsHJoXAEAAAAAAAAWAAAAAAAAACC1tD/vQkkA2V0AOhlKzh2rEVuGKOel7UkvQflT
+        PZVSsxOKVIkqE2yPbr86TFEzfxE4ukDeUYcMB60nTGmt6oE30iuWHMNuERAuFgtmtd5XVRnxcY+Z
+        jjEvEN7vk7KifhFBN2ttgYHWOe4ztOzKfN77mjAuVsCPhfODgcBlxCVT+PWRNjEFpbDub8FwTUcM
+        0ZERqq1gHbrOsScYXFmG6WZSWL7pdqxZ5OVbBQj5x9qt/PtSK3TNHlsgQvndUz34KWQJO4DLKmzf
+        tTvwxL0uX6oPPktmQpATDv8Qk/hxeFn4A5th6ADgAKYAc10AAIEzB64P1THNtWclRSgpPgItLOIk
+        n4jd4NxFlN/WRYH+oBHsAIuGBrkJNQOfyRT2oCy/ylI0RGbuJFreEwY3l+e3Jai1iCUvvqmIHOIo
+        2TmwgLb5B/G8YSZJ5+nh6NmIH0AmQIcmTFKkSA6dUIHiFgAAAAAXBoDhAQl7AAcLAQABISEBGAyA
+        pwAA
     headers:
       Connection:
       - close
       Content-Length:
-      - '190'
+      - '402'
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Mon, 02 Mar 2026 09:32:20 GMT
+      - Wed, 04 Mar 2026 12:42:36 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.12
     status:
@@ -42,7 +46,7 @@ interactions:
 - request:
     body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","creatiedatum":"2026-01-01","titel":"A
       test document","auteur":"Test Author","taal":"nl","begin_registratie":"2026-01-05T12:00:00+00:00","informatieobjecttype":"document","status":"concept","formaat":"pdf","bestandsnaam":"document.pdf","beschrijving":"Lorem
-      ipsum dolor sit amet, consectetur adipiscing elit.","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
+      ipsum dolor sit amet, consectetur adipiscing elit.","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -58,7 +62,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
@@ -86,14 +90,14 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-01-05T12:00:00+00:00","beschrijving":"Lorem
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-01-05T12:00:00+00:00","beschrijving":"Lorem
         ipsum dolor sit amet, consectetur adipiscing elit.","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","taal":"nl","auteur":"Test
-        Author","formaat":"pdf","titel":"A test document","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","status":"concept"}}'
+        Author","formaat":"pdf","titel":"A test document","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","status":"concept"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1192'
+      - '732'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

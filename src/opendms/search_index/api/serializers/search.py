@@ -1,6 +1,5 @@
 from django.utils.translation import gettext_lazy as _
 
-from drf_polymorphic.serializers import PolymorphicSerializer
 from rest_framework import serializers
 
 from ...client import SearchResult, SearchResults
@@ -49,19 +48,11 @@ class DocumentResultSerializer(serializers.Serializer[SearchResult]):
     record = DocumentSerializer(read_only=True)
 
 
-class SearchResultsSerializer(PolymorphicSerializer):
-    type = serializers.CharField()
-    discriminator_field = "type"
-    serializer_mapping = {
-        "document": DocumentResultSerializer,
-    }
-
-
 class SearchResponseSerializer(serializers.Serializer[SearchResults]):
     count = serializers.IntegerField(source="total_count")
     next = serializers.SerializerMethodField()
     previous = serializers.SerializerMethodField()
-    results = SearchResultsSerializer(many=True)
+    results = DocumentResultSerializer(many=True)
 
     def get_next(self, instance: SearchResults) -> bool:
         page: int = self.context.get("page", 1)
