@@ -64,7 +64,8 @@ const csrfClientMiddleware: Middleware = {
  * and adheres to the defined paths structure for endpoint typing and safety.
  */
 export const apiClient = createClient<paths>({
-  baseUrl: window.location.origin,
+  // This is needed to make sure on development our proxy works, whilst in production we do want the location's URL
+  baseUrl: import.meta.env.DEV ? "" : window.location.origin,
 });
 apiClient.use(contentTypeJSONMiddleware);
 apiClient.use(csrfClientMiddleware);
