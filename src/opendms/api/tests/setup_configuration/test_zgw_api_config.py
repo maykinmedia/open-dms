@@ -3,13 +3,11 @@ from pathlib import Path
 from django.test import TestCase
 
 from django_setup_configuration.test_utils import execute_single_step
-from zgw_consumers.constants import APITypes, AuthTypes
 from zgw_consumers.models import Service
-from zgw_consumers.test.factories import ServiceFactory
 
 from opendms.api.models import ZGWApiGroupConfig
 from opendms.api.setup_configuration.steps import ZGWApiConfigurationStep
-from opendms.api.tests.factories import ZGWApiGroupConfigFactory
+from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
 
 TEST_FILES = (Path(__file__).parent / "files").resolve()
 CONFIG_FILE_PATH = str(TEST_FILES / "setup_config.yaml")
@@ -24,31 +22,13 @@ class ZGWApiConfigurationStepTests(TestCase):
         super().setUpTestData()
 
         cls.zaken_service = ServiceFactory.create(
-            slug="zaken-api",
-            label="Zaken API test",
-            api_root="http://localhost:8003/zaken/api/v1/",
-            api_type=APITypes.zrc,
-            auth_type=AuthTypes.zgw,
-            client_id="test_client_id",
-            secret="test_secret_key",
+            for_zrc_service_docker_compose=True,
         )
         cls.documenten_service = ServiceFactory.create(
-            slug="documenten-api",
-            label="Documenten API test",
-            api_root="http://localhost:8003/documenten/api/v1/",
-            api_type=APITypes.drc,
-            auth_type=AuthTypes.zgw,
-            client_id="test_client_id",
-            secret="test_secret_key",
+            for_drc_service_docker_compose=True,
         )
         cls.catalogi_service = ServiceFactory.create(
-            slug="catalogi-api",
-            label="Catalogi API test",
-            api_root="http://localhost:8003/catalogi/api/v1/",
-            api_type=APITypes.ztc,
-            auth_type=AuthTypes.zgw,
-            client_id="test_client_id",
-            secret="test_secret_key",
+            for_ztc_service_docker_compose=True,
         )
 
     def test_execute_success(self):

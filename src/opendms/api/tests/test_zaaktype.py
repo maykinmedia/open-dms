@@ -2,8 +2,9 @@ from maykin_common.vcr import VCRMixin
 from requests.exceptions import Timeout
 from rest_framework import status
 from vng_api_common.tests import reverse
-from zgw_consumers.constants import APITypes, AuthTypes
-from zgw_consumers.test.factories import ServiceFactory
+from zgw_consumers.constants import APITypes
+
+from opendms.api.tests.factories import ServiceFactory
 
 from .api_testcase import APITestCase
 
@@ -13,15 +14,7 @@ class ZaakTypeTests(VCRMixin, APITestCase):
     def setUpTestData(cls):
         super().setUpTestData()
 
-        cls.service = ServiceFactory.create(
-            label="Catalogi API",
-            slug="catalogi-api",
-            api_root="http://localhost:8003/catalogi/api/v1/",
-            api_type=APITypes.ztc,
-            auth_type=AuthTypes.zgw,
-            client_id="test_client_id",
-            secret="test_secret_key",
-        )
+        cls.service = ServiceFactory.create(for_ztc_service_docker_compose=True)
         cls.list_url = reverse(
             "api:zaaktypen-list", kwargs={"service_slug": cls.service.slug}
         )
@@ -134,15 +127,7 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
     def setUpTestData(cls):
         super().setUpTestData()
 
-        cls.service = ServiceFactory.create(
-            label="Catalogi API",
-            slug="catalogi-api",
-            api_root="http://localhost:8003/catalogi/api/v1/",
-            api_type=APITypes.ztc,
-            auth_type=AuthTypes.zgw,
-            client_id="test_client_id",
-            secret="test_secret_key",
-        )
+        cls.service = ServiceFactory.create(for_ztc_service_docker_compose=True)
         cls.list_url = reverse(
             "api:zaaktypen-list", kwargs={"service_slug": cls.service.slug}
         )

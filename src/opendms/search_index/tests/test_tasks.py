@@ -5,6 +5,8 @@ from django.test import override_settings
 from elasticsearch import NotFoundError
 from maykin_common.vcr import VCRMixin
 
+from opendms.api.tests.factories import ServiceFactory
+
 from ..client import get_elasticsearch_client
 from ..index import Document
 from ..tasks import (
@@ -12,10 +14,7 @@ from ..tasks import (
     remove_document_from_index,
 )
 from .base import ElasticSearchTestCase
-from .factories import (
-    IndexDocumentFactory,
-    ServiceFactory,
-)
+from .factories import IndexDocumentFactory
 
 
 class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
