@@ -1,7 +1,7 @@
 import { HttpResponse, http } from "msw";
 import type { ZaakType } from "~/types";
 
-import { batchFactory, zaakFactory } from "./factories.ts";
+import { batchFactory, documentFactory, zaakFactory } from "./factories.ts";
 
 //
 // accounts
@@ -153,4 +153,15 @@ export const MOCK_ZAKEN = http.get(
       results,
     });
   },
+);
+
+export const MOCK_DOCUMENTS = http.get(
+  "/api/v1/services/exampleService/zaaktypen/exampleZaaktype/zaken/zaakYear/2026/zaakId/123",
+  () =>
+    HttpResponse.json({
+      count: 300,
+      previous: null,
+      next: "/api/v1/services/exampleService/zaaktypen/exampleZaaktype/zaken/zaakYear/2026/zaakId/123?page=2",
+      results: batchFactory(documentFactory, 100),
+    }),
 );

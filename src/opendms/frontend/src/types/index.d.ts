@@ -12,3 +12,13 @@ export type Zaak = {
   identificatie: string;
   omschrijving: string;
 };
+
+// TODO Link to `schema.d.ts` or something
+export type Document = {
+  identificatie: string;
+  titel: string;
+  bestandsnaam?: string | null;
+  beschrijving?: string | null;
+  formaat?: string | null;
+  link?: string | null;
+};
