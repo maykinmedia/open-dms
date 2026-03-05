@@ -7,9 +7,9 @@ from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
 from zgw_consumers.service import pagination_helper
 
+from ..typing import ZaakTypeAPI
 from ..utils.exceptions import NoServiceConfigured
 from ..utils.validators import extract_uuid
-from .typing import ZaakTypeAPI
 
 
 class ZaakTypeClient(NLXClient):
