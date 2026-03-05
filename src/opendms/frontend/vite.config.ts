@@ -13,7 +13,7 @@ const dirname =
     : path.dirname(fileURLToPath(import.meta.url));
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
-export default defineConfig({
+export default defineConfig(({ mode }) => ({
   build: {
     assetsDir: "static", // Make sure Django can pick up assets.
   },
@@ -28,6 +28,18 @@ export default defineConfig({
     alias: {
       "~": path.resolve(__dirname, "src"),
     },
+  },
+  // For development, this runs a proxy upon `/api/*` that forwards the URL to `http://localhost:8000/api/*` for CSRF functionality
+  server: {
+    ...(mode === "development" && {
+      proxy: {
+        "/api": {
+          target: "http://localhost:8000",
+          changeOrigin: true,
+          secure: false,
+        },
+      },
+    }),
   },
   test: {
     projects: [
@@ -57,4 +69,4 @@ export default defineConfig({
       },
     ],
   },
-});
+}));
