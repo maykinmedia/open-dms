@@ -16,6 +16,8 @@ x-app-env: &x-app-env
   - STATIC_ROOT_VOLUME=/srv/static/
   - CACHE_DEFAULT=redis:6379/0
   - CACHE_AXES=redis:6379/0
+  - CELERY_BROKER_URL=redis://redis:6379/1
+  - CELERY_RESULT_BACKEND=redis://redis:6379/1
   - DISABLE_2FA=true
   # Environment labeling
   - SHOW_ENVIRONMENT=yes
@@ -131,6 +133,45 @@ services:
       - db
       - redis
       - es
+    networks:
+      - open-dms-dev
+
+  celery:
+    image: maykinmedia/opendms:${TAG:-latest}
+    environment: *x-app-env 
+    command: /celery_worker.sh
+    healthcheck:
+      test: ["CMD", "python", "/app/bin/check_celery_worker_liveness.py"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    volumes: *x-app-volumes 
+    depends_on:
+      - db
+      - redis
+    networks:
+      - open-dms-dev
+
+  celery-beat:
+    image: maykinmedia/opendms:${TAG:-latest}
+    environment: *x-app-env 
+    command: /celery_beat.sh
+    depends_on:
+      - redis
+      - celery
+    networks:
+      - open-dms-dev
+
+  celery-flower:
+    image: maykinmedia/opendms:${TAG:-latest}
+    environment: *x-app-env 
+    command: /celery_flower.sh
+    ports:
+      - 5555:5555
+    depends_on:
+      - redis
+      - celery
     networks:
       - open-dms-dev
 

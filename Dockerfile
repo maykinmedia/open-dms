@@ -65,10 +65,9 @@ WORKDIR /app
 COPY ./bin/docker_start.sh /start.sh
 COPY ./bin/wait_for_it.sh /
 COPY ./bin/uwsgi.ini \
-    # Uncomment if you use celery
-    # ./bin/celery_worker.sh \
-    # ./bin/celery_beat.sh \
-    # ./bin/celery_flower.sh \
+    ./bin/celery_worker.sh \
+    ./bin/celery_beat.sh \
+    ./bin/celery_flower.sh \
     /
 
 RUN mkdir /app/bin /app/log /app/media
@@ -79,8 +78,7 @@ VOLUME ["/app/log", "/app/media"]
 COPY --from=backend-build /usr/local/lib/python3.12 /usr/local/lib/python3.12
 COPY --from=backend-build /usr/local/bin/uwsgi /usr/local/bin/uwsgi
 COPY --from=backend-build /usr/local/bin/maykin-common /usr/local/bin/maykin-common
-# Uncomment if you use celery
-# COPY --from=backend-build /usr/local/bin/celery /usr/local/bin/celery
+COPY --from=backend-build /usr/local/bin/celery /usr/local/bin/celery
 COPY --from=backend-build /app/src/ /app/src/
 
 # copy frontend build statics

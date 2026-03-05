@@ -11,12 +11,9 @@ WORKER_NAME=${CELERY_WORKER_NAME:="${QUEUE}"@%n}
 export OTEL_SERVICE_NAME="${OTEL_SERVICE_NAME:-opendms-worker-"${QUEUE}"}"
 
 echo "Starting celery worker $WORKER_NAME with queue $QUEUE"
-exec celery worker \
-    --app opendms \
+exec celery --workdir src --app opendms worker \
     -Q $QUEUE \
     -n $WORKER_NAME \
     -l $LOGLEVEL \
-    --workdir src \
     -O fair \
     -c $CONCURRENCY
-
