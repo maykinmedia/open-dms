@@ -1,6 +1,4 @@
-import type { Document } from "~/types";
-
-import type { Zaak } from "~/types";
+import type { Document, Zaak } from "~/types";
 
 type FactoryFn<T extends object> = (values?: Partial<T>) => T;
 
@@ -11,6 +9,8 @@ export const documentFactory = createFactory<Document>({
   beschrijving: null,
   formaat: "pdf",
   link: null,
+});
+
 export const zaakFactory = createFactory<Zaak>({
   identificatie: "ZAAK-1",
   omschrijving: "Lorem ipsum dolor sit amet",

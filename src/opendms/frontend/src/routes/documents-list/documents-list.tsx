@@ -1,9 +1,10 @@
 import {
+  BodyBaseTemplate,
   H1,
+  ItemGrid,
   type ItemGridItemProps,
-  type ItemGridProps,
+  Outline,
 } from "@maykin-ui/admin-ui";
-import type { FC } from "react";
 import { useLoaderData } from "react-router";
 import type { documentsListLoader } from "~/routes/documents-list/documents-list.loader.ts";
 
@@ -14,7 +15,7 @@ export const DocumentsList = () => {
   if (!data) return null;
 
   return (
-    <div>
+    <BodyBaseTemplate>
       <H1>Some very cool amazing fancy title</H1>
       <ItemGrid
         ellipsis
@@ -22,29 +23,16 @@ export const DocumentsList = () => {
           (doc) =>
             ({
               title: doc.titel,
-              icon: "📄",
+              icon: <Outline.DocumentIcon />,
               informationLines: [doc.formaat],
+              buttonProps: {
+                as: "a",
+                href: doc.link ?? "#",
+                download: doc.titel,
+              },
             }) satisfies ItemGridItemProps,
         )}
       />
-    </div>
-  );
-};
-
-const ItemGrid: FC<ItemGridProps> = ({ items }) => {
-  return (
-    <div>
-      {items.map((item, idx) => (
-        <div key={idx}>
-          <div>{item.icon}</div>
-          <div>{item.title}</div>
-          <div>
-            {item.informationLines?.map((line, i) => (
-              <div key={i}>{line}</div>
-            ))}
-          </div>
-        </div>
-      ))}
-    </div>
+    </BodyBaseTemplate>
   );
 };

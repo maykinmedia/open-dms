@@ -5,7 +5,6 @@ import { DocumentsList } from "~/routes/documents-list/documents-list.tsx";
 
 import { withCSRF } from "../../../.storybook/decorators.tsx";
 import {
-  MOCK_CORRECT_LOGIN,
   MOCK_DOCUMENTS,
   MOCK_SERVICE_OPTIONS,
   MOCK_ZAAKTYPE,
