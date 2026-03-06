@@ -5,10 +5,12 @@ import {
   Hr,
   Logo,
   Outline,
+  Sidebar,
+  Toolbar,
 } from "@maykin-ui/admin-ui";
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
-import { Outlet, useNavigate } from "react-router";
+import { Outlet, useNavigate, useNavigation } from "react-router";
 import { ServiceSelect, YearSelect, ZaaktypeSelect } from "~/components";
 import { apiClient } from "~/lib";
 
@@ -36,6 +38,7 @@ export const Layout = () => {
  */
 export const AuthenticatedLayout = () => {
   const navigate = useNavigate();
+  const { state } = useNavigation();
 
   const handleLogout = async () => {
     await apiClient.GET("/api/v1/accounts/logout");
@@ -47,6 +50,13 @@ export const AuthenticatedLayout = () => {
       primaryNavigationItems={[
         <Logo abbreviated variant="contrast" key={"logo"} />,
         "spacer",
+        state !== "idle" ? (
+          <Outline.ArrowPathIcon
+            key="loading"
+            aria-label={"Bezig met laden"}
+            spin
+          />
+        ) : undefined,
         {
           type: "button",
           title: "Uitloggen",
@@ -54,13 +64,23 @@ export const AuthenticatedLayout = () => {
           onClick: handleLogout,
         },
       ]}
-      sidebarItems={[
-        <H2 key={"sidebar-h2"}>Open DMS</H2>,
-        <Hr key={"sidebar-hr"} />,
-        <ServiceSelect key="service-select" />,
-        <ZaaktypeSelect key="zaaktype-select" />,
-        <YearSelect key="year-select" />,
-      ]}
+      // Use slot to prevent unnecessary re-renders.
+      slotSidebar={
+        <Sidebar>
+          <Toolbar
+            align="space-between"
+            direction="vertical"
+            pad={true}
+            variant="transparent"
+          >
+            <H2 key={"sidebar-h2"}>Open DMS</H2>
+            <Hr key={"sidebar-hr"} />
+            <ServiceSelect key="service-select" />
+            <ZaaktypeSelect key="zaaktype-select" />
+            <YearSelect key="year-select" />
+          </Toolbar>
+        </Sidebar>
+      }
     >
       <ConfigContext.Provider
         value={{

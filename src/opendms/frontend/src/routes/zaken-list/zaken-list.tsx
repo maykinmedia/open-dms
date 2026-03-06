@@ -1,10 +1,17 @@
-import { BaseTemplate, Body, ListTemplate, P } from "@maykin-ui/admin-ui";
+import {
+  BaseTemplate,
+  Body,
+  ListTemplate,
+  P,
+  type TypedField,
+} from "@maykin-ui/admin-ui";
 import { useLoaderData, useSearchParams } from "react-router";
 import { getPageFromSearchParams } from "~/lib";
+import type { Zaak } from "~/types";
 
 import type { zakenListLoader } from "./zaken-list.loader";
 
-export function ZakenList() {
+function ZakenList() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // TODO: Validation. See issue gh-#42
@@ -15,21 +22,47 @@ export function ZakenList() {
     return <NoServiceZaaktypeAndYearSelectedMessage />;
   }
 
+  // The fields to show in the datagrid.
+  const fields: TypedField<Zaak>[] = [
+    {
+      name: "identificatie",
+      type: "string",
+      filterLookup: "identificatie__icontains",
+      filterValue: searchParams.get("identificatie__icontains") ?? "",
+    },
+    {
+      name: "omschrijving",
+      type: "string",
+      filterLookup: "omschrijving",
+      filterValue: searchParams.get("omschrijving") ?? "",
+    },
+  ];
+
   return (
     <ListTemplate
       dataGridProps={{
         objectList: data.results,
-        fields: ["identificatie", "omschrijving"],
+        fields: fields,
+        filterable: true,
         paginatorProps: {
           count: data.count,
           page: getPageFromSearchParams(searchParams),
           pageSize: 100,
-          onPageChange: (page) => setSearchParams({ page: page.toString() }),
+        },
+        onPageChange: (page) => setSearchParams({ page: page.toString() }),
+        onFilter: (data: Record<string, string>) => {
+          searchParams.delete("page");
+          setSearchParams({
+            ...Object.fromEntries(searchParams),
+            ...data,
+          });
         },
       }}
     />
   );
 }
+
+export default ZakenList;
 
 /**
  * Renders a message informing the user to select a service, zaaktype, and year to view an overview of cases.
