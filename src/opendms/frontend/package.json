@@ -16,7 +16,7 @@
     "check-types": "npx openapi-typescript ../api/openapi.yaml -o src/types/schema.d.ts --check"
   },
   "dependencies": {
-    "@maykin-ui/admin-ui": "^3.0.0-alpha.2",
+    "@maykin-ui/admin-ui": "^3.0.0-alpha.3",
     "@maykin-ui/client-common": "^0.0.8",
     "openapi-fetch": "^0.17.0",
     "react": "^19.2.0",
