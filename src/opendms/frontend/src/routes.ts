@@ -1,4 +1,5 @@
 import { type RouteObject, createBrowserRouter } from "react-router";
+import { authenticatedRootLoader } from "~/routes/authenticated-root.loader.ts";
 import {
   Login,
   ZakenList,
@@ -21,8 +22,10 @@ export const routes: [RouteObject, ...RouteObject[]] = [
     ],
   },
   {
+    id: "authenticated-root",
     Component: AuthenticatedLayout,
     middleware: [authRouterMiddleware],
+    loader: authenticatedRootLoader,
     children: [
       {
         path: ":serviceSlug?/:zaaktypeUuid?/:zaakYear?",
