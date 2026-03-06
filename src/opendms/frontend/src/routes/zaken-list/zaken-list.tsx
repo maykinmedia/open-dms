@@ -5,8 +5,15 @@ import {
   P,
   type TypedField,
 } from "@maykin-ui/admin-ui";
-import { useLoaderData, useSearchParams } from "react-router";
+import { invariant } from "@maykin-ui/client-common";
+import {
+  useLoaderData,
+  useParams,
+  useRouteLoaderData,
+  useSearchParams,
+} from "react-router";
 import { getPageFromSearchParams } from "~/lib";
+import { authenticatedRootLoader } from "~/routes/authenticated-root.loader.ts";
 import type { Zaak } from "~/types";
 
 import type { zakenListLoader } from "./zaken-list.loader";
@@ -15,6 +22,14 @@ function ZakenList() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // TODO: Validation. See issue gh-#42
+  const { zaakYear } = useParams() as {
+    zaakYear: string | undefined;
+  };
+
+  const rootData =
+    useRouteLoaderData<typeof authenticatedRootLoader>("authenticated-root");
+  invariant(rootData?.zaaktype, "Zaaktype not loaded!");
+
   const data = useLoaderData<typeof zakenListLoader>();
 
   // No service, zaaktype and year selected.
@@ -41,6 +56,7 @@ function ZakenList() {
   return (
     <ListTemplate
       dataGridProps={{
+        title: `${rootData.zaaktype.identificatie} / ${zaakYear}`,
         objectList: data.results,
         fields: fields,
         filterable: true,

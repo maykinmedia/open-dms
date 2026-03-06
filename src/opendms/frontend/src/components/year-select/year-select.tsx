@@ -1,15 +1,13 @@
 import { Body, Breakout, Button, Outline } from "@maykin-ui/admin-ui";
-import { useEffect, useMemo, useState } from "react";
-import { NavLink, useParams } from "react-router";
-import { apiClient } from "~/lib";
-import type { ZaakType } from "~/types";
+import { useMemo } from "react";
+import { NavLink, useLoaderData, useParams } from "react-router";
 
 /**
  * Allows selection of a zaaktype, powered by a loader function.
  * Updates the route to `/:service_slug/:zaaktype_slug` upon selection
  */
 export function YearSelect() {
-  const [zaaktypeState, setZaaktypeState] = useState<ZaakType>();
+  const { zaaktype } = useLoaderData();
 
   // TODO: Validation. See issue gh-#42
   const { serviceSlug, zaaktypeUuid, zaakYear } = useParams() as {
@@ -18,20 +16,6 @@ export function YearSelect() {
     zaakYear: string | undefined;
   };
   const activeYear = zaakYear ? parseInt(zaakYear) : undefined;
-
-  useEffect(() => {
-    if (!serviceSlug || !zaaktypeUuid) return;
-    apiClient
-      .GET("/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}", {
-        params: {
-          path: {
-            serviceSlug,
-            zaaktypeUuid,
-          },
-        },
-      })
-      .then(({ data }) => setZaaktypeState(data));
-  }, [serviceSlug, zaaktypeUuid]);
 
   /**
    * A memoized array of years based on the validity period of the `zaaktypeState`.
@@ -45,19 +29,19 @@ export function YearSelect() {
    * @constant {number[]} years - The array of years representing the range of validity.
    */
   const years = useMemo(() => {
-    if (!zaaktypeState) return [];
+    if (!zaaktype) return [];
 
-    const start = new Date(zaaktypeState.beginGeldigheid).getFullYear();
-    const end = zaaktypeState.eindeGeldigheid
-      ? new Date(zaaktypeState.eindeGeldigheid).getFullYear()
+    const start = new Date(zaaktype.beginGeldigheid).getFullYear();
+    const end = zaaktype.eindeGeldigheid
+      ? new Date(zaaktype.eindeGeldigheid).getFullYear()
       : new Date().getFullYear();
 
     return Array.from({ length: end - start + 1 }, (_, i) => end - i);
-  }, [zaaktypeState]);
+  }, [zaaktype]);
 
   return (
     zaaktypeUuid &&
-    zaaktypeState && (
+    zaaktype && (
       <Body allowScroll={true}>
         {years.map((year) => (
           <NavLink key={year} to={`/${serviceSlug}/${zaaktypeUuid}/${year}`}>
