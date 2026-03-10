@@ -26,6 +26,7 @@ export const routes: [RouteObject, ...RouteObject[]] = [
     Component: AuthenticatedLayout,
     middleware: [authRouterMiddleware],
     loader: authenticatedRootLoader,
+    shouldRevalidate: () => true,
     children: [
       {
         path: ":serviceSlug?/:zaaktypeUuid?/:zaakYear?",
