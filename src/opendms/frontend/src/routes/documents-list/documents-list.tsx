@@ -4,13 +4,16 @@ import {
   ItemGrid,
   type ItemGridItemProps,
   Outline,
+  Paginator,
 } from "@maykin-ui/admin-ui";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useSearchParams } from "react-router";
+import { getPageFromSearchParams } from "~/lib";
 import type { documentsListLoader } from "~/routes/documents-list/documents-list.loader.ts";
 
 export const DocumentsList = () => {
   // TODO: Validation. See issue gh-#42
   const data = useLoaderData<typeof documentsListLoader>();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   if (!data) return null;
 
@@ -32,6 +35,12 @@ export const DocumentsList = () => {
               },
             }) satisfies ItemGridItemProps,
         )}
+      />
+      <Paginator
+        count={data.count}
+        page={getPageFromSearchParams(searchParams)}
+        pageSize={20}
+        onPageChange={(page) => setSearchParams({ page: page.toString() })}
       />
     </BodyBaseTemplate>
   );

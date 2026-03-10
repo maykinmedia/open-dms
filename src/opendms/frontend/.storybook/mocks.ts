@@ -162,6 +162,6 @@ export const MOCK_DOCUMENTS = http.get(
       count: 300,
       previous: null,
       next: "/api/v1/services/exampleService/zaaktypen/exampleZaaktype/zaken/zaakYear/2026/zaakId/123?page=2",
-      results: batchFactory(documentFactory, 100),
+      results: batchFactory(documentFactory, 20),
     }),
 );
