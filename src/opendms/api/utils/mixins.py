@@ -1,8 +1,61 @@
+from django.shortcuts import get_object_or_404
+from django.utils.translation import gettext_lazy as _
+
+from rest_framework import exceptions
 from rest_framework.request import Request
 from rest_framework.response import Response
+from zgw_consumers.models import Service
+
+from ..models import ZGWApiGroupConfig
+from ..utils.exceptions import ZGWGroupConfigurationMissing
+
+
+def get_group_from_ztc_service(service: Service) -> ZGWApiGroupConfig:
+    try:
+        return ZGWApiGroupConfig.objects.get(ztc_service=service)
+    except ZGWApiGroupConfig.DoesNotExist as exc:
+        raise ZGWGroupConfigurationMissing(
+            _(
+                "No configuration group was found containing this ZTC service: '{service_slug}'"
+            ).format(service_slug=service.slug)
+        ) from exc
 
 
 class ReadOnlyViewSetMixin:
+    _zgw_group: Service | None = None
+    _service: Service | None = None
+
+    @property
+    def zgw_group(self) -> Service:
+        """
+        Return the ZGW service group associated with the relativ ztc_service
+
+        The service is resolved using the `service_slug` URL parameter.
+        The result is cached on first access to avoid repeated lookups
+        during the request lifecycle.
+        """
+        if self._zgw_group is None:
+            self._zgw_group = get_group_from_ztc_service(self.service)
+
+        return self._zgw_group
+
+    @property
+    def service(self) -> Service:
+        """
+        Returns the Service configuration associated with the request.
+
+        The service is resolved using the ``service_slug`` URL parameter
+        and cached on first access for reuse during the request lifecycle.
+        """
+        if self._service is None:
+            service_slug = self.kwargs.get("service_slug")
+            if not service_slug:
+                raise exceptions.NotFound(_("Service slug missing"))
+
+            self._service = get_object_or_404(Service, slug=service_slug)
+
+        return self._service
+
     def get_serializer_context(self):
         return {"request": self.request, "format": self.format_kwarg, "view": self}
 

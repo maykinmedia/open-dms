@@ -10,3 +10,7 @@ class ZaakTypeAPI(TypedDict):
     omschrijving: str
     beginGeldigheid: date | None
     eindeGeldigheid: date | None
+
+
+class ZaakAPI(TypedDict):
+    uuid: UUID

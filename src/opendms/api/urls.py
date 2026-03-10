@@ -6,16 +6,20 @@ from vng_api_common import routers
 from opendms.api.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIView
 from opendms.search_index.api.views import SearchView
 
-from .viewsets import ServiceViewSet, ZaakTypeViewSet
+from .viewsets import ServiceViewSet, ZaakTypeViewSet, ZaakViewSet
 
 app_name = "api"
 
 router = routers.DefaultRouter()
 router.register("services", ServiceViewSet)
 
-
 zaaktypen_router = routers.NestedSimpleRouter(router, r"services", lookup="service")
 zaaktypen_router.register(r"zaaktypen", ZaakTypeViewSet, basename="zaaktypen")
+
+zaken_router = routers.NestedSimpleRouter(
+    zaaktypen_router, r"zaaktypen", lookup="zaaktypen"
+)
+zaken_router.register(r"zaken", ZaakViewSet, basename="zaken")
 
 urlpatterns = [
     re_path(
@@ -24,6 +28,7 @@ urlpatterns = [
             [
                 re_path(r"^", include(router.urls)),
                 re_path(r"^", include(zaaktypen_router.urls)),
+                re_path(r"^", include(zaken_router.urls)),
                 path(
                     "accounts/",
                     include("opendms.accounts.api.urls", namespace="accounts"),
