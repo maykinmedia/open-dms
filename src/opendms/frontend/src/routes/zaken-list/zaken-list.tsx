@@ -28,7 +28,6 @@ export function ZakenList() {
 
   const rootData =
     useRouteLoaderData<typeof authenticatedRootLoader>("authenticated-root");
-  invariant(rootData?.zaaktype, "Zaaktype not loaded!");
 
   const data = useLoaderData<typeof zakenListLoader>();
 
@@ -36,6 +35,7 @@ export function ZakenList() {
   if (!data) {
     return <NoServiceZaaktypeAndYearSelectedMessage />;
   }
+  invariant(rootData?.zaaktype, "Zaaktype not loaded!");
 
   // The fields to show in the datagrid.
   const fields: TypedField<Zaak>[] = [
