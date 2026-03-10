@@ -106,6 +106,8 @@ services:
     ports:
       - 9200:9200
       # - "9300:9300"
+    networks:
+      - open-dms-dev
 
   prepare-volumes:
     image: busybox
