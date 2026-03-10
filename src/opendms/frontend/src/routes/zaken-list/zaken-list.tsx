@@ -18,7 +18,7 @@ import type { Zaak } from "~/types";
 
 import type { zakenListLoader } from "./zaken-list.loader";
 
-function ZakenList() {
+export function ZakenList() {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // TODO: Validation. See issue gh-#42
@@ -77,8 +77,6 @@ function ZakenList() {
     />
   );
 }
-
-export default ZakenList;
 
 /**
  * Renders a message informing the user to select a service, zaaktype, and year to view an overview of cases.

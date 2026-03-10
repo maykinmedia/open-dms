@@ -15,7 +15,7 @@ import {
   waitForIdle,
   waitForLoading,
 } from "../../../.storybook/utils.ts";
-import ZakenList from "./zaken-list.tsx";
+import { ZakenList } from "./zaken-list";
 
 initialize();
 
