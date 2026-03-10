@@ -1,4 +1,3 @@
-from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
@@ -10,24 +9,14 @@ from vng_api_common.pagination import DynamicPageSizePagination
 from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
 
-from .clients.zaaktypen import ZaakTypeAPI, get_zaaktypen_client
+from .clients import get_zaaktypen_client, get_zaken_client
 from .models import ZGWApiGroupConfig
 from .serializers import ServiceSerializer, ZaakTypeSerializer
-from .utils.exceptions import ExternalServiceUnavailable, ZGWGroupConfigurationMissing
+from .typing import ZaakAPI, ZaakTypeAPI
+from .utils.exceptions import ExternalServiceUnavailable
 from .utils.mixins import ReadOnlyViewSetMixin
 
 QUERY_PARAM_FIELD = "search"
-
-
-def get_group_from_ztc_service(service: Service) -> ZGWApiGroupConfig:
-    try:
-        return ZGWApiGroupConfig.objects.get(ztc_service=service)
-    except ZGWApiGroupConfig.DoesNotExist as exc:
-        raise ZGWGroupConfigurationMissing(
-            _(
-                "No configuration group was found containing this ZTC service: '{service_slug}'"
-            ).format(service_slug=service.slug)
-        ) from exc
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
@@ -80,7 +69,7 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
 )
 class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     """
-    Exposes Zaaktypen from a ZGW service.
+    Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
     """
 
     _service: Service | None = None
@@ -91,37 +80,6 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     lookup_field = "zaaktype_uuid"
     search_field = "identificatie__icontains"
     queryset = None
-
-    @property
-    def zgw_group(self) -> Service:
-        """
-        Return the ZGW service group associated with the relativ ztc_service
-
-        The service is resolved using the `service_slug` URL parameter.
-        The result is cached on first access to avoid repeated lookups
-        during the request lifecycle.
-        """
-        if self._zgw_group is None:
-            self._zgw_group = get_group_from_ztc_service(self.service)
-
-        return self._zgw_group
-
-    @property
-    def service(self) -> Service:
-        """
-        Returns the Service configuration associated with the request.
-
-        The service is resolved using the ``service_slug`` URL parameter
-        and cached on first access for reuse during the request lifecycle.
-        """
-        if self._service is None:
-            service_slug = self.kwargs.get("service_slug")
-            if not service_slug:
-                raise exceptions.NotFound(_("Service slug missing"))
-
-            self._service = get_object_or_404(Service, slug=service_slug)
-
-        return self._service
 
     def get_object(self) -> ZaakTypeAPI | None:
         """
@@ -167,6 +125,37 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
         try:
             with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+                return client.get_cached_items(self.service.slug, query_params)
+        except RequestException as exc:
+            raise ExternalServiceUnavailable(
+                _("External service '{service_slug}' unreachable.").format(
+                    service_slug=self.service.slug,
+                )
+            ) from exc
+
+
+class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
+    """
+    Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+    """
+
+    serializer_class = ZaakTypeSerializer
+    pagination_class = DynamicPageSizePagination
+    lookup_field = "zaaktype_uuid"
+    search_field = "identificatie__icontains"
+    queryset = None
+
+    def get_queryset(self, params: dict) -> list[ZaakAPI] | None:
+        """
+        Retrieve all Zaaktypen available for the configured service.
+
+        This method is overridden because no Django model queryset exists.
+        ZaakType data is retrieved dynamically from the external Zaaktypen
+        API via the configured client.
+        """
+        breakpoint()
+        try:
+            with get_zaken_client(self.service) as client:
                 return client.get_cached_items(self.service.slug, query_params)
         except RequestException as exc:
             raise ExternalServiceUnavailable(
