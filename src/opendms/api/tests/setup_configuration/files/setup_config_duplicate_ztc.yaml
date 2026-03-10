@@ -6,3 +6,10 @@ zgw_api:
     zaken_service_identifier: zaken-api
     documenten_service_identifier: documenten-api
     catalogi_service_identifier: catalogi-api
+
+  - name: Config 2
+    identifier: config-2
+    zaken_service_identifier: zaken-api
+    documenten_service_identifier: documenten-api
+    catalogi_service_identifier: catalogi-api
+

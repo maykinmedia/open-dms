@@ -25,13 +25,13 @@ class ZGWApiGroupConfig(models.Model):
         related_name="zgwset_zrc_config",
         null=False,
     )
-    ztc_service = models.ForeignKey(
+    # Enforces a one-to-one constraint: each ZTC service can belong to only one group.
+    ztc_service = models.OneToOneField(
         "zgw_consumers.Service",
         verbose_name=_("Catalogi API"),
         on_delete=models.PROTECT,
         limit_choices_to={"api_type": APITypes.ztc},
         related_name="zgwset_ztc_config",
-        null=False,
     )
     drc_service = models.ForeignKey(
         "zgw_consumers.Service",

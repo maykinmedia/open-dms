@@ -60,10 +60,3 @@ class ZGWApiGroupConfigFactory(factory.django.DjangoModelFactory):
 
     class Meta:  # pyright: ignore[reportIncompatibleVariableOverride]
         model = ZGWApiGroupConfig
-
-    class Params:
-        for_test_docker_compose = factory.Trait(
-            zrc_service=ServiceFactory(for_zrc_service_docker_compose=True),
-            drc_service=ServiceFactory(for_drc_service_docker_compose=True),
-            ztc_service=ServiceFactory(for_ztc_service_docker_compose=True),
-        )

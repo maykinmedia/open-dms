@@ -1,5 +1,6 @@
 from pathlib import Path
 
+from django.db import IntegrityError
 from django.test import TestCase
 
 from django_setup_configuration.test_utils import execute_single_step
@@ -12,6 +13,7 @@ from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
 TEST_FILES = (Path(__file__).parent / "files").resolve()
 CONFIG_FILE_PATH = str(TEST_FILES / "setup_config.yaml")
 CONFIG_FILE_PATH_ALL_FIELDS = str(TEST_FILES / "setup_config_all_fields.yaml")
+CONFIG_FILE_DUPLICATED_ZTC_PATH = str(TEST_FILES / "setup_config_duplicate_ztc.yaml")
 
 
 class ZGWApiConfigurationStepTests(TestCase):
@@ -34,9 +36,9 @@ class ZGWApiConfigurationStepTests(TestCase):
     def test_execute_success(self):
         execute_single_step(ZGWApiConfigurationStep, yaml_source=CONFIG_FILE_PATH)
 
-        self.assertEqual(ZGWApiGroupConfig.objects.count(), 2)
+        self.assertEqual(ZGWApiGroupConfig.objects.count(), 1)
 
-        config1, config2 = ZGWApiGroupConfig.objects.order_by("pk")
+        config1 = ZGWApiGroupConfig.objects.get()
 
         self.assertEqual(config1.name, "Config 1")
         self.assertEqual(config1.identifier, "config-1")
@@ -44,26 +46,17 @@ class ZGWApiConfigurationStepTests(TestCase):
         self.assertEqual(config1.drc_service, self.documenten_service)
         self.assertEqual(config1.ztc_service, self.catalogi_service)
 
-        self.assertEqual(config2.name, "Config 2")
-        self.assertEqual(config2.identifier, "config-2")
-        self.assertEqual(config2.zrc_service, self.zaken_service)
-        self.assertEqual(config2.drc_service, self.documenten_service)
-        self.assertEqual(config2.ztc_service, self.catalogi_service)
-
     def test_execute_update_existing_config(self):
         ZGWApiGroupConfigFactory.create(name="old name", identifier="config-1")
 
         execute_single_step(ZGWApiConfigurationStep, yaml_source=CONFIG_FILE_PATH)
 
-        self.assertEqual(ZGWApiGroupConfig.objects.count(), 2)
+        self.assertEqual(ZGWApiGroupConfig.objects.count(), 1)
 
-        config1, config2 = ZGWApiGroupConfig.objects.order_by("pk")
+        config1 = ZGWApiGroupConfig.objects.get()
 
         self.assertEqual(config1.name, "Config 1")
         self.assertEqual(config1.identifier, "config-1")
-
-        self.assertEqual(config2.name, "Config 2")
-        self.assertEqual(config2.identifier, "config-2")
 
     def test_execute_with_required_fields(self):
         execute_single_step(
@@ -110,4 +103,32 @@ class ZGWApiConfigurationStepTests(TestCase):
                 ZGWApiConfigurationStep, yaml_source=CONFIG_FILE_PATH_ALL_FIELDS
             )
 
+        self.assertEqual(ZGWApiGroupConfig.objects.count(), 0)
+
+    def test_execute_ztc_unique_service_raises_error(self):
+        ZGWApiGroupConfigFactory.create(
+            zrc_service=self.zaken_service,
+            ztc_service=self.catalogi_service,
+            drc_service=self.documenten_service,
+        )
+        config = ZGWApiGroupConfig.objects.get()
+        self.assertEqual(config.ztc_service.slug, "catalogi-api")
+
+        with self.assertRaises(IntegrityError) as error:
+            execute_single_step(ZGWApiConfigurationStep, yaml_source=CONFIG_FILE_PATH)
+
+        self.assertIn(
+            "duplicate key value violates unique constraint", str(error.exception)
+        )
+
+    def test_execute_ztc_unique_service_config_file_raises_error(self):
+        self.assertEqual(ZGWApiGroupConfig.objects.count(), 0)
+
+        with self.assertRaises(IntegrityError) as error:
+            execute_single_step(
+                ZGWApiConfigurationStep, yaml_source=CONFIG_FILE_DUPLICATED_ZTC_PATH
+            )
+        self.assertIn(
+            "duplicate key value violates unique constraint", str(error.exception)
+        )
         self.assertEqual(ZGWApiGroupConfig.objects.count(), 0)
