@@ -16,8 +16,8 @@ jobs:
     name: Checks
     uses: maykinmedia/open-api-workflows/.github/workflows/oas.yml@v6
     with:
-      python-version: '3.14'
-      apt-packages: 'libgdal-dev gdal-bin'
+      python-version: '3.12'
+      apt-packages: 'gdal-bin'
       django-settings-module: opendms.conf.ci
       oas-generate-command: ./bin/generate_api_schema.sh
       schema-path: src/opendms/api/openapi.yaml
