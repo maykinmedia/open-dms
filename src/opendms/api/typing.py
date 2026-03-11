@@ -5,6 +5,7 @@ from uuid import UUID
 
 class ZaakTypeAPI(TypedDict):
     uuid: UUID
+    url: str
     catalogus: str
     identificatie: str
     omschrijving: str
@@ -14,3 +15,11 @@ class ZaakTypeAPI(TypedDict):
 
 class ZaakAPI(TypedDict):
     uuid: UUID
+    identificatie: str
+    zaaktype: str
+    bronorganisatie: str
+    verantwoordelijkeOrganisatie: str
+    registratiedatum: date
+    startdatum: date
+    omschrijving: str
+    toelichting: str

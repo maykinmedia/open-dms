@@ -11,7 +11,7 @@ from zgw_consumers.models import Service
 
 from .clients import get_zaaktypen_client, get_zaken_client
 from .models import ZGWApiGroupConfig
-from .serializers import ServiceSerializer, ZaakTypeSerializer
+from .serializers import ServiceSerializer, ZaakTypeSerializer, ZaakSerializer
 from .typing import ZaakAPI, ZaakTypeAPI
 from .utils.exceptions import ExternalServiceUnavailable
 from .utils.mixins import ReadOnlyViewSetMixin
@@ -139,24 +139,41 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
     """
 
-    serializer_class = ZaakTypeSerializer
+    serializer_class = ZaakSerializer
     pagination_class = DynamicPageSizePagination
     lookup_field = "zaaktype_uuid"
     search_field = "identificatie__icontains"
     queryset = None
 
+    @property
+    def zaaktype_url(self) -> str:
+        zaaktype_uuid = self.kwargs.get("zaaktypen_zaaktype_uuid")
+
+        # TODO investigate here if you can use cache
+        try:
+            with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+                zaaktype = client.get_item_by_uuid(zaaktype_uuid)
+                return zaaktype["url"]
+        except RequestException:
+            raise exceptions.NotFound(
+                _("ZaakType with UUID {uuid} not found").format(uuid=zaaktype_uuid)
+            )
+
+        return f"{self.zgw_group.ztc_service.api_root}zaaktypen/{zaaktype_uuid}"
+
     def get_queryset(self, params: dict) -> list[ZaakAPI] | None:
         """
-        Retrieve all Zaaktypen available for the configured service.
+        Retrieve all Zaaken filtered by a specific zaaktype.
 
         This method is overridden because no Django model queryset exists.
         ZaakType data is retrieved dynamically from the external Zaaktypen
         API via the configured client.
         """
-        breakpoint()
+        # TODO fix dynamic params
+
         try:
-            with get_zaken_client(self.service) as client:
-                return client.get_cached_items(self.service.slug, query_params)
+            with get_zaken_client(self.zgw_group.zrc_service) as client:
+                return client.get_items_by_zaaktype(self.zaaktype_url)
         except RequestException as exc:
             raise ExternalServiceUnavailable(
                 _("External service '{service_slug}' unreachable.").format(
