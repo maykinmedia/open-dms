@@ -146,6 +146,7 @@ TEMPLATES[0]["DIRS"] += [DJANGO_PROJECT_DIR / "frontend/dist"]
 #
 SETUP_CONFIGURATION_STEPS = (
     "zgw_consumers.contrib.setup_configuration.steps.ServiceConfigurationStep",
+    "opendms.api.setup_configuration.steps.ZGWApiConfigurationStep",
 )
 
 

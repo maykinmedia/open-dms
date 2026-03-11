@@ -57,6 +57,10 @@
                 "appgroup"
             ],
             [
+                "api",
+                "zgwapigroupconfig"
+            ],
+            [
                 "log_outgoing_requests",
                 "outgoingrequestslogconfig"
             ]

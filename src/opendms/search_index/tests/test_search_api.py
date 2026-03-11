@@ -7,10 +7,11 @@ from rest_framework import status
 from vng_api_common.tests import reverse
 
 from opendms.api.tests.api_testcase import APITestCase
+from opendms.api.tests.factories import ServiceFactory
 
 from ..tasks import index_document
 from .base import ElasticSearchAPITestCase
-from .factories import IndexDocumentFactory, ServiceFactory
+from .factories import IndexDocumentFactory
 
 
 class SearchApiAuthenticationTest(APITestCase):

@@ -1,7 +1,4 @@
-from datetime import date
 from functools import partial
-from typing import TypedDict
-from uuid import UUID
 
 from django.core.cache import cache
 
@@ -10,17 +7,9 @@ from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
 from zgw_consumers.service import pagination_helper
 
+from ..typing import ZaakTypeAPI
 from ..utils.exceptions import NoServiceConfigured
 from ..utils.validators import extract_uuid
-
-
-class ZaakTypeAPI(TypedDict):
-    uuid: UUID
-    catalogus: str
-    identificatie: str
-    omschrijving: str
-    beginGeldigheid: date | None
-    eindeGeldigheid: date | None
 
 
 class ZaakTypeClient(NLXClient):

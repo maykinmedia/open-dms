@@ -1,0 +1,15 @@
+zgw_api_config_enable: True
+zgw_api:
+  groups:
+  - name: Config 1
+    identifier: config-1
+    zaken_service_identifier: zaken-api
+    documenten_service_identifier: documenten-api
+    catalogi_service_identifier: catalogi-api
+
+  - name: Config 2
+    identifier: config-2
+    zaken_service_identifier: zaken-api
+    documenten_service_identifier: documenten-api
+    catalogi_service_identifier: catalogi-api
+

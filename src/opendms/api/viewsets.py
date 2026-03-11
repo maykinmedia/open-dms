@@ -11,11 +11,23 @@ from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
 
 from .clients.zaaktypen import ZaakTypeAPI, get_zaaktypen_client
+from .models import ZGWApiGroupConfig
 from .serializers import ServiceSerializer, ZaakTypeSerializer
-from .utils.exceptions import ExternalServiceUnavailable
+from .utils.exceptions import ExternalServiceUnavailable, ZGWGroupConfigurationMissing
 from .utils.mixins import ReadOnlyViewSetMixin
 
 QUERY_PARAM_FIELD = "search"
+
+
+def get_group_from_ztc_service(service: Service) -> ZGWApiGroupConfig:
+    try:
+        return ZGWApiGroupConfig.objects.get(ztc_service=service)
+    except ZGWApiGroupConfig.DoesNotExist as exc:
+        raise ZGWGroupConfigurationMissing(
+            _(
+                "No configuration group was found containing this ZTC service: '{service_slug}'"
+            ).format(service_slug=service.slug)
+        ) from exc
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
@@ -72,12 +84,27 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     """
 
     _service: Service | None = None
+    _zgw_group: ZGWApiGroupConfig | None = None
 
     serializer_class = ZaakTypeSerializer
     pagination_class = DynamicPageSizePagination
     lookup_field = "zaaktype_uuid"
     search_field = "identificatie__icontains"
     queryset = None
+
+    @property
+    def zgw_group(self) -> Service:
+        """
+        Return the ZGW service group associated with the relativ ztc_service
+
+        The service is resolved using the `service_slug` URL parameter.
+        The result is cached on first access to avoid repeated lookups
+        during the request lifecycle.
+        """
+        if self._zgw_group is None:
+            self._zgw_group = get_group_from_ztc_service(self.service)
+
+        return self._zgw_group
 
     @property
     def service(self) -> Service:
@@ -107,7 +134,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         uuid = self.kwargs.get(self.lookup_field)
 
         try:
-            with get_zaaktypen_client(self.service) as client:
+            with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
                 return client.get_item_by_uuid(uuid)
         except RequestException:
             raise exceptions.NotFound(
@@ -139,7 +166,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             query_params[self.search_field] = query_params.pop(QUERY_PARAM_FIELD)
 
         try:
-            with get_zaaktypen_client(self.service) as client:
+            with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
                 return client.get_cached_items(self.service.slug, query_params)
         except RequestException as exc:
             raise ExternalServiceUnavailable(

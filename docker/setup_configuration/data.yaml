@@ -3,7 +3,7 @@ zgw_consumers:
   services:
     - identifier: catalogi-api
       label: Catalogi Test API
-      api_root: http://localhost:8003/catalogi/api/v1/
+      api_root: http://openzaak-web.local:8000/catalogi/api/v1/
       api_type: ztc
       auth_type: zgw
       client_id: test_client_id
@@ -11,8 +11,26 @@ zgw_consumers:
 
     - identifier: zaken-api
       label: Zaken Test API
-      api_root: http://localhost:8003/zaken/api/v1/
+      api_root: http://openzaak-web.local:8000/zaken/api/v1/
       api_type: zrc
       auth_type: zgw
       client_id: test_client_id
       secret: test_secret_key
+
+    - identifier: documenten-api
+      label: Documenten Test API
+      api_root: http://openzaak-web.local:8000/documenten/api/v1/
+      api_type: drc
+      auth_type: zgw
+      client_id: test_client_id
+      secret: test_secret_key
+
+zgw_api_config_enable: True
+zgw_api:
+  groups:
+  - name: Config 1
+    identifier: config-1
+    zaken_service_identifier: zaken-api
+    documenten_service_identifier: documenten-api
+    catalogi_service_identifier: catalogi-api
+

@@ -2,8 +2,9 @@ from maykin_common.vcr import VCRMixin
 from requests.exceptions import Timeout
 from rest_framework import status
 from vng_api_common.tests import reverse
-from zgw_consumers.constants import APITypes, AuthTypes
-from zgw_consumers.test.factories import ServiceFactory
+from zgw_consumers.constants import APITypes
+
+from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
 
 from .api_testcase import APITestCase
 
@@ -13,15 +14,9 @@ class ZaakTypeTests(VCRMixin, APITestCase):
     def setUpTestData(cls):
         super().setUpTestData()
 
-        cls.service = ServiceFactory.create(
-            label="Catalogi API",
-            slug="catalogi-api",
-            api_root="http://localhost:8003/catalogi/api/v1/",
-            api_type=APITypes.ztc,
-            auth_type=AuthTypes.zgw,
-            client_id="test_client_id",
-            secret="test_secret_key",
-        )
+        cls.service = ServiceFactory.create(for_ztc_service_docker_compose=True)
+        cls.configuration = ZGWApiGroupConfigFactory.create(ztc_service=cls.service)
+
         cls.list_url = reverse(
             "api:zaaktypen-list", kwargs={"service_slug": cls.service.slug}
         )
@@ -45,6 +40,8 @@ class ZaakTypeTests(VCRMixin, APITestCase):
             api_root="http://testserver",
             api_type=APITypes.ztc,
         )
+        ZGWApiGroupConfigFactory.create(ztc_service=service)
+
         with self.vcr_raises(Timeout):
             response = self.client.get(
                 reverse("api:zaaktypen-list", kwargs={"service_slug": service.slug})
@@ -56,6 +53,28 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         self.assertEqual(
             response.data["detail"],
             "External service 'catalogi-api-2' unreachable.",
+        )
+
+    def test_service_configuration(self):
+        service = ServiceFactory.create(
+            label="Catalogi API 2",
+            slug="catalogi-api-2",
+            api_root="http://testserver",
+            api_type=APITypes.ztc,
+        )
+
+        response = self.client.get(
+            reverse("api:zaaktypen-list", kwargs={"service_slug": service.slug})
+        )
+        self.assertEqual(response.data["code"], "zgw_group_missing")
+        self.assertEqual(response.status_code, status.HTTP_503_SERVICE_UNAVAILABLE)
+        self.assertEqual(
+            response.data["title"],
+            "No ZGW Configuration Group found for the given ztc service",
+        )
+        self.assertEqual(
+            response.data["detail"],
+            "No configuration group was found containing this ZTC service: 'catalogi-api-2'",
         )
 
     def test_detail(self):
@@ -134,15 +153,8 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
     def setUpTestData(cls):
         super().setUpTestData()
 
-        cls.service = ServiceFactory.create(
-            label="Catalogi API",
-            slug="catalogi-api",
-            api_root="http://localhost:8003/catalogi/api/v1/",
-            api_type=APITypes.ztc,
-            auth_type=AuthTypes.zgw,
-            client_id="test_client_id",
-            secret="test_secret_key",
-        )
+        cls.service = ServiceFactory.create(for_ztc_service_docker_compose=True)
+        cls.configuration = ZGWApiGroupConfigFactory.create(ztc_service=cls.service)
         cls.list_url = reverse(
             "api:zaaktypen-list", kwargs={"service_slug": cls.service.slug}
         )

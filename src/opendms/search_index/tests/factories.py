@@ -1,6 +1,4 @@
 import factory
-from zgw_consumers.constants import APITypes, AuthTypes
-from zgw_consumers.test.factories import ServiceFactory as _ServiceFactory
 
 
 class NestedPublisherFactory(factory.Factory):
@@ -33,15 +31,3 @@ class IndexDocumentFactory(factory.Factory):
 
     class Meta:
         model = dict
-
-
-class ServiceFactory(_ServiceFactory):
-    class Params:
-        for_download_url_mock_service = factory.Trait(
-            label="download-url-mock",
-            api_root="http://localhost/",
-            api_type=APITypes.orc,
-            auth_type=AuthTypes.api_key,
-            header_key="Authorization",
-            header_value="Token insecure",
-        )
