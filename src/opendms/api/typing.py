@@ -15,6 +15,7 @@ class ZaakTypeAPI(TypedDict):
 
 class ZaakAPI(TypedDict):
     uuid: UUID
+    url: str
     identificatie: str
     zaaktype: str
     bronorganisatie: str

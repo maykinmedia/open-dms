@@ -19,6 +19,11 @@ class ZaakTypeSerializer(serializers.Serializer):
             "UUID van dit object. Dit is de unieke identificatiecode van dit object."
         ),
     )
+    url = serializers.URLField(
+        help_text=_(
+            "URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object."
+        ),
+    )
     catalogus = serializers.URLField(
         help_text=_("URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort."),
     )
@@ -42,6 +47,11 @@ class ZaakSerializer(serializers.Serializer):
     uuid = serializers.UUIDField(
         help_text=_(
             "UUID van dit object. Dit is de unieke identificatiecode van dit object."
+        ),
+    )
+    url = serializers.URLField(
+        help_text=_(
+            "URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object."
         ),
     )
     identificatie = serializers.CharField(
