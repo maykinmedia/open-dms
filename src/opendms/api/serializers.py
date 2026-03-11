@@ -36,3 +36,46 @@ class ZaakTypeSerializer(serializers.Serializer):
     eindeGeldigheid = serializers.DateField(
         help_text=_("De datum waarop het is opgeheven."),
     )
+
+
+class ZaakSerializer(serializers.Serializer):
+    uuid = serializers.UUIDField(
+        help_text=_(
+            "UUID van dit object. Dit is de unieke identificatiecode van dit object."
+        ),
+    )
+    identificatie = serializers.CharField(
+        help_text=_(
+            "De unieke identificatie van de ZAAK binnen de organisatie "
+            "die verantwoordelijk is voor de behandeling van de ZAAK.",
+        ),
+    )
+    zaaktype = serializers.CharField(
+        help_text=_("URL-referentie naar het ZAAKTYPE (in de Catalogi API)."),
+    )
+    bronorganisatie = serializers.CharField(
+        help_text=_(
+            "Het RSIN van de Niet-natuurlijk persoon zijnde de "
+            "organisatie die de zaak heeft gecreeerd."
+        ),
+    )
+    verantwoordelijkeOrganisatie = serializers.CharField(
+        help_text=_(
+            "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie "
+            "die eindverantwoordelijk is voor de behandeling van de zaak."
+        ),
+    )
+    registratiedatum = serializers.DateField(
+        help_text=_(
+            "De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd"
+        ),
+    )
+    startdatum = serializers.DateField(
+        help_text=_("De datum waarop met de uitvoering van de zaak is gestart."),
+    )
+    omschrijving = serializers.CharField(
+        help_text=_("Een korte omschrijving van de zaak."),
+    )
+    toelichting = serializers.CharField(
+        help_text=_("Een toelichting op de zaak."),
+    )

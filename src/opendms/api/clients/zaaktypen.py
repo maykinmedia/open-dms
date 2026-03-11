@@ -21,11 +21,13 @@ class ZaakTypeClient(NLXClient):
 
     def get_items(self, params: dict) -> list[ZaakTypeAPI]:
         response = self.get(self.endpoint, params=params)
+        # TODO before raise catch the 404
         response.raise_for_status()
         data = response.json()
         return [
             ZaakTypeAPI(
                 uuid=extract_uuid(record["url"]),
+                url=record["url"],
                 catalogus=record["catalogus"],
                 identificatie=record["identificatie"],
                 omschrijving=record["omschrijving"],
@@ -42,6 +44,7 @@ class ZaakTypeClient(NLXClient):
 
         return ZaakTypeAPI(
             uuid=extract_uuid(data["url"]),
+            url=data["url"],
             catalogus=data["catalogus"],
             identificatie=data["identificatie"],
             omschrijving=data["omschrijving"],
