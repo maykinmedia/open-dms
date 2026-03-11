@@ -1,0 +1,97 @@
+interactions:
+- request:
+    body: '{"uuid":"62fdeb92-98ad-475c-b184-49ee8a274787","url":"https://weiss-walker.com/","identificatie":"11820168-c54e-4324-9fda-500460e3d6fa","bronorganisatie":"Oconnor,
+      Lane and Medina","creatiedatum":"2024-01-01","titel":"Control size response
+      bring manage professional.","auteur":"Cathy Smith","taal":"hr","begin_registratie":"2026-02-25T14:44:57.679396","informatieobjecttype":"not","vertrouwelijkheidaanduiding":"eat","status":"front","formaat":"html","bestandsnaam":"pass.jpg","link":"https://brown.com/","beschrijving":"Tell
+      call spend kind amount relationship. Behind discover attention increase.","verschijningsvorm":"set"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/62fdeb92-98ad-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"62fdeb92-98ad-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/62fdeb92-98ad-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://carter.info/","identificatie":"1c6e668c-9a36-4b79-8929-6223705ecc79","bronorganisatie":"Guzman,
+      Parsons and Farmer","creatiedatum":"2025-02-01","titel":"Them account entire
+      turn sign.","auteur":"Maria Hall","taal":"lv","begin_registratie":"2026-03-10T19:17:10.964570","informatieobjecttype":"total","vertrouwelijkheidaanduiding":"personal","status":"up","formaat":"txt","bestandsnaam":"herself.bmp","link":"https://www.kane.org/","beschrijving":"Left
+      mean camera TV wife. Third well start I buy six. Born bed allow miss among family
+      health.","verschijningsvorm":"participant"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/13fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/13fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"exists":{"field":"creatiedatum"}},"size":0}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.738368E12,"value_as_string":"2025-02-01"}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
