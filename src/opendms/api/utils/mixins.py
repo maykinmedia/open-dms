@@ -1,24 +1,64 @@
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
-from rest_framework import exceptions
+import structlog
+from requests.exceptions import RequestException, Timeout
+from rest_framework import exceptions, status
 from rest_framework.request import Request
 from rest_framework.response import Response
 from zgw_consumers.models import Service
 
 from ..models import ZGWApiGroupConfig
-from ..utils.exceptions import ZGWGroupConfigurationMissing
+from .exceptions import ExternalServiceUnavailable, ZGWGroupConfigurationMissing
+
+logger = structlog.stdlib.get_logger(__name__)
 
 
 def get_group_from_ztc_service(service: Service) -> ZGWApiGroupConfig:
     try:
         return ZGWApiGroupConfig.objects.get(ztc_service=service)
     except ZGWApiGroupConfig.DoesNotExist as exc:
+        logger.exception("zgw_apigroup_config_does_not_exist")
         raise ZGWGroupConfigurationMissing(
             _(
                 "No configuration group was found containing this ZTC service: '{service_slug}'"
             ).format(service_slug=service.slug)
         ) from exc
+
+
+class HttpRequestMixin:
+    """
+    Mixin to centralize HTTP requests and common error handling.
+    """
+
+    def make_request(
+        self,
+        url: str,
+        params: dict | None = None,
+        headers: dict | None = None,
+    ) -> dict:
+        """
+        Performs a GET request to `url` with optional query parameters.
+        Handles timeouts, connection errors, and 404 responses.
+        """
+        params = params or {}
+        headers = headers or {}
+        try:
+            response = self.get(url, params=params, headers=headers)
+
+            if response.status_code == status.HTTP_404_NOT_FOUND:
+                raise exceptions.NotFound(f"Resource at {url} not found")
+
+            response.raise_for_status()
+            return response.json()
+
+        except Timeout as exc:
+            logger.exception("timeout_request")
+            raise ExternalServiceUnavailable("External service timeout") from exc
+
+        except RequestException as exc:
+            logger.exception("error_request")
+            raise ExternalServiceUnavailable("External service error") from exc
 
 
 class ReadOnlyViewSetMixin:

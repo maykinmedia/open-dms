@@ -9,10 +9,11 @@ from zgw_consumers.service import pagination_helper
 
 from ..typing import ZaakTypeAPI
 from ..utils.exceptions import NoServiceConfigured
+from ..utils.mixins import HttpRequestMixin
 from ..utils.validators import extract_uuid
 
 
-class ZaakTypeClient(NLXClient):
+class ZaakTypeClient(HttpRequestMixin, NLXClient):
     """
     Client for retrieving Zaaktypen from a ZTC service.
     """
@@ -20,10 +21,7 @@ class ZaakTypeClient(NLXClient):
     endpoint = "zaaktypen"
 
     def get_items(self, params: dict) -> list[ZaakTypeAPI]:
-        response = self.get(self.endpoint, params=params)
-        # TODO before raise catch the 404
-        response.raise_for_status()
-        data = response.json()
+        data = self.make_request(self.endpoint, params)
         return [
             ZaakTypeAPI(
                 uuid=extract_uuid(record["url"]),
@@ -38,10 +36,7 @@ class ZaakTypeClient(NLXClient):
         ]
 
     def get_item_by_uuid(self, uuid: str) -> ZaakTypeAPI | None:
-        response = self.get(f"{self.endpoint}/{uuid}")
-        data = response.json()
-        response.raise_for_status()
-
+        data = self.make_request(f"{self.endpoint}/{uuid}")
         return ZaakTypeAPI(
             uuid=extract_uuid(data["url"]),
             url=data["url"],

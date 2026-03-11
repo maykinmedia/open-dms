@@ -6,16 +6,15 @@ from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
 from zgw_consumers.service import pagination_helper
-from uuid import UUID
-from rest_framework import status
+
 from ..typing import ZaakAPI
 from ..utils.exceptions import NoServiceConfigured
-from ..utils.validators import extract_uuid
+from ..utils.mixins import HttpRequestMixin
 
 CRS_HEADERS = {"Content-Crs": "EPSG:4326", "Accept-Crs": "EPSG:4326"}
 
 
-class ZaakClient(NLXClient):
+class ZaakClient(HttpRequestMixin, NLXClient):
     """
     Client for retrieving Zaken from a ZRC service.
     """
@@ -23,12 +22,11 @@ class ZaakClient(NLXClient):
     endpoint = "zaken"
 
     def get_items(self, params: dict) -> list[ZaakAPI]:
-        response = self.get(self.endpoint, params=params, headers=CRS_HEADERS)
-        response.raise_for_status()
-        data = response.json()
+        data = self.make_request(self.endpoint, params=params, headers=CRS_HEADERS)
         return [
             ZaakAPI(
-                uuid=extract_uuid(record["url"]),
+                uuid=record["uuid"],
+                url=record["url"],
                 identificatie=record["identificatie"],
                 zaaktype=record["zaaktype"],
                 bronorganisatie=record["bronorganisatie"],
@@ -43,12 +41,11 @@ class ZaakClient(NLXClient):
 
     def get_items_by_zaaktype(self, zaaktype_url: str) -> list[ZaakAPI]:
         params = {"zaaktype": zaaktype_url}
-        response = self.get(self.endpoint, params=params, headers=CRS_HEADERS)
-        response.raise_for_status()
-        data = response.json()
+        data = self.make_request(self.endpoint, params=params, headers=CRS_HEADERS)
         return [
             ZaakAPI(
-                uuid=extract_uuid(record["url"]),
+                uuid=record["uuid"],
+                url=record["url"],
                 identificatie=record["identificatie"],
                 zaaktype=record["zaaktype"],
                 bronorganisatie=record["bronorganisatie"],
@@ -62,13 +59,18 @@ class ZaakClient(NLXClient):
         ]
 
     def get_item_by_uuid(self, uuid: str) -> ZaakAPI | None:
-        response = self.get(f"{self.endpoint}/{uuid}")
-        data = response.json()
-        response.raise_for_status()
-
+        data = self.make_request(f"{self.endpoint}/{uuid}", headers=CRS_HEADERS)
         return ZaakAPI(
-            uuid=extract_uuid(data["url"]),
+            uuid=data["uuid"],
+            url=data["url"],
             identificatie=data["identificatie"],
+            zaaktype=data["zaaktype"],
+            bronorganisatie=data["bronorganisatie"],
+            verantwoordelijkeOrganisatie=data["verantwoordelijkeOrganisatie"],
+            registratiedatum=data["registratiedatum"],
+            startdatum=data["startdatum"],
+            omschrijving=data["omschrijving"],
+            toelichting=data["toelichting"],
         )
 
     def get_cached_items(

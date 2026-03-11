@@ -1,10 +1,7 @@
-import structlog
 from drf_spectacular.views import (
     SpectacularJSONAPIView as _SpectacularJSONAPIView,
     SpectacularYAMLAPIView as _SpectacularYAMLAPIView,
 )
-
-logger = structlog.stdlib.get_logger(__name__)
 
 
 class AllowAllOriginsMixin:

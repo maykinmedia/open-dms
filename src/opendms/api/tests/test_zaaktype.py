@@ -33,6 +33,7 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 7)  # from openzaak container
 
+    # TODO timeout as well codecov
     def test_service_connection(self):
         service = ServiceFactory.create(
             label="Catalogi API 2",
@@ -50,10 +51,7 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         self.assertEqual(response.data["code"], "service_unavailable")
         self.assertEqual(response.status_code, status.HTTP_503_SERVICE_UNAVAILABLE)
         self.assertEqual(response.data["title"], "External service unreachable")
-        self.assertEqual(
-            response.data["detail"],
-            "External service 'catalogi-api-2' unreachable.",
-        )
+        self.assertEqual(response.data["detail"], "External service error")
 
     def test_service_configuration(self):
         service = ServiceFactory.create(
@@ -105,6 +103,7 @@ class ZaakTypeTests(VCRMixin, APITestCase):
             response.json(),
             {
                 "uuid": "f609b6fe-449a-46dc-a0af-de55dc5f6774",
+                "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/f609b6fe-449a-46dc-a0af-de55dc5f6774",
                 "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/bd58635c-793e-446d-a7e0-460d7b04829d",
                 "identificatie": "ZT-001",
                 "omschrijving": "Test",
@@ -185,6 +184,7 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
                 "results": [
                     {
                         "uuid": "a516793a-cb5f-446d-bfa3-56077c1897be",
+                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/a516793a-cb5f-446d-bfa3-56077c1897be",
                         "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/e035387e-6374-4eb9-b3d1-416294402bae",
                         "identificatie": "ZAAKTYPE-2020-0000000002",
                         "omschrijving": "Case type for children component",

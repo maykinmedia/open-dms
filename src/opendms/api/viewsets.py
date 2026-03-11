@@ -1,8 +1,7 @@
 from django.utils.translation import gettext_lazy as _
 
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
-from requests.exceptions import RequestException
-from rest_framework import exceptions, viewsets
+from rest_framework import viewsets
 from rest_framework.exceptions import ValidationError
 from rest_framework.filters import SearchFilter
 from vng_api_common.pagination import DynamicPageSizePagination
@@ -11,9 +10,8 @@ from zgw_consumers.models import Service
 
 from .clients import get_zaaktypen_client, get_zaken_client
 from .models import ZGWApiGroupConfig
-from .serializers import ServiceSerializer, ZaakTypeSerializer, ZaakSerializer
+from .serializers import ServiceSerializer, ZaakSerializer, ZaakTypeSerializer
 from .typing import ZaakAPI, ZaakTypeAPI
-from .utils.exceptions import ExternalServiceUnavailable
 from .utils.mixins import ReadOnlyViewSetMixin
 
 QUERY_PARAM_FIELD = "search"
@@ -91,13 +89,8 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         """
         uuid = self.kwargs.get(self.lookup_field)
 
-        try:
-            with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
-                return client.get_item_by_uuid(uuid)
-        except RequestException:
-            raise exceptions.NotFound(
-                _("ZaakType with UUID {uuid} not found").format(uuid=uuid)
-            )
+        with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+            return client.get_item_by_uuid(uuid)
 
     def get_queryset(self, params: dict) -> list[ZaakTypeAPI] | None:
         """
@@ -114,24 +107,14 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 raise ValidationError(
                     _(
                         "Unexpected parameters: {keys}. Only '{query_key}' is allowed."
-                    ).format(
-                        keys=", ".join(keys),
-                        query_key=QUERY_PARAM_FIELD,
-                    ),
+                    ).format(keys=", ".join(keys), query_key=QUERY_PARAM_FIELD),
                     code="unknown-parameters",
                 )
 
             query_params[self.search_field] = query_params.pop(QUERY_PARAM_FIELD)
 
-        try:
-            with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
-                return client.get_cached_items(self.service.slug, query_params)
-        except RequestException as exc:
-            raise ExternalServiceUnavailable(
-                _("External service '{service_slug}' unreachable.").format(
-                    service_slug=self.service.slug,
-                )
-            ) from exc
+        with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+            return client.get_cached_items(self.service.slug, query_params)
 
 
 class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
@@ -150,33 +133,19 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         zaaktype_uuid = self.kwargs.get("zaaktypen_zaaktype_uuid")
 
         # TODO investigate here if you can use cache
-        try:
-            with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
-                zaaktype = client.get_item_by_uuid(zaaktype_uuid)
-                return zaaktype["url"]
-        except RequestException:
-            raise exceptions.NotFound(
-                _("ZaakType with UUID {uuid} not found").format(uuid=zaaktype_uuid)
-            )
 
-        return f"{self.zgw_group.ztc_service.api_root}zaaktypen/{zaaktype_uuid}"
+        with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+            zaaktype = client.get_item_by_uuid(zaaktype_uuid)
+            return zaaktype["url"]
 
     def get_queryset(self, params: dict) -> list[ZaakAPI] | None:
         """
-        Retrieve all Zaaken filtered by a specific zaaktype.
+        Retrieve all Zaaken filtered by a specific Zaaktype.
 
         This method is overridden because no Django model queryset exists.
-        ZaakType data is retrieved dynamically from the external Zaaktypen
+        Zaak data is retrieved dynamically from the external Zaaken
         API via the configured client.
         """
-        # TODO fix dynamic params
 
-        try:
-            with get_zaken_client(self.zgw_group.zrc_service) as client:
-                return client.get_items_by_zaaktype(self.zaaktype_url)
-        except RequestException as exc:
-            raise ExternalServiceUnavailable(
-                _("External service '{service_slug}' unreachable.").format(
-                    service_slug=self.service.slug,
-                )
-            ) from exc
+        with get_zaken_client(self.zgw_group.zrc_service) as client:
+            return client.get_items_by_zaaktype(self.zaaktype_url)
