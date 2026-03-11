@@ -38,6 +38,7 @@ cbor2==5.8.0
     # via webauthn
 celery==5.6.2
     # via
+    #   django-celery-beat
     #   flower
     #   notifications-api-common
     #   open-api-framework
@@ -67,6 +68,8 @@ click-repl==0.3.0
     # via celery
 commonground-api-common==2.11.0
     # via open-api-framework
+cron-descriptor==1.4.5
+    # via django-celery-beat
 cryptography==46.0.5
     # via
     #   django-simple-certmanager
@@ -80,6 +83,7 @@ django==5.2.12
     #   django-admin-index
     #   django-appconf
     #   django-axes
+    #   django-celery-beat
     #   django-cors-headers
     #   django-csp
     #   django-filter
@@ -102,6 +106,7 @@ django==5.2.12
     #   django-simple-certmanager
     #   django-solo
     #   django-structlog
+    #   django-timezone-field
     #   django-two-factor-auth
     #   django-upgrade-check
     #   djangorestframework
@@ -127,6 +132,8 @@ django-axes==8.3.1
     # via
     #   maykin-common
     #   open-api-framework
+django-celery-beat==2.9.0
+    # via -r requirements/base.in
 django-cors-headers==4.9.0
     # via open-api-framework
 django-csp==4.0
@@ -186,6 +193,8 @@ django-solo==2.5.1
     #   zgw-consumers
 django-structlog==10.0.0
     # via open-api-framework
+django-timezone-field==7.2.1
+    # via django-celery-beat
 django-two-factor-auth==1.18.1
     # via maykin-2fa
 django-upgrade-check==1.1.0
@@ -415,6 +424,8 @@ pyopenssl==25.3.0
     # via webauthn
 pyppmd==1.1.1
     # via py7zr
+python-crontab==3.3.0
+    # via django-celery-beat
 python-dateutil==2.9.0.post0
     # via
     #   celery
@@ -521,7 +532,9 @@ typing-inspection==0.4.2
     #   pydantic
     #   pydantic-settings
 tzdata==2025.3
-    # via kombu
+    # via
+    #   django-celery-beat
+    #   kombu
 tzlocal==5.3.1
     # via celery
 uritemplate==4.2.0

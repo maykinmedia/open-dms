@@ -1,8 +1,9 @@
 from datetime import datetime
 
 import structlog
-from celery import shared_task
 from zgw_consumers.models import Service
+
+from opendms.celery import app
 
 from .client import search_last_document_creatiedatum
 from .document_client import get_documenten_client
@@ -11,7 +12,7 @@ from .tasks import index_document
 logger = structlog.get_logger(__name__)
 
 
-@shared_task
+@app.task()
 def index_all_documents(service_slug: str) -> None:
     """
     Fetch all documents from OpenZaak and index them in Elasticsearch.

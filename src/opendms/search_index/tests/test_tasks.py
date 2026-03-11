@@ -8,6 +8,7 @@ from maykin_common.vcr import VCRMixin
 from opendms.api.tests.factories import ServiceFactory
 
 from ..client import get_elasticsearch_client
+from ..document_task import index_all_documents
 from ..index import Document
 from ..tasks import (
     index_document,
@@ -629,3 +630,44 @@ class RemoveFromIndexTaskTests(VCRMixin, ElasticSearchTestCase):
             self.assertRaises(NotFoundError),
         ):
             Document.get(id="ad4d66a8-1503-4743-ae55-d1765512530c", using=client)
+
+
+@override_settings(CELERY_TASK_ALWAYS_EAGER=True)
+class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchTestCase):
+    def test_indexes_documents(self):
+        service = ServiceFactory.create(
+            for_drc_service_docker_compose=True, slug="documenten-api"
+        )
+
+        index_all_documents(service.slug)
+
+        with get_elasticsearch_client() as client:
+            all_docs = Document.search(using=client).execute()
+            assert len(all_docs) > 0, "Expected at least one document indexed"
+
+            doc = all_docs[0]
+            assert hasattr(doc, "uuid")
+            assert hasattr(doc, "titel")
+            assert hasattr(doc, "creatiedatum")
+
+    def test_creatiedatum_prevents_reindexing_by_double_call(self):
+        service = ServiceFactory.create(
+            for_drc_service_docker_compose=True, slug="documenten-api"
+        )
+
+        index_all_documents(service.slug)
+
+        with get_elasticsearch_client() as client:
+            all_docs_first = Document.search(using=client).execute()
+            uuids_first = [doc.uuid for doc in all_docs_first]
+
+        index_all_documents(service.slug)
+
+        with get_elasticsearch_client() as client:
+            all_docs_second = Document.search(using=client).execute()
+            uuids_second = [doc.uuid for doc in all_docs_second]
+
+            assert uuids_first == uuids_second
+
+            for uuid in uuids_second:
+                assert uuids_second.count(uuid) == 1

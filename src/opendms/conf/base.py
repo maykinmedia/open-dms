@@ -7,6 +7,7 @@ from pathlib import Path
 
 from django.utils.functional import SimpleLazyObject
 
+from celery.schedules import crontab
 from maykin_common.health_checks import default_health_check_apps
 from open_api_framework.conf.base import *  # noqa
 from open_api_framework.conf.utils import config  # noqa
@@ -23,6 +24,7 @@ INSTALLED_APPS = INSTALLED_APPS + [
     "hijack",
     "hijack.contrib.admin",
     "maykin_common",
+    "django_celery_beat",
     # Project applications.
     "opendms.accounts",
     "opendms.api",
@@ -245,7 +247,13 @@ CELERY_TASK_SOFT_TIME_LIMIT = config(
     "CELERY_TASK_SOFT_TIME_LIMIT", default=1 * 60
 )  # soft
 
-CELERY_BEAT_SCHEDULE = {}
+CELERY_BEAT_SCHEDULE = {
+    "update_documents_hourly": {
+        "task": "opendms.search_index.document_task.index_all_documents",
+        "schedule": crontab(minute=0),
+        "args": ("openzaak-documenten",),
+    },
+}
 
 # Only ACK when the task has been executed. This prevents tasks from getting lost, with
 # the drawback that tasks should be idempotent (if they execute partially, the mutations
