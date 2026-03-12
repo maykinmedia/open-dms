@@ -5,7 +5,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br, zstd
       Connection:
       - keep-alive
       User-Agent:
@@ -15,7 +15,7 @@ interactions:
   response:
     body:
       string: '{"type":"http://localhost:8003/ref/fouten/NotFound/","code":"not_found","title":"Niet
-        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:1fa16947-5c75-4cd9-943a-5c15b9b257c7"}'
+        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:2ea74c4c-1678-47bc-8195-968219fd8041"}'
     headers:
       API-version:
       - 1.3.1
@@ -24,11 +24,11 @@ interactions:
       Content-Length:
       - '195'
       Content-Security-Policy:
-      - 'object-src ''none''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; form-action ''self''; worker-src ''self'' blob:; frame-src
-        ''self''; frame-ancestors ''none''; base-uri ''self''; font-src ''self'' fonts.gstatic.com;
-        default-src ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        frame-ancestors ''none''; frame-src ''self''; form-action ''self''; style-src
+        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
+        object-src ''none''; default-src ''self''; font-src ''self'' fonts.gstatic.com;
+        worker-src ''self'' blob:; base-uri ''self''; script-src ''self'' ''unsafe-inline''
         cdnjs.cloudflare.com cdn.jsdelivr.net'
       Content-Type:
       - application/json
@@ -51,7 +51,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br, zstd
       Connection:
       - keep-alive
       User-Agent:
@@ -70,11 +70,11 @@ interactions:
       Content-Length:
       - '2287'
       Content-Security-Policy:
-      - 'object-src ''none''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; form-action ''self''; worker-src ''self'' blob:; frame-src
-        ''self''; frame-ancestors ''none''; base-uri ''self''; font-src ''self'' fonts.gstatic.com;
-        default-src ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        frame-ancestors ''none''; frame-src ''self''; form-action ''self''; style-src
+        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
+        object-src ''none''; default-src ''self''; font-src ''self'' fonts.gstatic.com;
+        worker-src ''self'' blob:; base-uri ''self''; script-src ''self'' ''unsafe-inline''
         cdnjs.cloudflare.com cdn.jsdelivr.net'
       Content-Type:
       - application/json

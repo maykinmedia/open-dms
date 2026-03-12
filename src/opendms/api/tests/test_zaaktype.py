@@ -1,5 +1,5 @@
 from maykin_common.vcr import VCRMixin
-from requests.exceptions import Timeout
+from requests.exceptions import RequestException
 from rest_framework import status
 from vng_api_common.tests import reverse
 from zgw_consumers.constants import APITypes
@@ -14,11 +14,11 @@ class ZaakTypeTests(VCRMixin, APITestCase):
     def setUpTestData(cls):
         super().setUpTestData()
 
-        cls.service = ServiceFactory.create(for_ztc_service_docker_compose=True)
-        cls.configuration = ZGWApiGroupConfigFactory.create(ztc_service=cls.service)
+        cls.ztc_service = ServiceFactory.create(for_ztc_service_docker_compose=True)
+        cls.configuration = ZGWApiGroupConfigFactory.create(ztc_service=cls.ztc_service)
 
         cls.list_url = reverse(
-            "api:zaaktypen-list", kwargs={"service_slug": cls.service.slug}
+            "api:zaaktypen-list", kwargs={"service_slug": cls.ztc_service.slug}
         )
 
     def test_list(self):
@@ -33,7 +33,6 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 7)  # from openzaak container
 
-    # TODO timeout as well codecov
     def test_service_connection(self):
         service = ServiceFactory.create(
             label="Catalogi API 2",
@@ -41,17 +40,25 @@ class ZaakTypeTests(VCRMixin, APITestCase):
             api_root="http://testserver",
             api_type=APITypes.ztc,
         )
-        ZGWApiGroupConfigFactory.create(ztc_service=service)
 
-        with self.vcr_raises(Timeout):
-            response = self.client.get(
-                reverse("api:zaaktypen-list", kwargs={"service_slug": service.slug})
-            )
+        self.configuration.ztc_service = service
+        self.configuration.save()
 
+        url = reverse("api:zaaktypen-list", kwargs={"service_slug": service.slug})
+
+        with self.vcr_raises(RequestException):
+            response = self.client.get(url)
         self.assertEqual(response.data["code"], "service_unavailable")
         self.assertEqual(response.status_code, status.HTTP_503_SERVICE_UNAVAILABLE)
         self.assertEqual(response.data["title"], "External service unreachable")
         self.assertEqual(response.data["detail"], "External service error")
+
+        with self.vcr_raises(TimeoutError):
+            response = self.client.get(url)
+        self.assertEqual(response.data["code"], "service_unavailable")
+        self.assertEqual(response.status_code, status.HTTP_503_SERVICE_UNAVAILABLE)
+        self.assertEqual(response.data["title"], "External service unreachable")
+        self.assertEqual(response.data["detail"], "External service timeout")
 
     def test_service_configuration(self):
         service = ServiceFactory.create(

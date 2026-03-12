@@ -48,7 +48,6 @@ class HttpRequestMixin:
 
             if response.status_code == status.HTTP_404_NOT_FOUND:
                 raise exceptions.NotFound(f"Resource at {url} not found")
-
             response.raise_for_status()
             return response.json()
 

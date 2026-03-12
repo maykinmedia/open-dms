@@ -1,7 +1,3 @@
-from functools import partial
-
-from django.core.cache import cache
-
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
@@ -73,18 +69,7 @@ class ZaakClient(HttpRequestMixin, NLXClient):
             toelichting=data["toelichting"],
         )
 
-    def get_cached_items(
-        self, service_slug: str, params: dict, cache_timeout: int = 300
-    ) -> list[ZaakAPI]:
-
-        if params:
-            return self.get_items(params)
-
-        return cache.get_or_set(
-            key=f"zaaktypen:{service_slug}:zaken",
-            default=partial(self.get_items, params),
-            timeout=cache_timeout,
-        )
+    # TODO investigate for get_cached_items
 
 
 def get_zaken_client(service: Service) -> ZaakClient:
