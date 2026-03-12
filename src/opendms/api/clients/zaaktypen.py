@@ -8,7 +8,6 @@ from zgw_consumers.nlx import NLXClient
 from zgw_consumers.service import pagination_helper
 
 from ..typing import ZaakTypeAPI
-from ..utils.exceptions import NoServiceConfigured
 from ..utils.mixins import HttpRequestMixin
 from ..utils.validators import extract_uuid
 
@@ -62,7 +61,4 @@ class ZaakTypeClient(HttpRequestMixin, NLXClient):
 
 
 def get_zaaktypen_client(service: Service) -> ZaakTypeClient:
-    if service is None:
-        raise NoServiceConfigured("No ZaakTypen API service configured!")
-
     return build_client(service, client_factory=ZaakTypeClient)
