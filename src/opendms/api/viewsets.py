@@ -2,7 +2,6 @@ from django.utils.translation import gettext_lazy as _
 
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
 from rest_framework import viewsets
-from rest_framework.exceptions import ValidationError
 from rest_framework.filters import SearchFilter
 from vng_api_common.pagination import DynamicPageSizePagination
 from zgw_consumers.constants import APITypes
@@ -76,8 +75,16 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     serializer_class = ZaakTypeSerializer
     pagination_class = DynamicPageSizePagination
     lookup_field = "zaaktype_uuid"
-    search_field = "identificatie__icontains"
+    lookup_search_field = "identificatie__icontains"
     queryset = None
+
+    def clean_search_field(self, params: dict) -> dict:
+        query_params = params.copy()
+        if query_params and QUERY_PARAM_FIELD in query_params.keys():
+            param = query_params.get(QUERY_PARAM_FIELD)
+            del query_params[QUERY_PARAM_FIELD]
+            query_params[self.lookup_search_field] = param
+        return query_params
 
     def get_object(self) -> ZaakTypeAPI | None:
         """
@@ -100,21 +107,9 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         ZaakType data is retrieved dynamically from the external Zaaktypen
         API via the configured client.
         """
-
-        query_params = params.copy()
-        if query_params:
-            if (keys := set(query_params.keys())) != {QUERY_PARAM_FIELD}:
-                raise ValidationError(
-                    _(
-                        "Unexpected parameters: {keys}. Only '{query_key}' is allowed."
-                    ).format(keys=", ".join(keys), query_key=QUERY_PARAM_FIELD),
-                    code="unknown-parameters",
-                )
-
-            query_params[self.search_field] = query_params.pop(QUERY_PARAM_FIELD)
-
+        params = self.clean_search_field(params)
         with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
-            return client.get_cached_items(self.service.slug, query_params)
+            return client.get_cached_items(self.service.slug, params)
 
 
 @extend_schema_view(
@@ -176,7 +171,6 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     pagination_class = DynamicPageSizePagination
     lookup_field = "zaken_uuid"
     parent_lookup_field = "zaaktypen_zaaktype_uuid"
-    search_field = "identificatie__icontains"
     queryset = None
 
     @property

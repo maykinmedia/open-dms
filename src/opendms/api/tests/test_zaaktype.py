@@ -238,10 +238,8 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
     def test_not_valid_search_param(self):
         response = self.client.get(self.list_url, query_params={"test": "random"})
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-        self.assertEqual(
-            response.json()["invalidParams"][0]["code"], "unknown-parameters"
-        )
+        self.assertEqual(response.json()["invalidParams"][0]["code"], "bad-request")
         self.assertEqual(
             response.json()["invalidParams"][0]["reason"],
-            "Unexpected parameters: test. Only 'search' is allowed.",
+            "Invalid or unsupported query parameters.",
         )
