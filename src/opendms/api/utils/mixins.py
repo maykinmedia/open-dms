@@ -46,8 +46,20 @@ class HttpRequestMixin:
         try:
             response = self.get(url, params=params, headers=headers)
 
-            if response.status_code == status.HTTP_404_NOT_FOUND:
-                raise exceptions.NotFound(f"Resource at {url} not found")
+            match response.status_code:
+                case status.HTTP_404_NOT_FOUND:
+                    raise exceptions.NotFound(
+                        _("Resource at {url} not found").format(url=url)
+                    )
+
+                case status.HTTP_400_BAD_REQUEST:
+                    # raise a generic message
+                    logger.exception("bad_request")
+                    raise exceptions.ValidationError(
+                        _("Invalid or unsupported query parameters."),
+                        code="bad-request",
+                    )
+
             response.raise_for_status()
             return response.json()
 
