@@ -49,6 +49,11 @@ babel==2.18.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   sphinx
+backports-zstd==1.3.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   pyzstd
 beautifulsoup4==4.14.3
     # via
     #   -c requirements/ci.txt
@@ -162,7 +167,7 @@ cssselect==1.4.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   pyquery
-django==5.2.11
+django==5.2.12
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -540,11 +545,6 @@ kombu==5.6.2
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   celery
-legacy-cgi==2.6.4
-    # via
-    #   -c requirements/ci.txt
-    #   -r requirements/ci.txt
-    #   webob
 lxml==6.0.2
     # via
     #   -c requirements/ci.txt
@@ -1086,6 +1086,7 @@ typing-extensions==4.15.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   anyio
     #   beautifulsoup4
     #   elasticsearch
     #   grpcio
@@ -1095,8 +1096,12 @@ typing-extensions==4.15.0
     #   opentelemetry-exporter-otlp-proto-http
     #   opentelemetry-sdk
     #   opentelemetry-semantic-conventions
+    #   psycopg
     #   pydantic
     #   pydantic-core
+    #   pyopenssl
+    #   pyzstd
+    #   referencing
     #   typing-inspection
     #   zgw-consumers
 typing-inspection==0.4.2

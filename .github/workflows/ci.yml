@@ -123,7 +123,7 @@ jobs:
         uses: maykinmedia/setup-django-backend@v1.3
         with:
           python-version: '3.12'
-          apt-packages: "libgdal-dev gdal-bin"
+          apt-packages: "gdal-bin"
           setup-node: false
 
       - name: Generate environment variable documentation using OAf and check if it was updated
