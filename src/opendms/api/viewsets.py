@@ -117,6 +117,56 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             return client.get_cached_items(self.service.slug, query_params)
 
 
+@extend_schema_view(
+    list=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="zaaktypen_zaaktype_uuid",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name=QUERY_PARAM_FIELD,
+                description=_(
+                    "A search term for the ZaakType service. "
+                    "The search is performed against the `identificatie__icontains` field."
+                ),
+                required=False,
+                location=OpenApiParameter.QUERY,
+                type=str,
+            ),
+        ],
+    ),
+    retrieve=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="zaaktypen_zaaktype_uuid",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="zaken_uuid",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    ),
+)
 class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     """
     Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
