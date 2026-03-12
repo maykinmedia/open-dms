@@ -166,7 +166,7 @@ paths:
   /api/v1/services/{serviceSlug}/zaaktypen:
     get:
       operationId: apiV1ServicesZaaktypenList
-      description: Exposes Zaaktypen from a ZGW service.
+      description: Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
       parameters:
       - name: page
         required: false
@@ -212,7 +212,7 @@ paths:
   /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}:
     get:
       operationId: apiV1ServicesZaaktypenRetrieve
-      description: Exposes Zaaktypen from a ZGW service.
+      description: Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
       parameters:
       - in: path
         name: serviceSlug
@@ -240,6 +240,94 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ZaakType'
+          description: ''
+  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken:
+    get:
+      operationId: apiV1ServicesZaaktypenZakenList
+      description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: 'Het aantal resultaten terug te geven per pagina. (default: 100,
+          maximum: 500).'
+        schema:
+          type: integer
+      - in: query
+        name: search
+        schema:
+          type: string
+        description: A search term for the ZaakType service. The search is performed
+          against the `identificatie__icontains` field.
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zaaktypenZaaktypeUuid
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedZaakList'
+          description: ''
+  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenUuid}:
+    get:
+      operationId: apiV1ServicesZaaktypenZakenRetrieve
+      description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+      parameters:
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zaaktypenZaaktypeUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zakenUuid
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zaak'
           description: ''
   /api/v1/services/{slug}:
     get:
@@ -430,6 +518,29 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Service'
+    PaginatedZaakList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Zaak'
     PaginatedZaakTypeList:
       type: object
       required:
@@ -605,6 +716,60 @@ components:
       required:
       - isAuthenticated
       - user
+    Zaak:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: UUID van dit object. Dit is de unieke identificatiecode van
+            dit object.
+        url:
+          type: string
+          format: uri
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+        identificatie:
+          type: string
+          description: De unieke identificatie van de ZAAK binnen de organisatie die
+            verantwoordelijk is voor de behandeling van de ZAAK.
+        zaaktype:
+          type: string
+          description: URL-referentie naar het ZAAKTYPE (in de Catalogi API).
+        bronorganisatie:
+          type: string
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die de zaak heeft gecreeerd.
+        verantwoordelijkeOrganisatie:
+          type: string
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die eindverantwoordelijk is voor de behandeling van de zaak.
+        registratiedatum:
+          type: string
+          format: date
+          description: De datum waarop de zaakbehandelende organisatie de ZAAK heeft
+            geregistreerd
+        startdatum:
+          type: string
+          format: date
+          description: De datum waarop met de uitvoering van de zaak is gestart.
+        omschrijving:
+          type: string
+          description: Een korte omschrijving van de zaak.
+        toelichting:
+          type: string
+          description: Een toelichting op de zaak.
+      required:
+      - bronorganisatie
+      - identificatie
+      - omschrijving
+      - registratiedatum
+      - startdatum
+      - toelichting
+      - url
+      - uuid
+      - verantwoordelijkeOrganisatie
+      - zaaktype
     ZaakType:
       type: object
       properties:
@@ -613,6 +778,11 @@ components:
           format: uuid
           description: UUID van dit object. Dit is de unieke identificatiecode van
             dit object.
+        url:
+          type: string
+          format: uri
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
         catalogus:
           type: string
           format: uri
@@ -638,6 +808,7 @@ components:
       - eindeGeldigheid
       - identificatie
       - omschrijving
+      - url
       - uuid
   securitySchemes:
     AnonCSRFSession:
