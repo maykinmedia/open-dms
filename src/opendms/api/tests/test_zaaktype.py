@@ -1,3 +1,5 @@
+from django.urls import NoReverseMatch
+
 from maykin_common.vcr import VCRMixin
 from requests.exceptions import RequestException
 from rest_framework import status
@@ -59,6 +61,22 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_503_SERVICE_UNAVAILABLE)
         self.assertEqual(response.data["title"], "External service unreachable")
         self.assertEqual(response.data["detail"], "External service timeout")
+
+        # wrong service_slug
+        url = reverse("api:zaaktypen-list", kwargs={"service_slug": "test"})
+        response = self.client.get(url)
+        self.assertEqual(response.data["code"], "not_found")
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+        self.assertEqual(response.data["title"], "Niet gevonden.")
+        self.assertEqual(response.data["detail"], "Niet gevonden.")
+
+        # missing service_slug
+        with self.assertRaises(NoReverseMatch):
+            url = reverse("api:zaken-list", kwargs={})
+
+        # empty service_slug
+        with self.assertRaises(NoReverseMatch):
+            url = reverse("api:zaken-list", kwargs={"service_slug": ""})
 
     def test_service_configuration(self):
         service = ServiceFactory.create(

@@ -73,10 +73,8 @@ class ReadOnlyViewSetMixin:
         The result is cached on first access to avoid repeated lookups
         during the request lifecycle.
         """
-        if self._zgw_group is None:
-            self._zgw_group = get_group_from_ztc_service(self.service)
 
-        return self._zgw_group
+        return get_group_from_ztc_service(self.service)
 
     @property
     def service(self) -> Service:
@@ -87,15 +85,13 @@ class ReadOnlyViewSetMixin:
         and cached on first access for reuse during the request lifecycle.
         """
         if self._service is None:
-            service_slug = self.kwargs.get("service_slug")
-            if not service_slug:
-                raise exceptions.NotFound(_("Service slug missing"))
-
-            self._service = get_object_or_404(Service, slug=service_slug)
-
+            self._service = get_object_or_404(
+                Service,
+                slug=self.kwargs.get("service_slug", ""),
+            )
         return self._service
 
-    def get_serializer_context(self):
+    def get_serializer_context(self) -> dict:
         return {"request": self.request, "format": self.format_kwarg, "view": self}
 
     def get_serializer(self, *args, **kwargs):

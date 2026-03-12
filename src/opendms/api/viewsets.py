@@ -183,9 +183,8 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     def zaaktype_url(self) -> str:
         zaaktype_uuid = self.kwargs.get(self.parent_lookup_field)
 
-        # TODO investigate here if you can use cache
-
         with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+            # TODO investigate here if you can use cache
             zaaktype = client.get_item_by_uuid(zaaktype_uuid)
             return zaaktype["url"]
 
@@ -209,6 +208,6 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         Zaak data is retrieved dynamically from the external Zaken
         API via the configured client.
         """
-        # TODO investigate here if you can use cache
         with get_zaken_client(self.zgw_group.zrc_service) as client:
+            # TODO investigate here if you can use cache
             return client.get_items_by_zaaktype(self.zaaktype_url)
