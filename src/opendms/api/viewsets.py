@@ -124,13 +124,14 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
     serializer_class = ZaakSerializer
     pagination_class = DynamicPageSizePagination
-    lookup_field = "zaaktype_uuid"
+    lookup_field = "zaken_uuid"
+    parent_lookup_field = "zaaktypen_zaaktype_uuid"
     search_field = "identificatie__icontains"
     queryset = None
 
     @property
     def zaaktype_url(self) -> str:
-        zaaktype_uuid = self.kwargs.get("zaaktypen_zaaktype_uuid")
+        zaaktype_uuid = self.kwargs.get(self.parent_lookup_field)
 
         # TODO investigate here if you can use cache
 
@@ -138,14 +139,26 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             zaaktype = client.get_item_by_uuid(zaaktype_uuid)
             return zaaktype["url"]
 
+    def get_object(self) -> ZaakTypeAPI | None:
+        """
+        Retrieve a single Zaak from the external service by UUID.
+
+        This method is overridden because the ViewSet does not use a Django
+        model or ORM queryset. Instead, the requested ZaakType is fetched
+        directly from the external Zaken API using the client.
+        """
+        uuid = self.kwargs.get(self.lookup_field)
+        with get_zaken_client(self.zgw_group.zrc_service) as client:
+            return client.get_item_by_uuid(uuid)
+
     def get_queryset(self, params: dict) -> list[ZaakAPI] | None:
         """
-        Retrieve all Zaaken filtered by a specific Zaaktype.
+        Retrieve all Zaken filtered by a specific Zaaktype.
 
         This method is overridden because no Django model queryset exists.
-        Zaak data is retrieved dynamically from the external Zaaken
+        Zaak data is retrieved dynamically from the external Zaken
         API via the configured client.
         """
-
+        # TODO investigate here if you can use cache
         with get_zaken_client(self.zgw_group.zrc_service) as client:
             return client.get_items_by_zaaktype(self.zaaktype_url)

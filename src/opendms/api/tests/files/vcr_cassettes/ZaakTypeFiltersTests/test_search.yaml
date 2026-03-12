@@ -5,7 +5,7 @@ interactions:
       Accept:
       - '*/*'
       Accept-Encoding:
-      - gzip, deflate
+      - gzip, deflate, br, zstd
       Connection:
       - keep-alive
       User-Agent:
@@ -32,11 +32,11 @@ interactions:
       Content-Length:
       - '14202'
       Content-Security-Policy:
-      - 'object-src ''none''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; form-action ''self''; worker-src ''self'' blob:; frame-src
-        ''self''; frame-ancestors ''none''; base-uri ''self''; font-src ''self'' fonts.gstatic.com;
-        default-src ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        frame-ancestors ''none''; frame-src ''self''; form-action ''self''; style-src
+        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
+        object-src ''none''; default-src ''self''; font-src ''self'' fonts.gstatic.com;
+        worker-src ''self'' blob:; base-uri ''self''; script-src ''self'' ''unsafe-inline''
         cdnjs.cloudflare.com cdn.jsdelivr.net'
       Content-Type:
       - application/json
