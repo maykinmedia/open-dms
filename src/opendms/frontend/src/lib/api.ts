@@ -42,9 +42,9 @@ const csrfClientMiddleware: Middleware = {
       return;
 
     // The token is obtaines using Django's {% csrf_token %}.
-    const csrftoken = document.querySelector<HTMLInputElement>(
+    const csrftoken = document.querySelector<HTMLMetaElement>(
       "[name=csrfmiddlewaretoken]",
-    )?.value;
+    )?.content;
 
     // Assert that the token is resolved.
     invariant(
