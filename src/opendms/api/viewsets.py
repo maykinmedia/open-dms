@@ -16,6 +16,7 @@ from .typing import (
     ZakenPaginatedResponse,
 )
 from .utils.mixins import ReadOnlyViewSetMixin
+from .utils.pagination import CountedPagination
 
 QUERY_PARAM_FIELD = "search"
 
@@ -25,7 +26,7 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = Service.objects.filter(api_type=APITypes.ztc)
     lookup_field = "slug"
     serializer_class = ServiceSerializer
-
+    pagination_class = CountedPagination
     search_fields = ["slug", "api_root", "label"]
 
 
@@ -76,6 +77,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     _zgw_group: ZGWApiGroupConfig | None = None
 
     serializer_class = ZaakTypeSerializer
+    pagination_class = CountedPagination
     lookup_field = "zaaktype_uuid"
     lookup_search_field = "identificatie__icontains"
     queryset = None
@@ -169,6 +171,7 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     """
 
     serializer_class = ZaakSerializer
+    pagination_class = CountedPagination
     lookup_field = "zaken_uuid"
     parent_lookup_field = "zaaktypen_zaaktype_uuid"
     queryset = None

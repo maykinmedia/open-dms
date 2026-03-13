@@ -14,3 +14,16 @@ class CountedPagination(DynamicPageSizePagination):
                 "results": data,
             }
         )
+
+    def get_paginated_response_schema(self, schema) -> dict:
+        return {
+            "type": "object",
+            "required": ["count", "results"],
+            "properties": {
+                "count": {
+                    "type": "integer",
+                    "example": 123,
+                },
+                "results": schema,
+            },
+        }
