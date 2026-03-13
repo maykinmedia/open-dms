@@ -5,9 +5,8 @@ from django.core.cache import cache
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
-from zgw_consumers.service import pagination_helper
 
-from ..typing import ZaakTypeAPI
+from ..typing import ZaakType, ZaakTypenPaginatedResponse
 from ..utils.mixins import HttpRequestMixin
 from ..utils.validators import extract_uuid
 
@@ -19,43 +18,36 @@ class ZaakTypeClient(HttpRequestMixin, NLXClient):
 
     endpoint = "zaaktypen"
 
-    def get_items(self, params: dict) -> list[ZaakTypeAPI]:
+    def get_paginated_items(self, params: dict) -> ZaakTypenPaginatedResponse:
         data = self.make_request(self.endpoint, params)
-        return [
-            ZaakTypeAPI(
-                uuid=extract_uuid(record["url"]),
-                url=record["url"],
-                catalogus=record["catalogus"],
-                identificatie=record["identificatie"],
-                omschrijving=record["omschrijving"],
-                beginGeldigheid=record["beginGeldigheid"],
-                eindeGeldigheid=record["eindeGeldigheid"],
-            )
-            for record in pagination_helper(self, data)
-        ]
+        results = [self._map_zaaktype(record) for record in data.get("results", [])]
+        return ZaakTypenPaginatedResponse(count=data["count"], results=results)
 
-    def get_item_by_uuid(self, uuid: str) -> ZaakTypeAPI | None:
+    def get_item_by_uuid(self, uuid: str) -> ZaakType | None:
         data = self.make_request(f"{self.endpoint}/{uuid}")
-        return ZaakTypeAPI(
-            uuid=extract_uuid(data["url"]),
-            url=data["url"],
-            catalogus=data["catalogus"],
-            identificatie=data["identificatie"],
-            omschrijving=data["omschrijving"],
-            beginGeldigheid=data["beginGeldigheid"],
-            eindeGeldigheid=data["eindeGeldigheid"],
+        return self._map_zaaktype(data)
+
+    @staticmethod
+    def _map_zaaktype(record: dict) -> ZaakType:
+        return ZaakType(
+            uuid=extract_uuid(record["url"]),
+            url=record["url"],
+            catalogus=record["catalogus"],
+            identificatie=record["identificatie"],
+            omschrijving=record["omschrijving"],
+            beginGeldigheid=record["beginGeldigheid"],
+            eindeGeldigheid=record["eindeGeldigheid"],
         )
 
-    def get_cached_items(
+    def get_paginated_cached_items(
         self, service_slug: str, params: dict, cache_timeout: int = 300
-    ) -> list[ZaakTypeAPI]:
-
+    ) -> ZaakTypenPaginatedResponse:
         if params:
-            return self.get_items(params)
+            return self.get_paginated_items(params)
 
         return cache.get_or_set(
             key=f"zaaktypen:{service_slug}:",
-            default=partial(self.get_items, params),
+            default=partial(self.get_paginated_items, params),
             timeout=cache_timeout,
         )
 

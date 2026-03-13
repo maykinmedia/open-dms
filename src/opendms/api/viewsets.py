@@ -3,14 +3,18 @@ from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
-from vng_api_common.pagination import DynamicPageSizePagination
 from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
 
 from .clients import get_zaaktypen_client, get_zaken_client
 from .models import ZGWApiGroupConfig
 from .serializers import ServiceSerializer, ZaakSerializer, ZaakTypeSerializer
-from .typing import ZaakAPI, ZaakTypeAPI
+from .typing import (
+    Zaak,
+    ZaakType,
+    ZaakTypenPaginatedResponse,
+    ZakenPaginatedResponse,
+)
 from .utils.mixins import ReadOnlyViewSetMixin
 
 QUERY_PARAM_FIELD = "search"
@@ -20,7 +24,6 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
     filter_backends = (SearchFilter,)
     queryset = Service.objects.filter(api_type=APITypes.ztc)
     lookup_field = "slug"
-    pagination_class = DynamicPageSizePagination
     serializer_class = ServiceSerializer
 
     search_fields = ["slug", "api_root", "label"]
@@ -73,7 +76,6 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     _zgw_group: ZGWApiGroupConfig | None = None
 
     serializer_class = ZaakTypeSerializer
-    pagination_class = DynamicPageSizePagination
     lookup_field = "zaaktype_uuid"
     lookup_search_field = "identificatie__icontains"
     queryset = None
@@ -86,7 +88,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             query_params[self.lookup_search_field] = param
         return query_params
 
-    def get_object(self) -> ZaakTypeAPI | None:
+    def get_object(self) -> ZaakType | None:
         """
         Retrieve a single ZaakType from the external service by UUID.
 
@@ -95,11 +97,10 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         directly from the external Zaaktypen API using the client.
         """
         uuid = self.kwargs.get(self.lookup_field)
-
         with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
             return client.get_item_by_uuid(uuid)
 
-    def get_queryset(self, params: dict) -> list[ZaakTypeAPI] | None:
+    def get_paginated_queryset(self, params: dict) -> ZaakTypenPaginatedResponse | None:
         """
         Retrieve all Zaaktypen available for the configured service.
 
@@ -109,7 +110,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         """
         params = self.clean_search_field(params)
         with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
-            return client.get_cached_items(self.service.slug, params)
+            return client.get_paginated_cached_items(self.service.slug, params)
 
 
 @extend_schema_view(
@@ -168,7 +169,6 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     """
 
     serializer_class = ZaakSerializer
-    pagination_class = DynamicPageSizePagination
     lookup_field = "zaken_uuid"
     parent_lookup_field = "zaaktypen_zaaktype_uuid"
     queryset = None
@@ -182,7 +182,7 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             zaaktype = client.get_item_by_uuid(zaaktype_uuid)
             return zaaktype["url"]
 
-    def get_object(self) -> ZaakTypeAPI | None:
+    def get_object(self) -> Zaak | None:
         """
         Retrieve a single Zaak from the external service by UUID.
 
@@ -194,7 +194,7 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         with get_zaken_client(self.zgw_group.zrc_service) as client:
             return client.get_item_by_uuid(uuid)
 
-    def get_queryset(self, params: dict) -> list[ZaakAPI] | None:
+    def get_paginated_queryset(self, params: dict) -> ZakenPaginatedResponse | None:
         """
         Retrieve all Zaken filtered by a specific Zaaktype.
 
@@ -204,4 +204,4 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         """
         with get_zaken_client(self.zgw_group.zrc_service) as client:
             # TODO investigate here if you can use cache
-            return client.get_items_by_zaaktype(self.zaaktype_url)
+            return client.get_paginated_items_by_zaaktype(self.zaaktype_url, params)

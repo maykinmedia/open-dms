@@ -9,6 +9,7 @@ from rest_framework.response import Response
 from zgw_consumers.models import Service
 
 from ..models import ZGWApiGroupConfig
+from ..typing import PaginatedResponse
 from .exceptions import ExternalServiceUnavailable, ZGWGroupConfigurationMissing
 
 logger = structlog.stdlib.get_logger(__name__)
@@ -73,7 +74,6 @@ class HttpRequestMixin:
 
 
 class ReadOnlyViewSetMixin:
-    _zgw_group: Service | None = None
     _service: Service | None = None
 
     @property
@@ -111,17 +111,9 @@ class ReadOnlyViewSetMixin:
         return self.serializer_class(*args, **kwargs)
 
     def list(self, request: Request, *args, **kwargs) -> Response:
-        items = self.get_queryset(request.query_params)
-        paginator = self.pagination_class()
-        page = paginator.paginate_queryset(items, request)
-        if page is not None:
-            serializer = self.serializer_class(
-                page, many=True, context=self.get_serializer_context()
-            )
-            return paginator.get_paginated_response(serializer.data)
-
-        serializer = self.get_serializer(items, many=True)
-        return Response(serializer.data)
+        data = self.get_paginated_queryset(request.query_params)
+        serializer = self.get_serializer(data["results"], many=True)
+        return Response(PaginatedResponse(count=data["count"], results=serializer.data))
 
     def retrieve(self, request: Request, *args, **kwargs) -> Response:
         instance = self.get_object()

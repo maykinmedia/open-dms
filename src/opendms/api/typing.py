@@ -3,7 +3,12 @@ from typing import TypedDict
 from uuid import UUID
 
 
-class ZaakTypeAPI(TypedDict):
+class PaginatedResponse[T](TypedDict):
+    count: int
+    results: list[T]
+
+
+class ZaakType(TypedDict):
     uuid: UUID
     url: str
     catalogus: str
@@ -13,7 +18,7 @@ class ZaakTypeAPI(TypedDict):
     eindeGeldigheid: date | None
 
 
-class ZaakAPI(TypedDict):
+class Zaak(TypedDict):
     uuid: UUID
     url: str
     identificatie: str
@@ -24,3 +29,7 @@ class ZaakAPI(TypedDict):
     startdatum: date
     omschrijving: str
     toelichting: str
+
+
+ZaakTypenPaginatedResponse = PaginatedResponse[ZaakType]
+ZakenPaginatedResponse = PaginatedResponse[Zaak]
