@@ -47,8 +47,6 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         data = response.json()
 
         self.assertEqual(data["count"], 1)
-        self.assertFalse(data["previous"])
-        self.assertFalse(data["next"])
 
         results = data["results"]
         self.assertEqual(results[0]["record"]["uuid"], doc["uuid"])
@@ -67,8 +65,6 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         data = response.json()
 
         self.assertEqual(data["count"], 2)
-        self.assertFalse(data["previous"])
-        self.assertTrue(data["next"])
         self.assertEqual(len(data["results"]), 1)
 
     def test_pagination_previous(self):
@@ -90,8 +86,6 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         data = response.json()
 
         self.assertEqual(data["count"], 2)
-        self.assertTrue(data["previous"])
-        self.assertFalse(data["next"])
         # test if results have the same length as the count
         self.assertEqual(len(data["results"]), 1)
         self.assertEqual(
@@ -114,8 +108,6 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         data = response.json()
 
         self.assertEqual(data["count"], 2)
-        self.assertFalse(data["previous"])
-        self.assertFalse(data["next"])
 
         self.assertEqual(data["results"][0]["record"]["uuid"], doc2["uuid"])
         self.assertEqual(data["results"][1]["record"]["uuid"], doc1["uuid"])

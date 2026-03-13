@@ -35,6 +35,30 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 7)  # from openzaak container
 
+    def test_pagination(self):
+        # no params, open-zaak default pageSize = 100
+        response = self.client.get(self.list_url)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 7)  # from openzaak container
+
+        # pageSize=2
+        response = self.client.get(self.list_url, query_params={"pageSize": 2})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+
+        # pageSize=2 & page=3
+        response = self.client.get(
+            self.list_url, query_params={"pageSize": 2, "page": 3}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+
+        # pageSize=100 & page=20 not exists page
+        response = self.client.get(
+            self.list_url, query_params={"pageSize": 100, "page": 20}
+        )
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
+
     def test_service_connection(self):
         service = ServiceFactory.create(
             label="Catalogi API 2",
@@ -204,8 +228,6 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
             response.json(),
             {
                 "count": 1,
-                "next": None,
-                "previous": None,
                 "results": [
                     {
                         "uuid": "a516793a-cb5f-446d-bfa3-56077c1897be",
@@ -242,4 +264,59 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
         self.assertEqual(
             response.json()["invalidParams"][0]["reason"],
             "Invalid or unsupported query parameters.",
+        )
+
+    def test_search_param_with_paginations(self):
+        response = self.client.get(
+            self.list_url, query_params={"search": "ZAAKTYPE-2020"}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+
+        response = self.client.get(
+            self.list_url,
+            query_params={"search": "ZAAKTYPE-2020", "pageSize": 1},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 1)
+        self.assertEqual(
+            response.json(),
+            {
+                "count": 2,
+                "results": [
+                    {
+                        "uuid": "a516793a-cb5f-446d-bfa3-56077c1897be",
+                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/a516793a-cb5f-446d-bfa3-56077c1897be",
+                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/e035387e-6374-4eb9-b3d1-416294402bae",
+                        "identificatie": "ZAAKTYPE-2020-0000000002",
+                        "omschrijving": "Case type for children component",
+                        "beginGeldigheid": "2020-06-20",
+                        "eindeGeldigheid": None,
+                    }
+                ],
+            },
+        )
+
+        response = self.client.get(
+            self.list_url,
+            query_params={"search": "ZAAKTYPE-2020", "pageSize": 1, "page": 2},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 1)
+        self.assertEqual(
+            response.json(),
+            {
+                "count": 2,
+                "results": [
+                    {
+                        "uuid": "77543c85-e5cd-4b3e-b7a5-27165e1334b1",
+                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/77543c85-e5cd-4b3e-b7a5-27165e1334b1",
+                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/7575ec62-a5ed-421f-bfc7-f8837066dd10",
+                        "identificatie": "ZAAKTYPE-2020-0000000001",
+                        "omschrijving": "Case type for partners component",
+                        "beginGeldigheid": "2020-06-20",
+                        "eindeGeldigheid": None,
+                    }
+                ],
+            },
         )

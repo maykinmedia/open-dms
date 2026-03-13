@@ -32,8 +32,6 @@ class ServiceTests(APITestCase):
             response.json(),
             {
                 "count": 1,
-                "next": None,
-                "previous": None,
                 "results": [{"slug": "slug-test", "label": "label-test"}],
             },
         )
@@ -56,12 +54,8 @@ class ServiceTests(APITestCase):
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         data = response.json()
-
-        self.assertEqual(response.json()["count"], 10)
-        self.assertEqual(len(response.json()["results"]), 5)
-        self.assertEqual(
-            data["next"], f"http://testserver{self.list_url}?page=2&pageSize=5"
-        )
+        self.assertEqual(data["count"], 10)
+        self.assertEqual(len(data["results"]), 5)
 
     def test_detail(self):
         # create Service
