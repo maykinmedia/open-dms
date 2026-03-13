@@ -262,46 +262,16 @@ export interface components {
         PaginatedServiceList: {
             /** @example 123 */
             count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
             results: components["schemas"]["Service"][];
         };
         PaginatedZaakList: {
             /** @example 123 */
             count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
             results: components["schemas"]["Zaak"][];
         };
         PaginatedZaakTypeList: {
             /** @example 123 */
             count: number;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=4
-             */
-            next?: string | null;
-            /**
-             * Format: uri
-             * @example http://api.example.org/accounts/?page=2
-             */
-            previous?: string | null;
             results: components["schemas"]["ZaakType"][];
         };
         Search: {

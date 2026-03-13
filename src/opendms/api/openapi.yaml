@@ -504,16 +504,6 @@ components:
         count:
           type: integer
           example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=2
         results:
           type: array
           items:
@@ -527,16 +517,6 @@ components:
         count:
           type: integer
           example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=2
         results:
           type: array
           items:
@@ -550,16 +530,6 @@ components:
         count:
           type: integer
           example: 123
-        next:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=4
-        previous:
-          type: string
-          nullable: true
-          format: uri
-          example: http://api.example.org/accounts/?page=2
         results:
           type: array
           items:
