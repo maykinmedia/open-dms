@@ -18,6 +18,7 @@ x-app-env: &x-app-env
   - CACHE_AXES=redis:6379/0
   - CELERY_BROKER_URL=redis://redis:6379/1
   - CELERY_RESULT_BACKEND=redis://redis:6379/1
+  - CELERY_WORKER_NAME=celery@docker
   - DISABLE_2FA=true
   # Environment labeling
   - SHOW_ENVIRONMENT=yes
@@ -143,8 +144,16 @@ services:
     environment: *x-app-env 
     command: /celery_worker.sh
     healthcheck:
-      test: ["CMD", "python", "/app/bin/check_celery_worker_liveness.py"]
-      interval: 30s
+      test: [
+        "CMD",
+        "maykin-common",
+        "worker-health-check",
+        "--liveness-file=/app/tmp/celery_worker_event_loop.live",
+        "--max-age=70",
+        "--broker=redis://redis:6379/0",
+        "--worker-name=celery@docker",
+      ]
+      interval: 60s
       timeout: 5s
       retries: 3
       start_period: 10s
@@ -174,6 +183,13 @@ services:
     depends_on:
       - redis
       - celery
+    healthcheck:
+      test: [
+        "CMD",
+        "maykin-common",
+        "health-check",
+        "--endpoint=http://localhost:5555/"
+      ]
     networks:
       - open-dms-dev
 

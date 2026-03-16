@@ -19,6 +19,8 @@ logger = structlog.get_logger(__name__)
 
 __all__ = ["get_elasticsearch_client", "get_search_results"]
 
+DOCUMENT_INDEX = "document"
+
 
 def get_elasticsearch_client() -> Elasticsearch:
     host = settings.SEARCH_INDEX["HOST"]
@@ -185,24 +187,17 @@ def get_search_results(
     )
 
 
-def search_last_document_creatiedatum() -> str | None:
-    """
-    Return the latest creatiedatum of documents in the given Elasticsearch index.
-    Returns YYYY-MM-DD string, or None if no documents exist.
-    """
-    client = get_elasticsearch_client()
-    index_name = "document"
+def search_last_document_creatiedatum() -> str:
+    """Return the latest creatiedatum of documents in Elasticsearch, or None if not present."""
     try:
-        response = client.search(
-            index=index_name,
-            size=0,
-            query={"exists": {"field": "creatiedatum"}},
-            aggs={"latest_date": {"max": {"field": "creatiedatum"}}},
-        )
-        latest = response["aggregations"]["latest_date"].get("value_as_string")
-        if latest:
-            return latest
-        return None
+        with get_elasticsearch_client() as client:
+            response = client.search(
+                index=DOCUMENT_INDEX,
+                size=0,
+                query={"exists": {"field": "creatiedatum"}},
+                aggs={"latest_date": {"max": {"field": "creatiedatum"}}},
+            )
+            return response["aggregations"]["latest_date"].get("value_as_string", "")
     except Exception as e:
-        logger.warning("failed_to_fetch_latest_creatiedatum", error=str(e))
-        return None
+        logger.warning("failed_to_connect_to_elasticsearch_client", error=str(e))
+        return ""

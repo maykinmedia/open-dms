@@ -3,6 +3,7 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 from maykin_common.vcr import VCRMixin
+from requests.exceptions import RequestException
 from rest_framework import status
 from vng_api_common.tests import reverse
 
@@ -528,4 +529,10 @@ class SearchLastDocumentCreatiedatumTests(VCRMixin, ElasticSearchAPITestCase):
     def test_returns_none_when_no_documents(self):
         result = search_last_document_creatiedatum()
 
-        self.assertIsNone(result)
+        self.assertEqual("", result)
+
+    def test_returns_none_when_elasticsearch_client_fails(self):
+        with self.vcr_raises(RequestException):
+            result = search_last_document_creatiedatum()
+
+            self.assertEqual("", result)

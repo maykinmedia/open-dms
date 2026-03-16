@@ -251,7 +251,6 @@ CELERY_BEAT_SCHEDULE = {
     "update_documents_hourly": {
         "task": "opendms.search_index.document_task.index_all_documents",
         "schedule": crontab(minute=0),
-        "args": ("openzaak-documenten",),
     },
 }
 

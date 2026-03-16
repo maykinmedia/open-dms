@@ -3,13 +3,13 @@ from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
 from zgw_consumers.service import pagination_helper
 
-from opendms.api.utils.exceptions import NoServiceConfigured
 from opendms.api.utils.validators import extract_uuid
 
-from .typing import DocumentType
+from ...search_index.typing import DocumentType
+from ..utils.mixins import HttpRequestMixin
 
 
-class DocumentClient(NLXClient):
+class DocumentClient(HttpRequestMixin, NLXClient):
     """
     Client for retrieving all Documenten from an OpenZaak service.
     """
@@ -21,9 +21,7 @@ class DocumentClient(NLXClient):
         Fetch all documenten using pagination.
         """
         params = filters or {}
-        response = self.get(self.endpoint, params=params)
-        response.raise_for_status()
-        data = response.json()
+        data = self.make_request(self.endpoint, params)
 
         return [
             DocumentType(
@@ -50,6 +48,4 @@ class DocumentClient(NLXClient):
 
 
 def get_documenten_client(service: Service) -> DocumentClient:
-    if service is None:
-        raise NoServiceConfigured("No Documenten API service configured!")
     return build_client(service, client_factory=DocumentClient)
