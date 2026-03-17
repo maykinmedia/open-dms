@@ -9,8 +9,6 @@ export OTEL_SERVICE_NAME="${OTEL_SERVICE_NAME:-opendms-scheduler}"
 mkdir -p celerybeat
 
 echo "Starting celery beat"
-exec celery beat \
-    --app opendms \
+exec celery --workdir src --app opendms beat \
     -l $LOGLEVEL \
-    --workdir src \
     -s ../celerybeat/beat

@@ -8,13 +8,18 @@ from urllib.parse import urlsplit
 
 from django.conf import settings
 
+import structlog
 from elasticsearch import Elasticsearch
 from elasticsearch.dsl import Q, Search
 
 from .index import Document
 from .typing import IndexName
 
+logger = structlog.get_logger(__name__)
+
 __all__ = ["get_elasticsearch_client", "get_search_results"]
+
+DOCUMENT_INDEX = "document"
 
 
 def get_elasticsearch_client() -> Elasticsearch:
@@ -180,3 +185,19 @@ def get_search_results(
         total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
         results=results,
     )
+
+
+def search_last_document_creatiedatum() -> str:
+    """Return the latest creatiedatum of documents in Elasticsearch, or None if not present."""
+    try:
+        with get_elasticsearch_client() as client:
+            response = client.search(
+                index=DOCUMENT_INDEX,
+                size=0,
+                query={"exists": {"field": "creatiedatum"}},
+                aggs={"latest_date": {"max": {"field": "creatiedatum"}}},
+            )
+            return response["aggregations"]["latest_date"].get("value_as_string", "")
+    except Exception as e:
+        logger.warning("failed_to_connect_to_elasticsearch_client", error=str(e))
+        return ""

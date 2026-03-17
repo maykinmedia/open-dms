@@ -3,12 +3,14 @@ from types import SimpleNamespace
 from unittest.mock import patch
 
 from maykin_common.vcr import VCRMixin
+from requests.exceptions import RequestException
 from rest_framework import status
 from vng_api_common.tests import reverse
 
 from opendms.api.tests.api_testcase import APITestCase
 from opendms.api.tests.factories import ServiceFactory
 
+from ..client import search_last_document_creatiedatum
 from ..tasks import index_document
 from .base import ElasticSearchAPITestCase
 from .factories import IndexDocumentFactory
@@ -503,3 +505,34 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             data = response.json()
             self.assertEqual(data["count"], 0)
+
+
+class SearchLastDocumentCreatiedatumTests(VCRMixin, ElasticSearchAPITestCase):
+    def test_returns_latest_creatiedatum(self):
+        index_document(
+            **IndexDocumentFactory.build(
+                uuid="62fdeb92-98ad-475c-b184-49ee8a274787",
+                creatiedatum=date(2024, 1, 1),
+            )
+        )
+        index_document(
+            **IndexDocumentFactory.build(
+                uuid="13fceb92-98bd-475c-b184-49ee8a274787",
+                creatiedatum=date(2025, 2, 1),
+            )
+        )
+
+        result = search_last_document_creatiedatum()
+
+        self.assertEqual(result, "2025-02-01")
+
+    def test_returns_none_when_no_documents(self):
+        result = search_last_document_creatiedatum()
+
+        self.assertEqual("", result)
+
+    def test_returns_none_when_elasticsearch_client_fails(self):
+        with self.vcr_raises(RequestException):
+            result = search_last_document_creatiedatum()
+
+            self.assertEqual("", result)

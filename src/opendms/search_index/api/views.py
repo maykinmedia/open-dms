@@ -1,8 +1,6 @@
 from django.utils.translation import gettext_lazy as _
 
 from drf_spectacular.utils import extend_schema
-
-# from rest_framework.authentication import TokenAuthentication
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -28,7 +26,6 @@ class SearchView(APIView):
         query_serializer.is_valid(raise_exception=True)
         params: SearchParameters = query_serializer.validated_data
 
-        # Fetch search results with supported filters only
         search_results = get_search_results(
             query=params["query"],
             creatiedatum_from=params["creatiedatum_vanaf"],
@@ -38,7 +35,6 @@ class SearchView(APIView):
             sort=params["sort"],
         )
 
-        # Serialize and return response
         response = SearchResponseSerializer(
             instance=search_results,
             context={"page": page, "page_size": page_size},

@@ -92,6 +92,8 @@ celery==5.6.2
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   django-celery-beat
+    #   flower
     #   notifications-api-common
 certifi==2026.1.4
     # via
@@ -153,6 +155,11 @@ coverage==7.13.4
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+cron-descriptor==1.4.5
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   django-celery-beat
 cryptography==46.0.5
     # via
     #   -c requirements/ci.txt
@@ -175,6 +182,7 @@ django==5.2.12
     #   django-admin-index
     #   django-appconf
     #   django-axes
+    #   django-celery-beat
     #   django-cors-headers
     #   django-csp
     #   django-debug-toolbar
@@ -199,6 +207,7 @@ django==5.2.12
     #   django-simple-certmanager
     #   django-solo
     #   django-structlog
+    #   django-timezone-field
     #   django-two-factor-auth
     #   django-upgrade-check
     #   djangorestframework
@@ -229,6 +238,10 @@ django-axes==8.3.1
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   open-api-framework
+django-celery-beat==2.9.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
 django-cors-headers==4.9.0
     # via
     #   -c requirements/ci.txt
@@ -352,6 +365,11 @@ django-structlog==10.0.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+django-timezone-field==7.2.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   django-celery-beat
 django-two-factor-auth==1.18.1
     # via
     #   -c requirements/ci.txt
@@ -454,6 +472,10 @@ faker==40.4.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   factory-boy
+flower==2.0.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
 freezegun==1.5.5
     # via
     #   -c requirements/ci.txt
@@ -489,6 +511,11 @@ httpcore==1.0.9
     # via httpx
 httpx==0.28.1
     # via bump-my-version
+humanize==4.15.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   flower
 idna==3.11
     # via
     #   -c requirements/ci.txt
@@ -744,6 +771,11 @@ polib==1.2.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   django-rosetta
+prometheus-client==0.24.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   flower
 prompt-toolkit==3.0.52
     # via
     #   -c requirements/ci.txt
@@ -845,6 +877,11 @@ pyquery==2.0.1
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+python-crontab==3.3.0
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   django-celery-beat
 python-dateutil==2.9.0.post0
     # via
     #   -c requirements/ci.txt
@@ -874,6 +911,11 @@ python-magic==0.4.27
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+pytz==2026.1.post1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   flower
 pyyaml==6.0.3
     # via
     #   -c requirements/ci.txt
@@ -1074,6 +1116,11 @@ texttable==1.7.0
     #   py7zr
 tomlkit==0.14.0
     # via bump-my-version
+tornado==6.5.4
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+    #   flower
 typer==0.23.1
     # via
     #   -c requirements/ci.txt
@@ -1114,6 +1161,7 @@ tzdata==2025.3
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
+    #   django-celery-beat
     #   kombu
 tzlocal==5.3.1
     # via

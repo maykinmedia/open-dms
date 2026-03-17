@@ -7,6 +7,7 @@ from pathlib import Path
 
 from django.utils.functional import SimpleLazyObject
 
+from celery.schedules import crontab
 from maykin_common.health_checks import default_health_check_apps
 from open_api_framework.conf.base import *  # noqa
 from open_api_framework.conf.utils import config  # noqa
@@ -23,6 +24,7 @@ INSTALLED_APPS = INSTALLED_APPS + [
     "hijack",
     "hijack.contrib.admin",
     "maykin_common",
+    "django_celery_beat",
     # Project applications.
     "opendms.accounts",
     "opendms.api",
@@ -231,3 +233,33 @@ SEARCH_INDEX = {
 SEARCH_INDEXABLE_FILE_TYPES = SimpleLazyObject(
     partial(load_indexable_file_types, BASE_DIR)
 )
+
+
+#
+# CELERY - async task queue
+#
+# CELERY_BROKER_URL  defined in open-api-framework
+# CELERY_RESULT_BACKEND  defined in open-api-framework
+
+# Add (by default) 1 (soft), 5 (hard) minute timeouts to all Celery tasks.
+CELERY_TASK_TIME_LIMIT = config("CELERY_TASK_HARD_TIME_LIMIT", default=5 * 60)  # hard
+CELERY_TASK_SOFT_TIME_LIMIT = config(
+    "CELERY_TASK_SOFT_TIME_LIMIT", default=1 * 60
+)  # soft
+
+CELERY_BEAT_SCHEDULE = {
+    "update_documents_hourly": {
+        "task": "opendms.search_index.document_task.index_all_documents",
+        "schedule": crontab(minute=0),
+    },
+}
+
+# Only ACK when the task has been executed. This prevents tasks from getting lost, with
+# the drawback that tasks should be idempotent (if they execute partially, the mutations
+# executed will be executed again!)
+CELERY_TASK_ACKS_LATE = True
+
+# ensure that no tasks are scheduled to a worker that may be running a very long-running
+# operation, leading to idle workers and backed-up workers. The `-O fair` option
+# *should* have the same effect...
+CELERY_WORKER_PREFETCH_MULTIPLIER = 1

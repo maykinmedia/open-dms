@@ -15,7 +15,8 @@ from elasticsearch import NotFoundError
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 
-# from opendms.celery import app
+from opendms.celery import app
+
 from .client import get_elasticsearch_client
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID
 from .index import Document
@@ -142,6 +143,7 @@ def _download_document(document_url: str) -> NestedDocumentData | None:
                 ]
 
 
+@app.task()
 def index_document(
     *,
     uuid: str,
@@ -200,6 +202,7 @@ def index_document(
         )
 
 
+@app.task()
 def remove_document_from_index(uuid: str) -> None:
     """
     If the document with specified ``uuid`` is present in the index, remove it.

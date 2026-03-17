@@ -2,18 +2,23 @@ from datetime import UTC, date, datetime
 
 from django.test import override_settings
 
+from celery import current_app
+from celery.schedules import crontab
 from elasticsearch import NotFoundError
+from freezegun import freeze_time
 from maykin_common.vcr import VCRMixin
 
-from opendms.api.tests.factories import ServiceFactory
+from opendms.api.clients.documenten import get_documenten_client
+from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
 
 from ..client import get_elasticsearch_client
+from ..document_task import index_all_documents, search_last_document_creatiedatum
 from ..index import Document
 from ..tasks import (
     index_document,
     remove_document_from_index,
 )
-from .base import ElasticSearchTestCase
+from .base import ElasticSearchAPITestCase, ElasticSearchTestCase
 from .factories import IndexDocumentFactory
 
 
@@ -629,3 +634,119 @@ class RemoveFromIndexTaskTests(VCRMixin, ElasticSearchTestCase):
             self.assertRaises(NotFoundError),
         ):
             Document.get(id="ad4d66a8-1503-4743-ae55-d1765512530c", using=client)
+
+
+@override_settings(CELERY_TASK_ALWAYS_EAGER=True)
+class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+        cls.documenten_service = ServiceFactory.create(
+            for_drc_service_docker_compose=True
+        )
+        ZGWApiGroupConfigFactory.create(
+            drc_service=cls.documenten_service,
+        )
+
+        cls.documenten_service_2 = ServiceFactory.create(
+            for_drc_service_docker_compose=True
+        )
+        ZGWApiGroupConfigFactory.create(
+            drc_service=cls.documenten_service_2,
+        )
+
+    def test_indexes_documents(self):
+        index_all_documents()
+
+        with get_elasticsearch_client() as client:
+            all_docs = Document.search(using=client).execute()
+            self.assertGreater(
+                len(all_docs), 0, "Expected at least one document indexed"
+            )
+
+            doc = all_docs[0]
+            self.assertTrue(hasattr(doc, "uuid"))
+            self.assertTrue(hasattr(doc, "titel"))
+            self.assertTrue(hasattr(doc, "creatiedatum"))
+
+    def test_creatiedatum_prevents_reindexing_by_double_call(self):
+        index_all_documents()
+
+        with get_elasticsearch_client() as client:
+            all_docs_first = Document.search(using=client).execute()
+            uuids_first = [doc.uuid for doc in all_docs_first]
+
+        index_all_documents()
+
+        with get_elasticsearch_client() as client:
+            all_docs_second = Document.search(using=client).execute()
+            uuids_second = [doc.uuid for doc in all_docs_second]
+
+        self.assertEqual(set(uuids_first), set(uuids_second))
+
+    def test_add_new_document(self):
+        index_all_documents()
+        with get_elasticsearch_client() as client:
+            docs_before = Document.search(using=client).execute()
+            count_before = len(docs_before)
+
+        new_docs = [
+            IndexDocumentFactory.build(
+                uuid="bd4d66a8-1503-4743-ae55-d1765512530c",
+            ),
+            IndexDocumentFactory.build(
+                uuid="rd4d66a8-1503-4743-ae55-d1765512530c",
+            ),
+        ]
+        for doc in new_docs:
+            index_document(**doc)
+
+        index_all_documents()
+        with get_elasticsearch_client() as client:
+            docs_after = Document.search(using=client).execute()
+            count_after = len(docs_after)
+
+        self.assertGreater(count_after, count_before)
+        uuids_after = [doc.uuid for doc in docs_after]
+
+        self.assertIn("bd4d66a8-1503-4743-ae55-d1765512530c", uuids_after)
+        self.assertIn("rd4d66a8-1503-4743-ae55-d1765512530c", uuids_after)
+
+    @freeze_time("2026-03-16 12:00:00+00:00")
+    def test_hourly_task(self):
+        schedule = current_app.conf.beat_schedule
+        task_entry = schedule.get("update_documents_hourly")
+        self.assertIsNotNone(task_entry)
+        self.assertEqual(
+            task_entry["task"], "opendms.search_index.document_task.index_all_documents"
+        )
+        self.assertIsInstance(task_entry["schedule"], crontab)
+
+        current_app.tasks[task_entry["task"]].apply()
+
+        with get_elasticsearch_client() as client:
+            all_docs = Document.search(using=client).execute()
+            self.assertGreater(len(all_docs), 0)
+
+    def test_date_filter(self):
+        doc1 = IndexDocumentFactory.build(
+            uuid="doc-old",
+            creatiedatum="2026-03-13",
+        )
+        index_document(**doc1)
+
+        with get_elasticsearch_client() as client:
+            client.indices.refresh(index="document")
+
+        index_all_documents()
+
+        last_creatiedatum = search_last_document_creatiedatum()
+        self.assertEqual(last_creatiedatum, "2026-03-13")
+
+        with get_documenten_client(self.documenten_service) as client:
+            documents = client.get_items(
+                filters={"creatiedatum__gte": last_creatiedatum}
+            )
+
+        for doc in documents:
+            self.assertGreaterEqual(doc["creatiedatum"], last_creatiedatum)
