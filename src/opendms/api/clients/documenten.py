@@ -16,11 +16,12 @@ class DocumentClient(HttpRequestMixin, NLXClient):
 
     endpoint = "enkelvoudiginformatieobjecten"
 
-    def get_items(self, filters: dict | None = None) -> list[DocumentType]:
+    def get_items(self, params: dict | None = None) -> list[DocumentType]:
         """
         Fetch all documenten using pagination.
         """
-        params = filters or {}
+        params = params or {}
+        # params = {**params, "objectinformatieobjecten__objectType": "zaak"}
         data = self.make_request(self.endpoint, params)
 
         return [

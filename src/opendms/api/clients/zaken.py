@@ -16,8 +16,11 @@ class ZaakClient(HttpRequestMixin, NLXClient):
     endpoint = "zaken"
 
     def get_paginated_items_by_zaaktype(
-        self, zaaktype_url: str, params: dict
+        self,
+        zaaktype_url: str,
+        params: dict | None = None,
     ) -> ZakenPaginatedResponse:
+        params = params or {}
         data = self.make_request(
             self.endpoint,
             params={**params, "zaaktype": zaaktype_url},

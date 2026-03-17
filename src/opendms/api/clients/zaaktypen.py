@@ -18,7 +18,11 @@ class ZaakTypeClient(HttpRequestMixin, NLXClient):
 
     endpoint = "zaaktypen"
 
-    def get_paginated_items(self, params: dict) -> ZaakTypenPaginatedResponse:
+    def get_paginated_items(
+        self,
+        params: dict | None = None,
+    ) -> ZaakTypenPaginatedResponse:
+        params = params or {}
         data = self.make_request(self.endpoint, params)
         results = [self._map_zaaktype(record) for record in data.get("results", [])]
         return ZaakTypenPaginatedResponse(count=data["count"], results=results)
@@ -40,8 +44,12 @@ class ZaakTypeClient(HttpRequestMixin, NLXClient):
         )
 
     def get_paginated_cached_items(
-        self, service_slug: str, params: dict, cache_timeout: int = 300
+        self,
+        service_slug: str,
+        params: dict | None = None,
+        cache_timeout: int = 300,
     ) -> ZaakTypenPaginatedResponse:
+        params = params or {}
         if params:
             return self.get_paginated_items(params)
 

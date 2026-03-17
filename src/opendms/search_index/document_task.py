@@ -3,12 +3,12 @@ from datetime import datetime
 import structlog
 from zgw_consumers.models import Service
 
+from opendms.api.clients import get_documenten_client
 from opendms.api.utils.exceptions import (
     ExternalServiceUnavailable,
 )
 from opendms.celery import app
 
-from ..api.clients.documenten import get_documenten_client
 from .client import search_last_document_creatiedatum
 from .tasks import index_document
 
@@ -45,7 +45,7 @@ def index_all_documents() -> None:
             filters = (
                 {"creatiedatum__gte": last_creatiedatum} if last_creatiedatum else None
             )
-            all_documents = client.get_items(filters=filters)
+            all_documents = client.get_items(params=filters)
 
         logger.info("documents_fetched", service=service.slug, count=len(all_documents))
 
