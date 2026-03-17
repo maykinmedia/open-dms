@@ -34,7 +34,7 @@ export const Fallback: Story = {
 export const List: Story = {
   parameters: {
     reactRouter: sanitizedReactRouterParameters(
-      "/exampleService/exampleZaaktype/2026/123/",
+      "/service_2/22222222-2222-2222-2222-222222222222/2023/123",
     ),
     msw: {
       handlers: [

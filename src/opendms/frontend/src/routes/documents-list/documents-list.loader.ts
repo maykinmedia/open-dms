@@ -4,6 +4,7 @@ import type { Document } from "~/types";
 
 export async function documentsListLoader({
   params,
+  request,
 }: LoaderFunctionArgs): Promise<{
   count: number;
   results: Document[];
@@ -16,12 +17,18 @@ export async function documentsListLoader({
   )
     return null;
 
+  const url = new URL(request.url);
+  const urlSearchParams = new URLSearchParams(url.search);
+
   const { data } = await apiClient.GET(
     // @ts-expect-error - API not ready
     "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}/zaken/zaakYear/{zaakYear}/zaakId/{zaakId}",
     {
       params: {
         path: params,
+        query: {
+          page: urlSearchParams.get("page"),
+        },
       },
     },
   );

@@ -156,12 +156,25 @@ export const MOCK_ZAKEN = http.get(
 );
 
 export const MOCK_DOCUMENTS = http.get(
-  "/api/v1/services/exampleService/zaaktypen/exampleZaaktype/zaken/zaakYear/2026/zaakId/123",
-  () =>
-    HttpResponse.json({
-      count: 300,
-      previous: null,
-      next: "/api/v1/services/exampleService/zaaktypen/exampleZaaktype/zaken/zaakYear/2026/zaakId/123?page=2",
-      results: batchFactory(documentFactory, 20),
-    }),
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken/zaakYear/2023/zaakId/123",
+  ({ request }) => {
+    const pageSize = 20;
+    const count = 300;
+
+    const url = new URL(request.url);
+    const page = parseInt(new URLSearchParams(url.search).get("page") || "1");
+    const page0 = page - 1;
+
+    const results = batchFactory(documentFactory, count).slice(
+      page0 * pageSize,
+      page0 * pageSize + pageSize,
+    );
+
+    return HttpResponse.json({
+      count,
+      previous: "http://...",
+      next: "http://...",
+      results,
+    });
+  },
 );
