@@ -8,7 +8,7 @@ from elasticsearch import NotFoundError
 from freezegun import freeze_time
 from maykin_common.vcr import VCRMixin
 
-from opendms.api.clients.documenten import get_documenten_client
+from opendms.api.clients import get_documenten_client
 from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
 
 from ..client import get_elasticsearch_client
@@ -745,7 +745,7 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
         with get_documenten_client(self.documenten_service) as client:
             documents = client.get_items(
-                filters={"creatiedatum__gte": last_creatiedatum}
+                params={"creatiedatum__gte": last_creatiedatum}
             )
 
         for doc in documents:
