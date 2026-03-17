@@ -21,7 +21,7 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         Fetch all documenten using pagination.
         """
         params = params or {}
-        # params = {**params, "objectinformatieobjecten__objectType": "zaak"}
+        params = {**params, "objectinformatieobjecten__objectType": "zaak"}
         data = self.make_request(self.endpoint, params)
 
         return [
