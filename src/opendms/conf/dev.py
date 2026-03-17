@@ -27,7 +27,7 @@ os.environ.setdefault("OTEL_EXPORTER_OTLP_METRICS_INSECURE", "true")
 
 os.environ.setdefault("VCR_RECORD_MODE", "once")
 
-os.environ.setdefault("ELASTICSEARCH_HOST", "http://localhost:9200/")
+os.environ.setdefault("ELASTICSEARCH_HOST", "http://localhost:9201/")
 os.environ.setdefault("ELASTICSEARCH_USER", "elastic")
 os.environ.setdefault("ELASTICSEARCH_PASSWORD", "insecure-elastic")
 
