@@ -167,6 +167,7 @@ paths:
     get:
       operationId: apiV1ServicesZaaktypenList
       description: Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
+      summary: zaaktypenList
       parameters:
       - name: page
         required: false
@@ -213,6 +214,7 @@ paths:
     get:
       operationId: apiV1ServicesZaaktypenRetrieve
       description: Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
+      summary: zaaktypenRetrieve
       parameters:
       - in: path
         name: serviceSlug
@@ -245,7 +247,20 @@ paths:
     get:
       operationId: apiV1ServicesZaaktypenZakenList
       description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+      summary: zakenList
       parameters:
+      - in: query
+        name: identificatie__icontains
+        schema:
+          type: string
+        description: De unieke identificatie van de ZAAK (bevat de identificatie de
+          gegeven waarden (hoofdletterongevoelig))
+      - in: query
+        name: omschrijving
+        schema:
+          type: string
+        description: Een korte omschrijving van de ZAAK (bevat de omschrijving de
+          gegeven waarden (hoofdletterongevoelig))
       - name: page
         required: false
         in: query
@@ -259,17 +274,17 @@ paths:
           maximum: 500).'
         schema:
           type: integer
-      - in: query
-        name: search
-        schema:
-          type: string
-        description: A search term for the ZaakType service. The search is performed
-          against the `identificatie__icontains` field.
       - in: path
         name: serviceSlug
         schema:
           type: string
         required: true
+      - in: query
+        name: startdatum__gte
+        schema:
+          type: string
+          format: date
+        description: De datum waarop met de uitvoering van de zaak is gestart
       - in: path
         name: zaaktypenZaaktypeUuid
         schema:
@@ -296,6 +311,7 @@ paths:
     get:
       operationId: apiV1ServicesZaaktypenZakenRetrieve
       description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+      summary: zakenRetrieve
       parameters:
       - in: path
         name: serviceSlug

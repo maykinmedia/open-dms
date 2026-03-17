@@ -107,7 +107,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Exposes Zaaktypen from /services/<zgw-service>/zaaktypen */
+        /**
+         * zaaktypenList
+         * @description Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
+         */
         get: operations["apiV1ServicesZaaktypenList"];
         put?: never;
         post?: never;
@@ -124,7 +127,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Exposes Zaaktypen from /services/<zgw-service>/zaaktypen */
+        /**
+         * zaaktypenRetrieve
+         * @description Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
+         */
         get: operations["apiV1ServicesZaaktypenRetrieve"];
         put?: never;
         post?: never;
@@ -141,7 +147,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken */
+        /**
+         * zakenList
+         * @description Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+         */
         get: operations["apiV1ServicesZaaktypenZakenList"];
         put?: never;
         post?: never;
@@ -158,7 +167,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
-        /** @description Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken */
+        /**
+         * zakenRetrieve
+         * @description Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+         */
         get: operations["apiV1ServicesZaaktypenZakenRetrieve"];
         put?: never;
         post?: never;
@@ -620,12 +632,16 @@ export interface operations {
     apiV1ServicesZaaktypenZakenList: {
         parameters: {
             query?: {
+                /** @description De unieke identificatie van de ZAAK (bevat de identificatie de gegeven waarden (hoofdletterongevoelig)) */
+                identificatie__icontains?: string;
+                /** @description Een korte omschrijving van de ZAAK (bevat de omschrijving de gegeven waarden (hoofdletterongevoelig)) */
+                omschrijving?: string;
                 /** @description A page number within the paginated result set. */
                 page?: number;
                 /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
                 pageSize?: number;
-                /** @description A search term for the ZaakType service. The search is performed against the `identificatie__icontains` field. */
-                search?: string;
+                /** @description De datum waarop met de uitvoering van de zaak is gestart */
+                startdatum__gte?: string;
             };
             header?: never;
             path: {
