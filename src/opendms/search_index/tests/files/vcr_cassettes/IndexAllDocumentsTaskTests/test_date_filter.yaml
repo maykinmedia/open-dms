@@ -1,10 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"doc-old","url":"https://bates.info/","identificatie":"02aa129b-c719-4da4-ada0-c45c985ef220","bronorganisatie":"Winters,
-      Buck and Newton","creatiedatum":"2026-03-13","titel":"Professor head sell bring
-      effort if.","auteur":"Kaitlyn Drake","taal":"so","begin_registratie":"2026-02-23T23:24:38.153515","informatieobjecttype":"director","vertrouwelijkheidaanduiding":"skill","status":"lead","formaat":"jpeg","bestandsnaam":"anyone.wav","link":"https://www.dawson-taylor.com/","beschrijving":"Develop
-      authority item notice finish actually. Use skin question down. Long whatever
-      trade those give.","verschijningsvorm":"difficult"}'
+    body: '{"uuid":"doc-old","url":"http://nelson-spears.net/","identificatie":"63537c5a-6e56-4d20-8e38-6e9a5c824c4c","bronorganisatie":"Lozano
+      Ltd","creatiedatum":"2026-03-17","titel":"Price game on service.","auteur":"Jason
+      Garcia","taal":"am","begin_registratie":"2026-03-02T19:06:01.271058","informatieobjecttype":"experience","vertrouwelijkheidaanduiding":"possible","status":"Congress","formaat":"pages","bestandsnaam":"any.wav","link":"https://www.warner-osborne.com/","beschrijving":"Water
+      improve stage remain.","verschijningsvorm":"career"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -15,19 +14,19 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/doc-old?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"doc-old","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+      string: '{"_index":"document","_id":"doc-old","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":10,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/doc-old
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '147'
+      - '148'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -41,9 +40,9 @@ interactions:
       connection:
       - keep-alive
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_refresh
   response:
@@ -69,14 +68,14 @@ interactions:
       content-type:
       - application/vnd.elasticsearch+json; compatible-with=8
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.77336E12,"value_as_string":"2026-03-13"}}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7737056E12,"value_as_string":"2026-03-17"}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -99,24 +98,24 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-13
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-17&objectinformatieobjecten__objectType=zaak
   response:
     body:
-      string: '{"count":0,"next":null,"previous":null,"results":[]}'
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","vertrouwelijkheidaanduiding":"","auteur":"1","status":"","formaat":"","taal":"123","versie":1,"beginRegistratie":"2026-03-17T10:25:20.158920Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537/download?versie=1","bestandsomvang":1,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":null,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
     headers:
       API-version:
       - 1.4.2
       Allow:
       - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '52'
+      - '950'
       Content-Security-Policy:
-      - 'object-src ''none''; base-uri ''self''; frame-src ''self''; img-src ''self''
-        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org; default-src
-        ''self''; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:; form-action ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; script-src ''self''
-        ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net'
+      - 'base-uri ''self''; worker-src ''self'' blob:; frame-ancestors ''none''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; style-src
+        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
+        font-src ''self'' fonts.gstatic.com; form-action ''self''; frame-src ''self'';
+        default-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
+        tile.openstreetmap.org; object-src ''none'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -133,6 +132,36 @@ interactions:
       code: 200
       message: OK
 - request:
+    body: '{"uuid":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","url":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","auteur":"1","taal":"123","begin_registratie":"2026-03-17T10:25:20.158920+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","vertrouwelijkheidaanduiding":"","status":"","formaat":"","bestandsnaam":"","link":"","beschrijving":"","verschijningsvorm":""}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/6e7b5824-5222-4d7f-a7ca-a42aecb0a537?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","_version":7,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":11,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/6e7b5824-5222-4d7f-a7ca-a42aecb0a537
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
     body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"exists":{"field":"creatiedatum"}},"size":0}'
     headers:
       accept:
@@ -142,14 +171,14 @@ interactions:
       content-type:
       - application/vnd.elasticsearch+json; compatible-with=8
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.77336E12,"value_as_string":"2026-03-13"}}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7737056E12,"value_as_string":"2026-03-17"}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -172,24 +201,24 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-13
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-17&objectinformatieobjecten__objectType=zaak
   response:
     body:
-      string: '{"count":0,"next":null,"previous":null,"results":[]}'
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","vertrouwelijkheidaanduiding":"","auteur":"1","status":"","formaat":"","taal":"123","versie":1,"beginRegistratie":"2026-03-17T10:25:20.158920Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537/download?versie=1","bestandsomvang":1,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":null,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
     headers:
       API-version:
       - 1.4.2
       Allow:
       - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '52'
+      - '950'
       Content-Security-Policy:
-      - 'object-src ''none''; base-uri ''self''; frame-src ''self''; img-src ''self''
-        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org; default-src
-        ''self''; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:; form-action ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; script-src ''self''
-        ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net'
+      - 'base-uri ''self''; worker-src ''self'' blob:; frame-ancestors ''none''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; style-src
+        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
+        font-src ''self'' fonts.gstatic.com; form-action ''self''; frame-src ''self'';
+        default-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
+        tile.openstreetmap.org; object-src ''none'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:

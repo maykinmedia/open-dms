@@ -1,9 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://nguyen.biz/","identificatie":"195459ed-d39d-4665-9e87-48a55a682365","bronorganisatie":"Campbell-Chang","creatiedatum":"2026-02-03","titel":"Chance
-      along interest body.","auteur":"Tonya Roman","taal":"dz","begin_registratie":"2026-03-02T14:55:39.181448","informatieobjecttype":"thought","vertrouwelijkheidaanduiding":"wind","status":"purpose","formaat":"mp3","bestandsnaam":"protect.txt","link":"https://barrett.net/","beschrijving":"Change
-      reflect per fact voice growth now. Attorney edge relate leg follow old house.
-      Task force data help their tend. Decade goal continue probably by.","ontvangstdatum":"2026-02-13","verzenddatum":"2026-02-11","verschijningsvorm":"effect"}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://warren-caldwell.com/","identificatie":"28b0741e-7a41-49f2-8a95-c349a79d7cb5","bronorganisatie":"Woods,
+      Rios and Harris","creatiedatum":"2026-02-18","titel":"Reflect firm side brother.","auteur":"Shaun
+      Jones MD","taal":"ha","begin_registratie":"2026-02-19T05:34:01.028791","informatieobjecttype":"special","vertrouwelijkheidaanduiding":"dream","status":"authority","formaat":"xlsx","bestandsnaam":"money.ppt","link":"https://stephens.com/","beschrijving":"Brother
+      generation arm work you leg happy. According human consider outside.","verschijningsvorm":"likely"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -14,7 +14,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/80485d67-0b97-4ed5-8483-f2d03d012e19?pipeline=document_attachment&refresh=wait_for
   response:
@@ -33,11 +33,11 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.sullivan.org/","identificatie":"95c9c4c2-726c-4063-af6e-615eef4dd973","bronorganisatie":"Owens,
-      Morgan and Cannon","creatiedatum":"2026-03-01","titel":"Although quite movement
-      fear.","auteur":"Philip Brown","taal":"de","begin_registratie":"2026-02-08T22:08:04.568185","informatieobjecttype":"fish","vertrouwelijkheidaanduiding":"help","status":"politics","formaat":"pages","bestandsnaam":"onto.json","link":"http://www.weaver.com/","beschrijving":"Wind
-      box book government defense. Significant fear hour. Practice remain first responsibility
-      long little political.","ontvangstdatum":"2026-02-28","verzenddatum":"2026-02-13","verschijningsvorm":"reach"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.wilson.net/","identificatie":"ed3cf56a-43e2-40bf-89e5-d8af8689ccaa","bronorganisatie":"Ellis,
+      Brooks and Harris","creatiedatum":"2026-02-25","titel":"Actually political direction
+      key item among doctor.","auteur":"Jennifer Brown","taal":"ru","begin_registratie":"2026-02-19T11:36:22.147551","informatieobjecttype":"near","vertrouwelijkheidaanduiding":"part","status":"rock","formaat":"avi","bestandsnaam":"nor.json","link":"http://robertson-kline.net/","beschrijving":"Feel
+      agency across couple cause culture. Organization day leave attack now. Church
+      fire until think huge program.","verschijningsvorm":"light"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -48,7 +48,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/48981334-b480-4e7d-8c8d-925bbc67a969?pipeline=document_attachment&refresh=wait_for
   response:
@@ -78,15 +78,15 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":0.20924586,"_source":{"begin_registratie":"2026-03-02T14:55:39.181448","beschrijving":"Change
-        reflect per fact voice growth now. Attorney edge relate leg follow old house.
-        Task force data help their tend. Decade goal continue probably by.","verschijningsvorm":"effect","identificatie":"195459ed-d39d-4665-9e87-48a55a682365","bronorganisatie":"Campbell-Chang","link":"https://barrett.net/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://nguyen.biz/","taal":"dz","verzenddatum":"2026-02-11","auteur":"Tonya
-        Roman","formaat":"mp3","titel":"Chance along interest body.","vertrouwelijkheidaanduiding":"wind","informatieobjecttype":"thought","bestandsnaam":"protect.txt","ontvangstdatum":"2026-02-13","creatiedatum":"2026-02-03","status":"purpose"},"sort":[0.20924586,1770076800000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":0.27153543,"_source":{"begin_registratie":"2026-02-19T05:34:01.028791","beschrijving":"Brother
+        generation arm work you leg happy. According human consider outside.","verschijningsvorm":"likely","identificatie":"28b0741e-7a41-49f2-8a95-c349a79d7cb5","bronorganisatie":"Woods,
+        Rios and Harris","link":"https://stephens.com/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://warren-caldwell.com/","taal":"ha","auteur":"Shaun
+        Jones MD","formaat":"xlsx","titel":"Reflect firm side brother.","vertrouwelijkheidaanduiding":"dream","informatieobjecttype":"special","bestandsnaam":"money.ppt","creatiedatum":"2026-02-18","status":"authority"},"sort":[0.27153543,1771372800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

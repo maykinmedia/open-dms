@@ -29,9 +29,9 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Wed, 04 Mar 2026 12:42:40 GMT
+      - Tue, 17 Mar 2026 13:42:59 GMT
       Server:
-      - Werkzeug/3.1.6 Python/3.12.12
+      - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
@@ -49,7 +49,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54?pipeline=document_attachment&refresh=wait_for
   response:
@@ -75,9 +75,9 @@ interactions:
       connection:
       - keep-alive
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: GET
     uri: http://localhost:9201/document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54
   response:
@@ -124,9 +124,9 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Wed, 04 Mar 2026 12:42:41 GMT
+      - Tue, 17 Mar 2026 13:43:00 GMT
       Server:
-      - Werkzeug/3.1.6 Python/3.12.12
+      - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 204
       message: NO CONTENT
@@ -144,7 +144,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2?pipeline=document_attachment&refresh=wait_for
   response:
@@ -170,9 +170,9 @@ interactions:
       connection:
       - keep-alive
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: GET
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
@@ -220,9 +220,9 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Wed, 04 Mar 2026 12:42:42 GMT
+      - Tue, 17 Mar 2026 13:43:01 GMT
       Server:
-      - Werkzeug/3.1.6 Python/3.12.12
+      - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 400
       message: BAD REQUEST
@@ -240,7 +240,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2?pipeline=document_attachment&refresh=wait_for
   response:
@@ -264,9 +264,9 @@ interactions:
       connection:
       - keep-alive
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: GET
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:

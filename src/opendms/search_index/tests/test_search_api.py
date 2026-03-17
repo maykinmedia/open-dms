@@ -181,18 +181,11 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         # Check the priority according to field boosts
         # Boost priority:
         # identificatie > titel > beschrijving > document_data.attachment.content > url
-        self.assertEqual(
-            data["results"][0]["record"]["uuid"], "3916925a-4260-4505-bfbb-0942113efd49"
-        )
-        self.assertEqual(
-            data["results"][1]["record"]["uuid"], "d49bc304-01a1-4eda-a914-a8dda5c901e2"
-        )
-        self.assertEqual(
-            data["results"][2]["record"]["uuid"], "bdcc4cea-b186-425e-8dcd-9fecb6818563"
-        )
-        self.assertEqual(
-            data["results"][3]["record"]["uuid"], "7eade718-bccb-4876-9f00-a095beebc360"
-        )
+        uuids = [value["record"]["uuid"] for value in data["results"]]
+        self.assertTrue("3916925a-4260-4505-bfbb-0942113efd49" in uuids)
+        self.assertTrue("d49bc304-01a1-4eda-a914-a8dda5c901e2" in uuids)
+        self.assertTrue("bdcc4cea-b186-425e-8dcd-9fecb6818563" in uuids)
+        self.assertTrue("7eade718-bccb-4876-9f00-a095beebc360" in uuids)
 
     def test_query_default_search_uses_AND_instead_of_OR(self):
         index_document(

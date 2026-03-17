@@ -9,14 +9,14 @@ interactions:
       content-type:
       - application/vnd.elasticsearch+json; compatible-with=8
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":null}}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":null}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -39,25 +39,24 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?objectinformatieobjecten__objectType=zaak
   response:
     body:
-      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/3101c6f8-6124-4d11-bd5f-98d8a662ebe8","identificatie":"test
-        tim date nieuw","bronorganisatie":"001876387","creatiedatum":"2026-03-11","titel":"test","vertrouwelijkheidaanduiding":"","auteur":"tim","status":"","formaat":"","taal":"dut","versie":1,"beginRegistratie":"2026-03-11T09:57:57.555150Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/3101c6f8-6124-4d11-bd5f-98d8a662ebe8/download?versie=1","bestandsomvang":100,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":null,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"https://autorisaties-api.vng.cloud/api/informatieobjecttypen/ca9a38d6-5774-43fb-acc0-04832e9fd231","locked":true,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","vertrouwelijkheidaanduiding":"","auteur":"1","status":"","formaat":"","taal":"123","versie":1,"beginRegistratie":"2026-03-17T10:25:20.158920Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537/download?versie=1","bestandsomvang":1,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":null,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
     headers:
       API-version:
       - 1.4.2
       Allow:
       - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '949'
+      - '950'
       Content-Security-Policy:
-      - 'object-src ''none''; base-uri ''self''; frame-src ''self''; img-src ''self''
-        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org; default-src
-        ''self''; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:; form-action ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; script-src ''self''
-        ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net'
+      - 'base-uri ''self''; worker-src ''self'' blob:; frame-ancestors ''none''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; style-src
+        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
+        font-src ''self'' fonts.gstatic.com; form-action ''self''; frame-src ''self'';
+        default-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
+        tile.openstreetmap.org; object-src ''none'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -74,8 +73,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"3101c6f8-6124-4d11-bd5f-98d8a662ebe8","url":"","identificatie":"test
-      tim date nieuw","bronorganisatie":"001876387","creatiedatum":"2026-03-11","titel":"test","auteur":"tim","taal":"dut","begin_registratie":"2026-03-11T09:57:57.555150+00:00","informatieobjecttype":"https://autorisaties-api.vng.cloud/api/informatieobjecttypen/ca9a38d6-5774-43fb-acc0-04832e9fd231","vertrouwelijkheidaanduiding":"","status":"","formaat":"","bestandsnaam":"","link":"","beschrijving":"","verschijningsvorm":""}'
+    body: '{"uuid":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","url":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","auteur":"1","taal":"123","begin_registratie":"2026-03-17T10:25:20.158920+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","vertrouwelijkheidaanduiding":"","status":"","formaat":"","bestandsnaam":"","link":"","beschrijving":"","verschijningsvorm":""}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -86,15 +84,15 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_doc/3101c6f8-6124-4d11-bd5f-98d8a662ebe8?pipeline=document_attachment&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/6e7b5824-5222-4d7f-a7ca-a42aecb0a537?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"3101c6f8-6124-4d11-bd5f-98d8a662ebe8","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+      string: '{"_index":"document","_id":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
     headers:
       Location:
-      - /document/_doc/3101c6f8-6124-4d11-bd5f-98d8a662ebe8
+      - /document/_doc/6e7b5824-5222-4d7f-a7ca-a42aecb0a537
       X-elastic-product:
       - Elasticsearch
       content-length:
@@ -114,13 +112,12 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"3101c6f8-6124-4d11-bd5f-98d8a662ebe8","_score":1.0,"_source":{"begin_registratie":"2026-03-11T09:57:57.555150+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"test
-        tim date nieuw","bronorganisatie":"001876387","link":"","uuid":"3101c6f8-6124-4d11-bd5f-98d8a662ebe8","url":"","taal":"dut","auteur":"tim","formaat":"","titel":"test","vertrouwelijkheidaanduiding":"","informatieobjecttype":"https://autorisaties-api.vng.cloud/api/informatieobjecttypen/ca9a38d6-5774-43fb-acc0-04832e9fd231","bestandsnaam":"","creatiedatum":"2026-03-11","status":""}}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","_score":1.0,"_source":{"begin_registratie":"2026-03-17T10:25:20.158920+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","link":"","uuid":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","url":"","taal":"123","auteur":"1","formaat":"","titel":"Test","vertrouwelijkheidaanduiding":"","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","bestandsnaam":"","creatiedatum":"2026-03-17","status":""}}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -132,11 +129,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"bd4d66a8-1503-4743-ae55-d1765512530c","url":"https://www.velez.com/","identificatie":"1964e0de-f3da-4e90-b67d-054dd8fe19a2","bronorganisatie":"English,
-      Johnson and Sosa","creatiedatum":"2026-03-12","titel":"Woman couple he rich
-      movie why.","auteur":"Gary Mcgrath","taal":"unm","begin_registratie":"2026-02-21T11:12:20.628792","informatieobjecttype":"painting","vertrouwelijkheidaanduiding":"stand","status":"total","formaat":"mp3","bestandsnaam":"technology.gif","link":"http://ali-mcclain.net/","beschrijving":"Theory
-      check line very. Power minute hand reveal. While hospital sell important foreign
-      reduce protect table.","verschijningsvorm":"high"}'
+    body: '{"uuid":"bd4d66a8-1503-4743-ae55-d1765512530c","url":"https://kirby.org/","identificatie":"13e3aa51-322a-4bb8-9da6-73960a2bff56","bronorganisatie":"Barton
+      Inc","creatiedatum":"2026-03-09","titel":"Job degree keep fear.","auteur":"Michele
+      Wong","taal":"fil","begin_registratie":"2026-02-28T06:28:45.275363","informatieobjecttype":"reason","vertrouwelijkheidaanduiding":"former","status":"bank","formaat":"xls","bestandsnaam":"Congress.tiff","link":"http://todd-merritt.net/","beschrijving":"Cup
+      particularly wait song. Cause friend its. Which federal form activity.","verschijningsvorm":"state"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -147,7 +143,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/bd4d66a8-1503-4743-ae55-d1765512530c?pipeline=document_attachment&refresh=wait_for
   response:
@@ -166,10 +162,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"rd4d66a8-1503-4743-ae55-d1765512530c","url":"https://www.jackson.com/","identificatie":"8123e6d4-612b-4405-9439-331bc65a4878","bronorganisatie":"Martinez
-      and Sons","creatiedatum":"2026-03-11","titel":"Situation would hold too capital
-      region message.","auteur":"Amanda Daniels","taal":"bn","begin_registratie":"2026-03-10T19:55:48.960013","informatieobjecttype":"pretty","vertrouwelijkheidaanduiding":"coach","status":"material","formaat":"flac","bestandsnaam":"change.mp4","link":"http://delgado.com/","beschrijving":"Congress
-      campaign whose while strong item cold. Child kid run unit degree choice.","verschijningsvorm":"share"}'
+    body: '{"uuid":"rd4d66a8-1503-4743-ae55-d1765512530c","url":"https://www.beck-johnson.com/","identificatie":"e76dda21-77b2-476d-98c8-ef2453e462c6","bronorganisatie":"Jones-Taylor","creatiedatum":"2026-02-23","titel":"President
+      go east support each.","auteur":"Sheila Sanders","taal":"ia","begin_registratie":"2026-02-24T08:21:33.067184","informatieobjecttype":"get","vertrouwelijkheidaanduiding":"statement","status":"drive","formaat":"csv","bestandsnaam":"year.xlsx","link":"https://www.knapp-benton.info/","beschrijving":"Thank
+      reality garden assume pay ready leave. Size likely she. Wide grow manager act
+      her. Kind during increase baby.","verschijningsvorm":"both"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -180,7 +176,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/rd4d66a8-1503-4743-ae55-d1765512530c?pipeline=document_attachment&refresh=wait_for
   response:
@@ -208,14 +204,14 @@ interactions:
       content-type:
       - application/vnd.elasticsearch+json; compatible-with=8
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7732736E12,"value_as_string":"2026-03-12"}}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7737056E12,"value_as_string":"2026-03-17"}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -238,24 +234,24 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-12
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-17&objectinformatieobjecten__objectType=zaak
   response:
     body:
-      string: '{"count":0,"next":null,"previous":null,"results":[]}'
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","vertrouwelijkheidaanduiding":"","auteur":"1","status":"","formaat":"","taal":"123","versie":1,"beginRegistratie":"2026-03-17T10:25:20.158920Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537/download?versie=1","bestandsomvang":1,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":null,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
     headers:
       API-version:
       - 1.4.2
       Allow:
       - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '52'
+      - '950'
       Content-Security-Policy:
-      - 'object-src ''none''; base-uri ''self''; frame-src ''self''; img-src ''self''
-        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org; default-src
-        ''self''; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:; form-action ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; script-src ''self''
-        ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net'
+      - 'base-uri ''self''; worker-src ''self'' blob:; frame-ancestors ''none''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; style-src
+        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
+        font-src ''self'' fonts.gstatic.com; form-action ''self''; frame-src ''self'';
+        default-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
+        tile.openstreetmap.org; object-src ''none'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -272,6 +268,34 @@ interactions:
       code: 200
       message: OK
 - request:
+    body: '{"uuid":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","url":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","auteur":"1","taal":"123","begin_registratie":"2026-03-17T10:25:20.158920+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","vertrouwelijkheidaanduiding":"","status":"","formaat":"","bestandsnaam":"","link":"","beschrijving":"","verschijningsvorm":""}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/6e7b5824-5222-4d7f-a7ca-a42aecb0a537?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
     body: null
     headers:
       accept:
@@ -281,21 +305,18 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"3101c6f8-6124-4d11-bd5f-98d8a662ebe8","_score":1.0,"_source":{"begin_registratie":"2026-03-11T09:57:57.555150+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"test
-        tim date nieuw","bronorganisatie":"001876387","link":"","uuid":"3101c6f8-6124-4d11-bd5f-98d8a662ebe8","url":"","taal":"dut","auteur":"tim","formaat":"","titel":"test","vertrouwelijkheidaanduiding":"","informatieobjecttype":"https://autorisaties-api.vng.cloud/api/informatieobjecttypen/ca9a38d6-5774-43fb-acc0-04832e9fd231","bestandsnaam":"","creatiedatum":"2026-03-11","status":""}},{"_index":"document","_id":"bd4d66a8-1503-4743-ae55-d1765512530c","_score":1.0,"_source":{"begin_registratie":"2026-02-21T11:12:20.628792","beschrijving":"Theory
-        check line very. Power minute hand reveal. While hospital sell important foreign
-        reduce protect table.","verschijningsvorm":"high","identificatie":"1964e0de-f3da-4e90-b67d-054dd8fe19a2","bronorganisatie":"English,
-        Johnson and Sosa","link":"http://ali-mcclain.net/","uuid":"bd4d66a8-1503-4743-ae55-d1765512530c","url":"https://www.velez.com/","taal":"unm","auteur":"Gary
-        Mcgrath","formaat":"mp3","titel":"Woman couple he rich movie why.","vertrouwelijkheidaanduiding":"stand","informatieobjecttype":"painting","bestandsnaam":"technology.gif","creatiedatum":"2026-03-12","status":"total"}},{"_index":"document","_id":"rd4d66a8-1503-4743-ae55-d1765512530c","_score":1.0,"_source":{"begin_registratie":"2026-03-10T19:55:48.960013","beschrijving":"Congress
-        campaign whose while strong item cold. Child kid run unit degree choice.","verschijningsvorm":"share","identificatie":"8123e6d4-612b-4405-9439-331bc65a4878","bronorganisatie":"Martinez
-        and Sons","link":"http://delgado.com/","uuid":"rd4d66a8-1503-4743-ae55-d1765512530c","url":"https://www.jackson.com/","taal":"bn","auteur":"Amanda
-        Daniels","formaat":"flac","titel":"Situation would hold too capital region
-        message.","vertrouwelijkheidaanduiding":"coach","informatieobjecttype":"pretty","bestandsnaam":"change.mp4","creatiedatum":"2026-03-11","status":"material"}}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"bd4d66a8-1503-4743-ae55-d1765512530c","_score":1.0,"_source":{"begin_registratie":"2026-02-28T06:28:45.275363","beschrijving":"Cup
+        particularly wait song. Cause friend its. Which federal form activity.","verschijningsvorm":"state","identificatie":"13e3aa51-322a-4bb8-9da6-73960a2bff56","bronorganisatie":"Barton
+        Inc","link":"http://todd-merritt.net/","uuid":"bd4d66a8-1503-4743-ae55-d1765512530c","url":"https://kirby.org/","taal":"fil","auteur":"Michele
+        Wong","formaat":"xls","titel":"Job degree keep fear.","vertrouwelijkheidaanduiding":"former","informatieobjecttype":"reason","bestandsnaam":"Congress.tiff","creatiedatum":"2026-03-09","status":"bank"}},{"_index":"document","_id":"rd4d66a8-1503-4743-ae55-d1765512530c","_score":1.0,"_source":{"begin_registratie":"2026-02-24T08:21:33.067184","beschrijving":"Thank
+        reality garden assume pay ready leave. Size likely she. Wide grow manager
+        act her. Kind during increase baby.","verschijningsvorm":"both","identificatie":"e76dda21-77b2-476d-98c8-ef2453e462c6","bronorganisatie":"Jones-Taylor","link":"https://www.knapp-benton.info/","uuid":"rd4d66a8-1503-4743-ae55-d1765512530c","url":"https://www.beck-johnson.com/","taal":"ia","auteur":"Sheila
+        Sanders","formaat":"csv","titel":"President go east support each.","vertrouwelijkheidaanduiding":"statement","informatieobjecttype":"get","bestandsnaam":"year.xlsx","creatiedatum":"2026-02-23","status":"drive"}},{"_index":"document","_id":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","_score":1.0,"_source":{"begin_registratie":"2026-03-17T10:25:20.158920+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","link":"","uuid":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","url":"","taal":"123","auteur":"1","formaat":"","titel":"Test","vertrouwelijkheidaanduiding":"","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","bestandsnaam":"","creatiedatum":"2026-03-17","status":""}}]}}'
     headers:
       Transfer-Encoding:
       - chunked
