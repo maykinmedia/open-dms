@@ -731,7 +731,7 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
     def test_date_filter(self):
         doc1 = IndexDocumentFactory.build(
             uuid="doc-old",
-            creatiedatum="2026-03-13",
+            creatiedatum="2026-03-17",
         )
         index_document(**doc1)
 
@@ -741,7 +741,7 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         index_all_documents()
 
         last_creatiedatum = search_last_document_creatiedatum()
-        self.assertEqual(last_creatiedatum, "2026-03-13")
+        self.assertEqual(last_creatiedatum, "2026-03-17")
 
         with get_documenten_client(self.documenten_service) as client:
             documents = client.get_items(

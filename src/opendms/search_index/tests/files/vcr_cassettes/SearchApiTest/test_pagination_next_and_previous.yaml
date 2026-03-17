@@ -1,10 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"https://www.klein-knight.com/","identificatie":"843b590b-d82c-4819-8847-9d86946cf898","bronorganisatie":"Hughes,
-      Diaz and Shepherd","creatiedatum":"2026-02-27","titel":"Time task level effect
-      window challenge parent.","auteur":"Maria Vega","taal":"gez","begin_registratie":"2026-02-19T14:53:17.324041","informatieobjecttype":"worry","vertrouwelijkheidaanduiding":"maybe","status":"himself","formaat":"mov","bestandsnaam":"television.mp4","link":"http://taylor.info/","beschrijving":"Tonight
-      better learn article up sure I. Seek special simple newspaper. Personal become
-      city game natural audience.","ontvangstdatum":"2026-02-05","verzenddatum":"2026-02-03","verschijningsvorm":"low"}'
+    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://www.taylor.net/","identificatie":"5372a4cb-a35f-451f-a747-4677048aebd5","bronorganisatie":"Nguyen,
+      Hamilton and Smith","creatiedatum":"2026-03-08","titel":"Amount hour pressure
+      production fine.","auteur":"Dennis Hodge","taal":"bs","begin_registratie":"2026-03-10T04:56:21.906296","informatieobjecttype":"see","vertrouwelijkheidaanduiding":"position","status":"know","formaat":"jpeg","bestandsnaam":"father.numbers","link":"https://hernandez.com/","beschrijving":"Other
+      PM toward magazine. Particular well hard receive. Time nor guy education ask.","verschijningsvorm":"never"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -15,7 +14,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/85a095ea-e1fa-438c-9e05-1862874f57a0?pipeline=document_attachment&refresh=wait_for
   response:
@@ -34,11 +33,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.huffman.com/","identificatie":"c83bd83c-64b3-4e4b-b464-1843747d3fc6","bronorganisatie":"Cunningham
-      Inc","creatiedatum":"2026-02-22","titel":"Step view significant investment.","auteur":"David
-      Wood","taal":"sr","begin_registratie":"2026-02-04T16:34:08.587830","informatieobjecttype":"fight","vertrouwelijkheidaanduiding":"away","status":"total","formaat":"flac","bestandsnaam":"Mr.mp3","link":"https://walker.com/","beschrijving":"Movement
-      up value. Focus step citizen crime town easy. Total option across all. Author
-      soon rather if member music most.","ontvangstdatum":"2026-02-10","verzenddatum":"2026-02-25","verschijningsvorm":"medical"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.stokes.com/","identificatie":"da7ab61d-a37e-4f9c-9ce3-2acfd19356fa","bronorganisatie":"Mills-Cooper","creatiedatum":"2026-02-25","titel":"Several
+      she experience quality official.","auteur":"Nicole Frey","taal":"ayc","begin_registratie":"2026-02-19T08:14:31.672328","informatieobjecttype":"do","vertrouwelijkheidaanduiding":"affect","status":"professor","formaat":"png","bestandsnaam":"article.numbers","link":"https://gonzalez.info/","beschrijving":"Option
+      quite scientist air approach population east. Difference action fall some want
+      leader five.","verschijningsvorm":"sell"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -49,7 +47,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/48981334-b480-4e7d-8c8d-925bbc67a969?pipeline=document_attachment&refresh=wait_for
   response:
@@ -79,16 +77,15 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_score":1.0,"_source":{"begin_registratie":"2026-02-19T14:53:17.324041","beschrijving":"Tonight
-        better learn article up sure I. Seek special simple newspaper. Personal become
-        city game natural audience.","verschijningsvorm":"low","identificatie":"843b590b-d82c-4819-8847-9d86946cf898","bronorganisatie":"Hughes,
-        Diaz and Shepherd","link":"http://taylor.info/","uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"https://www.klein-knight.com/","taal":"gez","verzenddatum":"2026-02-03","auteur":"Maria
-        Vega","formaat":"mov","titel":"Time task level effect window challenge parent.","vertrouwelijkheidaanduiding":"maybe","informatieobjecttype":"worry","bestandsnaam":"television.mp4","ontvangstdatum":"2026-02-05","creatiedatum":"2026-02-27","status":"himself"},"sort":[1.0,1772150400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_score":0.97983885,"_source":{"begin_registratie":"2026-03-10T04:56:21.906296","beschrijving":"Other
+        PM toward magazine. Particular well hard receive. Time nor guy education ask.","verschijningsvorm":"never","identificatie":"5372a4cb-a35f-451f-a747-4677048aebd5","bronorganisatie":"Nguyen,
+        Hamilton and Smith","link":"https://hernandez.com/","uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://www.taylor.net/","taal":"bs","auteur":"Dennis
+        Hodge","formaat":"jpeg","titel":"Amount hour pressure production fine.","vertrouwelijkheidaanduiding":"position","informatieobjecttype":"see","bestandsnaam":"father.numbers","creatiedatum":"2026-03-08","status":"know"},"sort":[0.97983885,1772928000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.hester.com/","identificatie":"32562802-cf5b-4e4e-8381-f586a6b25539","bronorganisatie":"Michael-Thomas","creatiedatum":"2026-02-11","titel":"","auteur":"Madison
-      Foley","taal":"cy","begin_registratie":"2026-02-11T23:06:42.767994","informatieobjecttype":"activity","vertrouwelijkheidaanduiding":"activity","status":"part","formaat":"webm","bestandsnaam":"truth.odp","link":"http://www.thompson-jackson.com/","beschrijving":"Document
-      one, on which we expect an exact phrase match.","ontvangstdatum":"2026-03-02","verzenddatum":"2026-02-28","verschijningsvorm":"move"}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://moore.biz/","identificatie":"33499a36-d7a1-485a-83c1-9f6d1d0e64d7","bronorganisatie":"Thompson,
+      Davis and Lynch","creatiedatum":"2026-03-08","titel":"","auteur":"Travis Garner","taal":"km","begin_registratie":"2026-03-05T23:19:29.290365","informatieobjecttype":"wall","vertrouwelijkheidaanduiding":"beyond","status":"strong","formaat":"mp4","bestandsnaam":"several.html","link":"http://clark.com/","beschrijving":"Document
+      one, on which we expect an exact phrase match.","verschijningsvorm":"cultural"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -13,12 +13,12 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/d6eacab4-cb9f-42f7-abdf-719b358da923?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":30,"_primary_term":1}'
+      string: '{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":32,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/d6eacab4-cb9f-42f7-abdf-719b358da923
@@ -32,9 +32,9 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.valdez-torres.biz/","identificatie":"11c94598-e750-4297-b6a6-b2705e35551c","bronorganisatie":"Orozco-Berry","creatiedatum":"2026-02-08","titel":"","auteur":"Laurie
-      Richards","taal":"mn","begin_registratie":"2026-02-13T05:44:20.952463","informatieobjecttype":"the","vertrouwelijkheidaanduiding":"include","status":"thank","formaat":"mp3","bestandsnaam":"national.avi","link":"http://ramos-vincent.com/","beschrijving":"Document
-      two, the document that came after one.","ontvangstdatum":"2026-02-04","verzenddatum":"2026-02-22","verschijningsvorm":"rise"}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://hart.info/","identificatie":"f2763b7d-5aa9-4f50-bf09-1d8452f62fa0","bronorganisatie":"Hall,
+      Townsend and Vance","creatiedatum":"2026-02-18","titel":"","auteur":"Amber Hensley","taal":"si","begin_registratie":"2026-02-23T12:00:54.218515","informatieobjecttype":"behind","vertrouwelijkheidaanduiding":"sound","status":"such","formaat":"avi","bestandsnaam":"window.html","link":"https://www.robinson-gray.org/","beschrijving":"Document
+      two, the document that came after one.","verschijningsvorm":"into"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -45,12 +45,12 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/a8fce14e-88d1-4f60-a69b-bbcc7033afe9?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":31,"_primary_term":1}'
+      string: '{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":33,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/a8fce14e-88d1-4f60-a69b-bbcc7033afe9
@@ -76,14 +76,15 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.6618476,"_source":{"begin_registratie":"2026-02-11T23:06:42.767994","beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"move","identificatie":"32562802-cf5b-4e4e-8381-f586a6b25539","bronorganisatie":"Michael-Thomas","link":"http://www.thompson-jackson.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.hester.com/","taal":"cy","verzenddatum":"2026-02-28","auteur":"Madison
-        Foley","formaat":"webm","titel":"","vertrouwelijkheidaanduiding":"activity","informatieobjecttype":"activity","bestandsnaam":"truth.odp","ontvangstdatum":"2026-03-02","creatiedatum":"2026-02-11","status":"part"},"sort":[2.6618476,1770768000000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":5.1611075,"_source":{"begin_registratie":"2026-03-05T23:19:29.290365","beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"cultural","identificatie":"33499a36-d7a1-485a-83c1-9f6d1d0e64d7","bronorganisatie":"Thompson,
+        Davis and Lynch","link":"http://clark.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://moore.biz/","taal":"km","auteur":"Travis
+        Garner","formaat":"mp4","titel":"","vertrouwelijkheidaanduiding":"beyond","informatieobjecttype":"wall","bestandsnaam":"several.html","creatiedatum":"2026-03-08","status":"strong"},"sort":[5.1611075,1772928000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -107,16 +108,18 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.6618476,"_source":{"begin_registratie":"2026-02-11T23:06:42.767994","beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"move","identificatie":"32562802-cf5b-4e4e-8381-f586a6b25539","bronorganisatie":"Michael-Thomas","link":"http://www.thompson-jackson.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.hester.com/","taal":"cy","verzenddatum":"2026-02-28","auteur":"Madison
-        Foley","formaat":"webm","titel":"","vertrouwelijkheidaanduiding":"activity","informatieobjecttype":"activity","bestandsnaam":"truth.odp","ontvangstdatum":"2026-03-02","creatiedatum":"2026-02-11","status":"part"},"sort":[2.6618476,1770768000000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.4640355,"_source":{"begin_registratie":"2026-02-13T05:44:20.952463","beschrijving":"Document
-        two, the document that came after one.","verschijningsvorm":"rise","identificatie":"11c94598-e750-4297-b6a6-b2705e35551c","bronorganisatie":"Orozco-Berry","link":"http://ramos-vincent.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.valdez-torres.biz/","taal":"mn","verzenddatum":"2026-02-22","auteur":"Laurie
-        Richards","formaat":"mp3","titel":"","vertrouwelijkheidaanduiding":"include","informatieobjecttype":"the","bestandsnaam":"national.avi","ontvangstdatum":"2026-02-04","creatiedatum":"2026-02-08","status":"thank"},"sort":[2.4640355,1770508800000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":5.1611075,"_source":{"begin_registratie":"2026-03-05T23:19:29.290365","beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"cultural","identificatie":"33499a36-d7a1-485a-83c1-9f6d1d0e64d7","bronorganisatie":"Thompson,
+        Davis and Lynch","link":"http://clark.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://moore.biz/","taal":"km","auteur":"Travis
+        Garner","formaat":"mp4","titel":"","vertrouwelijkheidaanduiding":"beyond","informatieobjecttype":"wall","bestandsnaam":"several.html","creatiedatum":"2026-03-08","status":"strong"},"sort":[5.1611075,1772928000000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.7780699,"_source":{"begin_registratie":"2026-02-23T12:00:54.218515","beschrijving":"Document
+        two, the document that came after one.","verschijningsvorm":"into","identificatie":"f2763b7d-5aa9-4f50-bf09-1d8452f62fa0","bronorganisatie":"Hall,
+        Townsend and Vance","link":"https://www.robinson-gray.org/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://hart.info/","taal":"si","auteur":"Amber
+        Hensley","formaat":"avi","titel":"","vertrouwelijkheidaanduiding":"sound","informatieobjecttype":"behind","bestandsnaam":"window.html","creatiedatum":"2026-02-18","status":"such"},"sort":[1.7780699,1771372800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

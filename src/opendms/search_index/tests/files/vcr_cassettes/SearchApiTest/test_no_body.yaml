@@ -1,9 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://ortiz.biz/","identificatie":"19540e24-c93d-4a3f-a70e-b2d8553704b8","bronorganisatie":"Hill
-      Group","creatiedatum":"2026-02-09","titel":"Why traditional catch discover together.","auteur":"Christina
-      Perez","taal":"de","begin_registratie":"2026-02-16T23:05:22.221141","informatieobjecttype":"box","vertrouwelijkheidaanduiding":"college","status":"month","formaat":"pdf","bestandsnaam":"great.pages","link":"https://vang.net/","beschrijving":"Administration
-      stay analysis ask dream security. Model international finish open board technology.","ontvangstdatum":"2026-02-27","verzenddatum":"2026-02-10","verschijningsvorm":"magazine"}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://blackburn.net/","identificatie":"6876312a-b002-4a86-a77e-8e8b5320bd44","bronorganisatie":"Barton,
+      Smith and Parker","creatiedatum":"2026-02-16","titel":"Statement score line
+      food true nor.","auteur":"Tyler Davidson","taal":"sw","begin_registratie":"2026-03-10T13:10:57.666709","informatieobjecttype":"type","vertrouwelijkheidaanduiding":"art","status":"among","formaat":"wav","bestandsnaam":"mouth.mp4","link":"http://mcguire.com/","beschrijving":"Team
+      gun call all. Show in least grow. Some choice sign still entire despite.","verschijningsvorm":"run"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -14,7 +14,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/525747fd-7e58-4005-8efa-59bcf4403385?pipeline=document_attachment&refresh=wait_for
   response:
@@ -44,15 +44,15 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.43079424,"_source":{"begin_registratie":"2026-02-16T23:05:22.221141","beschrijving":"Administration
-        stay analysis ask dream security. Model international finish open board technology.","verschijningsvorm":"magazine","identificatie":"19540e24-c93d-4a3f-a70e-b2d8553704b8","bronorganisatie":"Hill
-        Group","link":"https://vang.net/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://ortiz.biz/","taal":"de","verzenddatum":"2026-02-10","auteur":"Christina
-        Perez","formaat":"pdf","titel":"Why traditional catch discover together.","vertrouwelijkheidaanduiding":"college","informatieobjecttype":"box","bestandsnaam":"great.pages","ontvangstdatum":"2026-02-27","creatiedatum":"2026-02-09","status":"month"},"sort":[0.43079424,1770595200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.20815533,"_source":{"begin_registratie":"2026-03-10T13:10:57.666709","beschrijving":"Team
+        gun call all. Show in least grow. Some choice sign still entire despite.","verschijningsvorm":"run","identificatie":"6876312a-b002-4a86-a77e-8e8b5320bd44","bronorganisatie":"Barton,
+        Smith and Parker","link":"http://mcguire.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://blackburn.net/","taal":"sw","auteur":"Tyler
+        Davidson","formaat":"wav","titel":"Statement score line food true nor.","vertrouwelijkheidaanduiding":"art","informatieobjecttype":"type","bestandsnaam":"mouth.mp4","creatiedatum":"2026-02-16","status":"among"},"sort":[0.20815533,1771200000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

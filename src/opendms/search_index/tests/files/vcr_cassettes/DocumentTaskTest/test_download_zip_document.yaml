@@ -21,11 +21,11 @@ interactions:
   response:
     body:
       string: !!binary |
-        UEsDBBQAAAAAAFNlZFzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAABTZWRc
-        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAFNlZFzfwKkADgAAAA4AAAAK
-        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAAU2VkXOLcsooFAAAABQAAAAgA
-        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAAU2VkXFiNuxMFAAAABQAAAAkAAAAA
-        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAFNlZFzfwKkADgAAAA4AAAAKAAAAAAAA
+        UEsDBBQAAAAAAFxtcVzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAABcbXFc
+        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAFxtcVzfwKkADgAAAA4AAAAK
+        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAAXG1xXOLcsooFAAAABQAAAAgA
+        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAAXG1xXFiNuxMFAAAABQAAAAkAAAAA
+        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAFxtcVzfwKkADgAAAA4AAAAKAAAAAAAA
         AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
     headers:
       Connection:
@@ -35,9 +35,9 @@ interactions:
       Content-Type:
       - application/zip
       Date:
-      - Wed, 04 Mar 2026 12:42:38 GMT
+      - Tue, 17 Mar 2026 13:42:57 GMT
       Server:
-      - Werkzeug/3.1.6 Python/3.12.12
+      - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
@@ -55,7 +55,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8?pipeline=document_attachment&refresh=wait_for
   response:
@@ -81,9 +81,9 @@ interactions:
       connection:
       - keep-alive
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: GET
     uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
   response:

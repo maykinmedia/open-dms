@@ -27,7 +27,7 @@ interactions:
         0ZERqq1gHbrOsScYXFmG6WZSWL7pdqxZ5OVbBQj5x9qt/PtSK3TNHlsgQvndUz34KWQJO4DLKmzf
         tTvwxL0uX6oPPktmQpATDv8Qk/hxeFn4A5th6ADgAKYAc10AAIEzB64P1THNtWclRSgpPgItLOIk
         n4jd4NxFlN/WRYH+oBHsAIuGBrkJNQOfyRT2oCy/ylI0RGbuJFreEwY3l+e3Jai1iCUvvqmIHOIo
-        2TmwgLb5B/G8YSZJ5+nh6NmIH0AmQIcmTFKkSA6dUIHiFgAAAAAXBoDhAQl7AAcLAQABISEBGAyA
+        2TmwgLb5B/CLN58bZ8mtoS0BZBGBrSHSBy4HgPdMtOqtEgAAAAAXBoDhAQl7AAcLAQABISEBGAyA
         pwAA
     headers:
       Connection:
@@ -37,9 +37,9 @@ interactions:
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Wed, 04 Mar 2026 12:42:36 GMT
+      - Tue, 17 Mar 2026 13:42:55 GMT
       Server:
-      - Werkzeug/3.1.6 Python/3.12.12
+      - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
@@ -57,7 +57,7 @@ interactions:
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105?pipeline=document_attachment&refresh=wait_for
   response:
@@ -83,9 +83,9 @@ interactions:
       connection:
       - keep-alive
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.14.3; elastic-transport/8.17.1)
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
       x-elastic-client-meta:
-      - es=8.19.3,py=3.14.3,t=8.17.1,ur=2.6.3
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: GET
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
