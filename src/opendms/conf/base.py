@@ -229,7 +229,16 @@ SEARCH_INDEX = {
         help_text="Default analyzer to use for text fields in Elasticsearch mappings.",
     ),
 }
-
+REQUESTS_CA_BUNDLE = config(
+    "REQUESTS_CA_BUNDLE",
+    default=None,
+    group="Elastic Search",
+    help_text=(
+        "Path to a CA bundle file (PEM format) used to verify HTTPS requests. "
+        "This is used as a fallback if ELASTICSEARCH_CA_CERTS is not provided. "
+        "Useful when connecting to services secured with a private or self-signed CA."
+    ),
+)
 SEARCH_INDEXABLE_FILE_TYPES = SimpleLazyObject(
     partial(load_indexable_file_types, BASE_DIR)
 )
