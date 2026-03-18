@@ -1,3 +1,5 @@
+import datetime
+
 from django.utils.translation import gettext_lazy as _
 
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
@@ -32,6 +34,7 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
 
 @extend_schema_view(
     list=extend_schema(
+        summary="zaaktypenList",
         parameters=[
             OpenApiParameter(
                 name="service_slug",
@@ -52,6 +55,7 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
         ],
     ),
     retrieve=extend_schema(
+        summary="zaaktypenRetrieve",
         parameters=[
             OpenApiParameter(
                 name="service_slug",
@@ -117,6 +121,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
 @extend_schema_view(
     list=extend_schema(
+        summary="zakenList",
         parameters=[
             OpenApiParameter(
                 name="service_slug",
@@ -131,10 +136,27 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 required=True,
             ),
             OpenApiParameter(
-                name=QUERY_PARAM_FIELD,
+                name="startdatum__gte",
                 description=_(
-                    "A search term for the ZaakType service. "
-                    "The search is performed against the `identificatie__icontains` field."
+                    "De datum waarop met de uitvoering van de zaak is gestart"
+                ),
+                required=False,
+                location=OpenApiParameter.QUERY,
+                type=datetime.date,
+            ),
+            OpenApiParameter(
+                name="identificatie__icontains",
+                description=_(
+                    "De unieke identificatie van de ZAAK (bevat de identificatie de gegeven waarden (hoofdletterongevoelig))",
+                ),
+                required=False,
+                location=OpenApiParameter.QUERY,
+                type=str,
+            ),
+            OpenApiParameter(
+                name="omschrijving",
+                description=_(
+                    "Een korte omschrijving van de ZAAK (bevat de omschrijving de gegeven waarden (hoofdletterongevoelig))"
                 ),
                 required=False,
                 location=OpenApiParameter.QUERY,
@@ -143,6 +165,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         ],
     ),
     retrieve=extend_schema(
+        summary="zakenRetrieve",
         parameters=[
             OpenApiParameter(
                 name="service_slug",

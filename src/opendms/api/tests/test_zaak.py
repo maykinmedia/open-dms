@@ -294,3 +294,129 @@ class ZaakTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
         self.assertEqual(response.data["code"], "method_not_allowed")
         self.assertEqual(response.data["detail"], 'Methode "DELETE" niet toegestaan.')
+
+
+class ZaakFiltersTests(VCRMixin, APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+
+        cls.ztc_service = ServiceFactory.create(for_ztc_service_docker_compose=True)
+        cls.zrc_service = ServiceFactory.create(for_zrc_service_docker_compose=True)
+        cls.configuration = ZGWApiGroupConfigFactory.create(
+            ztc_service=cls.ztc_service,
+            zrc_service=cls.zrc_service,
+        )
+
+        cls.zaaktype_uuid = "f609b6fe-449a-46dc-a0af-de55dc5f6774"
+        cls.list_url = reverse(
+            "api:zaken-list",
+            kwargs={
+                "service_slug": cls.ztc_service.slug,
+                "zaaktypen_zaaktype_uuid": cls.zaaktype_uuid,
+            },
+        )
+
+    def test_identificatie_icontains(self):
+        # no params
+        response = self.client.get(self.list_url, query_params={})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
+
+        # search random value
+        response = self.client.get(
+            self.list_url, query_params={"identificatie__icontains": "random"}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 0)
+
+        # search exact value
+        response = self.client.get(
+            self.list_url,
+            query_params={"identificatie__icontains": "ZAAK-2026-0000000001"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 1)
+        self.assertEqual(
+            response.json()["results"][0]["identificatie"], "ZAAK-2026-0000000001"
+        )
+
+        # search multiple result
+        response = self.client.get(
+            self.list_url,
+            query_params={"identificatie__icontains": "ZAAK-2026"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+        results = [record["identificatie"] for record in response.json()["results"]]
+        self.assertIn("ZAAK-2026-0000000001", results)
+        self.assertIn("ZAAK-2026-0000000001", results)
+
+    def test_omschrijving(self):
+        # no params
+        response = self.client.get(self.list_url, query_params={})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
+
+        # search random value
+        response = self.client.get(
+            self.list_url, query_params={"omschrijving": "random"}
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 0)
+
+        # search exact value
+        response = self.client.get(
+            self.list_url,
+            query_params={"omschrijving": "verklaring van vernietiging"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+
+        # search contains value
+        response = self.client.get(
+            self.list_url,
+            query_params={"omschrijving": "verklaring"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+
+    def test_startdatum_gte(self):
+        # no params
+        response = self.client.get(self.list_url, query_params={})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
+
+        # search wrong value
+        response = self.client.get(self.list_url, query_params={"startdatum": "random"})
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+        # search gt
+        response = self.client.get(
+            self.list_url,
+            query_params={"startdatum__gte": "2026-01-01"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+
+        # search gte
+        response = self.client.get(
+            self.list_url,
+            query_params={"startdatum__gte": "2026-03-05"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 2)
+
+        response = self.client.get(
+            self.list_url,
+            query_params={"startdatum__gte": "2026-03-11"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 1)
+
+        response = self.client.get(
+            self.list_url,
+            query_params={"startdatum__gte": "2026-12-31"},
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 0)
