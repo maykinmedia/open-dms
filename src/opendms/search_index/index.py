@@ -1,4 +1,6 @@
 import os
+from collections.abc import Sequence
+from dataclasses import dataclass
 from datetime import date, datetime
 from typing import TYPE_CHECKING
 
@@ -68,3 +70,15 @@ class Document(ES_Document):
 
     class Index:
         name: IndexName = "document"
+
+
+@dataclass
+class SearchResult:
+    type: IndexName
+    record: Document
+
+
+@dataclass
+class SearchResults:
+    total_count: int
+    results: Sequence[SearchResult]
