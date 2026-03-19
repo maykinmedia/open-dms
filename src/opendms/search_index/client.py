@@ -11,11 +11,10 @@ import structlog
 from elasticsearch import Elasticsearch
 from elasticsearch.dsl import Q, Search
 
+from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX
 from .index import Document, SearchResult, SearchResults
 
 logger = structlog.get_logger(__name__)
-
-DOCUMENT_INDEX = "document"
 
 
 class ElasticSearchClient:
@@ -199,9 +198,9 @@ class ElasticSearchClient:
             results=results,
         )
 
-    def search_last_document_creatiedatum(self) -> str:
+    def get_last_document_creatiedatum(self) -> str:
         """
-        Return the latest creatiedatum of documents in Elasticsearch, or None if not present.
+        Return the latest creatiedatum of documents in Elasticsearch
         """
         response = self.client.search(
             index=self.index,
@@ -214,6 +213,28 @@ class ElasticSearchClient:
             response.get("aggregations", {})
             .get("latest_date", {})
             .get("value_as_string", "")
+        )
+
+    def index_document(
+        self,
+        document: Document,
+    ) -> None:
+        """
+        # TODO test
+        if (
+            inhoud
+            and bestandsomvang
+            and bestandsomvang <= settings.SEARCH_INDEX["MAX_INDEX_FILE_SIZE"]
+        ):
+            pass
+            # document.document_data = _download_document(document_url=inhoud)
+        """
+        # TODO check if create or raise error ?
+        Document.init(using=self.client)
+        document.save(
+            using=self.client,
+            refresh=settings.SEARCH_INDEX["REFRESH"],
+            pipeline=DOCUMENT_ATTACHMENT_PIPELINE_ID,
         )
 
 

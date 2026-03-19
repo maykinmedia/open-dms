@@ -1,8 +1,8 @@
-import logging
 from collections.abc import Collection
 
 from django.test import TestCase, override_settings, tag
 
+import structlog
 from elasticsearch.dsl import Document
 
 from opendms.conf.utils import config
@@ -14,12 +14,12 @@ from ..utils import get_index_document_types
 
 CI = config("CI", default=False)  # Github actions sets this to True
 
-logger = logging.getLogger(__name__)
+logger = structlog.get_logger(__name__)
 
 override_es_settings = override_settings(
     SEARCH_INDEX={
-        "HOST": "http://localhost:9201",
-        "USER": "",
+        "HOST": "http://localhost:9201",  # docker vcr_test
+        "USER": "",  # no auth
         "PASSWORD": "",
         "TIMEOUT": 3,
         "CA_CERTS": "",
@@ -53,14 +53,12 @@ class ElasticSearchMixin:
 
         # create the indices
         with override_es_settings:
-            with get_elasticsearch_client() as client:
-                cls._es_online = client.ping()
+            with get_elasticsearch_client() as es_client:
+                cls._es_online = es_client.can_connect
                 if not cls._es_online:
-                    level = logging.WARNING if not CI else logging.DEBUG
                     logger.log(
-                        level,
                         "ES %r is not available. Running in CI: %r.%s",
-                        client,
+                        es_client.client,
                         CI,
                         (
                             ""
@@ -74,17 +72,17 @@ class ElasticSearchMixin:
                 else:
                     for _doc_type in _document_types:
                         # create index and mappings
-                        _doc_type.init(using=client)
+                        _doc_type.init(using=es_client.client)
 
-                    setup_document_attachment_processor(client=client)
+                    setup_document_attachment_processor(client=es_client.client)
 
         def teardown():
             if not cls._es_online:
                 return
 
             with override_es_settings:
-                with get_elasticsearch_client() as client:
-                    client.indices.delete(index=list(_index_names))
+                with get_elasticsearch_client() as es_client:
+                    es_client.client.indices.delete(index=list(_index_names))
 
         cls.addClassCleanup(teardown)  # pyright: ignore[reportAttributeAccessIssue]
 
@@ -95,9 +93,9 @@ class ElasticSearchMixin:
             return
 
         with override_es_settings:
-            with get_elasticsearch_client() as client:
+            with get_elasticsearch_client() as es_client:
                 # empty index before tests
-                client.delete_by_query(
+                es_client.client.delete_by_query(
                     index=list(self._es_indexes),
                     body={"query": {"match_all": {}}},
                     ignore_unavailable=True,

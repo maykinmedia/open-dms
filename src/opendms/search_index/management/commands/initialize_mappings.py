@@ -26,12 +26,11 @@ class Command(BaseCommand):
 
     def handle(self, **options):  # pragma: no cover
         verbosity = options["verbosity"]
-        with get_elasticsearch_client() as client:
+        with get_elasticsearch_client() as es_client:
             if verbosity >= 1:
                 self.stdout.write("Pinging cluster...", ending=" ")
 
-            connected = client.ping()
-            if not connected:
+            if not es_client.can_connect:
                 self.stdout.write("")
                 self.stderr.write(
                     "Could not connect to configured Elastic Search host!"
@@ -46,7 +45,7 @@ class Command(BaseCommand):
                     self.stdout.write("Waiting for cluster...", ending=" ")
                 try:
                     # single node clusters are always yellow
-                    health = client.cluster.health(wait_for_status="yellow")
+                    health = es_client.client.cluster.health(wait_for_status="yellow")
                 except (ElasticConnectionError, ApiError) as exc:
                     raise CommandError("Could not connect to cluster") from exc
                 else:
@@ -64,7 +63,7 @@ class Command(BaseCommand):
                         ending="",
                     )
 
-                doc_type.init(using=client)
+                doc_type.init(using=es_client.client)
 
                 if verbosity >= 1:
                     self.stdout.write(" [OK]", self.style.SUCCESS)
@@ -76,7 +75,7 @@ class Command(BaseCommand):
                 ending="",
             )
 
-            if setup_document_attachment_processor(client):
+            if setup_document_attachment_processor(es_client.client):
                 self.stdout.write(" [OK]", self.style.SUCCESS)
             else:
                 self.stderr.write(" [Error]", self.style.ERROR)
