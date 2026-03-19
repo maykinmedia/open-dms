@@ -1,5 +1,5 @@
 # Docker compose for elastic search for (unit) tests
-
+# TODO add init_document index
 services:
   # Based on https://www.elastic.co/guide/en/elasticsearch/reference/current/run-elasticsearch-locally.html
   es:
