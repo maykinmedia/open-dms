@@ -1,10 +1,90 @@
 interactions:
 - request:
-    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://www.webster-cain.com/","identificatie":"document1","bronorganisatie":"Figueroa
-      and Sons","creatiedatum":"2026-03-08","titel":"Unique Document","auteur":"Christopher
-      Reyes","taal":"id","begin_registratie":"2026-02-23T16:42:03.981526","informatieobjecttype":"food","vertrouwelijkheidaanduiding":"process","status":"leave","formaat":"avi","bestandsnaam":"tax.wav","link":"http://phillips.com/","beschrijving":"Score
-      address special including fast debate TV. Choose material future me trade Congress
-      and community. Admit full history yeah. They that positive hand blue beat practice.","verschijningsvorm":"necessary"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://fields.net/","identificatie":"document1","bronorganisatie":"Osborne-Aguilar","titel":"Unique
+      Document","beschrijving":"Campaign level crime perform new land now sometimes.
+      Music book apply kitchen allow head benefit. Work policy national various public
+      history which.","auteur":"Emily Steele","taal":"shs","vertrouwelijkheidaanduiding":"city","status":"stock","formaat":"tiff","bestandsnaam":"doctor.numbers","informatieobjecttype":"gas","verschijningsvorm":"include","inhoud":"Son
+      have office treatment page necessary stop.","bestandsomvang":1000000,"link":"http://davis-brown.com/","creatiedatum":"2026-03-08","begin_registratie":"2026-02-28T01:25:07.275077"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -34,10 +114,92 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://www.rojas.com/","identificatie":"document2","bronorganisatie":"Peterson,
-      Peterson and Bush","creatiedatum":"2026-02-24","titel":"Unique Document2","auteur":"Sarah
-      Martin","taal":"nan","begin_registratie":"2026-02-20T12:13:14.353721","informatieobjecttype":"open","vertrouwelijkheidaanduiding":"officer","status":"yet","formaat":"png","bestandsnaam":"agreement.mp3","link":"https://www.simon-burgess.net/","beschrijving":"Admit
-      positive seem. Direction many human. Truth away happen eat another light much.","verschijningsvorm":"theory"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://luna-owens.com/","identificatie":"document2","bronorganisatie":"Rose-Young","titel":"Unique
+      Document2","beschrijving":"Seven charge discussion find usually will hard. Him
+      our water sport system maybe. Thought particularly parent me network value must.","auteur":"Pamela
+      Phillips","taal":"mni","vertrouwelijkheidaanduiding":"require","status":"born","formaat":"mov","bestandsnaam":"born.html","informatieobjecttype":"usually","verschijningsvorm":"meet","inhoud":"President
+      hold design power base. Degree realize voice final family executive officer.
+      Remember spring large blue become.","bestandsomvang":1000000,"link":"http://www.leach-vance.com/","creatiedatum":"2026-02-18","begin_registratie":"2026-03-03T00:53:06.607654"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -83,12 +245,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":4.9206777,"_source":{"begin_registratie":"2026-02-23T16:42:03.981526","beschrijving":"Score
-        address special including fast debate TV. Choose material future me trade
-        Congress and community. Admit full history yeah. They that positive hand blue
-        beat practice.","verschijningsvorm":"necessary","identificatie":"document1","bronorganisatie":"Figueroa
-        and Sons","link":"http://phillips.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://www.webster-cain.com/","taal":"id","auteur":"Christopher
-        Reyes","formaat":"avi","titel":"Unique Document","vertrouwelijkheidaanduiding":"process","informatieobjecttype":"food","bestandsnaam":"tax.wav","creatiedatum":"2026-03-08","status":"leave"},"sort":[4.9206777,1772928000000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":4.5829167,"_source":{"beschrijving":"Campaign
+        level crime perform new land now sometimes. Music book apply kitchen allow
+        head benefit. Work policy national various public history which.","verschijningsvorm":"include","begin_registratie":"2026-02-28T01:25:07.275077","identificatie":"document1","bronorganisatie":"Osborne-Aguilar","bestandsomvang":1000000,"link":"http://davis-brown.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://fields.net/","taal":"shs","auteur":"Emily
+        Steele","formaat":"tiff","inhoud":"Son have office treatment page necessary
+        stop.","titel":"Unique Document","vertrouwelijkheidaanduiding":"city","informatieobjecttype":"gas","bestandsnaam":"doctor.numbers","creatiedatum":"2026-03-08","status":"stock"},"sort":[4.5829167,1772928000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

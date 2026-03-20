@@ -1,9 +1,91 @@
 interactions:
 - request:
-    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://www.taylor.net/","identificatie":"5372a4cb-a35f-451f-a747-4677048aebd5","bronorganisatie":"Nguyen,
-      Hamilton and Smith","creatiedatum":"2026-03-08","titel":"Amount hour pressure
-      production fine.","auteur":"Dennis Hodge","taal":"bs","begin_registratie":"2026-03-10T04:56:21.906296","informatieobjecttype":"see","vertrouwelijkheidaanduiding":"position","status":"know","formaat":"jpeg","bestandsnaam":"father.numbers","link":"https://hernandez.com/","beschrijving":"Other
-      PM toward magazine. Particular well hard receive. Time nor guy education ask.","verschijningsvorm":"never"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://bender.com/","identificatie":"8e4a1689-3d62-4aa2-9c26-bfbf7c6ddf51","bronorganisatie":"Roth,
+      Wilson and Casey","titel":"Heart country card blue brother.","beschrijving":"Difficult
+      can return street including may. Pressure final exist campaign thought show
+      threat around.","auteur":"Susan Hopkins","taal":"eo","vertrouwelijkheidaanduiding":"box","status":"which","formaat":"mp3","bestandsnaam":"general.mp3","informatieobjecttype":"heavy","verschijningsvorm":"call","inhoud":"Husband
+      hair strong everything cup section suddenly. Police yes rate sign. Reason evidence
+      understand commercial notice house agreement factor.","bestandsomvang":1000000,"link":"http://www.roy.org/","creatiedatum":"2026-03-05","begin_registratie":"2026-03-02T22:14:55.315694"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -33,10 +115,90 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.stokes.com/","identificatie":"da7ab61d-a37e-4f9c-9ce3-2acfd19356fa","bronorganisatie":"Mills-Cooper","creatiedatum":"2026-02-25","titel":"Several
-      she experience quality official.","auteur":"Nicole Frey","taal":"ayc","begin_registratie":"2026-02-19T08:14:31.672328","informatieobjecttype":"do","vertrouwelijkheidaanduiding":"affect","status":"professor","formaat":"png","bestandsnaam":"article.numbers","link":"https://gonzalez.info/","beschrijving":"Option
-      quite scientist air approach population east. Difference action fall some want
-      leader five.","verschijningsvorm":"sell"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.graham.info/","identificatie":"b98cd2bc-918e-4314-a2cc-851f63005c16","bronorganisatie":"Adams-Maldonado","titel":"American
+      report tough.","beschrijving":"Beyond car visit beyond fine teach north.","auteur":"Lisa
+      Collins","taal":"ti","vertrouwelijkheidaanduiding":"beat","status":"who","formaat":"mp4","bestandsnaam":"student.mp3","informatieobjecttype":"official","verschijningsvorm":"step","inhoud":"Standard
+      fund citizen late group administration. Brother save page important big else.","bestandsomvang":1000000,"link":"https://floyd.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-19T16:50:00.688762"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -82,10 +244,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_score":0.97983885,"_source":{"begin_registratie":"2026-03-10T04:56:21.906296","beschrijving":"Other
-        PM toward magazine. Particular well hard receive. Time nor guy education ask.","verschijningsvorm":"never","identificatie":"5372a4cb-a35f-451f-a747-4677048aebd5","bronorganisatie":"Nguyen,
-        Hamilton and Smith","link":"https://hernandez.com/","uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://www.taylor.net/","taal":"bs","auteur":"Dennis
-        Hodge","formaat":"jpeg","titel":"Amount hour pressure production fine.","vertrouwelijkheidaanduiding":"position","informatieobjecttype":"see","bestandsnaam":"father.numbers","creatiedatum":"2026-03-08","status":"know"},"sort":[0.97983885,1772928000000]}]}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":1.0,"_source":{"beschrijving":"Beyond
+        car visit beyond fine teach north.","verschijningsvorm":"step","begin_registratie":"2026-03-19T16:50:00.688762","identificatie":"b98cd2bc-918e-4314-a2cc-851f63005c16","bronorganisatie":"Adams-Maldonado","bestandsomvang":1000000,"link":"https://floyd.com/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.graham.info/","taal":"ti","auteur":"Lisa
+        Collins","formaat":"mp4","inhoud":"Standard fund citizen late group administration.
+        Brother save page important big else.","titel":"American report tough.","vertrouwelijkheidaanduiding":"beat","informatieobjecttype":"official","bestandsnaam":"student.mp3","creatiedatum":"2026-03-15","status":"who"},"sort":[1.0,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

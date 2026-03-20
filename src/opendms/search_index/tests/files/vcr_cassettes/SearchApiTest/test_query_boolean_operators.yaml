@@ -1,8 +1,88 @@
 interactions:
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://smith.com/","identificatie":"8ba56c33-7d79-4b04-86e6-0873c899be04","bronorganisatie":"Patrick,
-      Lopez and Johnson","creatiedatum":"2026-03-03","titel":"Document one","auteur":"Morgan
-      Manning","taal":"uk","begin_registratie":"2026-02-18T23:41:03.506546","informatieobjecttype":"garden","vertrouwelijkheidaanduiding":"government","status":"near","formaat":"txt","bestandsnaam":"world.mp4","link":"https://cox.com/","beschrijving":"snowflake1","verschijningsvorm":"since"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
+      Group","titel":"Document one","beschrijving":"snowflake1","auteur":"Brian Chan","taal":"gd","vertrouwelijkheidaanduiding":"evening","status":"speech","formaat":"avi","bestandsnaam":"exist.avi","informatieobjecttype":"population","verschijningsvorm":"material","inhoud":"Girl
+      world tax. Range reality late how measure alone which.","bestandsomvang":1000000,"link":"http://woods.com/","creatiedatum":"2026-02-25","begin_registratie":"2026-03-08T16:42:40.882845"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -32,9 +112,90 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.parrish.com/","identificatie":"2e46b2bc-35b6-43d6-8c83-e5c159b33843","bronorganisatie":"Mckenzie,
-      Glenn and Roberts","creatiedatum":"2026-02-22","titel":"Document two","auteur":"Tiffany
-      Leach","taal":"gez","begin_registratie":"2026-03-13T00:25:41.472317","informatieobjecttype":"contain","vertrouwelijkheidaanduiding":"go","status":"might","formaat":"flac","bestandsnaam":"model.mp4","link":"http://byrd-walsh.biz/","beschrijving":"snowflake2","verschijningsvorm":"middle"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.solis-wells.com/","identificatie":"d83466df-52b9-4ca3-8906-518a7b48a463","bronorganisatie":"Duran-Chandler","titel":"Document
+      two","beschrijving":"snowflake2","auteur":"Kevin Hill","taal":"crh","vertrouwelijkheidaanduiding":"day","status":"everybody","formaat":"bmp","bestandsnaam":"let.mp4","informatieobjecttype":"guy","verschijningsvorm":"health","inhoud":"Partner
+      join health investment along investment consumer suggest. Little point human
+      quickly.","bestandsomvang":1000000,"link":"http://www.wolfe.com/","creatiedatum":"2026-02-26","begin_registratie":"2026-03-10T04:54:26.336130"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -81,9 +242,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.164695,"_source":{"begin_registratie":"2026-02-18T23:41:03.506546","beschrijving":"snowflake1","verschijningsvorm":"since","identificatie":"8ba56c33-7d79-4b04-86e6-0873c899be04","bronorganisatie":"Patrick,
-        Lopez and Johnson","link":"https://cox.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://smith.com/","taal":"uk","auteur":"Morgan
-        Manning","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"government","informatieobjecttype":"garden","bestandsnaam":"world.mp4","creatiedatum":"2026-03-03","status":"near"},"sort":[6.164695,1772496000000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.1714318,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
+        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
+        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
+        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[3.1714318,1771977600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -112,9 +274,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.164695,"_source":{"begin_registratie":"2026-02-18T23:41:03.506546","beschrijving":"snowflake1","verschijningsvorm":"since","identificatie":"8ba56c33-7d79-4b04-86e6-0873c899be04","bronorganisatie":"Patrick,
-        Lopez and Johnson","link":"https://cox.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://smith.com/","taal":"uk","auteur":"Morgan
-        Manning","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"government","informatieobjecttype":"garden","bestandsnaam":"world.mp4","creatiedatum":"2026-03-03","status":"near"},"sort":[6.164695,1772496000000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.1714318,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
+        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
+        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
+        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[3.1714318,1771977600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -143,11 +306,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.9685767,"_source":{"begin_registratie":"2026-02-18T23:41:03.506546","beschrijving":"snowflake1","verschijningsvorm":"since","identificatie":"8ba56c33-7d79-4b04-86e6-0873c899be04","bronorganisatie":"Patrick,
-        Lopez and Johnson","link":"https://cox.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://smith.com/","taal":"uk","auteur":"Morgan
-        Manning","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"government","informatieobjecttype":"garden","bestandsnaam":"world.mp4","creatiedatum":"2026-03-03","status":"near"},"sort":[3.9685767,1772496000000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.0320222,"_source":{"begin_registratie":"2026-03-13T00:25:41.472317","beschrijving":"snowflake2","verschijningsvorm":"middle","identificatie":"2e46b2bc-35b6-43d6-8c83-e5c159b33843","bronorganisatie":"Mckenzie,
-        Glenn and Roberts","link":"http://byrd-walsh.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.parrish.com/","taal":"gez","auteur":"Tiffany
-        Leach","formaat":"flac","titel":"Document two","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"contain","bestandsnaam":"model.mp4","creatiedatum":"2026-02-22","status":"might"},"sort":[2.0320222,1771718400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.2524545,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"health","begin_registratie":"2026-03-10T04:54:26.336130","identificatie":"d83466df-52b9-4ca3-8906-518a7b48a463","bronorganisatie":"Duran-Chandler","bestandsomvang":1000000,"link":"http://www.wolfe.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.solis-wells.com/","taal":"crh","auteur":"Kevin
+        Hill","formaat":"bmp","inhoud":"Partner join health investment along investment
+        consumer suggest. Little point human quickly.","titel":"Document two","vertrouwelijkheidaanduiding":"day","informatieobjecttype":"guy","bestandsnaam":"let.mp4","creatiedatum":"2026-02-26","status":"everybody"},"sort":[2.2524545,1772064000000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.0416372,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
+        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
+        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
+        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[2.0416372,1771977600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -176,11 +340,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.9685767,"_source":{"begin_registratie":"2026-02-18T23:41:03.506546","beschrijving":"snowflake1","verschijningsvorm":"since","identificatie":"8ba56c33-7d79-4b04-86e6-0873c899be04","bronorganisatie":"Patrick,
-        Lopez and Johnson","link":"https://cox.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://smith.com/","taal":"uk","auteur":"Morgan
-        Manning","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"government","informatieobjecttype":"garden","bestandsnaam":"world.mp4","creatiedatum":"2026-03-03","status":"near"},"sort":[3.9685767,1772496000000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.0320222,"_source":{"begin_registratie":"2026-03-13T00:25:41.472317","beschrijving":"snowflake2","verschijningsvorm":"middle","identificatie":"2e46b2bc-35b6-43d6-8c83-e5c159b33843","bronorganisatie":"Mckenzie,
-        Glenn and Roberts","link":"http://byrd-walsh.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.parrish.com/","taal":"gez","auteur":"Tiffany
-        Leach","formaat":"flac","titel":"Document two","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"contain","bestandsnaam":"model.mp4","creatiedatum":"2026-02-22","status":"might"},"sort":[2.0320222,1771718400000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.2524545,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"health","begin_registratie":"2026-03-10T04:54:26.336130","identificatie":"d83466df-52b9-4ca3-8906-518a7b48a463","bronorganisatie":"Duran-Chandler","bestandsomvang":1000000,"link":"http://www.wolfe.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.solis-wells.com/","taal":"crh","auteur":"Kevin
+        Hill","formaat":"bmp","inhoud":"Partner join health investment along investment
+        consumer suggest. Little point human quickly.","titel":"Document two","vertrouwelijkheidaanduiding":"day","informatieobjecttype":"guy","bestandsnaam":"let.mp4","creatiedatum":"2026-02-26","status":"everybody"},"sort":[2.2524545,1772064000000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.0416372,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
+        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
+        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
+        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[2.0416372,1771977600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -209,11 +374,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":7.019836,"_source":{"begin_registratie":"2026-02-18T23:41:03.506546","beschrijving":"snowflake1","verschijningsvorm":"since","identificatie":"8ba56c33-7d79-4b04-86e6-0873c899be04","bronorganisatie":"Patrick,
-        Lopez and Johnson","link":"https://cox.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://smith.com/","taal":"uk","auteur":"Morgan
-        Manning","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"government","informatieobjecttype":"garden","bestandsnaam":"world.mp4","creatiedatum":"2026-03-03","status":"near"},"sort":[7.019836,1772496000000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":3.1564958,"_source":{"begin_registratie":"2026-03-13T00:25:41.472317","beschrijving":"snowflake2","verschijningsvorm":"middle","identificatie":"2e46b2bc-35b6-43d6-8c83-e5c159b33843","bronorganisatie":"Mckenzie,
-        Glenn and Roberts","link":"http://byrd-walsh.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.parrish.com/","taal":"gez","auteur":"Tiffany
-        Leach","formaat":"flac","titel":"Document two","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"contain","bestandsnaam":"model.mp4","creatiedatum":"2026-02-22","status":"might"},"sort":[3.1564958,1771718400000]}]}}'
+      string: '{"took":9,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.6135705,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
+        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
+        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
+        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[3.6135705,1771977600000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":3.4989102,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"health","begin_registratie":"2026-03-10T04:54:26.336130","identificatie":"d83466df-52b9-4ca3-8906-518a7b48a463","bronorganisatie":"Duran-Chandler","bestandsomvang":1000000,"link":"http://www.wolfe.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.solis-wells.com/","taal":"crh","auteur":"Kevin
+        Hill","formaat":"bmp","inhoud":"Partner join health investment along investment
+        consumer suggest. Little point human quickly.","titel":"Document two","vertrouwelijkheidaanduiding":"day","informatieobjecttype":"guy","bestandsnaam":"let.mp4","creatiedatum":"2026-02-26","status":"everybody"},"sort":[3.4989102,1772064000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

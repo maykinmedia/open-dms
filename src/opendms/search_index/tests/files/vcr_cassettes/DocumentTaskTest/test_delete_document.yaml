@@ -1,0 +1,253 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/test
+  response:
+    body:
+      string: '{"_index":"document","_id":"test","found":false}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '48'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/452635a9-228f-4cda-9bec-66310ccbb6a1
+  response:
+    body:
+      string: '{"_index":"document","_id":"452635a9-228f-4cda-9bec-66310ccbb6a1","found":false}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '80'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://pacheco.com/","identificatie":"8ee4720a-f5bb-4567-bed1-a0484e105966","bronorganisatie":"Reyes-Smith","titel":"Red
+      total relate because hotel explain science.","beschrijving":"Challenge drug
+      sing suggest. Recent support southern agency century.","auteur":"Ryan Moore","taal":"be","vertrouwelijkheidaanduiding":"stock","status":"never","formaat":"wav","bestandsnaam":"class.json","informatieobjecttype":"here","verschijningsvorm":"early","inhoud":"Position
+      good picture big since answer. Home war give station entire cultural street.","bestandsomvang":1000000,"link":"http://www.barnes-washington.com/","creatiedatum":"2026-03-02","begin_registratie":"2026-02-23T02:26:53.937474"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
+  response:
+    body:
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Challenge
+        drug sing suggest. Recent support southern agency century.","verschijningsvorm":"early","begin_registratie":"2026-02-23T02:26:53.937474","identificatie":"8ee4720a-f5bb-4567-bed1-a0484e105966","bronorganisatie":"Reyes-Smith","bestandsomvang":1000000,"link":"http://www.barnes-washington.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://pacheco.com/","taal":"be","auteur":"Ryan
+        Moore","formaat":"wav","inhoud":"Position good picture big since answer. Home
+        war give station entire cultural street.","titel":"Red total relate because
+        hotel explain science.","vertrouwelijkheidaanduiding":"stock","informatieobjecttype":"here","bestandsnaam":"class.json","creatiedatum":"2026-03-02","status":"never"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '873'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
+  response:
+    body:
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Challenge
+        drug sing suggest. Recent support southern agency century.","verschijningsvorm":"early","begin_registratie":"2026-02-23T02:26:53.937474","identificatie":"8ee4720a-f5bb-4567-bed1-a0484e105966","bronorganisatie":"Reyes-Smith","bestandsomvang":1000000,"link":"http://www.barnes-washington.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://pacheco.com/","taal":"be","auteur":"Ryan
+        Moore","formaat":"wav","inhoud":"Position good picture big since answer. Home
+        war give station entire cultural street.","titel":"Red total relate because
+        hotel explain science.","vertrouwelijkheidaanduiding":"stock","informatieobjecttype":"here","bestandsnaam":"class.json","creatiedatum":"2026-03-02","status":"never"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '873'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: DELETE
+    uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105?if_primary_term=1&if_seq_no=0&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

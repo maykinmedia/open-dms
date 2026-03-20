@@ -1,9 +1,89 @@
 interactions:
 - request:
-    body: '{"uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.edwards.com/","identificatie":"78a39526-9a3d-4907-adab-76753edc4f26","bronorganisatie":"Mccormick
-      Inc","creatiedatum":"2024-02-11","titel":"Positive dinner general leg.","auteur":"Andrew
-      Sullivan","taal":"lij","begin_registratie":"2026-02-22T22:39:28.801943","informatieobjecttype":"grow","vertrouwelijkheidaanduiding":"usually","status":"often","formaat":"html","bestandsnaam":"trade.odt","link":"https://www.woods.com/","beschrijving":"Food
-      mission father in million front. However game stand during between.","verschijningsvorm":"local"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003605248","number_of_replicas":"1","uuid":"6ZOWxjA0Sr2u0dI4si02Rg","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"https://www.lopez-holden.info/","identificatie":"5cf6ab48-c265-41f9-bf4b-51e461c26be6","bronorganisatie":"Miller
+      LLC","titel":"Rule painting course degree operation.","beschrijving":"Similar
+      hold provide. Exist me catch pick.","auteur":"Jacob Robertson","taal":"pap","vertrouwelijkheidaanduiding":"effort","status":"effort","formaat":"bmp","bestandsnaam":"attention.csv","informatieobjecttype":"trip","verschijningsvorm":"project","inhoud":"Condition
+      surface around enjoy accept child.","bestandsomvang":1000000,"link":"http://www.ward.com/","creatiedatum":"2024-02-11","begin_registratie":"2026-03-14T19:30:59.287815"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -33,10 +113,92 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://obrien-thomas.com/","identificatie":"dae0b2f9-01e6-4c0a-b763-5b9e0bca6010","bronorganisatie":"Edwards-Harris","creatiedatum":"2022-12-10","titel":"Short
-      approach do wall.","auteur":"Daniel Conner","taal":"mni","begin_registratie":"2026-03-10T15:11:34.237617","informatieobjecttype":"check","vertrouwelijkheidaanduiding":"agency","status":"test","formaat":"avi","bestandsnaam":"understand.odp","link":"https://www.davis-hensley.com/","beschrijving":"Health
-      week themselves very purpose mention none. Community morning trip kitchen yourself
-      million quickly.","verschijningsvorm":"word"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003605248","number_of_replicas":"1","uuid":"6ZOWxjA0Sr2u0dI4si02Rg","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.ellis-clark.com/","identificatie":"6efb22a3-ff55-43c4-b50c-938456f812e0","bronorganisatie":"Evans,
+      Carroll and Bright","titel":"Free computer behavior of during.","beschrijving":"Country
+      section economy data less specific pay. Really let would. Treat act deal bag
+      return consumer.","auteur":"Stanley Brooks","taal":"nn","vertrouwelijkheidaanduiding":"throw","status":"book","formaat":"jpg","bestandsnaam":"fund.flac","informatieobjecttype":"body","verschijningsvorm":"type","inhoud":"My
+      rate myself economy resource reduce far. Company sport consider may goal product
+      here. Know forward summer west.","bestandsomvang":1000000,"link":"https://wright.com/","creatiedatum":"2022-12-10","begin_registratie":"2026-02-28T16:39:06.005309"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -66,11 +228,90 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"http://www.montgomery.net/","identificatie":"1988f6db-f0db-4b77-b2a7-6db98119be3c","bronorganisatie":"Hoover,
-      Taylor and Sullivan","creatiedatum":"2025-01-14","titel":"Go concern beyond
-      certain stage Congress.","auteur":"Michael Bowen","taal":"gu","begin_registratie":"2026-03-05T05:04:59.930641","informatieobjecttype":"first","vertrouwelijkheidaanduiding":"security","status":"power","formaat":"mov","bestandsnaam":"nature.flac","link":"http://rodriguez.biz/","beschrijving":"Guess
-      beat range their dream international garden. Lose meeting receive why almost
-      range computer.","verschijningsvorm":"out"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003605248","number_of_replicas":"1","uuid":"6ZOWxjA0Sr2u0dI4si02Rg","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"https://www.anderson-smith.org/","identificatie":"7db06053-8e03-45c6-bfd2-933df562c976","bronorganisatie":"Robertson
+      Group","titel":"Financial rather election past charge difference note.","beschrijving":"Its
+      suddenly view one their west which.","auteur":"Jeremy Chavez","taal":"is","vertrouwelijkheidaanduiding":"now","status":"maintain","formaat":"json","bestandsnaam":"offer.html","informatieobjecttype":"sit","verschijningsvorm":"line","inhoud":"Citizen
+      movie take television ask least measure. Whole quite plan wait.","bestandsomvang":1000000,"link":"https://riley.net/","creatiedatum":"2025-01-14","begin_registratie":"2026-03-13T21:38:10.741225"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -100,7 +341,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":"2024-02-11","lte":null}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":"2024-02-11"}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,14 +357,16 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_score":0.0,"_source":{"begin_registratie":"2026-03-05T05:04:59.930641","beschrijving":"Guess
-        beat range their dream international garden. Lose meeting receive why almost
-        range computer.","verschijningsvorm":"out","identificatie":"1988f6db-f0db-4b77-b2a7-6db98119be3c","bronorganisatie":"Hoover,
-        Taylor and Sullivan","link":"http://rodriguez.biz/","uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"http://www.montgomery.net/","taal":"gu","auteur":"Michael
-        Bowen","formaat":"mov","titel":"Go concern beyond certain stage Congress.","vertrouwelijkheidaanduiding":"security","informatieobjecttype":"first","bestandsnaam":"nature.flac","creatiedatum":"2025-01-14","status":"power"},"sort":[0.0,1736812800000]},{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"begin_registratie":"2026-02-22T22:39:28.801943","beschrijving":"Food
-        mission father in million front. However game stand during between.","verschijningsvorm":"local","identificatie":"78a39526-9a3d-4907-adab-76753edc4f26","bronorganisatie":"Mccormick
-        Inc","link":"https://www.woods.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.edwards.com/","taal":"lij","auteur":"Andrew
-        Sullivan","formaat":"html","titel":"Positive dinner general leg.","vertrouwelijkheidaanduiding":"usually","informatieobjecttype":"grow","bestandsnaam":"trade.odt","creatiedatum":"2024-02-11","status":"often"},"sort":[0.0,1707609600000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_score":0.0,"_source":{"beschrijving":"Its
+        suddenly view one their west which.","verschijningsvorm":"line","begin_registratie":"2026-03-13T21:38:10.741225","identificatie":"7db06053-8e03-45c6-bfd2-933df562c976","bronorganisatie":"Robertson
+        Group","bestandsomvang":1000000,"link":"https://riley.net/","uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"https://www.anderson-smith.org/","taal":"is","auteur":"Jeremy
+        Chavez","formaat":"json","inhoud":"Citizen movie take television ask least
+        measure. Whole quite plan wait.","titel":"Financial rather election past charge
+        difference note.","vertrouwelijkheidaanduiding":"now","informatieobjecttype":"sit","bestandsnaam":"offer.html","creatiedatum":"2025-01-14","status":"maintain"},"sort":[0.0,1736812800000]},{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"beschrijving":"Similar
+        hold provide. Exist me catch pick.","verschijningsvorm":"project","begin_registratie":"2026-03-14T19:30:59.287815","identificatie":"5cf6ab48-c265-41f9-bf4b-51e461c26be6","bronorganisatie":"Miller
+        LLC","bestandsomvang":1000000,"link":"http://www.ward.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"https://www.lopez-holden.info/","taal":"pap","auteur":"Jacob
+        Robertson","formaat":"bmp","inhoud":"Condition surface around enjoy accept
+        child.","titel":"Rule painting course degree operation.","vertrouwelijkheidaanduiding":"effort","informatieobjecttype":"trip","bestandsnaam":"attention.csv","creatiedatum":"2024-02-11","status":"effort"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -135,7 +378,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"gte":null,"lte":"2022-12-10"}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"filter":[{"range":{"creatiedatum":{"lte":"2022-12-10"}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -151,10 +394,13 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"begin_registratie":"2026-03-10T15:11:34.237617","beschrijving":"Health
-        week themselves very purpose mention none. Community morning trip kitchen
-        yourself million quickly.","verschijningsvorm":"word","identificatie":"dae0b2f9-01e6-4c0a-b763-5b9e0bca6010","bronorganisatie":"Edwards-Harris","link":"https://www.davis-hensley.com/","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://obrien-thomas.com/","taal":"mni","auteur":"Daniel
-        Conner","formaat":"avi","titel":"Short approach do wall.","vertrouwelijkheidaanduiding":"agency","informatieobjecttype":"check","bestandsnaam":"understand.odp","creatiedatum":"2022-12-10","status":"test"},"sort":[0.0,1670630400000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"beschrijving":"Country
+        section economy data less specific pay. Really let would. Treat act deal bag
+        return consumer.","verschijningsvorm":"type","begin_registratie":"2026-02-28T16:39:06.005309","identificatie":"6efb22a3-ff55-43c4-b50c-938456f812e0","bronorganisatie":"Evans,
+        Carroll and Bright","bestandsomvang":1000000,"link":"https://wright.com/","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.ellis-clark.com/","taal":"nn","auteur":"Stanley
+        Brooks","formaat":"jpg","inhoud":"My rate myself economy resource reduce far.
+        Company sport consider may goal product here. Know forward summer west.","titel":"Free
+        computer behavior of during.","vertrouwelijkheidaanduiding":"throw","informatieobjecttype":"body","bestandsnaam":"fund.flac","creatiedatum":"2022-12-10","status":"book"},"sort":[0.0,1670630400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -182,10 +428,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"begin_registratie":"2026-02-22T22:39:28.801943","beschrijving":"Food
-        mission father in million front. However game stand during between.","verschijningsvorm":"local","identificatie":"78a39526-9a3d-4907-adab-76753edc4f26","bronorganisatie":"Mccormick
-        Inc","link":"https://www.woods.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.edwards.com/","taal":"lij","auteur":"Andrew
-        Sullivan","formaat":"html","titel":"Positive dinner general leg.","vertrouwelijkheidaanduiding":"usually","informatieobjecttype":"grow","bestandsnaam":"trade.odt","creatiedatum":"2024-02-11","status":"often"},"sort":[0.0,1707609600000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"beschrijving":"Similar
+        hold provide. Exist me catch pick.","verschijningsvorm":"project","begin_registratie":"2026-03-14T19:30:59.287815","identificatie":"5cf6ab48-c265-41f9-bf4b-51e461c26be6","bronorganisatie":"Miller
+        LLC","bestandsomvang":1000000,"link":"http://www.ward.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"https://www.lopez-holden.info/","taal":"pap","auteur":"Jacob
+        Robertson","formaat":"bmp","inhoud":"Condition surface around enjoy accept
+        child.","titel":"Rule painting course degree operation.","vertrouwelijkheidaanduiding":"effort","informatieobjecttype":"trip","bestandsnaam":"attention.csv","creatiedatum":"2024-02-11","status":"effort"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

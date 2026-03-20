@@ -23,7 +23,7 @@ interactions:
       string: !!binary |
         N3q8ryccAAQw1YWZigAAAAAAAAAVAAAAAAAAAFj+mTzgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
         AGxdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
-        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzQzRZhxhbeOES7J5HKJRfFtAz+mqvYnxrI6AAAAAX
+        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzRDRPsxRp9KtxmPD3mXdTK+u5/iFbpJ78BXEAAAAX
         BhYBCXQABwsBAAEhIQEYDICFAAA=
     headers:
       Connection:
@@ -33,16 +33,97 @@ interactions:
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Tue, 17 Mar 2026 13:42:56 GMT
+      - Fri, 20 Mar 2026 10:47:16 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","creatiedatum":"2026-01-01","titel":"A
-      test document","auteur":"Test Author","taal":"nl","begin_registratie":"2026-01-05T12:00:00+00:00","informatieobjecttype":"document","status":"concept","formaat":"pdf","bestandsnaam":"document.pdf","beschrijving":"Lorem
-      ipsum dolor sit amet, consectetur adipiscing elit.","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://snyder.com/","identificatie":"6bb64915-7c82-4689-b6ca-2a59cfc1133c","bronorganisatie":"Rice
+      Group","titel":"Industry human free reflect leg.","beschrijving":"Young lead
+      fight class race walk usually source. Other them group seek city standard or.","auteur":"James
+      Pena","taal":"unm","vertrouwelijkheidaanduiding":"pressure","status":"focus","formaat":"mp4","bestandsnaam":"middle.wav","informatieobjecttype":"every","verschijningsvorm":"state","inhoud":"http://localhost/document/smol7zip","bestandsomvang":188,"link":"http://www.jackson.biz/","creatiedatum":"2026-02-25","begin_registratie":"2026-03-11T20:53:53.042067","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -58,7 +139,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
@@ -79,21 +160,24 @@ interactions:
       connection:
       - keep-alive
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: GET
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-01-05T12:00:00+00:00","beschrijving":"Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit.","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","taal":"nl","auteur":"Test
-        Author","formaat":"pdf","titel":"A test document","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","status":"concept"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"beschrijving":"Young
+        lead fight class race walk usually source. Other them group seek city standard
+        or.","verschijningsvorm":"state","begin_registratie":"2026-03-11T20:53:53.042067","identificatie":"6bb64915-7c82-4689-b6ca-2a59cfc1133c","bronorganisatie":"Rice
+        Group","bestandsomvang":188,"link":"http://www.jackson.biz/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://snyder.com/","taal":"unm","auteur":"James
+        Pena","formaat":"mp4","inhoud":"http://localhost/document/smol7zip","titel":"Industry
+        human free reflect leg.","vertrouwelijkheidaanduiding":"pressure","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"informatieobjecttype":"every","bestandsnaam":"middle.wav","creatiedatum":"2026-02-25","status":"focus"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1192'
+      - '1363'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

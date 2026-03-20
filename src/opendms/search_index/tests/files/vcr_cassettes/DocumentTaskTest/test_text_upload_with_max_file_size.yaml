@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -80,10 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9c3360b8-2ce7-4742-9051-e586b686fc48","url":"http://www.stewart-moore.com/","identificatie":"40c96b21-c635-40af-958b-bd894cc0b309","bronorganisatie":"Cole-Huynh","titel":"Her
-      especially former source.","beschrijving":"Before visit way radio. Nature hospital
-      military responsibility small build.","auteur":"Sabrina Matthews","taal":"ml","vertrouwelijkheidaanduiding":"name","status":"trouble","formaat":"mp3","bestandsnaam":"meet.pdf","informatieobjecttype":"decade","verschijningsvorm":"baby","inhoud":"Month
-      food red me. Board himself star four. What population research party ready life.","bestandsomvang":1000000,"link":"https://www.miller.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-19T20:01:49.631704"}'
+    body: '{"uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"http://hughes.com/","identificatie":"7957b3cd-5d1d-4089-a771-0bd7f1195c39","bronorganisatie":"Lee
+      and Sons","titel":"Congress air life recent evening.","beschrijving":"Help edge
+      resource huge. Radio film receive main true public. Pass today bank his.","auteur":"Sandra
+      Gray","taal":"hsb","vertrouwelijkheidaanduiding":"decade","status":"take","formaat":"csv","bestandsnaam":"discover.pdf","informatieobjecttype":"result","verschijningsvorm":"area","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://www.larson.info/","creatiedatum":"2026-02-25","begin_registratie":"2026-03-13T19:54:15.069285"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -96,13 +96,13 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_doc/9c3360b8-2ce7-4742-9051-e586b686fc48?pipeline=document_attachment&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/ed19d46e-c367-4410-a891-88f20d232a03?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"9c3360b8-2ce7-4742-9051-e586b686fc48","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":18,"_primary_term":1}'
+      string: '{"_index":"document","_id":"ed19d46e-c367-4410-a891-88f20d232a03","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":21,"_primary_term":1}'
     headers:
       Location:
-      - /document/_doc/9c3360b8-2ce7-4742-9051-e586b686fc48
+      - /document/_doc/ed19d46e-c367-4410-a891-88f20d232a03
       X-elastic-product:
       - Elasticsearch
       content-length:
@@ -112,6 +112,36 @@ interactions:
     status:
       code: 201
       message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/ed19d46e-c367-4410-a891-88f20d232a03
+  response:
+    body:
+      string: '{"_index":"document","_id":"ed19d46e-c367-4410-a891-88f20d232a03","_version":1,"_seq_no":21,"_primary_term":1,"found":true,"_source":{"beschrijving":"Help
+        edge resource huge. Radio film receive main true public. Pass today bank his.","verschijningsvorm":"area","begin_registratie":"2026-03-13T19:54:15.069285","identificatie":"7957b3cd-5d1d-4089-a771-0bd7f1195c39","bronorganisatie":"Lee
+        and Sons","bestandsomvang":1000000,"link":"http://www.larson.info/","uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"http://hughes.com/","taal":"hsb","auteur":"Sandra
+        Gray","formaat":"csv","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Congress
+        air life recent evening.","vertrouwelijkheidaanduiding":"decade","informatieobjecttype":"result","bestandsnaam":"discover.pdf","creatiedatum":"2026-02-25","status":"take"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '845'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
@@ -153,7 +183,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -193,12 +223,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"37eb1144-a3da-48d1-b2fb-88075f781611","url":"http://www.york.com/","identificatie":"a1f79c52-3162-4126-830f-55f45ca1d9ce","bronorganisatie":"Bailey
-      Inc","titel":"Document one of many","beschrijving":"Hand agreement woman. North
-      particularly coach age window. Training read share professional.","auteur":"Amanda
-      Brandt","taal":"dz","vertrouwelijkheidaanduiding":"would","status":"message","formaat":"txt","bestandsnaam":"tonight.pdf","informatieobjecttype":"hit","verschijningsvorm":"eat","inhoud":"Difference
-      decision team attack. North seven dream eat. Republican side environment field
-      responsibility with still.","bestandsomvang":1000000,"link":"http://www.garcia.info/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-03T20:18:43.345550"}'
+    body: '{"uuid":"da97b6cb-7211-4762-9673-21a08f508e85 ","url":"http://www.tucker-rodriguez.com/","identificatie":"3b16007f-3933-4c11-a087-49a3c4702fce","bronorganisatie":"House,
+      Mccormick and Smith","titel":"Situation concern suddenly behavior customer note.","beschrijving":"Quickly
+      ability head concern lay of.","auteur":"Kelly Callahan","taal":"ka","vertrouwelijkheidaanduiding":"quality","status":"tell","formaat":"flac","bestandsnaam":"eight.gif","informatieobjecttype":"officer","verschijningsvorm":"stand","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":2000,"link":"http://www.cardenas-brown.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-06T06:06:35.542681"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -211,22 +238,88 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_doc/37eb1144-a3da-48d1-b2fb-88075f781611?pipeline=document_attachment&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/da97b6cb-7211-4762-9673-21a08f508e85%20?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"37eb1144-a3da-48d1-b2fb-88075f781611","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":19,"_primary_term":1}'
+      string: '{"_index":"document","_id":"da97b6cb-7211-4762-9673-21a08f508e85 ","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":22,"_primary_term":1}'
     headers:
       Location:
-      - /document/_doc/37eb1144-a3da-48d1-b2fb-88075f781611
+      - /document/_doc/da97b6cb-7211-4762-9673-21a08f508e85+
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '177'
+      - '178'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 201
       message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/da97b6cb-7211-4762-9673-21a08f508e85%20
+  response:
+    body:
+      string: '{"_index":"document","_id":"da97b6cb-7211-4762-9673-21a08f508e85 ","_version":1,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"beschrijving":"Quickly
+        ability head concern lay of.","verschijningsvorm":"stand","begin_registratie":"2026-03-06T06:06:35.542681","identificatie":"3b16007f-3933-4c11-a087-49a3c4702fce","bronorganisatie":"House,
+        Mccormick and Smith","bestandsomvang":2000,"link":"http://www.cardenas-brown.com/","uuid":"da97b6cb-7211-4762-9673-21a08f508e85
+        ","url":"http://www.tucker-rodriguez.com/","taal":"ka","auteur":"Kelly Callahan","formaat":"flac","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Situation
+        concern suddenly behavior customer note.","vertrouwelijkheidaanduiding":"quality","informatieobjecttype":"officer","bestandsnaam":"eight.gif","creatiedatum":"2026-03-15","status":"tell"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '853'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Audit-Remarks:
+      - download document for indexing.
+      Audit-User-ID:
+      - Open DMS
+      Audit-User-Representation:
+      - Open DMS (system)
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb
+  response:
+    body:
+      string: Document 'c80fcb40-f6af-44a4-90ab-07f75b47e9cb'
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '47'
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Fri, 20 Mar 2026 10:47:27 GMT
+      Server:
+      - Werkzeug/3.1.6 Python/3.12.13
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
@@ -268,7 +361,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -308,12 +401,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"https://www.cole.com/","identificatie":"015e9fe6-f02f-45da-be93-0ba410816687","bronorganisatie":"Spence,
-      Rhodes and Kim","titel":"Document two of many","beschrijving":"Second debate
-      perhaps bed will. Usually catch despite imagine. Summer animal lawyer question
-      network.","auteur":"Anita Rios","taal":"br","vertrouwelijkheidaanduiding":"evening","status":"discover","formaat":"html","bestandsnaam":"series.avi","informatieobjecttype":"discussion","verschijningsvorm":"difference","inhoud":"Western
-      since budget billion six. Painting at economy consider. Bar activity figure
-      this kid send human.","bestandsomvang":1000000,"link":"http://owens.com/","creatiedatum":"2026-02-27","begin_registratie":"2026-03-04T10:36:20.795583"}'
+    body: '{"uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"http://www.henry.org/","identificatie":"75d0a989-999e-4fdd-9892-76423bb4436f","bronorganisatie":"Smith-Rodriguez","titel":"Lead
+      hit community civil event.","beschrijving":"The Congress trial manage his office.
+      Old third house explain above let.","auteur":"Rita Davis","taal":"kk","vertrouwelijkheidaanduiding":"physical","status":"international","formaat":"jpg","bestandsnaam":"couple.jpg","informatieobjecttype":"hit","verschijningsvorm":"himself","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":800,"link":"http://rodgers-combs.com/","creatiedatum":"2026-02-18","begin_registratie":"2026-02-22T10:59:14.162731","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -326,13 +416,13 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_doc/da45268a-ab21-4a81-bfc4-b0430edf339b?pipeline=document_attachment&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/554be64c-e6af-49b5-8af5-80e83155212d?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"da45268a-ab21-4a81-bfc4-b0430edf339b","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":20,"_primary_term":1}'
+      string: '{"_index":"document","_id":"554be64c-e6af-49b5-8af5-80e83155212d","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":23,"_primary_term":1}'
     headers:
       Location:
-      - /document/_doc/da45268a-ab21-4a81-bfc4-b0430edf339b
+      - /document/_doc/554be64c-e6af-49b5-8af5-80e83155212d
       X-elastic-product:
       - Elasticsearch
       content-length:
@@ -343,35 +433,30 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
-      two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: null
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
       connection:
       - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
       user-agent:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: POST
-    uri: http://localhost:9201/document/_search
+    method: GET
+    uri: http://localhost:9201/document/_doc/554be64c-e6af-49b5-8af5-80e83155212d
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"da45268a-ab21-4a81-bfc4-b0430edf339b","_score":2.849316,"_source":{"beschrijving":"Second
-        debate perhaps bed will. Usually catch despite imagine. Summer animal lawyer
-        question network.","verschijningsvorm":"difference","begin_registratie":"2026-03-04T10:36:20.795583","identificatie":"015e9fe6-f02f-45da-be93-0ba410816687","bronorganisatie":"Spence,
-        Rhodes and Kim","bestandsomvang":1000000,"link":"http://owens.com/","uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"https://www.cole.com/","taal":"br","auteur":"Anita
-        Rios","formaat":"html","inhoud":"Western since budget billion six. Painting
-        at economy consider. Bar activity figure this kid send human.","titel":"Document
-        two of many","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"discussion","bestandsnaam":"series.avi","creatiedatum":"2026-02-27","status":"discover"},"sort":[2.849316,1772150400000]}]}}'
+      string: '{"_index":"document","_id":"554be64c-e6af-49b5-8af5-80e83155212d","_version":1,"_seq_no":23,"_primary_term":1,"found":true,"_source":{"beschrijving":"The
+        Congress trial manage his office. Old third house explain above let.","verschijningsvorm":"himself","begin_registratie":"2026-02-22T10:59:14.162731","identificatie":"75d0a989-999e-4fdd-9892-76423bb4436f","bronorganisatie":"Smith-Rodriguez","bestandsomvang":800,"link":"http://rodgers-combs.com/","uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"http://www.henry.org/","taal":"kk","auteur":"Rita
+        Davis","formaat":"jpg","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Lead
+        hit community civil event.","vertrouwelijkheidaanduiding":"physical","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"hit","bestandsnaam":"couple.jpg","creatiedatum":"2026-02-18","status":"international"}}'
     headers:
-      Transfer-Encoding:
-      - chunked
       X-elastic-product:
       - Elasticsearch
+      content-length:
+      - '939'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
