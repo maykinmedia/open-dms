@@ -2,6 +2,8 @@ from datetime import date
 from typing import TypedDict
 from uuid import UUID
 
+from opendms.search_index.typing import DocumentType
+
 
 class PaginatedResponse[T](TypedDict):
     count: int
@@ -33,3 +35,4 @@ class Zaak(TypedDict):
 
 ZaakTypenPaginatedResponse = PaginatedResponse[ZaakType]
 ZakenPaginatedResponse = PaginatedResponse[Zaak]
+DocumentsPaginatedResponse = PaginatedResponse[DocumentType]
