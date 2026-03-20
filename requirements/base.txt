@@ -397,7 +397,7 @@ psycopg2-binary==2.9.11
     # via -r requirements/base.in
 py7zr==0.22.0
     # via -r requirements/base.in
-pyasn1==0.6.2
+pyasn1==0.6.3
     # via webauthn
 pybcj==1.0.7
     # via py7zr
@@ -420,7 +420,7 @@ pyjwt==2.12.1
     #   commonground-api-common
     #   mozilla-django-oidc
     #   zgw-consumers
-pyopenssl==25.3.0
+pyopenssl==26.0.0
     # via webauthn
 pyppmd==1.1.1
     # via py7zr
@@ -503,7 +503,7 @@ structlog==25.5.0
     #   open-api-framework
 texttable==1.7.0
     # via py7zr
-tornado==6.5.4
+tornado==6.5.5
     # via flower
 typer==0.23.1
     # via maykin-common
