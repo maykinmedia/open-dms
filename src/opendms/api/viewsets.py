@@ -5,24 +5,68 @@ from django.utils.translation import gettext_lazy as _
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
+from rest_framework.response import Response
+from rest_framework.views import APIView
 from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
-from opendms.search_index.typing import DocumentType
+
 from opendms.search_index.client import get_elasticsearch_client
+
 from .clients import get_zaaktypen_client, get_zaken_client
 from .models import ZGWApiGroupConfig
-from .serializers import ServiceSerializer, ZaakSerializer, ZaakTypeSerializer
+from .serializers import (
+    DocumentSerializer,
+    SearchSerializer,
+    ServiceSerializer,
+    ZaakSerializer,
+    ZaakTypeSerializer,
+)
 from .typing import (
+    DocumentsPaginatedResponse,
+    DocumentType,
     Zaak,
     ZaakType,
     ZaakTypenPaginatedResponse,
     ZakenPaginatedResponse,
-    DocumentsPaginatedResponse,
 )
 from .utils.mixins import ReadOnlyViewSetMixin
 from .utils.pagination import CountedPagination
 
 QUERY_PARAM_FIELD = "search"
+
+
+class SearchView(APIView):
+    # TODO make GET is not allowed
+    # TODO check extend_schema
+    @extend_schema(
+        tags=["search"],
+        summary=_("Search"),
+        operation_id="search",
+        description=_("Search the document records."),
+        request=SearchSerializer,
+    )
+    def post(self, request, *args, **kwargs):
+        query_serializer = SearchSerializer(data=request.data)
+        query_serializer.is_valid(raise_exception=True)
+        params: SearchParameters = query_serializer.validated_data
+
+        # TODO check if params are required or not
+
+        with get_elasticsearch_client() as client:
+            search_results = client.get_search_results(
+                query=params["query"],
+                creatiedatum_from=params["creatiedatum_vanaf"],
+                creatiedatum_to=params["creatiedatum_tot_en_met"],
+                page=(page := params["page"]),
+                page_size=(page_size := params["page_size"]),
+                sort=params["sort"],
+            )
+
+        response = SearchResponseSerializer(
+            instance=search_results,
+            context={"page": page, "page_size": page_size},
+        )
+        return Response(response.data)
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
@@ -182,7 +226,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 required=True,
             ),
             OpenApiParameter(
-                name="zaken_uuid",
+                name="zaak_uuid",
                 type=str,
                 location=OpenApiParameter.PATH,
                 required=True,
@@ -197,7 +241,7 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
     serializer_class = ZaakSerializer
     pagination_class = CountedPagination
-    lookup_field = "zaken_uuid"
+    lookup_field = "zaak_uuid"
     parent_lookup_field = "zaaktypen_zaaktype_uuid"
     queryset = None
 
@@ -215,7 +259,7 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         Retrieve a single Zaak from the external service by UUID.
 
         This method is overridden because the ViewSet does not use a Django
-        model or ORM queryset. Instead, the requested ZaakType is fetched
+        model or ORM queryset. Instead, the requested Zaak is fetched
         directly from the external Zaken API using the client.
         """
         uuid = self.kwargs.get(self.lookup_field)
@@ -240,19 +284,19 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
     """
 
-    serializer_class = ZaakSerializer
+    serializer_class = DocumentSerializer
     pagination_class = CountedPagination
     lookup_field = "document_uuid"
-    parent_lookup_field = "zaken_zaak_uuid"
+    parent_lookup_field = "zaaken_zaak_uuid"
     queryset = None
 
     def get_object(self) -> Zaak | None:
         """
-        Retrieve a single Zaak from the external service by UUID.
+        Retrieve a single Document from the Elasticsearch index
 
         This method is overridden because the ViewSet does not use a Django
-        model or ORM queryset. Instead, the requested ZaakType is fetched
-        directly from the external Zaken API using the client.
+        model or ORM queryset. Instead, the requested Documen is fetched
+        directly from the external Elasticsearch index.
         """
         uuid = self.kwargs.get(self.lookup_field)
         with get_zaken_client(self.zgw_group.zrc_service) as client:
@@ -260,12 +304,16 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
     def get_paginated_queryset(self, params: dict) -> DocumentsPaginatedResponse | None:
         """
-        Retrieve all Zaken filtered by a specific Zaaktype.
+        Retrieve all Documents filtered by a specific Zaak.
 
         This method is overridden because no Django model queryset exists.
-        Zaak data is retrieved dynamically from the external Zaken
+        Document data is retrieved dynamically from the external Elasticsearch index
         API via the configured client.
         """
         with get_elasticsearch_client() as client:
-            return
-            return client.get_paginated_items_by_zaaktype(self.zaaktype_url, params)
+            # TODO test pagination
+            documents = client.get_all_documents()
+            return DocumentsPaginatedResponse(
+                count=documents.total_count,
+                results=[DocumentType(**doc) for doc in documents.results],
+            )

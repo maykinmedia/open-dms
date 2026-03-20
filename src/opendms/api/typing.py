@@ -1,8 +1,6 @@
-from datetime import date
-from typing import TypedDict
+from datetime import date, datetime
+from typing import Literal, TypedDict
 from uuid import UUID
-
-from opendms.search_index.typing import DocumentType
 
 
 class PaginatedResponse[T](TypedDict):
@@ -31,6 +29,37 @@ class Zaak(TypedDict):
     startdatum: date
     omschrijving: str
     toelichting: str
+
+
+class DocumentType(TypedDict):
+    uuid: str
+    url: str
+    identificatie: str
+    bronorganisatie: str
+    creatiedatum: date
+    titel: str
+    auteur: str
+    taal: str
+    begin_registratie: datetime
+    informatieobjecttype: str
+    vertrouwelijkheidaanduiding: str | None
+    status: str | None
+    formaat: str | None
+    bestandsnaam: str | None
+    inhoud: str | None
+    link: str | None
+    beschrijving: str | None
+    verschijningsvorm: str | None
+    bestandsomvang: int | None
+
+
+class SearchParameters(TypedDict):
+    query: str
+    page: int
+    page_size: int
+    sort: Literal["relevance", "chronological"]
+    creatiedatum_vanaf: date | None
+    creatiedatum_tot_en_met: date | None
 
 
 ZaakTypenPaginatedResponse = PaginatedResponse[ZaakType]
