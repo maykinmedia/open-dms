@@ -26,7 +26,6 @@ class IndexDocumentFactory(factory.Factory):
     bestandsnaam = factory.Faker("file_name")
     informatieobjecttype = factory.Faker("word")
     verschijningsvorm = factory.Faker("word")
-    inhoud = factory.Faker("paragraph")
     bestandsomvang = 1000000
     link = factory.Faker("url")
     creatiedatum = factory.Faker("past_date")

@@ -77,12 +77,6 @@ class Document(ES_Document):
 
 
 @dataclass
-class SearchResult:
-    type: IndexName
-    record: Document
-
-
-@dataclass
-class SearchResults:
+class DocumentResults:
     total_count: int
-    results: Sequence[SearchResult]
+    results: Sequence[Document]

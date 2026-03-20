@@ -13,7 +13,7 @@ from elasticsearch.dsl import Q, Search
 from elasticsearch.exceptions import NotFoundError
 
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX
-from .index import Document, SearchResult, SearchResults
+from .index import Document, DocumentResults
 from .utils import _download_document
 
 logger = structlog.get_logger(__name__)
@@ -113,7 +113,7 @@ class ElasticSearchClient:
         page: int = 1,
         page_size: int = 10,
         sort: Literal["relevance", "chronological"] = "relevance",
-    ) -> SearchResults:
+    ) -> DocumentResults:
         """
         Perform the search query in Elasticsearch using the DSL Search object.
         """
@@ -196,16 +196,34 @@ class ElasticSearchClient:
             for hit in response.hits
         ]
 
-        return SearchResults(
+        return DocumentResults(
             total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
             results=results,
+        )
+
+    def get_all_documents(self, page: int = 1, page_size: int = 10) -> DocumentResults:
+        """
+        Retrieve all documents from the index, paginated.
+        """
+        search = Search(index=self.index, doc_type=Document)
+
+        page_from = page_size * (page - 1)
+        search = search[page_from : page_from + page_size]
+        search = search.query("match_all")
+        search = search.using(self.client)
+        response = search.execute()
+        # process the results
+        return DocumentResults(
+            total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
+            results=[hit for hit in response.hits],
         )
 
     def get_total_count(self) -> int:
         """
         Count documents in the index
         """
-        search = Search(index=self.index).using(self.client)
+
+        search = Search(index=self.index, doc_type=Document).using(self.client)
         return search.count()
 
     def get_last_document_creatiedatum(self) -> str:
@@ -218,7 +236,6 @@ class ElasticSearchClient:
             query={"exists": {"field": "creatiedatum"}},
             aggs={"latest_date": {"max": {"field": "creatiedatum"}}},
         )
-
         return (
             response.get("aggregations", {})
             .get("latest_date", {})
