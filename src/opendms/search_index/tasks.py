@@ -1,7 +1,8 @@
-import logging
 from datetime import date, datetime
 
 from django.conf import settings
+
+import structlog
 
 from opendms.celery import app
 
@@ -9,7 +10,7 @@ from .client import get_elasticsearch_client
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID
 from .index import Document
 
-logger = logging.getLogger(__name__)
+logger = structlog.stdlib.get_logger(__name__)
 
 
 @app.task()

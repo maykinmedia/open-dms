@@ -37,6 +37,8 @@ def index_all_documents() -> None:
             with get_documenten_client(service) as doc_client:
                 all_documents = doc_client.get_items(
                     params={"creatiedatum__gte": last_creatiedatum}
+                    if last_creatiedatum
+                    else {}
                 )
 
             logger.info("documents_fetched", count=len(all_documents))

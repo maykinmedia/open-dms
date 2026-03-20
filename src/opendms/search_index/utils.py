@@ -89,7 +89,7 @@ def _download_document(document_url: str) -> NestedDocumentData | None:
     # TODO test here with the same document zgw_group service
     if (service := Service.get_service(document_url)) is None:
         logger.exception("service_not_found")
-        return
+        return None
 
     with build_client(service) as client:
         try:
@@ -104,7 +104,7 @@ def _download_document(document_url: str) -> NestedDocumentData | None:
             response.raise_for_status()
         except requests.RequestException:
             logger.exception("Could not download the document at %s.", document_url)
-            return
+            return None
         # TODO check Timeout
 
     _content_type = response.headers.get("Content-Type")

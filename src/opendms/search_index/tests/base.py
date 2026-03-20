@@ -56,7 +56,7 @@ class ElasticSearchMixin:
             with get_elasticsearch_client() as es_client:
                 cls._es_online = es_client.can_connect
                 if not cls._es_online:
-                    logger.log(
+                    logger.info(
                         "ES %r is not available. Running in CI: %r.%s",
                         es_client.client,
                         CI,
