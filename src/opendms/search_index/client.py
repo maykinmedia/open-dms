@@ -10,14 +10,17 @@ from django.utils.translation import gettext_lazy as _
 import structlog
 from elasticsearch import Elasticsearch
 from elasticsearch.dsl import Q, Search
+from elasticsearch.exceptions import NotFoundError
 
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX
 from .index import Document, SearchResult, SearchResults
+from .utils import _download_document
 
 logger = structlog.get_logger(__name__)
 
 
 class ElasticSearchClient:
+    # TODO add check if index exists, if not create it
     index = DOCUMENT_INDEX
 
     def __init__(self):
@@ -198,6 +201,13 @@ class ElasticSearchClient:
             results=results,
         )
 
+    def get_total_count(self) -> int:
+        """
+        Count documents in the index
+        """
+        search = Search(index=self.index).using(self.client)
+        return search.count()
+
     def get_last_document_creatiedatum(self) -> str:
         """
         Return the latest creatiedatum of documents in Elasticsearch
@@ -215,27 +225,48 @@ class ElasticSearchClient:
             .get("value_as_string", "")
         )
 
-    def index_document(
-        self,
-        document: Document,
-    ) -> None:
-        """
-        # TODO test
+    def index_document(self, document: Document) -> None:
         if (
-            inhoud
-            and bestandsomvang
-            and bestandsomvang <= settings.SEARCH_INDEX["MAX_INDEX_FILE_SIZE"]
+            document.inhoud
+            and document.bestandsomvang
+            and document.bestandsomvang <= settings.SEARCH_INDEX["MAX_INDEX_FILE_SIZE"]
         ):
-            pass
-            # document.document_data = _download_document(document_url=inhoud)
-        """
+            document.document_data = _download_document(document_url=document.inhoud)
+
         # TODO check if create or raise error ?
         Document.init(using=self.client)
         document.save(
+            id=str(document.uuid),
             using=self.client,
             refresh=settings.SEARCH_INDEX["REFRESH"],
             pipeline=DOCUMENT_ATTACHMENT_PIPELINE_ID,
         )
+
+    def get_document(self, uuid: str) -> Document | None:
+        """
+        Retrieve a Document from Elasticsearch by its UUID.
+        """
+        try:
+            return Document.get(id=uuid, using=self.client)
+        except NotFoundError:
+            return None
+        except Exception:
+            logger.error("failed_to_fetch_document")
+            return None
+
+    def delete_document(self, uuid: str) -> bool:
+        """
+        Delete a Document from Elasticsearch by its UUID.
+        """
+        try:
+            doc = Document.get(id=uuid, using=self.client)
+            doc.delete(using=self.client, refresh=settings.SEARCH_INDEX["REFRESH"])
+            return True
+        except NotFoundError:
+            return False
+        except Exception:
+            logger.error("failed_to_delete_document")
+            return False
 
 
 def get_elasticsearch_client() -> ElasticSearchClient:

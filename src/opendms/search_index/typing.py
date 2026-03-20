@@ -1,5 +1,5 @@
 from datetime import date, datetime
-from typing import Literal, NotRequired, TypedDict
+from typing import Literal, TypedDict
 
 type IndexName = Literal["document"]
 
@@ -15,19 +15,14 @@ class DocumentType(TypedDict):
     taal: str
     begin_registratie: datetime
     informatieobjecttype: str
-    vertrouwelijkheidaanduiding: NotRequired[str | None]
-    status: NotRequired[str | None]
-    formaat: NotRequired[str | None]
-    bestandsnaam: NotRequired[str | None]
-    inhoud: NotRequired[str]
-    link: NotRequired[str | None]
-    beschrijving: NotRequired[str | None]
-    verschijningsvorm: NotRequired[str | None]
-    bestandsomvang: NotRequired[int | None]
-
-
-class DocumentIndexType(DocumentType):
+    vertrouwelijkheidaanduiding: str | None
+    status: str | None
+    formaat: str | None
+    bestandsnaam: str | None
     inhoud: str
+    link: str | None
+    beschrijving: str | None
+    verschijningsvorm: str | None
     bestandsomvang: int | None
 
 

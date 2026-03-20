@@ -1,5 +1,3 @@
-from datetime import datetime
-
 import structlog
 from zgw_consumers.models import Service
 
@@ -9,8 +7,8 @@ from opendms.api.utils.exceptions import (
 )
 from opendms.celery import app
 
-from .client import search_last_document_creatiedatum
-from .tasks import index_document
+from .client import get_elasticsearch_client
+from .index import Document
 
 logger = structlog.get_logger(__name__)
 
@@ -25,50 +23,25 @@ def index_all_documents() -> None:
     if not services.exists():
         raise ExternalServiceUnavailable("No DRC API services configured!")
 
-    for service in services:
-        logger.info("processing_service", service=service.slug)
+    last_creatiedatum = ""
+    with get_elasticsearch_client() as es_client:
+        es_client.get_last_document_creatiedatum()
 
-        last_creatiedatum = search_last_document_creatiedatum()
-        if last_creatiedatum:
+        for service in services:
             logger.info(
                 "fetching_documents",
                 service=service.slug,
                 creatiedatum_gte=last_creatiedatum,
             )
-        else:
-            logger.info(
-                "fetching_all_documents",
-                service=service.slug,
-            )
 
-        with get_documenten_client(service) as client:
-            filters = (
-                {"creatiedatum__gte": last_creatiedatum} if last_creatiedatum else None
-            )
-            all_documents = client.get_items(params=filters)
+            with get_documenten_client(service) as doc_client:
+                all_documents = doc_client.get_items(
+                    params={"creatiedatum__gte": last_creatiedatum}
+                )
 
-        logger.info("documents_fetched", service=service.slug, count=len(all_documents))
+            logger.info("documents_fetched", count=len(all_documents))
+            for doc in all_documents:
+                obj = Document(**doc)
+                es_client.index_document(obj)
 
-        for doc in all_documents:
-            index_document.delay(
-                uuid=str(doc["uuid"]),
-                url=doc["link"] or "",
-                identificatie=doc["identificatie"],
-                bronorganisatie=doc["bronorganisatie"],
-                creatiedatum=doc["creatiedatum"],
-                titel=doc["titel"],
-                auteur=doc.get("auteur"),
-                taal=doc.get("taal"),
-                begin_registratie=doc.get("begin_registratie") or datetime.now(),
-                informatieobjecttype=doc["informatieobjecttype"],
-                vertrouwelijkheidaanduiding=doc.get("vertrouwelijkheidaanduiding"),
-                status=doc.get("status"),
-                formaat=doc.get("formaat"),
-                bestandsnaam=doc.get("bestandsnaam"),
-                inhoud=doc.get("inhoud") or "",
-                link=doc.get("link"),
-                beschrijving=doc.get("beschrijving"),
-                verschijningsvorm=doc.get("verschijningsvorm"),
-            )
-
-        logger.info("indexing_scheduled", total_documents=len(all_documents))
+            logger.info("indexing_scheduled", total_documents=len(all_documents))
