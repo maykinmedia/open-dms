@@ -9,6 +9,7 @@ from elasticsearch.dsl import (
     Document as ES_Document,
     InnerDoc,
     Keyword,
+    Long,
     M,
     Mapping,
     Nested,
@@ -60,6 +61,9 @@ class Document(ES_Document):
 
     creatiedatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
     begin_registratie: M[datetime] = mapped_field(Date())
+
+    inhoud: M[str | None] = mapped_field(Text())
+    bestandsomvang: M[int | None] = mapped_field(Long())
 
     if TYPE_CHECKING:
         # help the type checkers a little bit

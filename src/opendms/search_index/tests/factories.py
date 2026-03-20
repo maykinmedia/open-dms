@@ -1,5 +1,3 @@
-from django.conf import settings
-
 import factory
 
 from ..index import Document
@@ -29,7 +27,7 @@ class IndexDocumentFactory(factory.Factory):
     informatieobjecttype = factory.Faker("word")
     verschijningsvorm = factory.Faker("word")
     inhoud = factory.Faker("paragraph")
-    bestandsomvang = settings.SEARCH_INDEX["MAX_INDEX_FILE_SIZE"]
+    bestandsomvang = 1000000
     link = factory.Faker("url")
     creatiedatum = factory.Faker("past_date")
     begin_registratie = factory.Faker("past_datetime")

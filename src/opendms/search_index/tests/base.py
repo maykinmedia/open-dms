@@ -79,7 +79,8 @@ class ElasticSearchMixin:
         def teardown():
             if not cls._es_online:
                 return
-
+            if not _index_names:
+                return
             with override_es_settings:
                 with get_elasticsearch_client() as es_client:
                     es_client.client.indices.delete(index=list(_index_names))
@@ -90,6 +91,9 @@ class ElasticSearchMixin:
         super().setUp()  # pyright: ignore[reportAttributeAccessIssue]
 
         if not self._es_online:
+            return
+
+        if not self._es_indexes:
             return
 
         with override_es_settings:
@@ -118,3 +122,7 @@ class ElasticSearchAPITestCase(ElasticSearchMixin, APITestCase):
     """
     DRC APITestCase subclass with setup and teardown for elastic search cluster.
     """
+
+    def index_document(self, document: Document):
+        with get_elasticsearch_client() as client:
+            client.index_document(document)
