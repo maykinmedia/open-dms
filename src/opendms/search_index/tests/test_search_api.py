@@ -11,7 +11,7 @@ from .base import ElasticSearchAPITestCase
 from .factories import IndexDocumentFactory
 
 
-class SearchApiAuthenticationTest(ElasticSearchAPITestCase):
+class SearchApiAuthenticationTest(VCRMixin, ElasticSearchAPITestCase):
     url = reverse("api:search")
 
     def test_permissions(self):
@@ -183,10 +183,10 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         # Boost priority:
         # identificatie > titel > beschrijving > document_data.attachment.content > url
         uuids = [value["record"]["uuid"] for value in data["results"]]
-        self.assertTrue("3916925a-4260-4505-bfbb-0942113efd49" in uuids)
-        self.assertTrue("d49bc304-01a1-4eda-a914-a8dda5c901e2" in uuids)
-        self.assertTrue("bdcc4cea-b186-425e-8dcd-9fecb6818563" in uuids)
-        self.assertTrue("7eade718-bccb-4876-9f00-a095beebc360" in uuids)
+        self.assertIn("3916925a-4260-4505-bfbb-0942113efd49", uuids)
+        self.assertIn("d49bc304-01a1-4eda-a914-a8dda5c901e2", uuids)
+        self.assertIn("bdcc4cea-b186-425e-8dcd-9fecb6818563", uuids)
+        self.assertIn("7eade718-bccb-4876-9f00-a095beebc360", uuids)
 
     def test_query_default_search_uses_AND_instead_of_OR(self):
         self.index_document(

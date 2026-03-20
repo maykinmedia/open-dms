@@ -251,9 +251,15 @@ SEARCH_INDEXABLE_FILE_TYPES = SimpleLazyObject(
 # CELERY_RESULT_BACKEND  defined in open-api-framework
 
 # Add (by default) 1 (soft), 5 (hard) minute timeouts to all Celery tasks.
-CELERY_TASK_TIME_LIMIT = config("CELERY_TASK_HARD_TIME_LIMIT", default=5 * 60)  # hard
+CELERY_TASK_TIME_LIMIT = config(
+    "CELERY_TASK_HARD_TIME_LIMIT",
+    default=5 * 60,
+    help_text="Hard timeout for Celery tasks in seconds",
+)  # hard
 CELERY_TASK_SOFT_TIME_LIMIT = config(
-    "CELERY_TASK_SOFT_TIME_LIMIT", default=1 * 60
+    "CELERY_TASK_SOFT_TIME_LIMIT",
+    default=1 * 60,
+    help_text="Soft timeout for Celery tasks in seconds",
 )  # soft
 
 CELERY_BEAT_SCHEDULE = {

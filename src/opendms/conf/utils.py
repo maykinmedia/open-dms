@@ -1,15 +1,15 @@
 # ruff: noqa: F403,F405
 import json
-import logging
 from collections.abc import Callable, Sequence
 from functools import lru_cache
 from pathlib import Path
 
+import structlog
 from maykin_common.config import config as _config
 from open_api_framework.conf.utils import config as _legacy_config
 from sentry_sdk.integrations import DidNotEnable, django, redis
 
-logger = logging.getLogger(__name__)
+logger = structlog.stdlib.get_logger(__name__)
 
 
 def wrap_config[T, **P](wrapped: Callable[P, T]):

@@ -102,6 +102,7 @@ Elastic Search
 . Defaults to: ``100000``.
 * ``ELASTICSEARCH_MAX_INDEX_FILE_SIZE``: The maximum file size (in bytes) that leads to full text indexing of the file content. For files larger than this limit, only the metadata is indexed. Keep in mind that Elastic Search must be configured appropriately to allow sufficiently large HTTP request body sizes. Defaults to: ``74436090.22556391``.
 * ``ELASTICSEARCH_ANALYZER``: Default analyzer to use for text fields in Elasticsearch mappings. Defaults to: ``dutch``.
+* ``REQUESTS_CA_BUNDLE``: Path to a CA bundle file (PEM format) used to verify HTTPS requests. This is used as a fallback if ELASTICSEARCH_CA_CERTS is not provided. Useful when connecting to services secured with a private or self-signed CA. Defaults to: ``None``.
 
 
 Optional
@@ -128,8 +129,8 @@ Optional
 * ``SITE_DOMAIN``: Defines the primary domain where the application is hosted. Defaults to: ``(empty string)``.
 * ``SENTRY_DSN``: URL of the sentry project to send error reports to. Default empty, i.e. -> no monitoring set up. Highly recommended to configure this.
 * ``DISABLE_2FA``: Whether or not two factor authentication should be disabled. Defaults to: ``False``.
-* ``CELERY_TASK_HARD_TIME_LIMIT``:  Defaults to: ``300``.
-* ``CELERY_TASK_SOFT_TIME_LIMIT``:  Defaults to: ``60``.
+* ``CELERY_TASK_HARD_TIME_LIMIT``: Hard timeout for Celery tasks in seconds. Defaults to: ``300``.
+* ``CELERY_TASK_SOFT_TIME_LIMIT``: Soft timeout for Celery tasks in seconds. Defaults to: ``60``.
 
 
 
