@@ -5,7 +5,7 @@ from zgw_consumers.service import pagination_helper
 
 from opendms.api.utils.validators import extract_uuid
 
-from ...search_index.typing import DocumentType
+from ..typing import DocumentType
 from ..utils.mixins import HttpRequestMixin
 
 
@@ -24,6 +24,7 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         params = {**params, "objectinformatieobjecten__objectType": "zaak"}
         data = self.make_request(self.endpoint, params)
 
+        # TODO add test, to check not require field, if you get an error
         return [
             DocumentType(
                 uuid=extract_uuid(record["url"]),

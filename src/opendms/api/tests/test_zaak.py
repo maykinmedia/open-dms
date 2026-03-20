@@ -209,7 +209,7 @@ class ZaakTests(VCRMixin, APITestCase):
                 kwargs={
                     "service_slug": self.ztc_service.slug,
                     "zaaktypen_zaaktype_uuid": self.zaaktype_uuid,
-                    "zaken_uuid": "f609b6fe-449a-46dc-a0af-de55dc5f6774",  # random uuid
+                    "zaak_uuid": "f609b6fe-449a-46dc-a0af-de55dc5f6774",  # random uuid
                 },
             )
         )
@@ -223,7 +223,7 @@ class ZaakTests(VCRMixin, APITestCase):
                 kwargs={
                     "service_slug": self.ztc_service.slug,
                     "zaaktypen_zaaktype_uuid": self.zaaktype_uuid,
-                    "zaken_uuid": zaak_uuid,
+                    "zaak_uuid": zaak_uuid,
                 },
             )
         )
@@ -251,7 +251,7 @@ class ZaakTests(VCRMixin, APITestCase):
             kwargs={
                 "service_slug": self.ztc_service.slug,
                 "zaaktypen_zaaktype_uuid": self.zaaktype_uuid,
-                "zaken_uuid": zaak_uuid,
+                "zaak_uuid": zaak_uuid,
             },
         )
 
