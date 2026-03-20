@@ -1,8 +1,88 @@
 interactions:
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://moore.biz/","identificatie":"33499a36-d7a1-485a-83c1-9f6d1d0e64d7","bronorganisatie":"Thompson,
-      Davis and Lynch","creatiedatum":"2026-03-08","titel":"","auteur":"Travis Garner","taal":"km","begin_registratie":"2026-03-05T23:19:29.290365","informatieobjecttype":"wall","vertrouwelijkheidaanduiding":"beyond","status":"strong","formaat":"mp4","bestandsnaam":"several.html","link":"http://clark.com/","beschrijving":"Document
-      one, on which we expect an exact phrase match.","verschijningsvorm":"cultural"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.lam-gordon.com/","identificatie":"225aca7d-11f1-429d-a74f-60f2bff1a4a2","bronorganisatie":"Frey-Rodriguez","titel":"","beschrijving":"Document
+      one, on which we expect an exact phrase match.","auteur":"Anne Hood","taal":"dz","vertrouwelijkheidaanduiding":"available","status":"care","formaat":"txt","bestandsnaam":"itself.flac","informatieobjecttype":"Republican","verschijningsvorm":"probably","inhoud":"Same
+      friend writer know. Painting discuss produce those church us daughter.","bestandsomvang":1000000,"link":"https://newman.org/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-17T00:37:05.927198"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -32,9 +112,90 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://hart.info/","identificatie":"f2763b7d-5aa9-4f50-bf09-1d8452f62fa0","bronorganisatie":"Hall,
-      Townsend and Vance","creatiedatum":"2026-02-18","titel":"","auteur":"Amber Hensley","taal":"si","begin_registratie":"2026-02-23T12:00:54.218515","informatieobjecttype":"behind","vertrouwelijkheidaanduiding":"sound","status":"such","formaat":"avi","bestandsnaam":"window.html","link":"https://www.robinson-gray.org/","beschrijving":"Document
-      two, the document that came after one.","verschijningsvorm":"into"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://johnson.biz/","identificatie":"16ef2a12-b79c-4905-95ca-b47ce17b63c4","bronorganisatie":"Horn-Miller","titel":"","beschrijving":"Document
+      two, the document that came after one.","auteur":"Janice Brown","taal":"nhn","vertrouwelijkheidaanduiding":"around","status":"ahead","formaat":"webm","bestandsnaam":"top.html","informatieobjecttype":"job","verschijningsvorm":"school","inhoud":"Mrs
+      second leave for land single. Market recent hold anything we. Of total bar less
+      population big personal policy.","bestandsomvang":1000000,"link":"http://www.thomas.com/","creatiedatum":"2026-02-27","begin_registratie":"2026-03-12T17:05:51.187253"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -81,10 +242,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":5.1611075,"_source":{"begin_registratie":"2026-03-05T23:19:29.290365","beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"cultural","identificatie":"33499a36-d7a1-485a-83c1-9f6d1d0e64d7","bronorganisatie":"Thompson,
-        Davis and Lynch","link":"http://clark.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://moore.biz/","taal":"km","auteur":"Travis
-        Garner","formaat":"mp4","titel":"","vertrouwelijkheidaanduiding":"beyond","informatieobjecttype":"wall","bestandsnaam":"several.html","creatiedatum":"2026-03-08","status":"strong"},"sort":[5.1611075,1772928000000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.1423514,"_source":{"beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"probably","begin_registratie":"2026-03-17T00:37:05.927198","identificatie":"225aca7d-11f1-429d-a74f-60f2bff1a4a2","bronorganisatie":"Frey-Rodriguez","bestandsomvang":1000000,"link":"https://newman.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.lam-gordon.com/","taal":"dz","auteur":"Anne
+        Hood","formaat":"txt","inhoud":"Same friend writer know. Painting discuss
+        produce those church us daughter.","titel":"","vertrouwelijkheidaanduiding":"available","informatieobjecttype":"Republican","bestandsnaam":"itself.flac","creatiedatum":"2026-03-01","status":"care"},"sort":[3.1423514,1772323200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -113,13 +274,13 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":5.1611075,"_source":{"begin_registratie":"2026-03-05T23:19:29.290365","beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"cultural","identificatie":"33499a36-d7a1-485a-83c1-9f6d1d0e64d7","bronorganisatie":"Thompson,
-        Davis and Lynch","link":"http://clark.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://moore.biz/","taal":"km","auteur":"Travis
-        Garner","formaat":"mp4","titel":"","vertrouwelijkheidaanduiding":"beyond","informatieobjecttype":"wall","bestandsnaam":"several.html","creatiedatum":"2026-03-08","status":"strong"},"sort":[5.1611075,1772928000000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.7780699,"_source":{"begin_registratie":"2026-02-23T12:00:54.218515","beschrijving":"Document
-        two, the document that came after one.","verschijningsvorm":"into","identificatie":"f2763b7d-5aa9-4f50-bf09-1d8452f62fa0","bronorganisatie":"Hall,
-        Townsend and Vance","link":"https://www.robinson-gray.org/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://hart.info/","taal":"si","auteur":"Amber
-        Hensley","formaat":"avi","titel":"","vertrouwelijkheidaanduiding":"sound","informatieobjecttype":"behind","bestandsnaam":"window.html","creatiedatum":"2026-02-18","status":"such"},"sort":[1.7780699,1771372800000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":3.3494694,"_source":{"beschrijving":"Document
+        two, the document that came after one.","verschijningsvorm":"school","begin_registratie":"2026-03-12T17:05:51.187253","identificatie":"16ef2a12-b79c-4905-95ca-b47ce17b63c4","bronorganisatie":"Horn-Miller","bestandsomvang":1000000,"link":"http://www.thomas.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://johnson.biz/","taal":"nhn","auteur":"Janice
+        Brown","formaat":"webm","inhoud":"Mrs second leave for land single. Market
+        recent hold anything we. Of total bar less population big personal policy.","titel":"","vertrouwelijkheidaanduiding":"around","informatieobjecttype":"job","bestandsnaam":"top.html","creatiedatum":"2026-02-27","status":"ahead"},"sort":[3.3494694,1772150400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.1423512,"_source":{"beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"probably","begin_registratie":"2026-03-17T00:37:05.927198","identificatie":"225aca7d-11f1-429d-a74f-60f2bff1a4a2","bronorganisatie":"Frey-Rodriguez","bestandsomvang":1000000,"link":"https://newman.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.lam-gordon.com/","taal":"dz","auteur":"Anne
+        Hood","formaat":"txt","inhoud":"Same friend writer know. Painting discuss
+        produce those church us daughter.","titel":"","vertrouwelijkheidaanduiding":"available","informatieobjecttype":"Republican","bestandsnaam":"itself.flac","creatiedatum":"2026-03-01","status":"care"},"sort":[3.1423512,1772323200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

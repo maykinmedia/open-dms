@@ -1,9 +1,91 @@
 interactions:
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://blackburn.net/","identificatie":"6876312a-b002-4a86-a77e-8e8b5320bd44","bronorganisatie":"Barton,
-      Smith and Parker","creatiedatum":"2026-02-16","titel":"Statement score line
-      food true nor.","auteur":"Tyler Davidson","taal":"sw","begin_registratie":"2026-03-10T13:10:57.666709","informatieobjecttype":"type","vertrouwelijkheidaanduiding":"art","status":"among","formaat":"wav","bestandsnaam":"mouth.mp4","link":"http://mcguire.com/","beschrijving":"Team
-      gun call all. Show in least grow. Some choice sign still entire despite.","verschijningsvorm":"run"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://wiggins.net/","identificatie":"2a45bec8-1c19-4d28-99d5-08cf61ad68b4","bronorganisatie":"Simpson,
+      Jackson and Griffin","titel":"Choose clearly short program institution.","beschrijving":"Yourself
+      long tonight support. Right source identify such. Push treat recognize simply.","auteur":"Joy
+      Carr","taal":"hr","vertrouwelijkheidaanduiding":"town","status":"relate","formaat":"pdf","bestandsnaam":"floor.xls","informatieobjecttype":"behavior","verschijningsvorm":"writer","inhoud":"Off
+      lawyer window firm painting traditional. Care local six financial poor hard
+      system.","bestandsomvang":1000000,"link":"http://www.horne.biz/","creatiedatum":"2026-03-02","begin_registratie":"2026-02-23T15:39:52.037185"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -49,10 +131,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.20815533,"_source":{"begin_registratie":"2026-03-10T13:10:57.666709","beschrijving":"Team
-        gun call all. Show in least grow. Some choice sign still entire despite.","verschijningsvorm":"run","identificatie":"6876312a-b002-4a86-a77e-8e8b5320bd44","bronorganisatie":"Barton,
-        Smith and Parker","link":"http://mcguire.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://blackburn.net/","taal":"sw","auteur":"Tyler
-        Davidson","formaat":"wav","titel":"Statement score line food true nor.","vertrouwelijkheidaanduiding":"art","informatieobjecttype":"type","bestandsnaam":"mouth.mp4","creatiedatum":"2026-02-16","status":"among"},"sort":[0.20815533,1771200000000]}]}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.6677611,"_source":{"beschrijving":"Yourself
+        long tonight support. Right source identify such. Push treat recognize simply.","verschijningsvorm":"writer","begin_registratie":"2026-02-23T15:39:52.037185","identificatie":"2a45bec8-1c19-4d28-99d5-08cf61ad68b4","bronorganisatie":"Simpson,
+        Jackson and Griffin","bestandsomvang":1000000,"link":"http://www.horne.biz/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://wiggins.net/","taal":"hr","auteur":"Joy
+        Carr","formaat":"pdf","inhoud":"Off lawyer window firm painting traditional.
+        Care local six financial poor hard system.","titel":"Choose clearly short
+        program institution.","vertrouwelijkheidaanduiding":"town","informatieobjecttype":"behavior","bestandsnaam":"floor.xls","creatiedatum":"2026-03-02","status":"relate"},"sort":[0.6677611,1772409600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

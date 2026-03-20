@@ -1,9 +1,91 @@
 interactions:
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://warren-caldwell.com/","identificatie":"28b0741e-7a41-49f2-8a95-c349a79d7cb5","bronorganisatie":"Woods,
-      Rios and Harris","creatiedatum":"2026-02-18","titel":"Reflect firm side brother.","auteur":"Shaun
-      Jones MD","taal":"ha","begin_registratie":"2026-02-19T05:34:01.028791","informatieobjecttype":"special","vertrouwelijkheidaanduiding":"dream","status":"authority","formaat":"xlsx","bestandsnaam":"money.ppt","link":"https://stephens.com/","beschrijving":"Brother
-      generation arm work you leg happy. According human consider outside.","verschijningsvorm":"likely"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.porter.net/","identificatie":"f8153d60-9e23-4b99-9376-2510578d959d","bronorganisatie":"Ray-Hickman","titel":"Husband
+      now season science memory box later end.","beschrijving":"Couple about a deep.
+      Someone consider kitchen. South recently point source lay.","auteur":"Peggy
+      Gomez","taal":"ar","vertrouwelijkheidaanduiding":"movie","status":"dog","formaat":"js","bestandsnaam":"claim.mov","informatieobjecttype":"reveal","verschijningsvorm":"against","inhoud":"Key
+      protect around general focus similar. North develop ready part attention office
+      simply rule. Time growth newspaper any could right.","bestandsomvang":1000000,"link":"http://www.powell.com/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-10T07:26:09.388234"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -33,11 +115,91 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.wilson.net/","identificatie":"ed3cf56a-43e2-40bf-89e5-d8af8689ccaa","bronorganisatie":"Ellis,
-      Brooks and Harris","creatiedatum":"2026-02-25","titel":"Actually political direction
-      key item among doctor.","auteur":"Jennifer Brown","taal":"ru","begin_registratie":"2026-02-19T11:36:22.147551","informatieobjecttype":"near","vertrouwelijkheidaanduiding":"part","status":"rock","formaat":"avi","bestandsnaam":"nor.json","link":"http://robertson-kline.net/","beschrijving":"Feel
-      agency across couple cause culture. Organization day leave attack now. Church
-      fire until think huge program.","verschijningsvorm":"light"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://carrillo.com/","identificatie":"d2081492-706a-4156-9dd5-d8554cd4b88b","bronorganisatie":"Cole,
+      Munoz and Castillo","titel":"Movement in seat weight figure little.","beschrijving":"Five
+      agent rule. Morning pattern central method follow.","auteur":"Mrs. Karen Johnston","taal":"cmn","vertrouwelijkheidaanduiding":"than","status":"bag","formaat":"png","bestandsnaam":"draw.txt","informatieobjecttype":"house","verschijningsvorm":"Mrs","inhoud":"Rest
+      voice dream especially. Activity total ago station rise figure. Wear institution
+      develop wide child dream land.","bestandsomvang":1000000,"link":"https://glover-butler.net/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-17T10:22:23.454866"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -83,10 +245,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":0.27153543,"_source":{"begin_registratie":"2026-02-19T05:34:01.028791","beschrijving":"Brother
-        generation arm work you leg happy. According human consider outside.","verschijningsvorm":"likely","identificatie":"28b0741e-7a41-49f2-8a95-c349a79d7cb5","bronorganisatie":"Woods,
-        Rios and Harris","link":"https://stephens.com/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://warren-caldwell.com/","taal":"ha","auteur":"Shaun
-        Jones MD","formaat":"xlsx","titel":"Reflect firm side brother.","vertrouwelijkheidaanduiding":"dream","informatieobjecttype":"special","bestandsnaam":"money.ppt","creatiedatum":"2026-02-18","status":"authority"},"sort":[0.27153543,1771372800000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.4790106E-7,"_source":{"beschrijving":"Couple
+        about a deep. Someone consider kitchen. South recently point source lay.","verschijningsvorm":"against","begin_registratie":"2026-03-10T07:26:09.388234","identificatie":"f8153d60-9e23-4b99-9376-2510578d959d","bronorganisatie":"Ray-Hickman","bestandsomvang":1000000,"link":"http://www.powell.com/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.porter.net/","taal":"ar","auteur":"Peggy
+        Gomez","formaat":"js","inhoud":"Key protect around general focus similar.
+        North develop ready part attention office simply rule. Time growth newspaper
+        any could right.","titel":"Husband now season science memory box later end.","vertrouwelijkheidaanduiding":"movie","informatieobjecttype":"reveal","bestandsnaam":"claim.mov","creatiedatum":"2026-01-01","status":"dog"},"sort":[1.4790106E-7,1767225600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

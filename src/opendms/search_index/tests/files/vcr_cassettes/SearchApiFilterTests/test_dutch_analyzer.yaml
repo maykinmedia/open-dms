@@ -1,11 +1,92 @@
 interactions:
 - request:
-    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.green.com/","identificatie":"63ab82bf-6f5b-4e8b-97fb-6e33d9992c52","bronorganisatie":"Newton,
-      Scott and Dougherty","creatiedatum":"2026-03-04","titel":"Dutch analyzer","auteur":"Antonio
-      Patton","taal":"pap","begin_registratie":"2026-02-21T21:58:42.062620","informatieobjecttype":"appear","vertrouwelijkheidaanduiding":"everybody","status":"impact","formaat":"mov","bestandsnaam":"different.jpg","link":"https://www.valentine.com/","beschrijving":"Een
-      document om de Nederlandse analyzer te testen. We doen dit door middel van een
-      willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-      zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"now"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003605248","number_of_replicas":"1","uuid":"6ZOWxjA0Sr2u0dI4si02Rg","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.johnson-munoz.net/","identificatie":"8bd7b6af-176c-4b8f-8771-1ecec6d1bed3","bronorganisatie":"Nguyen
+      Ltd","titel":"Dutch analyzer","beschrijving":"Een document om de Nederlandse
+      analyzer te testen. We doen dit door middel van een willekeurige stem (in ons
+      geval ''lichamelijk'') in deze tekst te vermelden, zodat we kunnen zoeken metwoorden
+      die de zelfde stem bevatten.","auteur":"Daniel Mcfarland","taal":"id","vertrouwelijkheidaanduiding":"half","status":"claim","formaat":"wav","bestandsnaam":"hand.wav","informatieobjecttype":"establish","verschijningsvorm":"time","inhoud":"Anything
+      industry accept own thought ball. Church effect individual cultural team. Support
+      difference issue no wrong.","bestandsomvang":1000000,"link":"http://www.fernandez-costa.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-04T09:27:04.834749"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -51,12 +132,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.30221954,"_source":{"begin_registratie":"2026-02-21T21:58:42.062620","beschrijving":"Een
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.32479563,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"now","identificatie":"63ab82bf-6f5b-4e8b-97fb-6e33d9992c52","bronorganisatie":"Newton,
-        Scott and Dougherty","link":"https://www.valentine.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.green.com/","taal":"pap","auteur":"Antonio
-        Patton","formaat":"mov","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"everybody","informatieobjecttype":"appear","bestandsnaam":"different.jpg","creatiedatum":"2026-03-04","status":"impact"},"sort":[0.30221954,1772582400000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"time","begin_registratie":"2026-03-04T09:27:04.834749","identificatie":"8bd7b6af-176c-4b8f-8771-1ecec6d1bed3","bronorganisatie":"Nguyen
+        Ltd","bestandsomvang":1000000,"link":"http://www.fernandez-costa.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.johnson-munoz.net/","taal":"id","auteur":"Daniel
+        Mcfarland","formaat":"wav","inhoud":"Anything industry accept own thought
+        ball. Church effect individual cultural team. Support difference issue no
+        wrong.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"half","informatieobjecttype":"establish","bestandsnaam":"hand.wav","creatiedatum":"2026-03-09","status":"claim"},"sort":[0.32479563,1773014400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -84,12 +167,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.30221954,"_source":{"begin_registratie":"2026-02-21T21:58:42.062620","beschrijving":"Een
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.32479563,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"now","identificatie":"63ab82bf-6f5b-4e8b-97fb-6e33d9992c52","bronorganisatie":"Newton,
-        Scott and Dougherty","link":"https://www.valentine.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.green.com/","taal":"pap","auteur":"Antonio
-        Patton","formaat":"mov","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"everybody","informatieobjecttype":"appear","bestandsnaam":"different.jpg","creatiedatum":"2026-03-04","status":"impact"},"sort":[0.30221954,1772582400000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"time","begin_registratie":"2026-03-04T09:27:04.834749","identificatie":"8bd7b6af-176c-4b8f-8771-1ecec6d1bed3","bronorganisatie":"Nguyen
+        Ltd","bestandsomvang":1000000,"link":"http://www.fernandez-costa.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.johnson-munoz.net/","taal":"id","auteur":"Daniel
+        Mcfarland","formaat":"wav","inhoud":"Anything industry accept own thought
+        ball. Church effect individual cultural team. Support difference issue no
+        wrong.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"half","informatieobjecttype":"establish","bestandsnaam":"hand.wav","creatiedatum":"2026-03-09","status":"claim"},"sort":[0.32479563,1773014400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -117,12 +202,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.30221954,"_source":{"begin_registratie":"2026-02-21T21:58:42.062620","beschrijving":"Een
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.32479563,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"now","identificatie":"63ab82bf-6f5b-4e8b-97fb-6e33d9992c52","bronorganisatie":"Newton,
-        Scott and Dougherty","link":"https://www.valentine.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.green.com/","taal":"pap","auteur":"Antonio
-        Patton","formaat":"mov","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"everybody","informatieobjecttype":"appear","bestandsnaam":"different.jpg","creatiedatum":"2026-03-04","status":"impact"},"sort":[0.30221954,1772582400000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"time","begin_registratie":"2026-03-04T09:27:04.834749","identificatie":"8bd7b6af-176c-4b8f-8771-1ecec6d1bed3","bronorganisatie":"Nguyen
+        Ltd","bestandsomvang":1000000,"link":"http://www.fernandez-costa.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.johnson-munoz.net/","taal":"id","auteur":"Daniel
+        Mcfarland","formaat":"wav","inhoud":"Anything industry accept own thought
+        ball. Church effect individual cultural team. Support difference issue no
+        wrong.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"half","informatieobjecttype":"establish","bestandsnaam":"hand.wav","creatiedatum":"2026-03-09","status":"claim"},"sort":[0.32479563,1773014400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

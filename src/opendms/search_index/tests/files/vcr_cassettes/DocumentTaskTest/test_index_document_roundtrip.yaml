@@ -1,8 +1,89 @@
 interactions:
 - request:
-    body: '{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","creatiedatum":"2026-01-01","titel":"A
-      test document","auteur":"Test Author","taal":"nl","begin_registratie":"2026-01-05T12:00:00+00:00","informatieobjecttype":"document","status":"concept","formaat":"pdf","bestandsnaam":"document.pdf","beschrijving":"Lorem
-      ipsum dolor sit amet, consectetur adipiscing elit."}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","titel":"A
+      test document","beschrijving":"Lorem ipsum dolor sit amet, consectetur adipiscing
+      elit.","auteur":"Test Author","taal":"nl","status":"concept","formaat":"pdf","bestandsnaam":"document.pdf","informatieobjecttype":"document","inhoud":"Trip
+      political just question. Admit turn yes day condition.","bestandsomvang":1000,"creatiedatum":"2026-01-01","begin_registratie":"2026-01-05T12:00:00+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -18,14 +99,14 @@ interactions:
     uri: http://localhost:9201/document/_doc/0095704d-4216-4de3-83d2-20dba551b0dc?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":21,"_primary_term":1}'
+      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":8,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/0095704d-4216-4de3-83d2-20dba551b0dc
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '177'
+      - '176'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -46,23 +127,105 @@ interactions:
     uri: http://localhost:9201/document/_doc/0095704d-4216-4de3-83d2-20dba551b0dc
   response:
     body:
-      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":1,"_seq_no":21,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-01-05T12:00:00+00:00","beschrijving":"Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit.","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","taal":"nl","auteur":"Test
-        Author","formaat":"pdf","titel":"A test document","informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","status":"concept"}}'
+      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":1,"_seq_no":8,"_primary_term":1,"found":true,"_source":{"beschrijving":"Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit.","begin_registratie":"2026-01-05T12:00:00+00:00","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","bestandsomvang":1000,"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","taal":"nl","auteur":"Test
+        Author","formaat":"pdf","inhoud":"Trip political just question. Admit turn
+        yes day condition.","titel":"A test document","informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","status":"concept"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '645'
+      - '737'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/changed","identificatie":"changed-id","bronorganisatie":"Amsterdam","creatiedatum":"2030-01-01","titel":"CHANGED
-      TITLE","auteur":"Changed Author","taal":"en","begin_registratie":"2030-01-05T12:00:00+00:00","informatieobjecttype":"changed","vertrouwelijkheidaanduiding":"intern","status":"published","formaat":"docx","bestandsnaam":"changed.docx","link":"http://example.com","beschrijving":"Changed
-      description"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/changed","identificatie":"changed-id","bronorganisatie":"Amsterdam","titel":"CHANGED
+      TITLE","beschrijving":"Changed description","auteur":"Changed Author","taal":"en","vertrouwelijkheidaanduiding":"intern","status":"published","formaat":"docx","bestandsnaam":"changed.docx","informatieobjecttype":"changed","inhoud":"Success
+      suffer thousand. Arm threat back physical guess. Onto watch study power mean
+      majority door. Letter hold impact degree thought I long war.","bestandsomvang":500,"link":"http://example.com","creatiedatum":"2030-01-01","begin_registratie":"2030-01-05T12:00:00+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -78,12 +241,12 @@ interactions:
     uri: http://localhost:9201/document/_doc/0095704d-4216-4de3-83d2-20dba551b0dc?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":22,"_primary_term":1}'
+      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":9,"_primary_term":1}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '177'
+      - '176'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -104,14 +267,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/0095704d-4216-4de3-83d2-20dba551b0dc
   response:
     body:
-      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":2,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2030-01-05T12:00:00+00:00","beschrijving":"Changed
-        description","identificatie":"changed-id","bronorganisatie":"Amsterdam","link":"http://example.com","uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/changed","taal":"en","auteur":"Changed
-        Author","formaat":"docx","titel":"CHANGED TITLE","vertrouwelijkheidaanduiding":"intern","informatieobjecttype":"changed","bestandsnaam":"changed.docx","creatiedatum":"2030-01-01","status":"published"}}'
+      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":2,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"beschrijving":"Changed
+        description","begin_registratie":"2030-01-05T12:00:00+00:00","identificatie":"changed-id","bronorganisatie":"Amsterdam","bestandsomvang":500,"link":"http://example.com","uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/changed","taal":"en","auteur":"Changed
+        Author","formaat":"docx","inhoud":"Success suffer thousand. Arm threat back
+        physical guess. Onto watch study power mean majority door. Letter hold impact
+        degree thought I long war.","titel":"CHANGED TITLE","vertrouwelijkheidaanduiding":"intern","informatieobjecttype":"changed","bestandsnaam":"changed.docx","creatiedatum":"2030-01-01","status":"published"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '625'
+      - '802'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

@@ -17,30 +17,24 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost/document/zip
+    uri: http://localhost/document/error
   response:
     body:
-      string: !!binary |
-        UEsDBBQAAAAAAOhVdFzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAADoVXRc
-        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAOhVdFzfwKkADgAAAA4AAAAK
-        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAA6FV0XOLcsooFAAAABQAAAAgA
-        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAA6FV0XFiNuxMFAAAABQAAAAkAAAAA
-        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAOhVdFzfwKkADgAAAA4AAAAKAAAAAAAA
-        AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
+      string: ''
     headers:
       Connection:
       - close
       Content-Length:
-      - '328'
+      - '0'
       Content-Type:
-      - application/zip
+      - text/html; charset=utf-8
       Date:
-      - Fri, 20 Mar 2026 10:47:17 GMT
+      - Fri, 20 Mar 2026 10:47:23 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
-      code: 200
-      message: OK
+      code: 400
+      message: BAD REQUEST
 - request:
     body: null
     headers:
@@ -122,9 +116,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://www.edwards.com/","identificatie":"7b5fb624-9dea-4476-8719-6f4c10270ff8","bronorganisatie":"Johnson
-      and Sons","titel":"Upon page too rock he my.","beschrijving":"Cell near fast.
-      Field rate officer dinner.","auteur":"Colton Banks","taal":"iw","vertrouwelijkheidaanduiding":"painting","status":"through","formaat":"json","bestandsnaam":"human.html","informatieobjecttype":"situation","verschijningsvorm":"certain","inhoud":"http://localhost/document/zip","bestandsomvang":1000,"link":"https://www.henderson.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-11T16:55:58.008814","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://williams-lewis.org/","identificatie":"acd6da19-d675-4695-9638-748bcfba3b04","bronorganisatie":"Martinez
+      Ltd","titel":"About huge others practice.","beschrijving":"Too nice eight property
+      challenge language cup often. Agree scientist his letter. Sell forget we accept
+      every hospital.","auteur":"Kenneth Park","taal":"tr","vertrouwelijkheidaanduiding":"always","status":"low","formaat":"json","bestandsnaam":"science.js","informatieobjecttype":"look","verschijningsvorm":"next","inhoud":"http://localhost/document/error","bestandsomvang":1000000,"link":"http://www.nicholson.com/","creatiedatum":"2026-02-28","begin_registratie":"2026-03-13T08:59:00.157113"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -137,17 +132,17 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8?pipeline=document_attachment&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":6,"_primary_term":1}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":17,"_primary_term":1}'
     headers:
       Location:
-      - /document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
+      - /document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -165,19 +160,20 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: GET
-    uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
+    uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"beschrijving":"Cell
-        near fast. Field rate officer dinner.","verschijningsvorm":"certain","begin_registratie":"2026-03-11T16:55:58.008814","identificatie":"7b5fb624-9dea-4476-8719-6f4c10270ff8","bronorganisatie":"Johnson
-        and Sons","bestandsomvang":1000,"link":"https://www.henderson.com/","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://www.edwards.com/","taal":"iw","auteur":"Colton
-        Banks","formaat":"json","inhoud":"http://localhost/document/zip","titel":"Upon
-        page too rock he my.","vertrouwelijkheidaanduiding":"painting","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"situation","bestandsnaam":"human.html","creatiedatum":"2026-03-09","status":"through"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"beschrijving":"Too
+        nice eight property challenge language cup often. Agree scientist his letter.
+        Sell forget we accept every hospital.","verschijningsvorm":"next","begin_registratie":"2026-03-13T08:59:00.157113","identificatie":"acd6da19-d675-4695-9638-748bcfba3b04","bronorganisatie":"Martinez
+        Ltd","bestandsomvang":1000000,"link":"http://www.nicholson.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://williams-lewis.org/","taal":"tr","auteur":"Kenneth
+        Park","formaat":"json","inhoud":"http://localhost/document/error","titel":"About
+        huge others practice.","vertrouwelijkheidaanduiding":"always","informatieobjecttype":"look","bestandsnaam":"science.js","creatiedatum":"2026-02-28","status":"low"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '870'
+      - '852'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

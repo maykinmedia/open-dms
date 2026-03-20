@@ -17,25 +17,19 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost/document/zip
+    uri: http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb
   response:
     body:
-      string: !!binary |
-        UEsDBBQAAAAAAOhVdFzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAADoVXRc
-        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAOhVdFzfwKkADgAAAA4AAAAK
-        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAA6FV0XOLcsooFAAAABQAAAAgA
-        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAA6FV0XFiNuxMFAAAABQAAAAkAAAAA
-        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAOhVdFzfwKkADgAAAA4AAAAKAAAAAAAA
-        AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
+      string: Document 'c80fcb40-f6af-44a4-90ab-07f75b47e9cb'
     headers:
       Connection:
       - close
       Content-Length:
-      - '328'
+      - '47'
       Content-Type:
-      - application/zip
+      - text/plain; charset=utf-8
       Date:
-      - Fri, 20 Mar 2026 10:47:17 GMT
+      - Fri, 20 Mar 2026 10:47:20 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -122,9 +116,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://www.edwards.com/","identificatie":"7b5fb624-9dea-4476-8719-6f4c10270ff8","bronorganisatie":"Johnson
-      and Sons","titel":"Upon page too rock he my.","beschrijving":"Cell near fast.
-      Field rate officer dinner.","auteur":"Colton Banks","taal":"iw","vertrouwelijkheidaanduiding":"painting","status":"through","formaat":"json","bestandsnaam":"human.html","informatieobjecttype":"situation","verschijningsvorm":"certain","inhoud":"http://localhost/document/zip","bestandsomvang":1000,"link":"https://www.henderson.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-11T16:55:58.008814","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"https://holland-calderon.com/","identificatie":"4d88ad7c-bcd6-43a2-9376-6d336af427fe","bronorganisatie":"Boyer-Freeman","titel":"Office
+      share heavy road so writer exist.","beschrijving":"Art season administration
+      drop this. Decision clear major build bank. However finally hot here move.","auteur":"Kimberly
+      Rivera","taal":"unm","vertrouwelijkheidaanduiding":"it","status":"home","formaat":"json","bestandsnaam":"design.mp4","informatieobjecttype":"start","verschijningsvorm":"now","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://www.white.com/","creatiedatum":"2026-03-14","begin_registratie":"2026-02-18T19:24:32.936647","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -137,17 +132,17 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8?pipeline=document_attachment&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":6,"_primary_term":1}'
+      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":11,"_primary_term":1}'
     headers:
       Location:
-      - /document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
+      - /document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -165,19 +160,20 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: GET
-    uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
+    uri: http://localhost:9201/document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54
   response:
     body:
-      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"beschrijving":"Cell
-        near fast. Field rate officer dinner.","verschijningsvorm":"certain","begin_registratie":"2026-03-11T16:55:58.008814","identificatie":"7b5fb624-9dea-4476-8719-6f4c10270ff8","bronorganisatie":"Johnson
-        and Sons","bestandsomvang":1000,"link":"https://www.henderson.com/","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://www.edwards.com/","taal":"iw","auteur":"Colton
-        Banks","formaat":"json","inhoud":"http://localhost/document/zip","titel":"Upon
-        page too rock he my.","vertrouwelijkheidaanduiding":"painting","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"situation","bestandsnaam":"human.html","creatiedatum":"2026-03-09","status":"through"}}'
+      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"beschrijving":"Art
+        season administration drop this. Decision clear major build bank. However
+        finally hot here move.","verschijningsvorm":"now","begin_registratie":"2026-02-18T19:24:32.936647","identificatie":"4d88ad7c-bcd6-43a2-9376-6d336af427fe","bronorganisatie":"Boyer-Freeman","bestandsomvang":1000000,"link":"http://www.white.com/","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"https://holland-calderon.com/","taal":"unm","auteur":"Kimberly
+        Rivera","formaat":"json","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Office
+        share heavy road so writer exist.","vertrouwelijkheidaanduiding":"it","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"start","bestandsnaam":"design.mp4","creatiedatum":"2026-03-14","status":"home"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '870'
+      - '972'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

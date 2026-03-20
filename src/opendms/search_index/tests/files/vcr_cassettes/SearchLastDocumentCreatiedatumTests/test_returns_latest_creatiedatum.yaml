@@ -1,9 +1,89 @@
 interactions:
 - request:
-    body: '{"uuid":"62fdeb92-98ad-475c-b184-49ee8a274787","url":"https://west-jenkins.com/","identificatie":"8c76313c-3819-4e44-b77e-009954db11a9","bronorganisatie":"Trevino-Payne","creatiedatum":"2024-01-01","titel":"Rest
-      help start Democrat personal feeling business.","auteur":"Daniel Hardin","taal":"ce","begin_registratie":"2026-02-27T09:26:44.693011","informatieobjecttype":"bit","vertrouwelijkheidaanduiding":"share","status":"explain","formaat":"avi","bestandsnaam":"maybe.avi","link":"https://www.vaughn-hall.com/","beschrijving":"Quite
-      treatment star reduce name light week stand. Appear why your second issue Democrat
-      yes upon. Spend relate center face increase power my. Management house purpose.","verschijningsvorm":"gas"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003630889","number_of_replicas":"1","uuid":"DiEvn02ZSKCgSEhlVI7K0A","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"62fdeb92-98ad-475c-b184-49ee8a274787","url":"http://moore.net/","identificatie":"c767b74d-305f-4ce9-84ba-541005c3774d","bronorganisatie":"Bartlett-Carey","titel":"Sport
+      can east suggest capital successful however few.","beschrijving":"Early tough
+      live raise. Pay suggest generation three outside movie.","auteur":"Jackie Fox","taal":"shs","vertrouwelijkheidaanduiding":"clear","status":"writer","formaat":"flac","bestandsnaam":"nor.mp3","informatieobjecttype":"life","verschijningsvorm":"region","inhoud":"Body
+      forward possible off mind pressure low boy. Area move family language.","bestandsomvang":1000000,"link":"http://walters.biz/","creatiedatum":"2024-01-01","begin_registratie":"2026-03-19T21:28:18.705701"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -33,10 +113,91 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://green-ferrell.info/","identificatie":"02181cc5-415b-43a5-8a8f-37a67cae1c52","bronorganisatie":"Roberts
-      Group","creatiedatum":"2025-02-01","titel":"Large number late box without.","auteur":"Andrew
-      Evans","taal":"uz","begin_registratie":"2026-03-06T11:50:35.333272","informatieobjecttype":"when","vertrouwelijkheidaanduiding":"benefit","status":"meeting","formaat":"gif","bestandsnaam":"set.flac","link":"https://vargas-thompson.com/","beschrijving":"Leave
-      not whatever until.","verschijningsvorm":"red"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003630889","number_of_replicas":"1","uuid":"DiEvn02ZSKCgSEhlVI7K0A","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://king.biz/","identificatie":"abfd5241-76df-47b3-8625-9504910c2310","bronorganisatie":"Martinez-Torres","titel":"Fear
+      right chair experience free.","beschrijving":"Scientist thank character new.
+      Value hard public trade.","auteur":"Kathleen Bradley","taal":"el","vertrouwelijkheidaanduiding":"attack","status":"eat","formaat":"webm","bestandsnaam":"garden.mp3","informatieobjecttype":"notice","verschijningsvorm":"statement","inhoud":"Expert
+      raise seven court go. Score another training term. Morning ability boy yeah
+      score security.","bestandsomvang":1000000,"link":"https://summers-garcia.biz/","creatiedatum":"2025-02-01","begin_registratie":"2026-02-25T22:43:57.383507"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -75,7 +236,7 @@ interactions:
       content-type:
       - application/vnd.elasticsearch+json; compatible-with=8
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST

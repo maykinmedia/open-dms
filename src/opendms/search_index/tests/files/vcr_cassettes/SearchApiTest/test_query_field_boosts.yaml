@@ -1,9 +1,90 @@
 interactions:
 - request:
-    body: '{"uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"http://www.jennings.com/","identificatie":"snowflake","bronorganisatie":"Mason-Davis","creatiedatum":"2026-02-24","titel":"Congress
-      top eye positive create difference nation.","auteur":"Danielle Garcia","taal":"wae","begin_registratie":"2026-02-18T01:38:31.398251","informatieobjecttype":"source","vertrouwelijkheidaanduiding":"black","status":"establish","formaat":"bmp","bestandsnaam":"hold.mp4","link":"https://www.underwood-lewis.org/","beschrijving":"Cost
-      list real information require. Support chance relationship hair term me stand.
-      Anything kitchen top positive thus.","verschijningsvorm":"lose"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"https://www.ryan.com/","identificatie":"snowflake","bronorganisatie":"Thompson
+      LLC","titel":"Along today dog chance.","beschrijving":"Tough especially wall
+      heavy various claim tend must. Simple them throw college none wind. Top attorney
+      employee artist.","auteur":"David Campbell MD","taal":"bs","vertrouwelijkheidaanduiding":"move","status":"action","formaat":"css","bestandsnaam":"form.odp","informatieobjecttype":"production","verschijningsvorm":"short","inhoud":"Business
+      such increase former action common. South fall land surface.","bestandsomvang":1000000,"link":"http://baird-miller.com/","creatiedatum":"2026-03-06","begin_registratie":"2026-03-03T12:38:09.708887"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -33,9 +114,91 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"http://www.baxter.com/","identificatie":"document2","bronorganisatie":"Allen
-      LLC","creatiedatum":"2026-03-05","titel":"snowflake","auteur":"Alison Hoffman","taal":"kok","begin_registratie":"2026-03-10T06:08:44.276339","informatieobjecttype":"soon","vertrouwelijkheidaanduiding":"while","status":"single","formaat":"jpg","bestandsnaam":"worry.jpeg","link":"https://huang.org/","beschrijving":"Everyone
-      charge wait school. Easy watch game information.","verschijningsvorm":"clear"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"https://randolph-park.biz/","identificatie":"document2","bronorganisatie":"Rodriguez
+      PLC","titel":"snowflake","beschrijving":"Page beat type than sense small. Article
+      including cost international dog.","auteur":"Brandon King","taal":"tl","vertrouwelijkheidaanduiding":"small","status":"past","formaat":"tiff","bestandsnaam":"director.xls","informatieobjecttype":"anything","verschijningsvorm":"material","inhoud":"Rock
+      he know material church rest walk name. Cell with up my fight weight. Reason
+      identify performance to. Meet term ball himself a answer.","bestandsomvang":1000000,"link":"http://simpson.biz/","creatiedatum":"2026-03-10","begin_registratie":"2026-02-20T15:23:24.955985"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -65,11 +228,91 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"http://www.cunningham.com/","identificatie":"document3","bronorganisatie":"Walker,
-      Cantrell and Tucker","creatiedatum":"2026-02-22","titel":"Argue although after
-      cell.","auteur":"Kristina Salas","taal":"bo","begin_registratie":"2026-02-25T15:41:11.430719","informatieobjecttype":"rich","vertrouwelijkheidaanduiding":"hot","status":"serious","formaat":"jpeg","bestandsnaam":"snowflake","link":"http://www.scott.info/","beschrijving":"Claim
-      recognize participant glass respond name over. Appear these ever pressure lay.
-      Seat tonight sea.","verschijningsvorm":"authority"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"http://www.perez.com/","identificatie":"document3","bronorganisatie":"Barker,
+      Rose and Parker","titel":"Structure range size become ground stop identify painting.","beschrijving":"Because
+      though light direction specific child once. Design term land report also visit
+      debate. Help him evidence difficult choose.","auteur":"Anna Perez","taal":"lb","vertrouwelijkheidaanduiding":"eye","status":"drop","formaat":"ods","bestandsnaam":"snowflake","informatieobjecttype":"approach","verschijningsvorm":"assume","inhoud":"Include
+      against happen important night enjoy. Great commercial beat next religious professor.","bestandsomvang":1000000,"link":"http://www.merritt.com/","creatiedatum":"2026-02-24","begin_registratie":"2026-02-20T20:36:10.527659"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -99,9 +342,91 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"http://www.black.com/","identificatie":"document4","bronorganisatie":"Gaines
-      PLC","creatiedatum":"2026-02-18","titel":"Century become traditional believe
-      us room everyone.","auteur":"Tina Bradshaw","taal":"zh","begin_registratie":"2026-03-01T00:07:15.359503","informatieobjecttype":"every","vertrouwelijkheidaanduiding":"edge","status":"important","formaat":"mp3","bestandsnaam":"truth.wav","link":"http://yates.com/","beschrijving":"snowflake","verschijningsvorm":"wife"}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"http://www.singh-kennedy.info/","identificatie":"document4","bronorganisatie":"Sutton,
+      Hunt and Waters","titel":"Us me indicate special start.","beschrijving":"snowflake","auteur":"Richard
+      Harrison","taal":"os","vertrouwelijkheidaanduiding":"push","status":"leader","formaat":"numbers","bestandsnaam":"soldier.key","informatieobjecttype":"suffer","verschijningsvorm":"age","inhoud":"Building
+      green ball between. Former concern behind. Visit individual scientist sell win
+      operation expect.","bestandsomvang":1000000,"link":"http://jackson-rice.net/","creatiedatum":"2026-03-04","begin_registratie":"2026-03-07T20:04:49.159834"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -147,21 +472,27 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":5,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":4,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d49bc304-01a1-4eda-a914-a8dda5c901e2","_score":6.3509865,"_source":{"begin_registratie":"2026-03-10T06:08:44.276339","beschrijving":"Everyone
-        charge wait school. Easy watch game information.","verschijningsvorm":"clear","identificatie":"document2","bronorganisatie":"Allen
-        LLC","link":"https://huang.org/","uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"http://www.baxter.com/","taal":"kok","auteur":"Alison
-        Hoffman","formaat":"jpg","titel":"snowflake","vertrouwelijkheidaanduiding":"while","informatieobjecttype":"soon","bestandsnaam":"worry.jpeg","creatiedatum":"2026-03-05","status":"single"},"sort":[6.3509865,1772668800000]},{"_index":"document","_id":"3916925a-4260-4505-bfbb-0942113efd49","_score":3.7866223,"_source":{"begin_registratie":"2026-02-18T01:38:31.398251","beschrijving":"Cost
-        list real information require. Support chance relationship hair term me stand.
-        Anything kitchen top positive thus.","verschijningsvorm":"lose","identificatie":"snowflake","bronorganisatie":"Mason-Davis","link":"https://www.underwood-lewis.org/","uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"http://www.jennings.com/","taal":"wae","auteur":"Danielle
-        Garcia","formaat":"bmp","titel":"Congress top eye positive create difference
-        nation.","vertrouwelijkheidaanduiding":"black","informatieobjecttype":"source","bestandsnaam":"hold.mp4","creatiedatum":"2026-02-24","status":"establish"},"sort":[3.7866223,1771891200000]},{"_index":"document","_id":"bdcc4cea-b186-425e-8dcd-9fecb6818563","_score":1.5627496,"_source":{"begin_registratie":"2026-02-25T15:41:11.430719","beschrijving":"Claim
-        recognize participant glass respond name over. Appear these ever pressure
-        lay. Seat tonight sea.","verschijningsvorm":"authority","identificatie":"document3","bronorganisatie":"Walker,
-        Cantrell and Tucker","link":"http://www.scott.info/","uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"http://www.cunningham.com/","taal":"bo","auteur":"Kristina
-        Salas","formaat":"jpeg","titel":"Argue although after cell.","vertrouwelijkheidaanduiding":"hot","informatieobjecttype":"rich","bestandsnaam":"snowflake","creatiedatum":"2026-02-22","status":"serious"},"sort":[1.5627496,1771718400000]},{"_index":"document","_id":"7eade718-bccb-4876-9f00-a095beebc360","_score":1.2694331,"_source":{"begin_registratie":"2026-03-01T00:07:15.359503","beschrijving":"snowflake","verschijningsvorm":"wife","identificatie":"document4","bronorganisatie":"Gaines
-        PLC","link":"http://yates.com/","uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"http://www.black.com/","taal":"zh","auteur":"Tina
-        Bradshaw","formaat":"mp3","titel":"Century become traditional believe us room
-        everyone.","vertrouwelijkheidaanduiding":"edge","informatieobjecttype":"every","bestandsnaam":"truth.wav","creatiedatum":"2026-02-18","status":"important"},"sort":[1.2694331,1771372800000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":4,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d49bc304-01a1-4eda-a914-a8dda5c901e2","_score":6.7039056,"_source":{"beschrijving":"Page
+        beat type than sense small. Article including cost international dog.","verschijningsvorm":"material","begin_registratie":"2026-02-20T15:23:24.955985","identificatie":"document2","bronorganisatie":"Rodriguez
+        PLC","bestandsomvang":1000000,"link":"http://simpson.biz/","uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"https://randolph-park.biz/","taal":"tl","auteur":"Brandon
+        King","formaat":"tiff","inhoud":"Rock he know material church rest walk name.
+        Cell with up my fight weight. Reason identify performance to. Meet term ball
+        himself a answer.","titel":"snowflake","vertrouwelijkheidaanduiding":"small","informatieobjecttype":"anything","bestandsnaam":"director.xls","creatiedatum":"2026-03-10","status":"past"},"sort":[6.7039056,1773100800000]},{"_index":"document","_id":"3916925a-4260-4505-bfbb-0942113efd49","_score":6.138751,"_source":{"beschrijving":"Tough
+        especially wall heavy various claim tend must. Simple them throw college none
+        wind. Top attorney employee artist.","verschijningsvorm":"short","begin_registratie":"2026-03-03T12:38:09.708887","identificatie":"snowflake","bronorganisatie":"Thompson
+        LLC","bestandsomvang":1000000,"link":"http://baird-miller.com/","uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"https://www.ryan.com/","taal":"bs","auteur":"David
+        Campbell MD","formaat":"css","inhoud":"Business such increase former action
+        common. South fall land surface.","titel":"Along today dog chance.","vertrouwelijkheidaanduiding":"move","informatieobjecttype":"production","bestandsnaam":"form.odp","creatiedatum":"2026-03-06","status":"action"},"sort":[6.138751,1772755200000]},{"_index":"document","_id":"7eade718-bccb-4876-9f00-a095beebc360","_score":3.5286183,"_source":{"beschrijving":"snowflake","verschijningsvorm":"age","begin_registratie":"2026-03-07T20:04:49.159834","identificatie":"document4","bronorganisatie":"Sutton,
+        Hunt and Waters","bestandsomvang":1000000,"link":"http://jackson-rice.net/","uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"http://www.singh-kennedy.info/","taal":"os","auteur":"Richard
+        Harrison","formaat":"numbers","inhoud":"Building green ball between. Former
+        concern behind. Visit individual scientist sell win operation expect.","titel":"Us
+        me indicate special start.","vertrouwelijkheidaanduiding":"push","informatieobjecttype":"suffer","bestandsnaam":"soldier.key","creatiedatum":"2026-03-04","status":"leader"},"sort":[3.5286183,1772582400000]},{"_index":"document","_id":"bdcc4cea-b186-425e-8dcd-9fecb6818563","_score":1.4253678,"_source":{"beschrijving":"Because
+        though light direction specific child once. Design term land report also visit
+        debate. Help him evidence difficult choose.","verschijningsvorm":"assume","begin_registratie":"2026-02-20T20:36:10.527659","identificatie":"document3","bronorganisatie":"Barker,
+        Rose and Parker","bestandsomvang":1000000,"link":"http://www.merritt.com/","uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"http://www.perez.com/","taal":"lb","auteur":"Anna
+        Perez","formaat":"ods","inhoud":"Include against happen important night enjoy.
+        Great commercial beat next religious professor.","titel":"Structure range
+        size become ground stop identify painting.","vertrouwelijkheidaanduiding":"eye","informatieobjecttype":"approach","bestandsnaam":"snowflake","creatiedatum":"2026-02-24","status":"drop"},"sort":[1.4253678,1771891200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

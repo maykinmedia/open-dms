@@ -16,7 +16,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":null}}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":null}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -39,24 +39,24 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?objectinformatieobjecten__objectType=zaak
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=&objectinformatieobjecten__objectType=zaak
   response:
     body:
-      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","vertrouwelijkheidaanduiding":"","auteur":"1","status":"","formaat":"","taal":"123","versie":1,"beginRegistratie":"2026-03-17T10:25:20.158920Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6e7b5824-5222-4d7f-a7ca-a42aecb0a537/download?versie=1","bestandsomvang":1,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":null,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-20","titel":"123456782","vertrouwelijkheidaanduiding":"","auteur":"123456782","status":"","formaat":"","taal":"123","versie":1,"beginRegistratie":"2026-03-20T10:14:19.275987Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c/download?versie=1","bestandsomvang":123456782,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":null,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
     headers:
       API-version:
       - 1.4.2
       Allow:
       - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '950'
+      - '971'
       Content-Security-Policy:
-      - 'base-uri ''self''; worker-src ''self'' blob:; frame-ancestors ''none''; script-src
-        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; style-src
-        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        font-src ''self'' fonts.gstatic.com; form-action ''self''; frame-src ''self'';
-        default-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; object-src ''none'''
+      - 'object-src ''none''; base-uri ''self''; font-src ''self'' fonts.gstatic.com;
+        frame-src ''self''; default-src ''self''; frame-ancestors ''none''; worker-src
+        ''self'' blob:; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
+        cdn.jsdelivr.net; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
+        tile.openstreetmap.org; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com
+        cdnjs.cloudflare.com cdn.jsdelivr.net; form-action ''self'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -73,7 +73,59 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","url":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-17","titel":"Test","auteur":"1","taal":"123","begin_registratie":"2026-03-17T10:25:20.158920+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","vertrouwelijkheidaanduiding":"","status":"","formaat":"","bestandsnaam":"","link":"","beschrijving":"","verschijningsvorm":""}'
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003650700","number_of_replicas":"1","uuid":"4_4ygK8LQb-ygW8g1hKexA","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -86,17 +138,45 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_doc/6e7b5824-5222-4d7f-a7ca-a42aecb0a537?pipeline=document_attachment&refresh=wait_for
+    uri: http://localhost:9201/document/_mapping
   response:
     body:
-      string: '{"_index":"document","_id":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","_version":11,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":16,"_primary_term":1}'
+      string: '{"acknowledged":true}'
     headers:
-      Location:
-      - /document/_doc/6e7b5824-5222-4d7f-a7ca-a42aecb0a537
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '178'
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"51719a8e-a28f-4e6e-89a9-593c1e98f57c","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","creatiedatum":"2026-03-20","titel":"123456782","auteur":"123456782","taal":"123","begin_registratie":"2026-03-20T10:14:19.275987+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","vertrouwelijkheidaanduiding":"","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c/download?versie=1","link":"","beschrijving":"","verschijningsvorm":"","bestandsomvang":123456782}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/51719a8e-a28f-4e6e-89a9-593c1e98f57c?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"51719a8e-a28f-4e6e-89a9-593c1e98f57c","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/51719a8e-a28f-4e6e-89a9-593c1e98f57c
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -114,15 +194,41 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document/_count
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","_score":1.0,"_source":{"begin_registratie":"2026-03-17T10:25:20.158920+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","link":"","uuid":"6e7b5824-5222-4d7f-a7ca-a42aecb0a537","url":"","taal":"123","auteur":"1","formaat":"","titel":"Test","vertrouwelijkheidaanduiding":"","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","bestandsnaam":"","creatiedatum":"2026-03-17","status":""}}]}}'
+      string: '{"count":1,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0}}'
     headers:
-      Transfer-Encoding:
-      - chunked
       X-elastic-product:
       - Elasticsearch
+      content-length:
+      - '71'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/51719a8e-a28f-4e6e-89a9-593c1e98f57c
+  response:
+    body:
+      string: '{"_index":"document","_id":"51719a8e-a28f-4e6e-89a9-593c1e98f57c","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-03-20T10:14:19.275987+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"123456782","bestandsomvang":123456782,"link":"","uuid":"51719a8e-a28f-4e6e-89a9-593c1e98f57c","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c","taal":"123","auteur":"123456782","formaat":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c/download?versie=1","titel":"123456782","vertrouwelijkheidaanduiding":"","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e","bestandsnaam":"","creatiedatum":"2026-03-20","status":""}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '917'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
