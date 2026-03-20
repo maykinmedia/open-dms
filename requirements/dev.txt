@@ -811,7 +811,7 @@ py7zr==0.22.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
-pyasn1==0.6.2
+pyasn1==0.6.3
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -863,7 +863,7 @@ pyjwt==2.12.1
     #   commonground-api-common
     #   mozilla-django-oidc
     #   zgw-consumers
-pyopenssl==25.3.0
+pyopenssl==26.0.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -1116,7 +1116,7 @@ texttable==1.7.0
     #   py7zr
 tomlkit==0.14.0
     # via bump-my-version
-tornado==6.5.4
+tornado==6.5.5
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
