@@ -160,7 +160,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenUuid}": {
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zaakUuid}": {
         parameters: {
             query?: never;
             header?: never;
@@ -172,6 +172,46 @@ export interface paths {
          * @description Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
          */
         get: operations["apiV1ServicesZaaktypenZakenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * documentsList
+         * @description Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
+         */
+        get: operations["apiV1ServicesZaaktypenZakenDocumentsList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * documentsRetrieve
+         * @description Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
+         */
+        get: operations["apiV1ServicesZaaktypenZakenDocumentsRetrieve"];
         put?: never;
         post?: never;
         delete?: never;
@@ -259,9 +299,6 @@ export interface components {
              */
             inhoud: string;
         };
-        DocumentResult: {
-            readonly record: components["schemas"]["Document"];
-        };
         /** @description Formaat van validatiefouten. */
         FieldValidationError: {
             /** @description Naam van het veld met ongeldige gegevens */
@@ -270,6 +307,11 @@ export interface components {
             code: string;
             /** @description Uitleg wat er precies fout is met de gegevens */
             reason: string;
+        };
+        PaginatedDocumentList: {
+            /** @example 123 */
+            count: number;
+            results: components["schemas"]["Document"][];
         };
         PaginatedServiceList: {
             /** @example 123 */
@@ -322,12 +364,6 @@ export interface components {
              * @description Filter documents created on or before this date.
              */
             creatiedatumTotEnMet?: string | null;
-        };
-        SearchResponse: {
-            count: number;
-            readonly next: boolean;
-            readonly previous: boolean;
-            results: components["schemas"]["DocumentResult"][];
         };
         Service: {
             /**
@@ -542,7 +578,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["SearchResponse"][];
+                    "application/json": components["schemas"]["Document"][];
                 };
             };
         };
@@ -670,8 +706,8 @@ export interface operations {
             header?: never;
             path: {
                 serviceSlug: string;
+                zaakUuid: string;
                 zaaktypenZaaktypeUuid: string;
-                zakenUuid: string;
             };
             cookie?: never;
         };
@@ -685,6 +721,62 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["Zaak"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaaktypenZakenDocumentsList: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
+                pageSize?: number;
+            };
+            header?: never;
+            path: {
+                serviceSlug: string;
+                zaaktypenZaaktypeUuid: string;
+                zakenZaakUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedDocumentList"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaaktypenZakenDocumentsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                documentUuid: string;
+                serviceSlug: string;
+                zaaktypenZaaktypeUuid: string;
+                zakenZaakUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Document"];
                 };
             };
         };
