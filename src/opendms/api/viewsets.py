@@ -48,6 +48,7 @@ class SearchView(APIView):
         operation_id="search",
         description=_("Search the document records."),
         request=SearchSerializer,
+        responses=DocumentSerializer(many=True),
     )
     def post(self, request, *args, **kwargs) -> DocumentsPaginatedResponse:
         query_serializer = SearchSerializer(data=request.data)
@@ -287,7 +288,7 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
 @extend_schema_view(
     list=extend_schema(
-        summary="zakenList",
+        summary="documentsList",
         parameters=[
             OpenApiParameter(
                 name="service_slug",
@@ -310,7 +311,7 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         ],
     ),
     retrieve=extend_schema(
-        summary="zakenRetrieve",
+        summary="documentsRetrieve",
         parameters=[
             OpenApiParameter(
                 name="service_slug",
