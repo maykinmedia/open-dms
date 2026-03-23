@@ -2,6 +2,7 @@ import datetime
 
 from django.utils.translation import gettext_lazy as _
 
+import structlog
 from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
@@ -12,7 +13,7 @@ from zgw_consumers.models import Service
 
 from opendms.search_index.client import get_elasticsearch_client
 
-from .clients import get_zaaktypen_client, get_zaken_client
+from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_client
 from .models import ZGWApiGroupConfig
 from .serializers import (
     DocumentSerializer,
@@ -23,7 +24,6 @@ from .serializers import (
 )
 from .typing import (
     DocumentsPaginatedResponse,
-    DocumentType,
     Zaak,
     ZaakType,
     ZaakTypenPaginatedResponse,
@@ -32,6 +32,7 @@ from .typing import (
 from .utils.mixins import ReadOnlyViewSetMixin
 from .utils.pagination import CountedPagination
 
+logger = structlog.stdlib.get_logger(__name__)
 QUERY_PARAM_FIELD = "search"
 
 
@@ -140,7 +141,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             query_params[self.lookup_search_field] = param
         return query_params
 
-    def get_object(self) -> ZaakType | None:
+    def get_object(self) -> ZaakType:
         """
         Retrieve a single ZaakType from the external service by UUID.
 
@@ -152,7 +153,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
             return client.get_item_by_uuid(uuid)
 
-    def get_paginated_queryset(self, params: dict) -> ZaakTypenPaginatedResponse | None:
+    def get_paginated_queryset(self, params: dict) -> ZaakTypenPaginatedResponse:
         """
         Retrieve all Zaaktypen available for the configured service.
 
@@ -244,17 +245,19 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     lookup_field = "zaak_uuid"
     parent_lookup_field = "zaaktypen_zaaktype_uuid"
     queryset = None
+    _zaaktype_url = None
 
     @property
     def zaaktype_url(self) -> str:
-        zaaktype_uuid = self.kwargs.get(self.parent_lookup_field)
+        if not self._zaaktype_url:
+            zaaktype_uuid = self.kwargs.get(self.parent_lookup_field)
+            with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+                # TODO investigate here if you can use cache
+                zaaktype = client.get_item_by_uuid(zaaktype_uuid)
+                return zaaktype["url"]
+        return self._zaaktype_url
 
-        with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
-            # TODO investigate here if you can use cache
-            zaaktype = client.get_item_by_uuid(zaaktype_uuid)
-            return zaaktype["url"]
-
-    def get_object(self) -> Zaak | None:
+    def get_object(self) -> Zaak:
         """
         Retrieve a single Zaak from the external service by UUID.
 
@@ -266,7 +269,7 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         with get_zaken_client(self.zgw_group.zrc_service) as client:
             return client.get_item_by_uuid(uuid)
 
-    def get_paginated_queryset(self, params: dict) -> ZakenPaginatedResponse | None:
+    def get_paginated_queryset(self, params: dict) -> ZakenPaginatedResponse:
         """
         Retrieve all Zaken filtered by a specific Zaaktype.
 
@@ -279,6 +282,60 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             return client.get_paginated_items_by_zaaktype(self.zaaktype_url, params)
 
 
+@extend_schema_view(
+    list=extend_schema(
+        summary="zakenList",
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="zaaktypen_zaaktype_uuid",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="zaken_zaak_uuid",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    ),
+    retrieve=extend_schema(
+        summary="zakenRetrieve",
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="zaaktypen_zaaktype_uuid",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="zaken_zaak_uuid",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="document_uuid",
+                type=str,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    ),
+)
 class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     """
     Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
@@ -287,22 +344,33 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     serializer_class = DocumentSerializer
     pagination_class = CountedPagination
     lookup_field = "document_uuid"
-    parent_lookup_field = "zaaken_zaak_uuid"
+    parent_lookup_field = "zaken_zaak_uuid"
     queryset = None
+    _zaak_url = None
+
+    @property
+    def zaak_url(self) -> str:
+        if not self._zaak_url:
+            zaak_uuid = self.kwargs.get(self.parent_lookup_field)
+            with get_zaken_client(self.zgw_group.zrc_service) as client:
+                # TODO investigate here if you can use cache
+                zaak = client.get_item_by_uuid(zaak_uuid)
+                return zaak["url"]
+        return self._zaak_url
 
     def get_object(self) -> Zaak | None:
         """
         Retrieve a single Document from the Elasticsearch index
 
         This method is overridden because the ViewSet does not use a Django
-        model or ORM queryset. Instead, the requested Documen is fetched
+        model or ORM queryset. Instead, the requested Document is fetched
         directly from the external Elasticsearch index.
         """
         uuid = self.kwargs.get(self.lookup_field)
-        with get_zaken_client(self.zgw_group.zrc_service) as client:
+        with get_documenten_client(self.zgw_group.drc_service) as client:
             return client.get_item_by_uuid(uuid)
 
-    def get_paginated_queryset(self, params: dict) -> DocumentsPaginatedResponse | None:
+    def get_paginated_queryset(self, params: dict) -> DocumentsPaginatedResponse:
         """
         Retrieve all Documents filtered by a specific Zaak.
 
@@ -310,10 +378,6 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         Document data is retrieved dynamically from the external Elasticsearch index
         API via the configured client.
         """
-        with get_elasticsearch_client() as client:
-            # TODO test pagination
-            documents = client.get_all_documents()
-            return DocumentsPaginatedResponse(
-                count=documents.total_count,
-                results=[DocumentType(**doc) for doc in documents.results],
-            )
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            # TODO investigate here if you can use cache
+            return client.get_paginated_items_by_zaak(self.zaak_url, params)
