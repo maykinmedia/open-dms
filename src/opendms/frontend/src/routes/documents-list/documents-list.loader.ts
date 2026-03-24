@@ -22,10 +22,14 @@ export async function documentsListLoader({
 
   const { data } = await apiClient.GET(
     // @ts-expect-error - API not ready
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}/zaken/zaakYear/{zaakYear}/zaakId/{zaakId}",
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}/zaken/{zaakId}/documents",
     {
       params: {
-        path: params,
+        path: {
+          serviceSlug: params.serviceSlug,
+          zaaktypeUuid: params.zaaktypeUuid,
+          zaakId: params.zaakId,
+        },
         query: {
           page: urlSearchParams.get("page"),
         },
