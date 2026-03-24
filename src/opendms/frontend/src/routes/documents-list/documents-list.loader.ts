@@ -1,14 +1,10 @@
 import type { LoaderFunctionArgs } from "react-router";
 import { apiClient } from "~/lib";
-import type { Document } from "~/types";
 
 export async function documentsListLoader({
   params,
   request,
-}: LoaderFunctionArgs): Promise<{
-  count: number;
-  results: Document[];
-} | null> {
+}: LoaderFunctionArgs) {
   if (
     !params.serviceSlug ||
     !params.zaaktypeUuid ||
@@ -21,22 +17,21 @@ export async function documentsListLoader({
   const urlSearchParams = new URLSearchParams(url.search);
 
   const { data } = await apiClient.GET(
-    // @ts-expect-error - API not ready
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}/zaken/{zaakId}/documents",
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents",
     {
       params: {
         path: {
           serviceSlug: params.serviceSlug,
-          zaaktypeUuid: params.zaaktypeUuid,
-          zaakId: params.zaakId,
+          zaaktypenZaaktypeUuid: params.zaaktypeUuid,
+          zakenZaakUuid: params.zaakId,
         },
         query: {
-          page: urlSearchParams.get("page"),
+          page: Number(urlSearchParams.get("page")) || undefined,
+          pageSize: 20,
         },
       },
     },
   );
 
-  // @ts-expect-error - API not ready
   return data;
 }
