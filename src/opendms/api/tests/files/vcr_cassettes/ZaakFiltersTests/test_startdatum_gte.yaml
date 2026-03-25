@@ -175,7 +175,7 @@ interactions:
   response:
     body:
       string: '{"type":"http://localhost:8003/ref/fouten/ValidationError/","code":"invalid","title":"Ongeldige
-        invoer.","status":400,"detail":"Ongeldige invoer.","instance":"urn:uuid:26d727e8-5c36-4f3c-8c66-b5eba1c98480","invalidParams":[{"name":"startdatum","code":"invalid","reason":"Voer
+        invoer.","status":400,"detail":"Ongeldige invoer.","instance":"urn:uuid:a00818fa-af06-4d67-8ecf-7d4728336635","invalidParams":[{"name":"startdatum","code":"invalid","reason":"Voer
         een geldige datum in."}]}'
     headers:
       API-version:

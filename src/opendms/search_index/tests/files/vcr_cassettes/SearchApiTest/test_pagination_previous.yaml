@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,12 +80,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.porter.net/","identificatie":"f8153d60-9e23-4b99-9376-2510578d959d","bronorganisatie":"Ray-Hickman","titel":"Husband
-      now season science memory box later end.","beschrijving":"Couple about a deep.
-      Someone consider kitchen. South recently point source lay.","auteur":"Peggy
-      Gomez","taal":"ar","vertrouwelijkheidaanduiding":"movie","status":"dog","formaat":"js","bestandsnaam":"claim.mov","informatieobjecttype":"reveal","verschijningsvorm":"against","inhoud":"Key
-      protect around general focus similar. North develop ready part attention office
-      simply rule. Time growth newspaper any could right.","bestandsomvang":1000000,"link":"http://www.powell.com/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-10T07:26:09.388234"}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.miranda.com/","identificatie":"36593a49-77ba-49bc-b4ab-ee3dc859baba","bronorganisatie":"Hall
+      Ltd","titel":"Part show morning nor clearly could sea.","beschrijving":"Technology
+      age dinner employee I notice.","auteur":"Walter Powell","taal":"ast","vertrouwelijkheidaanduiding":"try","status":"sign","formaat":"jpg","bestandsnaam":"age.gif","informatieobjecttype":"fill","verschijningsvorm":"leave","inhoud":"Phone
+      allow represent research. Run part under brother over amount. Hit military attack
+      opportunity movie rate billion suffer.","bestandsomvang":1000000,"link":"https://www.sanders.org/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-01T11:16:51.515526"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -155,7 +154,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -167,7 +166,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -195,11 +194,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://carrillo.com/","identificatie":"d2081492-706a-4156-9dd5-d8554cd4b88b","bronorganisatie":"Cole,
-      Munoz and Castillo","titel":"Movement in seat weight figure little.","beschrijving":"Five
-      agent rule. Morning pattern central method follow.","auteur":"Mrs. Karen Johnston","taal":"cmn","vertrouwelijkheidaanduiding":"than","status":"bag","formaat":"png","bestandsnaam":"draw.txt","informatieobjecttype":"house","verschijningsvorm":"Mrs","inhoud":"Rest
-      voice dream especially. Activity total ago station rise figure. Wear institution
-      develop wide child dream land.","bestandsomvang":1000000,"link":"https://glover-butler.net/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-17T10:22:23.454866"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://owens-collins.net/","identificatie":"4d29c1b0-28ae-4412-ac06-b0767d9e71f5","bronorganisatie":"Green,
+      Hall and Miller","titel":"Each yourself seven possible spring character.","beschrijving":"Break
+      against prevent analysis how. Avoid for nearly yet.","auteur":"Samantha Lyons","taal":"st","vertrouwelijkheidaanduiding":"inside","status":"head","formaat":"flac","bestandsnaam":"able.mp4","informatieobjecttype":"response","verschijningsvorm":"firm","inhoud":"Deep
+      consider stop crime read increase trouble agency. Civil young really game he
+      the.","bestandsomvang":1000000,"link":"http://www.benson.info/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-09T10:23:45.404144"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -245,11 +244,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.4790106E-7,"_source":{"beschrijving":"Couple
-        about a deep. Someone consider kitchen. South recently point source lay.","verschijningsvorm":"against","begin_registratie":"2026-03-10T07:26:09.388234","identificatie":"f8153d60-9e23-4b99-9376-2510578d959d","bronorganisatie":"Ray-Hickman","bestandsomvang":1000000,"link":"http://www.powell.com/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.porter.net/","taal":"ar","auteur":"Peggy
-        Gomez","formaat":"js","inhoud":"Key protect around general focus similar.
-        North develop ready part attention office simply rule. Time growth newspaper
-        any could right.","titel":"Husband now season science memory box later end.","vertrouwelijkheidaanduiding":"movie","informatieobjecttype":"reveal","bestandsnaam":"claim.mov","creatiedatum":"2026-01-01","status":"dog"},"sort":[1.4790106E-7,1767225600000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.3799449E-8,"_source":{"beschrijving":"Technology
+        age dinner employee I notice.","verschijningsvorm":"leave","begin_registratie":"2026-03-01T11:16:51.515526","identificatie":"36593a49-77ba-49bc-b4ab-ee3dc859baba","bronorganisatie":"Hall
+        Ltd","bestandsomvang":1000000,"link":"https://www.sanders.org/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.miranda.com/","taal":"ast","auteur":"Walter
+        Powell","formaat":"jpg","inhoud":"Phone allow represent research. Run part
+        under brother over amount. Hit military attack opportunity movie rate billion
+        suffer.","titel":"Part show morning nor clearly could sea.","vertrouwelijkheidaanduiding":"try","informatieobjecttype":"fill","bestandsnaam":"age.gif","creatiedatum":"2026-01-01","status":"sign"},"sort":[1.3799449E-8,1767225600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

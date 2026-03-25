@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003605248","number_of_replicas":"1","uuid":"6ZOWxjA0Sr2u0dI4si02Rg","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452787486","number_of_replicas":"1","uuid":"0cBxSC1dQdKkK8BrOnLPZg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,13 +80,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.johnson-munoz.net/","identificatie":"8bd7b6af-176c-4b8f-8771-1ecec6d1bed3","bronorganisatie":"Nguyen
-      Ltd","titel":"Dutch analyzer","beschrijving":"Een document om de Nederlandse
-      analyzer te testen. We doen dit door middel van een willekeurige stem (in ons
-      geval ''lichamelijk'') in deze tekst te vermelden, zodat we kunnen zoeken metwoorden
-      die de zelfde stem bevatten.","auteur":"Daniel Mcfarland","taal":"id","vertrouwelijkheidaanduiding":"half","status":"claim","formaat":"wav","bestandsnaam":"hand.wav","informatieobjecttype":"establish","verschijningsvorm":"time","inhoud":"Anything
-      industry accept own thought ball. Church effect individual cultural team. Support
-      difference issue no wrong.","bestandsomvang":1000000,"link":"http://www.fernandez-costa.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-04T09:27:04.834749"}'
+    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.obrien.com/","identificatie":"e594b244-23bf-4753-955b-1b9b4fbea6a1","bronorganisatie":"Gonzales,
+      Green and Adams","titel":"Dutch analyzer","beschrijving":"Een document om de
+      Nederlandse analyzer te testen. We doen dit door middel van een willekeurige
+      stem (in ons geval ''lichamelijk'') in deze tekst te vermelden, zodat we kunnen
+      zoeken metwoorden die de zelfde stem bevatten.","auteur":"Daniel Trevino","taal":"cmn","vertrouwelijkheidaanduiding":"hundred","status":"stay","formaat":"wav","bestandsnaam":"along.jpeg","informatieobjecttype":"he","verschijningsvorm":"sing","inhoud":"Out
+      ground product sure. Art identify week economic relationship down.","bestandsomvang":1000000,"link":"https://www.webb-tucker.net/","creatiedatum":"2026-03-06","begin_registratie":"2026-03-24T03:34:00.749422"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -132,14 +131,13 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.32479563,"_source":{"beschrijving":"Een
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.21089451,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"time","begin_registratie":"2026-03-04T09:27:04.834749","identificatie":"8bd7b6af-176c-4b8f-8771-1ecec6d1bed3","bronorganisatie":"Nguyen
-        Ltd","bestandsomvang":1000000,"link":"http://www.fernandez-costa.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.johnson-munoz.net/","taal":"id","auteur":"Daniel
-        Mcfarland","formaat":"wav","inhoud":"Anything industry accept own thought
-        ball. Church effect individual cultural team. Support difference issue no
-        wrong.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"half","informatieobjecttype":"establish","bestandsnaam":"hand.wav","creatiedatum":"2026-03-09","status":"claim"},"sort":[0.32479563,1773014400000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"sing","begin_registratie":"2026-03-24T03:34:00.749422","identificatie":"e594b244-23bf-4753-955b-1b9b4fbea6a1","bronorganisatie":"Gonzales,
+        Green and Adams","bestandsomvang":1000000,"link":"https://www.webb-tucker.net/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.obrien.com/","taal":"cmn","auteur":"Daniel
+        Trevino","formaat":"wav","inhoud":"Out ground product sure. Art identify week
+        economic relationship down.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"hundred","informatieobjecttype":"he","bestandsnaam":"along.jpeg","creatiedatum":"2026-03-06","status":"stay"},"sort":[0.21089451,1772755200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -167,14 +165,13 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.32479563,"_source":{"beschrijving":"Een
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.21089451,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"time","begin_registratie":"2026-03-04T09:27:04.834749","identificatie":"8bd7b6af-176c-4b8f-8771-1ecec6d1bed3","bronorganisatie":"Nguyen
-        Ltd","bestandsomvang":1000000,"link":"http://www.fernandez-costa.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.johnson-munoz.net/","taal":"id","auteur":"Daniel
-        Mcfarland","formaat":"wav","inhoud":"Anything industry accept own thought
-        ball. Church effect individual cultural team. Support difference issue no
-        wrong.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"half","informatieobjecttype":"establish","bestandsnaam":"hand.wav","creatiedatum":"2026-03-09","status":"claim"},"sort":[0.32479563,1773014400000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"sing","begin_registratie":"2026-03-24T03:34:00.749422","identificatie":"e594b244-23bf-4753-955b-1b9b4fbea6a1","bronorganisatie":"Gonzales,
+        Green and Adams","bestandsomvang":1000000,"link":"https://www.webb-tucker.net/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.obrien.com/","taal":"cmn","auteur":"Daniel
+        Trevino","formaat":"wav","inhoud":"Out ground product sure. Art identify week
+        economic relationship down.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"hundred","informatieobjecttype":"he","bestandsnaam":"along.jpeg","creatiedatum":"2026-03-06","status":"stay"},"sort":[0.21089451,1772755200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -202,14 +199,13 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.32479563,"_source":{"beschrijving":"Een
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.21089451,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"time","begin_registratie":"2026-03-04T09:27:04.834749","identificatie":"8bd7b6af-176c-4b8f-8771-1ecec6d1bed3","bronorganisatie":"Nguyen
-        Ltd","bestandsomvang":1000000,"link":"http://www.fernandez-costa.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.johnson-munoz.net/","taal":"id","auteur":"Daniel
-        Mcfarland","formaat":"wav","inhoud":"Anything industry accept own thought
-        ball. Church effect individual cultural team. Support difference issue no
-        wrong.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"half","informatieobjecttype":"establish","bestandsnaam":"hand.wav","creatiedatum":"2026-03-09","status":"claim"},"sort":[0.32479563,1773014400000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"sing","begin_registratie":"2026-03-24T03:34:00.749422","identificatie":"e594b244-23bf-4753-955b-1b9b4fbea6a1","bronorganisatie":"Gonzales,
+        Green and Adams","bestandsomvang":1000000,"link":"https://www.webb-tucker.net/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.obrien.com/","taal":"cmn","auteur":"Daniel
+        Trevino","formaat":"wav","inhoud":"Out ground product sure. Art identify week
+        economic relationship down.","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"hundred","informatieobjecttype":"he","bestandsnaam":"along.jpeg","creatiedatum":"2026-03-06","status":"stay"},"sort":[0.21089451,1772755200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -237,7 +233,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
     headers:
       Transfer-Encoding:
       - chunked

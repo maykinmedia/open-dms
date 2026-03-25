@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,9 +80,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
-      Group","titel":"Document one","beschrijving":"snowflake1","auteur":"Brian Chan","taal":"gd","vertrouwelijkheidaanduiding":"evening","status":"speech","formaat":"avi","bestandsnaam":"exist.avi","informatieobjecttype":"population","verschijningsvorm":"material","inhoud":"Girl
-      world tax. Range reality late how measure alone which.","bestandsomvang":1000000,"link":"http://woods.com/","creatiedatum":"2026-02-25","begin_registratie":"2026-03-08T16:42:40.882845"}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
+      and Sons","titel":"Document one","beschrijving":"snowflake1","auteur":"Deanna
+      Mosley","taal":"hak","vertrouwelijkheidaanduiding":"serve","status":"physical","formaat":"txt","bestandsnaam":"church.bmp","informatieobjecttype":"begin","verschijningsvorm":"very","inhoud":"Move
+      hundred party common personal fall natural. Clearly figure memory name join.
+      Most painting anything onto cell my.","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-09T04:20:40.772169"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -152,7 +154,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003609511","number_of_replicas":"1","uuid":"lcSNDh-YRxCUwDIMF0yQ1g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -164,7 +166,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -192,10 +194,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.solis-wells.com/","identificatie":"d83466df-52b9-4ca3-8906-518a7b48a463","bronorganisatie":"Duran-Chandler","titel":"Document
-      two","beschrijving":"snowflake2","auteur":"Kevin Hill","taal":"crh","vertrouwelijkheidaanduiding":"day","status":"everybody","formaat":"bmp","bestandsnaam":"let.mp4","informatieobjecttype":"guy","verschijningsvorm":"health","inhoud":"Partner
-      join health investment along investment consumer suggest. Little point human
-      quickly.","bestandsomvang":1000000,"link":"http://www.wolfe.com/","creatiedatum":"2026-02-26","begin_registratie":"2026-03-10T04:54:26.336130"}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://benitez.org/","identificatie":"c03d07ed-6e06-4529-bfe8-33cde32156d0","bronorganisatie":"Moore
+      PLC","titel":"Document two","beschrijving":"snowflake2","auteur":"Sydney Wilson","taal":"rw","vertrouwelijkheidaanduiding":"ask","status":"possible","formaat":"js","bestandsnaam":"some.flac","informatieobjecttype":"stand","verschijningsvorm":"fear","inhoud":"Add
+      thousand road ahead part. Hospital dream will interesting realize parent along.","bestandsomvang":1000000,"link":"http://www.haas.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-19T16:31:11.813311"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -242,10 +243,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.1714318,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
-        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
-        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
-        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[3.1714318,1771977600000]}]}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.3879733,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
+        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
+        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
+        natural. Clearly figure memory name join. Most painting anything onto cell
+        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[6.3879733,1773187200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -274,10 +276,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.1714318,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
-        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
-        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
-        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[3.1714318,1771977600000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.3879733,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
+        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
+        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
+        natural. Clearly figure memory name join. Most painting anything onto cell
+        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[6.3879733,1773187200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -306,12 +309,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.2524545,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"health","begin_registratie":"2026-03-10T04:54:26.336130","identificatie":"d83466df-52b9-4ca3-8906-518a7b48a463","bronorganisatie":"Duran-Chandler","bestandsomvang":1000000,"link":"http://www.wolfe.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.solis-wells.com/","taal":"crh","auteur":"Kevin
-        Hill","formaat":"bmp","inhoud":"Partner join health investment along investment
-        consumer suggest. Little point human quickly.","titel":"Document two","vertrouwelijkheidaanduiding":"day","informatieobjecttype":"guy","bestandsnaam":"let.mp4","creatiedatum":"2026-02-26","status":"everybody"},"sort":[2.2524545,1772064000000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.0416372,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
-        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
-        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
-        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[2.0416372,1771977600000]}]}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.81908,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"fear","begin_registratie":"2026-03-19T16:31:11.813311","identificatie":"c03d07ed-6e06-4529-bfe8-33cde32156d0","bronorganisatie":"Moore
+        PLC","bestandsomvang":1000000,"link":"http://www.haas.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://benitez.org/","taal":"rw","auteur":"Sydney
+        Wilson","formaat":"js","inhoud":"Add thousand road ahead part. Hospital dream
+        will interesting realize parent along.","titel":"Document two","vertrouwelijkheidaanduiding":"ask","informatieobjecttype":"stand","bestandsnaam":"some.flac","creatiedatum":"2026-03-16","status":"possible"},"sort":[4.81908,1773619200000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.112314,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
+        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
+        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
+        natural. Clearly figure memory name join. Most painting anything onto cell
+        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[4.112314,1773187200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -340,12 +345,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.2524545,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"health","begin_registratie":"2026-03-10T04:54:26.336130","identificatie":"d83466df-52b9-4ca3-8906-518a7b48a463","bronorganisatie":"Duran-Chandler","bestandsomvang":1000000,"link":"http://www.wolfe.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.solis-wells.com/","taal":"crh","auteur":"Kevin
-        Hill","formaat":"bmp","inhoud":"Partner join health investment along investment
-        consumer suggest. Little point human quickly.","titel":"Document two","vertrouwelijkheidaanduiding":"day","informatieobjecttype":"guy","bestandsnaam":"let.mp4","creatiedatum":"2026-02-26","status":"everybody"},"sort":[2.2524545,1772064000000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.0416372,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
-        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
-        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
-        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[2.0416372,1771977600000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.81908,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"fear","begin_registratie":"2026-03-19T16:31:11.813311","identificatie":"c03d07ed-6e06-4529-bfe8-33cde32156d0","bronorganisatie":"Moore
+        PLC","bestandsomvang":1000000,"link":"http://www.haas.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://benitez.org/","taal":"rw","auteur":"Sydney
+        Wilson","formaat":"js","inhoud":"Add thousand road ahead part. Hospital dream
+        will interesting realize parent along.","titel":"Document two","vertrouwelijkheidaanduiding":"ask","informatieobjecttype":"stand","bestandsnaam":"some.flac","creatiedatum":"2026-03-16","status":"possible"},"sort":[4.81908,1773619200000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.112314,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
+        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
+        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
+        natural. Clearly figure memory name join. Most painting anything onto cell
+        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[4.112314,1773187200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -374,12 +381,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":9,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.6135705,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"material","begin_registratie":"2026-03-08T16:42:40.882845","identificatie":"65d80bb4-f786-4e36-959a-1cb368c40365","bronorganisatie":"Burke
-        Group","bestandsomvang":1000000,"link":"http://woods.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.morris-pitts.com/","taal":"gd","auteur":"Brian
-        Chan","formaat":"avi","inhoud":"Girl world tax. Range reality late how measure
-        alone which.","titel":"Document one","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"population","bestandsnaam":"exist.avi","creatiedatum":"2026-02-25","status":"speech"},"sort":[3.6135705,1771977600000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":3.4989102,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"health","begin_registratie":"2026-03-10T04:54:26.336130","identificatie":"d83466df-52b9-4ca3-8906-518a7b48a463","bronorganisatie":"Duran-Chandler","bestandsomvang":1000000,"link":"http://www.wolfe.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.solis-wells.com/","taal":"crh","auteur":"Kevin
-        Hill","formaat":"bmp","inhoud":"Partner join health investment along investment
-        consumer suggest. Little point human quickly.","titel":"Document two","vertrouwelijkheidaanduiding":"day","informatieobjecttype":"guy","bestandsnaam":"let.mp4","creatiedatum":"2026-02-26","status":"everybody"},"sort":[3.4989102,1772064000000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":7.4858456,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"fear","begin_registratie":"2026-03-19T16:31:11.813311","identificatie":"c03d07ed-6e06-4529-bfe8-33cde32156d0","bronorganisatie":"Moore
+        PLC","bestandsomvang":1000000,"link":"http://www.haas.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://benitez.org/","taal":"rw","auteur":"Sydney
+        Wilson","formaat":"js","inhoud":"Add thousand road ahead part. Hospital dream
+        will interesting realize parent along.","titel":"Document two","vertrouwelijkheidaanduiding":"ask","informatieobjecttype":"stand","bestandsnaam":"some.flac","creatiedatum":"2026-03-16","status":"possible"},"sort":[7.4858456,1773619200000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":7.1146216,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
+        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
+        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
+        natural. Clearly figure memory name join. Most painting anything onto cell
+        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[7.1146216,1773187200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

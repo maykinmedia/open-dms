@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774005628775","number_of_replicas":"1","uuid":"tu3tP4soSjivaXa7NRk5wA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452785907","number_of_replicas":"1","uuid":"EAaMk_jiRimhenEpk3-OyQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"uuid":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"link":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,11 +80,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://smith-warner.com/","identificatie":"07f3ac75-7f30-4bbb-af9b-e7941dc41df2","bronorganisatie":"King-Watts","titel":"During
-      relationship agent education others never.","beschrijving":"Born decision bit
-      young new. At it product where one leader.","auteur":"Jennifer Odonnell","taal":"wo","vertrouwelijkheidaanduiding":"hard","status":"put","formaat":"gif","bestandsnaam":"may.webm","informatieobjecttype":"prepare","verschijningsvorm":"rise","inhoud":"Including
-      outside speak economic two someone. Doctor meet sing want. Certain like tend
-      you drive.","bestandsomvang":1000000,"link":"http://www.hudson-watkins.com/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-05T04:04:30.126175"}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.murillo.com/","identificatie":"76ab70ff-3961-4423-ad75-49478cdafef0","bronorganisatie":"Davis
+      LLC","titel":"Everything civil if police.","beschrijving":"Sure gas police put
+      unit morning your. Individual because item will. Yes most floor capital administration
+      near.","auteur":"Rebecca Wilson DVM","taal":"fo","vertrouwelijkheidaanduiding":"throw","status":"management","formaat":"csv","bestandsnaam":"media.numbers","informatieobjecttype":"of","verschijningsvorm":"send","inhoud":"Land
+      break there. Check capital deep environment I head. Debate draw current trouble
+      reach civil glass. Central theory factor.","bestandsomvang":1000000,"link":"http://evans.org/","creatiedatum":"2026-03-13","begin_registratie":"2026-03-15T17:57:45.262251"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -130,11 +131,13 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":5,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":1.0,"_source":{"beschrijving":"Born
-        decision bit young new. At it product where one leader.","verschijningsvorm":"rise","begin_registratie":"2026-03-05T04:04:30.126175","identificatie":"07f3ac75-7f30-4bbb-af9b-e7941dc41df2","bronorganisatie":"King-Watts","bestandsomvang":1000000,"link":"http://www.hudson-watkins.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://smith-warner.com/","taal":"wo","auteur":"Jennifer
-        Odonnell","formaat":"gif","inhoud":"Including outside speak economic two someone.
-        Doctor meet sing want. Certain like tend you drive.","titel":"During relationship
-        agent education others never.","vertrouwelijkheidaanduiding":"hard","informatieobjecttype":"prepare","bestandsnaam":"may.webm","creatiedatum":"2026-03-14","status":"put"},"sort":[1.0,1773446400000]}]}}'
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.9064019,"_source":{"beschrijving":"Sure
+        gas police put unit morning your. Individual because item will. Yes most floor
+        capital administration near.","verschijningsvorm":"send","begin_registratie":"2026-03-15T17:57:45.262251","identificatie":"76ab70ff-3961-4423-ad75-49478cdafef0","bronorganisatie":"Davis
+        LLC","bestandsomvang":1000000,"link":"http://evans.org/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.murillo.com/","taal":"fo","auteur":"Rebecca
+        Wilson DVM","formaat":"csv","inhoud":"Land break there. Check capital deep
+        environment I head. Debate draw current trouble reach civil glass. Central
+        theory factor.","titel":"Everything civil if police.","vertrouwelijkheidaanduiding":"throw","informatieobjecttype":"of","bestandsnaam":"media.numbers","creatiedatum":"2026-03-13","status":"management"},"sort":[0.9064019,1773360000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

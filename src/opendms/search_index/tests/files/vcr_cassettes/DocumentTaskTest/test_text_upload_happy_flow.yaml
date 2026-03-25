@@ -29,7 +29,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Fri, 20 Mar 2026 10:47:20 GMT
+      - Wed, 25 Mar 2026 15:33:42 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -76,7 +76,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -88,7 +88,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,10 +116,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"https://holland-calderon.com/","identificatie":"4d88ad7c-bcd6-43a2-9376-6d336af427fe","bronorganisatie":"Boyer-Freeman","titel":"Office
-      share heavy road so writer exist.","beschrijving":"Art season administration
-      drop this. Decision clear major build bank. However finally hot here move.","auteur":"Kimberly
-      Rivera","taal":"unm","vertrouwelijkheidaanduiding":"it","status":"home","formaat":"json","bestandsnaam":"design.mp4","informatieobjecttype":"start","verschijningsvorm":"now","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://www.white.com/","creatiedatum":"2026-03-14","begin_registratie":"2026-02-18T19:24:32.936647","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
+    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://santiago.info/","identificatie":"659bf807-f810-41ef-822f-97b61c7cba23","bronorganisatie":"King,
+      Willis and Cooper","titel":"Argue remember if sign treatment billion represent
+      degree.","beschrijving":"Sing care rock American smile. Create worry realize
+      along chance maybe future. Organization people kid.","auteur":"Claudia Cole","taal":"sd","vertrouwelijkheidaanduiding":"key","status":"radio","formaat":"avi","bestandsnaam":"southern.mov","informatieobjecttype":"yourself","verschijningsvorm":"card","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://doyle-mcdaniel.com/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-24T22:51:42.286573","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -163,17 +163,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54
   response:
     body:
-      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"beschrijving":"Art
-        season administration drop this. Decision clear major build bank. However
-        finally hot here move.","verschijningsvorm":"now","begin_registratie":"2026-02-18T19:24:32.936647","identificatie":"4d88ad7c-bcd6-43a2-9376-6d336af427fe","bronorganisatie":"Boyer-Freeman","bestandsomvang":1000000,"link":"http://www.white.com/","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"https://holland-calderon.com/","taal":"unm","auteur":"Kimberly
-        Rivera","formaat":"json","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Office
-        share heavy road so writer exist.","vertrouwelijkheidaanduiding":"it","document_data":[{"attachment":{"content":"Document
-        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"start","bestandsnaam":"design.mp4","creatiedatum":"2026-03-14","status":"home"}}'
+      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"beschrijving":"Sing
+        care rock American smile. Create worry realize along chance maybe future.
+        Organization people kid.","verschijningsvorm":"card","begin_registratie":"2026-03-24T22:51:42.286573","identificatie":"659bf807-f810-41ef-822f-97b61c7cba23","bronorganisatie":"King,
+        Willis and Cooper","bestandsomvang":1000000,"link":"http://doyle-mcdaniel.com/","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://santiago.info/","taal":"sd","auteur":"Claudia
+        Cole","formaat":"avi","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Argue
+        remember if sign treatment billion represent degree.","vertrouwelijkheidaanduiding":"key","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"yourself","bestandsnaam":"southern.mov","creatiedatum":"2026-03-11","status":"radio"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '972'
+      - '1003'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

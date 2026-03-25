@@ -27,7 +27,7 @@ interactions:
         0ZERqq1gHbrOsScYXFmG6WZSWL7pdqxZ5OVbBQj5x9qt/PtSK3TNHlsgQvndUz34KWQJO4DLKmzf
         tTvwxL0uX6oPPktmQpATDv8Qk/hxeFn4A5th6ADgAKYAc10AAIEzB64P1THNtWclRSgpPgItLOIk
         n4jd4NxFlN/WRYH+oBHsAIuGBrkJNQOfyRT2oCy/ylI0RGbuJFreEwY3l+e3Jai1iCUvvqmIHOIo
-        2TmwgLb5CLULPgXW3r8tqG71bLKKv6w///8LfLcZ2GRfvgAAAAAXBoDhAQl7AAcLAQABISEBGAyA
+        2TmwgLb5CQ8qcZCNElPOmgWk2K7IzrHYxcwZ30Q928j9q3oAAAAXBoDhAQl7AAcLAQABISEBGAyA
         pwAA
     headers:
       Connection:
@@ -37,7 +37,7 @@ interactions:
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Fri, 20 Mar 2026 10:47:15 GMT
+      - Wed, 25 Mar 2026 15:33:37 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -84,7 +84,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -96,7 +96,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -124,10 +124,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://harrison.com/","identificatie":"3ad8ea8d-70b2-46bd-a8e9-b8b6a9d7f5ae","bronorganisatie":"Brennan-Rios","titel":"Memory
-      truth fly from attention sing television.","beschrijving":"Remain provide grow
-      there. Player safe account. Picture three consumer five page.","auteur":"Mitchell
-      Espinoza","taal":"te","vertrouwelijkheidaanduiding":"several","status":"but","formaat":"odp","bestandsnaam":"grow.xlsx","informatieobjecttype":"audience","verschijningsvorm":"and","inhoud":"http://localhost/document/7zip","bestandsomvang":1000,"link":"http://cook.com/","creatiedatum":"2026-02-18","begin_registratie":"2026-03-04T15:10:59.258508","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://hall.com/","identificatie":"088991e6-cc46-46f0-b15a-999ee7b6871c","bronorganisatie":"Cobb
+      Ltd","titel":"Home certain allow moment east difference film.","beschrijving":"Sing
+      ago until. Loss anyone by letter.","auteur":"Sarah Brooks","taal":"pt","vertrouwelijkheidaanduiding":"kitchen","status":"race","formaat":"flac","bestandsnaam":"move.xls","informatieobjecttype":"now","verschijningsvorm":"where","inhoud":"http://localhost/document/7zip","bestandsomvang":1000,"link":"http://www.poole-bailey.com/","creatiedatum":"2026-03-10","begin_registratie":"2026-03-08T14:35:59.137632","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -171,15 +170,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"beschrijving":"Remain
-        provide grow there. Player safe account. Picture three consumer five page.","verschijningsvorm":"and","begin_registratie":"2026-03-04T15:10:59.258508","identificatie":"3ad8ea8d-70b2-46bd-a8e9-b8b6a9d7f5ae","bronorganisatie":"Brennan-Rios","bestandsomvang":1000,"link":"http://cook.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://harrison.com/","taal":"te","auteur":"Mitchell
-        Espinoza","formaat":"odp","inhoud":"http://localhost/document/7zip","titel":"Memory
-        truth fly from attention sing television.","vertrouwelijkheidaanduiding":"several","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"audience","bestandsnaam":"grow.xlsx","creatiedatum":"2026-02-18","status":"but"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"beschrijving":"Sing
+        ago until. Loss anyone by letter.","verschijningsvorm":"where","begin_registratie":"2026-03-08T14:35:59.137632","identificatie":"088991e6-cc46-46f0-b15a-999ee7b6871c","bronorganisatie":"Cobb
+        Ltd","bestandsomvang":1000,"link":"http://www.poole-bailey.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://hall.com/","taal":"pt","auteur":"Sarah
+        Brooks","formaat":"flac","inhoud":"http://localhost/document/7zip","titel":"Home
+        certain allow moment east difference film.","vertrouwelijkheidaanduiding":"kitchen","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"now","bestandsnaam":"move.xls","creatiedatum":"2026-03-10","status":"race"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '909'
+      - '862'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

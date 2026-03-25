@@ -484,7 +484,7 @@ interactions:
   response:
     body:
       string: '{"type":"http://localhost:8003/ref/fouten/NotFound/","code":"not_found","title":"Niet
-        gevonden.","status":404,"detail":"Ongeldige pagina.","instance":"urn:uuid:df5aaa85-2ad8-4531-b8f4-230ef915b54d"}'
+        gevonden.","status":404,"detail":"Ongeldige pagina.","instance":"urn:uuid:57ec8bdf-2dee-48ea-bc84-52a214277e78"}'
     headers:
       API-version:
       - 1.5.1

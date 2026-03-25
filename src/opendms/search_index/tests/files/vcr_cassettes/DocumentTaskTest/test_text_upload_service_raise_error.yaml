@@ -29,7 +29,7 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Fri, 20 Mar 2026 10:47:23 GMT
+      - Wed, 25 Mar 2026 15:33:45 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -76,7 +76,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -88,7 +88,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,10 +116,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://williams-lewis.org/","identificatie":"acd6da19-d675-4695-9638-748bcfba3b04","bronorganisatie":"Martinez
-      Ltd","titel":"About huge others practice.","beschrijving":"Too nice eight property
-      challenge language cup often. Agree scientist his letter. Sell forget we accept
-      every hospital.","auteur":"Kenneth Park","taal":"tr","vertrouwelijkheidaanduiding":"always","status":"low","formaat":"json","bestandsnaam":"science.js","informatieobjecttype":"look","verschijningsvorm":"next","inhoud":"http://localhost/document/error","bestandsomvang":1000000,"link":"http://www.nicholson.com/","creatiedatum":"2026-02-28","begin_registratie":"2026-03-13T08:59:00.157113"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.johnson.com/","identificatie":"d87440ed-47c7-421f-8323-3830d552673d","bronorganisatie":"Lin
+      and Sons","titel":"Yes ready behavior democratic necessary.","beschrijving":"Necessary
+      back no animal yourself. Inside direction open. Character interest radio whose
+      myself.","auteur":"Andrew Allen","taal":"mag","vertrouwelijkheidaanduiding":"spend","status":"hard","formaat":"webm","bestandsnaam":"my.odt","informatieobjecttype":"I","verschijningsvorm":"choice","inhoud":"http://localhost/document/error","bestandsomvang":1000000,"link":"https://tapia.com/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-19T04:44:51.171521"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -163,17 +163,17 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"beschrijving":"Too
-        nice eight property challenge language cup often. Agree scientist his letter.
-        Sell forget we accept every hospital.","verschijningsvorm":"next","begin_registratie":"2026-03-13T08:59:00.157113","identificatie":"acd6da19-d675-4695-9638-748bcfba3b04","bronorganisatie":"Martinez
-        Ltd","bestandsomvang":1000000,"link":"http://www.nicholson.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://williams-lewis.org/","taal":"tr","auteur":"Kenneth
-        Park","formaat":"json","inhoud":"http://localhost/document/error","titel":"About
-        huge others practice.","vertrouwelijkheidaanduiding":"always","informatieobjecttype":"look","bestandsnaam":"science.js","creatiedatum":"2026-02-28","status":"low"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"beschrijving":"Necessary
+        back no animal yourself. Inside direction open. Character interest radio whose
+        myself.","verschijningsvorm":"choice","begin_registratie":"2026-03-19T04:44:51.171521","identificatie":"d87440ed-47c7-421f-8323-3830d552673d","bronorganisatie":"Lin
+        and Sons","bestandsomvang":1000000,"link":"https://tapia.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.johnson.com/","taal":"mag","auteur":"Andrew
+        Allen","formaat":"webm","inhoud":"http://localhost/document/error","titel":"Yes
+        ready behavior democratic necessary.","vertrouwelijkheidaanduiding":"spend","informatieobjecttype":"I","bestandsnaam":"my.odt","creatiedatum":"2026-03-18","status":"hard"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '852'
+      - '828'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
