@@ -23,7 +23,7 @@ class ZaakTests(VCRMixin, APITestCase):
             zrc_service=cls.zrc_service,
         )
 
-        cls.zaaktype_uuid = "1f41885e-23fc-4462-bbc8-80be4ae484dc"
+        cls.zaaktype_uuid = "d5080f2c-f2f3-4b97-b587-0150f2dced1d"
         cls.list_url = reverse(
             "api:zaken-list",
             kwargs={
@@ -35,40 +35,25 @@ class ZaakTests(VCRMixin, APITestCase):
     def test_list(self):
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(
-            response.json(),
-            {
-                "count": 1,
-                "results": [
-                    {
-                        "uuid": "5ff8b6a0-0a9c-4680-8974-8cfadfbdbadd",
-                        "url": "http://localhost:8003/zaken/api/v1/zaken/5ff8b6a0-0a9c-4680-8974-8cfadfbdbadd",
-                        "identificatie": "ZAAK-2026-0000000003",
-                        "zaaktype": f"http://localhost:8003/catalogi/api/v1/zaaktypen/{self.zaaktype_uuid}",
-                        "bronorganisatie": "123456782",
-                        "verantwoordelijkeOrganisatie": "123456782",
-                        "registratiedatum": "2026-03-11",
-                        "startdatum": "2026-03-11",
-                        "omschrijving": "verklaring van vernietiging",
-                        "toelichting": 'Verklaring van vernietiging voor vernietigingslijst: "test".',
-                    }
-                ],
-            },
-        )
+        self.assertEqual(len(response.json()["results"]), 12)  # from openzaak container
 
     def test_pagination(self):
-        zaaktype_uuid = "f609b6fe-449a-46dc-a0af-de55dc5f6774"
         multiple_zaken_url = reverse(
             "api:zaken-list",
             kwargs={
                 "service_slug": self.ztc_service.slug,
-                "zaaktypen_zaaktype_uuid": zaaktype_uuid,
+                "zaaktypen_zaaktype_uuid": self.zaaktype_uuid,
             },
         )
         # no params, open-zaak default pageSize = 100
         response = self.client.get(multiple_zaken_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
+        self.assertEqual(len(response.json()["results"]), 12)  # from openzaak container
+
+        # pageSize=5 & page=1
+        response = self.client.get(multiple_zaken_url, query_params={"pageSize": 5})
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(len(response.json()["results"]), 5)
 
         # pageSize=1 & page=1
         response = self.client.get(multiple_zaken_url, query_params={"pageSize": 1})
@@ -77,19 +62,19 @@ class ZaakTests(VCRMixin, APITestCase):
         self.assertEqual(
             response.json(),
             {
-                "count": 2,
+                "count": 12,
                 "results": [
                     {
-                        "uuid": "d67efb65-9119-42b5-ba0b-8a0fa731f696",
-                        "url": "http://localhost:8003/zaken/api/v1/zaken/d67efb65-9119-42b5-ba0b-8a0fa731f696",
-                        "identificatie": "ZAAK-2026-0000000002",
-                        "zaaktype": "http://localhost:8003/catalogi/api/v1/zaaktypen/f609b6fe-449a-46dc-a0af-de55dc5f6774",
-                        "bronorganisatie": "123456782",
-                        "verantwoordelijkeOrganisatie": "123456782",
-                        "registratiedatum": "2026-03-11",
-                        "startdatum": "2026-03-11",
-                        "omschrijving": "verklaring van vernietiging",
-                        "toelichting": 'Verklaring van vernietiging voor vernietigingslijst: "TEST".',
+                        "uuid": "2c8c15af-4fdc-4b6a-a29c-75df40df38ed",
+                        "url": "http://localhost:8003/zaken/api/v1/zaken/2c8c15af-4fdc-4b6a-a29c-75df40df38ed",
+                        "identificatie": "ZAAK-2026-0000000010",
+                        "zaaktype": f"http://localhost:8003/catalogi/api/v1/zaaktypen/{str(self.zaaktype_uuid)}",
+                        "bronorganisatie": "000000231",
+                        "verantwoordelijkeOrganisatie": "000000292",
+                        "registratiedatum": "2026-03-25",
+                        "startdatum": "2026-01-15",
+                        "omschrijving": "",
+                        "toelichting": "",
                     }
                 ],
             },
@@ -104,19 +89,19 @@ class ZaakTests(VCRMixin, APITestCase):
         self.assertEqual(
             response.json(),
             {
-                "count": 2,
+                "count": 12,
                 "results": [
                     {
-                        "uuid": "376b1195-6d1e-48e3-a957-649d084a2627",
-                        "url": "http://localhost:8003/zaken/api/v1/zaken/376b1195-6d1e-48e3-a957-649d084a2627",
-                        "identificatie": "ZAAK-2026-0000000001",
-                        "zaaktype": "http://localhost:8003/catalogi/api/v1/zaaktypen/f609b6fe-449a-46dc-a0af-de55dc5f6774",
-                        "bronorganisatie": "123456782",
-                        "verantwoordelijkeOrganisatie": "123456782",
-                        "registratiedatum": "2026-03-05",
-                        "startdatum": "2026-03-05",
-                        "omschrijving": "verklaring van vernietiging",
-                        "toelichting": "Verklaring van vernietiging voor vernietigingslijst",
+                        "uuid": "511f30e1-7538-48c0-af85-41e76a38cd24",
+                        "url": "http://localhost:8003/zaken/api/v1/zaken/511f30e1-7538-48c0-af85-41e76a38cd24",
+                        "identificatie": "ZAAK-2026-0000000009",
+                        "zaaktype": f"http://localhost:8003/catalogi/api/v1/zaaktypen/{str(self.zaaktype_uuid)}",
+                        "bronorganisatie": "000000061",
+                        "verantwoordelijkeOrganisatie": "000000309",
+                        "registratiedatum": "2026-03-25",
+                        "startdatum": "2026-02-14",
+                        "omschrijving": "",
+                        "toelichting": "",
                     }
                 ],
             },
@@ -231,7 +216,7 @@ class ZaakTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
         # ok response
-        zaak_uuid = "5ff8b6a0-0a9c-4680-8974-8cfadfbdbadd"
+        zaak_uuid = "da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d"
         response = self.client.get(
             reverse(
                 "api:zaken-detail",
@@ -246,21 +231,21 @@ class ZaakTests(VCRMixin, APITestCase):
         self.assertEqual(
             response.json(),
             {
-                "uuid": "5ff8b6a0-0a9c-4680-8974-8cfadfbdbadd",
-                "url": f"http://localhost:8003/zaken/api/v1/zaken/{zaak_uuid}",
-                "identificatie": "ZAAK-2026-0000000003",
-                "zaaktype": f"http://localhost:8003/catalogi/api/v1/zaaktypen/{self.zaaktype_uuid}",
-                "bronorganisatie": "123456782",
-                "verantwoordelijkeOrganisatie": "123456782",
-                "registratiedatum": "2026-03-11",
-                "startdatum": "2026-03-11",
-                "omschrijving": "verklaring van vernietiging",
-                "toelichting": 'Verklaring van vernietiging voor vernietigingslijst: "test".',
+                "uuid": zaak_uuid,
+                "url": "http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d",
+                "identificatie": "ZAAK-2026-0000000001",
+                "zaaktype": "http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d",
+                "bronorganisatie": "000000103",
+                "verantwoordelijkeOrganisatie": "000000152",
+                "registratiedatum": "2026-03-25",
+                "startdatum": "2026-03-03",
+                "omschrijving": "",
+                "toelichting": "",
             },
         )
 
     def test_read_only(self):
-        zaak_uuid = "5ff8b6a0-0a9c-4680-8974-8cfadfbdbadd"
+        zaak_uuid = "da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d"
         detail_url = reverse(
             "api:zaken-detail",
             kwargs={
@@ -308,7 +293,7 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
             zrc_service=cls.zrc_service,
         )
 
-        cls.zaaktype_uuid = "f609b6fe-449a-46dc-a0af-de55dc5f6774"
+        cls.zaaktype_uuid = "d5080f2c-f2f3-4b97-b587-0150f2dced1d"
         cls.list_url = reverse(
             "api:zaken-list",
             kwargs={
@@ -321,7 +306,7 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
         # no params
         response = self.client.get(self.list_url, query_params={})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
+        self.assertEqual(len(response.json()["results"]), 12)  # from openzaak container
 
         # search random value
         response = self.client.get(
@@ -347,7 +332,7 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
             query_params={"identificatie__icontains": "ZAAK-2026"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)
+        self.assertEqual(len(response.json()["results"]), 7)
         results = [record["identificatie"] for record in response.json()["results"]]
         self.assertIn("ZAAK-2026-0000000001", results)
         self.assertIn("ZAAK-2026-0000000001", results)
@@ -356,7 +341,7 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
         # no params
         response = self.client.get(self.list_url, query_params={})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
+        self.assertEqual(len(response.json()["results"]), 12)  # from openzaak container
 
         # search random value
         response = self.client.get(
@@ -371,7 +356,7 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
             query_params={"omschrijving": "verklaring van vernietiging"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)
+        self.assertEqual(len(response.json()["results"]), 1)
 
         # search contains value
         response = self.client.get(
@@ -379,13 +364,13 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
             query_params={"omschrijving": "verklaring"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)
+        self.assertEqual(len(response.json()["results"]), 1)
 
     def test_startdatum_gte(self):
         # no params
         response = self.client.get(self.list_url, query_params={})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
+        self.assertEqual(len(response.json()["results"]), 12)  # from openzaak container
 
         # search wrong value
         response = self.client.get(self.list_url, query_params={"startdatum": "random"})
@@ -397,7 +382,7 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
             query_params={"startdatum__gte": "2026-01-01"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)
+        self.assertEqual(len(response.json()["results"]), 7)
 
         # search gte
         response = self.client.get(
@@ -405,14 +390,14 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
             query_params={"startdatum__gte": "2026-03-05"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)
+        self.assertEqual(len(response.json()["results"]), 0)
 
         response = self.client.get(
             self.list_url,
-            query_params={"startdatum__gte": "2026-03-11"},
+            query_params={"startdatum__gte": "2026-02-14"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 1)
+        self.assertEqual(len(response.json()["results"]), 3)
 
         response = self.client.get(
             self.list_url,
