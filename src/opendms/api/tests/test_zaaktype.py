@@ -33,13 +33,13 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         # ok response
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 7)  # from openzaak container
+        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
 
     def test_pagination(self):
         # no params, open-zaak default pageSize = 100
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 7)  # from openzaak container
+        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
 
         # pageSize=2
         response = self.client.get(self.list_url, query_params={"pageSize": 2})
@@ -48,10 +48,10 @@ class ZaakTypeTests(VCRMixin, APITestCase):
 
         # pageSize=2 & page=3
         response = self.client.get(
-            self.list_url, query_params={"pageSize": 2, "page": 3}
+            self.list_url, query_params={"pageSize": 1, "page": 2}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 2)
+        self.assertEqual(len(response.json()["results"]), 1)
 
         # pageSize=100 & page=20 not exists page
         response = self.client.get(
@@ -143,7 +143,7 @@ class ZaakTypeTests(VCRMixin, APITestCase):
                 "api:zaaktypen-detail",
                 kwargs={
                     "service_slug": "catalogi-api",
-                    "zaaktype_uuid": "f609b6fe-449a-46dc-a0af-de55dc5f6774",
+                    "zaaktype_uuid": "d5080f2c-f2f3-4b97-b587-0150f2dced1d",
                 },
             ),
         )
@@ -151,12 +151,12 @@ class ZaakTypeTests(VCRMixin, APITestCase):
         self.assertEqual(
             response.json(),
             {
-                "uuid": "f609b6fe-449a-46dc-a0af-de55dc5f6774",
-                "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/f609b6fe-449a-46dc-a0af-de55dc5f6774",
-                "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/bd58635c-793e-446d-a7e0-460d7b04829d",
-                "identificatie": "ZT-001",
-                "omschrijving": "Test",
-                "beginGeldigheid": "2024-10-31",
+                "uuid": "d5080f2c-f2f3-4b97-b587-0150f2dced1d",
+                "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d",
+                "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/15f9e22e-5bec-4d86-9b04-1e011b0a568e",
+                "identificatie": "ZAAKTYPE-2026-0000000001",
+                "omschrijving": "Aanvraag parkeervergunning",
+                "beginGeldigheid": "2024-01-01",
                 "eindeGeldigheid": None,
             },
         )
@@ -166,7 +166,7 @@ class ZaakTypeTests(VCRMixin, APITestCase):
             "api:zaaktypen-detail",
             kwargs={
                 "service_slug": "catalogi-api",
-                "zaaktype_uuid": "f609b6fe-449a-46dc-a0af-de55dc5f6774",
+                "zaaktype_uuid": "d5080f2c-f2f3-4b97-b587-0150f2dced1d",
             },
         )
 
@@ -211,7 +211,7 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
         # no params
         response = self.client.get(self.list_url, query_params={})
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(len(response.json()["results"]), 7)  # from openzaak container
+        self.assertEqual(len(response.json()["results"]), 2)  # from openzaak container
 
         # search random value
         response = self.client.get(self.list_url, query_params={"search": "random"})
@@ -220,7 +220,7 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
 
         # search exact value
         response = self.client.get(
-            self.list_url, query_params={"search": "ZAAKTYPE-2020-0000000002"}
+            self.list_url, query_params={"search": "ZAAKTYPE-2026-0000000002"}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 1)
@@ -230,12 +230,12 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
                 "count": 1,
                 "results": [
                     {
-                        "uuid": "a516793a-cb5f-446d-bfa3-56077c1897be",
-                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/a516793a-cb5f-446d-bfa3-56077c1897be",
-                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/e035387e-6374-4eb9-b3d1-416294402bae",
-                        "identificatie": "ZAAKTYPE-2020-0000000002",
-                        "omschrijving": "Case type for children component",
-                        "beginGeldigheid": "2020-06-20",
+                        "uuid": "dd8f86d3-33c5-40cd-9eb1-b45e2db64f03",
+                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03",
+                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/15f9e22e-5bec-4d86-9b04-1e011b0a568e",
+                        "identificatie": "ZAAKTYPE-2026-0000000002",
+                        "omschrijving": "Aanvraag afvalpas",
+                        "beginGeldigheid": "2024-01-01",
                         "eindeGeldigheid": None,
                     }
                 ],
@@ -244,18 +244,15 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
 
         # search multiple result
         response = self.client.get(
-            self.list_url, query_params={"search": "ZAAKTYPE-2020"}
+            self.list_url,
+            query_params={"search": "ZAAKTYPE-2026"},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 2)
 
         ids = [record["identificatie"] for record in response.json()["results"]]
-        self.assertIn("ZAAKTYPE-2020-0000000001", ids)
-        self.assertIn("ZAAKTYPE-2020-0000000002", ids)
-
-        uuids = [record["uuid"] for record in response.json()["results"]]
-        self.assertIn("a516793a-cb5f-446d-bfa3-56077c1897be", uuids)
-        self.assertIn("77543c85-e5cd-4b3e-b7a5-27165e1334b1", uuids)
+        self.assertIn("ZAAKTYPE-2026-0000000001", ids)
+        self.assertIn("ZAAKTYPE-2026-0000000002", ids)
 
     def test_not_valid_search_param(self):
         response = self.client.get(self.list_url, query_params={"test": "random"})
@@ -268,14 +265,14 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
 
     def test_search_param_with_paginations(self):
         response = self.client.get(
-            self.list_url, query_params={"search": "ZAAKTYPE-2020"}
+            self.list_url, query_params={"search": "ZAAKTYPE-2026"}
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 2)
 
         response = self.client.get(
             self.list_url,
-            query_params={"search": "ZAAKTYPE-2020", "pageSize": 1},
+            query_params={"search": "ZAAKTYPE-2026", "pageSize": 1},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 1)
@@ -285,12 +282,12 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
                 "count": 2,
                 "results": [
                     {
-                        "uuid": "a516793a-cb5f-446d-bfa3-56077c1897be",
-                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/a516793a-cb5f-446d-bfa3-56077c1897be",
-                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/e035387e-6374-4eb9-b3d1-416294402bae",
-                        "identificatie": "ZAAKTYPE-2020-0000000002",
-                        "omschrijving": "Case type for children component",
-                        "beginGeldigheid": "2020-06-20",
+                        "uuid": "dd8f86d3-33c5-40cd-9eb1-b45e2db64f03",
+                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03",
+                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/15f9e22e-5bec-4d86-9b04-1e011b0a568e",
+                        "identificatie": "ZAAKTYPE-2026-0000000002",
+                        "omschrijving": "Aanvraag afvalpas",
+                        "beginGeldigheid": "2024-01-01",
                         "eindeGeldigheid": None,
                     }
                 ],
@@ -299,7 +296,7 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
 
         response = self.client.get(
             self.list_url,
-            query_params={"search": "ZAAKTYPE-2020", "pageSize": 1, "page": 2},
+            query_params={"search": "ZAAKTYPE-2026", "pageSize": 1, "page": 2},
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 1)
@@ -309,12 +306,12 @@ class ZaakTypeFiltersTests(VCRMixin, APITestCase):
                 "count": 2,
                 "results": [
                     {
-                        "uuid": "77543c85-e5cd-4b3e-b7a5-27165e1334b1",
-                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/77543c85-e5cd-4b3e-b7a5-27165e1334b1",
-                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/7575ec62-a5ed-421f-bfc7-f8837066dd10",
-                        "identificatie": "ZAAKTYPE-2020-0000000001",
-                        "omschrijving": "Case type for partners component",
-                        "beginGeldigheid": "2020-06-20",
+                        "uuid": "d5080f2c-f2f3-4b97-b587-0150f2dced1d",
+                        "url": "http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d",
+                        "catalogus": "http://localhost:8003/catalogi/api/v1/catalogussen/15f9e22e-5bec-4d86-9b04-1e011b0a568e",
+                        "identificatie": "ZAAKTYPE-2026-0000000001",
+                        "omschrijving": "Aanvraag parkeervergunning",
+                        "beginGeldigheid": "2024-01-01",
                         "eindeGeldigheid": None,
                     }
                 ],

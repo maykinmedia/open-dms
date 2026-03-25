@@ -15,7 +15,7 @@ interactions:
   response:
     body:
       string: '{"type":"http://localhost:8003/ref/fouten/NotFound/","code":"not_found","title":"Niet
-        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:2ea74c4c-1678-47bc-8195-968219fd8041"}'
+        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:349af815-bef2-49b0-ab0b-089023daa343"}'
     headers:
       API-version:
       - 1.3.1
@@ -24,12 +24,12 @@ interactions:
       Content-Length:
       - '195'
       Content-Security-Policy:
-      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
-        frame-ancestors ''none''; frame-src ''self''; form-action ''self''; style-src
+      - 'form-action ''self''; worker-src ''self'' blob:; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
+        base-uri ''self''; frame-ancestors ''none''; img-src ''self'' data: cdn.redoc.ly
+        cdnjs.cloudflare.com tile.openstreetmap.org; frame-src ''self''; style-src
         ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        object-src ''none''; default-src ''self''; font-src ''self'' fonts.gstatic.com;
-        worker-src ''self'' blob:; base-uri ''self''; script-src ''self'' ''unsafe-inline''
-        cdnjs.cloudflare.com cdn.jsdelivr.net'
+        default-src ''self''; object-src ''none'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -57,31 +57,35 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/catalogi/api/v1/zaaktypen/f609b6fe-449a-46dc-a0af-de55dc5f6774
+    uri: http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d
   response:
     body:
-      string: '{"url":"http://localhost:8003/catalogi/api/v1/zaaktypen/f609b6fe-449a-46dc-a0af-de55dc5f6774","identificatie":"ZT-001","omschrijving":"Test","omschrijvingGeneriek":"","vertrouwelijkheidaanduiding":"intern","doel":"testen","aanleiding":"integratietests","toelichting":"","indicatieInternOfExtern":"intern","handelingInitiator":"Formulier
-        indienen","onderwerp":"Testformulier","handelingBehandelaar":"Controleren","doorlooptijd":"P1D","servicenorm":"P0D","opschortingEnAanhoudingMogelijk":false,"verlengingMogelijk":false,"verlengingstermijn":null,"trefwoorden":[],"publicatieIndicatie":false,"publicatietekst":"","verantwoordingsrelatie":[],"productenOfDiensten":["http://localhost:81/product/1234abcd-12ab-34cd-56ef-12345abcde10"],"selectielijstProcestype":"https://selectielijst.openzaak.nl/api/v1/procestypen/aa8aa2fd-b9c6-4e34-9a6c-58a677f60ea0","referentieproces":{"naam":"Testen","link":""},"concept":false,"verantwoordelijke":"Ontwikkelaar","broncatalogus":{"url":"","domein":"","rsin":""},"bronzaaktype":{"url":"","identificatie":"","omschrijving":""},"beginGeldigheid":"2024-10-31","eindeGeldigheid":null,"versiedatum":"2024-10-31","beginObject":"2023-01-01","eindeObject":null,"catalogus":"http://localhost:8003/catalogi/api/v1/catalogussen/bd58635c-793e-446d-a7e0-460d7b04829d","statustypen":["http://localhost:8003/catalogi/api/v1/statustypen/018ec0c2-50d0-4225-a5bb-5ad7c48d6f2b","http://localhost:8003/catalogi/api/v1/statustypen/2937ee1d-9ea1-4048-b642-5a4dfd51fb47"],"resultaattypen":["http://localhost:8003/catalogi/api/v1/resultaattypen/e84e6028-c52a-420b-a098-d10897395c52"],"eigenschappen":["http://localhost:8003/catalogi/api/v1/eigenschappen/3a094e33-7a20-4018-bd60-3c15d06a1555","http://localhost:8003/catalogi/api/v1/eigenschappen/f376c43d-97f6-423c-a25c-9264142db235"],"informatieobjecttypen":["http://localhost:8003/catalogi/api/v1/informatieobjecttypen/531f6c1a-97f7-478c-85f0-67d2f23661c7","http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e"],"roltypen":["http://localhost:8003/catalogi/api/v1/roltypen/bd37e337-e0fd-4e11-a6ed-45a71e1c7aa8","http://localhost:8003/catalogi/api/v1/roltypen/d44d68c2-1e06-461e-9657-adf174a922fb"],"besluittypen":[],"deelzaaktypen":[],"gerelateerdeZaaktypen":[],"zaakobjecttypen":[]}'
+      string: '{"url":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","identificatie":"ZAAKTYPE-2026-0000000001","omschrijving":"Aanvraag
+        parkeervergunning","omschrijvingGeneriek":"","vertrouwelijkheidaanduiding":"geheim","doel":"De
+        aanvrager heeft het product ontvangen.","aanleiding":"Het parkeervergunning
+        aanvraag formulier is ingevuld.","toelichting":"Via dit zaaktype kan een parkeervergunning
+        worden aangevraagd.","indicatieInternOfExtern":"intern","handelingInitiator":"aanvragen","onderwerp":"producten","handelingBehandelaar":"behandelen","doorlooptijd":"P22D","servicenorm":null,"opschortingEnAanhoudingMogelijk":false,"verlengingMogelijk":false,"verlengingstermijn":null,"trefwoorden":[],"publicatieIndicatie":false,"publicatietekst":"","verantwoordingsrelatie":[],"productenOfDiensten":[],"selectielijstProcestype":"https://selectielijst.openzaak.nl/api/v1/procestypen/0f86ece3-f863-4c67-928e-cc71ad0e2318","referentieproces":{"naam":"Behandelen
+        aanvraag product","link":""},"concept":false,"verantwoordelijke":"063308836","broncatalogus":{"url":"","domein":"","rsin":""},"bronzaaktype":{"url":"","identificatie":"","omschrijving":""},"beginGeldigheid":"2024-01-01","eindeGeldigheid":null,"versiedatum":"2026-03-25","beginObject":"2024-01-01","eindeObject":null,"catalogus":"http://localhost:8003/catalogi/api/v1/catalogussen/15f9e22e-5bec-4d86-9b04-1e011b0a568e","statustypen":["http://localhost:8003/catalogi/api/v1/statustypen/ded960a6-4309-447d-bd2b-fa7b01dd8b81","http://localhost:8003/catalogi/api/v1/statustypen/b6f9e850-3927-460d-b7e3-52a1f7639e8a","http://localhost:8003/catalogi/api/v1/statustypen/c0088a54-4243-4a56-a9c0-2430dee4cb21"],"resultaattypen":["http://localhost:8003/catalogi/api/v1/resultaattypen/e1c8feed-81a8-4a55-adf2-366c1e44bb27","http://localhost:8003/catalogi/api/v1/resultaattypen/6c2dcb48-25f3-4f36-a617-d103dabf5927"],"eigenschappen":["http://localhost:8003/catalogi/api/v1/eigenschappen/ec3cbfb1-98f7-4d9c-825f-94c2f762908c"],"informatieobjecttypen":["http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab"],"roltypen":["http://localhost:8003/catalogi/api/v1/roltypen/72617276-52c1-4fa1-878d-62a42091e90c","http://localhost:8003/catalogi/api/v1/roltypen/dcc235ec-ecfd-4f72-9f60-bcd1ff266072"],"besluittypen":[],"deelzaaktypen":[],"gerelateerdeZaaktypen":[],"zaakobjecttypen":[]}'
     headers:
       API-version:
       - 1.3.1
       Allow:
       - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
       Content-Length:
-      - '2287'
+      - '2391'
       Content-Security-Policy:
-      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
-        frame-ancestors ''none''; frame-src ''self''; form-action ''self''; style-src
+      - 'form-action ''self''; worker-src ''self'' blob:; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
+        base-uri ''self''; frame-ancestors ''none''; img-src ''self'' data: cdn.redoc.ly
+        cdnjs.cloudflare.com tile.openstreetmap.org; frame-src ''self''; style-src
         ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        object-src ''none''; default-src ''self''; font-src ''self'' fonts.gstatic.com;
-        worker-src ''self'' blob:; base-uri ''self''; script-src ''self'' ''unsafe-inline''
-        cdnjs.cloudflare.com cdn.jsdelivr.net'
+        default-src ''self''; object-src ''none'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
       - same-origin
       ETag:
-      - '"14cb0d757ba364562edbb66412778d30"'
+      - '"3fc3f8f9c81d728329cebe0f9209034c"'
       Referrer-Policy:
       - same-origin
       Vary:

@@ -19,7 +19,7 @@ interactions:
   response:
     body:
       string: '{"type":"http://localhost:8003/ref/fouten/NotFound/","code":"not_found","title":"Niet
-        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:a9f648cf-bc6f-4b40-9135-f14a4beadb87"}'
+        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:d443fa3e-7d89-49ea-a1b8-5b6fa05837da"}'
     headers:
       API-version:
       - 1.5.1
@@ -30,12 +30,12 @@ interactions:
       Content-Length:
       - '195'
       Content-Security-Policy:
-      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
-        frame-ancestors ''none''; frame-src ''self''; form-action ''self''; style-src
+      - 'form-action ''self''; worker-src ''self'' blob:; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
+        base-uri ''self''; frame-ancestors ''none''; img-src ''self'' data: cdn.redoc.ly
+        cdnjs.cloudflare.com tile.openstreetmap.org; frame-src ''self''; style-src
         ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        object-src ''none''; default-src ''self''; font-src ''self'' fonts.gstatic.com;
-        worker-src ''self'' blob:; base-uri ''self''; script-src ''self'' ''unsafe-inline''
-        cdnjs.cloudflare.com cdn.jsdelivr.net'
+        default-src ''self''; object-src ''none'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -67,12 +67,10 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/zaken/api/v1/zaken/5ff8b6a0-0a9c-4680-8974-8cfadfbdbadd
+    uri: http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d
   response:
     body:
-      string: '{"url":"http://localhost:8003/zaken/api/v1/zaken/5ff8b6a0-0a9c-4680-8974-8cfadfbdbadd","uuid":"5ff8b6a0-0a9c-4680-8974-8cfadfbdbadd","identificatie":"ZAAK-2026-0000000003","bronorganisatie":"123456782","omschrijving":"verklaring
-        van vernietiging","toelichting":"Verklaring van vernietiging voor vernietigingslijst:
-        \"test\".","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/1f41885e-23fc-4462-bbc8-80be4ae484dc","registratiedatum":"2026-03-11","verantwoordelijkeOrganisatie":"123456782","startdatum":"2026-03-11","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":null,"publicatiedatum":null,"laatstGemuteerd":"2026-03-11T11:22:57.918674Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"openbaar","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"gerelateerdeZaken":[],"eigenschappen":[],"rollen":[],"status":null,"zaakinformatieobjecten":[],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}}'
+      string: '{"url":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","uuid":"da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","identificatie":"ZAAK-2026-0000000001","bronorganisatie":"000000103","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000152","startdatum":"2026-03-03","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-03-25","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.172000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"gerelateerdeZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/5d99e224-771d-40bc-8726-e26b50d8e4dd"],"status":"http://localhost:8003/zaken/api/v1/statussen/54058c1b-352e-42d2-bde5-cb7e9eb9daf8","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/efef805d-87f2-4e9a-86ed-98a6dfe9deb1"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}}'
     headers:
       API-version:
       - 1.5.1
@@ -81,20 +79,20 @@ interactions:
       Content-Crs:
       - EPSG:4326
       Content-Length:
-      - '1506'
+      - '1678'
       Content-Security-Policy:
-      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
-        frame-ancestors ''none''; frame-src ''self''; form-action ''self''; style-src
+      - 'form-action ''self''; worker-src ''self'' blob:; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
+        base-uri ''self''; frame-ancestors ''none''; img-src ''self'' data: cdn.redoc.ly
+        cdnjs.cloudflare.com tile.openstreetmap.org; frame-src ''self''; style-src
         ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        object-src ''none''; default-src ''self''; font-src ''self'' fonts.gstatic.com;
-        worker-src ''self'' blob:; base-uri ''self''; script-src ''self'' ''unsafe-inline''
-        cdnjs.cloudflare.com cdn.jsdelivr.net'
+        default-src ''self''; object-src ''none'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
       - same-origin
       ETag:
-      - '"75d031a56fbdb39ac83bfa21fc790867"'
+      - '"2c5546173f4ce26e34851d97f8b909f3"'
       Referrer-Policy:
       - same-origin
       Vary:
