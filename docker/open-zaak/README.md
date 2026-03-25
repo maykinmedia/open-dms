@@ -26,14 +26,18 @@ same data.
 Dump the fixtures with (in the `docker` directory):
 
 ```bash
-docker compose -f docker-compose.open-zaak.yml run openzaak-web.local \
-    python src/manage.py dumpdata \
-        --indent=4 \
-        --output /app/fixtures/open_zaak_fixtures.json \
-        authorizations.applicatie \
-        vng_api_common.jwtsecret \
-        config.featureflags \
-        catalogi
+
+python docker/open-zaak/fixtures/custom_dumpdata.py
+
+```
+
+Load data
+
+
+```bash
+
+docker compose -f docker/docker-compose.open-zaak.yml run openzaak-web.local python src/manage.py loaddata /app/fixtures/open_zaak_fixtures.json
+
 ```
 
 Depending on your OS, you may need to grant extra write permissions:
