@@ -29,6 +29,7 @@ services:
       - DB_USER=openzaak
       - DB_HOST=openzaak-db
       - IS_HTTPS=no
+      - SENDFILE_BACKEND=django_sendfile.backends.simple
       - CACHE_DEFAULT=openzaak-redis:6379/0
       - CACHE_AXES=openzaak-redis:6379/0
       - SUBPATH=${SUBPATH:-/}
@@ -47,8 +48,9 @@ services:
     volumes: &openzaak_web_volumes
       # mount fixtures dir to automatically populate the DB
       - ./open-zaak/fixtures/:/app/fixtures
-      - media:/app/media  # Shared media volume to get access to saved OAS files
-      - private-media:/app/private-media
+      - open-zaak-media:/app/media  # Shared media volume to get access to saved OAS files
+      - open-zaak-private-media:/app/private-media
+      - ./open-zaak/uploads/:/app/private-media/uploads
     depends_on:
       - openzaak-db
       - openzaak-redis
@@ -68,8 +70,8 @@ services:
 
 volumes:
   open-zaak-db:
-  media:
-  private-media:
+  open-zaak-media:
+  open-zaak-private-media:
 
 networks:
   open-dms-dev:
