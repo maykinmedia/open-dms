@@ -13,6 +13,9 @@ from .base import ElasticSearchAPITestCase, ElasticSearchTestCase
 from .factories import IndexDocumentFactory
 
 
+# TODO create tests for client
+# TODO create tests for tasks
+# TODO check codecov tests
 class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
     def test_index_document_roundtrip(self):
         document_uuid = "0095704d-4216-4de3-83d2-20dba551b0dc"
