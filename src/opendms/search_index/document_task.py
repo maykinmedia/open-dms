@@ -25,7 +25,7 @@ def index_all_documents() -> None:
 
     last_creatiedatum = ""
     with get_elasticsearch_client() as es_client:
-        es_client.get_last_document_creatiedatum()
+        last_creatiedatum = es_client.get_last_document_creatiedatum()
 
         for service in services:
             logger.info(
