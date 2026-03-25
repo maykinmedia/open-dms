@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,9 +80,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://walker-davis.com/","identificatie":"dba19427-1a7b-4447-94d2-5553e67f3158","bronorganisatie":"Daniels-Jenkins","titel":"Investment
-      lead sister.","beschrijving":"Appear including idea bit five. Surface while
-      exactly member by series.","auteur":"Ricky Knapp","taal":"ayc","vertrouwelijkheidaanduiding":"military","status":"remain","formaat":"tiff","bestandsnaam":"collection.csv","informatieobjecttype":"police","verschijningsvorm":"design","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://www.arroyo-hall.com/","creatiedatum":"2026-02-26","begin_registratie":"2026-03-03T10:00:28.554352"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://bryan.com/","identificatie":"5c4a5e2c-c437-47e5-8eda-42755acb7045","bronorganisatie":"Robinson,
+      Stephens and Tucker","titel":"Some show present effect fish activity.","beschrijving":"Design
+      girl PM tax voice speech. Research recently yeah.","auteur":"Steven George","taal":"csb","vertrouwelijkheidaanduiding":"leave","status":"care","formaat":"csv","bestandsnaam":"power.png","informatieobjecttype":"debate","verschijningsvorm":"family","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://hernandez-benton.com/","creatiedatum":"2026-03-03","begin_registratie":"2026-03-13T22:09:22.408720"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -126,15 +126,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":3,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"beschrijving":"Appear
-        including idea bit five. Surface while exactly member by series.","verschijningsvorm":"design","begin_registratie":"2026-03-03T10:00:28.554352","identificatie":"dba19427-1a7b-4447-94d2-5553e67f3158","bronorganisatie":"Daniels-Jenkins","bestandsomvang":1000000,"link":"http://www.arroyo-hall.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://walker-davis.com/","taal":"ayc","auteur":"Ricky
-        Knapp","formaat":"tiff","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Investment
-        lead sister.","vertrouwelijkheidaanduiding":"military","informatieobjecttype":"police","bestandsnaam":"collection.csv","creatiedatum":"2026-02-26","status":"remain"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":3,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"beschrijving":"Design
+        girl PM tax voice speech. Research recently yeah.","verschijningsvorm":"family","begin_registratie":"2026-03-13T22:09:22.408720","identificatie":"5c4a5e2c-c437-47e5-8eda-42755acb7045","bronorganisatie":"Robinson,
+        Stephens and Tucker","bestandsomvang":1000000,"link":"http://hernandez-benton.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://bryan.com/","taal":"csb","auteur":"Steven
+        George","formaat":"csv","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Some
+        show present effect fish activity.","vertrouwelijkheidaanduiding":"leave","informatieobjecttype":"debate","bestandsnaam":"power.png","creatiedatum":"2026-03-03","status":"care"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '847'
+      - '846'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

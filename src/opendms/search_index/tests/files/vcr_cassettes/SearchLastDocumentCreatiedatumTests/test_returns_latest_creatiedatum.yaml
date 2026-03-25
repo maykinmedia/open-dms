@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003630889","number_of_replicas":"1","uuid":"DiEvn02ZSKCgSEhlVI7K0A","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452813147","number_of_replicas":"1","uuid":"ge4tIvqtRaeuHF6DuS3TYA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"62fdeb92-98ad-475c-b184-49ee8a274787","url":"http://moore.net/","identificatie":"c767b74d-305f-4ce9-84ba-541005c3774d","bronorganisatie":"Bartlett-Carey","titel":"Sport
-      can east suggest capital successful however few.","beschrijving":"Early tough
-      live raise. Pay suggest generation three outside movie.","auteur":"Jackie Fox","taal":"shs","vertrouwelijkheidaanduiding":"clear","status":"writer","formaat":"flac","bestandsnaam":"nor.mp3","informatieobjecttype":"life","verschijningsvorm":"region","inhoud":"Body
-      forward possible off mind pressure low boy. Area move family language.","bestandsomvang":1000000,"link":"http://walters.biz/","creatiedatum":"2024-01-01","begin_registratie":"2026-03-19T21:28:18.705701"}'
+    body: '{"uuid":"62fdeb92-98ad-475c-b184-49ee8a274787","url":"http://carter.info/","identificatie":"dfacbf81-6dae-49b2-8a07-fa783214f327","bronorganisatie":"Wallace-Lopez","titel":"Century
+      see development guess television thousand.","beschrijving":"Service sign support
+      mean father hair. Realize yet success energy community.","auteur":"James Graham","taal":"aa","vertrouwelijkheidaanduiding":"risk","status":"prevent","formaat":"js","bestandsnaam":"family.csv","informatieobjecttype":"sometimes","verschijningsvorm":"magazine","inhoud":"Add
+      without institution act.","bestandsomvang":1000000,"link":"http://www.cole.biz/","creatiedatum":"2024-01-01","begin_registratie":"2026-03-24T05:26:48.231391"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -153,7 +153,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003630889","number_of_replicas":"1","uuid":"DiEvn02ZSKCgSEhlVI7K0A","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452813147","number_of_replicas":"1","uuid":"ge4tIvqtRaeuHF6DuS3TYA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -165,7 +165,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -193,11 +193,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://king.biz/","identificatie":"abfd5241-76df-47b3-8625-9504910c2310","bronorganisatie":"Martinez-Torres","titel":"Fear
-      right chair experience free.","beschrijving":"Scientist thank character new.
-      Value hard public trade.","auteur":"Kathleen Bradley","taal":"el","vertrouwelijkheidaanduiding":"attack","status":"eat","formaat":"webm","bestandsnaam":"garden.mp3","informatieobjecttype":"notice","verschijningsvorm":"statement","inhoud":"Expert
-      raise seven court go. Score another training term. Morning ability boy yeah
-      score security.","bestandsomvang":1000000,"link":"https://summers-garcia.biz/","creatiedatum":"2025-02-01","begin_registratie":"2026-02-25T22:43:57.383507"}'
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://knight.com/","identificatie":"70f6723a-6ba0-4ea3-92fe-363fd7dca955","bronorganisatie":"Espinoza-Johnson","titel":"General
+      none experience.","beschrijving":"Break institution sea race movie describe
+      third. Reason woman north while.","auteur":"Lisa Porter","taal":"hu","vertrouwelijkheidaanduiding":"center","status":"attention","formaat":"numbers","bestandsnaam":"people.flac","informatieobjecttype":"change","verschijningsvorm":"chair","inhoud":"Yeah
+      daughter more describe couple trouble. Mouth road human begin trade on impact.","bestandsomvang":1000000,"link":"http://www.beasley-perez.biz/","creatiedatum":"2025-02-01","begin_registratie":"2026-03-20T20:35:12.785106"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8

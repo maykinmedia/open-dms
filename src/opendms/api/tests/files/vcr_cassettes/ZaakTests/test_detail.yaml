@@ -19,7 +19,7 @@ interactions:
   response:
     body:
       string: '{"type":"http://localhost:8003/ref/fouten/NotFound/","code":"not_found","title":"Niet
-        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:d443fa3e-7d89-49ea-a1b8-5b6fa05837da"}'
+        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:a3064fb0-67d6-4781-beb0-f336ba025a8c"}'
     headers:
       API-version:
       - 1.5.1

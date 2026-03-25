@@ -21,19 +21,19 @@ interactions:
   response:
     body:
       string: !!binary |
-        N3q8ryccAAQw1YWZigAAAAAAAAAVAAAAAAAAAFj+mTzgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
-        AGxdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
-        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzRDRPsxRp9KtxmPD3mXdTK+u5/iFbpJ78BXEAAAAX
-        BhYBCXQABwsBAAEhIQEYDICFAAA=
+        N3q8ryccAARpPmjXiQAAAAAAAAAVAAAAAAAAAC0GYMHgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
+        AGtdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
+        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzQDNZBNGGyg4pYb1gr+Yqbk1UkAy6oYejFgAAABcG
+        FgEJcwAHCwEAASEhARgMgIUAAA==
     headers:
       Connection:
       - close
       Content-Length:
-      - '191'
+      - '190'
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Fri, 20 Mar 2026 10:47:16 GMT
+      - Wed, 25 Mar 2026 15:33:38 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -80,7 +80,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -92,7 +92,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -120,10 +120,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://snyder.com/","identificatie":"6bb64915-7c82-4689-b6ca-2a59cfc1133c","bronorganisatie":"Rice
-      Group","titel":"Industry human free reflect leg.","beschrijving":"Young lead
-      fight class race walk usually source. Other them group seek city standard or.","auteur":"James
-      Pena","taal":"unm","vertrouwelijkheidaanduiding":"pressure","status":"focus","formaat":"mp4","bestandsnaam":"middle.wav","informatieobjecttype":"every","verschijningsvorm":"state","inhoud":"http://localhost/document/smol7zip","bestandsomvang":188,"link":"http://www.jackson.biz/","creatiedatum":"2026-02-25","begin_registratie":"2026-03-11T20:53:53.042067","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://chang.com/","identificatie":"90610036-8d55-44f7-b1f7-e4d15ab9e011","bronorganisatie":"Smith
+      Inc","titel":"Phone friend itself protect marriage recent.","beschrijving":"Voice
+      spend forget happy design theory record. Him black child though direction.","auteur":"Lauren
+      James","taal":"pt","vertrouwelijkheidaanduiding":"door","status":"couple","formaat":"json","bestandsnaam":"hospital.txt","informatieobjecttype":"culture","verschijningsvorm":"power","inhoud":"http://localhost/document/smol7zip","bestandsomvang":188,"link":"http://smith-morales.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-11T10:53:01.226416","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -167,17 +167,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"beschrijving":"Young
-        lead fight class race walk usually source. Other them group seek city standard
-        or.","verschijningsvorm":"state","begin_registratie":"2026-03-11T20:53:53.042067","identificatie":"6bb64915-7c82-4689-b6ca-2a59cfc1133c","bronorganisatie":"Rice
-        Group","bestandsomvang":188,"link":"http://www.jackson.biz/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://snyder.com/","taal":"unm","auteur":"James
-        Pena","formaat":"mp4","inhoud":"http://localhost/document/smol7zip","titel":"Industry
-        human free reflect leg.","vertrouwelijkheidaanduiding":"pressure","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"informatieobjecttype":"every","bestandsnaam":"middle.wav","creatiedatum":"2026-02-25","status":"focus"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"beschrijving":"Voice
+        spend forget happy design theory record. Him black child though direction.","verschijningsvorm":"power","begin_registratie":"2026-03-11T10:53:01.226416","identificatie":"90610036-8d55-44f7-b1f7-e4d15ab9e011","bronorganisatie":"Smith
+        Inc","bestandsomvang":188,"link":"http://smith-morales.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://chang.com/","taal":"pt","auteur":"Lauren
+        James","formaat":"json","inhoud":"http://localhost/document/smol7zip","titel":"Phone
+        friend itself protect marriage recent.","vertrouwelijkheidaanduiding":"door","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"informatieobjecttype":"culture","bestandsnaam":"hospital.txt","creatiedatum":"2026-03-09","status":"couple"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1363'
+      - '1370'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

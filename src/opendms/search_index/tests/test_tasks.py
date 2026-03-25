@@ -414,11 +414,11 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         doc = None
         with get_elasticsearch_client() as client:
             total_documents = client.get_total_count()
-            doc_uuid = "51719a8e-a28f-4e6e-89a9-593c1e98f57c"
+            doc_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
             doc = client.get_document(doc_uuid)
 
         self.assertIsNotNone(doc)
-        self.assertEqual(total_documents, 1)
+        self.assertEqual(total_documents, 20)
         self.assertEqual(doc.uuid, doc_uuid)
         self.assertEqual(doc.identificatie, "DOCUMENT-2026-0000000001")
 
@@ -430,10 +430,10 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         doc = None
         with get_elasticsearch_client() as client:
             total_documents = client.get_total_count()
-            doc_uuid = "51719a8e-a28f-4e6e-89a9-593c1e98f57c"
+            doc_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
             doc = client.get_document(doc_uuid)
 
         self.assertIsNotNone(doc)
-        self.assertEqual(total_documents, 1)
+        self.assertEqual(total_documents, 20)
         self.assertEqual(doc.uuid, doc_uuid)
         self.assertEqual(doc.identificatie, "DOCUMENT-2026-0000000001")

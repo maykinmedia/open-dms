@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.graves.com/","identificatie":"5455ed33-9f0f-4dfb-897c-08ce5165a724","bronorganisatie":"Davis
-      LLC","titel":"Easy professional anyone not.","beschrijving":"Stuff arm explain
-      I join area. Direction staff dinner couple certainly money result. Other pay
-      catch million.","auteur":"Jordan Yoder","taal":"sk","vertrouwelijkheidaanduiding":"government","status":"know","formaat":"wav","bestandsnaam":"necessary.pptx","informatieobjecttype":"picture","verschijningsvorm":"speak","inhoud":"https://www.example.com/downloads/1","bestandsomvang":1000000,"link":"http://www.harrington-hurst.com/","creatiedatum":"2026-02-27","begin_registratie":"2026-02-20T21:00:59.934471"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.cunningham.com/","identificatie":"10c58b2f-3b9d-4543-9a30-831e6705a333","bronorganisatie":"Mcknight-Craig","titel":"Plant
+      watch lose other how.","beschrijving":"Per call price spend front. You too teach
+      per method continue hope say.","auteur":"Tyler Clark","taal":"fi","vertrouwelijkheidaanduiding":"industry","status":"music","formaat":"odp","bestandsnaam":"physical.jpg","informatieobjecttype":"former","verschijningsvorm":"sometimes","inhoud":"https://www.example.com/downloads/1","bestandsomvang":1000000,"link":"http://davis.com/","creatiedatum":"2026-02-27","begin_registratie":"2026-02-28T04:56:19.179568"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -127,17 +126,15 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"beschrijving":"Stuff
-        arm explain I join area. Direction staff dinner couple certainly money result.
-        Other pay catch million.","verschijningsvorm":"speak","begin_registratie":"2026-02-20T21:00:59.934471","identificatie":"5455ed33-9f0f-4dfb-897c-08ce5165a724","bronorganisatie":"Davis
-        LLC","bestandsomvang":1000000,"link":"http://www.harrington-hurst.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.graves.com/","taal":"sk","auteur":"Jordan
-        Yoder","formaat":"wav","inhoud":"https://www.example.com/downloads/1","titel":"Easy
-        professional anyone not.","vertrouwelijkheidaanduiding":"government","informatieobjecttype":"picture","bestandsnaam":"necessary.pptx","creatiedatum":"2026-02-27","status":"know"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"beschrijving":"Per
+        call price spend front. You too teach per method continue hope say.","verschijningsvorm":"sometimes","begin_registratie":"2026-02-28T04:56:19.179568","identificatie":"10c58b2f-3b9d-4543-9a30-831e6705a333","bronorganisatie":"Mcknight-Craig","bestandsomvang":1000000,"link":"http://davis.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.cunningham.com/","taal":"fi","auteur":"Tyler
+        Clark","formaat":"odp","inhoud":"https://www.example.com/downloads/1","titel":"Plant
+        watch lose other how.","vertrouwelijkheidaanduiding":"industry","informatieobjecttype":"former","bestandsnaam":"physical.jpg","creatiedatum":"2026-02-27","status":"music"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '859'
+      - '812'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

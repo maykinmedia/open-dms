@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"http://hughes.com/","identificatie":"7957b3cd-5d1d-4089-a771-0bd7f1195c39","bronorganisatie":"Lee
-      and Sons","titel":"Congress air life recent evening.","beschrijving":"Help edge
-      resource huge. Radio film receive main true public. Pass today bank his.","auteur":"Sandra
-      Gray","taal":"hsb","vertrouwelijkheidaanduiding":"decade","status":"take","formaat":"csv","bestandsnaam":"discover.pdf","informatieobjecttype":"result","verschijningsvorm":"area","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://www.larson.info/","creatiedatum":"2026-02-25","begin_registratie":"2026-03-13T19:54:15.069285"}'
+    body: '{"uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://wilson.com/","identificatie":"3832adaf-2682-4bfd-aa0c-2376f82c62d3","bronorganisatie":"Medina-Mcguire","titel":"Present
+      city benefit defense per speak center.","beschrijving":"Player then growth system
+      center increase. Outside moment yeah. Responsibility yeah performance director
+      herself local.","auteur":"Leonard Gonzalez","taal":"ne","vertrouwelijkheidaanduiding":"plant","status":"fish","formaat":"pptx","bestandsnaam":"because.png","informatieobjecttype":"ok","verschijningsvorm":"rule","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"https://hodges.info/","creatiedatum":"2026-02-24","begin_registratie":"2026-03-19T19:41:29.647101"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -127,16 +127,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/ed19d46e-c367-4410-a891-88f20d232a03
   response:
     body:
-      string: '{"_index":"document","_id":"ed19d46e-c367-4410-a891-88f20d232a03","_version":1,"_seq_no":21,"_primary_term":1,"found":true,"_source":{"beschrijving":"Help
-        edge resource huge. Radio film receive main true public. Pass today bank his.","verschijningsvorm":"area","begin_registratie":"2026-03-13T19:54:15.069285","identificatie":"7957b3cd-5d1d-4089-a771-0bd7f1195c39","bronorganisatie":"Lee
-        and Sons","bestandsomvang":1000000,"link":"http://www.larson.info/","uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"http://hughes.com/","taal":"hsb","auteur":"Sandra
-        Gray","formaat":"csv","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Congress
-        air life recent evening.","vertrouwelijkheidaanduiding":"decade","informatieobjecttype":"result","bestandsnaam":"discover.pdf","creatiedatum":"2026-02-25","status":"take"}}'
+      string: '{"_index":"document","_id":"ed19d46e-c367-4410-a891-88f20d232a03","_version":1,"_seq_no":21,"_primary_term":1,"found":true,"_source":{"beschrijving":"Player
+        then growth system center increase. Outside moment yeah. Responsibility yeah
+        performance director herself local.","verschijningsvorm":"rule","begin_registratie":"2026-03-19T19:41:29.647101","identificatie":"3832adaf-2682-4bfd-aa0c-2376f82c62d3","bronorganisatie":"Medina-Mcguire","bestandsomvang":1000000,"link":"https://hodges.info/","uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://wilson.com/","taal":"ne","auteur":"Leonard
+        Gonzalez","formaat":"pptx","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Present
+        city benefit defense per speak center.","vertrouwelijkheidaanduiding":"plant","informatieobjecttype":"ok","bestandsnaam":"because.png","creatiedatum":"2026-02-24","status":"fish"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '845'
+      - '894'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -183,7 +183,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -195,7 +195,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -223,9 +223,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"da97b6cb-7211-4762-9673-21a08f508e85 ","url":"http://www.tucker-rodriguez.com/","identificatie":"3b16007f-3933-4c11-a087-49a3c4702fce","bronorganisatie":"House,
-      Mccormick and Smith","titel":"Situation concern suddenly behavior customer note.","beschrijving":"Quickly
-      ability head concern lay of.","auteur":"Kelly Callahan","taal":"ka","vertrouwelijkheidaanduiding":"quality","status":"tell","formaat":"flac","bestandsnaam":"eight.gif","informatieobjecttype":"officer","verschijningsvorm":"stand","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":2000,"link":"http://www.cardenas-brown.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-06T06:06:35.542681"}'
+    body: '{"uuid":"da97b6cb-7211-4762-9673-21a08f508e85 ","url":"https://www.bell.biz/","identificatie":"7e140e14-d663-4200-945a-f2fe93fa6a91","bronorganisatie":"Lee-Turner","titel":"Someone
+      true item glass offer how foreign.","beschrijving":"Consumer Mrs home none necessary.
+      Not base politics meet also. Expect skill arrive message.","auteur":"Drew Barnes","taal":"ig","vertrouwelijkheidaanduiding":"instead","status":"operation","formaat":"bmp","bestandsnaam":"laugh.flac","informatieobjecttype":"peace","verschijningsvorm":"go","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":2000,"link":"http://powell.com/","creatiedatum":"2026-02-26","begin_registratie":"2026-03-08T22:51:01.861203"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -269,16 +269,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/da97b6cb-7211-4762-9673-21a08f508e85%20
   response:
     body:
-      string: '{"_index":"document","_id":"da97b6cb-7211-4762-9673-21a08f508e85 ","_version":1,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"beschrijving":"Quickly
-        ability head concern lay of.","verschijningsvorm":"stand","begin_registratie":"2026-03-06T06:06:35.542681","identificatie":"3b16007f-3933-4c11-a087-49a3c4702fce","bronorganisatie":"House,
-        Mccormick and Smith","bestandsomvang":2000,"link":"http://www.cardenas-brown.com/","uuid":"da97b6cb-7211-4762-9673-21a08f508e85
-        ","url":"http://www.tucker-rodriguez.com/","taal":"ka","auteur":"Kelly Callahan","formaat":"flac","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Situation
-        concern suddenly behavior customer note.","vertrouwelijkheidaanduiding":"quality","informatieobjecttype":"officer","bestandsnaam":"eight.gif","creatiedatum":"2026-03-15","status":"tell"}}'
+      string: '{"_index":"document","_id":"da97b6cb-7211-4762-9673-21a08f508e85 ","_version":1,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"beschrijving":"Consumer
+        Mrs home none necessary. Not base politics meet also. Expect skill arrive
+        message.","verschijningsvorm":"go","begin_registratie":"2026-03-08T22:51:01.861203","identificatie":"7e140e14-d663-4200-945a-f2fe93fa6a91","bronorganisatie":"Lee-Turner","bestandsomvang":2000,"link":"http://powell.com/","uuid":"da97b6cb-7211-4762-9673-21a08f508e85
+        ","url":"https://www.bell.biz/","taal":"ig","auteur":"Drew Barnes","formaat":"bmp","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Someone
+        true item glass offer how foreign.","vertrouwelijkheidaanduiding":"instead","informatieobjecttype":"peace","bestandsnaam":"laugh.flac","creatiedatum":"2026-02-26","status":"operation"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '853'
+      - '858'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -314,7 +314,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Fri, 20 Mar 2026 10:47:27 GMT
+      - Wed, 25 Mar 2026 15:33:49 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -361,7 +361,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -373,7 +373,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -401,9 +401,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"http://www.henry.org/","identificatie":"75d0a989-999e-4fdd-9892-76423bb4436f","bronorganisatie":"Smith-Rodriguez","titel":"Lead
-      hit community civil event.","beschrijving":"The Congress trial manage his office.
-      Old third house explain above let.","auteur":"Rita Davis","taal":"kk","vertrouwelijkheidaanduiding":"physical","status":"international","formaat":"jpg","bestandsnaam":"couple.jpg","informatieobjecttype":"hit","verschijningsvorm":"himself","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":800,"link":"http://rodgers-combs.com/","creatiedatum":"2026-02-18","begin_registratie":"2026-02-22T10:59:14.162731","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
+    body: '{"uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"http://www.stone.org/","identificatie":"f05f0f00-7b82-4854-9abe-08cda40a879d","bronorganisatie":"Thompson-Smith","titel":"Lose
+      sometimes move nor you world although.","beschrijving":"Agency cold pay hundred
+      quickly. Learn paper place determine last very. Place treatment sort.","auteur":"Donald
+      Cortez","taal":"ps","vertrouwelijkheidaanduiding":"expert","status":"size","formaat":"flac","bestandsnaam":"Mr.mp3","informatieobjecttype":"stop","verschijningsvorm":"stock","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":800,"link":"https://www.swanson.biz/","creatiedatum":"2026-03-15","begin_registratie":"2026-02-26T04:59:48.816296","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -447,16 +448,17 @@ interactions:
     uri: http://localhost:9201/document/_doc/554be64c-e6af-49b5-8af5-80e83155212d
   response:
     body:
-      string: '{"_index":"document","_id":"554be64c-e6af-49b5-8af5-80e83155212d","_version":1,"_seq_no":23,"_primary_term":1,"found":true,"_source":{"beschrijving":"The
-        Congress trial manage his office. Old third house explain above let.","verschijningsvorm":"himself","begin_registratie":"2026-02-22T10:59:14.162731","identificatie":"75d0a989-999e-4fdd-9892-76423bb4436f","bronorganisatie":"Smith-Rodriguez","bestandsomvang":800,"link":"http://rodgers-combs.com/","uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"http://www.henry.org/","taal":"kk","auteur":"Rita
-        Davis","formaat":"jpg","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Lead
-        hit community civil event.","vertrouwelijkheidaanduiding":"physical","document_data":[{"attachment":{"content":"Document
-        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"hit","bestandsnaam":"couple.jpg","creatiedatum":"2026-02-18","status":"international"}}'
+      string: '{"_index":"document","_id":"554be64c-e6af-49b5-8af5-80e83155212d","_version":1,"_seq_no":23,"_primary_term":1,"found":true,"_source":{"beschrijving":"Agency
+        cold pay hundred quickly. Learn paper place determine last very. Place treatment
+        sort.","verschijningsvorm":"stock","begin_registratie":"2026-02-26T04:59:48.816296","identificatie":"f05f0f00-7b82-4854-9abe-08cda40a879d","bronorganisatie":"Thompson-Smith","bestandsomvang":800,"link":"https://www.swanson.biz/","uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"http://www.stone.org/","taal":"ps","auteur":"Donald
+        Cortez","formaat":"flac","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Lose
+        sometimes move nor you world although.","vertrouwelijkheidaanduiding":"expert","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"stop","bestandsnaam":"Mr.mp3","creatiedatum":"2026-03-15","status":"size"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '939'
+      - '958'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

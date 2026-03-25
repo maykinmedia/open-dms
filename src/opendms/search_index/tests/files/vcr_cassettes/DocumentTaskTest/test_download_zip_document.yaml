@@ -21,11 +21,11 @@ interactions:
   response:
     body:
       string: !!binary |
-        UEsDBBQAAAAAAOhVdFzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAADoVXRc
-        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAOhVdFzfwKkADgAAAA4AAAAK
-        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAA6FV0XOLcsooFAAAABQAAAAgA
-        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAA6FV0XFiNuxMFAAAABQAAAAkAAAAA
-        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAOhVdFzfwKkADgAAAA4AAAAKAAAAAAAA
+        UEsDBBQAAAAAADN8eVzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAAAzfHlc
+        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAADN8eVzfwKkADgAAAA4AAAAK
+        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAAM3x5XOLcsooFAAAABQAAAAgA
+        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAAM3x5XFiNuxMFAAAABQAAAAkAAAAA
+        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAADN8eVzfwKkADgAAAA4AAAAKAAAAAAAA
         AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
     headers:
       Connection:
@@ -35,7 +35,7 @@ interactions:
       Content-Type:
       - application/zip
       Date:
-      - Fri, 20 Mar 2026 10:47:17 GMT
+      - Wed, 25 Mar 2026 15:33:39 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -82,7 +82,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -94,7 +94,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -122,9 +122,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://www.edwards.com/","identificatie":"7b5fb624-9dea-4476-8719-6f4c10270ff8","bronorganisatie":"Johnson
-      and Sons","titel":"Upon page too rock he my.","beschrijving":"Cell near fast.
-      Field rate officer dinner.","auteur":"Colton Banks","taal":"iw","vertrouwelijkheidaanduiding":"painting","status":"through","formaat":"json","bestandsnaam":"human.html","informatieobjecttype":"situation","verschijningsvorm":"certain","inhoud":"http://localhost/document/zip","bestandsomvang":1000,"link":"https://www.henderson.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-11T16:55:58.008814","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"https://bush.org/","identificatie":"4cfa6946-fd93-4db6-9ffb-0757be3fd74d","bronorganisatie":"Burton,
+      Powell and Francis","titel":"Down rate home audience marriage which really.","beschrijving":"Go
+      once clear.","auteur":"Kim Carr","taal":"pa","vertrouwelijkheidaanduiding":"interview","status":"industry","formaat":"avi","bestandsnaam":"within.tiff","informatieobjecttype":"necessary","verschijningsvorm":"up","inhoud":"http://localhost/document/zip","bestandsomvang":1000,"link":"https://www.rogers-cook.org/","creatiedatum":"2026-02-23","begin_registratie":"2026-02-26T19:58:51.313297","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -168,16 +168,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
   response:
     body:
-      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"beschrijving":"Cell
-        near fast. Field rate officer dinner.","verschijningsvorm":"certain","begin_registratie":"2026-03-11T16:55:58.008814","identificatie":"7b5fb624-9dea-4476-8719-6f4c10270ff8","bronorganisatie":"Johnson
-        and Sons","bestandsomvang":1000,"link":"https://www.henderson.com/","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://www.edwards.com/","taal":"iw","auteur":"Colton
-        Banks","formaat":"json","inhoud":"http://localhost/document/zip","titel":"Upon
-        page too rock he my.","vertrouwelijkheidaanduiding":"painting","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"situation","bestandsnaam":"human.html","creatiedatum":"2026-03-09","status":"through"}}'
+      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"beschrijving":"Go
+        once clear.","verschijningsvorm":"up","begin_registratie":"2026-02-26T19:58:51.313297","identificatie":"4cfa6946-fd93-4db6-9ffb-0757be3fd74d","bronorganisatie":"Burton,
+        Powell and Francis","bestandsomvang":1000,"link":"https://www.rogers-cook.org/","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"https://bush.org/","taal":"pa","auteur":"Kim
+        Carr","formaat":"avi","inhoud":"http://localhost/document/zip","titel":"Down
+        rate home audience marriage which really.","vertrouwelijkheidaanduiding":"interview","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"necessary","bestandsnaam":"within.tiff","creatiedatum":"2026-02-23","status":"industry"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '870'
+      - '862'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

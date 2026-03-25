@@ -29,7 +29,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Fri, 20 Mar 2026 10:47:28 GMT
+      - Wed, 25 Mar 2026 15:33:50 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -76,7 +76,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -88,7 +88,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,10 +116,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://www.gomez.com/","identificatie":"c1c9c49d-2a50-4260-9808-45ec934ef306","bronorganisatie":"Wise,
-      Jones and Mcbride","titel":"Player police number task skill experience family.","beschrijving":"Painting
-      movie country its fill eat thus. Upon between and could. Direction world prepare
-      enter.","auteur":"Joshua Ho","taal":"st","vertrouwelijkheidaanduiding":"support","status":"owner","formaat":"docx","bestandsnaam":"could.mp3","informatieobjecttype":"have","verschijningsvorm":"lay","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","bestandsomvang":1000,"link":"http://robertson.com/","creatiedatum":"2026-02-21","begin_registratie":"2026-02-27T05:48:32.671502","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://greene.com/","identificatie":"7377421e-95ba-4e72-9749-e81c3d9a1634","bronorganisatie":"Santos
+      Ltd","titel":"Tough card decide since something attack well.","beschrijving":"Offer
+      religious newspaper where whole.","auteur":"Stephen Hicks","taal":"kw","vertrouwelijkheidaanduiding":"church","status":"wish","formaat":"jpeg","bestandsnaam":"low.ods","informatieobjecttype":"unit","verschijningsvorm":"case","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","bestandsomvang":1000,"link":"https://smith.com/","creatiedatum":"2026-03-21","begin_registratie":"2026-03-02T15:47:48.924075","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -163,18 +162,17 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"beschrijving":"Painting
-        movie country its fill eat thus. Upon between and could. Direction world prepare
-        enter.","verschijningsvorm":"lay","begin_registratie":"2026-02-27T05:48:32.671502","identificatie":"c1c9c49d-2a50-4260-9808-45ec934ef306","bronorganisatie":"Wise,
-        Jones and Mcbride","bestandsomvang":1000,"link":"http://robertson.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://www.gomez.com/","taal":"st","auteur":"Joshua
-        Ho","formaat":"docx","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Player
-        police number task skill experience family.","vertrouwelijkheidaanduiding":"support","document_data":[{"attachment":{"content":"Document
-        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"informatieobjecttype":"have","bestandsnaam":"could.mp3","creatiedatum":"2026-02-21","status":"owner"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"beschrijving":"Offer
+        religious newspaper where whole.","verschijningsvorm":"case","begin_registratie":"2026-03-02T15:47:48.924075","identificatie":"7377421e-95ba-4e72-9749-e81c3d9a1634","bronorganisatie":"Santos
+        Ltd","bestandsomvang":1000,"link":"https://smith.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://greene.com/","taal":"kw","auteur":"Stephen
+        Hicks","formaat":"jpeg","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Tough
+        card decide since something attack well.","vertrouwelijkheidaanduiding":"church","document_data":[{"attachment":{"content":"Document
+        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"informatieobjecttype":"unit","bestandsnaam":"low.ods","creatiedatum":"2026-03-21","status":"wish"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '974'
+      - '895'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -210,7 +208,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Fri, 20 Mar 2026 10:47:29 GMT
+      - Wed, 25 Mar 2026 15:33:51 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -257,7 +255,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774003633337","number_of_replicas":"1","uuid":"3AY2NdG1TOSoqO2BBkaMwQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -269,7 +267,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -297,9 +295,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://dennis.org/","identificatie":"5b3e8750-f86c-4378-a552-512cf4e41172","bronorganisatie":"Ford,
-      Small and Brown","titel":"Station nearly responsibility all out.","beschrijving":"Drop
-      few power including administration.","auteur":"Linda Arnold","taal":"ckb","vertrouwelijkheidaanduiding":"like","status":"least","formaat":"mp3","bestandsnaam":"challenge.mov","informatieobjecttype":"reality","verschijningsvorm":"lead","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","bestandsomvang":1000,"link":"http://www.mcgrath.com/","creatiedatum":"2026-02-25","begin_registratie":"2026-03-12T15:10:00.732772","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://www.moore.com/","identificatie":"a8ef49ba-9c27-4914-8688-ca585a822d0f","bronorganisatie":"Roberts
+      Group","titel":"Avoid beyond sell here provide toward.","beschrijving":"Hit
+      play wall. Price large collection doctor even. Attorney resource can point remember
+      threat return.","auteur":"Linda Russo","taal":"tk","vertrouwelijkheidaanduiding":"vote","status":"anyone","formaat":"pptx","bestandsnaam":"economic.png","informatieobjecttype":"form","verschijningsvorm":"long","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","bestandsomvang":1000,"link":"https://www.johnston.org/","creatiedatum":"2026-03-22","begin_registratie":"2026-03-23T21:47:28.034379","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -341,17 +340,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"beschrijving":"Drop
-        few power including administration.","verschijningsvorm":"lead","begin_registratie":"2026-03-12T15:10:00.732772","identificatie":"5b3e8750-f86c-4378-a552-512cf4e41172","bronorganisatie":"Ford,
-        Small and Brown","bestandsomvang":1000,"link":"http://www.mcgrath.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://dennis.org/","taal":"ckb","auteur":"Linda
-        Arnold","formaat":"mp3","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Station
-        nearly responsibility all out.","vertrouwelijkheidaanduiding":"like","document_data":[{"attachment":{"content":"Document
-        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"informatieobjecttype":"reality","bestandsnaam":"challenge.mov","creatiedatum":"2026-02-25","status":"least"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"beschrijving":"Hit
+        play wall. Price large collection doctor even. Attorney resource can point
+        remember threat return.","verschijningsvorm":"long","begin_registratie":"2026-03-23T21:47:28.034379","identificatie":"a8ef49ba-9c27-4914-8688-ca585a822d0f","bronorganisatie":"Roberts
+        Group","bestandsomvang":1000,"link":"https://www.johnston.org/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://www.moore.com/","taal":"tk","auteur":"Linda
+        Russo","formaat":"pptx","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Avoid
+        beyond sell here provide toward.","vertrouwelijkheidaanduiding":"vote","document_data":[{"attachment":{"content":"Document
+        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"informatieobjecttype":"form","bestandsnaam":"economic.png","creatiedatum":"2026-03-22","status":"anyone"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '911'
+      - '967'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
