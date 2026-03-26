@@ -46,7 +46,7 @@ export const AuthenticatedLayout = () => {
   return (
     <BaseTemplate
       primaryNavigationItems={[
-        <Logo abbreviated variant="contrast" key={"logo"} />,
+        <Logo abbreviated key={"logo"} />,
         "spacer",
         state !== "idle" ? (
           <Outline.ArrowPathIcon

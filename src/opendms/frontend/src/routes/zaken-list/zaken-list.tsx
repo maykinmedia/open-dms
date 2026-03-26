@@ -1,4 +1,5 @@
 import {
+  A,
   BaseTemplate,
   Body,
   ListTemplate,
@@ -6,8 +7,10 @@ import {
   type TypedField,
 } from "@maykin-ui/admin-ui";
 import { invariant } from "@maykin-ui/client-common";
+import type { JSX } from "react";
 import {
   useLoaderData,
+  useNavigate,
   useParams,
   useRouteLoaderData,
   useSearchParams,
@@ -19,10 +22,13 @@ import type { Zaak } from "~/types";
 import type { zakenListLoader } from "./zaken-list.loader";
 
 export function ZakenList() {
+  const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
   // TODO: Validation. See issue gh-#42
-  const { zaakYear } = useParams() as {
+  const { serviceSlug, zaaktypeUuid, zaakYear } = useParams() as {
+    serviceSlug: string | undefined;
+    zaaktypeUuid: string | undefined;
     zaakYear: string | undefined;
   };
 
@@ -38,10 +44,12 @@ export function ZakenList() {
   invariant(rootData?.zaaktype, "Zaaktype not loaded!");
 
   // The fields to show in the datagrid.
-  const fields: TypedField<Zaak>[] = [
+  const fields: TypedField<
+    Omit<Zaak, "identificatie"> & { identificatie: JSX.Element }
+  >[] = [
     {
       name: "identificatie",
-      type: "string",
+      type: "jsx",
       filterLookup: "identificatie__icontains",
       filterValue: searchParams.get("identificatie__icontains") ?? "",
     },
@@ -53,13 +61,32 @@ export function ZakenList() {
     },
   ];
 
+  const objectList = data.results.map((zaak) => {
+    const href = `/${serviceSlug}/${zaaktypeUuid}/${zaakYear}/${zaak.uuid}`;
+    return {
+      ...zaak,
+      identificatie: (
+        <A
+          href={href}
+          onClick={(e) => {
+            e.preventDefault();
+            return navigate(href);
+          }}
+        >
+          {zaak.identificatie}
+        </A>
+      ),
+    };
+  });
+
   return (
     <ListTemplate
       dataGridProps={{
         title: `${rootData.zaaktype.identificatie} / ${zaakYear}`,
-        objectList: data.results,
+        objectList: objectList,
         fields: fields,
         filterable: true,
+        urlFields: [""],
         paginatorProps: {
           count: data.count,
           page: getPageFromSearchParams(searchParams),

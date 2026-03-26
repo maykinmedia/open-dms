@@ -1,7 +1,7 @@
 import { HttpResponse, http } from "msw";
 import type { ZaakType } from "~/types";
 
-import { batchFactory, zaakFactory } from "./factories.ts";
+import { batchFactory, documentFactory, zaakFactory } from "./factories.ts";
 
 //
 // accounts
@@ -145,6 +145,29 @@ export const MOCK_ZAKEN = http.get(
         return matchIdentificatie && matchOmschrijving;
       }
     });
+
+    return HttpResponse.json({
+      count,
+      previous: "http://...",
+      next: "http://...",
+      results,
+    });
+  },
+);
+export const MOCK_DOCUMENTS = http.get(
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken/123/documents",
+  ({ request }) => {
+    const pageSize = 20;
+    const count = 300;
+
+    const url = new URL(request.url);
+    const page = parseInt(new URLSearchParams(url.search).get("page") || "1");
+    const page0 = page - 1;
+
+    const results = batchFactory(documentFactory, count).slice(
+      page0 * pageSize,
+      page0 * pageSize + pageSize,
+    );
 
     return HttpResponse.json({
       count,

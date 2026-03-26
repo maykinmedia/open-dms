@@ -1,4 +1,4 @@
-import { formatDate } from "@storybook/addon-docs/blocks";
+import { formatDate } from "@maykin-ui/client-common";
 import type { LoaderFunctionArgs } from "react-router";
 import { apiClient } from "~/lib";
 import type { Zaak } from "~/types";
