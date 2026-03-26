@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452785907","number_of_replicas":"1","uuid":"EAaMk_jiRimhenEpk3-OyQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525458671","number_of_replicas":"1","uuid":"jWWUS9YnQUSli4iN1gCVIQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,12 +80,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.murillo.com/","identificatie":"76ab70ff-3961-4423-ad75-49478cdafef0","bronorganisatie":"Davis
-      LLC","titel":"Everything civil if police.","beschrijving":"Sure gas police put
-      unit morning your. Individual because item will. Yes most floor capital administration
-      near.","auteur":"Rebecca Wilson DVM","taal":"fo","vertrouwelijkheidaanduiding":"throw","status":"management","formaat":"csv","bestandsnaam":"media.numbers","informatieobjecttype":"of","verschijningsvorm":"send","inhoud":"Land
-      break there. Check capital deep environment I head. Debate draw current trouble
-      reach civil glass. Central theory factor.","bestandsomvang":1000000,"link":"http://evans.org/","creatiedatum":"2026-03-13","begin_registratie":"2026-03-15T17:57:45.262251"}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://moreno.net/","identificatie":"fe20e9db-295a-4005-b53f-7d09cd064f5f","bronorganisatie":"Johnson-Diaz","titel":"Information
+      dog memory sell buy.","beschrijving":"Book question great six lose seat. Book
+      bed evidence television.","auteur":"Joanne Mann","taal":"mk","vertrouwelijkheidaanduiding":"floor","status":"Mrs","formaat":"webm","bestandsnaam":"choice.avi","informatieobjecttype":"value","verschijningsvorm":"church","bestandsomvang":1000000,"link":"http://www.phelps.org/","creatiedatum":"2026-02-24","begin_registratie":"2026-02-25T18:18:46.310338"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -131,13 +128,9 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.9064019,"_source":{"beschrijving":"Sure
-        gas police put unit morning your. Individual because item will. Yes most floor
-        capital administration near.","verschijningsvorm":"send","begin_registratie":"2026-03-15T17:57:45.262251","identificatie":"76ab70ff-3961-4423-ad75-49478cdafef0","bronorganisatie":"Davis
-        LLC","bestandsomvang":1000000,"link":"http://evans.org/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.murillo.com/","taal":"fo","auteur":"Rebecca
-        Wilson DVM","formaat":"csv","inhoud":"Land break there. Check capital deep
-        environment I head. Debate draw current trouble reach civil glass. Central
-        theory factor.","titel":"Everything civil if police.","vertrouwelijkheidaanduiding":"throw","informatieobjecttype":"of","bestandsnaam":"media.numbers","creatiedatum":"2026-03-13","status":"management"},"sort":[0.9064019,1773360000000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.18273543,"_source":{"beschrijving":"Book
+        question great six lose seat. Book bed evidence television.","verschijningsvorm":"church","begin_registratie":"2026-02-25T18:18:46.310338","identificatie":"fe20e9db-295a-4005-b53f-7d09cd064f5f","bronorganisatie":"Johnson-Diaz","bestandsomvang":1000000,"link":"http://www.phelps.org/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://moreno.net/","taal":"mk","auteur":"Joanne
+        Mann","formaat":"webm","titel":"Information dog memory sell buy.","vertrouwelijkheidaanduiding":"floor","informatieobjecttype":"value","bestandsnaam":"choice.avi","creatiedatum":"2026-02-24","status":"Mrs"},"sort":[0.18273543,1771891200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

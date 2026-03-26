@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,11 +80,8 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
-      and Sons","titel":"Document one","beschrijving":"snowflake1","auteur":"Deanna
-      Mosley","taal":"hak","vertrouwelijkheidaanduiding":"serve","status":"physical","formaat":"txt","bestandsnaam":"church.bmp","informatieobjecttype":"begin","verschijningsvorm":"very","inhoud":"Move
-      hundred party common personal fall natural. Clearly figure memory name join.
-      Most painting anything onto cell my.","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-09T04:20:40.772169"}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","titel":"Document
+      one","beschrijving":"snowflake1","auteur":"Lauren Mitchell","taal":"iw","vertrouwelijkheidaanduiding":"why","status":"scene","formaat":"key","bestandsnaam":"help.csv","informatieobjecttype":"down","verschijningsvorm":"long","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","creatiedatum":"2026-02-27","begin_registratie":"2026-03-24T12:21:45.495302"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -154,7 +151,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -166,7 +163,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -194,9 +191,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://benitez.org/","identificatie":"c03d07ed-6e06-4529-bfe8-33cde32156d0","bronorganisatie":"Moore
-      PLC","titel":"Document two","beschrijving":"snowflake2","auteur":"Sydney Wilson","taal":"rw","vertrouwelijkheidaanduiding":"ask","status":"possible","formaat":"js","bestandsnaam":"some.flac","informatieobjecttype":"stand","verschijningsvorm":"fear","inhoud":"Add
-      thousand road ahead part. Hospital dream will interesting realize parent along.","bestandsomvang":1000000,"link":"http://www.haas.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-19T16:31:11.813311"}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.stone-jimenez.info/","identificatie":"9cf61c58-aac5-4868-a896-c74b115ae85c","bronorganisatie":"Mcgee
+      PLC","titel":"Document two","beschrijving":"snowflake2","auteur":"Elizabeth
+      Osborne","taal":"li","vertrouwelijkheidaanduiding":"floor","status":"century","formaat":"mov","bestandsnaam":"why.doc","informatieobjecttype":"perhaps","verschijningsvorm":"tell","bestandsomvang":1000000,"link":"https://www.smith.biz/","creatiedatum":"2026-02-27","begin_registratie":"2026-02-27T19:36:09.809683"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -243,11 +240,8 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.3879733,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
-        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
-        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
-        natural. Clearly figure memory name join. Most painting anything onto cell
-        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[6.3879733,1773187200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.1104312,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
+        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[2.1104312,1772150400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -276,11 +270,8 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.3879733,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
-        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
-        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
-        natural. Clearly figure memory name join. Most painting anything onto cell
-        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[6.3879733,1773187200000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.1104312,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
+        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[2.1104312,1772150400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -309,14 +300,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.81908,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"fear","begin_registratie":"2026-03-19T16:31:11.813311","identificatie":"c03d07ed-6e06-4529-bfe8-33cde32156d0","bronorganisatie":"Moore
-        PLC","bestandsomvang":1000000,"link":"http://www.haas.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://benitez.org/","taal":"rw","auteur":"Sydney
-        Wilson","formaat":"js","inhoud":"Add thousand road ahead part. Hospital dream
-        will interesting realize parent along.","titel":"Document two","vertrouwelijkheidaanduiding":"ask","informatieobjecttype":"stand","bestandsnaam":"some.flac","creatiedatum":"2026-03-16","status":"possible"},"sort":[4.81908,1773619200000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.112314,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
-        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
-        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
-        natural. Clearly figure memory name join. Most painting anything onto cell
-        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[4.112314,1773187200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.3586086,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
+        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[1.3586086,1772150400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.3586086,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"tell","begin_registratie":"2026-02-27T19:36:09.809683","identificatie":"9cf61c58-aac5-4868-a896-c74b115ae85c","bronorganisatie":"Mcgee
+        PLC","bestandsomvang":1000000,"link":"https://www.smith.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.stone-jimenez.info/","taal":"li","auteur":"Elizabeth
+        Osborne","formaat":"mov","titel":"Document two","vertrouwelijkheidaanduiding":"floor","informatieobjecttype":"perhaps","bestandsnaam":"why.doc","creatiedatum":"2026-02-27","status":"century"},"sort":[1.3586086,1772150400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -345,14 +332,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.81908,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"fear","begin_registratie":"2026-03-19T16:31:11.813311","identificatie":"c03d07ed-6e06-4529-bfe8-33cde32156d0","bronorganisatie":"Moore
-        PLC","bestandsomvang":1000000,"link":"http://www.haas.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://benitez.org/","taal":"rw","auteur":"Sydney
-        Wilson","formaat":"js","inhoud":"Add thousand road ahead part. Hospital dream
-        will interesting realize parent along.","titel":"Document two","vertrouwelijkheidaanduiding":"ask","informatieobjecttype":"stand","bestandsnaam":"some.flac","creatiedatum":"2026-03-16","status":"possible"},"sort":[4.81908,1773619200000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.112314,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
-        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
-        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
-        natural. Clearly figure memory name join. Most painting anything onto cell
-        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[4.112314,1773187200000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.3586086,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
+        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[1.3586086,1772150400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.3586086,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"tell","begin_registratie":"2026-02-27T19:36:09.809683","identificatie":"9cf61c58-aac5-4868-a896-c74b115ae85c","bronorganisatie":"Mcgee
+        PLC","bestandsomvang":1000000,"link":"https://www.smith.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.stone-jimenez.info/","taal":"li","auteur":"Elizabeth
+        Osborne","formaat":"mov","titel":"Document two","vertrouwelijkheidaanduiding":"floor","informatieobjecttype":"perhaps","bestandsnaam":"why.doc","creatiedatum":"2026-02-27","status":"century"},"sort":[1.3586086,1772150400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -381,14 +364,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":7.4858456,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"fear","begin_registratie":"2026-03-19T16:31:11.813311","identificatie":"c03d07ed-6e06-4529-bfe8-33cde32156d0","bronorganisatie":"Moore
-        PLC","bestandsomvang":1000000,"link":"http://www.haas.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://benitez.org/","taal":"rw","auteur":"Sydney
-        Wilson","formaat":"js","inhoud":"Add thousand road ahead part. Hospital dream
-        will interesting realize parent along.","titel":"Document two","vertrouwelijkheidaanduiding":"ask","informatieobjecttype":"stand","bestandsnaam":"some.flac","creatiedatum":"2026-03-16","status":"possible"},"sort":[7.4858456,1773619200000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":7.1146216,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"very","begin_registratie":"2026-03-09T04:20:40.772169","identificatie":"350fbacb-b0e2-4b5c-bcc8-9b26817b730d","bronorganisatie":"White
-        and Sons","bestandsomvang":1000000,"link":"http://www.johnson-richardson.net/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.rivers-mcintosh.com/","taal":"hak","auteur":"Deanna
-        Mosley","formaat":"txt","inhoud":"Move hundred party common personal fall
-        natural. Clearly figure memory name join. Most painting anything onto cell
-        my.","titel":"Document one","vertrouwelijkheidaanduiding":"serve","informatieobjecttype":"begin","bestandsnaam":"church.bmp","creatiedatum":"2026-03-11","status":"physical"},"sort":[7.1146216,1773187200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.3542163,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
+        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[2.3542163,1772150400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.110431,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"tell","begin_registratie":"2026-02-27T19:36:09.809683","identificatie":"9cf61c58-aac5-4868-a896-c74b115ae85c","bronorganisatie":"Mcgee
+        PLC","bestandsomvang":1000000,"link":"https://www.smith.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.stone-jimenez.info/","taal":"li","auteur":"Elizabeth
+        Osborne","formaat":"mov","titel":"Document two","vertrouwelijkheidaanduiding":"floor","informatieobjecttype":"perhaps","bestandsnaam":"why.doc","creatiedatum":"2026-02-27","status":"century"},"sort":[2.110431,1772150400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

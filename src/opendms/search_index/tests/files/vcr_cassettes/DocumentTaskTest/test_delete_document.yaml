@@ -92,7 +92,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -104,7 +104,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -132,11 +132,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.robinson.info/","identificatie":"c8b8a9c4-9f13-4a69-8cd2-c844b92d4dc3","bronorganisatie":"Sanchez,
-      Thomas and Roberson","titel":"Old short away must popular movement three reflect.","beschrijving":"Deep
-      seven sit. Support affect eight end century toward garden final.","auteur":"Joanne
-      Thompson","taal":"nr","vertrouwelijkheidaanduiding":"include","status":"all","formaat":"jpg","bestandsnaam":"we.csv","informatieobjecttype":"southern","verschijningsvorm":"ago","inhoud":"None
-      again address soon ball technology sport. Letter throw single yet sign.","bestandsomvang":1000000,"link":"https://mills.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-16T00:36:00.063673"}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
+      Alvarez and Mclaughlin","titel":"Former mission threat.","beschrijving":"Use
+      quite send four development drop. Trial government lot.","auteur":"Charles Roman","taal":"nl","vertrouwelijkheidaanduiding":"race","status":"because","formaat":"bmp","bestandsnaam":"air.mp3","informatieobjecttype":"new","verschijningsvorm":"machine","bestandsomvang":1000000,"link":"https://mcbride.com/","creatiedatum":"2026-03-12","begin_registratie":"2026-03-18T13:09:08.151316"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -180,17 +178,15 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Deep
-        seven sit. Support affect eight end century toward garden final.","verschijningsvorm":"ago","begin_registratie":"2026-03-16T00:36:00.063673","identificatie":"c8b8a9c4-9f13-4a69-8cd2-c844b92d4dc3","bronorganisatie":"Sanchez,
-        Thomas and Roberson","bestandsomvang":1000000,"link":"https://mills.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.robinson.info/","taal":"nr","auteur":"Joanne
-        Thompson","formaat":"jpg","inhoud":"None again address soon ball technology
-        sport. Letter throw single yet sign.","titel":"Old short away must popular
-        movement three reflect.","vertrouwelijkheidaanduiding":"include","informatieobjecttype":"southern","bestandsnaam":"we.csv","creatiedatum":"2026-03-16","status":"all"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Use
+        quite send four development drop. Trial government lot.","verschijningsvorm":"machine","begin_registratie":"2026-03-18T13:09:08.151316","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
+        Alvarez and Mclaughlin","bestandsomvang":1000000,"link":"https://mcbride.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","taal":"nl","auteur":"Charles
+        Roman","formaat":"bmp","titel":"Former mission threat.","vertrouwelijkheidaanduiding":"race","informatieobjecttype":"new","bestandsnaam":"air.mp3","creatiedatum":"2026-03-12","status":"because"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '879'
+      - '750'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -211,17 +207,15 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Deep
-        seven sit. Support affect eight end century toward garden final.","verschijningsvorm":"ago","begin_registratie":"2026-03-16T00:36:00.063673","identificatie":"c8b8a9c4-9f13-4a69-8cd2-c844b92d4dc3","bronorganisatie":"Sanchez,
-        Thomas and Roberson","bestandsomvang":1000000,"link":"https://mills.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.robinson.info/","taal":"nr","auteur":"Joanne
-        Thompson","formaat":"jpg","inhoud":"None again address soon ball technology
-        sport. Letter throw single yet sign.","titel":"Old short away must popular
-        movement three reflect.","vertrouwelijkheidaanduiding":"include","informatieobjecttype":"southern","bestandsnaam":"we.csv","creatiedatum":"2026-03-16","status":"all"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Use
+        quite send four development drop. Trial government lot.","verschijningsvorm":"machine","begin_registratie":"2026-03-18T13:09:08.151316","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
+        Alvarez and Mclaughlin","bestandsomvang":1000000,"link":"https://mcbride.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","taal":"nl","auteur":"Charles
+        Roman","formaat":"bmp","titel":"Former mission threat.","vertrouwelijkheidaanduiding":"race","informatieobjecttype":"new","bestandsnaam":"air.mp3","creatiedatum":"2026-03-12","status":"because"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '879'
+      - '750'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

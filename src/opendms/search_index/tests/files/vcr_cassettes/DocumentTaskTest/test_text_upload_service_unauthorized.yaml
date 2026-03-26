@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,9 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.cunningham.com/","identificatie":"10c58b2f-3b9d-4543-9a30-831e6705a333","bronorganisatie":"Mcknight-Craig","titel":"Plant
-      watch lose other how.","beschrijving":"Per call price spend front. You too teach
-      per method continue hope say.","auteur":"Tyler Clark","taal":"fi","vertrouwelijkheidaanduiding":"industry","status":"music","formaat":"odp","bestandsnaam":"physical.jpg","informatieobjecttype":"former","verschijningsvorm":"sometimes","inhoud":"https://www.example.com/downloads/1","bestandsomvang":1000000,"link":"http://davis.com/","creatiedatum":"2026-02-27","begin_registratie":"2026-02-28T04:56:19.179568"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.peterson.org/","identificatie":"4ec009df-df19-4000-8d52-9cb4a53d09c7","bronorganisatie":"Fernandez
+      and Sons","titel":"Few community common feeling senior two remain whom.","beschrijving":"Quality
+      there sport as must environment. Good prepare yard director everybody middle
+      though. Rich to yeah image.","auteur":"Jason West","taal":"ss","vertrouwelijkheidaanduiding":"billion","status":"offer","formaat":"tiff","bestandsnaam":"simply.odp","informatieobjecttype":"daughter","verschijningsvorm":"determine","bestandsomvang":1000000,"link":"http://wilson-king.com/","creatiedatum":"2026-03-10","begin_registratie":"2026-03-04T22:55:16.151938","inhoud":"https://www.example.com/downloads/1"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -126,15 +127,17 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"beschrijving":"Per
-        call price spend front. You too teach per method continue hope say.","verschijningsvorm":"sometimes","begin_registratie":"2026-02-28T04:56:19.179568","identificatie":"10c58b2f-3b9d-4543-9a30-831e6705a333","bronorganisatie":"Mcknight-Craig","bestandsomvang":1000000,"link":"http://davis.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.cunningham.com/","taal":"fi","auteur":"Tyler
-        Clark","formaat":"odp","inhoud":"https://www.example.com/downloads/1","titel":"Plant
-        watch lose other how.","vertrouwelijkheidaanduiding":"industry","informatieobjecttype":"former","bestandsnaam":"physical.jpg","creatiedatum":"2026-02-27","status":"music"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"beschrijving":"Quality
+        there sport as must environment. Good prepare yard director everybody middle
+        though. Rich to yeah image.","verschijningsvorm":"determine","begin_registratie":"2026-03-04T22:55:16.151938","identificatie":"4ec009df-df19-4000-8d52-9cb4a53d09c7","bronorganisatie":"Fernandez
+        and Sons","bestandsomvang":1000000,"link":"http://wilson-king.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.peterson.org/","taal":"ss","auteur":"Jason
+        West","formaat":"tiff","inhoud":"https://www.example.com/downloads/1","titel":"Few
+        community common feeling senior two remain whom.","vertrouwelijkheidaanduiding":"billion","informatieobjecttype":"daughter","bestandsnaam":"simply.odp","creatiedatum":"2026-03-10","status":"offer"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '812'
+      - '885'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

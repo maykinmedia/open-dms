@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,12 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://anderson.com/","identificatie":"c2f277ce-7dbf-4191-8e3d-ee259ad5e7e9","bronorganisatie":"Martin,
-      Spencer and Garner","titel":"Cell which also north fly.","beschrijving":"Tend
-      here painting imagine down two he room. Meet eight see medical should possible
-      east budget.","auteur":"Stacy Hernandez","taal":"se","vertrouwelijkheidaanduiding":"later","status":"choice","formaat":"wav","bestandsnaam":"avoid.wav","informatieobjecttype":"science","verschijningsvorm":"draw","inhoud":"Page
-      consider budget evening half. Cost think thought common growth management heavy
-      special. While now social because spring nature beautiful.","bestandsomvang":1000000,"link":"https://www.smith.com/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-19T11:37:11.866027"}'
+    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://www.gibbs-king.com/","identificatie":"1a039541-ccd8-4aae-b0b6-31c7097eb6fd","bronorganisatie":"Wilson
+      Ltd","titel":"Carry tree opportunity if most impact medical.","beschrijving":"Thus
+      leg weight father may per safe business. Rest call letter.","auteur":"Johnathan
+      Miles","taal":"hr","vertrouwelijkheidaanduiding":"pretty","status":"system","formaat":"key","bestandsnaam":"he.webm","informatieobjecttype":"once","verschijningsvorm":"food","bestandsomvang":1000000,"link":"http://www.waters.biz/","creatiedatum":"2026-02-26","begin_registratie":"2026-03-21T18:36:07.464259"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -155,7 +153,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -167,7 +165,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -195,12 +193,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.harrell.com/","identificatie":"f6a24679-83f4-468d-8c80-cc3b500ba2d6","bronorganisatie":"Bailey
-      Group","titel":"Popular heavy determine ready certain notice decision.","beschrijving":"Claim
-      somebody play simple information best. Create thing reduce rate general system
-      trade stage.","auteur":"Courtney Reeves","taal":"csb","vertrouwelijkheidaanduiding":"enough","status":"evidence","formaat":"mp4","bestandsnaam":"plan.csv","informatieobjecttype":"husband","verschijningsvorm":"wrong","inhoud":"Local
-      spring pass serve like. Possible free yard well old attention economy. Building
-      war must defense.","bestandsomvang":1000000,"link":"http://garcia-krause.com/","creatiedatum":"2026-03-08","begin_registratie":"2026-02-26T03:22:50.633374"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.gonzales.com/","identificatie":"eb47ef66-65aa-4e38-968c-c49e9574484f","bronorganisatie":"Durham-Carter","titel":"Understand
+      respond cup without politics represent box.","beschrijving":"Onto million agency
+      camera expect Mr. Paper pressure state trade truth wish. Film carry minute picture.","auteur":"Alexis
+      Cain","taal":"lzh","vertrouwelijkheidaanduiding":"western","status":"hundred","formaat":"numbers","bestandsnaam":"accept.mp3","informatieobjecttype":"carry","verschijningsvorm":"report","bestandsomvang":1000000,"link":"https://odonnell.com/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-22T11:42:10.897519"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -246,13 +242,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":0.7051885,"_source":{"beschrijving":"Claim
-        somebody play simple information best. Create thing reduce rate general system
-        trade stage.","verschijningsvorm":"wrong","begin_registratie":"2026-02-26T03:22:50.633374","identificatie":"f6a24679-83f4-468d-8c80-cc3b500ba2d6","bronorganisatie":"Bailey
-        Group","bestandsomvang":1000000,"link":"http://garcia-krause.com/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.harrell.com/","taal":"csb","auteur":"Courtney
-        Reeves","formaat":"mp4","inhoud":"Local spring pass serve like. Possible free
-        yard well old attention economy. Building war must defense.","titel":"Popular
-        heavy determine ready certain notice decision.","vertrouwelijkheidaanduiding":"enough","informatieobjecttype":"husband","bestandsnaam":"plan.csv","creatiedatum":"2026-03-08","status":"evidence"},"sort":[0.7051885,1772928000000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":0.34884626,"_source":{"beschrijving":"Onto
+        million agency camera expect Mr. Paper pressure state trade truth wish. Film
+        carry minute picture.","verschijningsvorm":"report","begin_registratie":"2026-03-22T11:42:10.897519","identificatie":"eb47ef66-65aa-4e38-968c-c49e9574484f","bronorganisatie":"Durham-Carter","bestandsomvang":1000000,"link":"https://odonnell.com/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.gonzales.com/","taal":"lzh","auteur":"Alexis
+        Cain","formaat":"numbers","titel":"Understand respond cup without politics
+        represent box.","vertrouwelijkheidaanduiding":"western","informatieobjecttype":"carry","bestandsnaam":"accept.mp3","creatiedatum":"2026-03-01","status":"hundred"},"sort":[0.34884626,1772323200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

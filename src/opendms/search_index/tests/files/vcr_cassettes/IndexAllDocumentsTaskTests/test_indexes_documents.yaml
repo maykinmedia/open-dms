@@ -16,7 +16,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":null}}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":null}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -39,7 +39,7 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?objectinformatieobjecten__objectType=zaak
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten
   response:
     body:
       string: "{\"count\":20,\"next\":null,\"previous\":null,\"results\":[{\"url\":\"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38\",\"identificatie\":\"DOCUMENT-2026-0000000001\",\"bronorganisatie\":\"000000176\",\"creatiedatum\":\"2026-03-16\",\"titel\":\"aanvraag
@@ -91,12 +91,12 @@ interactions:
       Content-Length:
       - '18921'
       Content-Security-Policy:
-      - 'form-action ''self''; worker-src ''self'' blob:; script-src ''self'' ''unsafe-inline''
-        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
-        base-uri ''self''; frame-ancestors ''none''; img-src ''self'' data: cdn.redoc.ly
-        cdnjs.cloudflare.com tile.openstreetmap.org; frame-src ''self''; style-src
-        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        default-src ''self''; object-src ''none'''
+      - 'style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; form-action ''self''; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; frame-ancestors ''none''; img-src ''self''
+        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org; default-src
+        ''self''; worker-src ''self'' blob:; frame-src ''self''; object-src ''none'';
+        base-uri ''self''; font-src ''self'' fonts.gstatic.com'
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -153,7 +153,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -165,7 +165,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -210,7 +210,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/a9c82615-cee7-4e9d-b7a8-460623882c38?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"a9c82615-cee7-4e9d-b7a8-460623882c38","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":42,"_primary_term":1}'
+      string: '{"_index":"document","_id":"a9c82615-cee7-4e9d-b7a8-460623882c38","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":80,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/a9c82615-cee7-4e9d-b7a8-460623882c38
@@ -264,7 +264,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -276,7 +276,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -321,7 +321,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/ea16fa8c-4bab-4065-a28a-f6574625205d?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":43,"_primary_term":1}'
+      string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":81,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/ea16fa8c-4bab-4065-a28a-f6574625205d
@@ -375,7 +375,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -387,7 +387,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -432,7 +432,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/dbfe1f09-2803-4a40-862c-f2ca75f384d1?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"dbfe1f09-2803-4a40-862c-f2ca75f384d1","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":44,"_primary_term":1}'
+      string: '{"_index":"document","_id":"dbfe1f09-2803-4a40-862c-f2ca75f384d1","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":82,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/dbfe1f09-2803-4a40-862c-f2ca75f384d1
@@ -486,7 +486,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -498,7 +498,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -543,7 +543,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/801ddfea-a4a6-4846-9887-1efc0adb910b?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"801ddfea-a4a6-4846-9887-1efc0adb910b","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":45,"_primary_term":1}'
+      string: '{"_index":"document","_id":"801ddfea-a4a6-4846-9887-1efc0adb910b","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":83,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/801ddfea-a4a6-4846-9887-1efc0adb910b
@@ -597,7 +597,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -609,7 +609,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -654,7 +654,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/f7eec7ce-9bae-4b15-8928-2c87d0071def?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"f7eec7ce-9bae-4b15-8928-2c87d0071def","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":46,"_primary_term":1}'
+      string: '{"_index":"document","_id":"f7eec7ce-9bae-4b15-8928-2c87d0071def","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":84,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/f7eec7ce-9bae-4b15-8928-2c87d0071def
@@ -708,7 +708,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -720,7 +720,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -765,7 +765,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/2f3722d8-c919-495b-a973-0802bd678887?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"2f3722d8-c919-495b-a973-0802bd678887","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":47,"_primary_term":1}'
+      string: '{"_index":"document","_id":"2f3722d8-c919-495b-a973-0802bd678887","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":85,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/2f3722d8-c919-495b-a973-0802bd678887
@@ -819,7 +819,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -831,7 +831,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -876,7 +876,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":48,"_primary_term":1}'
+      string: '{"_index":"document","_id":"4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":86,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867
@@ -930,7 +930,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -942,7 +942,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -987,7 +987,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":49,"_primary_term":1}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":87,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
@@ -1041,7 +1041,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1053,7 +1053,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1098,7 +1098,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/0faee041-27ec-4b81-99a0-42ebab29a7db?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"0faee041-27ec-4b81-99a0-42ebab29a7db","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":50,"_primary_term":1}'
+      string: '{"_index":"document","_id":"0faee041-27ec-4b81-99a0-42ebab29a7db","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":88,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/0faee041-27ec-4b81-99a0-42ebab29a7db
@@ -1152,7 +1152,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1164,7 +1164,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1209,7 +1209,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/fc58a8f1-f2f0-4eb8-919c-4360f91a3415?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"fc58a8f1-f2f0-4eb8-919c-4360f91a3415","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":51,"_primary_term":1}'
+      string: '{"_index":"document","_id":"fc58a8f1-f2f0-4eb8-919c-4360f91a3415","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":89,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/fc58a8f1-f2f0-4eb8-919c-4360f91a3415
@@ -1263,7 +1263,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1275,7 +1275,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1320,7 +1320,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/630f20a5-b099-4d84-a504-51796b6c5504?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"630f20a5-b099-4d84-a504-51796b6c5504","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":52,"_primary_term":1}'
+      string: '{"_index":"document","_id":"630f20a5-b099-4d84-a504-51796b6c5504","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":90,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/630f20a5-b099-4d84-a504-51796b6c5504
@@ -1374,7 +1374,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1386,7 +1386,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1431,7 +1431,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/10e3074d-c0ee-49e0-b099-6abe066cd56a?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"10e3074d-c0ee-49e0-b099-6abe066cd56a","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":53,"_primary_term":1}'
+      string: '{"_index":"document","_id":"10e3074d-c0ee-49e0-b099-6abe066cd56a","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":91,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/10e3074d-c0ee-49e0-b099-6abe066cd56a
@@ -1485,7 +1485,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1497,7 +1497,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1542,7 +1542,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/435b77c7-db8d-47cf-b2df-eea3a91089ee?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"435b77c7-db8d-47cf-b2df-eea3a91089ee","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":54,"_primary_term":1}'
+      string: '{"_index":"document","_id":"435b77c7-db8d-47cf-b2df-eea3a91089ee","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":92,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/435b77c7-db8d-47cf-b2df-eea3a91089ee
@@ -1596,7 +1596,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1608,7 +1608,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1653,7 +1653,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/6df0ae09-0f21-4c8e-bc49-5bb23915f606?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"6df0ae09-0f21-4c8e-bc49-5bb23915f606","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":55,"_primary_term":1}'
+      string: '{"_index":"document","_id":"6df0ae09-0f21-4c8e-bc49-5bb23915f606","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":93,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/6df0ae09-0f21-4c8e-bc49-5bb23915f606
@@ -1707,7 +1707,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1719,7 +1719,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1764,7 +1764,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/ef55f9ea-4004-4832-803e-2672bb1c6d4d?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":56,"_primary_term":1}'
+      string: '{"_index":"document","_id":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":94,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/ef55f9ea-4004-4832-803e-2672bb1c6d4d
@@ -1818,7 +1818,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1830,7 +1830,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1875,7 +1875,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/a2d46f98-baa0-4b33-9c87-c14517ae695b?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"a2d46f98-baa0-4b33-9c87-c14517ae695b","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":57,"_primary_term":1}'
+      string: '{"_index":"document","_id":"a2d46f98-baa0-4b33-9c87-c14517ae695b","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":95,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/a2d46f98-baa0-4b33-9c87-c14517ae695b
@@ -1929,7 +1929,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -1941,7 +1941,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1986,7 +1986,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":58,"_primary_term":1}'
+      string: '{"_index":"document","_id":"bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":96,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc
@@ -2040,7 +2040,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -2052,7 +2052,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2097,7 +2097,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/819c31fc-81e0-4d96-990f-6221cbe987c6?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"819c31fc-81e0-4d96-990f-6221cbe987c6","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":59,"_primary_term":1}'
+      string: '{"_index":"document","_id":"819c31fc-81e0-4d96-990f-6221cbe987c6","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":97,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/819c31fc-81e0-4d96-990f-6221cbe987c6
@@ -2151,7 +2151,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -2163,7 +2163,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2208,7 +2208,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/f8c1d2cc-780e-452a-8871-187048341200?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"f8c1d2cc-780e-452a-8871-187048341200","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":60,"_primary_term":1}'
+      string: '{"_index":"document","_id":"f8c1d2cc-780e-452a-8871-187048341200","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":98,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/f8c1d2cc-780e-452a-8871-187048341200
@@ -2262,7 +2262,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452832955","number_of_replicas":"1","uuid":"fg2_iYkSR6enOjN1fVlgxA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -2274,7 +2274,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2319,7 +2319,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/d34816d6-50c6-49ea-9b84-4803cbc45a3a?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"d34816d6-50c6-49ea-9b84-4803cbc45a3a","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":61,"_primary_term":1}'
+      string: '{"_index":"document","_id":"d34816d6-50c6-49ea-9b84-4803cbc45a3a","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":99,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/d34816d6-50c6-49ea-9b84-4803cbc45a3a
@@ -2373,7 +2373,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/ea16fa8c-4bab-4065-a28a-f6574625205d
   response:
     body:
-      string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":3,"_seq_no":43,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-03-25T13:51:49.784000+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000115","link":"","uuid":"ea16fa8c-4bab-4065-a28a-f6574625205d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d","taal":"nld","auteur":"Niek
+      string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":5,"_seq_no":81,"_primary_term":1,"found":true,"_source":{"begin_registratie":"2026-03-25T13:51:49.784000+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000115","link":"","uuid":"ea16fa8c-4bab-4065-a28a-f6574625205d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d","taal":"nld","auteur":"Niek
         van den Berg","formaat":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1","titel":"aanvraag
         formulier","vertrouwelijkheidaanduiding":"confidentieel","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","bestandsnaam":"","creatiedatum":"2026-01-15","status":""}}'
     headers:

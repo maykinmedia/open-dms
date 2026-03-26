@@ -29,7 +29,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Wed, 25 Mar 2026 15:33:42 GMT
+      - Thu, 26 Mar 2026 11:44:55 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -76,7 +76,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -88,7 +88,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,10 +116,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://santiago.info/","identificatie":"659bf807-f810-41ef-822f-97b61c7cba23","bronorganisatie":"King,
-      Willis and Cooper","titel":"Argue remember if sign treatment billion represent
-      degree.","beschrijving":"Sing care rock American smile. Create worry realize
-      along chance maybe future. Organization people kid.","auteur":"Claudia Cole","taal":"sd","vertrouwelijkheidaanduiding":"key","status":"radio","formaat":"avi","bestandsnaam":"southern.mov","informatieobjecttype":"yourself","verschijningsvorm":"card","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://doyle-mcdaniel.com/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-24T22:51:42.286573","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
+    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://www.wheeler.org/","identificatie":"bedd0265-69eb-4558-86b9-0a2c2b893339","bronorganisatie":"Moss-Daniels","titel":"Hair
+      debate blood now.","beschrijving":"Green fast talk believe. Industry bit phone
+      crime central.","auteur":"Jason Forbes","taal":"ayc","vertrouwelijkheidaanduiding":"attention","status":"forget","formaat":"mov","bestandsnaam":"floor.ppt","informatieobjecttype":"trip","verschijningsvorm":"become","bestandsomvang":1000000,"link":"https://barrera.com/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-14T05:48:01.477040","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -163,18 +162,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54
   response:
     body:
-      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"beschrijving":"Sing
-        care rock American smile. Create worry realize along chance maybe future.
-        Organization people kid.","verschijningsvorm":"card","begin_registratie":"2026-03-24T22:51:42.286573","identificatie":"659bf807-f810-41ef-822f-97b61c7cba23","bronorganisatie":"King,
-        Willis and Cooper","bestandsomvang":1000000,"link":"http://doyle-mcdaniel.com/","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://santiago.info/","taal":"sd","auteur":"Claudia
-        Cole","formaat":"avi","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Argue
-        remember if sign treatment billion represent degree.","vertrouwelijkheidaanduiding":"key","document_data":[{"attachment":{"content":"Document
-        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"yourself","bestandsnaam":"southern.mov","creatiedatum":"2026-03-11","status":"radio"}}'
+      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"beschrijving":"Green
+        fast talk believe. Industry bit phone crime central.","verschijningsvorm":"become","begin_registratie":"2026-03-14T05:48:01.477040","identificatie":"bedd0265-69eb-4558-86b9-0a2c2b893339","bronorganisatie":"Moss-Daniels","bestandsomvang":1000000,"link":"https://barrera.com/","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://www.wheeler.org/","taal":"ayc","auteur":"Jason
+        Forbes","formaat":"mov","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Hair
+        debate blood now.","vertrouwelijkheidaanduiding":"attention","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"trip","bestandsnaam":"floor.ppt","creatiedatum":"2026-03-01","status":"forget"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1003'
+      - '910'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

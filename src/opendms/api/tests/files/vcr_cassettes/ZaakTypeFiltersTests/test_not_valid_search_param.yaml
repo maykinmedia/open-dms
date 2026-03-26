@@ -15,7 +15,7 @@ interactions:
   response:
     body:
       string: '{"type":"http://localhost:8003/ref/fouten/ValidationError/","code":"invalid","title":"Ongeldige
-        invoer.","status":400,"detail":"Ongeldige invoer.","instance":"urn:uuid:d74089a7-3e52-4692-ba67-582adc3d5fd4","invalidParams":[{"name":"nonFieldErrors","code":"unknown-parameters","reason":"Onbekende
+        invoer.","status":400,"detail":"Ongeldige invoer.","instance":"urn:uuid:4246e9b4-720e-498b-91ce-0dca40240501","invalidParams":[{"name":"nonFieldErrors","code":"unknown-parameters","reason":"Onbekende
         query parameters: test"}]}'
     headers:
       API-version:
@@ -25,12 +25,12 @@ interactions:
       Content-Length:
       - '322'
       Content-Security-Policy:
-      - 'form-action ''self''; worker-src ''self'' blob:; script-src ''self'' ''unsafe-inline''
-        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
-        base-uri ''self''; frame-ancestors ''none''; img-src ''self'' data: cdn.redoc.ly
-        cdnjs.cloudflare.com tile.openstreetmap.org; frame-src ''self''; style-src
-        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        default-src ''self''; object-src ''none'''
+      - 'style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; form-action ''self''; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; frame-ancestors ''none''; img-src ''self''
+        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org; default-src
+        ''self''; worker-src ''self'' blob:; frame-src ''self''; object-src ''none'';
+        base-uri ''self''; font-src ''self'' fonts.gstatic.com'
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:

@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,11 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://gonzales-smith.org/","identificatie":"document1","bronorganisatie":"Sanchez
-      and Sons","titel":"Unique Document","beschrijving":"Health mean before foot
-      two have on mean. Room week idea truth.","auteur":"Christy Howard","taal":"mi","vertrouwelijkheidaanduiding":"walk","status":"mention","formaat":"key","bestandsnaam":"consumer.mov","informatieobjecttype":"because","verschijningsvorm":"technology","inhoud":"Security
-      need work exactly evidence others get. Trip interesting entire strategy good.
-      Perhaps glass base short change draw Republican it.","bestandsomvang":1000000,"link":"http://dickson.biz/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-06T19:21:41.145558"}'
+    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://hanson.com/","identificatie":"document1","bronorganisatie":"Williams
+      Group","titel":"Unique Document","beschrijving":"Sort position detail together
+      according although field ground. Room choose indicate. Or although rich our
+      popular might off.","auteur":"Dawn Taylor","taal":"szl","vertrouwelijkheidaanduiding":"send","status":"professor","formaat":"png","bestandsnaam":"training.mp4","informatieobjecttype":"government","verschijningsvorm":"source","bestandsomvang":1000000,"link":"http://www.burch.net/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-15T03:45:58.633474"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -154,7 +153,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -166,7 +165,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -194,12 +193,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://www.valenzuela.org/","identificatie":"document2","bronorganisatie":"Booker,
-      Duncan and Bishop","titel":"Unique Document2","beschrijving":"Walk right professional
-      indeed citizen war. Ten board respond draw pull note if answer. Feeling your
-      tend which series.","auteur":"James Ritter","taal":"hy","vertrouwelijkheidaanduiding":"parent","status":"right","formaat":"js","bestandsnaam":"write.key","informatieobjecttype":"for","verschijningsvorm":"sometimes","inhoud":"Even
-      animal point sit hotel main appear. Administration finally industry continue
-      recognize often recognize. Dream north we full. Stage southern choice fund.","bestandsomvang":1000000,"link":"http://www.espinoza.info/","creatiedatum":"2026-02-26","begin_registratie":"2026-03-13T03:59:48.255262"}'
+    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://www.rogers.org/","identificatie":"document2","bronorganisatie":"Anderson
+      and Sons","titel":"Unique Document2","beschrijving":"Thought resource thought
+      can. Artist west reveal friend recent. Require them summer so raise interest
+      two.","auteur":"James Fitzgerald","taal":"ln","vertrouwelijkheidaanduiding":"want","status":"quickly","formaat":"txt","bestandsnaam":"view.webm","informatieobjecttype":"draw","verschijningsvorm":"TV","bestandsomvang":1000000,"link":"http://smith-khan.net/","creatiedatum":"2026-03-15","begin_registratie":"2026-02-27T02:33:34.462042"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -245,12 +242,11 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":4.19383,"_source":{"beschrijving":"Health
-        mean before foot two have on mean. Room week idea truth.","verschijningsvorm":"technology","begin_registratie":"2026-03-06T19:21:41.145558","identificatie":"document1","bronorganisatie":"Sanchez
-        and Sons","bestandsomvang":1000000,"link":"http://dickson.biz/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://gonzales-smith.org/","taal":"mi","auteur":"Christy
-        Howard","formaat":"key","inhoud":"Security need work exactly evidence others
-        get. Trip interesting entire strategy good. Perhaps glass base short change
-        draw Republican it.","titel":"Unique Document","vertrouwelijkheidaanduiding":"walk","informatieobjecttype":"because","bestandsnaam":"consumer.mov","creatiedatum":"2026-03-11","status":"mention"},"sort":[4.19383,1773187200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":4.022081,"_source":{"beschrijving":"Sort
+        position detail together according although field ground. Room choose indicate.
+        Or although rich our popular might off.","verschijningsvorm":"source","begin_registratie":"2026-03-15T03:45:58.633474","identificatie":"document1","bronorganisatie":"Williams
+        Group","bestandsomvang":1000000,"link":"http://www.burch.net/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://hanson.com/","taal":"szl","auteur":"Dawn
+        Taylor","formaat":"png","titel":"Unique Document","vertrouwelijkheidaanduiding":"send","informatieobjecttype":"government","bestandsnaam":"training.mp4","creatiedatum":"2026-03-11","status":"professor"},"sort":[4.022081,1773187200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://www.young.info/","identificatie":"d6e81797-cf8b-4c3c-9326-bb47e6523af1","bronorganisatie":"Frey,
-      Martinez and Weber","titel":"System drop under actually fine write ball fill.","beschrijving":"Painting
-      rock possible. Close federal audience hair raise call.","auteur":"Sara Hernandez","taal":"nr","vertrouwelijkheidaanduiding":"write","status":"happy","formaat":"tiff","bestandsnaam":"provide.csv","informatieobjecttype":"half","verschijningsvorm":"herself","inhoud":"Action
-      work carry range better stock. Resource method small simply.","bestandsomvang":1000000,"link":"https://www.montgomery.com/","creatiedatum":"2026-03-17","begin_registratie":"2026-03-08T13:37:24.089838"}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://allen-klein.com/","identificatie":"25c70c68-b12b-405f-b898-dad00741c278","bronorganisatie":"Galloway-Richardson","titel":"Blue
+      economy rather middle west expect.","beschrijving":"Group cover still idea purpose.
+      As mission box. Gun should note food whole rule seek.","auteur":"Cynthia Valenzuela","taal":"am","vertrouwelijkheidaanduiding":"growth","status":"can","formaat":"wav","bestandsnaam":"hot.html","informatieobjecttype":"can","verschijningsvorm":"star","bestandsomvang":1000000,"link":"http://www.bowen.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-26T09:56:55.795544"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -129,12 +128,10 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.99166745,"_source":{"beschrijving":"Painting
-        rock possible. Close federal audience hair raise call.","verschijningsvorm":"herself","begin_registratie":"2026-03-08T13:37:24.089838","identificatie":"d6e81797-cf8b-4c3c-9326-bb47e6523af1","bronorganisatie":"Frey,
-        Martinez and Weber","bestandsomvang":1000000,"link":"https://www.montgomery.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://www.young.info/","taal":"nr","auteur":"Sara
-        Hernandez","formaat":"tiff","inhoud":"Action work carry range better stock.
-        Resource method small simply.","titel":"System drop under actually fine write
-        ball fill.","vertrouwelijkheidaanduiding":"write","informatieobjecttype":"half","bestandsnaam":"provide.csv","creatiedatum":"2026-03-17","status":"happy"},"sort":[0.99166745,1773705600000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.9631895,"_source":{"beschrijving":"Group
+        cover still idea purpose. As mission box. Gun should note food whole rule
+        seek.","verschijningsvorm":"star","begin_registratie":"2026-03-26T09:56:55.795544","identificatie":"25c70c68-b12b-405f-b898-dad00741c278","bronorganisatie":"Galloway-Richardson","bestandsomvang":1000000,"link":"http://www.bowen.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://allen-klein.com/","taal":"am","auteur":"Cynthia
+        Valenzuela","formaat":"wav","titel":"Blue economy rather middle west expect.","vertrouwelijkheidaanduiding":"growth","informatieobjecttype":"can","bestandsnaam":"hot.html","creatiedatum":"2026-03-16","status":"can"},"sort":[0.9631895,1773619200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

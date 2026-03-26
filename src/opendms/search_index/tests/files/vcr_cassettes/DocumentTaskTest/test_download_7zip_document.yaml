@@ -21,23 +21,23 @@ interactions:
   response:
     body:
       string: !!binary |
-        N3q8ryccAARVsHJoXAEAAAAAAAAWAAAAAAAAACC1tD/vQkkA2V0AOhlKzh2rEVuGKOel7UkvQflT
+        N3q8ryccAASALVHsXQEAAAAAAAAWAAAAAAAAAFVNTcLvQkkA2V0AOhlKzh2rEVuGKOel7UkvQflT
         PZVSsxOKVIkqE2yPbr86TFEzfxE4ukDeUYcMB60nTGmt6oE30iuWHMNuERAuFgtmtd5XVRnxcY+Z
         jjEvEN7vk7KifhFBN2ttgYHWOe4ztOzKfN77mjAuVsCPhfODgcBlxCVT+PWRNjEFpbDub8FwTUcM
         0ZERqq1gHbrOsScYXFmG6WZSWL7pdqxZ5OVbBQj5x9qt/PtSK3TNHlsgQvndUz34KWQJO4DLKmzf
-        tTvwxL0uX6oPPktmQpATDv8Qk/hxeFn4A5th6ADgAKYAc10AAIEzB64P1THNtWclRSgpPgItLOIk
+        tTvwxL0uX6oPPktmQpATDv8Qk/hxeFn4A5th6ADgAKYAdF0AAIEzB64P1THNtWclRSgpPgItLOIk
         n4jd4NxFlN/WRYH+oBHsAIuGBrkJNQOfyRT2oCy/ylI0RGbuJFreEwY3l+e3Jai1iCUvvqmIHOIo
-        2TmwgLb5CQ8qcZCNElPOmgWk2K7IzrHYxcwZ30Q928j9q3oAAAAXBoDhAQl7AAcLAQABISEBGAyA
-        pwAA
+        2TmwgLb5Bbyvg4U1iDcVqVl7bxr5IeQ059Vtig/X2DnMX4kAAAAAFwaA4QEJfAAHCwEAASEhARgM
+        gKcAAA==
     headers:
       Connection:
       - close
       Content-Length:
-      - '402'
+      - '403'
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Wed, 25 Mar 2026 15:33:37 GMT
+      - Thu, 26 Mar 2026 11:44:50 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -84,7 +84,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -96,7 +96,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -124,9 +124,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://hall.com/","identificatie":"088991e6-cc46-46f0-b15a-999ee7b6871c","bronorganisatie":"Cobb
-      Ltd","titel":"Home certain allow moment east difference film.","beschrijving":"Sing
-      ago until. Loss anyone by letter.","auteur":"Sarah Brooks","taal":"pt","vertrouwelijkheidaanduiding":"kitchen","status":"race","formaat":"flac","bestandsnaam":"move.xls","informatieobjecttype":"now","verschijningsvorm":"where","inhoud":"http://localhost/document/7zip","bestandsomvang":1000,"link":"http://www.poole-bailey.com/","creatiedatum":"2026-03-10","begin_registratie":"2026-03-08T14:35:59.137632","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.bell-potter.com/","identificatie":"23d8b5ba-7ba0-4ee3-9797-54f79c7dcd57","bronorganisatie":"Caldwell-Brown","titel":"Whatever
+      others my city.","beschrijving":"Fill trouble for remember exist set ask. Idea
+      wish space final mind. Buy spend recently.","auteur":"Edward Banks","taal":"so","vertrouwelijkheidaanduiding":"themselves","status":"TV","formaat":"docx","bestandsnaam":"scene.json","informatieobjecttype":"feeling","verschijningsvorm":"evening","bestandsomvang":1000,"link":"http://www.hardin.biz/","creatiedatum":"2026-02-27","begin_registratie":"2026-02-27T18:32:59.474408","inhoud":"http://localhost/document/7zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -170,16 +170,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"beschrijving":"Sing
-        ago until. Loss anyone by letter.","verschijningsvorm":"where","begin_registratie":"2026-03-08T14:35:59.137632","identificatie":"088991e6-cc46-46f0-b15a-999ee7b6871c","bronorganisatie":"Cobb
-        Ltd","bestandsomvang":1000,"link":"http://www.poole-bailey.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://hall.com/","taal":"pt","auteur":"Sarah
-        Brooks","formaat":"flac","inhoud":"http://localhost/document/7zip","titel":"Home
-        certain allow moment east difference film.","vertrouwelijkheidaanduiding":"kitchen","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"now","bestandsnaam":"move.xls","creatiedatum":"2026-03-10","status":"race"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"beschrijving":"Fill
+        trouble for remember exist set ask. Idea wish space final mind. Buy spend
+        recently.","verschijningsvorm":"evening","begin_registratie":"2026-02-27T18:32:59.474408","identificatie":"23d8b5ba-7ba0-4ee3-9797-54f79c7dcd57","bronorganisatie":"Caldwell-Brown","bestandsomvang":1000,"link":"http://www.hardin.biz/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.bell-potter.com/","taal":"so","auteur":"Edward
+        Banks","formaat":"docx","inhoud":"http://localhost/document/7zip","titel":"Whatever
+        others my city.","vertrouwelijkheidaanduiding":"themselves","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"feeling","bestandsnaam":"scene.json","creatiedatum":"2026-02-27","status":"TV"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '862'
+      - '909'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

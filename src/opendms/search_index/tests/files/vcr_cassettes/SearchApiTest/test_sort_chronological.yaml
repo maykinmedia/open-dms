@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,11 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://baker-brown.com/","identificatie":"0fcee803-7cf0-484c-834c-32da588ca881","bronorganisatie":"Benton,
-      Roberts and Woods","titel":"By quality address feeling red pull available.","beschrijving":"Upon
-      prove factor finish. Explain as by agency magazine little. Chair example certainly
-      million table they.","auteur":"Karen Johnson","taal":"br","vertrouwelijkheidaanduiding":"party","status":"common","formaat":"doc","bestandsnaam":"allow.wav","informatieobjecttype":"leg","verschijningsvorm":"present","inhoud":"Though
-      chair crime rich happen. Reach challenge include meet international.","bestandsomvang":1000000,"link":"https://www.davis.info/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-19T10:43:33.572192"}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://www.montgomery.net/","identificatie":"db56324f-f8e5-4835-839f-c156147c9c67","bronorganisatie":"Wilson,
+      Johnson and Harris","titel":"Republican go lay myself.","beschrijving":"Some
+      charge customer. Really eight third huge. Participant local leave discover tax
+      quality school.","auteur":"Taylor Padilla","taal":"kl","vertrouwelijkheidaanduiding":"actually","status":"history","formaat":"mp3","bestandsnaam":"lay.bmp","informatieobjecttype":"life","verschijningsvorm":"white","bestandsomvang":1000000,"link":"http://www.watts-huang.com/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-10T03:51:43.394162"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -154,7 +153,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -166,7 +165,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -194,11 +193,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.moore-morgan.com/","identificatie":"e2491267-d0a8-45fd-8554-e235a24dc1f6","bronorganisatie":"Wilson-Allen","titel":"Seat
-      law particular above here.","beschrijving":"Election near adult education.","auteur":"Tina
-      Lee","taal":"shs","vertrouwelijkheidaanduiding":"ago","status":"everyone","formaat":"mp3","bestandsnaam":"benefit.bmp","informatieobjecttype":"very","verschijningsvorm":"kitchen","inhoud":"Short
-      design why member former should. Doctor professional interview increase build
-      treatment leader grow.","bestandsomvang":1000000,"link":"https://davis.info/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-23T00:55:20.835765"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.coffey.com/","identificatie":"3e7341ad-e21c-409a-8ec9-3f7cd06cf7ae","bronorganisatie":"Lopez-Kent","titel":"Tax
+      feel choice above computer record four quickly.","beschrijving":"Understand
+      garden brother hospital same keep account. Hit miss first just surface. He moment
+      garden tough have final focus than.","auteur":"Alexis Carter DDS","taal":"mr","vertrouwelijkheidaanduiding":"yes","status":"blue","formaat":"avi","bestandsnaam":"return.css","informatieobjecttype":"may","verschijningsvorm":"item","bestandsomvang":1000000,"link":"http://beltran-martinez.com/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-20T14:45:08.594276"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -268,7 +266,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -280,7 +278,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -308,12 +306,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","url":"http://morgan.com/","identificatie":"681812b9-6eaa-4d11-825a-431c55977332","bronorganisatie":"Wilkinson
-      PLC","titel":"Need policy bank off dream realize indeed she.","beschrijving":"Inside
-      bag follow often within huge. Happy part concern set building. About question
-      travel Democrat anyone Congress. Sea imagine want expect visit party range.","auteur":"Kristine
-      Joyce","taal":"sa","vertrouwelijkheidaanduiding":"majority","status":"specific","formaat":"html","bestandsnaam":"argue.css","informatieobjecttype":"day","verschijningsvorm":"position","inhoud":"Other
-      your defense center entire hold. One baby business even fund.","bestandsomvang":1000000,"link":"http://benjamin.com/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-25T15:18:28.858768"}'
+    body: '{"uuid":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","url":"http://www.martinez-rios.com/","identificatie":"95161af8-3bf5-4974-9383-3fec32d05b40","bronorganisatie":"Lamb-Dorsey","titel":"House
+      body let week.","beschrijving":"Budget product father difficult. Short consumer
+      particularly really.","auteur":"Raymond Matthews","taal":"tn","vertrouwelijkheidaanduiding":"sister","status":"station","formaat":"numbers","bestandsnaam":"particularly.mp3","informatieobjecttype":"individual","verschijningsvorm":"us","bestandsomvang":1000000,"link":"http://haley.com/","creatiedatum":"2026-03-01","begin_registratie":"2026-02-28T10:58:06.536874"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -359,23 +354,17 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","_score":0.38308126,"_source":{"beschrijving":"Inside
-        bag follow often within huge. Happy part concern set building. About question
-        travel Democrat anyone Congress. Sea imagine want expect visit party range.","verschijningsvorm":"position","begin_registratie":"2026-03-25T15:18:28.858768","identificatie":"681812b9-6eaa-4d11-825a-431c55977332","bronorganisatie":"Wilkinson
-        PLC","bestandsomvang":1000000,"link":"http://benjamin.com/","uuid":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","url":"http://morgan.com/","taal":"sa","auteur":"Kristine
-        Joyce","formaat":"html","inhoud":"Other your defense center entire hold. One
-        baby business even fund.","titel":"Need policy bank off dream realize indeed
-        she.","vertrouwelijkheidaanduiding":"majority","informatieobjecttype":"day","bestandsnaam":"argue.css","creatiedatum":"2026-03-01","status":"specific"},"sort":[1772323200000,0.38308126]},{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":0.0016296889,"_source":{"beschrijving":"Election
-        near adult education.","verschijningsvorm":"kitchen","begin_registratie":"2026-03-23T00:55:20.835765","identificatie":"e2491267-d0a8-45fd-8554-e235a24dc1f6","bronorganisatie":"Wilson-Allen","bestandsomvang":1000000,"link":"https://davis.info/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.moore-morgan.com/","taal":"shs","auteur":"Tina
-        Lee","formaat":"mp3","inhoud":"Short design why member former should. Doctor
-        professional interview increase build treatment leader grow.","titel":"Seat
-        law particular above here.","vertrouwelijkheidaanduiding":"ago","informatieobjecttype":"very","bestandsnaam":"benefit.bmp","creatiedatum":"2026-02-01","status":"everyone"},"sort":[1769904000000,0.0016296889]},{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.3798233E-8,"_source":{"beschrijving":"Upon
-        prove factor finish. Explain as by agency magazine little. Chair example certainly
-        million table they.","verschijningsvorm":"present","begin_registratie":"2026-03-19T10:43:33.572192","identificatie":"0fcee803-7cf0-484c-834c-32da588ca881","bronorganisatie":"Benton,
-        Roberts and Woods","bestandsomvang":1000000,"link":"https://www.davis.info/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://baker-brown.com/","taal":"br","auteur":"Karen
-        Johnson","formaat":"doc","inhoud":"Though chair crime rich happen. Reach challenge
-        include meet international.","titel":"By quality address feeling red pull
-        available.","vertrouwelijkheidaanduiding":"party","informatieobjecttype":"leg","bestandsnaam":"allow.wav","creatiedatum":"2026-01-01","status":"common"},"sort":[1767225600000,1.3798233E-8]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","_score":0.3488379,"_source":{"beschrijving":"Budget
+        product father difficult. Short consumer particularly really.","verschijningsvorm":"us","begin_registratie":"2026-02-28T10:58:06.536874","identificatie":"95161af8-3bf5-4974-9383-3fec32d05b40","bronorganisatie":"Lamb-Dorsey","bestandsomvang":1000000,"link":"http://haley.com/","uuid":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","url":"http://www.martinez-rios.com/","taal":"tn","auteur":"Raymond
+        Matthews","formaat":"numbers","titel":"House body let week.","vertrouwelijkheidaanduiding":"sister","informatieobjecttype":"individual","bestandsnaam":"particularly.mp3","creatiedatum":"2026-03-01","status":"station"},"sort":[1772323200000,0.3488379]},{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":0.0012835666,"_source":{"beschrijving":"Understand
+        garden brother hospital same keep account. Hit miss first just surface. He
+        moment garden tough have final focus than.","verschijningsvorm":"item","begin_registratie":"2026-03-20T14:45:08.594276","identificatie":"3e7341ad-e21c-409a-8ec9-3f7cd06cf7ae","bronorganisatie":"Lopez-Kent","bestandsomvang":1000000,"link":"http://beltran-martinez.com/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.coffey.com/","taal":"mr","auteur":"Alexis
+        Carter DDS","formaat":"avi","titel":"Tax feel choice above computer record
+        four quickly.","vertrouwelijkheidaanduiding":"yes","informatieobjecttype":"may","bestandsnaam":"return.css","creatiedatum":"2026-02-01","status":"blue"},"sort":[1769904000000,0.0012835666]},{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":9.254779E-9,"_source":{"beschrijving":"Some
+        charge customer. Really eight third huge. Participant local leave discover
+        tax quality school.","verschijningsvorm":"white","begin_registratie":"2026-03-10T03:51:43.394162","identificatie":"db56324f-f8e5-4835-839f-c156147c9c67","bronorganisatie":"Wilson,
+        Johnson and Harris","bestandsomvang":1000000,"link":"http://www.watts-huang.com/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://www.montgomery.net/","taal":"kl","auteur":"Taylor
+        Padilla","formaat":"mp3","titel":"Republican go lay myself.","vertrouwelijkheidaanduiding":"actually","informatieobjecttype":"life","bestandsnaam":"lay.bmp","creatiedatum":"2026-01-01","status":"history"},"sort":[1767225600000,9.254779E-9]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
