@@ -9,6 +9,10 @@ on:
   schedule:
     - cron: '32 20 * * 3'
 
+# least privilege as default, should be overridden per job if necessary
+permissions:
+  contents: read
+
 jobs:
   open-api-workflow-code-analysis:
     uses: maykinmedia/open-api-workflows/.github/workflows/code-analysis.yml@v6
