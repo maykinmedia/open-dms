@@ -26,7 +26,8 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
 
         self.assertEqual(data["count"], 1)
         results = data["results"]
-        self.assertEqual(results[0]["record"]["uuid"], doc["uuid"])
+
+        self.assertEqual(results[0]["uuid"], doc["uuid"])
 
     def test_pagination_next_and_previous(self):
         doc1 = IndexDocumentFactory.build(uuid="85a095ea-e1fa-438c-9e05-1862874f57a0")
@@ -65,7 +66,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         # ordered by creatiedatum
         self.assertEqual(len(data["results"]), 1)
         self.assertEqual(
-            data["results"][0]["record"]["uuid"],
+            data["results"][0]["uuid"],
             "80485d67-0b97-4ed5-8483-f2d03d012e19",
         )
 
@@ -92,9 +93,9 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
 
         self.assertEqual(data["count"], 3)
 
-        self.assertEqual(data["results"][0]["record"]["uuid"], doc3["uuid"])
-        self.assertEqual(data["results"][1]["record"]["uuid"], doc2["uuid"])
-        self.assertEqual(data["results"][2]["record"]["uuid"], doc1["uuid"])
+        self.assertEqual(data["results"][0]["uuid"], doc3["uuid"])
+        self.assertEqual(data["results"][1]["uuid"], doc2["uuid"])
+        self.assertEqual(data["results"][2]["uuid"], doc1["uuid"])
 
         # test if results have the same length as the count
         self.assertEqual(len(data["results"]), 3)
@@ -118,7 +119,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         data = response.json()
 
         self.assertEqual(len(data["results"]), 1)
-        hit = data["results"][0]["record"]
+        hit = data["results"][0]
         self.assertEqual(hit["uuid"], doc1["uuid"])
         self.assertEqual(hit["titel"], doc1["titel"])
         self.assertEqual(hit["identificatie"], doc1["identificatie"])
@@ -164,7 +165,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         # Check the priority according to field boosts
         # Boost priority:
         # identificatie > titel > beschrijving > document_data.attachment.content > url
-        uuids = [value["record"]["uuid"] for value in data["results"]]
+        uuids = [value["uuid"] for value in data["results"]]
         self.assertIn("3916925a-4260-4505-bfbb-0942113efd49", uuids)
         self.assertIn("d49bc304-01a1-4eda-a914-a8dda5c901e2", uuids)
         self.assertIn("bdcc4cea-b186-425e-8dcd-9fecb6818563", uuids)
@@ -197,7 +198,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
 
         self.assertEqual(data["count"], 1)
         self.assertEqual(
-            data["results"][0]["record"]["uuid"], "da45268a-ab21-4a81-bfc4-b0430edf339b"
+            data["results"][0]["uuid"], "da45268a-ab21-4a81-bfc4-b0430edf339b"
         )
 
     def test_broken_query_string_syntax(self):
@@ -249,7 +250,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(len(data["results"]), 1)
             # Document one
             self.assertEqual(
-                data["results"][0]["record"]["uuid"],
+                data["results"][0]["uuid"],
                 "d6eacab4-cb9f-42f7-abdf-719b358da923",
             )
 
@@ -261,7 +262,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
 
             self.assertEqual(len(data["results"]), 2)
-            uuids = {result["record"]["uuid"] for result in data["results"]}
+            uuids = {result["uuid"] for result in data["results"]}
             self.assertEqual(
                 uuids,
                 {
@@ -293,7 +294,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(len(data["results"]), 1)
             self.assertEqual(
-                data["results"][0]["record"]["uuid"],
+                data["results"][0]["uuid"],
                 "d6eacab4-cb9f-42f7-abdf-719b358da923",
             )
 
@@ -304,7 +305,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(len(data["results"]), 1)
             self.assertEqual(
-                data["results"][0]["record"]["uuid"],
+                data["results"][0]["uuid"],
                 "d6eacab4-cb9f-42f7-abdf-719b358da923",
             )
 
@@ -314,7 +315,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             data = response.json()
             self.assertEqual(len(data["results"]), 2)
-            uuids = {result["record"]["uuid"] for result in data["results"]}
+            uuids = {result["uuid"] for result in data["results"]}
             self.assertEqual(
                 uuids,
                 {
@@ -329,7 +330,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             data = response.json()
             self.assertEqual(len(data["results"]), 2)
-            uuids = {result["record"]["uuid"] for result in data["results"]}
+            uuids = {result["uuid"] for result in data["results"]}
             self.assertEqual(
                 uuids,
                 {
@@ -345,7 +346,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             data = response.json()
             self.assertEqual(len(data["results"]), 2)
-            uuids = {result["record"]["uuid"] for result in data["results"]}
+            uuids = {result["uuid"] for result in data["results"]}
             self.assertEqual(
                 uuids,
                 {
@@ -388,7 +389,7 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
                 "6aac4fb2-d532-490b-bd6b-87b0257c0236",
                 "ef1dead2-e0f8-45be-acf7-3583adc14906",
             }
-            ids = set(result["record"]["uuid"] for result in data["results"])
+            ids = set(result["uuid"] for result in data["results"])
             self.assertEqual(ids, expected_ids)
 
         with self.subTest(
@@ -402,7 +403,7 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(data["count"], 1)
             expected_ids = {"62fceb92-98bd-475c-b184-49ee8a274787"}
-            ids = set(result["record"]["uuid"] for result in data["results"])
+            ids = set(result["uuid"] for result in data["results"])
             self.assertEqual(ids, expected_ids)
 
         with self.subTest(
@@ -420,7 +421,7 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(data["count"], 1)
             expected_ids = {"6aac4fb2-d532-490b-bd6b-87b0257c0236"}
-            ids = set(result["record"]["uuid"] for result in data["results"])
+            ids = set(result["uuid"] for result in data["results"])
             self.assertEqual(ids, expected_ids)
 
     def test_dutch_analyzer(self):

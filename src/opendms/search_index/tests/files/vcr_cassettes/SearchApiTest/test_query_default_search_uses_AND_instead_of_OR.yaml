@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,11 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9c3360b8-2ce7-4742-9051-e586b686fc48","url":"http://www.simmons.biz/","identificatie":"eac35d10-c582-47e9-ba1d-adc5b6e8013f","bronorganisatie":"Armstrong
-      Group","titel":"Past bad yourself set.","beschrijving":"So evidence foreign
-      common accept necessary. Light risk her.","auteur":"Diane Dalton","taal":"hy","vertrouwelijkheidaanduiding":"reach","status":"theory","formaat":"txt","bestandsnaam":"remember.pdf","informatieobjecttype":"left","verschijningsvorm":"hour","inhoud":"Though
-      walk knowledge PM thus. Down if plant those really crime. Million voice share
-      line clear add science and.","bestandsomvang":1000000,"link":"https://www.martin.biz/","creatiedatum":"2026-02-27","begin_registratie":"2026-03-14T01:34:22.181160"}'
+    body: '{"uuid":"9c3360b8-2ce7-4742-9051-e586b686fc48","url":"http://www.dawson.biz/","identificatie":"ed77b949-b0b7-4636-b986-e875ffee342b","bronorganisatie":"Atkins
+      PLC","titel":"Score true executive you exist close.","beschrijving":"Follow
+      above employee where who stock. Sound decision western third catch though.","auteur":"Alex
+      Young","taal":"os","vertrouwelijkheidaanduiding":"should","status":"seek","formaat":"flac","bestandsnaam":"address.key","informatieobjecttype":"walk","verschijningsvorm":"social","bestandsomvang":1000000,"link":"http://www.carpenter.net/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-18T15:40:20.522691"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -154,7 +153,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -166,7 +165,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -194,12 +193,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"37eb1144-a3da-48d1-b2fb-88075f781611","url":"http://www.morrison-gray.com/","identificatie":"5fba6372-b82a-449d-9482-fdf71f298c1f","bronorganisatie":"Wilson,
-      Mooney and Young","titel":"Document one of many","beschrijving":"Environmental
-      water off mind inside usually decade serve. Price thank movement own sometimes
-      human.","auteur":"Charles Sparks","taal":"nds","vertrouwelijkheidaanduiding":"carry","status":"follow","formaat":"css","bestandsnaam":"teacher.csv","informatieobjecttype":"as","verschijningsvorm":"arm","inhoud":"Mission
-      two often cost now fish person ball. Owner defense their but. Summer machine
-      fine pretty much.","bestandsomvang":1000000,"link":"https://bryant-lee.com/","creatiedatum":"2026-02-24","begin_registratie":"2026-02-25T12:14:01.963833"}'
+    body: '{"uuid":"37eb1144-a3da-48d1-b2fb-88075f781611","url":"http://nelson.com/","identificatie":"976fa4e4-8faa-4fe3-af66-7c61a9daa391","bronorganisatie":"Sparks-Williams","titel":"Document
+      one of many","beschrijving":"Course air material third center soldier work much.
+      West PM despite.","auteur":"Danielle Hill","taal":"fo","vertrouwelijkheidaanduiding":"land","status":"career","formaat":"jpg","bestandsnaam":"including.ppt","informatieobjecttype":"plant","verschijningsvorm":"simple","bestandsomvang":1000000,"link":"https://www.wilson.com/","creatiedatum":"2026-02-24","begin_registratie":"2026-03-17T21:04:55.074686"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -269,7 +265,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -281,7 +277,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -309,10 +305,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"http://www.davidson.com/","identificatie":"21ca8854-bd2e-48e5-b513-23148ddecf7d","bronorganisatie":"Cunningham
-      Ltd","titel":"Document two of many","beschrijving":"Between maintain thus finally
-      good any her. Food class develop part group.","auteur":"Caroline Pineda","taal":"yi","vertrouwelijkheidaanduiding":"week","status":"beyond","formaat":"mov","bestandsnaam":"game.avi","informatieobjecttype":"reduce","verschijningsvorm":"team","inhoud":"Better
-      share long whole movie. Still program political onto especially join person.","bestandsomvang":1000000,"link":"http://erickson.biz/","creatiedatum":"2026-03-05","begin_registratie":"2026-03-20T04:29:06.830236"}'
+    body: '{"uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"https://obrien.com/","identificatie":"a888ad6a-75de-439a-889c-39512f1a0300","bronorganisatie":"Palmer-Rivera","titel":"Document
+      two of many","beschrijving":"Campaign term wide carry father. Someone himself
+      draw skin case.","auteur":"Kristen Thomas","taal":"kk","vertrouwelijkheidaanduiding":"series","status":"ball","formaat":"gif","bestandsnaam":"fight.docx","informatieobjecttype":"of","verschijningsvorm":"military","bestandsomvang":1000000,"link":"http://www.sanders.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-02-27T18:52:43.848094"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -359,11 +354,9 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"da45268a-ab21-4a81-bfc4-b0430edf339b","_score":3.2134025,"_source":{"beschrijving":"Between
-        maintain thus finally good any her. Food class develop part group.","verschijningsvorm":"team","begin_registratie":"2026-03-20T04:29:06.830236","identificatie":"21ca8854-bd2e-48e5-b513-23148ddecf7d","bronorganisatie":"Cunningham
-        Ltd","bestandsomvang":1000000,"link":"http://erickson.biz/","uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"http://www.davidson.com/","taal":"yi","auteur":"Caroline
-        Pineda","formaat":"mov","inhoud":"Better share long whole movie. Still program
-        political onto especially join person.","titel":"Document two of many","vertrouwelijkheidaanduiding":"week","informatieobjecttype":"reduce","bestandsnaam":"game.avi","creatiedatum":"2026-03-05","status":"beyond"},"sort":[3.2134025,1772668800000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"da45268a-ab21-4a81-bfc4-b0430edf339b","_score":5.5961075,"_source":{"beschrijving":"Campaign
+        term wide carry father. Someone himself draw skin case.","verschijningsvorm":"military","begin_registratie":"2026-02-27T18:52:43.848094","identificatie":"a888ad6a-75de-439a-889c-39512f1a0300","bronorganisatie":"Palmer-Rivera","bestandsomvang":1000000,"link":"http://www.sanders.com/","uuid":"da45268a-ab21-4a81-bfc4-b0430edf339b","url":"https://obrien.com/","taal":"kk","auteur":"Kristen
+        Thomas","formaat":"gif","titel":"Document two of many","vertrouwelijkheidaanduiding":"series","informatieobjecttype":"of","bestandsnaam":"fight.docx","creatiedatum":"2026-03-16","status":"ball"},"sort":[5.5961075,1773619200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

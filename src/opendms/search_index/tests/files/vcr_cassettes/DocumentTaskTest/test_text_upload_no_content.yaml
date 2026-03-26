@@ -27,7 +27,7 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Wed, 25 Mar 2026 15:33:43 GMT
+      - Thu, 26 Mar 2026 11:44:56 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -74,7 +74,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -86,7 +86,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -114,10 +114,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://brown-castro.com/","identificatie":"c3c3463c-92a7-480a-9ece-363a30f61f50","bronorganisatie":"English-Petty","titel":"Gun
-      suddenly chance activity name cover.","beschrijving":"Technology write away
-      cup road. This material there here walk pay husband. Media prevent clear others
-      century.","auteur":"Michael Morgan","taal":"gl","vertrouwelijkheidaanduiding":"reality","status":"forget","formaat":"txt","bestandsnaam":"or.wav","informatieobjecttype":"because","verschijningsvorm":"charge","inhoud":"http://localhost/document/empty","bestandsomvang":1000000,"link":"http://patterson.net/","creatiedatum":"2026-03-20","begin_registratie":"2026-03-13T19:25:07.615009","document_data":[{"document_data":""}]}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://jones.com/","identificatie":"a28e1a7d-c84c-4d82-9625-074f40778826","bronorganisatie":"Smith,
+      Peck and Simmons","titel":"Data woman window short.","beschrijving":"Degree
+      ten task history quickly forward. Worry set evidence medical.","auteur":"Matthew
+      Shannon","taal":"ca","vertrouwelijkheidaanduiding":"word","status":"direction","formaat":"xlsx","bestandsnaam":"now.ppt","informatieobjecttype":"skill","verschijningsvorm":"piece","bestandsomvang":1000000,"link":"http://www.pham.com/","creatiedatum":"2026-03-02","begin_registratie":"2026-02-24T14:20:22.919001","inhoud":"http://localhost/document/empty","document_data":[{"document_data":""}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -161,16 +161,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":1,"_seq_no":13,"_primary_term":1,"found":true,"_source":{"beschrijving":"Technology
-        write away cup road. This material there here walk pay husband. Media prevent
-        clear others century.","verschijningsvorm":"charge","begin_registratie":"2026-03-13T19:25:07.615009","identificatie":"c3c3463c-92a7-480a-9ece-363a30f61f50","bronorganisatie":"English-Petty","bestandsomvang":1000000,"link":"http://patterson.net/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://brown-castro.com/","taal":"gl","auteur":"Michael
-        Morgan","formaat":"txt","inhoud":"http://localhost/document/empty","titel":"Gun
-        suddenly chance activity name cover.","vertrouwelijkheidaanduiding":"reality","document_data":[{"attachment":{}}],"informatieobjecttype":"because","bestandsnaam":"or.wav","creatiedatum":"2026-03-20","status":"forget"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":1,"_seq_no":13,"_primary_term":1,"found":true,"_source":{"beschrijving":"Degree
+        ten task history quickly forward. Worry set evidence medical.","verschijningsvorm":"piece","begin_registratie":"2026-02-24T14:20:22.919001","identificatie":"a28e1a7d-c84c-4d82-9625-074f40778826","bronorganisatie":"Smith,
+        Peck and Simmons","bestandsomvang":1000000,"link":"http://www.pham.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://jones.com/","taal":"ca","auteur":"Matthew
+        Shannon","formaat":"xlsx","inhoud":"http://localhost/document/empty","titel":"Data
+        woman window short.","vertrouwelijkheidaanduiding":"word","document_data":[{"attachment":{}}],"informatieobjecttype":"skill","bestandsnaam":"now.ppt","creatiedatum":"2026-03-02","status":"direction"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '893'
+      - '836'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

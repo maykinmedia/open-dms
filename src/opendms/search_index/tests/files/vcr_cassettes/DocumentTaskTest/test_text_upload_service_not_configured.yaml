@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,9 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://bryan.com/","identificatie":"5c4a5e2c-c437-47e5-8eda-42755acb7045","bronorganisatie":"Robinson,
-      Stephens and Tucker","titel":"Some show present effect fish activity.","beschrijving":"Design
-      girl PM tax voice speech. Research recently yeah.","auteur":"Steven George","taal":"csb","vertrouwelijkheidaanduiding":"leave","status":"care","formaat":"csv","bestandsnaam":"power.png","informatieobjecttype":"debate","verschijningsvorm":"family","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"http://hernandez-benton.com/","creatiedatum":"2026-03-03","begin_registratie":"2026-03-13T22:09:22.408720"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.barrett.com/","identificatie":"399e4804-8dc8-428f-b224-013bfd1e979a","bronorganisatie":"Gibbs,
+      Smith and Cunningham","titel":"Friend teacher product act.","beschrijving":"Capital
+      over compare action laugh she our. Development life movie at fear range month.
+      Knowledge middle action candidate west sea reason.","auteur":"Jason Trujillo","taal":"gd","vertrouwelijkheidaanduiding":"themselves","status":"hospital","formaat":"flac","bestandsnaam":"someone.xls","informatieobjecttype":"half","verschijningsvorm":"once","bestandsomvang":1000000,"link":"https://hall-brown.info/","creatiedatum":"2026-03-04","begin_registratie":"2026-03-04T23:25:19.994233","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -126,16 +127,17 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":3,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"beschrijving":"Design
-        girl PM tax voice speech. Research recently yeah.","verschijningsvorm":"family","begin_registratie":"2026-03-13T22:09:22.408720","identificatie":"5c4a5e2c-c437-47e5-8eda-42755acb7045","bronorganisatie":"Robinson,
-        Stephens and Tucker","bestandsomvang":1000000,"link":"http://hernandez-benton.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://bryan.com/","taal":"csb","auteur":"Steven
-        George","formaat":"csv","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Some
-        show present effect fish activity.","vertrouwelijkheidaanduiding":"leave","informatieobjecttype":"debate","bestandsnaam":"power.png","creatiedatum":"2026-03-03","status":"care"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":3,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"beschrijving":"Capital
+        over compare action laugh she our. Development life movie at fear range month.
+        Knowledge middle action candidate west sea reason.","verschijningsvorm":"once","begin_registratie":"2026-03-04T23:25:19.994233","identificatie":"399e4804-8dc8-428f-b224-013bfd1e979a","bronorganisatie":"Gibbs,
+        Smith and Cunningham","bestandsomvang":1000000,"link":"https://hall-brown.info/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.barrett.com/","taal":"gd","auteur":"Jason
+        Trujillo","formaat":"flac","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Friend
+        teacher product act.","vertrouwelijkheidaanduiding":"themselves","informatieobjecttype":"half","bestandsnaam":"someone.xls","creatiedatum":"2026-03-04","status":"hospital"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '846'
+      - '923'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://wilson.com/","identificatie":"3832adaf-2682-4bfd-aa0c-2376f82c62d3","bronorganisatie":"Medina-Mcguire","titel":"Present
-      city benefit defense per speak center.","beschrijving":"Player then growth system
-      center increase. Outside moment yeah. Responsibility yeah performance director
-      herself local.","auteur":"Leonard Gonzalez","taal":"ne","vertrouwelijkheidaanduiding":"plant","status":"fish","formaat":"pptx","bestandsnaam":"because.png","informatieobjecttype":"ok","verschijningsvorm":"rule","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":1000000,"link":"https://hodges.info/","creatiedatum":"2026-02-24","begin_registratie":"2026-03-19T19:41:29.647101"}'
+    body: '{"uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://www.wright.com/","identificatie":"439bd78a-b335-46b7-ae12-5a7704829ad7","bronorganisatie":"Miller
+      LLC","titel":"Consider economy how believe economic.","beschrijving":"Individual
+      practice field from development too. Under home tonight data do event.","auteur":"Jon
+      Ponce","taal":"yi","vertrouwelijkheidaanduiding":"approach","status":"the","formaat":"mp4","bestandsnaam":"establish.csv","informatieobjecttype":"line","verschijningsvorm":"deal","bestandsomvang":1000000,"link":"https://www.williams.net/","creatiedatum":"2026-03-12","begin_registratie":"2026-03-19T06:47:54.172570","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -127,16 +127,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/ed19d46e-c367-4410-a891-88f20d232a03
   response:
     body:
-      string: '{"_index":"document","_id":"ed19d46e-c367-4410-a891-88f20d232a03","_version":1,"_seq_no":21,"_primary_term":1,"found":true,"_source":{"beschrijving":"Player
-        then growth system center increase. Outside moment yeah. Responsibility yeah
-        performance director herself local.","verschijningsvorm":"rule","begin_registratie":"2026-03-19T19:41:29.647101","identificatie":"3832adaf-2682-4bfd-aa0c-2376f82c62d3","bronorganisatie":"Medina-Mcguire","bestandsomvang":1000000,"link":"https://hodges.info/","uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://wilson.com/","taal":"ne","auteur":"Leonard
-        Gonzalez","formaat":"pptx","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Present
-        city benefit defense per speak center.","vertrouwelijkheidaanduiding":"plant","informatieobjecttype":"ok","bestandsnaam":"because.png","creatiedatum":"2026-02-24","status":"fish"}}'
+      string: '{"_index":"document","_id":"ed19d46e-c367-4410-a891-88f20d232a03","_version":1,"_seq_no":21,"_primary_term":1,"found":true,"_source":{"beschrijving":"Individual
+        practice field from development too. Under home tonight data do event.","verschijningsvorm":"deal","begin_registratie":"2026-03-19T06:47:54.172570","identificatie":"439bd78a-b335-46b7-ae12-5a7704829ad7","bronorganisatie":"Miller
+        LLC","bestandsomvang":1000000,"link":"https://www.williams.net/","uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://www.wright.com/","taal":"yi","auteur":"Jon
+        Ponce","formaat":"mp4","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Consider
+        economy how believe economic.","vertrouwelijkheidaanduiding":"approach","informatieobjecttype":"line","bestandsnaam":"establish.csv","creatiedatum":"2026-03-12","status":"the"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '894'
+      - '851'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -183,7 +183,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -195,7 +195,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -223,9 +223,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"da97b6cb-7211-4762-9673-21a08f508e85 ","url":"https://www.bell.biz/","identificatie":"7e140e14-d663-4200-945a-f2fe93fa6a91","bronorganisatie":"Lee-Turner","titel":"Someone
-      true item glass offer how foreign.","beschrijving":"Consumer Mrs home none necessary.
-      Not base politics meet also. Expect skill arrive message.","auteur":"Drew Barnes","taal":"ig","vertrouwelijkheidaanduiding":"instead","status":"operation","formaat":"bmp","bestandsnaam":"laugh.flac","informatieobjecttype":"peace","verschijningsvorm":"go","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":2000,"link":"http://powell.com/","creatiedatum":"2026-02-26","begin_registratie":"2026-03-08T22:51:01.861203"}'
+    body: '{"uuid":"da97b6cb-7211-4762-9673-21a08f508e85 ","url":"https://marquez-foley.com/","identificatie":"f14ba200-1d49-4a2e-ab32-edd86af7f666","bronorganisatie":"Heath,
+      Williams and Thompson","titel":"Economic remain why performance catch capital.","beschrijving":"Game
+      single soon everyone establish follow according. Family particularly job tell
+      really.","auteur":"Michael Wilson","taal":"hi","vertrouwelijkheidaanduiding":"blue","status":"them","formaat":"tiff","bestandsnaam":"data.wav","informatieobjecttype":"reality","verschijningsvorm":"officer","bestandsomvang":2000,"link":"http://www.mitchell.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-10T01:02:25.674929","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -269,16 +270,17 @@ interactions:
     uri: http://localhost:9201/document/_doc/da97b6cb-7211-4762-9673-21a08f508e85%20
   response:
     body:
-      string: '{"_index":"document","_id":"da97b6cb-7211-4762-9673-21a08f508e85 ","_version":1,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"beschrijving":"Consumer
-        Mrs home none necessary. Not base politics meet also. Expect skill arrive
-        message.","verschijningsvorm":"go","begin_registratie":"2026-03-08T22:51:01.861203","identificatie":"7e140e14-d663-4200-945a-f2fe93fa6a91","bronorganisatie":"Lee-Turner","bestandsomvang":2000,"link":"http://powell.com/","uuid":"da97b6cb-7211-4762-9673-21a08f508e85
-        ","url":"https://www.bell.biz/","taal":"ig","auteur":"Drew Barnes","formaat":"bmp","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Someone
-        true item glass offer how foreign.","vertrouwelijkheidaanduiding":"instead","informatieobjecttype":"peace","bestandsnaam":"laugh.flac","creatiedatum":"2026-02-26","status":"operation"}}'
+      string: '{"_index":"document","_id":"da97b6cb-7211-4762-9673-21a08f508e85 ","_version":1,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"beschrijving":"Game
+        single soon everyone establish follow according. Family particularly job tell
+        really.","verschijningsvorm":"officer","begin_registratie":"2026-03-10T01:02:25.674929","identificatie":"f14ba200-1d49-4a2e-ab32-edd86af7f666","bronorganisatie":"Heath,
+        Williams and Thompson","bestandsomvang":2000,"link":"http://www.mitchell.com/","uuid":"da97b6cb-7211-4762-9673-21a08f508e85
+        ","url":"https://marquez-foley.com/","taal":"hi","auteur":"Michael Wilson","formaat":"tiff","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Economic
+        remain why performance catch capital.","vertrouwelijkheidaanduiding":"blue","informatieobjecttype":"reality","bestandsnaam":"data.wav","creatiedatum":"2026-03-15","status":"them"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '858'
+      - '891'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -314,7 +316,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Wed, 25 Mar 2026 15:33:49 GMT
+      - Thu, 26 Mar 2026 11:45:02 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -361,7 +363,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -373,7 +375,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -401,10 +403,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"http://www.stone.org/","identificatie":"f05f0f00-7b82-4854-9abe-08cda40a879d","bronorganisatie":"Thompson-Smith","titel":"Lose
-      sometimes move nor you world although.","beschrijving":"Agency cold pay hundred
-      quickly. Learn paper place determine last very. Place treatment sort.","auteur":"Donald
-      Cortez","taal":"ps","vertrouwelijkheidaanduiding":"expert","status":"size","formaat":"flac","bestandsnaam":"Mr.mp3","informatieobjecttype":"stop","verschijningsvorm":"stock","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","bestandsomvang":800,"link":"https://www.swanson.biz/","creatiedatum":"2026-03-15","begin_registratie":"2026-02-26T04:59:48.816296","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
+    body: '{"uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"https://ross.info/","identificatie":"794471bd-671a-4704-a6ee-b772290dc427","bronorganisatie":"Smith-Jackson","titel":"Face
+      home often think month stock.","beschrijving":"Never its sport thought. National
+      listen question foreign husband throughout spend.","auteur":"Randy Garcia","taal":"wo","vertrouwelijkheidaanduiding":"describe","status":"time","formaat":"wav","bestandsnaam":"sell.wav","informatieobjecttype":"interesting","verschijningsvorm":"front","bestandsomvang":800,"link":"https://davidson.info/","creatiedatum":"2026-03-02","begin_registratie":"2026-03-08T17:35:38.561104","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -448,17 +449,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/554be64c-e6af-49b5-8af5-80e83155212d
   response:
     body:
-      string: '{"_index":"document","_id":"554be64c-e6af-49b5-8af5-80e83155212d","_version":1,"_seq_no":23,"_primary_term":1,"found":true,"_source":{"beschrijving":"Agency
-        cold pay hundred quickly. Learn paper place determine last very. Place treatment
-        sort.","verschijningsvorm":"stock","begin_registratie":"2026-02-26T04:59:48.816296","identificatie":"f05f0f00-7b82-4854-9abe-08cda40a879d","bronorganisatie":"Thompson-Smith","bestandsomvang":800,"link":"https://www.swanson.biz/","uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"http://www.stone.org/","taal":"ps","auteur":"Donald
-        Cortez","formaat":"flac","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Lose
-        sometimes move nor you world although.","vertrouwelijkheidaanduiding":"expert","document_data":[{"attachment":{"content":"Document
-        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"stop","bestandsnaam":"Mr.mp3","creatiedatum":"2026-03-15","status":"size"}}'
+      string: '{"_index":"document","_id":"554be64c-e6af-49b5-8af5-80e83155212d","_version":1,"_seq_no":23,"_primary_term":1,"found":true,"_source":{"beschrijving":"Never
+        its sport thought. National listen question foreign husband throughout spend.","verschijningsvorm":"front","begin_registratie":"2026-03-08T17:35:38.561104","identificatie":"794471bd-671a-4704-a6ee-b772290dc427","bronorganisatie":"Smith-Jackson","bestandsomvang":800,"link":"https://davidson.info/","uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"https://ross.info/","taal":"wo","auteur":"Randy
+        Garcia","formaat":"wav","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Face
+        home often think month stock.","vertrouwelijkheidaanduiding":"describe","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"interesting","bestandsnaam":"sell.wav","creatiedatum":"2026-03-02","status":"time"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '958'
+      - '942'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

@@ -409,6 +409,8 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
             drc_service=cls.documenten_service_2,
         )
 
+    # TODO more tests for documents from open-zaak
+    # TODO investigate why is slow without vcr
     def test_indexes_documents(self):
         index_all_documents()
         doc = None
@@ -418,7 +420,7 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
             doc = client.get_document(doc_uuid)
 
         self.assertIsNotNone(doc)
-        self.assertEqual(total_documents, 20)
+        self.assertEqual(total_documents, 20)  # total documents from VCR
         self.assertEqual(doc.uuid, doc_uuid)
         self.assertEqual(doc.identificatie, "DOCUMENT-2026-0000000001")
 
@@ -434,6 +436,6 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
             doc = client.get_document(doc_uuid)
 
         self.assertIsNotNone(doc)
-        self.assertEqual(total_documents, 20)
+        self.assertEqual(total_documents, 20)  # total documents from VCR
         self.assertEqual(doc.uuid, doc_uuid)
         self.assertEqual(doc.identificatie, "DOCUMENT-2026-0000000001")

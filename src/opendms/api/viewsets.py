@@ -24,6 +24,9 @@ from .serializers import (
 )
 from .typing import (
     DocumentsPaginatedResponse,
+    DocumentType,
+    PaginatedResponse,
+    SearchParameters,
     Zaak,
     ZaakType,
     ZaakTypenPaginatedResponse,
@@ -46,28 +49,28 @@ class SearchView(APIView):
         description=_("Search the document records."),
         request=SearchSerializer,
     )
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs) -> DocumentsPaginatedResponse:
         query_serializer = SearchSerializer(data=request.data)
         query_serializer.is_valid(raise_exception=True)
         params: SearchParameters = query_serializer.validated_data
 
         # TODO check if params are required or not
-
+        # TODO add test for the params
         with get_elasticsearch_client() as client:
             search_results = client.get_search_results(
                 query=params["query"],
                 creatiedatum_from=params["creatiedatum_vanaf"],
                 creatiedatum_to=params["creatiedatum_tot_en_met"],
-                page=(page := params["page"]),
-                page_size=(page_size := params["page_size"]),
+                page=params["page"],
+                page_size=params["page_size"],
                 sort=params["sort"],
             )
 
-        response = SearchResponseSerializer(
-            instance=search_results,
-            context={"page": page, "page_size": page_size},
+        results = [DocumentType(**record) for record in search_results.results]
+        serializer = DocumentSerializer(results, many=True)
+        return Response(
+            PaginatedResponse(count=search_results.total_count, results=serializer.data)
         )
-        return Response(response.data)
 
 
 class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
@@ -358,7 +361,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 return zaak["url"]
         return self._zaak_url
 
-    def get_object(self) -> Zaak | None:
+    def get_object(self) -> DocumentType | None:
         """
         Retrieve a single Document from the Elasticsearch index
 

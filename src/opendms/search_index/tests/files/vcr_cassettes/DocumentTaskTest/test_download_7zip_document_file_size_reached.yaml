@@ -21,19 +21,19 @@ interactions:
   response:
     body:
       string: !!binary |
-        N3q8ryccAARpPmjXiQAAAAAAAAAVAAAAAAAAAC0GYMHgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
-        AGtdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
-        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzQDNZBNGGyg4pYb1gr+Yqbk1UkAy6oYejFgAAABcG
-        FgEJcwAHCwEAASEhARgMgIUAAA==
+        N3q8ryccAAQw1YWZigAAAAAAAAAVAAAAAAAAAFj+mTzgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
+        AGxdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
+        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzQzThSkSxl2Ue0mm8GAXhy+qEHBJqq528SIAAAAAX
+        BhYBCXQABwsBAAEhIQEYDICFAAA=
     headers:
       Connection:
       - close
       Content-Length:
-      - '190'
+      - '191'
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Wed, 25 Mar 2026 15:33:38 GMT
+      - Thu, 26 Mar 2026 11:44:51 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -80,7 +80,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -92,7 +92,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -120,10 +120,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://chang.com/","identificatie":"90610036-8d55-44f7-b1f7-e4d15ab9e011","bronorganisatie":"Smith
-      Inc","titel":"Phone friend itself protect marriage recent.","beschrijving":"Voice
-      spend forget happy design theory record. Him black child though direction.","auteur":"Lauren
-      James","taal":"pt","vertrouwelijkheidaanduiding":"door","status":"couple","formaat":"json","bestandsnaam":"hospital.txt","informatieobjecttype":"culture","verschijningsvorm":"power","inhoud":"http://localhost/document/smol7zip","bestandsomvang":188,"link":"http://smith-morales.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-11T10:53:01.226416","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.rodriguez.com/","identificatie":"066c7941-d8f3-4971-8918-ad3ce5ae49b5","bronorganisatie":"Davis
+      LLC","titel":"Public ground program task environmental field television.","beschrijving":"Whom
+      finish section specific show population. Against building happy participant
+      economic because. Get chance involve couple will culture although. Particular
+      save great.","auteur":"Andre Rodriguez","taal":"sw","vertrouwelijkheidaanduiding":"strategy","status":"material","formaat":"docx","bestandsnaam":"return.css","informatieobjecttype":"science","verschijningsvorm":"central","bestandsomvang":188,"link":"http://davis.com/","creatiedatum":"2026-03-24","begin_registratie":"2026-03-12T13:47:19.807170","inhoud":"http://localhost/document/smol7zip","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -167,16 +168,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"beschrijving":"Voice
-        spend forget happy design theory record. Him black child though direction.","verschijningsvorm":"power","begin_registratie":"2026-03-11T10:53:01.226416","identificatie":"90610036-8d55-44f7-b1f7-e4d15ab9e011","bronorganisatie":"Smith
-        Inc","bestandsomvang":188,"link":"http://smith-morales.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://chang.com/","taal":"pt","auteur":"Lauren
-        James","formaat":"json","inhoud":"http://localhost/document/smol7zip","titel":"Phone
-        friend itself protect marriage recent.","vertrouwelijkheidaanduiding":"door","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"informatieobjecttype":"culture","bestandsnaam":"hospital.txt","creatiedatum":"2026-03-09","status":"couple"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"beschrijving":"Whom
+        finish section specific show population. Against building happy participant
+        economic because. Get chance involve couple will culture although. Particular
+        save great.","verschijningsvorm":"central","begin_registratie":"2026-03-12T13:47:19.807170","identificatie":"066c7941-d8f3-4971-8918-ad3ce5ae49b5","bronorganisatie":"Davis
+        LLC","bestandsomvang":188,"link":"http://davis.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.rodriguez.com/","taal":"sw","auteur":"Andre
+        Rodriguez","formaat":"docx","inhoud":"http://localhost/document/smol7zip","titel":"Public
+        ground program task environmental field television.","vertrouwelijkheidaanduiding":"strategy","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"informatieobjecttype":"science","bestandsnaam":"return.css","creatiedatum":"2026-03-24","status":"material"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1370'
+      - '1484'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

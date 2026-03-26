@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,12 +80,8 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.price.org/","identificatie":"4ce8634f-415e-4f5f-8677-e9cbda8e63c6","bronorganisatie":"Zimmerman,
-      Johnson and Shepard","titel":"","beschrijving":"Document one, on which we expect
-      an exact phrase match.","auteur":"Sheri Wilson","taal":"tl","vertrouwelijkheidaanduiding":"voice","status":"series","formaat":"jpg","bestandsnaam":"billion.pdf","informatieobjecttype":"toward","verschijningsvorm":"together","inhoud":"Cultural
-      position education white hold rate. It image interesting soldier teach debate
-      political suffer. American score drop part conference we. Painting watch data
-      response realize marriage.","bestandsomvang":1000000,"link":"https://www.larson-lyons.com/","creatiedatum":"2026-03-19","begin_registratie":"2026-03-20T23:10:07.153933"}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://holmes.com/","identificatie":"1335ff47-3896-48b6-91e8-26ea69c51925","bronorganisatie":"Murphy-Stein","titel":"","beschrijving":"Document
+      one, on which we expect an exact phrase match.","auteur":"Joseph Ward","taal":"doi","vertrouwelijkheidaanduiding":"answer","status":"ball","formaat":"ppt","bestandsnaam":"social.xls","informatieobjecttype":"history","verschijningsvorm":"thus","bestandsomvang":1000000,"link":"http://www.hale.com/","creatiedatum":"2026-03-04","begin_registratie":"2026-03-26T04:19:53.114473"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -155,7 +151,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452791762","number_of_replicas":"1","uuid":"pPLE_1q9SHiPdx039wFftA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -167,7 +163,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -195,11 +191,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.harrison.info/","identificatie":"bb714f4f-8302-48f3-ae22-38f68aeb6a5c","bronorganisatie":"Jensen
-      Inc","titel":"","beschrijving":"Document two, the document that came after one.","auteur":"Joshua
-      Stone","taal":"ve","vertrouwelijkheidaanduiding":"nor","status":"situation","formaat":"wav","bestandsnaam":"camera.json","informatieobjecttype":"cost","verschijningsvorm":"south","inhoud":"Piece
-      everything range watch nor. Other sort matter total join skill. Describe particularly
-      phone black hotel herself.","bestandsomvang":1000000,"link":"https://www.williams-graham.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-19T03:50:18.113613"}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.cooper-watkins.com/","identificatie":"4112c69b-8872-4e2f-9a4b-4ecb53e854de","bronorganisatie":"Holt,
+      Johnson and Hawkins","titel":"","beschrijving":"Document two, the document that
+      came after one.","auteur":"Samuel Barrera","taal":"af","vertrouwelijkheidaanduiding":"sure","status":"practice","formaat":"mp3","bestandsnaam":"baby.mp3","informatieobjecttype":"sort","verschijningsvorm":"since","bestandsomvang":1000000,"link":"https://rangel.biz/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-17T14:04:23.712463"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -246,12 +240,9 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.878582,"_source":{"beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"together","begin_registratie":"2026-03-20T23:10:07.153933","identificatie":"4ce8634f-415e-4f5f-8677-e9cbda8e63c6","bronorganisatie":"Zimmerman,
-        Johnson and Shepard","bestandsomvang":1000000,"link":"https://www.larson-lyons.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.price.org/","taal":"tl","auteur":"Sheri
-        Wilson","formaat":"jpg","inhoud":"Cultural position education white hold rate.
-        It image interesting soldier teach debate political suffer. American score
-        drop part conference we. Painting watch data response realize marriage.","titel":"","vertrouwelijkheidaanduiding":"voice","informatieobjecttype":"toward","bestandsnaam":"billion.pdf","creatiedatum":"2026-03-19","status":"series"},"sort":[4.878582,1773878400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.428223,"_source":{"beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"thus","begin_registratie":"2026-03-26T04:19:53.114473","identificatie":"1335ff47-3896-48b6-91e8-26ea69c51925","bronorganisatie":"Murphy-Stein","bestandsomvang":1000000,"link":"http://www.hale.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://holmes.com/","taal":"doi","auteur":"Joseph
+        Ward","formaat":"ppt","titel":"","vertrouwelijkheidaanduiding":"answer","informatieobjecttype":"history","bestandsnaam":"social.xls","creatiedatum":"2026-03-04","status":"ball"},"sort":[2.428223,1772582400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -280,16 +271,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":5.957121,"_source":{"beschrijving":"Document
-        two, the document that came after one.","verschijningsvorm":"south","begin_registratie":"2026-03-19T03:50:18.113613","identificatie":"bb714f4f-8302-48f3-ae22-38f68aeb6a5c","bronorganisatie":"Jensen
-        Inc","bestandsomvang":1000000,"link":"https://www.williams-graham.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.harrison.info/","taal":"ve","auteur":"Joshua
-        Stone","formaat":"wav","inhoud":"Piece everything range watch nor. Other sort
-        matter total join skill. Describe particularly phone black hotel herself.","titel":"","vertrouwelijkheidaanduiding":"nor","informatieobjecttype":"cost","bestandsnaam":"camera.json","creatiedatum":"2026-03-15","status":"situation"},"sort":[5.957121,1773532800000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.878582,"_source":{"beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"together","begin_registratie":"2026-03-20T23:10:07.153933","identificatie":"4ce8634f-415e-4f5f-8677-e9cbda8e63c6","bronorganisatie":"Zimmerman,
-        Johnson and Shepard","bestandsomvang":1000000,"link":"https://www.larson-lyons.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.price.org/","taal":"tl","auteur":"Sheri
-        Wilson","formaat":"jpg","inhoud":"Cultural position education white hold rate.
-        It image interesting soldier teach debate political suffer. American score
-        drop part conference we. Painting watch data response realize marriage.","titel":"","vertrouwelijkheidaanduiding":"voice","informatieobjecttype":"toward","bestandsnaam":"billion.pdf","creatiedatum":"2026-03-19","status":"series"},"sort":[4.878582,1773878400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":5.823202,"_source":{"beschrijving":"Document
+        two, the document that came after one.","verschijningsvorm":"since","begin_registratie":"2026-03-17T14:04:23.712463","identificatie":"4112c69b-8872-4e2f-9a4b-4ecb53e854de","bronorganisatie":"Holt,
+        Johnson and Hawkins","bestandsomvang":1000000,"link":"https://rangel.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.cooper-watkins.com/","taal":"af","auteur":"Samuel
+        Barrera","formaat":"mp3","titel":"","vertrouwelijkheidaanduiding":"sure","informatieobjecttype":"sort","bestandsnaam":"baby.mp3","creatiedatum":"2026-03-14","status":"practice"},"sort":[5.823202,1773446400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.4282227,"_source":{"beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"thus","begin_registratie":"2026-03-26T04:19:53.114473","identificatie":"1335ff47-3896-48b6-91e8-26ea69c51925","bronorganisatie":"Murphy-Stein","bestandsomvang":1000000,"link":"http://www.hale.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://holmes.com/","taal":"doi","auteur":"Joseph
+        Ward","formaat":"ppt","titel":"","vertrouwelijkheidaanduiding":"answer","informatieobjecttype":"history","bestandsnaam":"social.xls","creatiedatum":"2026-03-04","status":"ball"},"sort":[2.4282227,1772582400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

@@ -22,8 +22,8 @@ class DocumentTests(VCRMixin, ElasticSearchAPITestCase, APITestCase):
             drc_service=cls.drc_service,
         )
 
-        cls.zaaktype_uuid = "1f41885e-23fc-4462-bbc8-80be4ae484dc"
-        cls.zaak_uuid = "d3efda94-12a9-4969-80e2-bb9b20e3039e"
+        cls.zaaktype_uuid = "d5080f2c-f2f3-4b97-b587-0150f2dced1d"
+        cls.zaak_uuid = "da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d"
         cls.list_url = reverse(
             "api:documents-list",
             kwargs={
@@ -42,25 +42,25 @@ class DocumentTests(VCRMixin, ElasticSearchAPITestCase, APITestCase):
                 "count": 1,
                 "results": [
                     {
-                        "uuid": "51719a8e-a28f-4e6e-89a9-593c1e98f57c",
-                        "url": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c",
+                        "uuid": "ea16fa8c-4bab-4065-a28a-f6574625205d",
+                        "url": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d",
                         "identificatie": "DOCUMENT-2026-0000000001",
-                        "bronorganisatie": "123456782",
-                        "creatiedatum": "2026-03-20",
-                        "titel": "123456782",
-                        "auteur": "123456782",
-                        "taal": "123",
-                        "beginRegistratie": "2026-03-20T10:14:19.275987Z",
-                        "informatieobjecttype": "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e",
-                        "vertrouwelijkheidaanduiding": "",
+                        "bronorganisatie": "000000115",
+                        "creatiedatum": "2026-01-15",
+                        "titel": "aanvraag formulier",
+                        "auteur": "Niek van den Berg",
+                        "taal": "nld",
+                        "beginRegistratie": "2026-03-25T13:51:49.784000Z",
+                        "informatieobjecttype": "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab",
+                        "vertrouwelijkheidaanduiding": "confidentieel",
                         "status": "",
                         "formaat": "",
                         "bestandsnaam": "",
                         "link": "",
                         "beschrijving": "",
                         "verschijningsvorm": "",
-                        "bestandsomvang": 123456782,
-                        "inhoud": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c/download?versie=1",
+                        "bestandsomvang": None,
+                        "inhoud": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1",
                     }
                 ],
             },
@@ -82,7 +82,7 @@ class DocumentTests(VCRMixin, ElasticSearchAPITestCase, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
         # ok response
-        document_uuid = "51719a8e-a28f-4e6e-89a9-593c1e98f57c"
+        document_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
         response = self.client.get(
             reverse(
                 "api:documents-detail",
@@ -98,30 +98,30 @@ class DocumentTests(VCRMixin, ElasticSearchAPITestCase, APITestCase):
         self.assertEqual(
             response.json(),
             {
-                "uuid": "51719a8e-a28f-4e6e-89a9-593c1e98f57c",
-                "url": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c",
+                "uuid": document_uuid,
+                "url": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d",
                 "identificatie": "DOCUMENT-2026-0000000001",
-                "bronorganisatie": "123456782",
-                "creatiedatum": "2026-03-20",
-                "titel": "123456782",
-                "auteur": "123456782",
-                "taal": "123",
-                "beginRegistratie": "2026-03-20T10:14:19.275987Z",
-                "informatieobjecttype": "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7755ab0f-9e37-4834-8bbf-158f9f2da38e",
-                "vertrouwelijkheidaanduiding": "",
+                "bronorganisatie": "000000115",
+                "creatiedatum": "2026-01-15",
+                "titel": "aanvraag formulier",
+                "auteur": "Niek van den Berg",
+                "taal": "nld",
+                "beginRegistratie": "2026-03-25T13:51:49.784000Z",
+                "informatieobjecttype": "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab",
+                "vertrouwelijkheidaanduiding": "confidentieel",
                 "status": "",
                 "formaat": "",
                 "bestandsnaam": "",
                 "link": "",
                 "beschrijving": "",
                 "verschijningsvorm": "",
-                "bestandsomvang": 123456782,
-                "inhoud": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/51719a8e-a28f-4e6e-89a9-593c1e98f57c/download?versie=1",
+                "bestandsomvang": None,
+                "inhoud": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1",
             },
         )
 
     def test_read_only(self):
-        document_uuid = "51719a8e-a28f-4e6e-89a9-593c1e98f57c"
+        document_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
         detail_url = reverse(
             "api:documents-detail",
             kwargs={

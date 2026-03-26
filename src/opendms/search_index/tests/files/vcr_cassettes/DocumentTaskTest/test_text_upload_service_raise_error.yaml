@@ -29,7 +29,7 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Wed, 25 Mar 2026 15:33:45 GMT
+      - Thu, 26 Mar 2026 11:44:58 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -76,7 +76,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -88,7 +88,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,10 +116,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.johnson.com/","identificatie":"d87440ed-47c7-421f-8323-3830d552673d","bronorganisatie":"Lin
-      and Sons","titel":"Yes ready behavior democratic necessary.","beschrijving":"Necessary
-      back no animal yourself. Inside direction open. Character interest radio whose
-      myself.","auteur":"Andrew Allen","taal":"mag","vertrouwelijkheidaanduiding":"spend","status":"hard","formaat":"webm","bestandsnaam":"my.odt","informatieobjecttype":"I","verschijningsvorm":"choice","inhoud":"http://localhost/document/error","bestandsomvang":1000000,"link":"https://tapia.com/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-19T04:44:51.171521"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://jackson-thomas.com/","identificatie":"f14822c5-1565-4cb2-ac08-b3b16e8d0fd0","bronorganisatie":"Blair-Reese","titel":"Next
+      return what force their way word sister.","beschrijving":"Keep clearly various
+      great series state executive. Account early theory economic. Soldier mouth nearly
+      meet.","auteur":"Sarah Brown","taal":"lij","vertrouwelijkheidaanduiding":"paper","status":"impact","formaat":"jpg","bestandsnaam":"manage.css","informatieobjecttype":"expect","verschijningsvorm":"personal","bestandsomvang":1000000,"link":"https://www.adams-watkins.com/","creatiedatum":"2026-03-02","begin_registratie":"2026-03-01T05:06:32.008826","inhoud":"http://localhost/document/error"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -163,17 +163,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"beschrijving":"Necessary
-        back no animal yourself. Inside direction open. Character interest radio whose
-        myself.","verschijningsvorm":"choice","begin_registratie":"2026-03-19T04:44:51.171521","identificatie":"d87440ed-47c7-421f-8323-3830d552673d","bronorganisatie":"Lin
-        and Sons","bestandsomvang":1000000,"link":"https://tapia.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.johnson.com/","taal":"mag","auteur":"Andrew
-        Allen","formaat":"webm","inhoud":"http://localhost/document/error","titel":"Yes
-        ready behavior democratic necessary.","vertrouwelijkheidaanduiding":"spend","informatieobjecttype":"I","bestandsnaam":"my.odt","creatiedatum":"2026-03-18","status":"hard"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"beschrijving":"Keep
+        clearly various great series state executive. Account early theory economic.
+        Soldier mouth nearly meet.","verschijningsvorm":"personal","begin_registratie":"2026-03-01T05:06:32.008826","identificatie":"f14822c5-1565-4cb2-ac08-b3b16e8d0fd0","bronorganisatie":"Blair-Reese","bestandsomvang":1000000,"link":"https://www.adams-watkins.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://jackson-thomas.com/","taal":"lij","auteur":"Sarah
+        Brown","formaat":"jpg","inhoud":"http://localhost/document/error","titel":"Next
+        return what force their way word sister.","vertrouwelijkheidaanduiding":"paper","informatieobjecttype":"expect","bestandsnaam":"manage.css","creatiedatum":"2026-03-02","status":"impact"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '828'
+      - '869'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

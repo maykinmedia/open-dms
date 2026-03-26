@@ -187,18 +187,9 @@ class ElasticSearchClient:
         response = search.execute()
 
         # process the results
-        results = [
-            SearchResult(
-                type=hit.meta.index,
-                # ES-DSL typing isn't fancy enough yet...
-                record=hit,  # pyright: ignore[reportArgumentType]
-            )
-            for hit in response.hits
-        ]
-
         return DocumentResults(
             total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
-            results=results,
+            results=[hit for hit in response.hits],
         )
 
     def get_all_documents(self, page: int = 1, page_size: int = 10) -> DocumentResults:

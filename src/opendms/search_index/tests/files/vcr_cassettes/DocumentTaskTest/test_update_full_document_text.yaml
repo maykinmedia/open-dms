@@ -29,7 +29,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Wed, 25 Mar 2026 15:33:50 GMT
+      - Thu, 26 Mar 2026 11:45:03 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -76,7 +76,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -88,7 +88,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,9 +116,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://greene.com/","identificatie":"7377421e-95ba-4e72-9749-e81c3d9a1634","bronorganisatie":"Santos
-      Ltd","titel":"Tough card decide since something attack well.","beschrijving":"Offer
-      religious newspaper where whole.","auteur":"Stephen Hicks","taal":"kw","vertrouwelijkheidaanduiding":"church","status":"wish","formaat":"jpeg","bestandsnaam":"low.ods","informatieobjecttype":"unit","verschijningsvorm":"case","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","bestandsomvang":1000,"link":"https://smith.com/","creatiedatum":"2026-03-21","begin_registratie":"2026-03-02T15:47:48.924075","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://pham.com/","identificatie":"6ff700cf-868e-4163-96e8-a1a2a449f605","bronorganisatie":"Jordan-Wells","titel":"Relationship
+      window important per change when eat work.","beschrijving":"Note common officer
+      plant. Us bed cell tend force. Pm main quite language attorney everything truth.","auteur":"Connie
+      Blake","taal":"de","vertrouwelijkheidaanduiding":"prove","status":"mouth","formaat":"docx","bestandsnaam":"beyond.flac","informatieobjecttype":"alone","verschijningsvorm":"country","bestandsomvang":1000,"link":"https://gordon.com/","creatiedatum":"2026-03-07","begin_registratie":"2026-02-24T16:34:37.992550","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -162,17 +163,17 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"beschrijving":"Offer
-        religious newspaper where whole.","verschijningsvorm":"case","begin_registratie":"2026-03-02T15:47:48.924075","identificatie":"7377421e-95ba-4e72-9749-e81c3d9a1634","bronorganisatie":"Santos
-        Ltd","bestandsomvang":1000,"link":"https://smith.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://greene.com/","taal":"kw","auteur":"Stephen
-        Hicks","formaat":"jpeg","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Tough
-        card decide since something attack well.","vertrouwelijkheidaanduiding":"church","document_data":[{"attachment":{"content":"Document
-        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"informatieobjecttype":"unit","bestandsnaam":"low.ods","creatiedatum":"2026-03-21","status":"wish"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"beschrijving":"Note
+        common officer plant. Us bed cell tend force. Pm main quite language attorney
+        everything truth.","verschijningsvorm":"country","begin_registratie":"2026-02-24T16:34:37.992550","identificatie":"6ff700cf-868e-4163-96e8-a1a2a449f605","bronorganisatie":"Jordan-Wells","bestandsomvang":1000,"link":"https://gordon.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://pham.com/","taal":"de","auteur":"Connie
+        Blake","formaat":"docx","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Relationship
+        window important per change when eat work.","vertrouwelijkheidaanduiding":"prove","document_data":[{"attachment":{"content":"Document
+        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"informatieobjecttype":"alone","bestandsnaam":"beyond.flac","creatiedatum":"2026-03-07","status":"mouth"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '895'
+      - '973'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -208,7 +209,7 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Wed, 25 Mar 2026 15:33:51 GMT
+      - Thu, 26 Mar 2026 11:45:04 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
@@ -255,7 +256,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774452815593","number_of_replicas":"1","uuid":"A2u5xWxMRFSSf5sRtOCZpQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -267,7 +268,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"beschrijving":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -295,10 +296,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://www.moore.com/","identificatie":"a8ef49ba-9c27-4914-8688-ca585a822d0f","bronorganisatie":"Roberts
-      Group","titel":"Avoid beyond sell here provide toward.","beschrijving":"Hit
-      play wall. Price large collection doctor even. Attorney resource can point remember
-      threat return.","auteur":"Linda Russo","taal":"tk","vertrouwelijkheidaanduiding":"vote","status":"anyone","formaat":"pptx","bestandsnaam":"economic.png","informatieobjecttype":"form","verschijningsvorm":"long","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","bestandsomvang":1000,"link":"https://www.johnston.org/","creatiedatum":"2026-03-22","begin_registratie":"2026-03-23T21:47:28.034379","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://wilson.com/","identificatie":"2713febf-9f6e-4870-9f57-e78ec6ede01e","bronorganisatie":"Brown,
+      Gonzalez and Adams","titel":"Stop thousand scene customer individual.","beschrijving":"Glass
+      light voice away itself. Wrong sort none authority forward. Top goal them bank
+      owner health difference reason.","auteur":"Rhonda Johnson","taal":"hi","vertrouwelijkheidaanduiding":"nature","status":"soon","formaat":"mp3","bestandsnaam":"minute.tiff","informatieobjecttype":"sometimes","verschijningsvorm":"however","bestandsomvang":1000,"link":"https://evans-conner.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-08T22:43:37.230153","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -340,18 +341,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"beschrijving":"Hit
-        play wall. Price large collection doctor even. Attorney resource can point
-        remember threat return.","verschijningsvorm":"long","begin_registratie":"2026-03-23T21:47:28.034379","identificatie":"a8ef49ba-9c27-4914-8688-ca585a822d0f","bronorganisatie":"Roberts
-        Group","bestandsomvang":1000,"link":"https://www.johnston.org/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://www.moore.com/","taal":"tk","auteur":"Linda
-        Russo","formaat":"pptx","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Avoid
-        beyond sell here provide toward.","vertrouwelijkheidaanduiding":"vote","document_data":[{"attachment":{"content":"Document
-        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"informatieobjecttype":"form","bestandsnaam":"economic.png","creatiedatum":"2026-03-22","status":"anyone"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"beschrijving":"Glass
+        light voice away itself. Wrong sort none authority forward. Top goal them
+        bank owner health difference reason.","verschijningsvorm":"however","begin_registratie":"2026-03-08T22:43:37.230153","identificatie":"2713febf-9f6e-4870-9f57-e78ec6ede01e","bronorganisatie":"Brown,
+        Gonzalez and Adams","bestandsomvang":1000,"link":"https://evans-conner.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://wilson.com/","taal":"hi","auteur":"Rhonda
+        Johnson","formaat":"mp3","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Stop
+        thousand scene customer individual.","vertrouwelijkheidaanduiding":"nature","document_data":[{"attachment":{"content":"Document
+        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"informatieobjecttype":"sometimes","bestandsnaam":"minute.tiff","creatiedatum":"2026-03-09","status":"soon"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '967'
+      - '1001'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
