@@ -282,6 +282,10 @@ CELERY_BEAT_SCHEDULE = {
         "task": "opendms.search_index.document_task.index_all_documents",
         "schedule": crontab(minute=0),
     },
+    "validate_expired_documents": {
+        "task": "opendms.search_index.document_task.validate_expired_documents",
+        "schedule": crontab(minute=30),
+    },
     "update_zaken_hourly": {
         "task": "opendms.search_index.zaak_task.index_all_zaken",
         "schedule": crontab(minute=5),

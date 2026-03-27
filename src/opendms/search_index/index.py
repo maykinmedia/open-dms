@@ -81,6 +81,8 @@ class Document(ES_Document):
 
     zaak_referenties: M[list[ZaakReferenties]] = mapped_field(Nested(ZaakReferenties))
 
+    verloopt_op: M[datetime] = mapped_field(Date())
+
     if TYPE_CHECKING:
         # help the type checkers a little bit
         _id: str

@@ -1,0 +1,166 @@
+interactions:
+- request:
+    body: '{"uuid":"doc-valid","url":"https://beasley.com/","identificatie":"0df83412-ab94-4ad7-b582-55a7b40b4d28","bronorganisatie":"Massey-Thompson","creatiedatum":"2026-02-26","titel":"Poor
+      piece institution risk his real.","auteur":"Tyler Camacho","taal":"as","begin_registratie":"2026-02-18T21:19:33.020789","informatieobjecttype":"way","vertrouwelijkheidaanduiding":"off","status":"great","formaat":"ods","bestandsnaam":"group.pptx","link":"https://www.silva.biz/","beschrijving":"Teach
+      walk game tax. Size it bed and similar recognize.","verschijningsvorm":"economy","verloopt_op":"2026-03-24T11:59:24.108694+00:00"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/doc-valid?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"doc-valid","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/doc-valid
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '149'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_refresh
+  response:
+    body:
+      string: '{"_shards":{"total":2,"successful":1,"failed":0}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '49'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_count
+  response:
+    body:
+      string: '{"count":1,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '71'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"range":{"verloopt_op":{"lte":"2026-03-19T11:59:24.891306+00:00"}}},"size":100}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":0,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_refresh
+  response:
+    body:
+      string: '{"_shards":{"total":2,"successful":1,"failed":0}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '49'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_count
+  response:
+    body:
+      string: '{"count":1,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '71'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
