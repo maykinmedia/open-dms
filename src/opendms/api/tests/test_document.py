@@ -3,12 +3,11 @@ from rest_framework import status
 from vng_api_common.tests import reverse
 
 from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
-from opendms.search_index.tests.base import ElasticSearchAPITestCase
 
 from .api_testcase import APITestCase
 
 
-class DocumentTests(VCRMixin, ElasticSearchAPITestCase, APITestCase):
+class DocumentTests(VCRMixin, APITestCase):
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
