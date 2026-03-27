@@ -439,6 +439,50 @@ paths:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
+  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/download:
+    get:
+      operationId: documentDownload
+      description: Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT.
+      summary: documentsDownload
+      parameters:
+      - in: path
+        name: documentUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zaaktypenZaaktypeUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zakenZaakUuid
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+          description: De binaire bestandsinhoud
   /api/v1/services/{slug}:
     get:
       operationId: apiV1ServicesRetrieve

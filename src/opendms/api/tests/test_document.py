@@ -3,12 +3,11 @@ from rest_framework import status
 from vng_api_common.tests import reverse
 
 from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
-from opendms.search_index.tests.base import ElasticSearchAPITestCase
 
 from .api_testcase import APITestCase
 
 
-class DocumentTests(VCRMixin, ElasticSearchAPITestCase, APITestCase):
+class DocumentTests(VCRMixin, APITestCase):
     @classmethod
     def setUpTestData(cls):
         super().setUpTestData()
@@ -119,6 +118,40 @@ class DocumentTests(VCRMixin, ElasticSearchAPITestCase, APITestCase):
                 "inhoud": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1",
             },
         )
+
+    def test_download(self):
+        document_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
+        response = self.client.get(
+            reverse(
+                "api:documents-download",
+                kwargs={
+                    "service_slug": self.ztc_service.slug,
+                    "zaaktypen_zaaktype_uuid": self.zaaktype_uuid,
+                    "zaken_zaak_uuid": self.zaak_uuid,
+                    "document_uuid": document_uuid,
+                },
+            )
+        )
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            b"".join(chunk for chunk in response.streaming_content),
+            b"Test 1 -> OpenDMS\n",
+        )
+
+        # no document
+        document_uuid = "819c31fc-81e0-4d96-990f-6221cbe987c6"
+        response = self.client.get(
+            reverse(
+                "api:documents-download",
+                kwargs={
+                    "service_slug": self.ztc_service.slug,
+                    "zaaktypen_zaaktype_uuid": self.zaaktype_uuid,
+                    "zaken_zaak_uuid": "df01f13a-844d-4901-9fe4-dd19603557c2",
+                    "document_uuid": document_uuid,
+                },
+            )
+        )
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
 
     def test_read_only(self):
         document_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
