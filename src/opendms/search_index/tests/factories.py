@@ -40,7 +40,7 @@ class IndexDocumentFactory(factory.Factory):
     link = factory.Faker("url")
     creatiedatum = factory.Faker("past_date")
     begin_registratie = factory.Faker("past_datetime")
-    verloopt_op = None
+    verloopt_op = factory.Faker("date")
 
     zaak_referenties = factory.List([factory.SubFactory(NestedzaakFactory)])
 

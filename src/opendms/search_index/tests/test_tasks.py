@@ -3,6 +3,8 @@ from unittest.mock import patch
 
 from django.test import override_settings
 
+from celery import current_app
+from freezegun import freeze_time
 from maykin_common.vcr import VCRMixin
 
 from opendms.api.models import ZGWApiGroupConfig
@@ -45,6 +47,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 verschijningsvorm=None,
                 bestandsomvang=1000,  # was file_size
+                verloopt_op=date(2026, 1, 5),
             )
 
             client.index_document(doc)
@@ -105,6 +108,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 beschrijving="Changed description",
                 verschijningsvorm=None,
                 bestandsomvang=500,
+                verloopt_op=date(2026, 1, 5),
             )
 
             with get_elasticsearch_client() as client:
@@ -510,19 +514,16 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         cls.service1 = ServiceFactory.create(for_drc_service_docker_compose=True)
         ZGWApiGroupConfigFactory.create(drc_service=cls.service1)
 
-        cls.service2 = ServiceFactory.create(for_drc_service_docker_compose=True)
-        ZGWApiGroupConfigFactory.create(drc_service=cls.service2)
-
     @freeze_time("2026-03-30T12:00:00Z")
     def test_validate_extends_or_deletes_documents(self):
         now = datetime.now(UTC)
         expired_date = now - timedelta(days=1)
         extension_days = 7
 
-        docs = [
+        documents = [
             IndexDocumentFactory.build(
                 uuid="11111111-1111-1111-1111-111111111111",
-                verloopt_op=now - timedelta(days=2),  # expired, deleted
+                verloopt_op=now - timedelta(days=2),  # expired, should be deleted
             ),
             IndexDocumentFactory.build(
                 uuid="22222222-2222-2222-2222-222222222222",
@@ -537,31 +538,24 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
                 verloopt_op=now + timedelta(days=10),  # not expired
             ),
             IndexDocumentFactory.build(
-                uuid="3101c6f8-6124-4d11-bd5f-98d8a662ebe8",
+                uuid="c4a2d123-1817-4b3a-a330-67c1282b1594",
                 verloopt_op=now - timedelta(days=1),  # expired but should be extended
             ),
         ]
 
-        for doc in docs:
-            index_document(**doc)
-
         with get_elasticsearch_client() as client:
-            client.indices.refresh(index="document")
-            docs_before = Document.search(using=client).execute()
-            self.assertEqual(len(docs_before), len(docs))
+            for doc in documents:
+                client.index_document(doc)
 
         validate_expired_documents(batch_size=10)
 
         with get_elasticsearch_client() as client:
-            client.indices.refresh(index="document")
-            docs_after = Document.search(using=client).execute()
-            uuids_after = [d.uuid for d in docs_after]
+            docs_after = client.get_all_documents()
+            uuids_after = [d.uuid for d in docs_after.results]
 
             # The document we validate should still exist and be extended
-            self.assertIn("3101c6f8-6124-4d11-bd5f-98d8a662ebe8", uuids_after)
-            validated_doc = Document.get(
-                using=client, id="3101c6f8-6124-4d11-bd5f-98d8a662ebe8"
-            )
+            self.assertIn("c4a2d123-1817-4b3a-a330-67c1282b1594", uuids_after)
+            validated_doc = client.get_document("c4a2d123-1817-4b3a-a330-67c1282b1594")
             self.assertGreater(validated_doc.verloopt_op, expired_date)
             self.assertAlmostEqual(
                 validated_doc.verloopt_op,
@@ -574,7 +568,7 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
                 "33333333-3333-3333-3333-333333333333",
                 "44444444-4444-4444-4444-444444444444",
             ]:
-                doc = Document.get(using=client, id=uuid)
+                doc = client.get_document(uuid)
                 self.assertGreater(doc.verloopt_op, now)
 
             # Expired documents that are supposed to be deleted should not exist
@@ -582,25 +576,22 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
                 "11111111-1111-1111-1111-111111111111",
                 "22222222-2222-2222-2222-222222222222",
             ]:
-                with self.assertRaises(NotFoundError):
-                    Document.get(using=client, id=uuid)
+                doc = client.get_document(uuid)
+                self.assertIsNone(doc)
 
     def test_no_expired_documents(self):
         doc = IndexDocumentFactory.build(
             uuid="doc-valid",
             verloopt_op=datetime.now(UTC) + timedelta(days=5),
         )
-        index_document(**doc)
-
         with get_elasticsearch_client() as client:
-            client.indices.refresh(index="document")
-            count_before = Document.search(using=client).count()
+            client.index_document(doc)
+            count_before = client.get_total_count()
 
         validate_expired_documents()
 
         with get_elasticsearch_client() as client:
-            client.indices.refresh(index="document")
-            count_after = Document.search(using=client).count()
+            count_after = client.get_total_count()
 
         self.assertEqual(count_before, count_after)
 
@@ -612,39 +603,42 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         docs = [
             IndexDocumentFactory.build(
                 uuid="11111111-1111-1111-1111-111111111111",
-                verloopt_op=now - timedelta(days=1),  # expired, deleted
+                verloopt_op=now - timedelta(days=1),
             ),
             IndexDocumentFactory.build(
-                uuid="3101c6f8-6124-4d11-bd5f-98d8a662ebe8",
-                verloopt_op=now - timedelta(days=1),  # expired, extended
+                uuid="c4a2d123-1817-4b3a-a330-67c1282b1594",
+                verloopt_op=now - timedelta(days=1),
             ),
         ]
-        for doc in docs:
-            index_document(**doc)
-
-        schedule = current_app.conf.beat_schedule
-        task_entry = schedule.get("validate_expired_documents")
-        self.assertIsNotNone(task_entry)
-        self.assertEqual(
-            task_entry["task"],
-            "opendms.search_index.document_task.validate_expired_documents",
-        )
-        self.assertIsInstance(task_entry["schedule"], crontab)
-
-        current_app.tasks[task_entry["task"]].apply()
 
         with get_elasticsearch_client() as client:
-            client.indices.refresh(index="document")
+            for doc in docs:
+                client.index_document(doc)
 
-            extended = Document.get(
-                using=client, id="3101c6f8-6124-4d11-bd5f-98d8a662ebe8"
-            )
-            self.assertGreater(extended.verloopt_op, now)
-            self.assertAlmostEqual(
-                extended.verloopt_op,
-                now + timedelta(days=extension_days),
-                delta=timedelta(seconds=1),
-            )
+            schedule = current_app.conf.beat_schedule
+            task_entry = schedule.get("validate_expired_documents")
 
-            with self.assertRaises(NotFoundError):
-                Document.get(using=client, id="11111111-1111-1111-1111-111111111111")
+            with self.subTest("Verify task schedule"):
+                self.assertIsNotNone(task_entry)
+                self.assertEqual(
+                    task_entry["task"],
+                    "opendms.search_index.document_task.validate_expired_documents",
+                )
+                from celery.schedules import crontab
+
+                self.assertIsInstance(task_entry["schedule"], crontab)
+
+                current_app.tasks[task_entry["task"]].apply()
+
+            with self.subTest("Check extended and deleted documents"):
+                extended = client.get_document("c4a2d123-1817-4b3a-a330-67c1282b1594")
+                self.assertIsNotNone(extended)
+                self.assertGreater(extended.verloopt_op, now)
+                self.assertAlmostEqual(
+                    extended.verloopt_op,
+                    now + timedelta(days=extension_days),
+                    delta=timedelta(seconds=1),
+                )
+
+                deleted = client.get_document("11111111-1111-1111-1111-111111111111")
+                self.assertIsNone(deleted)
