@@ -268,6 +268,10 @@ CELERY_BEAT_SCHEDULE = {
         "task": "opendms.search_index.document_task.index_all_documents",
         "schedule": crontab(minute=0),
     },
+    "validate_expired_documents": {
+        "task": "opendms.search_index.document_task.validate_expired_documents",
+        "schedule": crontab(minute=30),
+    },
 }
 
 # Only ACK when the task has been executed. This prevents tasks from getting lost, with
