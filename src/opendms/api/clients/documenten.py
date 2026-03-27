@@ -93,11 +93,6 @@ class DocumentClient(HttpRequestMixin, NLXClient):
             bestandsomvang=record["bestandsomvang"],
         )
 
-    def retrieve(self, uuid: str) -> dict:
-        url = f"{self.endpoint}/{uuid}"
-        response = self.make_request(url)
-        return response
-
 
 class ObjectInformatieObjectClient(HttpRequestMixin, NLXClient):
     """
