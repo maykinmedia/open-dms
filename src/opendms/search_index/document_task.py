@@ -1,4 +1,7 @@
+from datetime import UTC, datetime, timedelta
+
 import structlog
+from elasticsearch import NotFoundError
 from zgw_consumers.models import Service
 
 from opendms.api.clients import get_documenten_client, get_oio_client, get_zaken_client
@@ -90,3 +93,58 @@ def index_all_documents() -> None:
                     es_client.index_document(obj)
 
             logger.info("indexing_scheduled", total_documents=len(all_documents))
+
+
+@app.task()
+def validate_expired_documents(batch_size: int = 100):
+    """
+    For each expired document, check all OpenZaak services:
+        - If the document exists, extend verloopt_op by 7 days
+        - If not found in any service, delete from Elasticsearch
+    """
+    now = datetime.now(UTC)
+
+    with get_elasticsearch_client() as es:
+        results = es.search(
+            index="document",
+            size=batch_size,
+            query={"range": {"verloopt_op": {"lte": now.isoformat()}}},
+        )
+
+        hits = results["hits"]["hits"]
+
+        services = Service.objects.filter(zgwset_drc_config__isnull=False).distinct()
+
+        if not services.exists():
+            raise ExternalServiceUnavailable("No DRC API services configured!")
+
+        for hit in hits:
+            uuid = hit["_id"]
+            found = False
+
+            for service in services:
+                try:
+                    with get_documenten_client(service) as client:
+                        client.retrieve(uuid)
+                    found = True
+
+                    es.update(
+                        index="document",
+                        id=uuid,
+                        doc={
+                            "verloopt_op": (
+                                datetime.now(UTC) + timedelta(days=7)
+                            ).isoformat()
+                        },
+                    )
+                    logger.info("document_validated", uuid=uuid, service=service.slug)
+                    break
+                except Exception:
+                    continue
+
+            if not found:
+                try:
+                    es.delete(index="document", id=uuid)
+                    logger.info("document_deleted", uuid=uuid)
+                except NotFoundError:
+                    logger.warning("document_already_deleted", uuid=uuid)
