@@ -1,7 +1,7 @@
 import os
 from collections.abc import Sequence
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from typing import TYPE_CHECKING
 
 from elasticsearch.dsl import (
@@ -94,6 +94,12 @@ class Document(ES_Document):
 
     class Index:
         name: IndexName = "document"
+
+    def save(self, **kwargs):
+        # Ensure verloopt_op is always set when indexing
+        if not self.verloopt_op:
+            self.verloopt_op = datetime.now(UTC)
+        return super().save(**kwargs)
 
 
 class Zaak(ES_Document):

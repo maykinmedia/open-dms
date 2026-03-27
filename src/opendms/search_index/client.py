@@ -1,5 +1,5 @@
 import re
-from datetime import date
+from datetime import date, datetime
 from typing import Literal, assert_never
 from urllib.parse import urlsplit
 
@@ -367,6 +367,40 @@ class ElasticSearchClient:
         except Exception:
             logger.error("failed_to_delete_document")
             return False
+
+    def update_verloopt_op(self, uuid: str, new_expiry: datetime) -> bool:
+        """
+        Update the verloopt_op field for a document.
+        """
+        try:
+            self.client.update(
+                index=self.index,
+                id=uuid,
+                body={"doc": {"verloopt_op": new_expiry}},
+                refresh=self._settings["REFRESH"],
+            )
+            return True
+        except NotFoundError:
+            return False
+        except Exception:
+            logger.exception("failed_to_update_verloopt_op", uuid=uuid)
+            return False
+
+    def get_expired_document(self, now: datetime, batch_size: int = 100) -> list[str]:
+        """
+        Retrieve UUIDs of expired documents.
+        """
+        try:
+            response = self.client.search(
+                index=self.index,
+                size=batch_size,
+                _source=False,
+                query={"range": {"verloopt_op": {"lte": now}}},
+            )
+            return [hit["_id"] for hit in response["hits"]["hits"]]
+        except Exception:
+            logger.exception("failed_to_fetch_expired_document_ids")
+            return []
 
     def index_zaken(
         self, zaak: Zaak, service_slug: str, group_slug: str | None
