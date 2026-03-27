@@ -1,9 +1,8 @@
-import datetime
-
 from django.utils.translation import gettext_lazy as _
 
 import structlog
-from drf_spectacular.utils import OpenApiParameter, extend_schema, extend_schema_view
+from drf_spectacular.types import OpenApiTypes
+from drf_spectacular.utils import extend_schema, extend_schema_view
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter
 from rest_framework.response import Response
@@ -34,9 +33,19 @@ from .typing import (
 )
 from .utils.mixins import ReadOnlyViewSetMixin
 from .utils.pagination import CountedPagination
+from .utils.schema import (
+    DOCUMENT_PARAM,
+    QUERY_PARAM,
+    QUERY_PARAM_FIELD,
+    SERVICE_PARAM,
+    ZAAK_PARAM,
+    ZAAKTYPE_PARAM,
+    ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+    ZAKEN_ZAAK_UUID_PARAM,
+    param,
+)
 
 logger = structlog.stdlib.get_logger(__name__)
-QUERY_PARAM_FIELD = "search"
 
 
 class SearchView(APIView):
@@ -86,41 +95,11 @@ class ServiceViewSet(viewsets.ReadOnlyModelViewSet):
 @extend_schema_view(
     list=extend_schema(
         summary="zaaktypenList",
-        parameters=[
-            OpenApiParameter(
-                name="service_slug",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name=QUERY_PARAM_FIELD,
-                description=_(
-                    "A search term for the ZaakType service. "
-                    "The search is performed against the `identificatie__icontains` field."
-                ),
-                required=False,
-                location=OpenApiParameter.QUERY,
-                type=str,
-            ),
-        ],
+        parameters=[SERVICE_PARAM, QUERY_PARAM],
     ),
     retrieve=extend_schema(
         summary="zaaktypenRetrieve",
-        parameters=[
-            OpenApiParameter(
-                name="service_slug",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="zaaktype_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-        ],
+        parameters=[SERVICE_PARAM, ZAAKTYPE_PARAM],
     ),
 )
 class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
@@ -174,69 +153,32 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     list=extend_schema(
         summary="zakenList",
         parameters=[
-            OpenApiParameter(
-                name="service_slug",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="zaaktypen_zaaktype_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            param(
                 name="startdatum__gte",
                 description=_(
                     "De datum waarop met de uitvoering van de zaak is gestart"
                 ),
-                required=False,
-                location=OpenApiParameter.QUERY,
-                type=datetime.date,
+                type_param=OpenApiTypes.DATE,
             ),
-            OpenApiParameter(
+            param(
                 name="identificatie__icontains",
                 description=_(
                     "De unieke identificatie van de ZAAK (bevat de identificatie de gegeven waarden (hoofdletterongevoelig))",
                 ),
-                required=False,
-                location=OpenApiParameter.QUERY,
-                type=str,
             ),
-            OpenApiParameter(
+            param(
                 name="omschrijving",
                 description=_(
                     "Een korte omschrijving van de ZAAK (bevat de omschrijving de gegeven waarden (hoofdletterongevoelig))"
                 ),
-                required=False,
-                location=OpenApiParameter.QUERY,
-                type=str,
             ),
         ],
     ),
     retrieve=extend_schema(
         summary="zakenRetrieve",
-        parameters=[
-            OpenApiParameter(
-                name="service_slug",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="zaaktypen_zaaktype_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="zaak_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-        ],
+        parameters=[SERVICE_PARAM, ZAAKTYPEN_ZAAKTYPE_UUID_PARAM, ZAAK_PARAM],
     ),
 )
 class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
@@ -290,53 +232,18 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     list=extend_schema(
         summary="documentsList",
         parameters=[
-            OpenApiParameter(
-                name="service_slug",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="zaaktypen_zaaktype_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="zaken_zaak_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAKEN_ZAAK_UUID_PARAM,
         ],
     ),
     retrieve=extend_schema(
         summary="documentsRetrieve",
         parameters=[
-            OpenApiParameter(
-                name="service_slug",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="zaaktypen_zaaktype_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="zaken_zaak_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
-            OpenApiParameter(
-                name="document_uuid",
-                type=str,
-                location=OpenApiParameter.PATH,
-                required=True,
-            ),
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAKEN_ZAAK_UUID_PARAM,
+            DOCUMENT_PARAM,
         ],
     ),
 )
