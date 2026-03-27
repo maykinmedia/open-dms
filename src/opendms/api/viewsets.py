@@ -2,8 +2,13 @@ from django.utils.translation import gettext_lazy as _
 
 import structlog
 from drf_spectacular.types import OpenApiTypes
-from drf_spectacular.utils import extend_schema, extend_schema_view
-from rest_framework import viewsets
+from drf_spectacular.utils import (
+    OpenApiResponse,
+    extend_schema,
+    extend_schema_view,
+)
+from rest_framework import status, viewsets
+from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -292,3 +297,26 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         with get_documenten_client(self.zgw_group.drc_service) as client:
             # TODO investigate here if you can use cache
             return client.get_paginated_items_by_zaak(self.zaak_url, params)
+
+    @extend_schema(
+        "document_download",
+        summary="documentsDownload",
+        description="Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT.",
+        parameters=[
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAKEN_ZAAK_UUID_PARAM,
+            DOCUMENT_PARAM,
+        ],
+        responses={
+            (status.HTTP_200_OK, "application/octet-stream"): OpenApiResponse(
+                description="De binaire bestandsinhoud",
+                response=OpenApiTypes.BINARY,
+            )
+        },
+    )
+    @action(methods=["get"], detail=True, name="document_download")
+    def download(self, request, *args, **kwargs):
+        uuid = self.kwargs.get(self.lookup_field)
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            return client.download_document(uuid)

@@ -1,3 +1,5 @@
+from django.http import StreamingHttpResponse
+
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
@@ -32,6 +34,24 @@ class DocumentClient(HttpRequestMixin, NLXClient):
     def get_item_by_uuid(self, uuid: str) -> DocumentType:
         data = self.make_request(f"{self.endpoint}/{uuid}")
         return self._map_document(data)
+
+    def download_document(self, uuid: str) -> DocumentType:
+        response = self.get(f"{self.endpoint}/{uuid}/download", stream=True)
+
+        if response.status_code == 204:
+            return StreamingHttpResponse(status=204)
+
+        file_response = StreamingHttpResponse(
+            response.iter_content(chunk_size=8192),
+            content_type=response.headers.get(
+                "Content-Type", "application/octet-stream"
+            ),
+            headers={
+                "Content-Disposition": response.headers.get("Content-Disposition")
+            },
+        )
+
+        return file_response
 
     def get_paginated_items_by_zaak(
         self, zaak_url: str, params: dict | None = None
