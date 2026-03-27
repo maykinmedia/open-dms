@@ -7,11 +7,6 @@ export type User = components["schemas"]["User"];
 export type ValidatieFout = components["schemas"]["ValidatieFout"];
 export type ZaakType = components["schemas"]["ZaakType"];
 
-// TODO
-export type Zaak = {
-  uuid: string;
-  identificatie: string;
-  omschrijving: string;
-};
+export type Zaak = components["schemas"]["Zaak"];
 
 export type Document = components["schemas"]["Document"];
