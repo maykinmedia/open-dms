@@ -1,10 +1,90 @@
+from typing import Literal
+
 from django.utils.translation import gettext_lazy as _
 
 from drf_spectacular.extensions import OpenApiAuthenticationExtension
 from drf_spectacular.openapi import AutoSchema as _AutoSchema
+from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 from rest_framework import serializers
 from vng_api_common.constants import VERSION_HEADER
+
+QUERY_PARAM_FIELD = "search"
+
+# Openapi query parameters
+SERVICE_PARAM = OpenApiParameter(
+    name="service_slug",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
+QUERY_PARAM = OpenApiParameter(
+    name=QUERY_PARAM_FIELD,
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.QUERY,
+    description=_(
+        "A search term for the ZaakType service. The search is performed "
+        "against the `identificatie__icontains` field."
+    ),
+    required=False,
+)
+ZAAKTYPE_PARAM = OpenApiParameter(
+    name="zaaktype_uuid",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
+ZAAK_PARAM = OpenApiParameter(
+    name="zaak_uuid",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
+DOCUMENT_PARAM = OpenApiParameter(
+    name="document_uuid",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
+ZAAKTYPEN_ZAAKTYPE_UUID_PARAM = OpenApiParameter(
+    name="zaaktypen_zaaktype_uuid",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
+ZAKEN_ZAAK_UUID_PARAM = OpenApiParameter(
+    name="zaken_zaak_uuid",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
+
+OpenApiTypeLiteral = Literal[
+    OpenApiTypes.STR,
+    OpenApiTypes.INT,
+    OpenApiTypes.NUMBER,
+    OpenApiTypes.BOOL,
+    OpenApiTypes.UUID,
+    OpenApiTypes.DATE,
+    OpenApiTypes.DATETIME,
+]
+
+
+def param(
+    name: str,
+    description: str | None = None,
+    type_param: OpenApiTypeLiteral = OpenApiTypes.STR,
+    location: str = OpenApiParameter.QUERY,
+    required: bool = False,
+) -> OpenApiParameter:
+
+    return OpenApiParameter(
+        name=name,
+        type=type_param,
+        description=description,
+        location=location,
+        required=required,
+    )
 
 
 class AutoSchema(_AutoSchema):
