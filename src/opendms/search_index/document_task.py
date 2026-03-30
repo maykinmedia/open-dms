@@ -1,6 +1,7 @@
 from datetime import UTC, datetime, timedelta
 
 import structlog
+from celery.exceptions import SoftTimeLimitExceeded
 from zgw_consumers.models import Service
 
 from opendms.api.clients import get_documenten_client, get_oio_client, get_zaken_client
@@ -13,7 +14,7 @@ from .index import Document, ZaakReferenties
 logger = structlog.get_logger(__name__)
 
 
-@app.task()
+@app.task(utoretry_for=(SoftTimeLimitExceeded,))
 def index_all_documents() -> None:
     """
     Fetch all documents from OpenZaak, add connected 'zaak' information
@@ -28,6 +29,8 @@ def index_all_documents() -> None:
         raise ExternalServiceUnavailable("No ZRC services configured!")
 
     with get_elasticsearch_client() as es_client:
+        Document.init(using=es_client.client)
+
         last_creatiedatum = es_client.get_last_document_creatiedatum()
 
         for doc_service in doc_services:
@@ -126,13 +129,19 @@ def validate_expired_documents(batch_size: int = 100):
                     found = True
 
                     new_expiry = datetime.now(UTC) + timedelta(days=7)
-                    es_client.update_verloopt_op(uuid, new_expiry)
+                    updated = es_client.update_verloopt_op(uuid, new_expiry)
 
-                    logger.info(
-                        "document_validated",
-                        uuid=uuid,
-                        service=service.slug,
-                    )
+                    if updated:
+                        logger.info(
+                            "document_validated",
+                            uuid=uuid,
+                            service=service.slug,
+                        )
+                    else:
+                        logger.error(
+                            "document_validation_failed_update",
+                            uuid=uuid,
+                        )
                     break
                 except Exception:
                     continue
