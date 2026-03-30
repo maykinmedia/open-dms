@@ -262,7 +262,6 @@ class ElasticSearchClient:
             document.document_data = download_document(document_url=document.inhoud)
 
         # TODO check if create or raise error ?
-        Document.init(using=self.client)
         document.save(
             id=str(document.uuid),
             using=self.client,
