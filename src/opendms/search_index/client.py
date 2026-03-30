@@ -415,3 +415,11 @@ class ElasticSearchClient:
 
 def get_elasticsearch_client() -> ElasticSearchClient:
     return ElasticSearchClient()
+
+
+
+
+
+
+
+
