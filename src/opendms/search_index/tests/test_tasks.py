@@ -557,7 +557,7 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
             docs_after = client.get_all_documents()
             uuids_after = [d.uuid for d in docs_after.results]
 
-            # The document we validate should still exist and be extended
+            # The document should still exist and be extended
             self.assertIn("c4a2d123-1817-4b3a-a330-67c1282b1594", uuids_after)
             validated_doc = client.get_document("c4a2d123-1817-4b3a-a330-67c1282b1594")
             self.assertGreater(validated_doc.verloopt_op, expired_date)
