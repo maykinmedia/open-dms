@@ -777,7 +777,7 @@ pydantic-settings==2.13.0
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   django-setup-configuration
-pygments==2.19.2
+pygments==2.20.0
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
