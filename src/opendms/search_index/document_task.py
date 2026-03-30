@@ -14,7 +14,7 @@ from .index import Document, ZaakReferenties
 logger = structlog.get_logger(__name__)
 
 
-@app.task(utoretry_for=(SoftTimeLimitExceeded,))
+@app.task(autoretry_for=(SoftTimeLimitExceeded,))
 def index_all_documents() -> None:
     """
     Fetch all documents from OpenZaak, add connected 'zaak' information
@@ -97,7 +97,7 @@ def index_all_documents() -> None:
             logger.info("indexing_scheduled", total_documents=len(all_documents))
 
 
-@app.task()
+@app.task(autoretry_for=(SoftTimeLimitExceeded,))
 def validate_expired_documents(batch_size: int = 100):
     """
     For each expired document:
@@ -128,7 +128,7 @@ def validate_expired_documents(batch_size: int = 100):
 
                     found = True
 
-                    new_expiry = datetime.now(UTC) + timedelta(days=7)
+                    new_expiry = now + timedelta(days=7)
                     updated = es_client.update_verloopt_op(uuid, new_expiry)
 
                     if updated:
