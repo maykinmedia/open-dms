@@ -47,10 +47,11 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 beschrijving="Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
                 verschijningsvorm=None,
                 bestandsomvang=1000,  # was file_size
-                verloopt_op=date(2026, 1, 5),
+                last_checked_at=date(2026, 1, 1),
+                next_check_at=date(2026, 1, 5),
             )
 
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
 
             doc = client.get_document(document_uuid)
 
@@ -108,11 +109,14 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
                 beschrijving="Changed description",
                 verschijningsvorm=None,
                 bestandsomvang=500,
-                verloopt_op=date(2026, 1, 5),
+                last_checked_at=date(2026, 1, 1),
+                next_check_at=date(2026, 1, 5),
             )
 
             with get_elasticsearch_client() as client:
-                client.index_document(doc)
+                client.index_document(
+                    doc, service="documenten-api", group_slug="group-1"
+                )
                 updated_doc = client.get_document(document_uuid)
 
             assert isinstance(updated_doc, Document), "Expected doc to be indexed"
@@ -133,7 +137,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
         self.assertEqual(
             doc_obj.document_data[0].attachment.content,
@@ -149,7 +153,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
 
         self.assertEqual(doc_obj.document_data[0].attachment, {})
@@ -163,7 +167,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
         self.assertEqual(doc_obj.document_data, {})
 
@@ -176,7 +180,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
         self.assertEqual(doc_obj.document_data, {})
 
@@ -191,7 +195,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
         self.assertEqual(doc_obj.document_data, {})
 
@@ -221,7 +225,9 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
             # verify that it's indexed
             with get_elasticsearch_client() as client:
-                client.index_document(doc)
+                client.index_document(
+                    doc, service="documenten-api", group_slug="group-1"
+                )
                 doc_obj = client.get_document(document_uuid)
 
             self.assertEqual(doc_obj.document_data, {})
@@ -239,7 +245,9 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
             # verify that it's indexed
             with get_elasticsearch_client() as client:
-                client.index_document(doc)
+                client.index_document(
+                    doc, service="documenten-api", group_slug="group-1"
+                )
                 doc_obj = client.get_document(document_uuid)
 
             self.assertEqual(doc_obj.document_data, {})
@@ -258,7 +266,9 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
             # verify that it's indexed
             with get_elasticsearch_client() as client:
-                client.index_document(doc)
+                client.index_document(
+                    doc, service="documenten-api", group_slug="group-1"
+                )
                 doc_obj = client.get_document(document_uuid)
 
             self.assertEqual(
@@ -278,7 +288,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
 
         self.assertEqual(
@@ -295,7 +305,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
 
         self.assertEqual(
@@ -315,7 +325,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
 
         self.assertEqual(len(doc_obj["document_data"]), 2)
@@ -346,7 +356,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
 
         self.assertEqual(len(doc_obj["document_data"]), 2)
@@ -378,7 +388,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
 
         # verify that it's indexed
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             doc_obj = client.get_document(document_uuid)
         # test that only files up to 5 bytes get indexed - the second file is discarded
         self.assertEqual(len(doc_obj["document_data"]), 1)
@@ -396,7 +406,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
             # valid case
             document_uuid = "d9fe4844-bdf8-4d66-b613-4efa71598105"
             doc = IndexDocumentFactory(uuid=document_uuid)
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
 
             self.assertIsNotNone(client.get_document(document_uuid))
             self.assertTrue(client.delete_document(document_uuid))
@@ -514,38 +524,87 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         cls.service1 = ServiceFactory.create(for_drc_service_docker_compose=True)
         ZGWApiGroupConfigFactory.create(drc_service=cls.service1)
 
+    def test_get_expired_document(self):
+        now = datetime.now(UTC)
+
+        docs = [
+            IndexDocumentFactory.build(
+                uuid="expired-1",
+                last_checked_at=now - timedelta(days=2),
+                next_check_at=now - timedelta(days=1),  # expired
+            ),
+            IndexDocumentFactory.build(
+                uuid="expired-2",
+                last_checked_at=now - timedelta(days=1, hours=1),
+                next_check_at=now - timedelta(hours=1),  # expired
+            ),
+            IndexDocumentFactory.build(
+                uuid="valid-1",
+                last_checked_at=now,
+                next_check_at=now + timedelta(days=1),  # not expired
+            ),
+        ]
+
+        with get_elasticsearch_client() as client:
+            for doc in docs:
+                client.index_document(
+                    doc,
+                    service="documenten-api",
+                    group_slug="group-test",
+                )
+
+            expired_docs = client.get_expired_document(now, batch_size=10)
+
+        expired_uuids = {d["uuid"] for d in expired_docs}
+        self.assertIn("expired-1", expired_uuids)
+        self.assertIn("expired-2", expired_uuids)
+        self.assertNotIn("valid-1", expired_uuids)
+
+        for doc in expired_docs:
+            self.assertEqual(doc["service_slug"], "documenten-api")
+            self.assertEqual(doc["group_slug"], "group-test")
+
     @freeze_time("2026-03-30T12:00:00Z")
     def test_validate_extends_or_deletes_documents(self):
         now = datetime.now(UTC)
-        expired_date = now - timedelta(days=1)
-        extension_days = 7
+        extension_days = 10
 
         documents = [
             IndexDocumentFactory.build(
                 uuid="11111111-1111-1111-1111-111111111111",
-                verloopt_op=now - timedelta(days=2),  # expired, should be deleted
+                last_checked_at=now - timedelta(days=2),
+                next_check_at=now - timedelta(days=1),  # due, should be deleted
             ),
             IndexDocumentFactory.build(
                 uuid="22222222-2222-2222-2222-222222222222",
-                verloopt_op=now - timedelta(days=1, hours=1),  # expired, deleted
+                last_checked_at=now - timedelta(days=1, hours=1),
+                next_check_at=now - timedelta(hours=1),  # due, should be deleted
             ),
             IndexDocumentFactory.build(
                 uuid="33333333-3333-3333-3333-333333333333",
-                verloopt_op=now + timedelta(days=5),  # not expired
+                last_checked_at=now,
+                next_check_at=now + timedelta(days=5),  # not expired
             ),
             IndexDocumentFactory.build(
                 uuid="44444444-4444-4444-4444-444444444444",
-                verloopt_op=now + timedelta(days=10),  # not expired
+                last_checked_at=now,
+                next_check_at=now + timedelta(days=10),  # not expired
             ),
             IndexDocumentFactory.build(
                 uuid="c4a2d123-1817-4b3a-a330-67c1282b1594",
-                verloopt_op=now - timedelta(days=1),  # expired but should be extended
+                last_checked_at=now - timedelta(days=1),
+                next_check_at=now
+                - timedelta(hours=2),  # expired but should be extended
             ),
         ]
 
         with get_elasticsearch_client() as client:
             for doc in documents:
-                client.index_document(doc)
+                client.index_document(
+                    doc,
+                    service=self.service1.slug,
+                    group_slug=self.service1.zgwset_drc_config.first().identifier,
+                )
 
         validate_expired_documents(batch_size=10)
 
@@ -556,20 +615,24 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
             # The document should still exist and be extended
             self.assertIn("c4a2d123-1817-4b3a-a330-67c1282b1594", uuids_after)
             validated_doc = client.get_document("c4a2d123-1817-4b3a-a330-67c1282b1594")
-            self.assertGreater(validated_doc.verloopt_op, expired_date)
             self.assertAlmostEqual(
-                validated_doc.verloopt_op,
+                validated_doc.next_check_at,
                 now + timedelta(days=extension_days),
                 delta=timedelta(seconds=1),
             )
+            self.assertAlmostEqual(
+                validated_doc.last_checked_at,
+                now,
+                delta=timedelta(seconds=1),
+            )
 
-            # Non-expired documents should remain unchanged
+            # Non-due documents should remain unchanged
             for uuid in [
                 "33333333-3333-3333-3333-333333333333",
                 "44444444-4444-4444-4444-444444444444",
             ]:
                 doc = client.get_document(uuid)
-                self.assertGreater(doc.verloopt_op, now)
+                self.assertGreater(doc.next_check_at, now)
 
             # Expired documents that are supposed to be deleted should not exist
             for uuid in [
@@ -579,13 +642,14 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
                 doc = client.get_document(uuid)
                 self.assertIsNone(doc)
 
-    def test_no_expired_documents(self):
+    def test_no_documents_due(self):
         doc = IndexDocumentFactory.build(
             uuid="doc-valid",
-            verloopt_op=datetime.now(UTC) + timedelta(days=5),
+            last_checked_at=datetime.now(UTC),
+            next_check_at=datetime.now(UTC) + timedelta(days=5),
         )
         with get_elasticsearch_client() as client:
-            client.index_document(doc)
+            client.index_document(doc, service="documenten-api", group_slug="group-1")
             count_before = client.get_total_count()
 
         validate_expired_documents()
@@ -598,22 +662,26 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
     @freeze_time("2026-03-16 12:00:00+00:00")
     def test_validate_hourly_task_simple_with_schedule(self):
         now = datetime.now(UTC)
-        extension_days = 7
+        extension_days = 10
 
         docs = [
             IndexDocumentFactory.build(
                 uuid="11111111-1111-1111-1111-111111111111",
-                verloopt_op=now - timedelta(days=1),
+                last_checked_at=now - timedelta(days=1),
+                next_check_at=now - timedelta(hours=1),
             ),
             IndexDocumentFactory.build(
                 uuid="c4a2d123-1817-4b3a-a330-67c1282b1594",
-                verloopt_op=now - timedelta(days=1),
+                last_checked_at=now - timedelta(days=1),
+                next_check_at=now - timedelta(hours=2),
             ),
         ]
 
         with get_elasticsearch_client() as client:
             for doc in docs:
-                client.index_document(doc)
+                client.index_document(
+                    doc, service=doc.service_slug, group_slug=doc.group_slug
+                )
 
             schedule = current_app.conf.beat_schedule
             task_entry = schedule.get("validate_expired_documents")
@@ -633,10 +701,14 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
             with self.subTest("Check extended and deleted documents"):
                 extended = client.get_document("c4a2d123-1817-4b3a-a330-67c1282b1594")
                 self.assertIsNotNone(extended)
-                self.assertGreater(extended.verloopt_op, now)
                 self.assertAlmostEqual(
-                    extended.verloopt_op,
+                    extended.next_check_at,
                     now + timedelta(days=extension_days),
+                    delta=timedelta(seconds=1),
+                )
+                self.assertAlmostEqual(
+                    extended.last_checked_at,
+                    now,
                     delta=timedelta(seconds=1),
                 )
 

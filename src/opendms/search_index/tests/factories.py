@@ -40,7 +40,12 @@ class IndexDocumentFactory(factory.Factory):
     link = factory.Faker("url")
     creatiedatum = factory.Faker("past_date")
     begin_registratie = factory.Faker("past_datetime")
-    verloopt_op = factory.Faker("date")
+
+    last_checked_at = factory.Faker("date")
+    next_check_at = factory.Faker("date")
+
+    service_slug = "documenten-api"
+    group_slug = "group-1"
 
     zaak_referenties = factory.List([factory.SubFactory(NestedzaakFactory)])
 
