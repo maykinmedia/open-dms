@@ -270,16 +270,28 @@ class ElasticSearchClient:
         search = Search(index=index, doc_type=doc_type).using(self.client)
         return search.count()
 
-    def get_last_document_creatiedatum(self) -> str:
+    def get_last_document_creatiedatum(
+        self, service_slug: str | None = None, latest: bool = True
+    ) -> str:
         """
-        Return the latest creatiedatum of documents in Elasticsearch
+        Return the latest creatiedatum of documents in Elasticsearch,
+        optionally filtered by service_slug.
         """
+        query = {"exists": {"field": "creatiedatum"}}
+        if service_slug:
+            query = {
+                "bool": {"must": [query, {"term": {"service_slug": service_slug}}]}
+            }
+
+        aggs_type = "max" if latest else "min"
+
         response = self.client.search(
             index=self.index,
             size=0,
-            query={"exists": {"field": "creatiedatum"}},
-            aggs={"latest_date": {"max": {"field": "creatiedatum"}}},
+            query=query,
+            aggs={"latest_date": {aggs_type: {"field": "creatiedatum"}}},
         )
+
         return (
             response.get("aggregations", {})
             .get("latest_date", {})
@@ -313,13 +325,18 @@ class ElasticSearchClient:
 
         return dates[1]["key_as_string"]
 
-    def index_document(self, document: Document) -> None:
+    def index_document(
+        self, document: Document, service: str, group_slug: str | None
+    ) -> None:
         if (
             document.inhoud
             and document.bestandsomvang
             and document.bestandsomvang <= settings.SEARCH_INDEX["MAX_INDEX_FILE_SIZE"]
         ):
             document.document_data = download_document(document_url=document.inhoud)
+
+        document.service_slug = service
+        document.group_slug = group_slug
 
         # TODO check if create or raise error ?
         document.save(
@@ -367,38 +384,66 @@ class ElasticSearchClient:
             logger.error("failed_to_delete_document")
             return False
 
-    def update_verloopt_op(self, uuid: str, new_expiry: datetime) -> bool:
+    def update_check_times(
+        self, uuid: str, last_checked_at: datetime, next_check_at: datetime
+    ) -> bool:
         """
-        Update the verloopt_op field for a document.
+        Update the check times for a document.
         """
         try:
             self.client.update(
                 index=self.index,
                 id=uuid,
-                body={"doc": {"verloopt_op": new_expiry}},
+                body={
+                    "doc": {
+                        "last_checked_at": last_checked_at,
+                        "next_check_at": next_check_at,
+                    }
+                },
                 refresh=self._settings["REFRESH"],
             )
             return True
         except NotFoundError:
             return False
         except Exception:
-            logger.exception("failed_to_update_verloopt_op", uuid=uuid)
+            logger.exception("failed_to_update_update_check_times", uuid=uuid)
             return False
 
-    def get_expired_document(self, now: datetime, batch_size: int = 100) -> list[str]:
+    def get_expired_document(
+        self, now: datetime, batch_size: int = 100, service_slug: str | None = None
+    ) -> list[dict]:
         """
-        Retrieve UUIDs of expired documents.
+        Retrieve expired documents with UUID, service_slug, and group_slug.
         """
         try:
+            query = {"range": {"next_check_at": {"lte": now}}}
+            if service_slug:
+                query = {
+                    "bool": {"must": [query, {"term": {"service_slug": service_slug}}]}
+                }
             response = self.client.search(
                 index=self.index,
                 size=batch_size,
-                _source=False,
-                query={"range": {"verloopt_op": {"lte": now}}},
+                _source=["service_slug", "group_slug"],
+                query=query,
             )
-            return [hit["_id"] for hit in response["hits"]["hits"]]
+            hits = response.get("hits", {}).get("hits", [])
+            results = []
+
+            for hit in hits:
+                source = hit.get("_source", {})
+                results.append(
+                    {
+                        "uuid": hit.get("_id"),
+                        "service_slug": source.get("service_slug"),
+                        "group_slug": source.get("group_slug"),
+                    }
+                )
+
+            return results
+
         except Exception:
-            logger.exception("failed_to_fetch_expired_document_ids")
+            logger.exception("failed_to_fetch_expired_documents")
             return []
 
     def index_zaken(
@@ -415,11 +460,3 @@ class ElasticSearchClient:
 
 def get_elasticsearch_client() -> ElasticSearchClient:
     return ElasticSearchClient()
-
-
-
-
-
-
-
-

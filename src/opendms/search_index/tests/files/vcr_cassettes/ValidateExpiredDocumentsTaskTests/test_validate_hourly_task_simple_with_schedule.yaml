@@ -1,89 +1,9 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774625083289","number_of_replicas":"1","uuid":"oKTUuKfUSna-eJlLReFlDQ","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"begin_registratie":{"type":"date"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"verloopt_op":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"http://dunn.biz/","identificatie":"9273d0d0-a2e1-48b0-8b20-8fee2c5f90cc","bronorganisatie":"Stewart,
-      Daniel and Baldwin","titel":"Yes single behavior without share.","beschrijving":"But
-      law Mrs production relationship show. Half against glass religious member. Under
-      partner notice leg.","auteur":"Angela Hopkins","taal":"gez","vertrouwelijkheidaanduiding":"need","status":"fact","formaat":"wav","bestandsnaam":"enter.tiff","informatieobjecttype":"good","verschijningsvorm":"father","bestandsomvang":1000000,"link":"https://jacobson-winters.info/","creatiedatum":"2026-02-22","begin_registratie":"2026-02-24T06:44:45.782683","verloopt_op":"2026-03-15T12:00:00+00:00"}'
+    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"http://www.davis.com/","identificatie":"621cb375-36d7-4fe8-8702-42da8b6f83b4","bronorganisatie":"Schneider-Medina","titel":"Feel
+      bed city sit despite arm.","beschrijving":"Letter race interest remember ready.
+      Whole full deep let worry. Imagine their rule school.","auteur":"Paul Davis
+      Jr.","taal":"tr","vertrouwelijkheidaanduiding":"how","status":"gas","formaat":"numbers","bestandsnaam":"support.flac","informatieobjecttype":"before","verschijningsvorm":"suffer","bestandsomvang":1000000,"link":"http://www.wade-smith.com/","creatiedatum":"2026-02-16","begin_registratie":"2026-02-15T08:16:16.081595","last_checked_at":"2026-03-15T12:00:00+00:00","next_check_at":"2026-03-16T11:00:00+00:00","service_slug":"documenten-api","group_slug":"group-1"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -99,7 +19,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":13,"_primary_term":1}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":19,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/11111111-1111-1111-1111-111111111111
@@ -113,90 +33,9 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774625083289","number_of_replicas":"1","uuid":"oKTUuKfUSna-eJlLReFlDQ","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"begin_registratie":{"type":"date"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"verloopt_op":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://fowler.net/","identificatie":"92742f46-b617-4164-91cc-d5a1966f3b88","bronorganisatie":"Taylor,
-      Miller and Garza","titel":"Give practice ten.","beschrijving":"Southern check
-      their cultural. Add society street worker my city. Theory by strong process.","auteur":"Christopher
-      Guerra","taal":"rw","vertrouwelijkheidaanduiding":"recently","status":"report","formaat":"xlsx","bestandsnaam":"hot.bmp","informatieobjecttype":"strong","verschijningsvorm":"ready","bestandsomvang":1000000,"link":"https://www.sanchez-kennedy.com/","creatiedatum":"2026-02-20","begin_registratie":"2026-03-15T15:50:15.243814","verloopt_op":"2026-03-15T12:00:00+00:00"}'
+    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://foley-reynolds.net/","identificatie":"66b648fb-f047-447d-9c7e-65f81b0dacd1","bronorganisatie":"Brown-Bernard","titel":"Section
+      his me everybody.","beschrijving":"Perform fish long parent sense region. Look
+      law their industry.","auteur":"Tricia Carlson","taal":"vi","vertrouwelijkheidaanduiding":"trouble","status":"series","formaat":"csv","bestandsnaam":"stay.ods","informatieobjecttype":"similar","verschijningsvorm":"account","bestandsomvang":1000000,"link":"https://www.cook.com/","creatiedatum":"2026-03-03","begin_registratie":"2026-03-02T03:30:27.308229","last_checked_at":"2026-03-15T12:00:00+00:00","next_check_at":"2026-03-16T10:00:00+00:00","service_slug":"documenten-api","group_slug":"group-1"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -212,7 +51,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":4,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":14,"_primary_term":1}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":4,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":20,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
@@ -226,7 +65,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"range":{"verloopt_op":{"lte":"2026-03-16T12:00:00+00:00"}}},"size":100,"_source":false}'
+    body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"bool":{"must":[{"exists":{"field":"creatiedatum"}},{"term":{"service_slug":"documenten-api"}}]}},"size":0}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -242,7 +81,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_score":1.0},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.772496E12,"value_as_string":"2026-03-03"}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -265,25 +104,35 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/11111111-1111-1111-1111-111111111111
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-03&objectinformatieobjecten__objectType=zaak
   response:
     body:
-      string: '{"type":"http://localhost:8003/ref/fouten/NotFound/","code":"not_found","title":"Niet
-        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:47d70053-a563-4a8a-8578-daf559810505"}'
+      string: '{"count":7,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000176","creatiedatum":"2026-03-16","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mads Mulder","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:49:19.435000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000152","creatiedatum":"2026-03-12","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Ayden van
+        Velzen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:45.837000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000255","creatiedatum":"2026-03-21","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Dean Gnodde","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:10.096000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/0faee041-27ec-4b81-99a0-42ebab29a7db","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000188","creatiedatum":"2026-03-12","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Nienke
+        Brouwer-Ruijs","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:16.920000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/0faee041-27ec-4b81-99a0-42ebab29a7db/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/fc58a8f1-f2f0-4eb8-919c-4360f91a3415","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000140","creatiedatum":"2026-03-03","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Jasmijn
+        van Waas","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:57.623000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/fc58a8f1-f2f0-4eb8-919c-4360f91a3415/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6df0ae09-0f21-4c8e-bc49-5bb23915f606","identificatie":"DOCUMENT-2026-0000000003","bronorganisatie":"000000206","creatiedatum":"2026-03-07","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Lisa Bastiaense","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:38.364000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6df0ae09-0f21-4c8e-bc49-5bb23915f606/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mason van
+        Breukeleveen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:33.793000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
     headers:
       API-version:
       - 1.4.2
       Allow:
-      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '195'
+      - '6665'
       Content-Security-Policy:
-      - 'object-src ''none''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; form-action ''self''; default-src ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; base-uri ''self''; style-src
-        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        frame-src ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:'
+      - 'frame-ancestors ''none''; default-src ''self''; style-src ''self'' ''unsafe-inline''
+        fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net; object-src ''none'';
+        frame-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
+        tile.openstreetmap.org; font-src ''self'' fonts.gstatic.com; worker-src ''self''
+        blob:; form-action ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
+        cdn.jsdelivr.net; base-uri ''self'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -297,8 +146,36 @@ interactions:
       X-Frame-Options:
       - DENY
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-03-16T12:00:00+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0392207,"hits":[{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_score":1.0392207,"_source":{"service_slug":"documenten-api","group_slug":"group-1"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0392207,"_source":{"service_slug":"documenten-api","group_slug":"group-1"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
@@ -314,16 +191,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":3,"_seq_no":13,"_primary_term":1,"found":true,"_source":{"beschrijving":"But
-        law Mrs production relationship show. Half against glass religious member.
-        Under partner notice leg.","verschijningsvorm":"father","begin_registratie":"2026-02-24T06:44:45.782683","identificatie":"9273d0d0-a2e1-48b0-8b20-8fee2c5f90cc","bronorganisatie":"Stewart,
-        Daniel and Baldwin","bestandsomvang":1000000,"link":"https://jacobson-winters.info/","verloopt_op":"2026-03-15T12:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"http://dunn.biz/","taal":"gez","auteur":"Angela
-        Hopkins","formaat":"wav","titel":"Yes single behavior without share.","vertrouwelijkheidaanduiding":"need","informatieobjecttype":"good","bestandsnaam":"enter.tiff","creatiedatum":"2026-02-22","status":"fact"}}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":3,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Letter
+        race interest remember ready. Whole full deep let worry. Imagine their rule
+        school.","verschijningsvorm":"suffer","begin_registratie":"2026-02-15T08:16:16.081595","identificatie":"621cb375-36d7-4fe8-8702-42da8b6f83b4","bronorganisatie":"Schneider-Medina","bestandsomvang":1000000,"link":"http://www.wade-smith.com/","next_check_at":"2026-03-16T11:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"http://www.davis.com/","taal":"tr","auteur":"Paul
+        Davis Jr.","formaat":"numbers","last_checked_at":"2026-03-15T12:00:00+00:00","titel":"Feel
+        bed city sit despite arm.","vertrouwelijkheidaanduiding":"how","informatieobjecttype":"before","bestandsnaam":"support.flac","creatiedatum":"2026-02-16","group_slug":"group-1","status":"gas"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '855'
+      - '935'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -341,10 +218,10 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: DELETE
-    uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111?if_primary_term=1&if_seq_no=13&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111?if_primary_term=1&if_seq_no=19&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":4,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":15,"_primary_term":1}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":4,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":21,"_primary_term":1}'
     headers:
       X-elastic-product:
       - Elasticsearch
@@ -356,55 +233,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.32.5
-    method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594
-  response:
-    body:
-      string: '{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000255","creatiedatum":"2026-03-21","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Dean Gnodde","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:10.096000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}'
-    headers:
-      API-version:
-      - 1.4.2
-      Allow:
-      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
-      Content-Length:
-      - '939'
-      Content-Security-Policy:
-      - 'object-src ''none''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; form-action ''self''; default-src ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; base-uri ''self''; style-src
-        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        frame-src ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:'
-      Content-Type:
-      - application/json
-      Cross-Origin-Opener-Policy:
-      - same-origin
-      ETag:
-      - '"b77b896708638eb2a230b90f99f2448a"'
-      Referrer-Policy:
-      - same-origin
-      Vary:
-      - origin, Cookie
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"doc":{"verloopt_op":"2026-03-23T12:00:00+00:00"}}'
+    body: '{"doc":{"last_checked_at":"2026-03-16T12:00:00+00:00","next_check_at":"2026-03-26T12:00:00+00:00"}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -420,7 +249,7 @@ interactions:
     uri: http://localhost:9201/document/_update/c4a2d123-1817-4b3a-a330-67c1282b1594?refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":16,"_primary_term":1}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":22,"_primary_term":1}'
     headers:
       X-elastic-product:
       - Elasticsearch
@@ -446,16 +275,15 @@ interactions:
     uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"_seq_no":16,"_primary_term":1,"found":true,"_source":{"beschrijving":"Southern
-        check their cultural. Add society street worker my city. Theory by strong
-        process.","verschijningsvorm":"ready","begin_registratie":"2026-03-15T15:50:15.243814","identificatie":"92742f46-b617-4164-91cc-d5a1966f3b88","bronorganisatie":"Taylor,
-        Miller and Garza","bestandsomvang":1000000,"link":"https://www.sanchez-kennedy.com/","verloopt_op":"2026-03-23T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://fowler.net/","taal":"rw","auteur":"Christopher
-        Guerra","formaat":"xlsx","titel":"Give practice ten.","vertrouwelijkheidaanduiding":"recently","informatieobjecttype":"strong","bestandsnaam":"hot.bmp","creatiedatum":"2026-02-20","status":"report"}}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Perform
+        fish long parent sense region. Look law their industry.","verschijningsvorm":"account","begin_registratie":"2026-03-02T03:30:27.308229","identificatie":"66b648fb-f047-447d-9c7e-65f81b0dacd1","bronorganisatie":"Brown-Bernard","bestandsomvang":1000000,"link":"https://www.cook.com/","next_check_at":"2026-03-26T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://foley-reynolds.net/","taal":"vi","auteur":"Tricia
+        Carlson","formaat":"csv","last_checked_at":"2026-03-16T12:00:00+00:00","titel":"Section
+        his me everybody.","vertrouwelijkheidaanduiding":"trouble","informatieobjecttype":"similar","bestandsnaam":"stay.ods","creatiedatum":"2026-03-03","group_slug":"group-1","status":"series"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '835'
+      - '901'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

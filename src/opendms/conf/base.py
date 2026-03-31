@@ -279,11 +279,11 @@ CELERY_TASK_SOFT_TIME_LIMIT = config(
 CELERY_BEAT_SCHEDULE = {
     "update_documents_hourly": {
         "task": "opendms.search_index.document_task.index_all_documents",
-        "schedule": crontab(minute="0"),
+        "schedule": crontab(minute=0),
     },
     "validate_expired_documents": {
         "task": "opendms.search_index.document_task.validate_expired_documents",
-        "schedule": crontab(minute=30),
+        "schedule": crontab(minute=0, hour="*/12"),  # every 12 hours
     },
     "update_zaken_hourly": {
         "task": "opendms.search_index.zaak_task.index_all_zaken",

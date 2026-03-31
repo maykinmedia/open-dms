@@ -13,6 +13,8 @@ from .index import Document, ZaakReferenties
 
 logger = structlog.get_logger(__name__)
 
+CHECK_EXTENSION_DAYS = 10
+
 
 @app.task(autoretry_for=(SoftTimeLimitExceeded,))
 def index_all_documents() -> None:
@@ -101,50 +103,64 @@ def index_all_documents() -> None:
 def validate_expired_documents(batch_size: int = 100):
     """
     For each expired document:
-    - If it exists in any Open Zaak service extend verloopt_op by 7 days
-    - If not delete it from Elasticsearch
+    - If it exists in Open Zaak, extend verloopt_op by 10 days
+    - If not, delete it from Elasticsearch
     """
+
+    services = Service.objects.filter(zgwset_drc_config__isnull=False).distinct()
+    if not services.exists():
+        raise ExternalServiceUnavailable("No DRC API services configured!")
+
     now = datetime.now(UTC)
 
     with get_elasticsearch_client() as es_client:
-        uuids = es_client.get_expired_document(now, batch_size)
+        for service in services:
+            # Get the last creation date indexed in Elasticsearch for this service
+            last_creatiedatum = es_client.get_last_document_creatiedatum(
+                service_slug=service.slug, latest=False
+            )
 
-        if not uuids:
-            logger.info("no_expired_documents_found")
-            return
+            # Fetch all documents from Open Zaak after last_creatiedatum
+            with get_documenten_client(service) as doc_client:
+                oz_docs = doc_client.get_items(
+                    params={"creatiedatum__gte": last_creatiedatum}
+                    if last_creatiedatum
+                    else {}
+                )
 
-        services = Service.objects.filter(zgwset_drc_config__isnull=False).distinct()
+            oz_uuids = {doc["uuid"] for doc in oz_docs}
 
-        if not services.exists():
-            raise ExternalServiceUnavailable("No DRC API services configured!")
+            # Get expired documents from Elasticsearch
+            expired_docs = es_client.get_expired_document(
+                now, batch_size, service_slug=service.slug
+            )
+            if not expired_docs:
+                logger.info("no_expired_documents_found", service=service.slug)
+                continue
 
-        for uuid in uuids:
-            found = False
+            for doc in expired_docs:
+                uuid = doc.get("uuid")
+                if not uuid:
+                    continue
 
-            for service in services:
-                try:
-                    with get_documenten_client(service) as client:
-                        client.get_item_by_uuid(uuid)
-
-                    found = True
-
-                    new_expiry = now + timedelta(days=7)
-                    updated = es_client.update_verloopt_op(uuid, new_expiry)
-
+                if uuid in oz_uuids:
+                    last_checked_at = now
+                    next_check_at = now + timedelta(days=CHECK_EXTENSION_DAYS)
+                    updated = es_client.update_check_times(
+                        uuid,
+                        last_checked_at=last_checked_at,
+                        next_check_at=next_check_at,
+                    )
                     if updated:
                         logger.info(
-                            "document_validated",
-                            uuid=uuid,
-                            service=service.slug,
+                            "document_validated", uuid=uuid, service=service.slug
                         )
                     else:
                         logger.error(
                             "document_validation_failed_update",
                             uuid=uuid,
+                            service=service.slug,
                         )
-                    break
-                except Exception:
-                    continue
-            if not found:
-                es_client.delete_document(uuid)
-                logger.info("document_deleted", uuid=uuid)
+                else:
+                    es_client.delete_document(uuid)
+                    logger.info("document_deleted", uuid=uuid, service=service.slug)

@@ -1,0 +1,129 @@
+interactions:
+- request:
+    body: '{"uuid":"expired-1","url":"https://www.schaefer-simmons.biz/","identificatie":"5b6bbbec-9bb1-49b7-a2eb-21a4519903f0","bronorganisatie":"Guzman-Moreno","titel":"College
+      third I side data consider.","beschrijving":"Less senior television cultural
+      inside protect. Those of road thus rate two remain. Environment politics form
+      by pretty try none.","auteur":"Shawn Rocha","taal":"ss","vertrouwelijkheidaanduiding":"state","status":"must","formaat":"css","bestandsnaam":"risk.docx","informatieobjecttype":"surface","verschijningsvorm":"standard","bestandsomvang":1000000,"link":"http://smith-hurst.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-19T08:21:15.325779","last_checked_at":"2026-03-29T12:42:11.637840+00:00","next_check_at":"2026-03-30T12:42:11.637840+00:00","service_slug":"documenten-api","group_slug":"group-test"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/expired-1?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"expired-1","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/expired-1
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '149'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"expired-2","url":"https://jones.com/","identificatie":"d738ca96-eca2-4c8d-9037-c9034618acfb","bronorganisatie":"Jimenez
+      LLC","titel":"Line Congress son until fast same.","beschrijving":"Late trade
+      anyone say civil number. Piece management think end authority take house.","auteur":"Ricardo
+      Jackson","taal":"fil","vertrouwelijkheidaanduiding":"parent","status":"they","formaat":"jpg","bestandsnaam":"hair.xlsx","informatieobjecttype":"high","verschijningsvorm":"respond","bestandsomvang":1000000,"link":"http://www.anderson.info/","creatiedatum":"2026-03-12","begin_registratie":"2026-03-23T20:20:48.228731","last_checked_at":"2026-03-30T11:42:11.637840+00:00","next_check_at":"2026-03-31T11:42:11.637840+00:00","service_slug":"documenten-api","group_slug":"group-test"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/expired-2?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"expired-2","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/expired-2
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '149'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"valid-1","url":"http://jensen-edwards.org/","identificatie":"09cba4b7-48c7-4aeb-9ec6-1d3dff97ab8f","bronorganisatie":"Fernandez-Sanders","titel":"Rock
+      federal town head.","beschrijving":"Above interview person hear kitchen order.
+      Someone its decide thousand player story visit. Community also heavy sound road
+      understand blue discover.","auteur":"James Ball","taal":"nb","vertrouwelijkheidaanduiding":"eye","status":"their","formaat":"pdf","bestandsnaam":"challenge.json","informatieobjecttype":"among","verschijningsvorm":"drop","bestandsomvang":1000000,"link":"https://www.garcia.info/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-11T15:29:51.891350","last_checked_at":"2026-03-31T12:42:11.637840+00:00","next_check_at":"2026-04-01T12:42:11.637840+00:00","service_slug":"documenten-api","group_slug":"group-test"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/valid-1?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"valid-1","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/valid-1
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '147'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"range":{"next_check_at":{"lte":"2026-03-31T12:42:11.637840+00:00"}}},"size":10,"_source":["service_slug","group_slug"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","group_slug":"group-test"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

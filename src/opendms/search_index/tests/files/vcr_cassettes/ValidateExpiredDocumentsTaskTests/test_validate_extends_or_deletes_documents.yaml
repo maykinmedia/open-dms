@@ -1,89 +1,9 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774625083289","number_of_replicas":"1","uuid":"oKTUuKfUSna-eJlLReFlDQ","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"begin_registratie":{"type":"date"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"verloopt_op":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"http://russell-parker.com/","identificatie":"6dac0a19-c667-4147-a97b-d40753ae76ef","bronorganisatie":"Joseph
-      Ltd","titel":"Entire memory medical consider physical trial sport.","beschrijving":"Stuff
-      management many simple accept walk. Pressure say though. Design score finish
-      area call kind. Realize whom them station.","auteur":"Michele Bryant","taal":"bhb","vertrouwelijkheidaanduiding":"simply","status":"minute","formaat":"docx","bestandsnaam":"staff.jpeg","informatieobjecttype":"political","verschijningsvorm":"impact","bestandsomvang":1000000,"link":"http://davis.info/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-21T13:08:11.226295","verloopt_op":"2026-03-28T12:00:00+00:00"}'
+    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"http://www.clark.net/","identificatie":"643012ca-0963-467a-82df-04f18f4ea38e","bronorganisatie":"Chavez-Schwartz","titel":"Choice
+      after similar with work after.","beschrijving":"Institution firm up usually
+      statement too whether. Society evidence guy. Growth perform yourself cover report.","auteur":"Morgan
+      West","taal":"raj","vertrouwelijkheidaanduiding":"adult","status":"company","formaat":"odp","bestandsnaam":"total.mp4","informatieobjecttype":"purpose","verschijningsvorm":"summer","bestandsomvang":1000000,"link":"https://mercado-thomas.net/","creatiedatum":"2026-03-19","begin_registratie":"2026-03-12T08:17:15.188882","last_checked_at":"2026-03-28T12:00:00+00:00","next_check_at":"2026-03-29T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -99,7 +19,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":8,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/11111111-1111-1111-1111-111111111111
@@ -113,89 +33,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774625083289","number_of_replicas":"1","uuid":"oKTUuKfUSna-eJlLReFlDQ","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"begin_registratie":{"type":"date"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"verloopt_op":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"http://anderson.com/","identificatie":"f0b88800-51f4-4daf-98ce-498dfe96c0e5","bronorganisatie":"Gates
-      and Sons","titel":"Movie capital reach.","beschrijving":"Best yes wife. Economy
-      you eight black.","auteur":"James Gallagher","taal":"kok","vertrouwelijkheidaanduiding":"talk","status":"money","formaat":"wav","bestandsnaam":"campaign.csv","informatieobjecttype":"we","verschijningsvorm":"admit","bestandsomvang":1000000,"link":"https://www.thomas.net/","creatiedatum":"2026-03-10","begin_registratie":"2026-03-07T01:46:34.721732","verloopt_op":"2026-03-29T11:00:00+00:00"}'
+    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"https://sherman-caldwell.info/","identificatie":"bc8252a3-9704-49c3-92b7-37c580bf8245","bronorganisatie":"Lee-Walker","titel":"Interest
+      most economy lot remain relate player.","beschrijving":"Prove represent enjoy
+      few better lot western. Exist factor yard. Whom benefit simple half must could.","auteur":"Brooke
+      Long","taal":"my","vertrouwelijkheidaanduiding":"under","status":"school","formaat":"xls","bestandsnaam":"especially.avi","informatieobjecttype":"news","verschijningsvorm":"anyone","bestandsomvang":1000000,"link":"http://www.floyd.org/","creatiedatum":"2026-03-08","begin_registratie":"2026-03-02T15:00:51.543781","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -211,7 +52,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}'
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":9,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/22222222-2222-2222-2222-222222222222
@@ -225,89 +66,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774625083289","number_of_replicas":"1","uuid":"oKTUuKfUSna-eJlLReFlDQ","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"begin_registratie":{"type":"date"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"verloopt_op":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.brown-russell.com/","identificatie":"a154660f-c287-4227-bc77-d3b97af6b646","bronorganisatie":"Matthews,
-      Carey and Miller","titel":"Certainly itself fight when.","beschrijving":"Factor
-      real action learn structure. The likely day cell.","auteur":"Michael Cooper","taal":"oc","vertrouwelijkheidaanduiding":"family","status":"civil","formaat":"gif","bestandsnaam":"suffer.pptx","informatieobjecttype":"indicate","verschijningsvorm":"range","bestandsomvang":1000000,"link":"https://mcintyre.com/","creatiedatum":"2026-03-22","begin_registratie":"2026-03-26T00:27:36.137454","verloopt_op":"2026-04-04T12:00:00+00:00"}'
+    body: '{"uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.stout.com/","identificatie":"fa7df16f-7710-4f6b-a533-8f2835d99f08","bronorganisatie":"Mason-Hill","titel":"Check
+      evidence account citizen.","beschrijving":"Direction group computer second today.
+      Situation set key seven anything fall yes player. Throw happen behavior drug
+      she half civil.","auteur":"Erin Solomon","taal":"brx","vertrouwelijkheidaanduiding":"attorney","status":"story","formaat":"gif","bestandsnaam":"understand.mp3","informatieobjecttype":"third","verschijningsvorm":"give","bestandsomvang":1000000,"link":"https://rasmussen-moore.com/","creatiedatum":"2026-03-21","begin_registratie":"2026-03-23T22:32:50.338746","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-04T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -323,104 +85,24 @@ interactions:
     uri: http://localhost:9201/document/_doc/33333333-3333-3333-3333-333333333333?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
+      string: '{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":10,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/33333333-3333-3333-3333-333333333333
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774625083289","number_of_replicas":"1","uuid":"oKTUuKfUSna-eJlLReFlDQ","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"begin_registratie":{"type":"date"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"verloopt_op":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"44444444-4444-4444-4444-444444444444","url":"https://savage.com/","identificatie":"8ef515ab-02d8-4051-bb2f-d08f3d6daeed","bronorganisatie":"Barrett,
-      Chan and Cole","titel":"Difficult deep return and.","beschrijving":"Not computer
-      sister simple. Finally leave everyone describe draw education.","auteur":"Kevin
-      Cook","taal":"fy","vertrouwelijkheidaanduiding":"them","status":"major","formaat":"html","bestandsnaam":"admit.ods","informatieobjecttype":"gas","verschijningsvorm":"program","bestandsomvang":1000000,"link":"http://www.lee.com/","creatiedatum":"2026-03-13","begin_registratie":"2026-03-28T20:25:11.827755","verloopt_op":"2026-04-09T12:00:00+00:00"}'
+    body: '{"uuid":"44444444-4444-4444-4444-444444444444","url":"https://www.tucker-adams.com/","identificatie":"ecee74cb-894f-45af-a87d-3b7cdee35d6c","bronorganisatie":"Henderson,
+      Gregory and Robertson","titel":"Before gun catch analysis cell not community.","beschrijving":"Sense
+      machine manager send hot. Fund fly decision. Keep laugh building write interest.","auteur":"Shawna
+      Williams","taal":"nr","vertrouwelijkheidaanduiding":"pass","status":"like","formaat":"csv","bestandsnaam":"of.xlsx","informatieobjecttype":"fact","verschijningsvorm":"too","bestandsomvang":1000000,"link":"https://www.holmes.com/","creatiedatum":"2026-02-28","begin_registratie":"2026-03-01T16:29:09.142146","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -436,105 +118,23 @@ interactions:
     uri: http://localhost:9201/document/_doc/44444444-4444-4444-4444-444444444444?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":5,"_primary_term":1}'
+      string: '{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":11,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/44444444-4444-4444-4444-444444444444
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774625083289","number_of_replicas":"1","uuid":"oKTUuKfUSna-eJlLReFlDQ","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"begin_registratie":{"type":"date"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"verloopt_op":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://carter.com/","identificatie":"315bab96-5174-4ef2-a707-4a50f4ad95aa","bronorganisatie":"Williams
-      and Sons","titel":"Address light perhaps ball rather baby hear.","beschrijving":"Place
-      pull have everybody smile institution cultural. Alone almost herself those sit.
-      Short even citizen where stock marriage realize goal. Loss learn himself life
-      create.","auteur":"Terrence Moore","taal":"bg","vertrouwelijkheidaanduiding":"bring","status":"happy","formaat":"mov","bestandsnaam":"return.json","informatieobjecttype":"analysis","verschijningsvorm":"avoid","bestandsomvang":1000000,"link":"https://kramer.biz/","creatiedatum":"2026-03-03","begin_registratie":"2026-03-03T16:54:17.736830","verloopt_op":"2026-03-29T12:00:00+00:00"}'
+    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://cox-wyatt.org/","identificatie":"9794b63b-833a-425f-a2c0-308890590094","bronorganisatie":"Brown-Long","titel":"Room
+      sort bad mind deep role.","beschrijving":"Certainly type realize onto for probably
+      tend people.","auteur":"Tina Miller","taal":"fa","vertrouwelijkheidaanduiding":"clearly","status":"control","formaat":"csv","bestandsnaam":"not.mp3","informatieobjecttype":"throughout","verschijningsvorm":"his","bestandsomvang":1000000,"link":"https://www.white.com/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-21T20:28:43.278591","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -550,21 +150,21 @@ interactions:
     uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":6,"_primary_term":1}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":12,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"range":{"verloopt_op":{"lte":"2026-03-30T12:00:00+00:00"}}},"size":10,"_source":false}'
+    body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"bool":{"must":[{"exists":{"field":"creatiedatum"}},{"term":{"service_slug":"documenten-api"}}]}},"size":0}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -580,7 +180,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_score":1.0},{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_score":1.0},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":5,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7740512E12,"value_as_string":"2026-03-21"}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -603,25 +203,27 @@ interactions:
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/11111111-1111-1111-1111-111111111111
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-21&objectinformatieobjecten__objectType=zaak
   response:
     body:
-      string: '{"type":"http://localhost:8003/ref/fouten/NotFound/","code":"not_found","title":"Niet
-        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:d7110d4e-40e8-4e22-9b17-d067b85a5603"}'
+      string: '{"count":2,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000255","creatiedatum":"2026-03-21","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Dean Gnodde","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:10.096000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mason van
+        Breukeleveen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:33.793000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
     headers:
       API-version:
       - 1.4.2
       Allow:
-      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      - GET, POST, HEAD, OPTIONS
       Content-Length:
-      - '195'
+      - '1942'
       Content-Security-Policy:
-      - 'object-src ''none''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; form-action ''self''; default-src ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; base-uri ''self''; style-src
-        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        frame-src ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:'
+      - 'frame-ancestors ''none''; default-src ''self''; style-src ''self'' ''unsafe-inline''
+        fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net; object-src ''none'';
+        frame-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
+        tile.openstreetmap.org; font-src ''self'' fonts.gstatic.com; worker-src ''self''
+        blob:; form-action ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
+        cdn.jsdelivr.net; base-uri ''self'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -635,8 +237,36 @@ interactions:
       X-Frame-Options:
       - DENY
     status:
-      code: 404
-      message: Not Found
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-03-30T12:00:00+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":10,"_source":["service_slug","group_slug"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0512933,"hits":[{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_score":1.0512933,"_source":{"service_slug":"documenten-api","group_slug":"zgw-api-group-2"}},{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_score":1.0512933,"_source":{"service_slug":"documenten-api","group_slug":"zgw-api-group-2"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0512933,"_source":{"service_slug":"documenten-api","group_slug":"zgw-api-group-2"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
 - request:
     body: null
     headers:
@@ -652,17 +282,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":1,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"beschrijving":"Stuff
-        management many simple accept walk. Pressure say though. Design score finish
-        area call kind. Realize whom them station.","verschijningsvorm":"impact","begin_registratie":"2026-03-21T13:08:11.226295","identificatie":"6dac0a19-c667-4147-a97b-d40753ae76ef","bronorganisatie":"Joseph
-        Ltd","bestandsomvang":1000000,"link":"http://davis.info/","verloopt_op":"2026-03-28T12:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"http://russell-parker.com/","taal":"bhb","auteur":"Michele
-        Bryant","formaat":"docx","titel":"Entire memory medical consider physical
-        trial sport.","vertrouwelijkheidaanduiding":"simply","informatieobjecttype":"political","bestandsnaam":"staff.jpeg","creatiedatum":"2026-03-15","status":"minute"}}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":1,"_seq_no":8,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Institution
+        firm up usually statement too whether. Society evidence guy. Growth perform
+        yourself cover report.","verschijningsvorm":"summer","begin_registratie":"2026-03-12T08:17:15.188882","identificatie":"643012ca-0963-467a-82df-04f18f4ea38e","bronorganisatie":"Chavez-Schwartz","bestandsomvang":1000000,"link":"https://mercado-thomas.net/","next_check_at":"2026-03-29T12:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"http://www.clark.net/","taal":"raj","auteur":"Morgan
+        West","formaat":"odp","last_checked_at":"2026-03-28T12:00:00+00:00","titel":"Choice
+        after similar with work after.","vertrouwelijkheidaanduiding":"adult","informatieobjecttype":"purpose","bestandsnaam":"total.mp4","creatiedatum":"2026-03-19","group_slug":"zgw-api-group-2","status":"company"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '884'
+      - '967'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -680,66 +309,20 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: DELETE
-    uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111?if_primary_term=1&if_seq_no=2&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111?if_primary_term=1&if_seq_no=8&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":7,"_primary_term":1}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":13,"_primary_term":1}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 200
       message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.32.5
-    method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/22222222-2222-2222-2222-222222222222
-  response:
-    body:
-      string: '{"type":"http://localhost:8003/ref/fouten/NotFound/","code":"not_found","title":"Niet
-        gevonden.","status":404,"detail":"Niet gevonden.","instance":"urn:uuid:a5e9dfa4-0d82-444f-b590-a5600368bf1b"}'
-    headers:
-      API-version:
-      - 1.4.2
-      Allow:
-      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
-      Content-Length:
-      - '195'
-      Content-Security-Policy:
-      - 'object-src ''none''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; form-action ''self''; default-src ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; base-uri ''self''; style-src
-        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        frame-src ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:'
-      Content-Type:
-      - application/json
-      Cross-Origin-Opener-Policy:
-      - same-origin
-      Referrer-Policy:
-      - same-origin
-      Vary:
-      - origin, Cookie
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-    status:
-      code: 404
-      message: Not Found
 - request:
     body: null
     headers:
@@ -755,15 +338,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222
   response:
     body:
-      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":1,"_seq_no":3,"_primary_term":1,"found":true,"_source":{"beschrijving":"Best
-        yes wife. Economy you eight black.","verschijningsvorm":"admit","begin_registratie":"2026-03-07T01:46:34.721732","identificatie":"f0b88800-51f4-4daf-98ce-498dfe96c0e5","bronorganisatie":"Gates
-        and Sons","bestandsomvang":1000000,"link":"https://www.thomas.net/","verloopt_op":"2026-03-29T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"http://anderson.com/","taal":"kok","auteur":"James
-        Gallagher","formaat":"wav","titel":"Movie capital reach.","vertrouwelijkheidaanduiding":"talk","informatieobjecttype":"we","bestandsnaam":"campaign.csv","creatiedatum":"2026-03-10","status":"money"}}'
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":1,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Prove
+        represent enjoy few better lot western. Exist factor yard. Whom benefit simple
+        half must could.","verschijningsvorm":"anyone","begin_registratie":"2026-03-02T15:00:51.543781","identificatie":"bc8252a3-9704-49c3-92b7-37c580bf8245","bronorganisatie":"Lee-Walker","bestandsomvang":1000000,"link":"http://www.floyd.org/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"https://sherman-caldwell.info/","taal":"my","auteur":"Brooke
+        Long","formaat":"xls","last_checked_at":"2026-03-29T11:00:00+00:00","titel":"Interest
+        most economy lot remain relate player.","vertrouwelijkheidaanduiding":"under","informatieobjecttype":"news","bestandsnaam":"especially.avi","creatiedatum":"2026-03-08","group_slug":"zgw-api-group-2","status":"school"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '760'
+      - '966'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -781,70 +365,22 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: DELETE
-    uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222?if_primary_term=1&if_seq_no=3&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222?if_primary_term=1&if_seq_no=9&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":8,"_primary_term":1}'
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":14,"_primary_term":1}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.32.5
-    method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594
-  response:
-    body:
-      string: '{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000255","creatiedatum":"2026-03-21","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Dean Gnodde","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:10.096000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}'
-    headers:
-      API-version:
-      - 1.4.2
-      Allow:
-      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
-      Content-Length:
-      - '939'
-      Content-Security-Policy:
-      - 'object-src ''none''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; form-action ''self''; default-src ''self''; font-src
-        ''self'' fonts.gstatic.com; frame-ancestors ''none''; base-uri ''self''; style-src
-        ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net;
-        frame-src ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; worker-src ''self'' blob:'
-      Content-Type:
-      - application/json
-      Cross-Origin-Opener-Policy:
-      - same-origin
-      ETag:
-      - '"b77b896708638eb2a230b90f99f2448a"'
-      Referrer-Policy:
-      - same-origin
-      Vary:
-      - origin, Cookie
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"doc":{"verloopt_op":"2026-04-06T12:00:00+00:00"}}'
+    body: '{"doc":{"last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00"}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -860,12 +396,12 @@ interactions:
     uri: http://localhost:9201/document/_update/c4a2d123-1817-4b3a-a330-67c1282b1594?refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":9,"_primary_term":1}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":15,"_primary_term":1}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -888,18 +424,18 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_score":1.0,"_source":{"beschrijving":"Factor
-        real action learn structure. The likely day cell.","verschijningsvorm":"range","begin_registratie":"2026-03-26T00:27:36.137454","identificatie":"a154660f-c287-4227-bc77-d3b97af6b646","bronorganisatie":"Matthews,
-        Carey and Miller","bestandsomvang":1000000,"link":"https://mcintyre.com/","verloopt_op":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.brown-russell.com/","taal":"oc","auteur":"Michael
-        Cooper","formaat":"gif","titel":"Certainly itself fight when.","vertrouwelijkheidaanduiding":"family","informatieobjecttype":"indicate","bestandsnaam":"suffer.pptx","creatiedatum":"2026-03-22","status":"civil"}},{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_score":1.0,"_source":{"beschrijving":"Not
-        computer sister simple. Finally leave everyone describe draw education.","verschijningsvorm":"program","begin_registratie":"2026-03-28T20:25:11.827755","identificatie":"8ef515ab-02d8-4051-bb2f-d08f3d6daeed","bronorganisatie":"Barrett,
-        Chan and Cole","bestandsomvang":1000000,"link":"http://www.lee.com/","verloopt_op":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://savage.com/","taal":"fy","auteur":"Kevin
-        Cook","formaat":"html","titel":"Difficult deep return and.","vertrouwelijkheidaanduiding":"them","informatieobjecttype":"gas","bestandsnaam":"admit.ods","creatiedatum":"2026-03-13","status":"major"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0,"_source":{"beschrijving":"Place
-        pull have everybody smile institution cultural. Alone almost herself those
-        sit. Short even citizen where stock marriage realize goal. Loss learn himself
-        life create.","verschijningsvorm":"avoid","begin_registratie":"2026-03-03T16:54:17.736830","identificatie":"315bab96-5174-4ef2-a707-4a50f4ad95aa","bronorganisatie":"Williams
-        and Sons","bestandsomvang":1000000,"link":"https://kramer.biz/","verloopt_op":"2026-04-06T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://carter.com/","taal":"bg","auteur":"Terrence
-        Moore","formaat":"mov","titel":"Address light perhaps ball rather baby hear.","vertrouwelijkheidaanduiding":"bring","informatieobjecttype":"analysis","bestandsnaam":"return.json","creatiedatum":"2026-03-03","status":"happy"}}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Sense
+        machine manager send hot. Fund fly decision. Keep laugh building write interest.","verschijningsvorm":"too","begin_registratie":"2026-03-01T16:29:09.142146","identificatie":"ecee74cb-894f-45af-a87d-3b7cdee35d6c","bronorganisatie":"Henderson,
+        Gregory and Robertson","bestandsomvang":1000000,"link":"https://www.holmes.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://www.tucker-adams.com/","taal":"nr","auteur":"Shawna
+        Williams","formaat":"csv","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Before
+        gun catch analysis cell not community.","vertrouwelijkheidaanduiding":"pass","informatieobjecttype":"fact","bestandsnaam":"of.xlsx","creatiedatum":"2026-02-28","group_slug":"zgw-api-group-2","status":"like"}},{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Direction
+        group computer second today. Situation set key seven anything fall yes player.
+        Throw happen behavior drug she half civil.","verschijningsvorm":"give","begin_registratie":"2026-03-23T22:32:50.338746","identificatie":"fa7df16f-7710-4f6b-a533-8f2835d99f08","bronorganisatie":"Mason-Hill","bestandsomvang":1000000,"link":"https://rasmussen-moore.com/","next_check_at":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.stout.com/","taal":"brx","auteur":"Erin
+        Solomon","formaat":"gif","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Check
+        evidence account citizen.","vertrouwelijkheidaanduiding":"attorney","informatieobjecttype":"third","bestandsnaam":"understand.mp3","creatiedatum":"2026-03-21","group_slug":"zgw-api-group-2","status":"story"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Certainly
+        type realize onto for probably tend people.","verschijningsvorm":"his","begin_registratie":"2026-03-21T20:28:43.278591","identificatie":"9794b63b-833a-425f-a2c0-308890590094","bronorganisatie":"Brown-Long","bestandsomvang":1000000,"link":"https://www.white.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://cox-wyatt.org/","taal":"fa","auteur":"Tina
+        Miller","formaat":"csv","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Room
+        sort bad mind deep role.","vertrouwelijkheidaanduiding":"clearly","informatieobjecttype":"throughout","bestandsnaam":"not.mp3","creatiedatum":"2026-03-18","group_slug":"zgw-api-group-2","status":"control"}}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -925,17 +461,15 @@ interactions:
     uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":2,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"beschrijving":"Place
-        pull have everybody smile institution cultural. Alone almost herself those
-        sit. Short even citizen where stock marriage realize goal. Loss learn himself
-        life create.","verschijningsvorm":"avoid","begin_registratie":"2026-03-03T16:54:17.736830","identificatie":"315bab96-5174-4ef2-a707-4a50f4ad95aa","bronorganisatie":"Williams
-        and Sons","bestandsomvang":1000000,"link":"https://kramer.biz/","verloopt_op":"2026-04-06T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://carter.com/","taal":"bg","auteur":"Terrence
-        Moore","formaat":"mov","titel":"Address light perhaps ball rather baby hear.","vertrouwelijkheidaanduiding":"bring","informatieobjecttype":"analysis","bestandsnaam":"return.json","creatiedatum":"2026-03-03","status":"happy"}}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":2,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Certainly
+        type realize onto for probably tend people.","verschijningsvorm":"his","begin_registratie":"2026-03-21T20:28:43.278591","identificatie":"9794b63b-833a-425f-a2c0-308890590094","bronorganisatie":"Brown-Long","bestandsomvang":1000000,"link":"https://www.white.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://cox-wyatt.org/","taal":"fa","auteur":"Tina
+        Miller","formaat":"csv","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Room
+        sort bad mind deep role.","vertrouwelijkheidaanduiding":"clearly","informatieobjecttype":"throughout","bestandsnaam":"not.mp3","creatiedatum":"2026-03-18","group_slug":"zgw-api-group-2","status":"control"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '917'
+      - '893'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -956,15 +490,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/33333333-3333-3333-3333-333333333333
   response:
     body:
-      string: '{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_version":1,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"beschrijving":"Factor
-        real action learn structure. The likely day cell.","verschijningsvorm":"range","begin_registratie":"2026-03-26T00:27:36.137454","identificatie":"a154660f-c287-4227-bc77-d3b97af6b646","bronorganisatie":"Matthews,
-        Carey and Miller","bestandsomvang":1000000,"link":"https://mcintyre.com/","verloopt_op":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.brown-russell.com/","taal":"oc","auteur":"Michael
-        Cooper","formaat":"gif","titel":"Certainly itself fight when.","vertrouwelijkheidaanduiding":"family","informatieobjecttype":"indicate","bestandsnaam":"suffer.pptx","creatiedatum":"2026-03-22","status":"civil"}}'
+      string: '{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_version":1,"_seq_no":10,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Direction
+        group computer second today. Situation set key seven anything fall yes player.
+        Throw happen behavior drug she half civil.","verschijningsvorm":"give","begin_registratie":"2026-03-23T22:32:50.338746","identificatie":"fa7df16f-7710-4f6b-a533-8f2835d99f08","bronorganisatie":"Mason-Hill","bestandsomvang":1000000,"link":"https://rasmussen-moore.com/","next_check_at":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.stout.com/","taal":"brx","auteur":"Erin
+        Solomon","formaat":"gif","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Check
+        evidence account citizen.","vertrouwelijkheidaanduiding":"attorney","informatieobjecttype":"third","bestandsnaam":"understand.mp3","creatiedatum":"2026-03-21","group_slug":"zgw-api-group-2","status":"story"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '809'
+      - '982'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -985,15 +520,16 @@ interactions:
     uri: http://localhost:9201/document/_doc/44444444-4444-4444-4444-444444444444
   response:
     body:
-      string: '{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_version":1,"_seq_no":5,"_primary_term":1,"found":true,"_source":{"beschrijving":"Not
-        computer sister simple. Finally leave everyone describe draw education.","verschijningsvorm":"program","begin_registratie":"2026-03-28T20:25:11.827755","identificatie":"8ef515ab-02d8-4051-bb2f-d08f3d6daeed","bronorganisatie":"Barrett,
-        Chan and Cole","bestandsomvang":1000000,"link":"http://www.lee.com/","verloopt_op":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://savage.com/","taal":"fy","auteur":"Kevin
-        Cook","formaat":"html","titel":"Difficult deep return and.","vertrouwelijkheidaanduiding":"them","informatieobjecttype":"gas","bestandsnaam":"admit.ods","creatiedatum":"2026-03-13","status":"major"}}'
+      string: '{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Sense
+        machine manager send hot. Fund fly decision. Keep laugh building write interest.","verschijningsvorm":"too","begin_registratie":"2026-03-01T16:29:09.142146","identificatie":"ecee74cb-894f-45af-a87d-3b7cdee35d6c","bronorganisatie":"Henderson,
+        Gregory and Robertson","bestandsomvang":1000000,"link":"https://www.holmes.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://www.tucker-adams.com/","taal":"nr","auteur":"Shawna
+        Williams","formaat":"csv","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Before
+        gun catch analysis cell not community.","vertrouwelijkheidaanduiding":"pass","informatieobjecttype":"fact","bestandsnaam":"of.xlsx","creatiedatum":"2026-02-28","group_slug":"zgw-api-group-2","status":"like"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '800'
+      - '964'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
