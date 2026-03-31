@@ -21,29 +21,31 @@ export const DocumentsList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
 
   // TODO: Validation. See issue gh-#42
-  const { zaakYear } = useParams() as {
+  const { serviceSlug, zaaktypeUuid, zaakYear, zaakId } = useParams() as {
+    serviceSlug: string | undefined;
+    zaaktypeUuid: string | undefined;
     zaakYear: string | undefined;
+    zaakId: string | undefined;
   };
   const rootData =
     useRouteLoaderData<typeof authenticatedRootLoader>("authenticated-root");
 
-  const items = useMemo(
-    () =>
-      data?.results.map(
-        (doc) =>
-          ({
-            title: doc.titel,
-            icon: <Outline.DocumentIcon />,
-            informationLines: [doc.formaat],
-            buttonProps: {
-              as: "a",
-              href: doc.link ?? "#",
-              download: doc.titel,
-            },
-          }) satisfies ItemGridItemProps,
-      ) ?? [],
-    [data?.results],
-  );
+  const items = useMemo<ItemGridItemProps[]>(() => {
+    return (
+      data?.results.map((doc) => {
+        return {
+          title: doc.titel,
+          icon: <Outline.DocumentIcon />,
+          informationLines: [doc.formaat],
+          buttonProps: {
+            as: "a",
+            download: true,
+            href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
+          },
+        };
+      }) ?? []
+    );
+  }, [data?.results, serviceSlug, zaaktypeUuid, zaakId]);
 
   if (!data) return null;
   invariant(rootData?.zaaktype?.identificatie, "Zaaktype not loaded!");
