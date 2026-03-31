@@ -160,7 +160,7 @@ cron-descriptor==1.4.5
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   django-celery-beat
-cryptography==46.0.5
+cryptography==46.0.6
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -849,7 +849,7 @@ pydantic-settings==2.13.0
     #   -r requirements/ci.txt
     #   bump-my-version
     #   django-setup-configuration
-pygments==2.19.2
+pygments==2.20.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -951,7 +951,7 @@ referencing==0.37.0
     #   -r requirements/ci.txt
     #   jsonschema
     #   jsonschema-specifications
-requests==2.32.5
+requests==2.33.1
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
