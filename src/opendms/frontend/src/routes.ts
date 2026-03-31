@@ -1,6 +1,6 @@
 import { type RouteObject, createBrowserRouter } from "react-router";
 import { authenticatedRootLoader } from "~/routes/authenticated-root.loader.ts";
-import { documentsListLoader } from "~/routes/documents-list/documents-list.loader.ts";
+import { documentsListLoader } from "~/routes/documents-list";
 import { DocumentsList } from "~/routes/documents-list/documents-list.tsx";
 import {
   Login,
