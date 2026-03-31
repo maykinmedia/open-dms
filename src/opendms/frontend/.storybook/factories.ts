@@ -9,11 +9,21 @@ export const documentFactory = createFactory<Document>({
   beschrijving: null,
   formaat: "pdf",
   link: null,
+  auteur: "",
+  beginRegistratie: "",
+  bronorganisatie: "",
+  creatiedatum: "",
+  informatieobjecttype: "",
+  inhoud: "",
+  taal: "",
+  url: "",
+  uuid: "",
 });
 
 export const zaakFactory = createFactory<Zaak>({
   identificatie: "ZAAK-1",
   omschrijving: "Lorem ipsum dolor sit amet",
+  uuid: "00000000-0000-0000-0000-000000000000",
 });
 
 /**
