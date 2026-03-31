@@ -81,7 +81,11 @@ class Document(ES_Document):
 
     zaak_referenties: M[list[ZaakReferenties]] = mapped_field(Nested(ZaakReferenties))
 
-    verloopt_op: M[datetime] = mapped_field(Date())
+    last_checked_at: M[datetime] = mapped_field(Date())
+    next_check_at: M[datetime] = mapped_field(Date())
+
+    service_slug: M[str] = mapped_field(Keyword())
+    group_slug: M[str | None] = mapped_field(Keyword())
 
     if TYPE_CHECKING:
         # help the type checkers a little bit
@@ -94,9 +98,14 @@ class Document(ES_Document):
         name: IndexName = "document"
 
     def save(self, **kwargs):
-        # Ensure verloopt_op is always set when indexing
-        if not self.verloopt_op:
-            self.verloopt_op = datetime.now(UTC)
+        now = datetime.now(UTC)
+
+        if not self.last_checked_at:
+            self.last_checked_at = now
+
+        if not self.next_check_at:
+            self.next_check_at = now
+
         return super().save(**kwargs)
 
 
