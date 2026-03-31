@@ -1,5 +1,85 @@
 interactions:
 - request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774941917266","number_of_replicas":"1","uuid":"Cl-ga3PUS9q8RbWRt9WHxg","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsomvang":{"type":"long"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verloopt_op":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
     body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"exists":{"field":"creatiedatum"}},"size":0}'
     headers:
       accept:
@@ -9,7 +89,7 @@ interactions:
       content-type:
       - application/vnd.elasticsearch+json; compatible-with=8
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
@@ -4205,10 +4285,8 @@ interactions:
     uri: http://localhost:9201/document/_doc/f8c1d2cc-780e-452a-8871-187048341200?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"f8c1d2cc-780e-452a-8871-187048341200","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":18,"_primary_term":1}'
+      string: '{"_index":"document","_id":"f8c1d2cc-780e-452a-8871-187048341200","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":38,"_primary_term":1}'
     headers:
-      Location:
-      - /document/_doc/f8c1d2cc-780e-452a-8871-187048341200
       X-elastic-product:
       - Elasticsearch
       content-length:
@@ -4418,10 +4496,8 @@ interactions:
     uri: http://localhost:9201/document/_doc/d34816d6-50c6-49ea-9b84-4803cbc45a3a?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"d34816d6-50c6-49ea-9b84-4803cbc45a3a","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":19,"_primary_term":1}'
+      string: '{"_index":"document","_id":"d34816d6-50c6-49ea-9b84-4803cbc45a3a","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":39,"_primary_term":1}'
     headers:
-      Location:
-      - /document/_doc/d34816d6-50c6-49ea-9b84-4803cbc45a3a
       X-elastic-product:
       - Elasticsearch
       content-length:
@@ -4429,8 +4505,8 @@ interactions:
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
-      code: 201
-      message: Created
+      code: 200
+      message: OK
 - request:
     body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"exists":{"field":"creatiedatum"}},"size":0}'
     headers:
@@ -4705,10 +4781,10 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_doc/ef55f9ea-4004-4832-803e-2672bb1c6d4d?pipeline=document_attachment&refresh=wait_for
+    uri: http://localhost:9201/document/_doc/a9c82615-cee7-4e9d-b7a8-460623882c38?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":20,"_primary_term":1}'
+      string: '{"_index":"document","_id":"a9c82615-cee7-4e9d-b7a8-460623882c38","_version":3,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":40,"_primary_term":1}'
     headers:
       X-elastic-product:
       - Elasticsearch
@@ -4720,20 +4796,44 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"exists":{"field":"creatiedatum"}},"size":0}'
+    body: null
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
       connection:
       - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
       user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: POST
-    uri: http://localhost:9201/document/_search
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
   response:
     body:
       string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":20,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7743104E12,"value_as_string":"2026-03-24"}}}'
@@ -4748,23 +4848,76 @@ interactions:
       code: 200
       message: OK
 - request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"ea16fa8c-4bab-4065-a28a-f6574625205d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000115","creatiedatum":"2026-01-15","titel":"aanvraag
+      formulier","auteur":"Niek van den Berg","taal":"nld","begin_registratie":"2026-03-25T13:51:49.784000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1","link":"","beschrijving":"","verschijningsvorm":""}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/ea16fa8c-4bab-4065-a28a-f6574625205d?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":3,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":41,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
     body: null
     headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Connection:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
       - keep-alive
       User-Agent:
       - python-requests/2.32.5
     method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-24&objectinformatieobjecten__objectType=zaak
+    uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mason van
-        Breukeleveen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:33.793000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525688603","number_of_replicas":"1","uuid":"XpZgt0T2SI-Lm7ZSeyQPVg","version":{"created":"8521000"}}}}}'
     headers:
       API-version:
       - 1.4.2
