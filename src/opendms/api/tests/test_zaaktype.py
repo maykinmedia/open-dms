@@ -96,11 +96,11 @@ class ZaakTypeTests(VCRMixin, APITestCase):
 
         # missing service_slug
         with self.assertRaises(NoReverseMatch):
-            url = reverse("api:zaken-list", kwargs={})
+            reverse("api:zaken-list", kwargs={})
 
         # empty service_slug
         with self.assertRaises(NoReverseMatch):
-            url = reverse("api:zaken-list", kwargs={"service_slug": ""})
+            reverse("api:zaken-list", kwargs={"service_slug": ""})
 
     def test_service_configuration(self):
         service = ServiceFactory.create(

@@ -160,13 +160,13 @@ class ZaakTests(VCRMixin, APITestCase):
 
         # missing service_slug
         with self.assertRaises(NoReverseMatch):
-            url = reverse(
+            reverse(
                 "api:zaken-list", kwargs={"zaaktypen_zaaktype_uuid": self.zaaktype_uuid}
             )
 
         # empty service_slug
         with self.assertRaises(NoReverseMatch):
-            url = reverse(
+            reverse(
                 "api:zaken-list",
                 kwargs={
                     "service_slug": "",
