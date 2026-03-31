@@ -363,8 +363,8 @@ interactions:
       - elasticsearch-dsl-py/8.19.3
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_doc/a9c82615-cee7-4e9d-b7a8-460623882c38?pipeline=document_attachment&refresh=wait_for
+    method: POST
+    uri: http://localhost:9201/document/_search
   response:
     body:
       string: '{"_index":"document","_id":"a9c82615-cee7-4e9d-b7a8-460623882c38","_version":7,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":122,"_primary_term":1}'
@@ -511,26 +511,45 @@ interactions:
 - request:
     body: null
     headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
       - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+      User-Agent:
+      - python-requests/2.32.5
     method: GET
-    uri: http://localhost:9201/document/_settings
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?objectinformatieobjecten__objectType=zaak
   response:
     body:
       string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775547726498","number_of_replicas":"1","uuid":"duHnFh6UR2-nGGamAgC1IA","version":{"created":"8521000"}}}}}'
     headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
+      API-version:
+      - 1.4.2
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Length:
+      - '18919'
+      Content-Security-Policy:
+      - 'frame-ancestors ''none''; default-src ''self''; style-src ''self'' ''unsafe-inline''
+        fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net; object-src ''none'';
+        frame-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
+        tile.openstreetmap.org; font-src ''self'' fonts.gstatic.com; worker-src ''self''
+        blob:; form-action ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
+        cdn.jsdelivr.net; base-uri ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
     status:
       code: 200
       message: OK
@@ -548,7 +567,7 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_mapping
+    uri: http://localhost:9201/document/_doc/a9c82615-cee7-4e9d-b7a8-460623882c38?pipeline=document_attachment&refresh=wait_for
   response:
     body:
       string: '{"acknowledged":true}'
@@ -583,7 +602,7 @@ interactions:
       string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":7,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":123,"_primary_term":1}'
     headers:
       Location:
-      - /document/_doc/ea16fa8c-4bab-4065-a28a-f6574625205d
+      - /document/_doc/a9c82615-cee7-4e9d-b7a8-460623882c38
       X-elastic-product:
       - Elasticsearch
       content-length:
@@ -761,20 +780,22 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: PUT
-    uri: http://localhost:9201/document/_mapping
+    uri: http://localhost:9201/document/_doc/ea16fa8c-4bab-4065-a28a-f6574625205d?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"acknowledged":true}'
+      string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":43,"_primary_term":1}'
     headers:
+      Location:
+      - /document/_doc/ea16fa8c-4bab-4065-a28a-f6574625205d
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '21'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
-      code: 200
-      message: OK
+      code: 201
+      message: Created
 - request:
     body: '{"uuid":"dbfe1f09-2803-4a40-862c-f2ca75f384d1","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000152","creatiedatum":"2026-03-12","titel":"aanvraag
       formulier","auteur":"Ayden van Velzen","taal":"nld","begin_registratie":"2026-03-25T13:51:45.837000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"fc35705e-6a27-46c8-8cf1-b3119dba7bde","url":"http://localhost:8003/zaken/api/v1/zaken/fc35705e-6a27-46c8-8cf1-b3119dba7bde","identificatie":"ZAAK-2025-0000000004","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000310","verantwoordelijkeOrganisatie":"000000097","registratiedatum":"2026-03-25","startdatum":"2025-12-01","omschrijving":"","toelichting":"","object_type":"zaak"}]}'
