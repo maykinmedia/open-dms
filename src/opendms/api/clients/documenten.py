@@ -23,9 +23,10 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         Fetch all documenten using pagination
         """
         params = params or {}
-        params = {**params, "objectinformatieobjecten__objectType": "zaak"}
-
-        data = self.make_request(self.endpoint, {})
+        data = self.make_request(
+            self.endpoint,
+            params={**params, "objectinformatieobjecten__objectType": "zaak"},
+        )
         return [self._map_document(record) for record in pagination_helper(self, data)]
 
     def get_item_by_uuid(self, uuid: str) -> DocumentType:
