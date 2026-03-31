@@ -124,5 +124,8 @@ class ElasticSearchAPITestCase(ElasticSearchMixin, APITestCase):
     """
 
     def index_document(self, document: Document):
+        service = "test-service"
+        group_slug = "test-group"
+
         with get_elasticsearch_client() as client:
-            client.index_document(document)
+            client.index_document(document, service, group_slug)
