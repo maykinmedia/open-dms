@@ -12,6 +12,7 @@ on:
 # least privilege as default, should be overridden per job if necessary
 permissions:
   contents: read
+  security-events: write
 
 jobs:
   open-api-workflow-code-analysis:
