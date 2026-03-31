@@ -42,15 +42,8 @@ class DocumentClient(HttpRequestMixin, NLXClient):
             return StreamingHttpResponse(status=204)
 
         file_response = StreamingHttpResponse(
-            response.iter_content(chunk_size=8192),
-            content_type=response.headers.get(
-                "Content-Type", "application/octet-stream"
-            ),
-            headers={
-                "Content-Disposition": response.headers.get("Content-Disposition")
-            },
+            response.iter_content(chunk_size=8192), headers=response.headers
         )
-
         return file_response
 
     def get_paginated_items_by_zaak(
