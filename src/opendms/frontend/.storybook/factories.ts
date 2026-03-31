@@ -24,6 +24,13 @@ export const zaakFactory = createFactory<Zaak>({
   identificatie: "ZAAK-2026-0000000010",
   omschrijving: "Lorem ipsum dolor sit amet",
   uuid: "00000000-0000-0000-0000-000000000000",
+  bronorganisatie: "",
+  registratiedatum: "",
+  startdatum: "",
+  toelichting: "",
+  url: "",
+  verantwoordelijkeOrganisatie: "",
+  zaaktype: "",
 });
 
 /**
