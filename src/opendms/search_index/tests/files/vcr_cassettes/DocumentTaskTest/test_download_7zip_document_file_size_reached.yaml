@@ -1,130 +1,11 @@
 interactions:
 - request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Audit-Remarks:
-      - download document for indexing.
-      Audit-User-ID:
-      - Open DMS
-      Audit-User-Representation:
-      - Open DMS (system)
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.32.5
-    method: GET
-    uri: http://localhost/document/smol7zip
-  response:
-    body:
-      string: !!binary |
-        N3q8ryccAAQw1YWZigAAAAAAAAAVAAAAAAAAAFj+mTzgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
-        AGxdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
-        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzQzThSkSxl2Ue0mm8GAXhy+qEHBJqq528SIAAAAAX
-        BhYBCXQABwsBAAEhIQEYDICFAAA=
-    headers:
-      Connection:
-      - close
-      Content-Length:
-      - '191'
-      Content-Type:
-      - application/x-7z-compressed
-      Date:
-      - Thu, 26 Mar 2026 11:44:51 GMT
-      Server:
-      - Werkzeug/3.1.6 Python/3.12.13
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.rodriguez.com/","identificatie":"066c7941-d8f3-4971-8918-ad3ce5ae49b5","bronorganisatie":"Davis
-      LLC","titel":"Public ground program task environmental field television.","beschrijving":"Whom
-      finish section specific show population. Against building happy participant
-      economic because. Get chance involve couple will culture although. Particular
-      save great.","auteur":"Andre Rodriguez","taal":"sw","vertrouwelijkheidaanduiding":"strategy","status":"material","formaat":"docx","bestandsnaam":"return.css","informatieobjecttype":"science","verschijningsvorm":"central","bestandsomvang":188,"link":"http://davis.com/","creatiedatum":"2026-03-24","begin_registratie":"2026-03-12T13:47:19.807170","inhoud":"http://localhost/document/smol7zip","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.arnold.com/","identificatie":"00657273-1cfc-43a1-b69b-fdd0f12082bf","bronorganisatie":"Miller-Richards","titel":"Fight
+      difficult arrive sing military behind.","beschrijving":"Middle worry light investment
+      night. Find book everyone listen fine.","auteur":"William Brown","taal":"tr","vertrouwelijkheidaanduiding":"edge","status":"bar","formaat":"mp3","bestandsnaam":"chance.jpeg","informatieobjecttype":"lay","verschijningsvorm":"feel","bestandsomvang":188,"link":"https://ali-munoz.com/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-22T21:46:50.272866","last_checked_at":"1971-03-24T00:00:00","next_check_at":"2006-12-21T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"0724ecc8-322a-43b0-8432-c80f1836efe4","url":"http://www.martinez.com/","identificatie":"bf2a53a1-bfbc-4476-92f3-a55b549f235b","bronorganisatie":"Miranda
+      Ltd","verantwoordelijkeOrganisatie":"Wagner-Davis","omschrijving":"Image police
+      including pick consider interest college.","toelichting":"Attorney box central
+      argue step. Travel serve heavy give.","status":"debate","registratiedatum":"2026-03-30","startdatum":"2026-03-14","zaaktype":"street","object_type":"seven"}],"inhoud":"http://localhost/document/smol7zip"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -168,18 +49,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"beschrijving":"Whom
-        finish section specific show population. Against building happy participant
-        economic because. Get chance involve couple will culture although. Particular
-        save great.","verschijningsvorm":"central","begin_registratie":"2026-03-12T13:47:19.807170","identificatie":"066c7941-d8f3-4971-8918-ad3ce5ae49b5","bronorganisatie":"Davis
-        LLC","bestandsomvang":188,"link":"http://davis.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.rodriguez.com/","taal":"sw","auteur":"Andre
-        Rodriguez","formaat":"docx","inhoud":"http://localhost/document/smol7zip","titel":"Public
-        ground program task environmental field television.","vertrouwelijkheidaanduiding":"strategy","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"informatieobjecttype":"science","bestandsnaam":"return.css","creatiedatum":"2026-03-24","status":"material"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Middle
+        worry light investment night. Find book everyone listen fine.","verschijningsvorm":"feel","begin_registratie":"2026-03-22T21:46:50.272866","identificatie":"00657273-1cfc-43a1-b69b-fdd0f12082bf","bronorganisatie":"Miller-Richards","bestandsomvang":188,"link":"https://ali-munoz.com/","next_check_at":"2006-12-21T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.arnold.com/","taal":"tr","zaak_referenties":[{"omschrijving":"Image
+        police including pick consider interest college.","identificatie":"bf2a53a1-bfbc-4476-92f3-a55b549f235b","startdatum":"2026-03-14","object_type":"seven","bronorganisatie":"Miranda
+        Ltd","zaaktype":"street","registratiedatum":"2026-03-30","uuid":"0724ecc8-322a-43b0-8432-c80f1836efe4","url":"http://www.martinez.com/","verantwoordelijkeOrganisatie":"Wagner-Davis","toelichting":"Attorney
+        box central argue step. Travel serve heavy give.","status":"debate"}],"auteur":"William
+        Brown","formaat":"mp3","last_checked_at":"1971-03-24T00:00:00","inhoud":"http://localhost/document/smol7zip","titel":"Fight
+        difficult arrive sing military behind.","vertrouwelijkheidaanduiding":"edge","informatieobjecttype":"lay","bestandsnaam":"chance.jpeg","creatiedatum":"2026-03-14","group_slug":"group-1","status":"bar"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1484'
+      - '1441'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

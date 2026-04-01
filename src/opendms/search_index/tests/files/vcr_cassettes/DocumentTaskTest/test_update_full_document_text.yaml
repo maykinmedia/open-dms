@@ -29,97 +29,18 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:45:03 GMT
+      - Thu, 09 Apr 2026 12:50:37 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://pham.com/","identificatie":"6ff700cf-868e-4163-96e8-a1a2a449f605","bronorganisatie":"Jordan-Wells","titel":"Relationship
-      window important per change when eat work.","beschrijving":"Note common officer
-      plant. Us bed cell tend force. Pm main quite language attorney everything truth.","auteur":"Connie
-      Blake","taal":"de","vertrouwelijkheidaanduiding":"prove","status":"mouth","formaat":"docx","bestandsnaam":"beyond.flac","informatieobjecttype":"alone","verschijningsvorm":"country","bestandsomvang":1000,"link":"https://gordon.com/","creatiedatum":"2026-03-07","begin_registratie":"2026-02-24T16:34:37.992550","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://wright.org/","identificatie":"96e4cfa9-64ff-49b8-9ad2-1c3b85147bb9","bronorganisatie":"Crawford-Dawson","titel":"Chair
+      learn strong machine establish surface matter.","beschrijving":"Contain forget
+      election hundred. Win dog talk international.","auteur":"Stacey Mcintyre DVM","taal":"nl","vertrouwelijkheidaanduiding":"or","status":"low","formaat":"flac","bestandsnaam":"rock.doc","informatieobjecttype":"development","verschijningsvorm":"onto","bestandsomvang":1000,"link":"https://www.thomas-hamilton.info/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-30T08:21:27.121554","last_checked_at":"1989-04-14T00:00:00","next_check_at":"2012-07-14T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"97f379e5-2bac-4f10-95ec-61d770c410c4","url":"http://james.net/","identificatie":"a3f4a9f5-692b-487f-a7d1-11b54f27911f","bronorganisatie":"Vazquez-Wells","verantwoordelijkeOrganisatie":"Cooper
+      Group","omschrijving":"Improve production assume thought herself.","toelichting":"Down
+      door specific tend phone. Occur section final Congress act.","status":"check","registratiedatum":"2026-04-02","startdatum":"2026-04-04","zaaktype":"religious","object_type":"rather"}],"inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -163,17 +84,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"beschrijving":"Note
-        common officer plant. Us bed cell tend force. Pm main quite language attorney
-        everything truth.","verschijningsvorm":"country","begin_registratie":"2026-02-24T16:34:37.992550","identificatie":"6ff700cf-868e-4163-96e8-a1a2a449f605","bronorganisatie":"Jordan-Wells","bestandsomvang":1000,"link":"https://gordon.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://pham.com/","taal":"de","auteur":"Connie
-        Blake","formaat":"docx","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Relationship
-        window important per change when eat work.","vertrouwelijkheidaanduiding":"prove","document_data":[{"attachment":{"content":"Document
-        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"informatieobjecttype":"alone","bestandsnaam":"beyond.flac","creatiedatum":"2026-03-07","status":"mouth"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Contain
+        forget election hundred. Win dog talk international.","verschijningsvorm":"onto","bronorganisatie":"Crawford-Dawson","link":"https://www.thomas-hamilton.info/","next_check_at":"2012-07-14T00:00:00","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","formaat":"flac","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Chair
+        learn strong machine establish surface matter.","informatieobjecttype":"development","bestandsnaam":"rock.doc","creatiedatum":"2026-03-15","group_slug":"group-1","begin_registratie":"2026-03-30T08:21:27.121554","identificatie":"96e4cfa9-64ff-49b8-9ad2-1c3b85147bb9","bestandsomvang":1000,"url":"https://wright.org/","taal":"nl","zaak_referenties":[{"omschrijving":"Improve
+        production assume thought herself.","identificatie":"a3f4a9f5-692b-487f-a7d1-11b54f27911f","startdatum":"2026-04-04","object_type":"rather","bronorganisatie":"Vazquez-Wells","zaaktype":"religious","registratiedatum":"2026-04-02","uuid":"97f379e5-2bac-4f10-95ec-61d770c410c4","url":"http://james.net/","verantwoordelijkeOrganisatie":"Cooper
+        Group","toelichting":"Down door specific tend phone. Occur section final Congress
+        act.","status":"check"}],"auteur":"Stacey Mcintyre DVM","last_checked_at":"1989-04-14T00:00:00","vertrouwelijkheidaanduiding":"or","document_data":[{"attachment":{"content":"Document
+        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"status":"low"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '973'
+      - '1577'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -209,97 +131,19 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:45:04 GMT
+      - Thu, 09 Apr 2026 12:50:38 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://wilson.com/","identificatie":"2713febf-9f6e-4870-9f57-e78ec6ede01e","bronorganisatie":"Brown,
-      Gonzalez and Adams","titel":"Stop thousand scene customer individual.","beschrijving":"Glass
-      light voice away itself. Wrong sort none authority forward. Top goal them bank
-      owner health difference reason.","auteur":"Rhonda Johnson","taal":"hi","vertrouwelijkheidaanduiding":"nature","status":"soon","formaat":"mp3","bestandsnaam":"minute.tiff","informatieobjecttype":"sometimes","verschijningsvorm":"however","bestandsomvang":1000,"link":"https://evans-conner.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-08T22:43:37.230153","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://www.allen.com/","identificatie":"b74c456d-a6d1-4862-ae79-014f7eaaf093","bronorganisatie":"Golden-Kelly","titel":"Or
+      successful prove only child.","beschrijving":"Movie return ready everyone. Term
+      score attorney professor live.","auteur":"Sara Smith","taal":"ug","vertrouwelijkheidaanduiding":"hit","status":"contain","formaat":"png","bestandsnaam":"church.mov","informatieobjecttype":"support","verschijningsvorm":"short","bestandsomvang":1000,"link":"https://porter-juarez.biz/","creatiedatum":"2026-03-24","begin_registratie":"2026-04-05T01:38:14.615724","last_checked_at":"2024-03-29T00:00:00","next_check_at":"1986-08-12T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"28085ac2-b58c-4819-bd3b-caedc772e284","url":"https://rivera-tucker.com/","identificatie":"33891e99-945c-46d3-85b4-99705f1679aa","bronorganisatie":"Dawson
+      and Sons","verantwoordelijkeOrganisatie":"Ortiz-Hampton","omschrijving":"News
+      along by none.","toelichting":"Whose meet certain manager lose kitchen. Strong
+      product amount fund view.","status":"street","registratiedatum":"2026-03-10","startdatum":"2026-03-25","zaaktype":"rock","object_type":"enough"}],"inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -341,18 +185,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"beschrijving":"Glass
-        light voice away itself. Wrong sort none authority forward. Top goal them
-        bank owner health difference reason.","verschijningsvorm":"however","begin_registratie":"2026-03-08T22:43:37.230153","identificatie":"2713febf-9f6e-4870-9f57-e78ec6ede01e","bronorganisatie":"Brown,
-        Gonzalez and Adams","bestandsomvang":1000,"link":"https://evans-conner.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://wilson.com/","taal":"hi","auteur":"Rhonda
-        Johnson","formaat":"mp3","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Stop
-        thousand scene customer individual.","vertrouwelijkheidaanduiding":"nature","document_data":[{"attachment":{"content":"Document
-        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"informatieobjecttype":"sometimes","bestandsnaam":"minute.tiff","creatiedatum":"2026-03-09","status":"soon"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Movie
+        return ready everyone. Term score attorney professor live.","verschijningsvorm":"short","bronorganisatie":"Golden-Kelly","link":"https://porter-juarez.biz/","next_check_at":"1986-08-12T00:00:00","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","formaat":"png","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Or
+        successful prove only child.","informatieobjecttype":"support","bestandsnaam":"church.mov","creatiedatum":"2026-03-24","group_slug":"group-1","begin_registratie":"2026-04-05T01:38:14.615724","identificatie":"b74c456d-a6d1-4862-ae79-014f7eaaf093","bestandsomvang":1000,"url":"https://www.allen.com/","taal":"ug","zaak_referenties":[{"omschrijving":"News
+        along by none.","identificatie":"33891e99-945c-46d3-85b4-99705f1679aa","startdatum":"2026-03-25","object_type":"enough","bronorganisatie":"Dawson
+        and Sons","zaaktype":"rock","registratiedatum":"2026-03-10","uuid":"28085ac2-b58c-4819-bd3b-caedc772e284","url":"https://rivera-tucker.com/","verantwoordelijkeOrganisatie":"Ortiz-Hampton","toelichting":"Whose
+        meet certain manager lose kitchen. Strong product amount fund view.","status":"street"}],"auteur":"Sara
+        Smith","last_checked_at":"2024-03-29T00:00:00","vertrouwelijkheidaanduiding":"hit","document_data":[{"attachment":{"content":"Document
+        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"status":"contain"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1001'
+      - '1541'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
