@@ -21,11 +21,11 @@ interactions:
   response:
     body:
       string: !!binary |
-        UEsDBBQAAAAAAJpdelzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAACaXXpc
-        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAJpdelzfwKkADgAAAA4AAAAK
-        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAAml16XOLcsooFAAAABQAAAAgA
-        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAAml16XFiNuxMFAAAABQAAAAkAAAAA
-        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAJpdelzfwKkADgAAAA4AAAAKAAAAAAAA
+        UEsDBBQAAAAAAE1miVzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAABNZolc
+        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAE1miVzfwKkADgAAAA4AAAAK
+        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAATWaJXOLcsooFAAAABQAAAAgA
+        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAATWaJXFiNuxMFAAAABQAAAAkAAAAA
+        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAE1miVzfwKkADgAAAA4AAAAKAAAAAAAA
         AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
     headers:
       Connection:
@@ -35,96 +35,19 @@ interactions:
       Content-Type:
       - application/zip
       Date:
-      - Thu, 26 Mar 2026 11:44:52 GMT
+      - Thu, 09 Apr 2026 12:50:26 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"https://howard.com/","identificatie":"759f831e-b870-4048-be53-c5384ef9ee03","bronorganisatie":"Fisher,
-      Goodman and Goodwin","titel":"Guy why address factor without another.","beschrijving":"Will
-      fly total understand.","auteur":"Patrick Jones","taal":"af","vertrouwelijkheidaanduiding":"model","status":"million","formaat":"txt","bestandsnaam":"hear.xls","informatieobjecttype":"ten","verschijningsvorm":"risk","bestandsomvang":1000,"link":"http://www.hughes-decker.org/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-09T10:06:30.747380","inhoud":"http://localhost/document/zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://fox-johnson.com/","identificatie":"f8888af7-3bd7-49de-9ba6-ff623e00224f","bronorganisatie":"Anderson,
+      Adkins and Nunez","titel":"Better feel for remember her.","beschrijving":"She
+      event summer room car. Bad natural now.","auteur":"Cameron Henry","taal":"ast","vertrouwelijkheidaanduiding":"bag","status":"involve","formaat":"flac","bestandsnaam":"table.css","informatieobjecttype":"star","verschijningsvorm":"wish","bestandsomvang":1000,"link":"https://butler.com/","creatiedatum":"2026-03-24","begin_registratie":"2026-03-13T00:54:25.457803","last_checked_at":"1981-04-05T00:00:00","next_check_at":"2000-11-23T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"8c9acfc6-d6fd-43d9-9a34-1e2f5a2fc40d","url":"https://johnson.com/","identificatie":"605a5927-9a84-452f-ab5f-602e7c0b8171","bronorganisatie":"Rose
+      Inc","verantwoordelijkeOrganisatie":"Roberts-Thornton","omschrijving":"North
+      major read side fact affect between.","toelichting":"Again nor night indicate.
+      Far adult nice yet necessary key miss. Glass serious teach say.","status":"get","registratiedatum":"2026-03-14","startdatum":"2026-03-22","zaaktype":"chance","object_type":"red"}],"inhoud":"http://localhost/document/zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -168,16 +91,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
   response:
     body:
-      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"beschrijving":"Will
-        fly total understand.","verschijningsvorm":"risk","begin_registratie":"2026-03-09T10:06:30.747380","identificatie":"759f831e-b870-4048-be53-c5384ef9ee03","bronorganisatie":"Fisher,
-        Goodman and Goodwin","bestandsomvang":1000,"link":"http://www.hughes-decker.org/","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"https://howard.com/","taal":"af","auteur":"Patrick
-        Jones","formaat":"txt","inhoud":"http://localhost/document/zip","titel":"Guy
-        why address factor without another.","vertrouwelijkheidaanduiding":"model","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"ten","bestandsnaam":"hear.xls","creatiedatum":"2026-03-14","status":"million"}}'
+      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"She
+        event summer room car. Bad natural now.","verschijningsvorm":"wish","bronorganisatie":"Anderson,
+        Adkins and Nunez","link":"https://butler.com/","next_check_at":"2000-11-23T00:00:00","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","formaat":"flac","inhoud":"http://localhost/document/zip","titel":"Better
+        feel for remember her.","informatieobjecttype":"star","bestandsnaam":"table.css","creatiedatum":"2026-03-24","group_slug":"group-1","begin_registratie":"2026-03-13T00:54:25.457803","identificatie":"f8888af7-3bd7-49de-9ba6-ff623e00224f","bestandsomvang":1000,"url":"http://fox-johnson.com/","taal":"ast","zaak_referenties":[{"omschrijving":"North
+        major read side fact affect between.","identificatie":"605a5927-9a84-452f-ab5f-602e7c0b8171","startdatum":"2026-03-22","object_type":"red","bronorganisatie":"Rose
+        Inc","zaaktype":"chance","registratiedatum":"2026-03-14","uuid":"8c9acfc6-d6fd-43d9-9a34-1e2f5a2fc40d","url":"https://johnson.com/","verantwoordelijkeOrganisatie":"Roberts-Thornton","toelichting":"Again
+        nor night indicate. Far adult nice yet necessary key miss. Glass serious teach
+        say.","status":"get"}],"auteur":"Cameron Henry","last_checked_at":"1981-04-05T00:00:00","vertrouwelijkheidaanduiding":"bag","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"status":"involve"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '864'
+      - '1510'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

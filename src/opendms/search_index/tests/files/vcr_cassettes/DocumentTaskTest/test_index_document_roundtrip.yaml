@@ -1,88 +1,11 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
     body: '{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","titel":"A
       test document","beschrijving":"Lorem ipsum dolor sit amet, consectetur adipiscing
-      elit.","auteur":"Test Author","taal":"nl","status":"concept","formaat":"pdf","bestandsnaam":"document.pdf","informatieobjecttype":"document","bestandsomvang":1000,"creatiedatum":"2026-01-01","begin_registratie":"2026-01-05T12:00:00+00:00"}'
+      elit.","auteur":"Test Author","taal":"nl","status":"concept","formaat":"pdf","bestandsnaam":"document.pdf","informatieobjecttype":"document","bestandsomvang":1000,"creatiedatum":"2026-01-01","begin_registratie":"2026-01-05T12:00:00+00:00","last_checked_at":"2026-01-01","next_check_at":"2026-01-05","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"95e46245-6d53-456c-a367-636b0a6c6cad","url":"https://hicks.net/","identificatie":"00bc1683-16d8-4bbb-8927-b576fcbe639e","bronorganisatie":"Williams-Marquez","verantwoordelijkeOrganisatie":"Watson
+      Ltd","omschrijving":"Like kind air even bad cost.","toelichting":"For issue
+      wide politics matter develop state someone. Tv role respond generation large
+      would me administration. Civil should budget rate act.","status":"black","registratiedatum":"2026-03-24","startdatum":"2026-03-27","zaaktype":"bill","object_type":"total"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -126,94 +49,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/0095704d-4216-4de3-83d2-20dba551b0dc
   response:
     body:
-      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":1,"_seq_no":8,"_primary_term":1,"found":true,"_source":{"beschrijving":"Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit.","begin_registratie":"2026-01-05T12:00:00+00:00","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","bestandsomvang":1000,"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","taal":"nl","auteur":"Test
-        Author","formaat":"pdf","titel":"A test document","informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","status":"concept"}}'
+      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":1,"_seq_no":8,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit.","begin_registratie":"2026-01-05T12:00:00+00:00","identificatie":"d481bea6-335b-4d90-9b27-ac49f7196633","bronorganisatie":"Utrecht","bestandsomvang":1000,"next_check_at":"2026-01-05","uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","taal":"nl","zaak_referenties":[{"omschrijving":"Like
+        kind air even bad cost.","identificatie":"00bc1683-16d8-4bbb-8927-b576fcbe639e","startdatum":"2026-03-27","object_type":"total","bronorganisatie":"Williams-Marquez","zaaktype":"bill","registratiedatum":"2026-03-24","uuid":"95e46245-6d53-456c-a367-636b0a6c6cad","url":"https://hicks.net/","verantwoordelijkeOrganisatie":"Watson
+        Ltd","toelichting":"For issue wide politics matter develop state someone.
+        Tv role respond generation large would me administration. Civil should budget
+        rate act.","status":"black"}],"auteur":"Test Author","formaat":"pdf","last_checked_at":"2026-01-01","titel":"A
+        test document","informatieobjecttype":"document","bestandsnaam":"document.pdf","creatiedatum":"2026-01-01","group_slug":"group-1","status":"concept"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '666'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
+      - '1332'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -221,7 +68,10 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/changed","identificatie":"changed-id","bronorganisatie":"Amsterdam","titel":"CHANGED
-      TITLE","beschrijving":"Changed description","auteur":"Changed Author","taal":"en","vertrouwelijkheidaanduiding":"intern","status":"published","formaat":"docx","bestandsnaam":"changed.docx","informatieobjecttype":"changed","bestandsomvang":500,"link":"http://example.com","creatiedatum":"2030-01-01","begin_registratie":"2030-01-05T12:00:00+00:00"}'
+      TITLE","beschrijving":"Changed description","auteur":"Changed Author","taal":"en","vertrouwelijkheidaanduiding":"intern","status":"published","formaat":"docx","bestandsnaam":"changed.docx","informatieobjecttype":"changed","bestandsomvang":500,"link":"http://example.com","creatiedatum":"2030-01-01","begin_registratie":"2030-01-05T12:00:00+00:00","last_checked_at":"2026-01-01","next_check_at":"2026-01-05","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"263a0b21-453c-423e-83d9-a9b1bdea8219","url":"https://www.brock.info/","identificatie":"2dbef898-baa1-40e2-997b-b7842d7156a1","bronorganisatie":"Fox
+      and Sons","verantwoordelijkeOrganisatie":"Williams Group","omschrijving":"People
+      program decade international.","toelichting":"Establish owner art choose your
+      issue up. Enter attorney go interesting go chair.","status":"sense","registratiedatum":"2026-03-17","startdatum":"2026-03-18","zaaktype":"through","object_type":"professor"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -263,14 +113,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/0095704d-4216-4de3-83d2-20dba551b0dc
   response:
     body:
-      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":2,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"beschrijving":"Changed
-        description","begin_registratie":"2030-01-05T12:00:00+00:00","identificatie":"changed-id","bronorganisatie":"Amsterdam","bestandsomvang":500,"link":"http://example.com","uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/changed","taal":"en","auteur":"Changed
-        Author","formaat":"docx","titel":"CHANGED TITLE","vertrouwelijkheidaanduiding":"intern","informatieobjecttype":"changed","bestandsnaam":"changed.docx","creatiedatum":"2030-01-01","status":"published"}}'
+      string: '{"_index":"document","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":2,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Changed
+        description","begin_registratie":"2030-01-05T12:00:00+00:00","identificatie":"changed-id","bronorganisatie":"Amsterdam","bestandsomvang":500,"link":"http://example.com","next_check_at":"2026-01-05","uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/document/changed","taal":"en","zaak_referenties":[{"omschrijving":"People
+        program decade international.","identificatie":"2dbef898-baa1-40e2-997b-b7842d7156a1","startdatum":"2026-03-18","object_type":"professor","bronorganisatie":"Fox
+        and Sons","zaaktype":"through","registratiedatum":"2026-03-17","uuid":"263a0b21-453c-423e-83d9-a9b1bdea8219","url":"https://www.brock.info/","verantwoordelijkeOrganisatie":"Williams
+        Group","toelichting":"Establish owner art choose your issue up. Enter attorney
+        go interesting go chair.","status":"sense"}],"auteur":"Changed Author","formaat":"docx","last_checked_at":"2026-01-01","titel":"CHANGED
+        TITLE","vertrouwelijkheidaanduiding":"intern","informatieobjecttype":"changed","bestandsnaam":"changed.docx","creatiedatum":"2030-01-01","group_slug":"group-1","status":"published"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '645'
+      - '1271'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

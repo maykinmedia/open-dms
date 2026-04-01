@@ -1,7 +1,7 @@
 import os
 from collections.abc import Sequence
 from dataclasses import dataclass
-from datetime import UTC, date, datetime
+from datetime import UTC, date, datetime, timedelta
 from typing import TYPE_CHECKING
 
 from elasticsearch.dsl import (
@@ -21,6 +21,8 @@ from elasticsearch.dsl import (
 from .typing import (
     IndexName,
 )
+
+CHECK_EXTENSION_DAYS = 10
 
 DEFAULT_ANALYZER = os.environ.get("ELASTICSEARCH_ANALYZER", "dutch")
 
@@ -106,7 +108,7 @@ class Document(ES_Document):
             self.last_checked_at = now
 
         if not self.next_check_at:
-            self.next_check_at = now
+            self.next_check_at = now + timedelta(days=CHECK_EXTENSION_DAYS)
 
         return super().save(**kwargs)
 

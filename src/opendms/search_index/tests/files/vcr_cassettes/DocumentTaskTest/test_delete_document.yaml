@@ -52,89 +52,12 @@ interactions:
       code: 404
       message: Not Found
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
-      Alvarez and Mclaughlin","titel":"Former mission threat.","beschrijving":"Use
-      quite send four development drop. Trial government lot.","auteur":"Charles Roman","taal":"nl","vertrouwelijkheidaanduiding":"race","status":"because","formaat":"bmp","bestandsnaam":"air.mp3","informatieobjecttype":"new","verschijningsvorm":"machine","bestandsomvang":1000000,"link":"https://mcbride.com/","creatiedatum":"2026-03-12","begin_registratie":"2026-03-18T13:09:08.151316"}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.watkins.info/","identificatie":"a7c94a98-27f0-407c-83fe-7dec1d55d40e","bronorganisatie":"Brady
+      and Sons","titel":"Until nearly mission.","beschrijving":"Address together sing
+      meeting machine too seek just.","auteur":"Veronica Tran","taal":"bem","vertrouwelijkheidaanduiding":"discover","status":"again","formaat":"gif","bestandsnaam":"quite.flac","informatieobjecttype":"particular","verschijningsvorm":"truth","bestandsomvang":1000000,"link":"http://www.stewart-murphy.com/","creatiedatum":"2026-03-12","begin_registratie":"2026-04-07T12:18:13.909080","last_checked_at":"1988-12-15T00:00:00","next_check_at":"2015-03-20T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"6a925b7b-ffdf-4439-8633-2f6999f30c8e","url":"https://www.ward.com/","identificatie":"577f75c0-05b0-452b-b621-628669aefb7a","bronorganisatie":"Dominguez-Rivera","verantwoordelijkeOrganisatie":"Chung
+      LLC","omschrijving":"Maybe believe candidate because treat organization economic.","toelichting":"Industry
+      nor lay conference remain remember third. Focus level movie international. Treatment
+      so tend long store truth.","status":"discover","registratiedatum":"2026-04-03","startdatum":"2026-03-26","zaaktype":"boy","object_type":"memory"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -178,15 +101,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Use
-        quite send four development drop. Trial government lot.","verschijningsvorm":"machine","begin_registratie":"2026-03-18T13:09:08.151316","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
-        Alvarez and Mclaughlin","bestandsomvang":1000000,"link":"https://mcbride.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","taal":"nl","auteur":"Charles
-        Roman","formaat":"bmp","titel":"Former mission threat.","vertrouwelijkheidaanduiding":"race","informatieobjecttype":"new","bestandsnaam":"air.mp3","creatiedatum":"2026-03-12","status":"because"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Address
+        together sing meeting machine too seek just.","verschijningsvorm":"truth","begin_registratie":"2026-04-07T12:18:13.909080","identificatie":"a7c94a98-27f0-407c-83fe-7dec1d55d40e","bronorganisatie":"Brady
+        and Sons","bestandsomvang":1000000,"link":"http://www.stewart-murphy.com/","next_check_at":"2015-03-20T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.watkins.info/","taal":"bem","zaak_referenties":[{"omschrijving":"Maybe
+        believe candidate because treat organization economic.","identificatie":"577f75c0-05b0-452b-b621-628669aefb7a","startdatum":"2026-03-26","object_type":"memory","bronorganisatie":"Dominguez-Rivera","zaaktype":"boy","registratiedatum":"2026-04-03","uuid":"6a925b7b-ffdf-4439-8633-2f6999f30c8e","url":"https://www.ward.com/","verantwoordelijkeOrganisatie":"Chung
+        LLC","toelichting":"Industry nor lay conference remain remember third. Focus
+        level movie international. Treatment so tend long store truth.","status":"discover"}],"auteur":"Veronica
+        Tran","formaat":"gif","last_checked_at":"1988-12-15T00:00:00","titel":"Until
+        nearly mission.","vertrouwelijkheidaanduiding":"discover","informatieobjecttype":"particular","bestandsnaam":"quite.flac","creatiedatum":"2026-03-12","group_slug":"group-1","status":"again"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '750'
+      - '1450'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -207,15 +134,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Use
-        quite send four development drop. Trial government lot.","verschijningsvorm":"machine","begin_registratie":"2026-03-18T13:09:08.151316","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
-        Alvarez and Mclaughlin","bestandsomvang":1000000,"link":"https://mcbride.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","taal":"nl","auteur":"Charles
-        Roman","formaat":"bmp","titel":"Former mission threat.","vertrouwelijkheidaanduiding":"race","informatieobjecttype":"new","bestandsnaam":"air.mp3","creatiedatum":"2026-03-12","status":"because"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Address
+        together sing meeting machine too seek just.","verschijningsvorm":"truth","begin_registratie":"2026-04-07T12:18:13.909080","identificatie":"a7c94a98-27f0-407c-83fe-7dec1d55d40e","bronorganisatie":"Brady
+        and Sons","bestandsomvang":1000000,"link":"http://www.stewart-murphy.com/","next_check_at":"2015-03-20T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.watkins.info/","taal":"bem","zaak_referenties":[{"omschrijving":"Maybe
+        believe candidate because treat organization economic.","identificatie":"577f75c0-05b0-452b-b621-628669aefb7a","startdatum":"2026-03-26","object_type":"memory","bronorganisatie":"Dominguez-Rivera","zaaktype":"boy","registratiedatum":"2026-04-03","uuid":"6a925b7b-ffdf-4439-8633-2f6999f30c8e","url":"https://www.ward.com/","verantwoordelijkeOrganisatie":"Chung
+        LLC","toelichting":"Industry nor lay conference remain remember third. Focus
+        level movie international. Treatment so tend long store truth.","status":"discover"}],"auteur":"Veronica
+        Tran","formaat":"gif","last_checked_at":"1988-12-15T00:00:00","titel":"Until
+        nearly mission.","vertrouwelijkheidaanduiding":"discover","informatieobjecttype":"particular","bestandsnaam":"quite.flac","creatiedatum":"2026-03-12","group_slug":"group-1","status":"again"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '750'
+      - '1450'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
