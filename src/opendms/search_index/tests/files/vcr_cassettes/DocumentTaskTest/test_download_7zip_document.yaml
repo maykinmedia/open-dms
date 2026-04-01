@@ -21,112 +21,36 @@ interactions:
   response:
     body:
       string: !!binary |
-        N3q8ryccAASALVHsXQEAAAAAAAAWAAAAAAAAAFVNTcLvQkkA2V0AOhlKzh2rEVuGKOel7UkvQflT
+        N3q8ryccAARVsHJoXAEAAAAAAAAWAAAAAAAAACC1tD/vQkkA2V0AOhlKzh2rEVuGKOel7UkvQflT
         PZVSsxOKVIkqE2yPbr86TFEzfxE4ukDeUYcMB60nTGmt6oE30iuWHMNuERAuFgtmtd5XVRnxcY+Z
         jjEvEN7vk7KifhFBN2ttgYHWOe4ztOzKfN77mjAuVsCPhfODgcBlxCVT+PWRNjEFpbDub8FwTUcM
         0ZERqq1gHbrOsScYXFmG6WZSWL7pdqxZ5OVbBQj5x9qt/PtSK3TNHlsgQvndUz34KWQJO4DLKmzf
-        tTvwxL0uX6oPPktmQpATDv8Qk/hxeFn4A5th6ADgAKYAdF0AAIEzB64P1THNtWclRSgpPgItLOIk
+        tTvwxL0uX6oPPktmQpATDv8Qk/hxeFn4A5th6ADgAKYAc10AAIEzB64P1THNtWclRSgpPgItLOIk
         n4jd4NxFlN/WRYH+oBHsAIuGBrkJNQOfyRT2oCy/ylI0RGbuJFreEwY3l+e3Jai1iCUvvqmIHOIo
-        2TmwgLb5Bbyvg4U1iDcVqVl7bxr5IeQ059Vtig/X2DnMX4kAAAAAFwaA4QEJfAAHCwEAASEhARgM
-        gKcAAA==
+        2TmwgLb5B/IKE4DIcaNrbBgcK5IXAa52xF7ecb1rZR/vtgAAAAAXBoDhAQl7AAcLAQABISEBGAyA
+        pwAA
     headers:
       Connection:
       - close
       Content-Length:
-      - '403'
+      - '402'
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Thu, 26 Mar 2026 11:44:50 GMT
+      - Thu, 09 Apr 2026 12:50:24 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.bell-potter.com/","identificatie":"23d8b5ba-7ba0-4ee3-9797-54f79c7dcd57","bronorganisatie":"Caldwell-Brown","titel":"Whatever
-      others my city.","beschrijving":"Fill trouble for remember exist set ask. Idea
-      wish space final mind. Buy spend recently.","auteur":"Edward Banks","taal":"so","vertrouwelijkheidaanduiding":"themselves","status":"TV","formaat":"docx","bestandsnaam":"scene.json","informatieobjecttype":"feeling","verschijningsvorm":"evening","bestandsomvang":1000,"link":"http://www.hardin.biz/","creatiedatum":"2026-02-27","begin_registratie":"2026-02-27T18:32:59.474408","inhoud":"http://localhost/document/7zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.owen.com/","identificatie":"84d70e8e-8366-4e84-87c2-96771e87a1f7","bronorganisatie":"Howard,
+      Reynolds and Williams","titel":"Four million past quality law.","beschrijving":"Protect
+      follow draw result help. Garden enough do. Next occur stand clearly understand.","auteur":"Richard
+      Mcclain","taal":"unm","vertrouwelijkheidaanduiding":"peace","status":"country","formaat":"mp4","bestandsnaam":"full.gif","informatieobjecttype":"particularly","verschijningsvorm":"economy","bestandsomvang":1000,"link":"https://avery-smith.com/","creatiedatum":"2026-03-30","begin_registratie":"2026-03-21T21:47:11.874501","last_checked_at":"2015-04-01T00:00:00","next_check_at":"1984-01-21T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"8c64dcad-71c8-41e4-b518-058ea5a09077","url":"http://www.ferguson-cooper.com/","identificatie":"fb54d705-19b8-4843-b076-41667c3e5fdf","bronorganisatie":"Powell
+      and Sons","verantwoordelijkeOrganisatie":"Odom, Ruiz and Palmer","omschrijving":"Player
+      out argue yeah.","toelichting":"Stop serious represent. Method country relate
+      talk drop.","status":"explain","registratiedatum":"2026-04-03","startdatum":"2026-03-25","zaaktype":"lead","object_type":"per"}],"inhoud":"http://localhost/document/7zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -170,16 +94,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"beschrijving":"Fill
-        trouble for remember exist set ask. Idea wish space final mind. Buy spend
-        recently.","verschijningsvorm":"evening","begin_registratie":"2026-02-27T18:32:59.474408","identificatie":"23d8b5ba-7ba0-4ee3-9797-54f79c7dcd57","bronorganisatie":"Caldwell-Brown","bestandsomvang":1000,"link":"http://www.hardin.biz/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.bell-potter.com/","taal":"so","auteur":"Edward
-        Banks","formaat":"docx","inhoud":"http://localhost/document/7zip","titel":"Whatever
-        others my city.","vertrouwelijkheidaanduiding":"themselves","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"feeling","bestandsnaam":"scene.json","creatiedatum":"2026-02-27","status":"TV"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Protect
+        follow draw result help. Garden enough do. Next occur stand clearly understand.","verschijningsvorm":"economy","bronorganisatie":"Howard,
+        Reynolds and Williams","link":"https://avery-smith.com/","next_check_at":"1984-01-21T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","formaat":"mp4","inhoud":"http://localhost/document/7zip","titel":"Four
+        million past quality law.","informatieobjecttype":"particularly","bestandsnaam":"full.gif","creatiedatum":"2026-03-30","group_slug":"group-1","begin_registratie":"2026-03-21T21:47:11.874501","identificatie":"84d70e8e-8366-4e84-87c2-96771e87a1f7","bestandsomvang":1000,"url":"https://www.owen.com/","taal":"unm","zaak_referenties":[{"omschrijving":"Player
+        out argue yeah.","identificatie":"fb54d705-19b8-4843-b076-41667c3e5fdf","startdatum":"2026-03-25","object_type":"per","bronorganisatie":"Powell
+        and Sons","zaaktype":"lead","registratiedatum":"2026-04-03","uuid":"8c64dcad-71c8-41e4-b518-058ea5a09077","url":"http://www.ferguson-cooper.com/","verantwoordelijkeOrganisatie":"Odom,
+        Ruiz and Palmer","toelichting":"Stop serious represent. Method country relate
+        talk drop.","status":"explain"}],"auteur":"Richard Mcclain","last_checked_at":"2015-04-01T00:00:00","vertrouwelijkheidaanduiding":"peace","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"status":"country"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '909'
+      - '1547'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

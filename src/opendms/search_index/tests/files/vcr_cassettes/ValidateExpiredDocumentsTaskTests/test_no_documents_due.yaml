@@ -1,9 +1,11 @@
 interactions:
 - request:
-    body: '{"uuid":"doc-valid","url":"http://www.wilson.com/","identificatie":"09c3eda8-bbf9-4dc2-be0f-cf9143c145a3","bronorganisatie":"Raymond,
-      Hinton and Montoya","titel":"Benefit before full himself player.","beschrijving":"Bed
-      sister culture seem everybody heart training. Policy able plant. Our speech
-      others perhaps help seat.","auteur":"Kevin Cooper","taal":"eu","vertrouwelijkheidaanduiding":"suggest","status":"have","formaat":"wav","bestandsnaam":"base.bmp","informatieobjecttype":"history","verschijningsvorm":"challenge","bestandsomvang":1000000,"link":"https://frazier-dickerson.com/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-26T13:39:09.801809","last_checked_at":"2026-03-31T12:42:14.647957+00:00","next_check_at":"2026-04-05T12:42:14.647961+00:00","service_slug":"documenten-api","group_slug":"group-1"}'
+    body: '{"uuid":"doc-valid","url":"https://wilkerson.net/","identificatie":"f68b2d77-5f04-4301-b3e6-98819a90035a","bronorganisatie":"Potter,
+      Munoz and Oconnor","titel":"Need system stand someone tough.","beschrijving":"Maybe
+      somebody store way here stock up. Hair use none.","auteur":"Paula Cochran","taal":"bs","vertrouwelijkheidaanduiding":"trial","status":"expect","formaat":"js","bestandsnaam":"cost.mp3","informatieobjecttype":"store","verschijningsvorm":"court","bestandsomvang":1000000,"link":"https://www.smith.com/","creatiedatum":"2026-04-02","begin_registratie":"2026-03-16T13:45:01.731580","last_checked_at":"2026-04-09T12:25:43.062205+00:00","next_check_at":"2026-04-14T12:25:43.062208+00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"e5fca081-5da6-4ebf-8c9c-f434716636b3","url":"http://www.lee.org/","identificatie":"38a25e86-d40a-46d6-bf2f-dd5b8522cba8","bronorganisatie":"Johnston,
+      Moran and Wiggins","verantwoordelijkeOrganisatie":"Mcgee, Walters and Hoffman","omschrijving":"Discover
+      which reality apply.","toelichting":"Appear deal stage fact budget. Process
+      lot my manage sing keep with. Occur young book center. Rise law maybe cause.","status":"among","registratiedatum":"2026-03-29","startdatum":"2026-03-19","zaaktype":"industry","object_type":"say"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -59,94 +61,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"bool":{"must":[{"exists":{"field":"creatiedatum"}},{"term":{"service_slug":"documenten-api"}}]}},"size":0}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: POST
-    uri: http://localhost:9201/document/_search
-  response:
-    body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7723232E12,"value_as_string":"2026-03-01"}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.32.5
-    method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-01&objectinformatieobjecten__objectType=zaak
-  response:
-    body:
-      string: '{"count":9,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000176","creatiedatum":"2026-03-16","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mads Mulder","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:49:19.435000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000152","creatiedatum":"2026-03-12","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Ayden van
-        Velzen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:45.837000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/801ddfea-a4a6-4846-9887-1efc0adb910b","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000279","creatiedatum":"2026-03-01","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mare Janssen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:31.331000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/801ddfea-a4a6-4846-9887-1efc0adb910b/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000255","creatiedatum":"2026-03-21","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Dean Gnodde","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:10.096000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/0faee041-27ec-4b81-99a0-42ebab29a7db","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000188","creatiedatum":"2026-03-12","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Nienke
-        Brouwer-Ruijs","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:16.920000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/0faee041-27ec-4b81-99a0-42ebab29a7db/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/fc58a8f1-f2f0-4eb8-919c-4360f91a3415","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000140","creatiedatum":"2026-03-03","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Jasmijn
-        van Waas","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:57.623000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/fc58a8f1-f2f0-4eb8-919c-4360f91a3415/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6df0ae09-0f21-4c8e-bc49-5bb23915f606","identificatie":"DOCUMENT-2026-0000000003","bronorganisatie":"000000206","creatiedatum":"2026-03-07","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Lisa Bastiaense","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:38.364000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6df0ae09-0f21-4c8e-bc49-5bb23915f606/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mason van
-        Breukeleveen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:33.793000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f8c1d2cc-780e-452a-8871-187048341200","identificatie":"DOCUMENT-2026-0000000005","bronorganisatie":"000000176","creatiedatum":"2026-03-01","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Olivia
-        Fiere","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:11.576000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f8c1d2cc-780e-452a-8871-187048341200/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
-    headers:
-      API-version:
-      - 1.4.2
-      Allow:
-      - GET, POST, HEAD, OPTIONS
-      Content-Length:
-      - '8547'
-      Content-Security-Policy:
-      - 'frame-ancestors ''none''; default-src ''self''; style-src ''self'' ''unsafe-inline''
-        fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net; object-src ''none'';
-        frame-src ''self''; img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com
-        tile.openstreetmap.org; font-src ''self'' fonts.gstatic.com; worker-src ''self''
-        blob:; form-action ''self''; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
-        cdn.jsdelivr.net; base-uri ''self'''
-      Content-Type:
-      - application/json
-      Cross-Origin-Opener-Policy:
-      - same-origin
-      Referrer-Policy:
-      - same-origin
-      Vary:
-      - origin, Cookie
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-03-31T12:42:15.433619+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug"]}'
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-09T12:25:43.850403+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8

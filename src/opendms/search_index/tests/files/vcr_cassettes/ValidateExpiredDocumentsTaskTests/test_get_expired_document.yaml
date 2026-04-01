@@ -1,9 +1,11 @@
 interactions:
 - request:
-    body: '{"uuid":"expired-1","url":"https://www.schaefer-simmons.biz/","identificatie":"5b6bbbec-9bb1-49b7-a2eb-21a4519903f0","bronorganisatie":"Guzman-Moreno","titel":"College
-      third I side data consider.","beschrijving":"Less senior television cultural
-      inside protect. Those of road thus rate two remain. Environment politics form
-      by pretty try none.","auteur":"Shawn Rocha","taal":"ss","vertrouwelijkheidaanduiding":"state","status":"must","formaat":"css","bestandsnaam":"risk.docx","informatieobjecttype":"surface","verschijningsvorm":"standard","bestandsomvang":1000000,"link":"http://smith-hurst.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-19T08:21:15.325779","last_checked_at":"2026-03-29T12:42:11.637840+00:00","next_check_at":"2026-03-30T12:42:11.637840+00:00","service_slug":"documenten-api","group_slug":"group-test"}'
+    body: '{"uuid":"expired-1","url":"https://allen.net/","identificatie":"50c1a194-1d06-470d-8511-021534c68031","bronorganisatie":"Wilson-Hebert","titel":"Half
+      build receive condition mouth attack do.","beschrijving":"Wind outside others
+      those themselves. Place term test deal test state.","auteur":"Mandy Taylor","taal":"tig","vertrouwelijkheidaanduiding":"mother","status":"understand","formaat":"bmp","bestandsnaam":"cup.avi","informatieobjecttype":"statement","verschijningsvorm":"certain","bestandsomvang":1000000,"link":"http://www.washington.net/","creatiedatum":"2026-03-14","begin_registratie":"2026-04-06T02:27:52.151138","last_checked_at":"2026-04-07T12:25:40.041736+00:00","next_check_at":"2026-04-08T12:25:40.041736+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"361c9c97-cebb-4042-b327-e30c90f8cee3","url":"http://www.burke.biz/","identificatie":"4cbd93a9-c74d-4eec-b9b7-1208f6aadd56","bronorganisatie":"Stuart
+      Ltd","verantwoordelijkeOrganisatie":"Lopez and Sons","omschrijving":"Tree eight
+      card doctor phone.","toelichting":"Mind discussion environment record. Relationship
+      throw next ok price computer. Cold report be happen south.","status":"table","registratiedatum":"2026-03-24","startdatum":"2026-04-02","zaaktype":"writer","object_type":"federal"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -33,10 +35,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"expired-2","url":"https://jones.com/","identificatie":"d738ca96-eca2-4c8d-9037-c9034618acfb","bronorganisatie":"Jimenez
-      LLC","titel":"Line Congress son until fast same.","beschrijving":"Late trade
-      anyone say civil number. Piece management think end authority take house.","auteur":"Ricardo
-      Jackson","taal":"fil","vertrouwelijkheidaanduiding":"parent","status":"they","formaat":"jpg","bestandsnaam":"hair.xlsx","informatieobjecttype":"high","verschijningsvorm":"respond","bestandsomvang":1000000,"link":"http://www.anderson.info/","creatiedatum":"2026-03-12","begin_registratie":"2026-03-23T20:20:48.228731","last_checked_at":"2026-03-30T11:42:11.637840+00:00","next_check_at":"2026-03-31T11:42:11.637840+00:00","service_slug":"documenten-api","group_slug":"group-test"}'
+    body: '{"uuid":"expired-2","url":"https://www.robinson-mitchell.com/","identificatie":"ed188146-c94c-44f7-9b2a-8c75d1aeb8be","bronorganisatie":"Ingram,
+      Perez and James","titel":"Wear light same cut.","beschrijving":"None degree
+      network east ago. Our avoid since impact she.","auteur":"Jeremy Chung","taal":"hu","vertrouwelijkheidaanduiding":"research","status":"education","formaat":"jpeg","bestandsnaam":"bad.html","informatieobjecttype":"budget","verschijningsvorm":"thought","bestandsomvang":1000000,"link":"https://www.bailey.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-31T19:35:37.942220","last_checked_at":"2026-04-08T11:25:40.041736+00:00","next_check_at":"2026-04-09T11:25:40.041736+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"48dd74cb-976a-4951-adde-b5bd04107329","url":"https://nixon-wilson.net/","identificatie":"f5328088-84f1-45df-a747-ec461f836e85","bronorganisatie":"Martin
+      Ltd","verantwoordelijkeOrganisatie":"Mathis-Jennings","omschrijving":"Hold quality
+      phone far draw community thousand.","toelichting":"Task likely soon human many.
+      Carry coach learn sea position one account.","status":"real","registratiedatum":"2026-04-04","startdatum":"2026-04-05","zaaktype":"outside","object_type":"four"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -66,10 +70,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"valid-1","url":"http://jensen-edwards.org/","identificatie":"09cba4b7-48c7-4aeb-9ec6-1d3dff97ab8f","bronorganisatie":"Fernandez-Sanders","titel":"Rock
-      federal town head.","beschrijving":"Above interview person hear kitchen order.
-      Someone its decide thousand player story visit. Community also heavy sound road
-      understand blue discover.","auteur":"James Ball","taal":"nb","vertrouwelijkheidaanduiding":"eye","status":"their","formaat":"pdf","bestandsnaam":"challenge.json","informatieobjecttype":"among","verschijningsvorm":"drop","bestandsomvang":1000000,"link":"https://www.garcia.info/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-11T15:29:51.891350","last_checked_at":"2026-03-31T12:42:11.637840+00:00","next_check_at":"2026-04-01T12:42:11.637840+00:00","service_slug":"documenten-api","group_slug":"group-test"}'
+    body: '{"uuid":"valid-1","url":"https://gonzalez.info/","identificatie":"111d52ee-bfd9-4541-bda7-13b671c7a8b0","bronorganisatie":"White,
+      Craig and Washington","titel":"Continue north travel federal couple police.","beschrijving":"Step
+      make become few half. Responsibility trade describe address treat six wish.
+      Arm much still. Police off save choice movement.","auteur":"Julia Price","taal":"pl","vertrouwelijkheidaanduiding":"benefit","status":"piece","formaat":"mov","bestandsnaam":"technology.pages","informatieobjecttype":"green","verschijningsvorm":"address","bestandsomvang":1000000,"link":"http://long-nunez.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-26T16:02:08.954767","last_checked_at":"2026-04-09T12:25:40.041736+00:00","next_check_at":"2026-04-10T12:25:40.041736+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"6bf1b620-e634-43ce-82cb-0da6d7bca576","url":"http://www.porter-lester.biz/","identificatie":"ddbeee9e-f978-4f70-826f-0a65e7008a02","bronorganisatie":"Moran
+      LLC","verantwoordelijkeOrganisatie":"Acosta LLC","omschrijving":"Among treatment
+      already draw tell.","toelichting":"Card apply sign political create.","status":"control","registratiedatum":"2026-03-17","startdatum":"2026-04-01","zaaktype":"trial","object_type":"face"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -99,7 +105,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"range":{"next_check_at":{"lte":"2026-03-31T12:42:11.637840+00:00"}}},"size":10,"_source":["service_slug","group_slug"]}'
+    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-09T12:25:40.041736+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -115,7 +121,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","group_slug":"group-test"}}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
     headers:
       Transfer-Encoding:
       - chunked

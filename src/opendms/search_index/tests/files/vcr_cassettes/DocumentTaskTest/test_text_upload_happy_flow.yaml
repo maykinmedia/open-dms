@@ -29,96 +29,19 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:44:55 GMT
+      - Thu, 09 Apr 2026 12:50:29 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://www.wheeler.org/","identificatie":"bedd0265-69eb-4558-86b9-0a2c2b893339","bronorganisatie":"Moss-Daniels","titel":"Hair
-      debate blood now.","beschrijving":"Green fast talk believe. Industry bit phone
-      crime central.","auteur":"Jason Forbes","taal":"ayc","vertrouwelijkheidaanduiding":"attention","status":"forget","formaat":"mov","bestandsnaam":"floor.ppt","informatieobjecttype":"trip","verschijningsvorm":"become","bestandsomvang":1000000,"link":"https://barrera.com/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-14T05:48:01.477040","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
+    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://simmons.com/","identificatie":"a6af31b1-f7ad-4a9b-8e3b-ecfe3b05d5a6","bronorganisatie":"Bruce
+      PLC","titel":"Effect issue human military program accept.","beschrijving":"Bill
+      certainly central measure while should force.","auteur":"Casey Larson","taal":"fo","vertrouwelijkheidaanduiding":"successful","status":"service","formaat":"flac","bestandsnaam":"life.png","informatieobjecttype":"moment","verschijningsvorm":"better","bestandsomvang":1000000,"link":"http://mitchell.net/","creatiedatum":"2026-03-19","begin_registratie":"2026-03-12T13:25:50.183080","last_checked_at":"2022-01-30T00:00:00","next_check_at":"1971-02-02T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"012942ef-7832-4235-ba35-665d41c87f48","url":"https://turner-martin.com/","identificatie":"72d724cb-51d0-4d32-83f8-a6eb1365d5f9","bronorganisatie":"Castillo-Page","verantwoordelijkeOrganisatie":"Collins
+      LLC","omschrijving":"On sometimes opportunity plant actually general simply.","toelichting":"Top
+      fund hold material deal walk. Explain change if parent spend behavior. Strategy
+      main hair before eat policy result natural.","status":"fast","registratiedatum":"2026-03-15","startdatum":"2026-03-27","zaaktype":"pressure","object_type":"write"}],"inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -162,16 +85,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54
   response:
     body:
-      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"beschrijving":"Green
-        fast talk believe. Industry bit phone crime central.","verschijningsvorm":"become","begin_registratie":"2026-03-14T05:48:01.477040","identificatie":"bedd0265-69eb-4558-86b9-0a2c2b893339","bronorganisatie":"Moss-Daniels","bestandsomvang":1000000,"link":"https://barrera.com/","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://www.wheeler.org/","taal":"ayc","auteur":"Jason
-        Forbes","formaat":"mov","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Hair
-        debate blood now.","vertrouwelijkheidaanduiding":"attention","document_data":[{"attachment":{"content":"Document
-        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"trip","bestandsnaam":"floor.ppt","creatiedatum":"2026-03-01","status":"forget"}}'
+      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Bill
+        certainly central measure while should force.","verschijningsvorm":"better","bronorganisatie":"Bruce
+        PLC","link":"http://mitchell.net/","next_check_at":"1971-02-02T00:00:00","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","formaat":"flac","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Effect
+        issue human military program accept.","informatieobjecttype":"moment","bestandsnaam":"life.png","creatiedatum":"2026-03-19","group_slug":"group-1","begin_registratie":"2026-03-12T13:25:50.183080","identificatie":"a6af31b1-f7ad-4a9b-8e3b-ecfe3b05d5a6","bestandsomvang":1000000,"url":"http://simmons.com/","taal":"fo","zaak_referenties":[{"omschrijving":"On
+        sometimes opportunity plant actually general simply.","identificatie":"72d724cb-51d0-4d32-83f8-a6eb1365d5f9","startdatum":"2026-03-27","object_type":"write","bronorganisatie":"Castillo-Page","zaaktype":"pressure","registratiedatum":"2026-03-15","uuid":"012942ef-7832-4235-ba35-665d41c87f48","url":"https://turner-martin.com/","verantwoordelijkeOrganisatie":"Collins
+        LLC","toelichting":"Top fund hold material deal walk. Explain change if parent
+        spend behavior. Strategy main hair before eat policy result natural.","status":"fast"}],"auteur":"Casey
+        Larson","last_checked_at":"2022-01-30T00:00:00","vertrouwelijkheidaanduiding":"successful","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"status":"service"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '910'
+      - '1625'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

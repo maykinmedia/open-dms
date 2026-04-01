@@ -2,9 +2,9 @@ from datetime import UTC, datetime, timedelta
 
 import structlog
 from celery.exceptions import SoftTimeLimitExceeded
-from zgw_consumers.models import Service
 
 from opendms.api.clients import get_documenten_client, get_oio_client, get_zaken_client
+from opendms.api.models import ZGWApiGroupConfig
 from opendms.api.utils.exceptions import ExternalServiceUnavailable
 from opendms.celery import app
 
@@ -22,20 +22,32 @@ def index_all_documents() -> None:
     Fetch all documents from OpenZaak, add connected 'zaak' information
     (via ObjectInformatieObjecten), and index them in Elasticsearch.
     """
-    doc_services = Service.objects.filter(zgwset_drc_config__isnull=False).distinct()
-    zaak_services = Service.objects.filter(zgwset_zrc_config__isnull=False).distinct()
+    groups = ZGWApiGroupConfig.objects.all()
 
-    if not doc_services.exists():
+    doc_services = []
+    for group in groups:
+        if group.drc_service:
+            doc_services.append(group.drc_service)
+
+    zaak_services = []
+    for group in groups:
+        if group.zrc_service:
+            zaak_services.append(group.zrc_service)
+
+    if not doc_services:
         raise ExternalServiceUnavailable("No DRC API services configured!")
-    if not zaak_services.exists():
+    if not zaak_services:
         raise ExternalServiceUnavailable("No ZRC services configured!")
 
     with get_elasticsearch_client() as es_client:
+        # TODO: add to docker compose
         Document.init(using=es_client.client)
 
         last_creatiedatum = es_client.get_last_document_creatiedatum()
 
         for doc_service in doc_services:
+            group_config = doc_service.zgwset_drc_config.first()
+            zgw_group_slug = group_config.identifier if group_config else None
             logger.info(
                 "fetching_documents",
                 service=doc_service.slug,
@@ -94,7 +106,9 @@ def index_all_documents() -> None:
                             logger.warning("No zaak found for OIO", uuid=uuid, url=url)
 
                     obj = Document(**doc, zaak_referenties=zaak_refs)
-                    es_client.index_document(obj)
+                    es_client.index_document(
+                        obj, service=doc_service.slug, group_slug=zgw_group_slug
+                    )
 
             logger.info("indexing_scheduled", total_documents=len(all_documents))
 
@@ -106,37 +120,49 @@ def validate_expired_documents(batch_size: int = 100):
     - If it exists in Open Zaak, extend verloopt_op by 10 days
     - If not, delete it from Elasticsearch
     """
+    groups = ZGWApiGroupConfig.objects.all()
+    services = []
+    for group in groups:
+        if group.drc_service:
+            services.append(group.drc_service)
 
-    services = Service.objects.filter(zgwset_drc_config__isnull=False).distinct()
-    if not services.exists():
+    if not services:
         raise ExternalServiceUnavailable("No DRC API services configured!")
 
     now = datetime.now(UTC)
 
     with get_elasticsearch_client() as es_client:
         for service in services:
-            # Get the last creation date indexed in Elasticsearch for this service
-            last_creatiedatum = es_client.get_last_document_creatiedatum(
-                service_slug=service.slug, latest=False
-            )
-
-            # Fetch all documents from Open Zaak after last_creatiedatum
-            with get_documenten_client(service) as doc_client:
-                oz_docs = doc_client.get_items(
-                    params={"creatiedatum__gte": last_creatiedatum}
-                    if last_creatiedatum
-                    else {}
-                )
-
-            oz_uuids = {doc["uuid"] for doc in oz_docs}
-
             # Get expired documents from Elasticsearch
-            expired_docs = es_client.get_expired_document(
+            expired_docs = es_client.get_expired_documents(
                 now, batch_size, service_slug=service.slug
             )
+
             if not expired_docs:
                 logger.info("no_expired_documents_found", service=service.slug)
                 continue
+
+            # Get min and max creatiedatum from expired documents
+            creatiedata = [
+                doc.get("creatiedatum")
+                for doc in expired_docs
+                if doc.get("creatiedatum")
+            ]
+            if not creatiedata:
+                continue
+
+            min_creatiedatum = min(creatiedata)
+            max_creatiedatum = max(creatiedata)
+
+            # Fetch all OpenZaak documents between min and max creatiedatum
+            with get_documenten_client(service) as doc_client:
+                oz_docs = doc_client.get_items(
+                    params={
+                        "creatiedatum__gte": min_creatiedatum,
+                        "creatiedatum__lte": max_creatiedatum,
+                    }
+                )
+            oz_uuids = {doc["uuid"] for doc in oz_docs}
 
             for doc in expired_docs:
                 uuid = doc.get("uuid")
