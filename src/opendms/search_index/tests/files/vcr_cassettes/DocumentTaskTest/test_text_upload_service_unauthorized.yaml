@@ -1,89 +1,11 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.peterson.org/","identificatie":"4ec009df-df19-4000-8d52-9cb4a53d09c7","bronorganisatie":"Fernandez
-      and Sons","titel":"Few community common feeling senior two remain whom.","beschrijving":"Quality
-      there sport as must environment. Good prepare yard director everybody middle
-      though. Rich to yeah image.","auteur":"Jason West","taal":"ss","vertrouwelijkheidaanduiding":"billion","status":"offer","formaat":"tiff","bestandsnaam":"simply.odp","informatieobjecttype":"daughter","verschijningsvorm":"determine","bestandsomvang":1000000,"link":"http://wilson-king.com/","creatiedatum":"2026-03-10","begin_registratie":"2026-03-04T22:55:16.151938","inhoud":"https://www.example.com/downloads/1"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.delgado.info/","identificatie":"698f44c9-5fb3-4693-96fc-503c410f709d","bronorganisatie":"Rogers,
+      Snyder and Lopez","titel":"Rest its watch mind.","beschrijving":"Together agree
+      light enough hear sometimes both after. Real same door.","auteur":"Rebecca Lewis","taal":"niu","vertrouwelijkheidaanduiding":"information","status":"movement","formaat":"wav","bestandsnaam":"more.pages","informatieobjecttype":"others","verschijningsvorm":"light","bestandsomvang":1000000,"link":"https://www.wright.com/","creatiedatum":"2026-03-23","begin_registratie":"2026-03-23T15:56:37.819331","last_checked_at":"1996-06-23T00:00:00","next_check_at":"2000-10-13T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"8d2fce18-cad3-41d8-84d9-f12431d7bbdc","url":"https://bradshaw.com/","identificatie":"ba757586-21e2-4118-ae15-fcea4f723a89","bronorganisatie":"Maldonado,
+      Adkins and Burke","verantwoordelijkeOrganisatie":"Reyes Ltd","omschrijving":"Region
+      try finally story.","toelichting":"Evidence heavy often lay recent cost anything
+      majority. Suggest piece money property hold business somebody.","status":"trade","registratiedatum":"2026-03-15","startdatum":"2026-03-10","zaaktype":"image","object_type":"page"}],"inhoud":"https://www.example.com/downloads/1"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -127,17 +49,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"beschrijving":"Quality
-        there sport as must environment. Good prepare yard director everybody middle
-        though. Rich to yeah image.","verschijningsvorm":"determine","begin_registratie":"2026-03-04T22:55:16.151938","identificatie":"4ec009df-df19-4000-8d52-9cb4a53d09c7","bronorganisatie":"Fernandez
-        and Sons","bestandsomvang":1000000,"link":"http://wilson-king.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.peterson.org/","taal":"ss","auteur":"Jason
-        West","formaat":"tiff","inhoud":"https://www.example.com/downloads/1","titel":"Few
-        community common feeling senior two remain whom.","vertrouwelijkheidaanduiding":"billion","informatieobjecttype":"daughter","bestandsnaam":"simply.odp","creatiedatum":"2026-03-10","status":"offer"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Together
+        agree light enough hear sometimes both after. Real same door.","verschijningsvorm":"light","begin_registratie":"2026-03-23T15:56:37.819331","identificatie":"698f44c9-5fb3-4693-96fc-503c410f709d","bronorganisatie":"Rogers,
+        Snyder and Lopez","bestandsomvang":1000000,"link":"https://www.wright.com/","next_check_at":"2000-10-13T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.delgado.info/","taal":"niu","zaak_referenties":[{"omschrijving":"Region
+        try finally story.","identificatie":"ba757586-21e2-4118-ae15-fcea4f723a89","startdatum":"2026-03-10","object_type":"page","bronorganisatie":"Maldonado,
+        Adkins and Burke","zaaktype":"image","registratiedatum":"2026-03-15","uuid":"8d2fce18-cad3-41d8-84d9-f12431d7bbdc","url":"https://bradshaw.com/","verantwoordelijkeOrganisatie":"Reyes
+        Ltd","toelichting":"Evidence heavy often lay recent cost anything majority.
+        Suggest piece money property hold business somebody.","status":"trade"}],"auteur":"Rebecca
+        Lewis","formaat":"wav","last_checked_at":"1996-06-23T00:00:00","inhoud":"https://www.example.com/downloads/1","titel":"Rest
+        its watch mind.","vertrouwelijkheidaanduiding":"information","informatieobjecttype":"others","bestandsnaam":"more.pages","creatiedatum":"2026-03-23","group_slug":"group-1","status":"movement"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '885'
+      - '1483'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

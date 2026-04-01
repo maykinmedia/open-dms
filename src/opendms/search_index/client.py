@@ -237,9 +237,7 @@ class ElasticSearchClient:
         search = Search(index=self.index, doc_type=Document).using(self.client)
         return search.count()
 
-    def get_last_document_creatiedatum(
-        self, service_slug: str | None = None, latest: bool = True
-    ) -> str:
+    def get_last_document_creatiedatum(self, service_slug: str | None = None) -> str:
         """
         Return the latest creatiedatum of documents in Elasticsearch,
         optionally filtered by service_slug.
@@ -250,13 +248,11 @@ class ElasticSearchClient:
                 "bool": {"must": [query, {"term": {"service_slug": service_slug}}]}
             }
 
-        aggs_type = "max" if latest else "min"
-
         response = self.client.search(
             index=self.index,
             size=0,
             query=query,
-            aggs={"latest_date": {aggs_type: {"field": "creatiedatum"}}},
+            aggs={"latest_date": {"max": {"field": "creatiedatum"}}},
         )
 
         return (
@@ -337,7 +333,7 @@ class ElasticSearchClient:
             logger.exception("failed_to_update_update_check_times", uuid=uuid)
             return False
 
-    def get_expired_document(
+    def get_expired_documents(
         self, now: datetime, batch_size: int = 100, service_slug: str | None = None
     ) -> list[dict]:
         """
@@ -352,7 +348,7 @@ class ElasticSearchClient:
             response = self.client.search(
                 index=self.index,
                 size=batch_size,
-                _source=["service_slug", "group_slug"],
+                _source=["service_slug", "group_slug", "creatiedatum"],
                 query=query,
             )
             hits = response.get("hits", {}).get("hits", [])
@@ -365,6 +361,7 @@ class ElasticSearchClient:
                         "uuid": hit.get("_id"),
                         "service_slug": source.get("service_slug"),
                         "group_slug": source.get("group_slug"),
+                        "creatiedatum": source.get("creatiedatum"),
                     }
                 )
 
