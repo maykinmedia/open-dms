@@ -21,6 +21,7 @@ from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_clie
 from .models import ZGWApiGroupConfig
 from .serializers import (
     DocumentSerializer,
+    ESDocumentSerializer,
     SearchSerializer,
     ServiceSerializer,
     ZaakSerializer,
@@ -29,6 +30,8 @@ from .serializers import (
 from .typing import (
     DocumentsPaginatedResponse,
     DocumentType,
+    ESDocumentsPaginatedResponse,
+    ESDocumentType,
     PaginatedResponse,
     SearchParameters,
     Zaak,
@@ -62,9 +65,9 @@ class SearchView(APIView):
         operation_id="search",
         description=_("Search the document records."),
         request=SearchSerializer,
-        responses=DocumentSerializer(many=True),
+        responses=ESDocumentSerializer(many=True),
     )
-    def post(self, request, *args, **kwargs) -> DocumentsPaginatedResponse:
+    def post(self, request, *args, **kwargs) -> ESDocumentsPaginatedResponse:
         query_serializer = SearchSerializer(data=request.data)
         query_serializer.is_valid(raise_exception=True)
         params: SearchParameters = query_serializer.validated_data
@@ -81,8 +84,8 @@ class SearchView(APIView):
                 sort=params["sort"],
             )
 
-        results = [DocumentType(**record) for record in search_results.results]
-        serializer = DocumentSerializer(results, many=True)
+        results = [ESDocumentType(**record) for record in search_results.results]
+        serializer = ESDocumentSerializer(results, many=True)
         return Response(
             PaginatedResponse(count=search_results.total_count, results=serializer.data)
         )

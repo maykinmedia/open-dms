@@ -3,9 +3,19 @@ import factory
 from ..index import Document
 
 
-class NestedPublisherFactory(factory.Factory):
+class NestedzaakFactory(factory.Factory):
     uuid = factory.Faker("uuid4", cast_to=str)
-    naam = factory.Faker("company")
+    url = factory.Faker("url")
+    identificatie = factory.Faker("uuid4", cast_to=str)
+    bronorganisatie = factory.Faker("company")
+    verantwoordelijkeOrganisatie = factory.Faker("company")
+    omschrijving = factory.Faker("sentence", nb_words=6)
+    toelichting = factory.Faker("paragraph")
+    status = factory.Faker("word")
+    registratiedatum = factory.Faker("past_date")
+    startdatum = factory.Faker("past_date")
+    zaaktype = factory.Faker("word")
+    object_type = factory.Faker("word")
 
     class Meta:
         model = dict
@@ -30,6 +40,8 @@ class IndexDocumentFactory(factory.Factory):
     link = factory.Faker("url")
     creatiedatum = factory.Faker("past_date")
     begin_registratie = factory.Faker("past_datetime")
+
+    zaak_references = factory.SubFactory(NestedzaakFactory)
 
     class Meta:
         model = Document

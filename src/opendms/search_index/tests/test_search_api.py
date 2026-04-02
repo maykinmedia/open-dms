@@ -475,6 +475,60 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(data["count"], 0)
 
+    def test_search_zaak_references(self):
+        doc = IndexDocumentFactory.build(
+            uuid="zaakdoc-001",
+            titel="Document with zaak",
+            beschrijving="Some description",
+            creatiedatum=date(2024, 2, 11),
+            zaak_references=[
+                {
+                    "url": "http://example.com/zaak/zaak-123",
+                    "uuid": "zaak-123",
+                    "identificatie": "ZA123",
+                    "omschrijving": "This is a test zaak",
+                    "toelichting": "Extra info",
+                    "status": "open",
+                    "registratiedatum": date(2026, 1, 1),
+                    "startdatum": date(2024, 2, 11),
+                    "zaaktype": "typeA",
+                    "object_type": "objectX",
+                    "bronorganisatie": "org1",
+                    "verantwoordelijkeOrganisatie": "org1",
+                }
+            ],
+        )
+        self.index_document(doc)
+
+        with self.subTest("Query by nested field 'identificatie"):
+            response = self.client.post(self.url, {"query": "ZA123"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], "zaakdoc-001")
+
+        with self.subTest("Ensure nested zaak_references is returned correctly"):
+            zaak_refs = data["results"][0].get("zaakReferences", [])
+            self.assertTrue(zaak_refs, "zaakReferences should not be empty")
+            self.assertEqual(zaak_refs[0]["uuid"], "zaak-123")
+            self.assertEqual(zaak_refs[0]["identificatie"], "ZA123")
+            self.assertEqual(zaak_refs[0]["omschrijving"], "This is a test zaak")
+            self.assertEqual(zaak_refs[0]["toelichting"], "Extra info")
+
+        with self.subTest("Query by nested field 'omschrijving'"):
+            response = self.client.post(self.url, {"query": "test zaak"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], "zaakdoc-001")
+
+        with self.subTest("Query by nested field 'toelichting'"):
+            response = self.client.post(self.url, {"query": "Extra info"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], "zaakdoc-001")
+
 
 class SearchLastDocumentCreatiedatumTests(VCRMixin, ElasticSearchAPITestCase):
     def test_returns_latest_creatiedatum(self):

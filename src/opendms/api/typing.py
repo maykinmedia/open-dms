@@ -53,6 +53,30 @@ class DocumentType(TypedDict):
     bestandsomvang: int | None
 
 
+class ESDocumentType(TypedDict):
+    uuid: str
+    url: str
+    identificatie: str
+    bronorganisatie: str
+    creatiedatum: date
+    titel: str
+    auteur: str
+    taal: str
+    begin_registratie: datetime
+    informatieobjecttype: str
+    vertrouwelijkheidaanduiding: str | None
+    status: str | None
+    formaat: str | None
+    bestandsnaam: str | None
+    inhoud: str | None
+    link: str | None
+    beschrijving: str | None
+    verschijningsvorm: str | None
+    bestandsomvang: int | None
+
+    zaak_references: list[Zaak]
+
+
 class SearchParameters(TypedDict):
     query: str
     page: int
@@ -65,3 +89,4 @@ class SearchParameters(TypedDict):
 ZaakTypenPaginatedResponse = PaginatedResponse[ZaakType]
 ZakenPaginatedResponse = PaginatedResponse[Zaak]
 DocumentsPaginatedResponse = PaginatedResponse[DocumentType]
+ESDocumentsPaginatedResponse = PaginatedResponse[ESDocumentType]

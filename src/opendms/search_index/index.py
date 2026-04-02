@@ -38,8 +38,8 @@ class ZaakReference(InnerDoc):
     omschrijving: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
     toelichting: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
     status: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
-    registratiedatum: M[date] = mapped_field(Date(required=True))
-    startdatum: M[date] = mapped_field(Date(required=True))
+    registratiedatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
+    startdatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
     zaaktype: M[str] = mapped_field(Keyword(required=True))
     object_type: M[str] = mapped_field(Keyword(required=True))
 
