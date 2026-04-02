@@ -143,6 +143,8 @@ cryptography==46.0.7
     #   django-simple-certmanager
     #   josepy
     #   mozilla-django-oidc
+    #   msal
+    #   pyjwt
     #   pyopenssl
     #   webauthn
 cssselect==1.4.0
@@ -547,6 +549,10 @@ mozilla-django-oidc-db==1.1.1
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   open-api-framework
+msal==1.35.1
+    # via
+    #   -c requirements/base.txt
+    #   -r requirements/base.txt
 multivolumefile==0.2.3
     # via
     #   -c requirements/base.txt
@@ -790,6 +796,7 @@ pyjwt==2.12.1
     #   -r requirements/base.txt
     #   commonground-api-common
     #   mozilla-django-oidc
+    #   msal
     #   zgw-consumers
 pyopenssl==26.0.0
     # via
@@ -882,6 +889,7 @@ requests==2.33.1
     #   django-log-outgoing-requests
     #   django-rosetta
     #   mozilla-django-oidc
+    #   msal
     #   open-api-framework
     #   opentelemetry-exporter-otlp-proto-http
     #   sphinx

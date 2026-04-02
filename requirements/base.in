@@ -18,3 +18,6 @@ django-celery-beat
 
 #postgres package
 psycopg2-binary
+
+# microsoft auth
+msal
