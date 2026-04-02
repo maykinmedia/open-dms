@@ -121,7 +121,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Document'
+                  $ref: '#/components/schemas/ESDocument'
           description: ''
   /api/v1/services:
     get:
@@ -612,6 +612,107 @@ components:
           default: ''
           description: De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen
             in de index.
+      required:
+      - auteur
+      - beginRegistratie
+      - bronorganisatie
+      - creatiedatum
+      - identificatie
+      - informatieobjecttype
+      - taal
+      - titel
+      - url
+      - uuid
+    ESDocument:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: Unieke resource identifier (UUID4)
+        url:
+          type: string
+          format: uri
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+        identificatie:
+          type: string
+          description: Een binnen een gegeven context ondubbelzinnige referentie naar
+            het INFORMATIEOBJECT.
+        bronorganisatie:
+          type: string
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die het informatieobject heeft gecreëerd of heeft ontvangen en als eerste
+            in een samenwerkingsketen heeft vastgelegd.
+        creatiedatum:
+          type: string
+          format: date
+          description: Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
+        titel:
+          type: string
+          description: De naam waaronder het INFORMATIEOBJECT formeel bekend is.
+        auteur:
+          type: string
+          description: De persoon of organisatie die dit informatie object heeft aangemaakt
+        taal:
+          type: string
+          description: 'Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT
+            is vastgelegd. Voorbeeld: `dut`. Zie: https://www.iso.org/standard/4767.html'
+        beginRegistratie:
+          type: string
+          format: date-time
+          description: Een datumtijd in ISO8601 formaat waarop deze versie van het
+            INFORMATIEOBJECT is aangemaakt of gewijzigd.
+        informatieobjecttype:
+          type: string
+          description: URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi
+            API).
+        vertrouwelijkheidaanduiding:
+          type: string
+          nullable: true
+          description: Aanduiding van de mate waarin het INFORMATIEOBJECT voor de
+            openbaarheid bestemd is.
+        status:
+          type: string
+          nullable: true
+          description: 'Aanduiding van de stand van zaken van een INFORMATIEOBJECT. '
+        formaat:
+          type: string
+          nullable: true
+          description: 'Het "Media Type" (voorheen "MIME type") voor de wijze waaropde
+            inhoud van het INFORMATIEOBJECT is vastgelegd in een computerbestand.
+            Voorbeeld: `application/msword`. Zie: https://www.iana.org/assignments/media-types/media-types.xhtml'
+        bestandsnaam:
+          type: string
+          nullable: true
+          description: De naam van het fysieke bestand waarin de inhoud van het informatieobject
+            is vastgelegd, inclusief extensie.
+        link:
+          type: string
+          format: uri
+          nullable: true
+          description: De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen
+            is.
+        beschrijving:
+          type: string
+          nullable: true
+          description: Een generieke beschrijving van de inhoud van het INFORMATIEOBJECT.
+        verschijningsvorm:
+          type: string
+          nullable: true
+          description: De essentiële opmaakaspecten van een INFORMATIEOBJECT.
+        bestandsomvang:
+          type: integer
+          nullable: true
+          description: Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt.
+        inhoud:
+          type: string
+          default: ''
+          description: De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen
+            in de index.
+        zaakReferences:
+          type: array
+          items:
+            $ref: '#/components/schemas/Zaak'
       required:
       - auteur
       - beginRegistratie

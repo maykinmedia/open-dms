@@ -122,7 +122,7 @@ class ElasticSearchClient:
         search = Search(index=Document.Index.name, doc_type=Document)
 
         if query:
-            search = search.query(
+            doc_query = Q(
                 "simple_query_string",
                 query=self._clean_str_query(query),
                 fields=[
@@ -134,6 +134,25 @@ class ElasticSearchClient:
                 ],
                 flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
                 default_operator="AND",
+            )
+            zaak_query = Q(
+                "nested",
+                path="zaak_references",
+                query=Q(
+                    "simple_query_string",
+                    query=self._clean_str_query(query),
+                    fields=[
+                        "zaak_references.identificatie^3",
+                        "zaak_references.omschrijving^2",
+                        "zaak_references.toelichting^1.5",
+                        "zaak_references.status^1.2",
+                    ],
+                    default_operator="AND",
+                ),
+            )
+
+            search = search.query(
+                Q("bool", should=[doc_query, zaak_query], minimum_should_match=1)
             )
 
         if creatiedatum_from or creatiedatum_to:

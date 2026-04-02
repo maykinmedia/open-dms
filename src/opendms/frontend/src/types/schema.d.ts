@@ -319,6 +319,62 @@ export interface components {
              */
             inhoud: string;
         };
+        ESDocument: {
+            /** @description Unieke resource identifier (UUID4) */
+            uuid: string;
+            /**
+             * Format: uri
+             * @description URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
+             */
+            url: string;
+            /** @description Een binnen een gegeven context ondubbelzinnige referentie naar het INFORMATIEOBJECT. */
+            identificatie: string;
+            /** @description Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie die het informatieobject heeft gecreëerd of heeft ontvangen en als eerste in een samenwerkingsketen heeft vastgelegd. */
+            bronorganisatie: string;
+            /**
+             * Format: date
+             * @description Een datum of een gebeurtenis in de levenscyclus van het INFORMATIEOBJECT.
+             */
+            creatiedatum: string;
+            /** @description De naam waaronder het INFORMATIEOBJECT formeel bekend is. */
+            titel: string;
+            /** @description De persoon of organisatie die dit informatie object heeft aangemaakt */
+            auteur: string;
+            /** @description Een ISO 639-2/B taalcode waarin de inhoud van het INFORMATIEOBJECT is vastgelegd. Voorbeeld: `dut`. Zie: https://www.iso.org/standard/4767.html */
+            taal: string;
+            /**
+             * Format: date-time
+             * @description Een datumtijd in ISO8601 formaat waarop deze versie van het INFORMATIEOBJECT is aangemaakt of gewijzigd.
+             */
+            beginRegistratie: string;
+            /** @description URL-referentie naar het INFORMATIEOBJECTTYPE (in de Catalogi API). */
+            informatieobjecttype: string;
+            /** @description Aanduiding van de mate waarin het INFORMATIEOBJECT voor de openbaarheid bestemd is. */
+            vertrouwelijkheidaanduiding?: string | null;
+            /** @description Aanduiding van de stand van zaken van een INFORMATIEOBJECT. */
+            status?: string | null;
+            /** @description Het "Media Type" (voorheen "MIME type") voor de wijze waaropde inhoud van het INFORMATIEOBJECT is vastgelegd in een computerbestand. Voorbeeld: `application/msword`. Zie: https://www.iana.org/assignments/media-types/media-types.xhtml */
+            formaat?: string | null;
+            /** @description De naam van het fysieke bestand waarin de inhoud van het informatieobject is vastgelegd, inclusief extensie. */
+            bestandsnaam?: string | null;
+            /**
+             * Format: uri
+             * @description De URL waarmee de inhoud van het INFORMATIEOBJECT op te vragen is.
+             */
+            link?: string | null;
+            /** @description Een generieke beschrijving van de inhoud van het INFORMATIEOBJECT. */
+            beschrijving?: string | null;
+            /** @description De essentiële opmaakaspecten van een INFORMATIEOBJECT. */
+            verschijningsvorm?: string | null;
+            /** @description Aantal bytes dat de inhoud van INFORMATIEOBJECT in beslag neemt. */
+            bestandsomvang?: number | null;
+            /**
+             * @description De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen in de index.
+             * @default
+             */
+            inhoud: string;
+            zaakReferences?: components["schemas"]["Zaak"][];
+        };
         /** @description Formaat van validatiefouten. */
         FieldValidationError: {
             /** @description Naam van het veld met ongeldige gegevens */
@@ -598,7 +654,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["Document"][];
+                    "application/json": components["schemas"]["ESDocument"][];
                 };
             };
         };
