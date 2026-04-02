@@ -15,6 +15,7 @@ from rest_framework.views import APIView
 from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
 
+from opendms.doc_edit.backends.ms_graph_api.backend import MsGraphApiBackend
 from opendms.search_index.client import get_elasticsearch_client
 
 from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_client
@@ -322,3 +323,21 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         obj = self.get_object()
         with get_documenten_client(self.zgw_group.drc_service) as client:
             return client.download_document(obj["inhoud"])
+
+    @action(methods=["get"], detail=True, name="document_edit")
+    def get(self, request, *args, **kwargs):
+        backend = MsGraphApiBackend()
+        access_token = request.session.get("access_token")
+        if access_token:
+            return Response(
+                {"access_token": access_token, "status": "already_authenticated"}
+            )
+
+        if "code" in request.GET:
+            result = backend.complete_authentication(request)
+            return Response(
+                {"access_token": result.get("access_token"), "status": "authenticated"}
+            )
+
+        redirect_url = request.build_absolute_uri(request.path)
+        return backend.authenticate(request, redirect_url=redirect_url)

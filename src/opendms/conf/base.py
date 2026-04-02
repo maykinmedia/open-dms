@@ -30,6 +30,7 @@ INSTALLED_APPS = INSTALLED_APPS + [
     "opendms.accounts",
     "opendms.api",
     "opendms.search_index",
+    "opendms.doc_edit",
     "opendms.utils",
     "opendms.frontend",
 ]
@@ -296,3 +297,24 @@ CELERY_TASK_ACKS_LATE = True
 # operation, leading to idle workers and backed-up workers. The `-O fair` option
 # *should* have the same effect...
 CELERY_WORKER_PREFETCH_MULTIPLIER = 1
+
+#
+# Microsoft Entra ID App Configuration
+#
+MSGRAPH_API_BACKEND_TENANT_ID = config(
+    "MSGRAPH_API_BACKEND_TENANT_ID",
+    group="Microsoft configuration",
+    help_text="The Azure Entra ID tenant (directory) ID used by MsGraphApiBackend.",
+)
+
+MSGRAPH_API_BACKEND_CLIENT_ID = config(
+    "MSGRAPH_API_BACKEND_CLIENT_ID",
+    group="Microsoft configuration",
+    help_text="The Application (client) ID registered for MsGraphApiBackend in Entra ID.",
+)
+
+MSGRAPH_API_BACKEND_CLIENT_SECRET = config(
+    "MSGRAPH_API_BACKEND_CLIENT_SECRET",
+    group="Microsoft configuration",
+    help_text="The client secret used by MsGraphApiBackend to authenticate against Microsoft Graph API.",
+)
