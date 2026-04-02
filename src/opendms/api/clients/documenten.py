@@ -90,5 +90,29 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         )
 
 
+class ObjectInformatieObjectClient(HttpRequestMixin, NLXClient):
+    """
+    Client for retrieving ObjectInformatieObjecten (ZIO).
+    Links documents to related Zaken.
+    """
+
+    endpoint = "objectinformatieobjecten"
+
+    def get_by_informatieobject(self, document_url: str) -> list[dict]:
+        """
+        Fetch all ZIOs for a given document URL.
+        """
+        data = self.make_request(
+            self.endpoint,
+            params={"informatieobject": document_url},
+            headers=CRS_HEADERS,
+        )
+        return data
+
+
+def get_zio_client(service: Service) -> ObjectInformatieObjectClient:
+    return build_client(service, client_factory=ObjectInformatieObjectClient)
+
+
 def get_documenten_client(service: Service) -> DocumentClient:
     return build_client(service, client_factory=DocumentClient)

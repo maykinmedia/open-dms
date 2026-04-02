@@ -29,10 +29,26 @@ class DocumentData(InnerDoc):
     attachment = Object(properties={"content": Text(analyzer=DEFAULT_ANALYZER)})
 
 
+class ZaakReference(InnerDoc):
+    uuid: M[str] = mapped_field(Keyword(required=True))
+    url: M[str] = mapped_field(Keyword(required=True))
+    identificatie: M[str] = mapped_field(Keyword(required=True))
+    bronorganisatie: M[str] = mapped_field(Keyword(required=True))
+    verantwoordelijkeOrganisatie: M[str] = mapped_field(Keyword(required=True))
+    omschrijving: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    toelichting: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    status: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    registratiedatum: M[date] = mapped_field(Date(required=True))
+    startdatum: M[date] = mapped_field(Date(required=True))
+    zaaktype: M[str] = mapped_field(Keyword(required=True))
+    object_type: M[str] = mapped_field(Keyword(required=True))
+
+
 # create empty base mapping instance
 DOCUMENT_MAPPING = Mapping()
 # add the document_data to the mapping without adding it to the `Document` class.
 DOCUMENT_MAPPING.field("document_data", Nested(DocumentData)._mapping.to_dict())
+DOCUMENT_MAPPING.field("zaak_references", Nested(ZaakReference)._mapping.to_dict())
 
 
 class Document(ES_Document):
@@ -64,6 +80,8 @@ class Document(ES_Document):
 
     inhoud: M[str | None] = mapped_field(Text())
     bestandsomvang: M[int | None] = mapped_field(Long())
+
+    zaak_references: M[list[ZaakReference]] = mapped_field(Nested(ZaakReference))
 
     if TYPE_CHECKING:
         # help the type checkers a little bit
