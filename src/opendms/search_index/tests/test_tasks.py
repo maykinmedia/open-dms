@@ -4,7 +4,9 @@ from django.test import override_settings
 
 from maykin_common.vcr import VCRMixin
 
+from opendms.api.models import ZGWApiGroupConfig
 from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
+from opendms.api.utils.exceptions import ExternalServiceUnavailable
 
 from ..client import get_elasticsearch_client
 from ..document_task import index_all_documents
@@ -356,7 +358,9 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
         }
     )
     def test_download_7zip_document_file_size_reached(self):
-        ServiceFactory.create(for_download_url_mock_service=True)
+        ServiceFactory.create(
+            for_download_url_mock_service=True, for_zrc_service_docker_compose=True
+        )
         document_uuid = "d9fe4844-bdf8-4d66-b613-4efa71598105"
         doc = IndexDocumentFactory(
             uuid=document_uuid,
@@ -398,15 +402,20 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         cls.documenten_service = ServiceFactory.create(
             for_drc_service_docker_compose=True
         )
+        cls.zaken_service = ServiceFactory.create(for_zrc_service_docker_compose=True)
         ZGWApiGroupConfigFactory.create(
             drc_service=cls.documenten_service,
+            zrc_service=cls.zaken_service,
         )
 
         cls.documenten_service_2 = ServiceFactory.create(
             for_drc_service_docker_compose=True
         )
+        cls.zaken_service2 = ServiceFactory.create(for_zrc_service_docker_compose=True)
+
         ZGWApiGroupConfigFactory.create(
             drc_service=cls.documenten_service_2,
+            zrc_service=cls.zaken_service2,
         )
 
     # TODO more tests for documents from open-zaak
@@ -424,6 +433,17 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(doc.uuid, doc_uuid)
         self.assertEqual(doc.identificatie, "DOCUMENT-2026-0000000001")
 
+        self.assertTrue(doc.zaak_references)
+
+        if doc.zaak_references:
+            zaak = doc.zaak_references[0]
+
+            self.assertIsNotNone(zaak.url)
+            self.assertIn("/zaken/", zaak.url)
+
+            self.assertIsNotNone(zaak.identificatie)
+            self.assertIsNotNone(zaak.object_type)
+
     def test_creatiedatum_prevents_reindexing_by_double_call(self):
         index_all_documents()
         index_all_documents()
@@ -439,3 +459,27 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(total_documents, 20)  # total documents from VCR
         self.assertEqual(doc.uuid, doc_uuid)
         self.assertEqual(doc.identificatie, "DOCUMENT-2026-0000000001")
+
+    def test_document_contains_zaak(self):
+        index_all_documents()
+
+        doc_uuid = "d34816d6-50c6-49ea-9b84-4803cbc45a3a"
+
+        with get_elasticsearch_client() as client:
+            doc = client.get_document(doc_uuid)
+
+        self.assertIsNotNone(doc)
+        self.assertTrue(doc.zaak_references)
+
+        zaak = doc.zaak_references[0]
+
+        self.assertIn("/zaken/", zaak.url)
+
+        self.assertNotEqual(zaak.identificatie, "")
+        self.assertIsNotNone(zaak.omschrijving)
+
+    def test_no_services_raises(self):
+        ZGWApiGroupConfig.objects.all().delete()
+
+        with self.assertRaises(ExternalServiceUnavailable):
+            index_all_documents()

@@ -1,14 +1,12 @@
 import structlog
 from zgw_consumers.models import Service
 
-from opendms.api.clients import get_documenten_client
-from opendms.api.utils.exceptions import (
-    ExternalServiceUnavailable,
-)
+from opendms.api.clients import get_documenten_client, get_zaken_client, get_zio_client
+from opendms.api.utils.exceptions import ExternalServiceUnavailable
 from opendms.celery import app
 
 from .client import get_elasticsearch_client
-from .index import Document
+from .index import Document, ZaakReference
 
 logger = structlog.get_logger(__name__)
 
@@ -16,34 +14,92 @@ logger = structlog.get_logger(__name__)
 @app.task()
 def index_all_documents() -> None:
     """
-    Fetch all documents from OpenZaak and index them in Elasticsearch.
+    Fetch all documents from OpenZaak, enrich them with connected 'zaak' information
+    (via ZaakInformatieObjecten), and index them in Elasticsearch.
     """
-    services = Service.objects.filter(zgwset_drc_config__isnull=False).distinct()
+    doc_services = Service.objects.filter(zgwset_drc_config__isnull=False).distinct()
+    zaak_services = Service.objects.filter(zgwset_zrc_config__isnull=False).distinct()
 
-    if not services.exists():
+    if not doc_services.exists():
         raise ExternalServiceUnavailable("No DRC API services configured!")
+    if not zaak_services.exists():
+        raise ExternalServiceUnavailable("No ZRC services configured!")
 
-    last_creatiedatum = ""
     with get_elasticsearch_client() as es_client:
         last_creatiedatum = es_client.get_last_document_creatiedatum()
 
-        for service in services:
+        for doc_service in doc_services:
             logger.info(
                 "fetching_documents",
-                service=service.slug,
+                service=doc_service.slug,
                 creatiedatum_gte=last_creatiedatum,
             )
 
-            with get_documenten_client(service) as doc_client:
-                all_documents = doc_client.get_items(
-                    params={"creatiedatum__gte": last_creatiedatum}
-                    if last_creatiedatum
-                    else {}
-                )
+            params = (
+                {"creatiedatum__gte": last_creatiedatum} if last_creatiedatum else {}
+            )
 
-            logger.info("documents_fetched", count=len(all_documents))
-            for doc in all_documents:
-                obj = Document(**doc)
-                es_client.index_document(obj)
+            with (
+                get_documenten_client(doc_service) as doc_client,
+                get_zio_client(doc_service) as zio_client,
+            ):
+                all_documents = doc_client.get_items(params=params)
+
+                for doc in all_documents:
+                    zios = [
+                        zio
+                        for zio in zio_client.get_by_informatieobject(doc["url"])
+                        if zio.get("objectType") == "zaak" and zio.get("object")
+                    ]
+
+                    zaak_refs = []
+
+                    for zio in zios:
+                        url = zio["object"]
+                        uuid = url.split("/")[-1]
+                        zaak = None
+
+                        for zaak_service in zaak_services:
+                            try:
+                                with get_zaken_client(zaak_service) as zaken_client:
+                                    zaak_item = zaken_client.get_item_by_uuid(uuid)
+                                    logger.debug(
+                                        "Fetched zaak",
+                                        uuid=uuid,
+                                        service=zaak_service.slug,
+                                    )
+                                    zaak = ZaakReference(
+                                        uuid=zaak_item["uuid"],
+                                        url=zaak_item["url"],
+                                        identificatie=zaak_item["identificatie"],
+                                        bronorganisatie=zaak_item["bronorganisatie"],
+                                        verantwoordelijkeOrganisatie=zaak_item[
+                                            "verantwoordelijkeOrganisatie"
+                                        ],
+                                        omschrijving=zaak_item.get("omschrijving"),
+                                        toelichting=zaak_item.get("toelichting"),
+                                        status=zaak_item.get("status"),
+                                        registratiedatum=zaak_item["registratiedatum"],
+                                        startdatum=zaak_item["startdatum"],
+                                        zaaktype=zaak_item["zaaktype"],
+                                        object_type="zaak",
+                                    )
+                                    break
+                            except Exception as e:
+                                logger.warning(
+                                    "Failed to fetch zaak",
+                                    uuid=uuid,
+                                    service=zaak_service.slug,
+                                    error=str(e),
+                                )
+                                continue
+
+                        if zaak:
+                            zaak_refs.append(zaak)
+                        else:
+                            logger.warning("No zaak found for ZIO", uuid=uuid, url=url)
+
+                    obj = Document(**doc, zaak_references=zaak_refs)
+                    es_client.index_document(obj)
 
             logger.info("indexing_scheduled", total_documents=len(all_documents))
