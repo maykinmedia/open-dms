@@ -37,11 +37,13 @@ export const DocumentsList = () => {
           title: doc.titel,
           icon: <Outline.DocumentIcon />,
           informationLines: [doc.formaat],
-          buttonProps: {
-            as: "a",
-            download: true,
-            href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
-          },
+          actions: [
+            {
+              as: "a",
+              download: true,
+              href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
+            },
+          ],
         };
       }) ?? []
     );
@@ -60,6 +62,8 @@ export const DocumentsList = () => {
         pageSize: 20,
         onPageChange: (page) => setSearchParams({ page: page.toString() }),
       }}
-    />
+    >
+      {data.count} documenten
+    </ItemGridTemplate>
   );
 };
