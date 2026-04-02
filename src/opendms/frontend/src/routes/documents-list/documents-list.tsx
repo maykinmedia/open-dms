@@ -2,6 +2,7 @@ import {
   type ItemGridItemProps,
   ItemGridTemplate,
   Outline,
+  P,
 } from "@maykin-ui/admin-ui";
 import { invariant } from "@maykin-ui/client-common";
 import { useMemo } from "react";
@@ -63,7 +64,7 @@ export const DocumentsList = () => {
         onPageChange: (page) => setSearchParams({ page: page.toString() }),
       }}
     >
-      {data.count} documenten
+      <P>{data.count} documenten</P>
     </ItemGridTemplate>
   );
 };
