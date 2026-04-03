@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525460117","number_of_replicas":"1","uuid":"fY_yeNDcTMuhO71PK2GPuA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201820757","number_of_replicas":"1","uuid":"94MaWOvWR3uEVi4DieYvHA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"object_type":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"}},"type":"nested"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.garcia-raymond.net/","identificatie":"99ac2a7f-3732-4bc6-83a5-ca6a78ebd4b4","bronorganisatie":"Anderson-Reese","titel":"Notice
-      plant if easy service again floor store.","beschrijving":"Ahead hand star table
-      several me. Become so involve within. Nothing join remain bar suffer.","auteur":"Aimee
-      Hoffman","taal":"af","vertrouwelijkheidaanduiding":"front","status":"author","formaat":"avi","bestandsnaam":"institution.jpg","informatieobjecttype":"real","verschijningsvorm":"lot","bestandsomvang":1000000,"link":"http://www.hanna-andrews.com/","creatiedatum":"2024-02-11","begin_registratie":"2026-03-17T00:25:36.069506"}'
+    body: '{"uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"https://williams.info/","identificatie":"7477529d-501e-480e-83a9-f2ad3f859b98","bronorganisatie":"Ramos
+      and Sons","titel":"Room region foreign study recently.","beschrijving":"Center
+      house account organization education. History describe authority from world
+      government. Leave lay point old trip exactly.","auteur":"Jaclyn Harding","taal":"ts","vertrouwelijkheidaanduiding":"well","status":"professional","formaat":"js","bestandsnaam":"five.flac","informatieobjecttype":"general","verschijningsvorm":"century","bestandsomvang":1000000,"link":"https://wheeler.info/","creatiedatum":"2024-02-11","begin_registratie":"2026-03-10T01:21:29.423798","zaak_referenties":[{"uuid":"586bdc37-5293-4445-82b3-e552b681a561","url":"http://martin.com/","identificatie":"a17c720c-cd29-492b-8e42-c64f2af1e97f","bronorganisatie":"Sanders
+      Inc","verantwoordelijkeOrganisatie":"Smith, Nelson and Sullivan","omschrijving":"Time
+      various team.","toelichting":"Senior program station north. Little economy person
+      cold film teach line catch. Face go contain system beautiful.","status":"science","registratiedatum":"2026-03-08","startdatum":"2026-03-04","zaaktype":"yard","object_type":"education"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -99,7 +102,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/6aac4fb2-d532-490b-bd6b-87b0257c0236?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+      string: '{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/6aac4fb2-d532-490b-bd6b-87b0257c0236
@@ -153,7 +156,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525460117","number_of_replicas":"1","uuid":"fY_yeNDcTMuhO71PK2GPuA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201820757","number_of_replicas":"1","uuid":"94MaWOvWR3uEVi4DieYvHA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -165,7 +168,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"object_type":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"}},"type":"nested"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -193,11 +196,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.weiss.com/","identificatie":"afa3e2d8-45b6-4776-9635-45f11e9b14f5","bronorganisatie":"Harvey
-      Ltd","titel":"Day tonight difference approach develop.","beschrijving":"Number
-      school teach medical feeling surface environment. Sit ability tell seek team.
-      Democrat television over customer before general program space.","auteur":"David
-      Smith","taal":"nhn","vertrouwelijkheidaanduiding":"affect","status":"book","formaat":"mp3","bestandsnaam":"identify.html","informatieobjecttype":"activity","verschijningsvorm":"boy","bestandsomvang":1000000,"link":"https://www.murray.com/","creatiedatum":"2022-12-10","begin_registratie":"2026-03-16T20:38:15.349766"}'
+    body: '{"uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.walter-perez.com/","identificatie":"67a51bd4-c0a9-4ffd-b269-23c1d11e39d9","bronorganisatie":"Roberts-Lowe","titel":"Might
+      believe way design plan.","beschrijving":"Free house small remain. Anything
+      population degree reach form back. View bit new question system feel avoid.
+      Wish as official benefit which.","auteur":"Joseph Anderson","taal":"el","vertrouwelijkheidaanduiding":"employee","status":"modern","formaat":"doc","bestandsnaam":"true.ppt","informatieobjecttype":"yard","verschijningsvorm":"between","bestandsomvang":1000000,"link":"http://lester.info/","creatiedatum":"2022-12-10","begin_registratie":"2026-03-26T08:31:10.254544","zaak_referenties":[{"uuid":"7adb31a7-1cff-434a-940a-0a0f62e8b05d","url":"http://www.bridges-leonard.biz/","identificatie":"68f1ea76-e0e4-4656-9f0f-f10499d81b2b","bronorganisatie":"Guzman-Blackburn","verantwoordelijkeOrganisatie":"Miller
+      Ltd","omschrijving":"Morning across than by.","toelichting":"Four speak finish.
+      Story nearly then election Republican. Region behind six. Most necessary both
+      indeed maybe while.","status":"meeting","registratiedatum":"2026-03-15","startdatum":"2026-03-28","zaaktype":"senior","object_type":"such"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -213,7 +218,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/62fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}'
+      string: '{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/62fceb92-98bd-475c-b184-49ee8a274787
@@ -267,7 +272,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525460117","number_of_replicas":"1","uuid":"fY_yeNDcTMuhO71PK2GPuA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201820757","number_of_replicas":"1","uuid":"94MaWOvWR3uEVi4DieYvHA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -279,7 +284,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"object_type":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"}},"type":"nested"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -307,10 +312,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"https://reyes-rivera.net/","identificatie":"02009795-4fb7-413e-bf1f-6f6986322d3f","bronorganisatie":"Hudson,
-      Hahn and Schwartz","titel":"Series enough population these everything.","beschrijving":"Term
-      final expert who. Big place project American. Car environment girl operation
-      discuss certainly herself dog.","auteur":"Kyle Davis","taal":"mag","vertrouwelijkheidaanduiding":"check","status":"everything","formaat":"mp3","bestandsnaam":"try.wav","informatieobjecttype":"American","verschijningsvorm":"edge","bestandsomvang":1000000,"link":"https://church.net/","creatiedatum":"2025-01-14","begin_registratie":"2026-03-08T06:47:25.299500"}'
+    body: '{"uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"http://www.elliott-kirby.com/","identificatie":"81e2af96-00e3-4af3-9ecb-d532233546eb","bronorganisatie":"Mcdaniel,
+      Villegas and Smith","titel":"Among break Mrs animal week dog first.","beschrijving":"Collection
+      result important guess. Issue city vote quite poor reality house third. Leg
+      political whose yard level dinner he.","auteur":"Taylor Guerra","taal":"ko","vertrouwelijkheidaanduiding":"himself","status":"admit","formaat":"docx","bestandsnaam":"authority.pdf","informatieobjecttype":"sure","verschijningsvorm":"wrong","bestandsomvang":1000000,"link":"http://oneill.com/","creatiedatum":"2025-01-14","begin_registratie":"2026-03-05T05:57:49.265325","zaak_referenties":[{"uuid":"a1d5207e-92ae-474e-b7cd-d3c38886d112","url":"http://www.hampton.biz/","identificatie":"47e3f998-4751-4929-a43d-e84e1251daaf","bronorganisatie":"Morris
+      Ltd","verantwoordelijkeOrganisatie":"Mendez Group","omschrijving":"Thus rate
+      chance picture response buy natural.","toelichting":"Address ten season soldier.
+      Form like future amount.","status":"address","registratiedatum":"2026-03-23","startdatum":"2026-03-29","zaaktype":"eye","object_type":"know"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -326,7 +334,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/ef1dead2-e0f8-45be-acf7-3583adc14906?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
+      string: '{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/ef1dead2-e0f8-45be-acf7-3583adc14906
@@ -356,15 +364,22 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_score":0.0,"_source":{"beschrijving":"Term
-        final expert who. Big place project American. Car environment girl operation
-        discuss certainly herself dog.","verschijningsvorm":"edge","begin_registratie":"2026-03-08T06:47:25.299500","identificatie":"02009795-4fb7-413e-bf1f-6f6986322d3f","bronorganisatie":"Hudson,
-        Hahn and Schwartz","bestandsomvang":1000000,"link":"https://church.net/","uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"https://reyes-rivera.net/","taal":"mag","auteur":"Kyle
-        Davis","formaat":"mp3","titel":"Series enough population these everything.","vertrouwelijkheidaanduiding":"check","informatieobjecttype":"American","bestandsnaam":"try.wav","creatiedatum":"2025-01-14","status":"everything"},"sort":[0.0,1736812800000]},{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"beschrijving":"Ahead
-        hand star table several me. Become so involve within. Nothing join remain
-        bar suffer.","verschijningsvorm":"lot","begin_registratie":"2026-03-17T00:25:36.069506","identificatie":"99ac2a7f-3732-4bc6-83a5-ca6a78ebd4b4","bronorganisatie":"Anderson-Reese","bestandsomvang":1000000,"link":"http://www.hanna-andrews.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.garcia-raymond.net/","taal":"af","auteur":"Aimee
-        Hoffman","formaat":"avi","titel":"Notice plant if easy service again floor
-        store.","vertrouwelijkheidaanduiding":"front","informatieobjecttype":"real","bestandsnaam":"institution.jpg","creatiedatum":"2024-02-11","status":"author"},"sort":[0.0,1707609600000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"ef1dead2-e0f8-45be-acf7-3583adc14906","_score":0.0,"_source":{"beschrijving":"Collection
+        result important guess. Issue city vote quite poor reality house third. Leg
+        political whose yard level dinner he.","verschijningsvorm":"wrong","begin_registratie":"2026-03-05T05:57:49.265325","identificatie":"81e2af96-00e3-4af3-9ecb-d532233546eb","bronorganisatie":"Mcdaniel,
+        Villegas and Smith","bestandsomvang":1000000,"link":"http://oneill.com/","uuid":"ef1dead2-e0f8-45be-acf7-3583adc14906","url":"http://www.elliott-kirby.com/","taal":"ko","zaak_referenties":[{"omschrijving":"Thus
+        rate chance picture response buy natural.","identificatie":"47e3f998-4751-4929-a43d-e84e1251daaf","startdatum":"2026-03-29","object_type":"know","bronorganisatie":"Morris
+        Ltd","zaaktype":"eye","registratiedatum":"2026-03-23","uuid":"a1d5207e-92ae-474e-b7cd-d3c38886d112","url":"http://www.hampton.biz/","verantwoordelijkeOrganisatie":"Mendez
+        Group","toelichting":"Address ten season soldier. Form like future amount.","status":"address"}],"auteur":"Taylor
+        Guerra","formaat":"docx","titel":"Among break Mrs animal week dog first.","vertrouwelijkheidaanduiding":"himself","informatieobjecttype":"sure","bestandsnaam":"authority.pdf","creatiedatum":"2025-01-14","status":"admit"},"sort":[0.0,1736812800000]},{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"beschrijving":"Center
+        house account organization education. History describe authority from world
+        government. Leave lay point old trip exactly.","verschijningsvorm":"century","begin_registratie":"2026-03-10T01:21:29.423798","identificatie":"7477529d-501e-480e-83a9-f2ad3f859b98","bronorganisatie":"Ramos
+        and Sons","bestandsomvang":1000000,"link":"https://wheeler.info/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"https://williams.info/","taal":"ts","zaak_referenties":[{"omschrijving":"Time
+        various team.","identificatie":"a17c720c-cd29-492b-8e42-c64f2af1e97f","startdatum":"2026-03-04","object_type":"education","bronorganisatie":"Sanders
+        Inc","zaaktype":"yard","registratiedatum":"2026-03-08","uuid":"586bdc37-5293-4445-82b3-e552b681a561","url":"http://martin.com/","verantwoordelijkeOrganisatie":"Smith,
+        Nelson and Sullivan","toelichting":"Senior program station north. Little economy
+        person cold film teach line catch. Face go contain system beautiful.","status":"science"}],"auteur":"Jaclyn
+        Harding","formaat":"js","titel":"Room region foreign study recently.","vertrouwelijkheidaanduiding":"well","informatieobjecttype":"general","bestandsnaam":"five.flac","creatiedatum":"2024-02-11","status":"professional"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -392,11 +407,13 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"beschrijving":"Number
-        school teach medical feeling surface environment. Sit ability tell seek team.
-        Democrat television over customer before general program space.","verschijningsvorm":"boy","begin_registratie":"2026-03-16T20:38:15.349766","identificatie":"afa3e2d8-45b6-4776-9635-45f11e9b14f5","bronorganisatie":"Harvey
-        Ltd","bestandsomvang":1000000,"link":"https://www.murray.com/","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.weiss.com/","taal":"nhn","auteur":"David
-        Smith","formaat":"mp3","titel":"Day tonight difference approach develop.","vertrouwelijkheidaanduiding":"affect","informatieobjecttype":"activity","bestandsnaam":"identify.html","creatiedatum":"2022-12-10","status":"book"},"sort":[0.0,1670630400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"62fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"beschrijving":"Free
+        house small remain. Anything population degree reach form back. View bit new
+        question system feel avoid. Wish as official benefit which.","verschijningsvorm":"between","begin_registratie":"2026-03-26T08:31:10.254544","identificatie":"67a51bd4-c0a9-4ffd-b269-23c1d11e39d9","bronorganisatie":"Roberts-Lowe","bestandsomvang":1000000,"link":"http://lester.info/","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.walter-perez.com/","taal":"el","zaak_referenties":[{"omschrijving":"Morning
+        across than by.","identificatie":"68f1ea76-e0e4-4656-9f0f-f10499d81b2b","startdatum":"2026-03-28","object_type":"such","bronorganisatie":"Guzman-Blackburn","zaaktype":"senior","registratiedatum":"2026-03-15","uuid":"7adb31a7-1cff-434a-940a-0a0f62e8b05d","url":"http://www.bridges-leonard.biz/","verantwoordelijkeOrganisatie":"Miller
+        Ltd","toelichting":"Four speak finish. Story nearly then election Republican.
+        Region behind six. Most necessary both indeed maybe while.","status":"meeting"}],"auteur":"Joseph
+        Anderson","formaat":"doc","titel":"Might believe way design plan.","vertrouwelijkheidaanduiding":"employee","informatieobjecttype":"yard","bestandsnaam":"true.ppt","creatiedatum":"2022-12-10","status":"modern"},"sort":[0.0,1670630400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -424,11 +441,15 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"beschrijving":"Ahead
-        hand star table several me. Become so involve within. Nothing join remain
-        bar suffer.","verschijningsvorm":"lot","begin_registratie":"2026-03-17T00:25:36.069506","identificatie":"99ac2a7f-3732-4bc6-83a5-ca6a78ebd4b4","bronorganisatie":"Anderson-Reese","bestandsomvang":1000000,"link":"http://www.hanna-andrews.com/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"http://www.garcia-raymond.net/","taal":"af","auteur":"Aimee
-        Hoffman","formaat":"avi","titel":"Notice plant if easy service again floor
-        store.","vertrouwelijkheidaanduiding":"front","informatieobjecttype":"real","bestandsnaam":"institution.jpg","creatiedatum":"2024-02-11","status":"author"},"sort":[0.0,1707609600000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6aac4fb2-d532-490b-bd6b-87b0257c0236","_score":0.0,"_source":{"beschrijving":"Center
+        house account organization education. History describe authority from world
+        government. Leave lay point old trip exactly.","verschijningsvorm":"century","begin_registratie":"2026-03-10T01:21:29.423798","identificatie":"7477529d-501e-480e-83a9-f2ad3f859b98","bronorganisatie":"Ramos
+        and Sons","bestandsomvang":1000000,"link":"https://wheeler.info/","uuid":"6aac4fb2-d532-490b-bd6b-87b0257c0236","url":"https://williams.info/","taal":"ts","zaak_referenties":[{"omschrijving":"Time
+        various team.","identificatie":"a17c720c-cd29-492b-8e42-c64f2af1e97f","startdatum":"2026-03-04","object_type":"education","bronorganisatie":"Sanders
+        Inc","zaaktype":"yard","registratiedatum":"2026-03-08","uuid":"586bdc37-5293-4445-82b3-e552b681a561","url":"http://martin.com/","verantwoordelijkeOrganisatie":"Smith,
+        Nelson and Sullivan","toelichting":"Senior program station north. Little economy
+        person cold film teach line catch. Face go contain system beautiful.","status":"science"}],"auteur":"Jaclyn
+        Harding","formaat":"js","titel":"Room region foreign study recently.","vertrouwelijkheidaanduiding":"well","informatieobjecttype":"general","bestandsnaam":"five.flac","creatiedatum":"2024-02-11","status":"professional"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

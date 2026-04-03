@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,8 +80,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","titel":"Document
-      one","beschrijving":"snowflake1","auteur":"Lauren Mitchell","taal":"iw","vertrouwelijkheidaanduiding":"why","status":"scene","formaat":"key","bestandsnaam":"help.csv","informatieobjecttype":"down","verschijningsvorm":"long","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","creatiedatum":"2026-02-27","begin_registratie":"2026-03-24T12:21:45.495302"}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.martinez.com/","identificatie":"3012ea8c-86d0-4271-9444-39fcf2a7b1a4","bronorganisatie":"Martin-Bond","titel":"Document
+      one","beschrijving":"snowflake1","auteur":"Savannah Meyer","taal":"fo","vertrouwelijkheidaanduiding":"senior","status":"space","formaat":"pptx","bestandsnaam":"heart.webm","informatieobjecttype":"else","verschijningsvorm":"assume","bestandsomvang":1000000,"link":"https://warner-hall.org/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-29T22:42:02.461801","zaak_referenties":[{"uuid":"ec60c48d-230b-4bce-bbd2-2f2e5301dc92","url":"http://duran.org/","identificatie":"01909617-1507-48c5-83e9-2d3f6bea50a6","bronorganisatie":"Clark,
+      Hurst and West","verantwoordelijkeOrganisatie":"Becker, Myers and Richard","omschrijving":"Next
+      great hour.","toelichting":"Social international writer technology thought all.
+      Happen free why they consumer together. Item member fly.","status":"reveal","registratiedatum":"2026-03-30","startdatum":"2026-03-11","zaaktype":"quality","object_type":"need"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -151,7 +154,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -163,7 +166,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -191,9 +194,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.stone-jimenez.info/","identificatie":"9cf61c58-aac5-4868-a896-c74b115ae85c","bronorganisatie":"Mcgee
-      PLC","titel":"Document two","beschrijving":"snowflake2","auteur":"Elizabeth
-      Osborne","taal":"li","vertrouwelijkheidaanduiding":"floor","status":"century","formaat":"mov","bestandsnaam":"why.doc","informatieobjecttype":"perhaps","verschijningsvorm":"tell","bestandsomvang":1000000,"link":"https://www.smith.biz/","creatiedatum":"2026-02-27","begin_registratie":"2026-02-27T19:36:09.809683"}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.castro.com/","identificatie":"49c2c98c-acf9-4e04-8ef6-296a57e9f14c","bronorganisatie":"May,
+      Palmer and Gutierrez","titel":"Document two","beschrijving":"snowflake2","auteur":"Brittney
+      Moore","taal":"mr","vertrouwelijkheidaanduiding":"always","status":"read","formaat":"flac","bestandsnaam":"film.gif","informatieobjecttype":"attack","verschijningsvorm":"natural","bestandsomvang":1000000,"link":"https://www.brown.info/","creatiedatum":"2026-03-24","begin_registratie":"2026-03-20T03:25:05.602327","zaak_referenties":[{"uuid":"a971274a-0b59-4b0e-ad3e-be978ad6d79a","url":"http://www.carney.org/","identificatie":"b90378b4-0000-40e0-bb1b-6aba489ea2f9","bronorganisatie":"Barnett
+      Group","verantwoordelijkeOrganisatie":"Tucker Group","omschrijving":"Marriage
+      economy or scientist.","toelichting":"Hold game sit court like. Remember decide
+      also research.","status":"especially","registratiedatum":"2026-03-21","startdatum":"2026-03-28","zaaktype":"apply","object_type":"account"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -223,8 +229,9 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
-      + one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"document
+      + one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"document
+      + one","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -240,8 +247,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.1104312,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
-        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[2.1104312,1772150400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.5364614,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"assume","begin_registratie":"2026-03-29T22:42:02.461801","identificatie":"3012ea8c-86d0-4271-9444-39fcf2a7b1a4","bronorganisatie":"Martin-Bond","bestandsomvang":1000000,"link":"https://warner-hall.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.martinez.com/","taal":"fo","zaak_referenties":[{"omschrijving":"Next
+        great hour.","identificatie":"01909617-1507-48c5-83e9-2d3f6bea50a6","startdatum":"2026-03-11","object_type":"need","bronorganisatie":"Clark,
+        Hurst and West","zaaktype":"quality","registratiedatum":"2026-03-30","uuid":"ec60c48d-230b-4bce-bbd2-2f2e5301dc92","url":"http://duran.org/","verantwoordelijkeOrganisatie":"Becker,
+        Myers and Richard","toelichting":"Social international writer technology thought
+        all. Happen free why they consumer together. Item member fly.","status":"reveal"}],"auteur":"Savannah
+        Meyer","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"senior","informatieobjecttype":"else","bestandsnaam":"heart.webm","creatiedatum":"2026-03-15","status":"space"},"sort":[4.5364614,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -253,8 +264,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
-      + one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"document
+      + one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"document
+      + one","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -270,8 +282,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.1104312,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
-        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[2.1104312,1772150400000]}]}}'
+      string: '{"took":7,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.5364614,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"assume","begin_registratie":"2026-03-29T22:42:02.461801","identificatie":"3012ea8c-86d0-4271-9444-39fcf2a7b1a4","bronorganisatie":"Martin-Bond","bestandsomvang":1000000,"link":"https://warner-hall.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.martinez.com/","taal":"fo","zaak_referenties":[{"omschrijving":"Next
+        great hour.","identificatie":"01909617-1507-48c5-83e9-2d3f6bea50a6","startdatum":"2026-03-11","object_type":"need","bronorganisatie":"Clark,
+        Hurst and West","zaaktype":"quality","registratiedatum":"2026-03-30","uuid":"ec60c48d-230b-4bce-bbd2-2f2e5301dc92","url":"http://duran.org/","verantwoordelijkeOrganisatie":"Becker,
+        Myers and Richard","toelichting":"Social international writer technology thought
+        all. Happen free why they consumer together. Item member fly.","status":"reveal"}],"auteur":"Savannah
+        Meyer","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"senior","informatieobjecttype":"else","bestandsnaam":"heart.webm","creatiedatum":"2026-03-15","status":"space"},"sort":[4.5364614,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -283,8 +299,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"one
-      | two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -300,10 +317,17 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.3586086,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
-        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[1.3586086,1772150400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.3586086,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"tell","begin_registratie":"2026-02-27T19:36:09.809683","identificatie":"9cf61c58-aac5-4868-a896-c74b115ae85c","bronorganisatie":"Mcgee
-        PLC","bestandsomvang":1000000,"link":"https://www.smith.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.stone-jimenez.info/","taal":"li","auteur":"Elizabeth
-        Osborne","formaat":"mov","titel":"Document two","vertrouwelijkheidaanduiding":"floor","informatieobjecttype":"perhaps","bestandsnaam":"why.doc","creatiedatum":"2026-02-27","status":"century"},"sort":[1.3586086,1772150400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.5054398,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"natural","begin_registratie":"2026-03-20T03:25:05.602327","identificatie":"49c2c98c-acf9-4e04-8ef6-296a57e9f14c","bronorganisatie":"May,
+        Palmer and Gutierrez","bestandsomvang":1000000,"link":"https://www.brown.info/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.castro.com/","taal":"mr","zaak_referenties":[{"omschrijving":"Marriage
+        economy or scientist.","identificatie":"b90378b4-0000-40e0-bb1b-6aba489ea2f9","startdatum":"2026-03-28","object_type":"account","bronorganisatie":"Barnett
+        Group","zaaktype":"apply","registratiedatum":"2026-03-21","uuid":"a971274a-0b59-4b0e-ad3e-be978ad6d79a","url":"http://www.carney.org/","verantwoordelijkeOrganisatie":"Tucker
+        Group","toelichting":"Hold game sit court like. Remember decide also research.","status":"especially"}],"auteur":"Brittney
+        Moore","formaat":"flac","titel":"Document two","vertrouwelijkheidaanduiding":"always","informatieobjecttype":"attack","bestandsnaam":"film.gif","creatiedatum":"2026-03-24","status":"read"},"sort":[4.5054398,1774310400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.920387,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"assume","begin_registratie":"2026-03-29T22:42:02.461801","identificatie":"3012ea8c-86d0-4271-9444-39fcf2a7b1a4","bronorganisatie":"Martin-Bond","bestandsomvang":1000000,"link":"https://warner-hall.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.martinez.com/","taal":"fo","zaak_referenties":[{"omschrijving":"Next
+        great hour.","identificatie":"01909617-1507-48c5-83e9-2d3f6bea50a6","startdatum":"2026-03-11","object_type":"need","bronorganisatie":"Clark,
+        Hurst and West","zaaktype":"quality","registratiedatum":"2026-03-30","uuid":"ec60c48d-230b-4bce-bbd2-2f2e5301dc92","url":"http://duran.org/","verantwoordelijkeOrganisatie":"Becker,
+        Myers and Richard","toelichting":"Social international writer technology thought
+        all. Happen free why they consumer together. Item member fly.","status":"reveal"}],"auteur":"Savannah
+        Meyer","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"senior","informatieobjecttype":"else","bestandsnaam":"heart.webm","creatiedatum":"2026-03-15","status":"space"},"sort":[2.920387,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -315,8 +339,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"one
-      | two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -332,10 +357,17 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.3586086,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
-        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[1.3586086,1772150400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.3586086,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"tell","begin_registratie":"2026-02-27T19:36:09.809683","identificatie":"9cf61c58-aac5-4868-a896-c74b115ae85c","bronorganisatie":"Mcgee
-        PLC","bestandsomvang":1000000,"link":"https://www.smith.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.stone-jimenez.info/","taal":"li","auteur":"Elizabeth
-        Osborne","formaat":"mov","titel":"Document two","vertrouwelijkheidaanduiding":"floor","informatieobjecttype":"perhaps","bestandsnaam":"why.doc","creatiedatum":"2026-02-27","status":"century"},"sort":[1.3586086,1772150400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.5054398,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"natural","begin_registratie":"2026-03-20T03:25:05.602327","identificatie":"49c2c98c-acf9-4e04-8ef6-296a57e9f14c","bronorganisatie":"May,
+        Palmer and Gutierrez","bestandsomvang":1000000,"link":"https://www.brown.info/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.castro.com/","taal":"mr","zaak_referenties":[{"omschrijving":"Marriage
+        economy or scientist.","identificatie":"b90378b4-0000-40e0-bb1b-6aba489ea2f9","startdatum":"2026-03-28","object_type":"account","bronorganisatie":"Barnett
+        Group","zaaktype":"apply","registratiedatum":"2026-03-21","uuid":"a971274a-0b59-4b0e-ad3e-be978ad6d79a","url":"http://www.carney.org/","verantwoordelijkeOrganisatie":"Tucker
+        Group","toelichting":"Hold game sit court like. Remember decide also research.","status":"especially"}],"auteur":"Brittney
+        Moore","formaat":"flac","titel":"Document two","vertrouwelijkheidaanduiding":"always","informatieobjecttype":"attack","bestandsnaam":"film.gif","creatiedatum":"2026-03-24","status":"read"},"sort":[4.5054398,1774310400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.920387,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"assume","begin_registratie":"2026-03-29T22:42:02.461801","identificatie":"3012ea8c-86d0-4271-9444-39fcf2a7b1a4","bronorganisatie":"Martin-Bond","bestandsomvang":1000000,"link":"https://warner-hall.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.martinez.com/","taal":"fo","zaak_referenties":[{"omschrijving":"Next
+        great hour.","identificatie":"01909617-1507-48c5-83e9-2d3f6bea50a6","startdatum":"2026-03-11","object_type":"need","bronorganisatie":"Clark,
+        Hurst and West","zaaktype":"quality","registratiedatum":"2026-03-30","uuid":"ec60c48d-230b-4bce-bbd2-2f2e5301dc92","url":"http://duran.org/","verantwoordelijkeOrganisatie":"Becker,
+        Myers and Richard","toelichting":"Social international writer technology thought
+        all. Happen free why they consumer together. Item member fly.","status":"reveal"}],"auteur":"Savannah
+        Meyer","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"senior","informatieobjecttype":"else","bestandsnaam":"heart.webm","creatiedatum":"2026-03-15","status":"space"},"sort":[2.920387,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -347,8 +379,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"(\"snowflake1\"
-      +  one) | (\"Document two\")","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"(\"snowflake1\"
+      +  one) | (\"Document two\")","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"(\"snowflake1\"
+      +  one) | (\"Document two\")","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -364,10 +397,17 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.3542163,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"long","begin_registratie":"2026-03-24T12:21:45.495302","identificatie":"6d92205e-f54b-4acd-a530-71a3fe0f5828","bronorganisatie":"Jackson-Anderson","bestandsomvang":1000000,"link":"https://jackson-garrett.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://adams.biz/","taal":"iw","auteur":"Lauren
-        Mitchell","formaat":"key","titel":"Document one","vertrouwelijkheidaanduiding":"why","informatieobjecttype":"down","bestandsnaam":"help.csv","creatiedatum":"2026-02-27","status":"scene"},"sort":[2.3542163,1772150400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.110431,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"tell","begin_registratie":"2026-02-27T19:36:09.809683","identificatie":"9cf61c58-aac5-4868-a896-c74b115ae85c","bronorganisatie":"Mcgee
-        PLC","bestandsomvang":1000000,"link":"https://www.smith.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.stone-jimenez.info/","taal":"li","auteur":"Elizabeth
-        Osborne","formaat":"mov","titel":"Document two","vertrouwelijkheidaanduiding":"floor","informatieobjecttype":"perhaps","bestandsnaam":"why.doc","creatiedatum":"2026-02-27","status":"century"},"sort":[2.110431,1772150400000]}]}}'
+      string: '{"took":7,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":6.9986444,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"natural","begin_registratie":"2026-03-20T03:25:05.602327","identificatie":"49c2c98c-acf9-4e04-8ef6-296a57e9f14c","bronorganisatie":"May,
+        Palmer and Gutierrez","bestandsomvang":1000000,"link":"https://www.brown.info/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.castro.com/","taal":"mr","zaak_referenties":[{"omschrijving":"Marriage
+        economy or scientist.","identificatie":"b90378b4-0000-40e0-bb1b-6aba489ea2f9","startdatum":"2026-03-28","object_type":"account","bronorganisatie":"Barnett
+        Group","zaaktype":"apply","registratiedatum":"2026-03-21","uuid":"a971274a-0b59-4b0e-ad3e-be978ad6d79a","url":"http://www.carney.org/","verantwoordelijkeOrganisatie":"Tucker
+        Group","toelichting":"Hold game sit court like. Remember decide also research.","status":"especially"}],"auteur":"Brittney
+        Moore","formaat":"flac","titel":"Document two","vertrouwelijkheidaanduiding":"always","informatieobjecttype":"attack","bestandsnaam":"film.gif","creatiedatum":"2026-03-24","status":"read"},"sort":[6.9986444,1774310400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":5.1953335,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"assume","begin_registratie":"2026-03-29T22:42:02.461801","identificatie":"3012ea8c-86d0-4271-9444-39fcf2a7b1a4","bronorganisatie":"Martin-Bond","bestandsomvang":1000000,"link":"https://warner-hall.org/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.martinez.com/","taal":"fo","zaak_referenties":[{"omschrijving":"Next
+        great hour.","identificatie":"01909617-1507-48c5-83e9-2d3f6bea50a6","startdatum":"2026-03-11","object_type":"need","bronorganisatie":"Clark,
+        Hurst and West","zaaktype":"quality","registratiedatum":"2026-03-30","uuid":"ec60c48d-230b-4bce-bbd2-2f2e5301dc92","url":"http://duran.org/","verantwoordelijkeOrganisatie":"Becker,
+        Myers and Richard","toelichting":"Social international writer technology thought
+        all. Happen free why they consumer together. Item member fly.","status":"reveal"}],"auteur":"Savannah
+        Meyer","formaat":"pptx","titel":"Document one","vertrouwelijkheidaanduiding":"senior","informatieobjecttype":"else","bestandsnaam":"heart.webm","creatiedatum":"2026-03-15","status":"space"},"sort":[5.1953335,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

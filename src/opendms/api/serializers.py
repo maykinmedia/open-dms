@@ -325,7 +325,7 @@ class ESDocumentSerializer(serializers.Serializer):
             "De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen in de index."
         ),
     )
-    zaak_references = ZaakSerializer(many=True, required=False, default=list)
+    zaak_referenties = ZaakSerializer(many=True, required=False, default=list)
 
 
 class SearchSerializer(serializers.Serializer):

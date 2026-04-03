@@ -29,7 +29,7 @@ class DocumentData(InnerDoc):
     attachment = Object(properties={"content": Text(analyzer=DEFAULT_ANALYZER)})
 
 
-class ZaakReference(InnerDoc):
+class ZaakReferenties(InnerDoc):
     uuid: M[str] = mapped_field(Keyword(required=True))
     url: M[str] = mapped_field(Keyword(required=True))
     identificatie: M[str] = mapped_field(Keyword(required=True))
@@ -48,7 +48,7 @@ class ZaakReference(InnerDoc):
 DOCUMENT_MAPPING = Mapping()
 # add the document_data to the mapping without adding it to the `Document` class.
 DOCUMENT_MAPPING.field("document_data", Nested(DocumentData)._mapping.to_dict())
-DOCUMENT_MAPPING.field("zaak_references", Nested(ZaakReference)._mapping.to_dict())
+DOCUMENT_MAPPING.field("zaak_referenties", Nested(ZaakReferenties)._mapping.to_dict())
 
 
 class Document(ES_Document):
@@ -81,7 +81,7 @@ class Document(ES_Document):
     inhoud: M[str | None] = mapped_field(Text())
     bestandsomvang: M[int | None] = mapped_field(Long())
 
-    zaak_references: M[list[ZaakReference]] = mapped_field(Nested(ZaakReference))
+    zaak_referenties: M[list[ZaakReferenties]] = mapped_field(Nested(ZaakReferenties))
 
     if TYPE_CHECKING:
         # help the type checkers a little bit

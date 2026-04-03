@@ -137,15 +137,15 @@ class ElasticSearchClient:
             )
             zaak_query = Q(
                 "nested",
-                path="zaak_references",
+                path="zaak_referenties",
                 query=Q(
                     "simple_query_string",
                     query=self._clean_str_query(query),
                     fields=[
-                        "zaak_references.identificatie^3",
-                        "zaak_references.omschrijving^2",
-                        "zaak_references.toelichting^1.5",
-                        "zaak_references.status^1.2",
+                        "zaak_referenties.identificatie^3",
+                        "zaak_referenties.omschrijving^2",
+                        "zaak_referenties.toelichting^1.5",
+                        "zaak_referenties.status^1.2",
                     ],
                     default_operator="AND",
                 ),

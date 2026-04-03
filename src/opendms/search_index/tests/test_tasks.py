@@ -1,4 +1,5 @@
 from datetime import UTC, date, datetime
+from unittest.mock import patch
 
 from django.test import override_settings
 
@@ -433,10 +434,10 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(doc.uuid, doc_uuid)
         self.assertEqual(doc.identificatie, "DOCUMENT-2026-0000000001")
 
-        self.assertTrue(doc.zaak_references)
+        self.assertTrue(doc.zaak_referenties)
 
-        if doc.zaak_references:
-            zaak = doc.zaak_references[0]
+        if doc.zaak_referenties:
+            zaak = doc.zaak_referenties[0]
 
             self.assertIsNotNone(zaak.url)
             self.assertIn("/zaken/", zaak.url)
@@ -469,14 +470,28 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
             doc = client.get_document(doc_uuid)
 
         self.assertIsNotNone(doc)
-        self.assertTrue(doc.zaak_references)
+        self.assertTrue(doc.zaak_referenties)
 
-        zaak = doc.zaak_references[0]
+        zaak = doc.zaak_referenties[0]
 
         self.assertIn("/zaken/", zaak.url)
 
         self.assertNotEqual(zaak.identificatie, "")
         self.assertIsNotNone(zaak.omschrijving)
+
+    def test_document_without_zio_or_zaak_results_in_empty_zaak_refs(self):
+        with patch(
+            "opendms.api.clients.documenten.ObjectInformatieObjectClient.get_by_informatieobject",
+            return_value=[],
+        ):
+            index_all_documents()
+
+        with get_elasticsearch_client() as client:
+            doc_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
+            doc = client.get_document(doc_uuid)
+
+        self.assertIsNotNone(doc)
+        self.assertEqual(doc.zaak_referenties, [])
 
     def test_no_services_raises(self):
         ZGWApiGroupConfig.objects.all().delete()

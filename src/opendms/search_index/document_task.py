@@ -6,7 +6,7 @@ from opendms.api.utils.exceptions import ExternalServiceUnavailable
 from opendms.celery import app
 
 from .client import get_elasticsearch_client
-from .index import Document, ZaakReference
+from .index import Document, ZaakReferenties
 
 logger = structlog.get_logger(__name__)
 
@@ -68,7 +68,7 @@ def index_all_documents() -> None:
                                         uuid=uuid,
                                         service=zaak_service.slug,
                                     )
-                                    zaak = ZaakReference(
+                                    zaak = ZaakReferenties(
                                         uuid=zaak_item["uuid"],
                                         url=zaak_item["url"],
                                         identificatie=zaak_item["identificatie"],
@@ -99,7 +99,7 @@ def index_all_documents() -> None:
                         else:
                             logger.warning("No zaak found for ZIO", uuid=uuid, url=url)
 
-                    obj = Document(**doc, zaak_references=zaak_refs)
+                    obj = Document(**doc, zaak_referenties=zaak_refs)
                     es_client.index_document(obj)
 
             logger.info("indexing_scheduled", total_documents=len(all_documents))
