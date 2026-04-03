@@ -6,7 +6,9 @@ import secrets
 import shelve
 
 from django.conf import settings
+from django.core.cache import cache
 from django.shortcuts import redirect
+from django.urls import reverse
 
 import structlog
 from msal import ConfidentialClientApplication
@@ -27,6 +29,7 @@ from opendms.doc_edit.backends.ms_graph_api.types.subscription import (
     SubscriptionItemCollection,
 )
 
+SUBSCRIPTION_CACHE_PREFIX = "subscription_meta"
 logger = structlog.stdlib.get_logger(__name__)
 
 
@@ -110,58 +113,49 @@ class MsGraphApiBackend(DocumentEditBackend):
                     raise BlockingIOError("The file could not be opened")
                 raise error
 
-        # self._ensure_subscription()
+        self._ensure_subscription()
 
         return drive_item["webUrl"]
 
     def updated_callback(self, request) -> Response:
-        """
-        Handle a callback indicating that a file or resource has changed.
-
-        This implementation handles Microsoft Graph webhook notifications,
-        including validation requests, and synchronizes updated files from
-        OneDrive back to the local filesystem.
-
-        :param request: The incoming request containing update information.
-        :return: A response acknowledging or processing the update.
-        """
-        validation_token = request.args.get("validationToken")
-
+        breakpoint()
+        validation_token = request.GET.get("validationToken")
         if validation_token:
             return Response(validation_token, status=200, content_type="text/plain")
 
-        data: SubscriptionItemCollection = request.get_json(silent=True) or {}
-        notifications = data["value"]
+        data: SubscriptionItemCollection = request.data or {}
+        notifications = data.get("value")
 
-        with shelve.open("subscription_meta") as subscription_meta_mapping:
-            result: tuple[SubscriptionMeta, SubscriptionItem] | None = next(
-                (
-                    (
-                        subscription_meta_mapping[notification["subscriptionId"]],
-                        notification,
+        result: tuple[SubscriptionMeta, SubscriptionItem] | None = next(
+            (
+                (subscription_meta, notification)
+                for notification in notifications
+                if (
+                    subscription_meta := cache.get(
+                        f"{SUBSCRIPTION_CACHE_PREFIX}:{notification['subscription_id']}"
                     )
-                    for notification in notifications
-                    if notification["subscriptionId"] in subscription_meta_mapping
-                ),
-                None,
-            )
+                )
+                is not None
+            ),
+            None,
+        )
 
-        # Check that the subscription for this notification is found.
+        breakpoint()
+
         if not result:
             return Response(
                 "Unknown subscription", status=400, content_type="text/plain"
             )
 
-        # Check that the client state secret for the subscription and notification match.
         subscription_meta, notification = result
-        if subscription_meta["client_state"] != notification["clientState"]:
+        if subscription_meta["client_state"] != notification["client_state"]:
             return Response(
                 "Invalid clientState", status=400, content_type="text/plain"
             )
 
-        # Update the file.
         self._sync_updated_files(subscription_meta)
-        return Response(status=204)
+
+        return Response(status=204, content_type="text/plain")
 
     #
     # Private API.
@@ -212,76 +206,71 @@ class MsGraphApiBackend(DocumentEditBackend):
         )
 
     def _ensure_subscription(self) -> Subscription:
-        """
-        Ensure an active subscription exists by checking the current subscriptions and renewing
-        an existing one or creating a new subscription if necessary. This function interacts with
-        a Graph API endpoint to manage subscriptions.
-
-        :param token: The authorization token used to authenticate API requests.
-        :return: The current or newly created subscription.
-        """
-        self._cleanup_cache()
-
-        # Check existing subscriptions.
         data = self.subscription_client.list_subscriptions()
         subscriptions: list[Subscription] = data["value"]
-        webhook_url = (
-            f"{settings.BASE_URL.rstrip('/')}/{settings.WEBHOOK_PATH.strip('/')}"
-        )
+        webhook_url = reverse("webhook")
+        breakpoint()
+        for subscription in subscriptions:
+            if (
+                not subscription["notificationUrl"].endswith(webhook_url)
+                or subscription["resource"] != "/me/drive/root"
+            ):
+                continue
 
-        with shelve.open("subscription_meta") as subscription_meta_mapping:
-            for subscription in subscriptions:
-                # Skip if not relevant.
-                if (
-                    subscription["notificationUrl"] != webhook_url
-                    or subscription["resource"] != "/me/drive/root"
-                ):
-                    continue
+            # Renew if almost expired.
+            if self.subscription_client.is_expiring(subscription):
+                client_state = self._create_client_state_secret()
 
-                # Renew if almost expired.
-                if self.subscription_client.is_expiring(subscription):
-                    client_state = self._create_client_state_secret()
+                self.subscription_client.renew_subscription(
+                    subscription, client_state=client_state
+                )
 
-                    self.subscription_client.renew_subscription(
-                        subscription, client_state=client_state
-                    )
+                subscription_id = subscription["id"]
 
-                    subscription_id = subscription["id"]
-
-                    # Save to db
-                    subscription_meta_mapping[subscription_id]: SubscriptionMeta = {
+                # Save to cache
+                cache.set(
+                    f"{SUBSCRIPTION_CACHE_PREFIX}:{subscription_id}",
+                    {
                         "client_state": client_state,
                         "delta_url": None,
                         "expiration": subscription["expirationDateTime"],
                         "subscription": subscription,
                         "token": self.subscription_client.token,
-                    }
+                    },
+                    timeout=self._seconds_until_expiration(
+                        subscription["expirationDateTime"]
+                    ),
+                )
+            breakpoint()
+            # Return existing subscription if available.
+            return subscription
 
-                # Return existing subscription if available.
-                return subscription
+        # Create a new subscription if not available.
+        client_state = self._create_client_state_secret()
 
-            # Create a new subscription if not available.
-            client_state = self._create_client_state_secret()
+        subscription = self.subscription_client.create_subscription(
+            webhook_url,
+            change_type="updated",
+            resource="/me/drive/root",
+            client_state=client_state,
+        )
 
-            subscription = self.subscription_client.create_subscription(
-                webhook_url,
-                change_type="updated",
-                resource="/me/drive/root",
-                client_state=client_state,
-            )
+        subscription_id = subscription["id"]
 
-            subscription_id = subscription["id"]
-
-            # Save to db
-            subscription_meta_mapping[subscription_id]: SubscriptionMeta = {
+        # Save to cache
+        cache.set(
+            f"{SUBSCRIPTION_CACHE_PREFIX}:{subscription_id}",
+            {
                 "client_state": client_state,
                 "delta_url": None,
                 "expiration": subscription["expirationDateTime"],
                 "subscription": subscription,
                 "token": self.subscription_client.token,
-            }
+            },
+            timeout=self._seconds_until_expiration(subscription["expirationDateTime"]),
+        )
 
-            return subscription
+        return subscription
 
     def _get_mime_type(self, file_path: str) -> str:
         """
@@ -297,28 +286,10 @@ class MsGraphApiBackend(DocumentEditBackend):
         random_bytes = secrets.token_bytes(64)
         return base64.urlsafe_b64encode(random_bytes).rstrip(b"=").decode("utf-8")
 
-    def _cleanup_cache(self):
-        """
-        This function performs a cleanup operation on a global cache by removing expired
-        entries. It checks each entry in the cache for an expiration timestamp and deletes
-        any that have expired based on the current UTC time.
-
-        Note: this does not unsubscribe webhooks.
-
-        :return: None
-        """
+    def _seconds_until_expiration(expiration: str) -> int:
+        expiration_dt = datetime.datetime.fromisoformat(expiration)
         now = datetime.datetime.now(datetime.UTC)
-
-        with shelve.open("subscription_meta") as subscription_meta_mapping:
-            expired = [
-                subscription_id
-                for subscription_id, subscription in subscription_meta_mapping.items()
-                if "expiration" in subscription
-                and datetime.datetime.fromisoformat(subscription["expiration"]) < now
-            ]
-
-            for subscription_id in expired:
-                del subscription_meta_mapping[subscription_id]
+        return max(0, int((expiration_dt - now).total_seconds()))
 
     def _sync_updated_files(self, subscription_meta: SubscriptionMeta):
         delta = self.one_drive_client.get_delta(subscription_meta["delta_url"])

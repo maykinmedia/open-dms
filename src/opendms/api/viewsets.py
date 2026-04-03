@@ -55,12 +55,20 @@ from .utils.schema import (
     ZAAKTYPE_PARAM,
     ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
     ZAKEN_ZAAK_UUID_PARAM,
+    PlainTextRenderer,
     param,
 )
 
 logger = structlog.stdlib.get_logger(__name__)
 
 document_edit_backend = MsGraphApiBackend()
+
+
+class WebhookView(APIView):
+    renderer_classes = [PlainTextRenderer]
+
+    def post(self, request, *args, **kwargs):
+        return document_edit_backend.updated_callback(request)
 
 
 class MsAuthCallbackView(APIView):
@@ -386,7 +394,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             drive_url = document_edit_backend.open(tmp_path)
         except Exception as exc:
             raise MsGraphApiBackendError(
-                _("Failed to open document in edit backend: %(error)s") % {"error": exc}
+                _("Document upload to Drive failed: %(error)s") % {"error": exc}
             ) from exc
         finally:
             if os.path.exists(tmp_path):
