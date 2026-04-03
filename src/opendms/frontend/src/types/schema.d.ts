@@ -373,7 +373,7 @@ export interface components {
              * @default
              */
             inhoud: string;
-            zaakReferences?: components["schemas"]["Zaak"][];
+            zaakReferenties?: components["schemas"]["Zaak"][];
         };
         /** @description Formaat van validatiefouten. */
         FieldValidationError: {

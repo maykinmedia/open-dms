@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,9 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://allen-klein.com/","identificatie":"25c70c68-b12b-405f-b898-dad00741c278","bronorganisatie":"Galloway-Richardson","titel":"Blue
-      economy rather middle west expect.","beschrijving":"Group cover still idea purpose.
-      As mission box. Gun should note food whole rule seek.","auteur":"Cynthia Valenzuela","taal":"am","vertrouwelijkheidaanduiding":"growth","status":"can","formaat":"wav","bestandsnaam":"hot.html","informatieobjecttype":"can","verschijningsvorm":"star","bestandsomvang":1000000,"link":"http://www.bowen.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-26T09:56:55.795544"}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.west.biz/","identificatie":"09cc0a13-dc54-41ab-90c0-5aa626c6060f","bronorganisatie":"Kim
+      Group","titel":"Three eye table.","beschrijving":"Responsibility visit should
+      budget go such far. Economic stuff whole idea probably. Meeting future opportunity
+      sport six but western specific.","auteur":"Mr. Donald Simmons","taal":"uz","vertrouwelijkheidaanduiding":"trip","status":"figure","formaat":"jpg","bestandsnaam":"positive.mov","informatieobjecttype":"involve","verschijningsvorm":"citizen","bestandsomvang":1000000,"link":"http://www.campbell-reynolds.net/","creatiedatum":"2026-03-07","begin_registratie":"2026-03-26T16:47:46.162252","zaak_referenties":[{"uuid":"fa0256bf-0c2a-423d-8550-cd5298c390ce","url":"https://clark.info/","identificatie":"13979f35-d500-42ea-8bf8-9e212e577095","bronorganisatie":"Lowery,
+      Johnson and Turner","verantwoordelijkeOrganisatie":"Stokes PLC","omschrijving":"City
+      image officer shake that when.","toelichting":"Question tax record use reason
+      statement clear. Defense yard million.","status":"piece","registratiedatum":"2026-03-28","startdatum":"2026-03-19","zaaktype":"like","object_type":"ago"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -128,10 +132,15 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.9631895,"_source":{"beschrijving":"Group
-        cover still idea purpose. As mission box. Gun should note food whole rule
-        seek.","verschijningsvorm":"star","begin_registratie":"2026-03-26T09:56:55.795544","identificatie":"25c70c68-b12b-405f-b898-dad00741c278","bronorganisatie":"Galloway-Richardson","bestandsomvang":1000000,"link":"http://www.bowen.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://allen-klein.com/","taal":"am","auteur":"Cynthia
-        Valenzuela","formaat":"wav","titel":"Blue economy rather middle west expect.","vertrouwelijkheidaanduiding":"growth","informatieobjecttype":"can","bestandsnaam":"hot.html","creatiedatum":"2026-03-16","status":"can"},"sort":[0.9631895,1773619200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.2803114,"_source":{"beschrijving":"Responsibility
+        visit should budget go such far. Economic stuff whole idea probably. Meeting
+        future opportunity sport six but western specific.","verschijningsvorm":"citizen","begin_registratie":"2026-03-26T16:47:46.162252","identificatie":"09cc0a13-dc54-41ab-90c0-5aa626c6060f","bronorganisatie":"Kim
+        Group","bestandsomvang":1000000,"link":"http://www.campbell-reynolds.net/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.west.biz/","taal":"uz","zaak_referenties":[{"omschrijving":"City
+        image officer shake that when.","identificatie":"13979f35-d500-42ea-8bf8-9e212e577095","startdatum":"2026-03-19","object_type":"ago","bronorganisatie":"Lowery,
+        Johnson and Turner","zaaktype":"like","registratiedatum":"2026-03-28","uuid":"fa0256bf-0c2a-423d-8550-cd5298c390ce","url":"https://clark.info/","verantwoordelijkeOrganisatie":"Stokes
+        PLC","toelichting":"Question tax record use reason statement clear. Defense
+        yard million.","status":"piece"}],"auteur":"Mr. Donald Simmons","formaat":"jpg","titel":"Three
+        eye table.","vertrouwelijkheidaanduiding":"trip","informatieobjecttype":"involve","bestandsnaam":"positive.mov","creatiedatum":"2026-03-07","status":"figure"},"sort":[0.2803114,1772841600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

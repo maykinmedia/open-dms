@@ -709,7 +709,7 @@ components:
           default: ''
           description: De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen
             in de index.
-        zaakReferences:
+        zaakReferenties:
           type: array
           items:
             $ref: '#/components/schemas/Zaak'

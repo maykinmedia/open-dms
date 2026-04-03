@@ -74,7 +74,7 @@ class ESDocumentType(TypedDict):
     verschijningsvorm: str | None
     bestandsomvang: int | None
 
-    zaak_references: list[Zaak]
+    zaak_referenties: list[Zaak]
 
 
 class SearchParameters(TypedDict):

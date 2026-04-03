@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://maldonado.com/","identificatie":"88ef9d2f-aa01-44b0-ade9-9fbd570f59f4","bronorganisatie":"Ali
-      Group","titel":"Type street key item prevent college positive.","beschrijving":"Threat
-      including building tough eight religious. Instead friend cell population true
-      yourself.","auteur":"Evan Cox","taal":"af","vertrouwelijkheidaanduiding":"let","status":"decide","formaat":"wav","bestandsnaam":"trip.wav","informatieobjecttype":"necessary","verschijningsvorm":"woman","bestandsomvang":1000000,"link":"https://thompson.net/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-22T04:20:50.121850"}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://norman.com/","identificatie":"a89eaed5-5a31-4994-adbf-ce9f2b525f77","bronorganisatie":"Dorsey,
+      Smith and Allen","titel":"Well large because everybody relate.","beschrijving":"Book
+      woman start and per work. White model although generation light. Citizen show
+      cause another list.","auteur":"Matthew Hodge","taal":"cmn","vertrouwelijkheidaanduiding":"sea","status":"I","formaat":"css","bestandsnaam":"them.flac","informatieobjecttype":"hotel","verschijningsvorm":"serve","bestandsomvang":1000000,"link":"https://johnson.info/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-29T06:16:49.249757","zaak_referenties":[{"uuid":"13bafd5b-fc1d-48a6-9f79-2758bfeb4911","url":"http://www.rodriguez-harris.org/","identificatie":"1bc91122-5588-4133-9859-acbf290a428e","bronorganisatie":"Ortiz-White","verantwoordelijkeOrganisatie":"Davis-Garcia","omschrijving":"Smile
+      serve college way impact under movie.","toelichting":"Almost his kid could expert
+      recently dinner window. Charge yard front mother sport. Sign often floor eight
+      range.","status":"grow","registratiedatum":"2026-03-23","startdatum":"2026-03-25","zaaktype":"order","object_type":"high"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -153,7 +156,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -165,7 +168,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -193,10 +196,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.bell.com/","identificatie":"5d2d6073-b3f5-4cf6-96d9-444f868254c5","bronorganisatie":"Franklin,
-      Terry and Becker","titel":"Choose ground center card support lay well.","beschrijving":"See
-      soldier attention. Nearly garden final officer eye Mrs green matter.","auteur":"Lisa
-      Mack","taal":"aa","vertrouwelijkheidaanduiding":"economy","status":"care","formaat":"avi","bestandsnaam":"which.mov","informatieobjecttype":"allow","verschijningsvorm":"everyone","bestandsomvang":1000000,"link":"http://jacobs-day.net/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-15T15:41:13.355260"}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://green.com/","identificatie":"0649bda3-db75-40b6-ba8d-4b1d978f73b2","bronorganisatie":"Fields,
+      Brown and Rodriguez","titel":"Position sister long whole daughter.","beschrijving":"Traditional
+      husband hope its enter none evidence. Skin develop try create eight blood third.","auteur":"Jeremy
+      Khan","taal":"hr","vertrouwelijkheidaanduiding":"nature","status":"call","formaat":"mov","bestandsnaam":"despite.bmp","informatieobjecttype":"notice","verschijningsvorm":"peace","bestandsomvang":1000000,"link":"http://mata-reyes.org/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-19T17:10:50.283230","zaak_referenties":[{"uuid":"f98825fb-cff7-4db8-8832-352b06e0e226","url":"https://www.pruitt.info/","identificatie":"15531f66-ca76-4ffa-bb2e-8de9d3395114","bronorganisatie":"Porter,
+      Hall and Jordan","verantwoordelijkeOrganisatie":"Schaefer Inc","omschrijving":"Heart
+      southern water whom seven yard.","toelichting":"Thing idea case debate despite
+      action simply. Girl above Congress baby.","status":"magazine","registratiedatum":"2026-03-16","startdatum":"2026-03-11","zaaktype":"though","object_type":"art"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -242,11 +248,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":9.255604E-9,"_source":{"beschrijving":"Threat
-        including building tough eight religious. Instead friend cell population true
-        yourself.","verschijningsvorm":"woman","begin_registratie":"2026-03-22T04:20:50.121850","identificatie":"88ef9d2f-aa01-44b0-ade9-9fbd570f59f4","bronorganisatie":"Ali
-        Group","bestandsomvang":1000000,"link":"https://thompson.net/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://maldonado.com/","taal":"af","auteur":"Evan
-        Cox","formaat":"wav","titel":"Type street key item prevent college positive.","vertrouwelijkheidaanduiding":"let","informatieobjecttype":"necessary","bestandsnaam":"trip.wav","creatiedatum":"2026-01-01","status":"decide"},"sort":[9.255604E-9,1767225600000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.8236673E-10,"_source":{"beschrijving":"Book
+        woman start and per work. White model although generation light. Citizen show
+        cause another list.","verschijningsvorm":"serve","begin_registratie":"2026-03-29T06:16:49.249757","identificatie":"a89eaed5-5a31-4994-adbf-ce9f2b525f77","bronorganisatie":"Dorsey,
+        Smith and Allen","bestandsomvang":1000000,"link":"https://johnson.info/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://norman.com/","taal":"cmn","zaak_referenties":[{"omschrijving":"Smile
+        serve college way impact under movie.","identificatie":"1bc91122-5588-4133-9859-acbf290a428e","startdatum":"2026-03-25","object_type":"high","bronorganisatie":"Ortiz-White","zaaktype":"order","registratiedatum":"2026-03-23","uuid":"13bafd5b-fc1d-48a6-9f79-2758bfeb4911","url":"http://www.rodriguez-harris.org/","verantwoordelijkeOrganisatie":"Davis-Garcia","toelichting":"Almost
+        his kid could expert recently dinner window. Charge yard front mother sport.
+        Sign often floor eight range.","status":"grow"}],"auteur":"Matthew Hodge","formaat":"css","titel":"Well
+        large because everybody relate.","vertrouwelijkheidaanduiding":"sea","informatieobjecttype":"hotel","bestandsnaam":"them.flac","creatiedatum":"2026-01-01","status":"I"},"sort":[1.8236673E-10,1767225600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

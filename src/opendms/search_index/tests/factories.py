@@ -41,7 +41,7 @@ class IndexDocumentFactory(factory.Factory):
     creatiedatum = factory.Faker("past_date")
     begin_registratie = factory.Faker("past_datetime")
 
-    zaak_references = factory.SubFactory(NestedzaakFactory)
+    zaak_referenties = factory.List([factory.SubFactory(NestedzaakFactory)])
 
     class Meta:
         model = Document

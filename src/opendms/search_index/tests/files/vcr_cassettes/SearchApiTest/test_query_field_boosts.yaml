@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"http://bauer.net/","identificatie":"snowflake","bronorganisatie":"Torres-Hernandez","titel":"Report
-      part middle far.","beschrijving":"If phone pretty focus American Republican.
-      Story some control do realize bag. Court behavior single many.","auteur":"Brenda
-      Dennis","taal":"tcy","vertrouwelijkheidaanduiding":"character","status":"theory","formaat":"avi","bestandsnaam":"economy.js","informatieobjecttype":"no","verschijningsvorm":"so","bestandsomvang":1000000,"link":"http://white-stone.com/","creatiedatum":"2026-03-07","begin_registratie":"2026-03-07T16:56:34.682523"}'
+    body: '{"uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"https://www.blair-turner.com/","identificatie":"snowflake","bronorganisatie":"Li-Bauer","titel":"Poor
+      strategy fish west manager positive win.","beschrijving":"Serve huge as contain.
+      Husband financial scientist provide message carry.","auteur":"Jeffrey Carr","taal":"wal","vertrouwelijkheidaanduiding":"try","status":"draw","formaat":"mp3","bestandsnaam":"ago.odp","informatieobjecttype":"against","verschijningsvorm":"term","bestandsomvang":1000000,"link":"http://becker-wolfe.com/","creatiedatum":"2026-03-26","begin_registratie":"2026-03-26T08:34:35.621123","zaak_referenties":[{"uuid":"420015c6-159c-48b1-b9a0-380bf56728bb","url":"https://www.miller.net/","identificatie":"191bbb69-8746-4e98-b7a2-097cbc150a3a","bronorganisatie":"Avila-Fletcher","verantwoordelijkeOrganisatie":"Chan
+      and Sons","omschrijving":"Whose by begin lead generation.","toelichting":"Quite
+      among difficult since sport course. Bad understand moment ago describe marriage.
+      Total happy mean now member couple.","status":"authority","registratiedatum":"2026-03-20","startdatum":"2026-03-11","zaaktype":"sell","object_type":"what"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -153,7 +155,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -165,7 +167,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -193,10 +195,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"http://www.wu.org/","identificatie":"document2","bronorganisatie":"Miller
-      Group","titel":"snowflake","beschrijving":"Capital peace fall another admit
-      because. Which program itself see general actually food low. First whom current
-      action.","auteur":"Allison Blanchard","taal":"sk","vertrouwelijkheidaanduiding":"model","status":"fall","formaat":"mp3","bestandsnaam":"herself.html","informatieobjecttype":"action","verschijningsvorm":"fill","bestandsomvang":1000000,"link":"https://harrison.com/","creatiedatum":"2026-03-03","begin_registratie":"2026-03-16T06:24:17.941769"}'
+    body: '{"uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"https://ball.biz/","identificatie":"document2","bronorganisatie":"Johnson
+      Inc","titel":"snowflake","beschrijving":"Score high enter where.","auteur":"Sandra
+      Lambert MD","taal":"he","vertrouwelijkheidaanduiding":"power","status":"want","formaat":"txt","bestandsnaam":"specific.mp4","informatieobjecttype":"which","verschijningsvorm":"story","bestandsomvang":1000000,"link":"http://dixon-wilson.com/","creatiedatum":"2026-03-17","begin_registratie":"2026-03-23T21:00:15.199710","zaak_referenties":[{"uuid":"bf5d8616-d114-4376-ab54-4a9199bf787b","url":"https://www.mcdonald.biz/","identificatie":"3b0857f2-7e94-4565-b401-26f75240a9e0","bronorganisatie":"Mccarthy,
+      Farley and Juarez","verantwoordelijkeOrganisatie":"Gonzalez and Sons","omschrijving":"Weight
+      eight face personal father audience.","toelichting":"Get home member reason.
+      Question get analysis. Stuff manager share building check better check itself.","status":"small","registratiedatum":"2026-04-01","startdatum":"2026-03-04","zaaktype":"course","object_type":"seat"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -266,7 +270,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -278,7 +282,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -306,9 +310,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"https://www.castillo-moody.net/","identificatie":"document3","bronorganisatie":"Steele-Gutierrez","titel":"Discover
-      two some artist kid.","beschrijving":"We rather computer movement short final
-      baby. Friend baby more group. Step particularly just.","auteur":"Stuart Buckley","taal":"si","vertrouwelijkheidaanduiding":"act","status":"large","formaat":"ods","bestandsnaam":"snowflake","informatieobjecttype":"perform","verschijningsvorm":"catch","bestandsomvang":1000000,"link":"http://woods-davis.net/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-22T09:35:38.498581"}'
+    body: '{"uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"https://jones-munoz.org/","identificatie":"document3","bronorganisatie":"Smith-Jones","titel":"White
+      natural happy ground.","beschrijving":"Call what hundred teacher society evening.
+      Hand range law. Loss behavior wear move different.","auteur":"Kayla Hall","taal":"it","vertrouwelijkheidaanduiding":"senior","status":"argue","formaat":"bmp","bestandsnaam":"snowflake","informatieobjecttype":"act","verschijningsvorm":"bed","bestandsomvang":1000000,"link":"https://meza-payne.com/","creatiedatum":"2026-03-10","begin_registratie":"2026-03-27T09:19:09.305495","zaak_referenties":[{"uuid":"b47033e7-ffb1-4857-84da-e79ef9ea88e8","url":"https://www.smith.info/","identificatie":"d8176021-9f07-46a3-8455-b2dd11a6b749","bronorganisatie":"Stevens
+      Ltd","verantwoordelijkeOrganisatie":"Edwards PLC","omschrijving":"Fight charge
+      once material thank education must.","toelichting":"Piece sit administration
+      yard. Miss dinner and support. Many when treat machine.","status":"fact","registratiedatum":"2026-03-17","startdatum":"2026-03-23","zaaktype":"citizen","object_type":"technology"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -378,7 +385,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -390,7 +397,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -418,9 +425,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"https://walsh.org/","identificatie":"document4","bronorganisatie":"Sanchez
-      Group","titel":"Goal business discussion man already yeah matter.","beschrijving":"snowflake","auteur":"Austin
-      Walsh","taal":"sw","vertrouwelijkheidaanduiding":"system","status":"until","formaat":"flac","bestandsnaam":"first.flac","informatieobjecttype":"mission","verschijningsvorm":"quite","bestandsomvang":1000000,"link":"https://www.wilson.com/","creatiedatum":"2026-03-13","begin_registratie":"2026-03-03T12:55:30.223915"}'
+    body: '{"uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"https://perkins.com/","identificatie":"document4","bronorganisatie":"Villarreal-Huynh","titel":"Child
+      process long pull.","beschrijving":"snowflake","auteur":"Dr. Michael Blackburn","taal":"pap","vertrouwelijkheidaanduiding":"conference","status":"director","formaat":"webm","bestandsnaam":"seven.webm","informatieobjecttype":"suffer","verschijningsvorm":"and","bestandsomvang":1000000,"link":"https://www.martinez.com/","creatiedatum":"2026-03-23","begin_registratie":"2026-03-31T00:43:43.256198","zaak_referenties":[{"uuid":"c4ed5a15-8dcd-40bc-abb6-887d088edd62","url":"http://www.young.org/","identificatie":"75890f68-042e-49a3-a0eb-0e886e354ffd","bronorganisatie":"Davis-Kirby","verantwoordelijkeOrganisatie":"Adkins
+      Group","omschrijving":"Animal study image generation human material girl.","toelichting":"Huge
+      order they across no finish consider serve. Professional pass think his light.
+      Investment still home.","status":"this","registratiedatum":"2026-03-16","startdatum":"2026-03-25","zaaktype":"finish","object_type":"boy"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -450,7 +459,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"snowflake","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"snowflake","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"snowflake","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -466,20 +475,30 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":4,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"3916925a-4260-4505-bfbb-0942113efd49","_score":4.5043497,"_source":{"beschrijving":"If
-        phone pretty focus American Republican. Story some control do realize bag.
-        Court behavior single many.","verschijningsvorm":"so","begin_registratie":"2026-03-07T16:56:34.682523","identificatie":"snowflake","bronorganisatie":"Torres-Hernandez","bestandsomvang":1000000,"link":"http://white-stone.com/","uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"http://bauer.net/","taal":"tcy","auteur":"Brenda
-        Dennis","formaat":"avi","titel":"Report part middle far.","vertrouwelijkheidaanduiding":"character","informatieobjecttype":"no","bestandsnaam":"economy.js","creatiedatum":"2026-03-07","status":"theory"},"sort":[4.5043497,1772841600000]},{"_index":"document","_id":"7eade718-bccb-4876-9f00-a095beebc360","_score":4.0831904,"_source":{"beschrijving":"snowflake","verschijningsvorm":"quite","begin_registratie":"2026-03-03T12:55:30.223915","identificatie":"document4","bronorganisatie":"Sanchez
-        Group","bestandsomvang":1000000,"link":"https://www.wilson.com/","uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"https://walsh.org/","taal":"sw","auteur":"Austin
-        Walsh","formaat":"flac","titel":"Goal business discussion man already yeah
-        matter.","vertrouwelijkheidaanduiding":"system","informatieobjecttype":"mission","bestandsnaam":"first.flac","creatiedatum":"2026-03-13","status":"until"},"sort":[4.0831904,1773360000000]},{"_index":"document","_id":"bdcc4cea-b186-425e-8dcd-9fecb6818563","_score":3.4223957,"_source":{"beschrijving":"We
-        rather computer movement short final baby. Friend baby more group. Step particularly
-        just.","verschijningsvorm":"catch","begin_registratie":"2026-03-22T09:35:38.498581","identificatie":"document3","bronorganisatie":"Steele-Gutierrez","bestandsomvang":1000000,"link":"http://woods-davis.net/","uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"https://www.castillo-moody.net/","taal":"si","auteur":"Stuart
-        Buckley","formaat":"ods","titel":"Discover two some artist kid.","vertrouwelijkheidaanduiding":"act","informatieobjecttype":"perform","bestandsnaam":"snowflake","creatiedatum":"2026-03-15","status":"large"},"sort":[3.4223957,1773532800000]},{"_index":"document","_id":"d49bc304-01a1-4eda-a914-a8dda5c901e2","_score":3.07591,"_source":{"beschrijving":"Capital
-        peace fall another admit because. Which program itself see general actually
-        food low. First whom current action.","verschijningsvorm":"fill","begin_registratie":"2026-03-16T06:24:17.941769","identificatie":"document2","bronorganisatie":"Miller
-        Group","bestandsomvang":1000000,"link":"https://harrison.com/","uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"http://www.wu.org/","taal":"sk","auteur":"Allison
-        Blanchard","formaat":"mp3","titel":"snowflake","vertrouwelijkheidaanduiding":"model","informatieobjecttype":"action","bestandsnaam":"herself.html","creatiedatum":"2026-03-03","status":"fall"},"sort":[3.07591,1772496000000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":4,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"3916925a-4260-4505-bfbb-0942113efd49","_score":7.244318,"_source":{"beschrijving":"Serve
+        huge as contain. Husband financial scientist provide message carry.","verschijningsvorm":"term","begin_registratie":"2026-03-26T08:34:35.621123","identificatie":"snowflake","bronorganisatie":"Li-Bauer","bestandsomvang":1000000,"link":"http://becker-wolfe.com/","uuid":"3916925a-4260-4505-bfbb-0942113efd49","url":"https://www.blair-turner.com/","taal":"wal","zaak_referenties":[{"omschrijving":"Whose
+        by begin lead generation.","identificatie":"191bbb69-8746-4e98-b7a2-097cbc150a3a","startdatum":"2026-03-11","object_type":"what","bronorganisatie":"Avila-Fletcher","zaaktype":"sell","registratiedatum":"2026-03-20","uuid":"420015c6-159c-48b1-b9a0-380bf56728bb","url":"https://www.miller.net/","verantwoordelijkeOrganisatie":"Chan
+        and Sons","toelichting":"Quite among difficult since sport course. Bad understand
+        moment ago describe marriage. Total happy mean now member couple.","status":"authority"}],"auteur":"Jeffrey
+        Carr","formaat":"mp3","titel":"Poor strategy fish west manager positive win.","vertrouwelijkheidaanduiding":"try","informatieobjecttype":"against","bestandsnaam":"ago.odp","creatiedatum":"2026-03-26","status":"draw"},"sort":[7.244318,1774483200000]},{"_index":"document","_id":"d49bc304-01a1-4eda-a914-a8dda5c901e2","_score":4.996597,"_source":{"beschrijving":"Score
+        high enter where.","verschijningsvorm":"story","begin_registratie":"2026-03-23T21:00:15.199710","identificatie":"document2","bronorganisatie":"Johnson
+        Inc","bestandsomvang":1000000,"link":"http://dixon-wilson.com/","uuid":"d49bc304-01a1-4eda-a914-a8dda5c901e2","url":"https://ball.biz/","taal":"he","zaak_referenties":[{"omschrijving":"Weight
+        eight face personal father audience.","identificatie":"3b0857f2-7e94-4565-b401-26f75240a9e0","startdatum":"2026-03-04","object_type":"seat","bronorganisatie":"Mccarthy,
+        Farley and Juarez","zaaktype":"course","registratiedatum":"2026-04-01","uuid":"bf5d8616-d114-4376-ab54-4a9199bf787b","url":"https://www.mcdonald.biz/","verantwoordelijkeOrganisatie":"Gonzalez
+        and Sons","toelichting":"Get home member reason. Question get analysis. Stuff
+        manager share building check better check itself.","status":"small"}],"auteur":"Sandra
+        Lambert MD","formaat":"txt","titel":"snowflake","vertrouwelijkheidaanduiding":"power","informatieobjecttype":"which","bestandsnaam":"specific.mp4","creatiedatum":"2026-03-17","status":"want"},"sort":[4.996597,1773705600000]},{"_index":"document","_id":"7eade718-bccb-4876-9f00-a095beebc360","_score":4.3669434,"_source":{"beschrijving":"snowflake","verschijningsvorm":"and","begin_registratie":"2026-03-31T00:43:43.256198","identificatie":"document4","bronorganisatie":"Villarreal-Huynh","bestandsomvang":1000000,"link":"https://www.martinez.com/","uuid":"7eade718-bccb-4876-9f00-a095beebc360","url":"https://perkins.com/","taal":"pap","zaak_referenties":[{"omschrijving":"Animal
+        study image generation human material girl.","identificatie":"75890f68-042e-49a3-a0eb-0e886e354ffd","startdatum":"2026-03-25","object_type":"boy","bronorganisatie":"Davis-Kirby","zaaktype":"finish","registratiedatum":"2026-03-16","uuid":"c4ed5a15-8dcd-40bc-abb6-887d088edd62","url":"http://www.young.org/","verantwoordelijkeOrganisatie":"Adkins
+        Group","toelichting":"Huge order they across no finish consider serve. Professional
+        pass think his light. Investment still home.","status":"this"}],"auteur":"Dr.
+        Michael Blackburn","formaat":"webm","titel":"Child process long pull.","vertrouwelijkheidaanduiding":"conference","informatieobjecttype":"suffer","bestandsnaam":"seven.webm","creatiedatum":"2026-03-23","status":"director"},"sort":[4.3669434,1774224000000]},{"_index":"document","_id":"bdcc4cea-b186-425e-8dcd-9fecb6818563","_score":1.4454216,"_source":{"beschrijving":"Call
+        what hundred teacher society evening. Hand range law. Loss behavior wear move
+        different.","verschijningsvorm":"bed","begin_registratie":"2026-03-27T09:19:09.305495","identificatie":"document3","bronorganisatie":"Smith-Jones","bestandsomvang":1000000,"link":"https://meza-payne.com/","uuid":"bdcc4cea-b186-425e-8dcd-9fecb6818563","url":"https://jones-munoz.org/","taal":"it","zaak_referenties":[{"omschrijving":"Fight
+        charge once material thank education must.","identificatie":"d8176021-9f07-46a3-8455-b2dd11a6b749","startdatum":"2026-03-23","object_type":"technology","bronorganisatie":"Stevens
+        Ltd","zaaktype":"citizen","registratiedatum":"2026-03-17","uuid":"b47033e7-ffb1-4857-84da-e79ef9ea88e8","url":"https://www.smith.info/","verantwoordelijkeOrganisatie":"Edwards
+        PLC","toelichting":"Piece sit administration yard. Miss dinner and support.
+        Many when treat machine.","status":"fact"}],"auteur":"Kayla Hall","formaat":"bmp","titel":"White
+        natural happy ground.","vertrouwelijkheidaanduiding":"senior","informatieobjecttype":"act","bestandsnaam":"snowflake","creatiedatum":"2026-03-10","status":"argue"},"sort":[1.4454216,1773100800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,8 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://holmes.com/","identificatie":"1335ff47-3896-48b6-91e8-26ea69c51925","bronorganisatie":"Murphy-Stein","titel":"","beschrijving":"Document
-      one, on which we expect an exact phrase match.","auteur":"Joseph Ward","taal":"doi","vertrouwelijkheidaanduiding":"answer","status":"ball","formaat":"ppt","bestandsnaam":"social.xls","informatieobjecttype":"history","verschijningsvorm":"thus","bestandsomvang":1000000,"link":"http://www.hale.com/","creatiedatum":"2026-03-04","begin_registratie":"2026-03-26T04:19:53.114473"}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.warren.com/","identificatie":"5c22224c-bc09-41f2-bc30-b2001723f63d","bronorganisatie":"Armstrong
+      Ltd","titel":"","beschrijving":"Document one, on which we expect an exact phrase
+      match.","auteur":"Jacob Pennington","taal":"sat","vertrouwelijkheidaanduiding":"people","status":"artist","formaat":"ods","bestandsnaam":"record.mp4","informatieobjecttype":"cost","verschijningsvorm":"yes","bestandsomvang":1000000,"link":"http://www.mendoza-padilla.com/","creatiedatum":"2026-03-07","begin_registratie":"2026-03-22T02:25:07.801935","zaak_referenties":[{"uuid":"e589f000-9a8c-4375-b542-1ebe6d5a6fa8","url":"https://www.frazier.biz/","identificatie":"60cd1611-705a-436c-bc95-171634716b66","bronorganisatie":"Price,
+      Bush and Dickerson","verantwoordelijkeOrganisatie":"Rasmussen, Benjamin and
+      Dean","omschrijving":"Boy usually class situation response hospital.","toelichting":"Year
+      story cold protect budget. Best stuff doctor floor method week. Treatment certainly
+      worry hear prove teacher. Specific couple program spring.","status":"find","registratiedatum":"2026-03-28","startdatum":"2026-03-15","zaaktype":"step","object_type":"present"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -151,7 +156,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525464342","number_of_replicas":"1","uuid":"9MfL1o8XSA6qRumMsN5jRA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -163,7 +168,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -191,9 +196,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.cooper-watkins.com/","identificatie":"4112c69b-8872-4e2f-9a4b-4ecb53e854de","bronorganisatie":"Holt,
-      Johnson and Hawkins","titel":"","beschrijving":"Document two, the document that
-      came after one.","auteur":"Samuel Barrera","taal":"af","vertrouwelijkheidaanduiding":"sure","status":"practice","formaat":"mp3","bestandsnaam":"baby.mp3","informatieobjecttype":"sort","verschijningsvorm":"since","bestandsomvang":1000000,"link":"https://rangel.biz/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-17T14:04:23.712463"}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://cole-hopkins.org/","identificatie":"725d9d3c-0fe4-4cc2-bcf7-eafd80383fc8","bronorganisatie":"Case,
+      Valencia and Lamb","titel":"","beschrijving":"Document two, the document that
+      came after one.","auteur":"Matthew Roberts","taal":"kn","vertrouwelijkheidaanduiding":"military","status":"thus","formaat":"json","bestandsnaam":"find.wav","informatieobjecttype":"shake","verschijningsvorm":"would","bestandsomvang":1000000,"link":"https://www.rivera-prince.biz/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-15T22:03:50.376051","zaak_referenties":[{"uuid":"c2ecd272-8b18-41b9-b8a4-23ef6c9f0ce2","url":"https://www.thompson-ortiz.com/","identificatie":"a636a639-4d4a-4021-887b-7116b5363501","bronorganisatie":"Caldwell,
+      Wheeler and Davis","verantwoordelijkeOrganisatie":"Dixon, Adams and Griffin","omschrijving":"After
+      section national stay present along real response.","toelichting":"Prevent blue
+      fund front what. Wait what near along.","status":"type","registratiedatum":"2026-03-09","startdatum":"2026-03-08","zaaktype":"PM","object_type":"plan"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -223,8 +231,9 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"\"document
-      one\"","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"\"document
+      one\"","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"\"document
+      one\"","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -240,9 +249,14 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.428223,"_source":{"beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"thus","begin_registratie":"2026-03-26T04:19:53.114473","identificatie":"1335ff47-3896-48b6-91e8-26ea69c51925","bronorganisatie":"Murphy-Stein","bestandsomvang":1000000,"link":"http://www.hale.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://holmes.com/","taal":"doi","auteur":"Joseph
-        Ward","formaat":"ppt","titel":"","vertrouwelijkheidaanduiding":"answer","informatieobjecttype":"history","bestandsnaam":"social.xls","creatiedatum":"2026-03-04","status":"ball"},"sort":[2.428223,1772582400000]}]}}'
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.3826433,"_source":{"beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"yes","begin_registratie":"2026-03-22T02:25:07.801935","identificatie":"5c22224c-bc09-41f2-bc30-b2001723f63d","bronorganisatie":"Armstrong
+        Ltd","bestandsomvang":1000000,"link":"http://www.mendoza-padilla.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.warren.com/","taal":"sat","zaak_referenties":[{"omschrijving":"Boy
+        usually class situation response hospital.","identificatie":"60cd1611-705a-436c-bc95-171634716b66","startdatum":"2026-03-15","object_type":"present","bronorganisatie":"Price,
+        Bush and Dickerson","zaaktype":"step","registratiedatum":"2026-03-28","uuid":"e589f000-9a8c-4375-b542-1ebe6d5a6fa8","url":"https://www.frazier.biz/","verantwoordelijkeOrganisatie":"Rasmussen,
+        Benjamin and Dean","toelichting":"Year story cold protect budget. Best stuff
+        doctor floor method week. Treatment certainly worry hear prove teacher. Specific
+        couple program spring.","status":"find"}],"auteur":"Jacob Pennington","formaat":"ods","titel":"","vertrouwelijkheidaanduiding":"people","informatieobjecttype":"cost","bestandsnaam":"record.mp4","creatiedatum":"2026-03-07","status":"artist"},"sort":[1.3826433,1772841600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -254,8 +268,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"simple_query_string":{"query":"document
-      one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"document
+      one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"document
+      one","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -271,12 +286,20 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":5.823202,"_source":{"beschrijving":"Document
-        two, the document that came after one.","verschijningsvorm":"since","begin_registratie":"2026-03-17T14:04:23.712463","identificatie":"4112c69b-8872-4e2f-9a4b-4ecb53e854de","bronorganisatie":"Holt,
-        Johnson and Hawkins","bestandsomvang":1000000,"link":"https://rangel.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.cooper-watkins.com/","taal":"af","auteur":"Samuel
-        Barrera","formaat":"mp3","titel":"","vertrouwelijkheidaanduiding":"sure","informatieobjecttype":"sort","bestandsnaam":"baby.mp3","creatiedatum":"2026-03-14","status":"practice"},"sort":[5.823202,1773446400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":2.4282227,"_source":{"beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"thus","begin_registratie":"2026-03-26T04:19:53.114473","identificatie":"1335ff47-3896-48b6-91e8-26ea69c51925","bronorganisatie":"Murphy-Stein","bestandsomvang":1000000,"link":"http://www.hale.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://holmes.com/","taal":"doi","auteur":"Joseph
-        Ward","formaat":"ppt","titel":"","vertrouwelijkheidaanduiding":"answer","informatieobjecttype":"history","bestandsnaam":"social.xls","creatiedatum":"2026-03-04","status":"ball"},"sort":[2.4282227,1772582400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.7866282,"_source":{"beschrijving":"Document
+        two, the document that came after one.","verschijningsvorm":"would","begin_registratie":"2026-03-15T22:03:50.376051","identificatie":"725d9d3c-0fe4-4cc2-bcf7-eafd80383fc8","bronorganisatie":"Case,
+        Valencia and Lamb","bestandsomvang":1000000,"link":"https://www.rivera-prince.biz/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://cole-hopkins.org/","taal":"kn","zaak_referenties":[{"omschrijving":"After
+        section national stay present along real response.","identificatie":"a636a639-4d4a-4021-887b-7116b5363501","startdatum":"2026-03-08","object_type":"plan","bronorganisatie":"Caldwell,
+        Wheeler and Davis","zaaktype":"PM","registratiedatum":"2026-03-09","uuid":"c2ecd272-8b18-41b9-b8a4-23ef6c9f0ce2","url":"https://www.thompson-ortiz.com/","verantwoordelijkeOrganisatie":"Dixon,
+        Adams and Griffin","toelichting":"Prevent blue fund front what. Wait what
+        near along.","status":"type"}],"auteur":"Matthew Roberts","formaat":"json","titel":"","vertrouwelijkheidaanduiding":"military","informatieobjecttype":"shake","bestandsnaam":"find.wav","creatiedatum":"2026-03-18","status":"thus"},"sort":[4.7866282,1773792000000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":1.3826433,"_source":{"beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"yes","begin_registratie":"2026-03-22T02:25:07.801935","identificatie":"5c22224c-bc09-41f2-bc30-b2001723f63d","bronorganisatie":"Armstrong
+        Ltd","bestandsomvang":1000000,"link":"http://www.mendoza-padilla.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.warren.com/","taal":"sat","zaak_referenties":[{"omschrijving":"Boy
+        usually class situation response hospital.","identificatie":"60cd1611-705a-436c-bc95-171634716b66","startdatum":"2026-03-15","object_type":"present","bronorganisatie":"Price,
+        Bush and Dickerson","zaaktype":"step","registratiedatum":"2026-03-28","uuid":"e589f000-9a8c-4375-b542-1ebe6d5a6fa8","url":"https://www.frazier.biz/","verantwoordelijkeOrganisatie":"Rasmussen,
+        Benjamin and Dean","toelichting":"Year story cold protect budget. Best stuff
+        doctor floor method week. Treatment certainly worry hear prove teacher. Specific
+        couple program spring.","status":"find"}],"auteur":"Jacob Pennington","formaat":"ods","titel":"","vertrouwelijkheidaanduiding":"people","informatieobjecttype":"cost","bestandsnaam":"record.mp4","creatiedatum":"2026-03-07","status":"artist"},"sort":[1.3826433,1772841600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
