@@ -9,6 +9,10 @@ REST_FRAMEWORK["PAGE_SIZE"] = 100
 REST_FRAMEWORK["DEFAULT_PAGINATION_CLASS"] = (
     "opendms.api.utils.pagination.CountedPagination"
 )
+REST_FRAMEWORK["DEFAULT_RENDERER_CLASSES"] = (
+    "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
+    "djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer",
+)
 REST_FRAMEWORK["DEFAULT_AUTHENTICATION_CLASSES"] = (
     "rest_framework.authentication.SessionAuthentication",
 )
