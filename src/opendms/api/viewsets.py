@@ -263,6 +263,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     parent_lookup_field = "zaken_zaak_uuid"
     queryset = None
     _zaak_url = None
+    _object = None
 
     @property
     def zaak_url(self) -> str:
@@ -282,9 +283,11 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         model or ORM queryset. Instead, the requested Document is fetched
         directly from the external Elasticsearch index.
         """
-        uuid = self.kwargs.get(self.lookup_field)
-        with get_documenten_client(self.zgw_group.drc_service) as client:
-            return client.get_item_by_uuid(uuid)
+        if not self._object:
+            uuid = self.kwargs.get(self.lookup_field)
+            with get_documenten_client(self.zgw_group.drc_service) as client:
+                self._object = client.get_item_by_uuid(uuid)
+        return self._object
 
     def get_paginated_queryset(self, params: dict) -> DocumentsPaginatedResponse:
         """
@@ -317,6 +320,6 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     )
     @action(methods=["get"], detail=True, name="document_download")
     def download(self, request, *args, **kwargs):
-        uuid = self.kwargs.get(self.lookup_field)
+        obj = self.get_object()
         with get_documenten_client(self.zgw_group.drc_service) as client:
-            return client.download_document(uuid)
+            return client.download_document(obj["inhoud"])

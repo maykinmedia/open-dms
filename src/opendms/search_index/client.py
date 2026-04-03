@@ -14,7 +14,7 @@ from elasticsearch.exceptions import NotFoundError
 
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX
 from .index import Document, DocumentResults
-from .utils import _download_document
+from .utils import download_document
 
 logger = structlog.get_logger(__name__)
 
@@ -239,7 +239,7 @@ class ElasticSearchClient:
             and document.bestandsomvang
             and document.bestandsomvang <= settings.SEARCH_INDEX["MAX_INDEX_FILE_SIZE"]
         ):
-            document.document_data = _download_document(document_url=document.inhoud)
+            document.document_data = download_document(document_url=document.inhoud)
 
         # TODO check if create or raise error ?
         Document.init(using=self.client)
