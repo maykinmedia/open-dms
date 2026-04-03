@@ -85,7 +85,8 @@ def _extract_documents(
     return file_list
 
 
-def _download_document(document_url: str) -> NestedDocumentData | None:
+# TODO check if we can merge this with document download
+def download_document(document_url: str) -> NestedDocumentData | None:
     # TODO test here with the same document zgw_group service
     if (service := Service.get_service(document_url)) is None:
         logger.exception("service_not_found")

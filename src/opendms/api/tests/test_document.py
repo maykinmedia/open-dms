@@ -119,6 +119,7 @@ class DocumentTests(VCRMixin, APITestCase):
             },
         )
 
+    # TODO add new tests for checking the versions
     def test_download(self):
         document_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
         response = self.client.get(
@@ -151,7 +152,7 @@ class DocumentTests(VCRMixin, APITestCase):
                 },
             )
         )
-        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_read_only(self):
         document_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"

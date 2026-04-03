@@ -1,5 +1,7 @@
 from django.http import StreamingHttpResponse
+from django.utils.translation import gettext_lazy as _
 
+from rest_framework import exceptions
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
@@ -35,8 +37,13 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         data = self.make_request(f"{self.endpoint}/{uuid}")
         return self._map_document(data)
 
-    def download_document(self, uuid: str) -> DocumentType:
-        response = self.get(f"{self.endpoint}/{uuid}/download", stream=True)
+    def download_document(self, document_url: str) -> DocumentType:
+        if not document_url:
+            raise exceptions.NotFound(
+                _("Resource at {url} not found").format(url=document_url)
+            )
+
+        response = self.get(document_url, stream=True)
 
         if response.status_code == 204:
             return StreamingHttpResponse(status=204)
