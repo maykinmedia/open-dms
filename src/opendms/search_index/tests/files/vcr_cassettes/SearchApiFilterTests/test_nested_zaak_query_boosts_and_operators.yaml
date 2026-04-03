@@ -1,0 +1,323 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775210383129","number_of_replicas":"1","uuid":"39DmBXOLQmy8-5ZMLLBLSw","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"zaaktype":{"type":"keyword"},"url":{"type":"keyword"},"bronorganisatie":{"type":"keyword"}},"type":"nested"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
+      Group","titel":"Document with nested zaak","beschrijving":"Contains zaak info","auteur":"Katie
+      Smith","taal":"pl","vertrouwelijkheidaanduiding":"go","status":"organization","formaat":"tiff","bestandsnaam":"risk.css","informatieobjecttype":"rate","verschijningsvorm":"common","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","creatiedatum":"2026-03-07","begin_registratie":"2026-03-10T11:26:15.309456","zaak_referenties":[{"url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","uuid":"11111111-2222-3333-4444-555555555555","identificatie":"ZA-BOOST-1","omschrijving":"Important
+      nested zaak","toelichting":"Extra nested info","status":"open","registratiedatum":"2026-01-01","startdatum":"2024-01-01","zaaktype":"http://example.com/zaaktype/boost","object_type":"zaak","bronorganisatie":"org1","verantwoordelijkeOrganisatie":"org1"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/99999999-aaaa-bbbb-cccc-000000000001?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/99999999-aaaa-bbbb-cccc-000000000001
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"ZA-BOOST-1","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"ZA-BOOST-1","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.238973,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
+        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+        nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
+        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.238973,1772841600000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"Important
+      nested zaak","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"Important
+      nested zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.5974325,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
+        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+        nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
+        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.5974325,1772841600000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"Extra
+      nested info","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"Extra
+      nested info","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.5177748,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
+        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+        nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
+        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.5177748,1772841600000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"\"Important
+      nested\" + zaak","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"\"Important
+      nested\" + zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.47794598,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
+        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+        nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
+        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.47794598,1772841600000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"zaak
+      | nonmatch","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"zaak
+      | nonmatch","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.41421986,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
+        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+        nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
+        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.41421986,1772841600000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"\"Important
+      nested zaak\"","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"\"Important
+      nested zaak\"","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.47794595,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
+        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+        nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
+        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.47794595,1772841600000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

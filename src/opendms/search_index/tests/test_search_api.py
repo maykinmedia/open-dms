@@ -537,6 +537,74 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
                 data["results"][0]["uuid"], "12fceb92-98bd-475c-b184-49ee8a274787"
             )
 
+    def test_nested_zaak_query_boosts_and_operators(self):
+        doc = IndexDocumentFactory.build(
+            uuid="99999999-aaaa-bbbb-cccc-000000000001",
+            titel="Document with nested zaak",
+            beschrijving="Contains zaak info",
+            zaak_referenties=[
+                {
+                    "url": "http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787",
+                    "uuid": "11111111-2222-3333-4444-555555555555",
+                    "identificatie": "ZA-BOOST-1",
+                    "omschrijving": "Important nested zaak",
+                    "toelichting": "Extra nested info",
+                    "status": "open",
+                    "registratiedatum": date(2026, 1, 1),
+                    "startdatum": date(2024, 1, 1),
+                    "zaaktype": "http://example.com/zaaktype/boost",
+                    "object_type": "zaak",
+                    "bronorganisatie": "org1",
+                    "verantwoordelijkeOrganisatie": "org1",
+                }
+            ],
+        )
+        self.index_document(doc)
+
+        # Search by nested 'identificatie'
+        with self.subTest("Query nested identificate with boost"):
+            response = self.client.post(self.url, {"query": "ZA-BOOST-1"})
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+
+        # Search by nested 'omschrijving'
+        with self.subTest("Query nested omschrijving with boost"):
+            response = self.client.post(self.url, {"query": "Important nested zaak"})
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+
+        # Search by nested 'toelichting'
+        with self.subTest("Query nested toelichting"):
+            response = self.client.post(self.url, {"query": "Extra nested info"})
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+
+        # Boolean operator AND inside nested field
+        with self.subTest("Boolean AND in nested field"):
+            response = self.client.post(
+                self.url, {"query": '"Important nested" AND zaak'}
+            )
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+
+        # Boolean operator OR inside nested field
+        with self.subTest("Boolean OR in nested field"):
+            response = self.client.post(self.url, {"query": "zaak OR nonmatch"})
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+
+        # Exact phrase search
+        with self.subTest("Exact phrase search in nested field"):
+            response = self.client.post(self.url, {"query": '"Important nested zaak"'})
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+
 
 class SearchLastDocumentCreatiedatumTests(VCRMixin, ElasticSearchAPITestCase):
     def test_returns_latest_creatiedatum(self):

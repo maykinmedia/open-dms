@@ -1,7 +1,7 @@
 import structlog
 from zgw_consumers.models import Service
 
-from opendms.api.clients import get_documenten_client, get_zaken_client, get_zio_client
+from opendms.api.clients import get_documenten_client, get_oio_client, get_zaken_client
 from opendms.api.utils.exceptions import ExternalServiceUnavailable
 from opendms.celery import app
 
@@ -14,8 +14,8 @@ logger = structlog.get_logger(__name__)
 @app.task()
 def index_all_documents() -> None:
     """
-    Fetch all documents from OpenZaak, enrich them with connected 'zaak' information
-    (via ZaakInformatieObjecten), and index them in Elasticsearch.
+    Fetch all documents from OpenZaak, add connected 'zaak' information
+    (via ObjectInformatieObjecten), and index them in Elasticsearch.
     """
     doc_services = Service.objects.filter(zgwset_drc_config__isnull=False).distinct()
     zaak_services = Service.objects.filter(zgwset_zrc_config__isnull=False).distinct()
@@ -35,27 +35,27 @@ def index_all_documents() -> None:
                 creatiedatum_gte=last_creatiedatum,
             )
 
-            params = (
-                {"creatiedatum__gte": last_creatiedatum} if last_creatiedatum else {}
-            )
-
             with (
                 get_documenten_client(doc_service) as doc_client,
-                get_zio_client(doc_service) as zio_client,
+                get_oio_client(doc_service) as oio_client,
             ):
-                all_documents = doc_client.get_items(params=params)
+                all_documents = doc_client.get_items(
+                    params={"creatiedatum__gte": last_creatiedatum}
+                    if last_creatiedatum
+                    else {}
+                )
 
                 for doc in all_documents:
-                    zios = [
-                        zio
-                        for zio in zio_client.get_by_informatieobject(doc["url"])
-                        if zio.get("objectType") == "zaak" and zio.get("object")
+                    oios = [
+                        oio
+                        for oio in oio_client.get_by_informatieobject(doc["url"])
+                        if oio.get("objectType") == "zaak" and oio.get("object")
                     ]
 
                     zaak_refs = []
 
-                    for zio in zios:
-                        url = zio["object"]
+                    for oio in oios:
+                        url = oio["object"]
                         uuid = url.split("/")[-1]
                         zaak = None
 
@@ -97,7 +97,7 @@ def index_all_documents() -> None:
                         if zaak:
                             zaak_refs.append(zaak)
                         else:
-                            logger.warning("No zaak found for ZIO", uuid=uuid, url=url)
+                            logger.warning("No zaak found for OIO", uuid=uuid, url=url)
 
                     obj = Document(**doc, zaak_referenties=zaak_refs)
                     es_client.index_document(obj)

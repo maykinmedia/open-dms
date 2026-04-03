@@ -479,7 +479,7 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertNotEqual(zaak.identificatie, "")
         self.assertIsNotNone(zaak.omschrijving)
 
-    def test_document_without_zio_or_zaak_results_in_empty_zaak_refs(self):
+    def test_document_without_oio_or_zaak_results_in_empty_zaak_refs(self):
         with patch(
             "opendms.api.clients.documenten.ObjectInformatieObjectClient.get_by_informatieobject",
             return_value=[],

@@ -7,7 +7,11 @@ from zgw_consumers.service import pagination_helper
 
 from opendms.api.utils.validators import extract_uuid
 
-from ..typing import DocumentsPaginatedResponse, DocumentType
+from ..typing import (
+    DocumentsPaginatedResponse,
+    DocumentType,
+    ObjectInformatieObjectType,
+)
 from ..utils.mixins import HttpRequestMixin
 
 CRS_HEADERS = {"Content-Crs": "EPSG:4326", "Accept-Crs": "EPSG:4326"}
@@ -85,15 +89,17 @@ class DocumentClient(HttpRequestMixin, NLXClient):
 
 class ObjectInformatieObjectClient(HttpRequestMixin, NLXClient):
     """
-    Client for retrieving ObjectInformatieObjecten (ZIO).
+    Client for retrieving ObjectInformatieObjecten (OIO).
     Links documents to related Zaken.
     """
 
     endpoint = "objectinformatieobjecten"
 
-    def get_by_informatieobject(self, document_url: str) -> list[dict]:
+    def get_by_informatieobject(
+        self, document_url: str
+    ) -> list[ObjectInformatieObjectType]:
         """
-        Fetch all ZIOs for a given document URL.
+        Fetch all OIOs for a given document URL.
         """
         data = self.make_request(
             self.endpoint,
@@ -103,7 +109,7 @@ class ObjectInformatieObjectClient(HttpRequestMixin, NLXClient):
         return data
 
 
-def get_zio_client(service: Service) -> ObjectInformatieObjectClient:
+def get_oio_client(service: Service) -> ObjectInformatieObjectClient:
     return build_client(service, client_factory=ObjectInformatieObjectClient)
 
 

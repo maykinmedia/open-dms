@@ -1,10 +1,10 @@
-from .documenten import get_documenten_client, get_zio_client
+from .documenten import get_documenten_client, get_oio_client
 from .zaaktypen import get_zaaktypen_client
 from .zaken import get_zaken_client
 
 __all__ = [
     "get_zaaktypen_client",
     "get_zaken_client",
-    "get_zio_client",
+    "get_oio_client",
     "get_documenten_client",
 ]
