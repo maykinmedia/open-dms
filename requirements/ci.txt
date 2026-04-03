@@ -315,7 +315,7 @@ django-setup-configuration==0.11.0
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   open-api-framework
-django-simple-certmanager==2.5.0
+django-simple-certmanager==3.0.0
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
@@ -342,7 +342,7 @@ django-two-factor-auth==1.18.1
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   maykin-2fa
-django-upgrade-check==1.1.0
+django-upgrade-check==2.0.0
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
@@ -645,7 +645,7 @@ opentelemetry-proto==1.39.1
     #   opentelemetry-exporter-otlp-proto-common
     #   opentelemetry-exporter-otlp-proto-grpc
     #   opentelemetry-exporter-otlp-proto-http
-opentelemetry-resource-detector-containerid==0.60b1
+opentelemetry-resource-detector-containerid==0.61b0
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
