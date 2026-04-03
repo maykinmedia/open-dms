@@ -147,6 +147,7 @@ class ElasticSearchClient:
                         "zaak_referenties.toelichting^1.5",
                         "zaak_referenties.status^1.2",
                     ],
+                    flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
                     default_operator="AND",
                 ),
             )

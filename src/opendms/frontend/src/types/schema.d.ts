@@ -413,6 +413,10 @@ export interface components {
              *     - `bronorganisatie`
              *     - `beschrijving`
              *     - `document_data.attachment.content`
+             *     - `zaak_referenties.identificatie`
+             *     - `zaak_referenties.omschrijving`
+             *     - `zaak_referenties.toelichting`
+             *     - `zaak_referenties.status`
              *
              *     You can use double quotes for exact matches and `AND`/`OR` syntax for complex queries.
              * @default

@@ -77,6 +77,13 @@ class ESDocumentType(TypedDict):
     zaak_referenties: list[Zaak]
 
 
+class ObjectInformatieObjectType(TypedDict):
+    url: str
+    informatieobject: str
+    object: str
+    objecttype: str
+
+
 class SearchParameters(TypedDict):
     query: str
     page: int
