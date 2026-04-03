@@ -3,7 +3,7 @@ from typing import BinaryIO
 import structlog
 from rest_framework.response import Response
 
-from opendms.doc_edit.backends.ms_graph_api.types import (
+from opendms.doc_edit.backends.ms_graph_api.types.one_drive import (
     DriveItem,
     DriveItemCollection,
     DriveItemDelta,

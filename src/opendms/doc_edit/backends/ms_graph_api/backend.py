@@ -11,6 +11,7 @@ from django.shortcuts import redirect
 import structlog
 from msal import ConfidentialClientApplication
 from requests import HTTPError
+from rest_framework.request import Request
 from rest_framework.response import Response
 
 from opendms.doc_edit.abstract.backend import DocumentEditBackend
@@ -41,9 +42,6 @@ class MsGraphApiBackend(DocumentEditBackend):
         """
         Begin the OAuth2 PKCE authentication flow.
 
-        This method generates the Microsoft login URL and stores the flow
-        information in the Django session for later use in the callback.
-
         :param request: Django request object
         :param redirect_url: URL to redirect to after login
         :return: Django redirect response to Microsoft login
@@ -54,35 +52,30 @@ class MsGraphApiBackend(DocumentEditBackend):
         request.session["auth_flow"] = auth_flow
         return redirect(auth_flow["auth_uri"])
 
-    def authenticated_callback(self, request: Request) -> None:
+    def authenticated_callback(self, request: Request) -> dict:
         """
-        Handle a callback related to authentication.
+        Complete the PKCE authentication flow using the code in request.GET.
 
-        This implementation extracts an authorization code from the request,
-        exchanges it for an access token via MSAL, and stores the token for
-        later Microsoft Graph API requests.
-
-        :param request: The incoming request containing callback data.
-        :return: A response indicating the result of the callback handling.
+        :param request: Django request object
+        :return: dict with access token and authentication result
         """
-        code = request.args.get("code")
-
-        if not code:
-            raise PermissionError("Login failed")
+        auth_flow = request.session.get("auth_flow")
+        if not auth_flow:
+            raise ValueError("Authentication flow not initialized in session.")
 
         app_msal = self._build_msal_app()
-        result = app_msal.acquire_token_by_authorization_code(
-            code,
-            SCOPES,
-            redirect_uri=f"{request.root_url.rstrip('/')}{settings.REDIRECT_PATH}",
-        )
+        result = app_msal.acquire_token_by_auth_code_flow(auth_flow, request.GET)
 
-        token = result.get("access_token")
+        request.session.pop("auth_flow", None)
+        token = result["access_token"]
 
         if not token:
-            raise PermissionError("Unable to acquire access token")
+            raise ValueError(result.get("error_description", "Authentication failed."))
 
         self._set_token(token)
+
+        request.session["access_token"] = token
+        return result
 
     def open(self, file_path: str) -> Response:
         """
@@ -117,9 +110,9 @@ class MsGraphApiBackend(DocumentEditBackend):
                     raise BlockingIOError("The file could not be opened")
                 raise error
 
-        self._ensure_subscription()
+        # self._ensure_subscription()
 
-        return redirect(drive_item["webUrl"])
+        return drive_item["webUrl"]
 
     def updated_callback(self, request) -> Response:
         """
@@ -193,15 +186,15 @@ class MsGraphApiBackend(DocumentEditBackend):
             credentials.
         """
         return ConfidentialClientApplication(
-            settings.CLIENT_ID,
-            authority=f"https://login.microsoftonline.com/{settings.TENANT_ID}",
-            client_credential=settings.CLIENT_SECRET,
+            settings.MSGRAPH_API_BACKEND_CLIENT_ID,
+            authority=f"https://login.microsoftonline.com/{settings.MSGRAPH_API_BACKEND_TENANT_ID}",
+            client_credential=settings.MSGRAPH_API_BACKEND_CLIENT_SECRET,
         )
 
     def _ensure_sync_folder(self) -> DriveItem:
         """
-        Ensures the existence of SYNC_FOLDER in the user's OneDrive.  If the folder does not already exist, it will be
-        created.
+        Ensures the existence of MSGRAPH_API_BACKEND_SYNC_FOLDER in the user's OneDrive.
+        If the folder does not already exist, it will be created.
 
         :param token: The OAuth2 token used for authentication with the Microsoft Graph API.
 
@@ -209,10 +202,14 @@ class MsGraphApiBackend(DocumentEditBackend):
         """
         drive_items = self.one_drive_client.list_children().get("value")
         for item in drive_items:
-            if item["name"] == settings.SYNC_FOLDER and item.get("folder"):
+            if item["name"] == settings.MSGRAPH_API_BACKEND_SYNC_FOLDER and item.get(
+                "folder"
+            ):
                 return item
 
-        return self.one_drive_client.create_item(settings.SYNC_FOLDER, folder=True)
+        return self.one_drive_client.create_item(
+            settings.MSGRAPH_API_BACKEND_SYNC_FOLDER, folder=True
+        )
 
     def _ensure_subscription(self) -> Subscription:
         """

@@ -1,6 +1,6 @@
 from typing import TypedDict
 
-from backends.ms_graph_api.types.subscription import Subscription
+from ..clients.subscription import Subscription
 
 
 class SubscriptionMeta(TypedDict):

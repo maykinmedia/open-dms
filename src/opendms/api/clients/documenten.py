@@ -1,6 +1,9 @@
+import mimetypes
+
 from django.http import StreamingHttpResponse
 from django.utils.translation import gettext_lazy as _
 
+import magic
 from rest_framework import exceptions
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
@@ -52,8 +55,17 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         if response.status_code == 204:
             return StreamingHttpResponse(status=204)
 
+        first_chunk = next(response.iter_content(chunk_size=8192))
+        mime_type = magic.from_buffer(first_chunk, mime=True)
+        extension = mimetypes.guess_extension(mime_type) or ""
+
+        def stream():
+            yield first_chunk
+            for chunk in response.iter_content(chunk_size=8192):  # noqa
+                yield chunk
+
         file_response = StreamingHttpResponse(
-            response.iter_content(chunk_size=8192), headers=response.headers
+            stream(), headers={**response.headers, "File-Extension": extension}
         )
         return file_response
 

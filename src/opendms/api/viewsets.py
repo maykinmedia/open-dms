@@ -1,3 +1,8 @@
+import os
+import tempfile
+
+from django.shortcuts import redirect
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 import structlog
@@ -10,12 +15,14 @@ from drf_spectacular.utils import (
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
+from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
 
 from opendms.doc_edit.backends.ms_graph_api.backend import MsGraphApiBackend
+from opendms.doc_edit.backends.ms_graph_api.exceptions import MsGraphApiBackendError
 from opendms.search_index.client import get_elasticsearch_client
 
 from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_client
@@ -52,6 +59,34 @@ from .utils.schema import (
 )
 
 logger = structlog.stdlib.get_logger(__name__)
+
+document_edit_backend = MsGraphApiBackend()
+
+
+class MsAuthCallbackView(APIView):
+    def get(self, request, *args, **kwargs):
+        auth_flow = request.session.get("auth_flow")
+        if not auth_flow:
+            return Response(
+                {"status": "error", "detail": "Invalid callback"},
+                status=400,
+            )
+        try:
+            result = document_edit_backend.authenticated_callback(request)
+        except Exception as e:
+            return Response({"status": "error", "detail": str(e)}, status=400)
+
+        if not result.get("access_token"):
+            return Response(
+                {
+                    "status": "error",
+                    "detail": result.get("error_description", "Auth failed"),
+                },
+                status=401,
+            )
+
+        origin_url = request.session.pop("origin_url", "/")
+        return redirect(origin_url)
 
 
 class SearchView(APIView):
@@ -324,20 +359,41 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         with get_documenten_client(self.zgw_group.drc_service) as client:
             return client.download_document(obj["inhoud"])
 
-    @action(methods=["get"], detail=True, name="document_edit")
-    def get(self, request, *args, **kwargs):
-        backend = MsGraphApiBackend()
+    @action(methods=["get"], detail=True, name="document_upload")
+    def upload(self, request: Request, *args, **kwargs) -> Response:
         access_token = request.session.get("access_token")
-        if access_token:
-            return Response(
-                {"access_token": access_token, "status": "already_authenticated"}
+
+        if not access_token:
+            callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
+            request.session["origin_url"] = request.build_absolute_uri()
+            return document_edit_backend.authenticate(
+                request, redirect_url=callback_url
             )
 
-        if "code" in request.GET:
-            result = backend.complete_authentication(request)
-            return Response(
-                {"access_token": result.get("access_token"), "status": "authenticated"}
-            )
+        obj = self.get_object()
 
-        redirect_url = request.build_absolute_uri(request.path)
-        return backend.authenticate(request, redirect_url=redirect_url)
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            file_response = client.download_document(obj["inhoud"])
+
+        file_ext = file_response.get("File-Extension", "")
+        file_name = f"{self.kwargs.get(self.lookup_field)}{file_ext}"
+        tmp_path = os.path.join(tempfile.gettempdir(), file_name)
+        drive_url = ""
+        try:
+            with open(tmp_path, "wb") as tmp_file:
+                for chunk in file_response.streaming_content:
+                    tmp_file.write(chunk)
+            drive_url = document_edit_backend.open(tmp_path)
+        except Exception as exc:
+            raise MsGraphApiBackendError(
+                _("Failed to open document in edit backend: %(error)s") % {"error": exc}
+            ) from exc
+        finally:
+            if os.path.exists(tmp_path):
+                os.unlink(tmp_path)
+
+        data = {"status": "error", "driveUrl": ""}
+        if drive_url:
+            data = {"status": "uploaded", "driveUrl": drive_url}
+
+        return Response(data=data, status=status.HTTP_200_OK)

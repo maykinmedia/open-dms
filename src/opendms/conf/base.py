@@ -318,3 +318,10 @@ MSGRAPH_API_BACKEND_CLIENT_SECRET = config(
     group="Microsoft configuration",
     help_text="The client secret used by MsGraphApiBackend to authenticate against Microsoft Graph API.",
 )
+
+MSGRAPH_API_BACKEND_SYNC_FOLDER = config(
+    "MSGRAPH_API_BACKEND_SYNC_FOLDER",
+    default="ODS_SYNC",
+    group="Microsoft configuration",
+    help_text="The folder where MsGraphApiBackend syncs data.",
+)

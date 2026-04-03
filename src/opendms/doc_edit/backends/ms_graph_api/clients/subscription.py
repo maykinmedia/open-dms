@@ -11,9 +11,6 @@ from .base import GraphClient
 
 logger = structlog.stdlib.get_logger(__name__)
 
-GRAPH_BASE = "https://graph.microsoft.com/v1.0"
-AUTHORITY = f"https://login.microsoftonline.com/{settings.MS_TENANT_ID}"
-
 SCOPES = ["Files.ReadWrite"]
 
 
