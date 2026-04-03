@@ -20,6 +20,7 @@ from .utils import load_indexable_file_types
 #
 INSTALLED_APPS = INSTALLED_APPS + [
     *default_health_check_apps,
+    "django.contrib.postgres",
     # External applications.
     "hijack",
     "hijack.contrib.admin",

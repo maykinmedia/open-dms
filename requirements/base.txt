@@ -183,7 +183,7 @@ django-sessionprofile==3.0.0
     # via open-api-framework
 django-setup-configuration==0.11.0
     # via open-api-framework
-django-simple-certmanager==2.5.0
+django-simple-certmanager==3.0.0
     # via zgw-consumers
 django-solo==2.5.1
     # via
@@ -197,7 +197,7 @@ django-timezone-field==7.2.1
     # via django-celery-beat
 django-two-factor-auth==1.18.1
     # via maykin-2fa
-django-upgrade-check==1.1.0
+django-upgrade-check==2.0.0
     # via open-api-framework
 djangorestframework==3.16.1
     # via
@@ -343,7 +343,7 @@ opentelemetry-proto==1.39.1
     #   opentelemetry-exporter-otlp-proto-common
     #   opentelemetry-exporter-otlp-proto-grpc
     #   opentelemetry-exporter-otlp-proto-http
-opentelemetry-resource-detector-containerid==0.60b1
+opentelemetry-resource-detector-containerid==0.61b0
     # via maykin-common
 opentelemetry-sdk==1.39.1
     # via
