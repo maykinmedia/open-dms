@@ -21,6 +21,7 @@ class GraphClient:
         :param url: The URL to which the GET request will be sent.
         :return: The response from the GET request.
         """
+
         return self._request("GET", url)
 
     def _patch(self, url: str, json: Mapping[str, Any]):

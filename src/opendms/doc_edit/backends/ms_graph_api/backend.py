@@ -3,12 +3,11 @@ import datetime
 import mimetypes
 import os
 import secrets
-import shelve
 
 from django.conf import settings
-from django.core.cache import cache
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.utils.dateparse import parse_datetime
 
 import structlog
 from msal import ConfidentialClientApplication
@@ -28,6 +27,8 @@ from opendms.doc_edit.backends.ms_graph_api.types.subscription import (
     SubscriptionItem,
     SubscriptionItemCollection,
 )
+
+from .models import GraphSubscription
 
 SUBSCRIPTION_CACHE_PREFIX = "subscription_meta"
 logger = structlog.stdlib.get_logger(__name__)
@@ -71,7 +72,6 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         request.session.pop("auth_flow", None)
         token = result["access_token"]
-
         if not token:
             raise ValueError(result.get("error_description", "Authentication failed."))
 
@@ -92,6 +92,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         :return: A response that continues the file access/edit flow.
         :raises BlockingIOError: If the file cannot be accessed at this time.
         """
+
         with open(file_path, "rb") as f:
             file_name = os.path.basename(file_path)
 
@@ -106,8 +107,13 @@ class MsGraphApiBackend(DocumentEditBackend):
                     parent_item_id=folder_id,
                 )
 
+                # TODO FIX to save file info
+                # TODO remove or replace with cache
+                """
                 with shelve.open("file_map") as file_id_mapping:
                     file_id_mapping[drive_item["id"]] = file_path
+                """
+
             except HTTPError as error:
                 if error.response.status_code == 423:
                     raise BlockingIOError("The file could not be opened")
@@ -118,7 +124,6 @@ class MsGraphApiBackend(DocumentEditBackend):
         return drive_item["webUrl"]
 
     def updated_callback(self, request) -> Response:
-        breakpoint()
         validation_token = request.GET.get("validationToken")
         if validation_token:
             return Response(validation_token, status=200, content_type="text/plain")
@@ -126,32 +131,41 @@ class MsGraphApiBackend(DocumentEditBackend):
         data: SubscriptionItemCollection = request.data or {}
         notifications = data.get("value")
 
-        result: tuple[SubscriptionMeta, SubscriptionItem] | None = next(
-            (
-                (subscription_meta, notification)
-                for notification in notifications
-                if (
-                    subscription_meta := cache.get(
-                        f"{SUBSCRIPTION_CACHE_PREFIX}:{notification['subscription_id']}"
-                    )
-                )
-                is not None
-            ),
-            None,
-        )
+        result: tuple[GraphSubscription, SubscriptionItem] | None = None
 
-        breakpoint()
+        logger.info("notifications")
+        logger.info(notifications)
+        logger.info("notifications")
+        for notification in notifications:
+            try:
+                subscription = GraphSubscription.objects.get(
+                    subscription_id=notification["subscription_id"]
+                )
+                result = (subscription, notification)
+                break
+            except GraphSubscription.DoesNotExist:
+                continue
 
         if not result:
+            logger.error("Unknown subscription")
             return Response(
                 "Unknown subscription", status=400, content_type="text/plain"
             )
 
-        subscription_meta, notification = result
-        if subscription_meta["client_state"] != notification["client_state"]:
+        subscription, notification = result
+
+        if subscription.client_state != notification["client_state"]:
+            logger.error("Invalid clientState")
             return Response(
                 "Invalid clientState", status=400, content_type="text/plain"
             )
+
+        subscription_meta = {
+            "client_state": subscription.client_state,
+            "delta_url": subscription.delta_url,
+            "expiration": subscription.expiration_date_time,
+            "token": subscription.token,
+        }
 
         self._sync_updated_files(subscription_meta)
 
@@ -185,6 +199,7 @@ class MsGraphApiBackend(DocumentEditBackend):
             client_credential=settings.MSGRAPH_API_BACKEND_CLIENT_SECRET,
         )
 
+    # TODO test this folder, env var folder?
     def _ensure_sync_folder(self) -> DriveItem:
         """
         Ensures the existence of MSGRAPH_API_BACKEND_SYNC_FOLDER in the user's OneDrive.
@@ -209,7 +224,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         data = self.subscription_client.list_subscriptions()
         subscriptions: list[Subscription] = data["value"]
         webhook_url = reverse("webhook")
-        breakpoint()
+
         for subscription in subscriptions:
             if (
                 not subscription["notificationUrl"].endswith(webhook_url)
@@ -217,7 +232,8 @@ class MsGraphApiBackend(DocumentEditBackend):
             ):
                 continue
 
-            # Renew if almost expired.
+            subscription_id = subscription["id"]
+
             if self.subscription_client.is_expiring(subscription):
                 client_state = self._create_client_state_secret()
 
@@ -225,29 +241,23 @@ class MsGraphApiBackend(DocumentEditBackend):
                     subscription, client_state=client_state
                 )
 
-                subscription_id = subscription["id"]
-
-                # Save to cache
-                cache.set(
-                    f"{SUBSCRIPTION_CACHE_PREFIX}:{subscription_id}",
-                    {
+                GraphSubscription.objects.update_or_create(
+                    subscription_id=subscription_id,
+                    defaults={
                         "client_state": client_state,
-                        "delta_url": None,
-                        "expiration": subscription["expirationDateTime"],
-                        "subscription": subscription,
+                        "resource": subscription["resource"],
+                        "notification_url": subscription["notificationUrl"],
+                        "expiration_date_time": parse_datetime(
+                            subscription["expirationDateTime"]
+                        ),
+                        "delta_url": "",
                         "token": self.subscription_client.token,
                     },
-                    timeout=self._seconds_until_expiration(
-                        subscription["expirationDateTime"]
-                    ),
                 )
-            breakpoint()
-            # Return existing subscription if available.
+
             return subscription
 
-        # Create a new subscription if not available.
         client_state = self._create_client_state_secret()
-
         subscription = self.subscription_client.create_subscription(
             webhook_url,
             change_type="updated",
@@ -257,19 +267,19 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         subscription_id = subscription["id"]
 
-        # Save to cache
-        cache.set(
-            f"{SUBSCRIPTION_CACHE_PREFIX}:{subscription_id}",
-            {
+        GraphSubscription.objects.update_or_create(
+            subscription_id=subscription_id,
+            defaults={
                 "client_state": client_state,
-                "delta_url": None,
-                "expiration": subscription["expirationDateTime"],
-                "subscription": subscription,
+                "resource": subscription["resource"],
+                "notification_url": subscription["notificationUrl"],
+                "expiration_date_time": parse_datetime(
+                    subscription["expirationDateTime"]
+                ),
+                "delta_url": "",
                 "token": self.subscription_client.token,
             },
-            timeout=self._seconds_until_expiration(subscription["expirationDateTime"]),
         )
-
         return subscription
 
     def _get_mime_type(self, file_path: str) -> str:
@@ -286,11 +296,6 @@ class MsGraphApiBackend(DocumentEditBackend):
         random_bytes = secrets.token_bytes(64)
         return base64.urlsafe_b64encode(random_bytes).rstrip(b"=").decode("utf-8")
 
-    def _seconds_until_expiration(expiration: str) -> int:
-        expiration_dt = datetime.datetime.fromisoformat(expiration)
-        now = datetime.datetime.now(datetime.UTC)
-        return max(0, int((expiration_dt - now).total_seconds()))
-
     def _sync_updated_files(self, subscription_meta: SubscriptionMeta):
         delta = self.one_drive_client.get_delta(subscription_meta["delta_url"])
         subscription_meta["delta_url"] = delta.get("@odata.deltaLink")
@@ -298,7 +303,7 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         if not deltas:
             return
-
+        """
         with shelve.open("file_map") as file_id_mapping:
             for item in deltas:
                 item_id = item["id"]
@@ -306,11 +311,15 @@ class MsGraphApiBackend(DocumentEditBackend):
 
                 if file_path:
                     self._download_file(item_id, file_path)
+        """
+        for item in deltas:
+            item_id = item["id"]
+            if "file" in item:
+                self._download_file(item_id, "tmp/test.txt")
 
     def _download_file(self: str, item_id: str, file_path: str):
         response = self.one_drive_client.download_item(item_id=item_id)
         file_name = os.path.basename(file_path)
-
         if response.status_code == 200:
             with open(file_name, "wb") as f:
                 f.write(response.content)

@@ -369,8 +369,8 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
     @action(methods=["get"], detail=True, name="document_upload")
     def upload(self, request: Request, *args, **kwargs) -> Response:
-        access_token = request.session.get("access_token")
-
+        access_token = request.session.get("access_token", None)
+        logger.info(access_token)
         if not access_token:
             callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
             request.session["origin_url"] = request.build_absolute_uri()
@@ -391,6 +391,11 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             with open(tmp_path, "wb") as tmp_file:
                 for chunk in file_response.streaming_content:
                     tmp_file.write(chunk)
+
+            # TODO FIX QUI
+            document_edit_backend._set_token(access_token)
+            # TODO FIX QUI
+
             drive_url = document_edit_backend.open(tmp_path)
         except Exception as exc:
             raise MsGraphApiBackendError(
