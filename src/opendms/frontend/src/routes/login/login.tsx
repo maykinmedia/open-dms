@@ -5,7 +5,7 @@ import {
 } from "@maykin-ui/admin-ui";
 import type { SyntheticEvent } from "react";
 import { type SubmitTarget, useActionData, useSubmit } from "react-router";
-import { validatieFout2FormErrors } from "~/lib";
+import { fout2FormErrors } from "~/lib";
 
 import { loginAction } from "./login.actions";
 
@@ -24,8 +24,8 @@ const LOGIN_FORM_FIELDS: FormField[] = [
 export function Login() {
   const submit = useSubmit();
 
-  const validatieFout = useActionData<typeof loginAction>();
-  const formErrors = validatieFout2FormErrors(validatieFout);
+  const fout = useActionData<typeof loginAction>();
+  const formErrors = fout2FormErrors(fout);
 
   const handleSubmit = (
     _: SyntheticEvent<HTMLFormElement>,
