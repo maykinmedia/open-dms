@@ -4,9 +4,11 @@ export * from "./schema.d.ts";
 
 // Aliases
 export type User = components["schemas"]["User"];
-export type ValidatieFout = components["schemas"]["ValidatieFout"];
-export type ZaakType = components["schemas"]["ZaakType"];
-
-export type Zaak = components["schemas"]["Zaak"];
 
 export type Document = components["schemas"]["Document"];
+
+export type ZaakType = components["schemas"]["ZaakType"];
+export type Zaak = components["schemas"]["Zaak"];
+
+export type Fout = components["schemas"]["Fout"];
+export type ValidatieFout = components["schemas"]["ValidatieFout"];

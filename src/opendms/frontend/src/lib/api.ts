@@ -1,6 +1,6 @@
 import { getCookie } from "@maykin-ui/client-common";
 import createClient, { type Middleware } from "openapi-fetch";
-import type { ValidatieFout, paths } from "~/types";
+import type { Fout, ValidatieFout, paths } from "~/types";
 
 /**
  * Middleware that ensures the "Content-Type" header is set to "application/json" for outgoing requests.
@@ -62,6 +62,31 @@ export const apiClient = createClient<paths>({
 apiClient.use(contentTypeJSONMiddleware);
 apiClient.use(csrfClientMiddleware);
 
+export type FormErrors = {
+  nonFieldErrors: string | undefined;
+  errors: Record<string, string>;
+};
+
+/**
+ * For endpoints optionally returning `Fout`, this can be used to create
+ * an object containing `nonFieldErrors` and `errors`. These can be passed to form
+ * instances to show meaningful error messages.
+ *
+ * If `fout` satisfies `ValidatieFout`, the result of `validatieFout2FormErrors`
+ * is returned.
+ *
+ * @param fout
+ */
+export function fout2FormErrors(fout: Fout | undefined): FormErrors {
+  if (fout && ("nonFieldErrors" in fout || "invalidParams" in fout)) {
+    return validatieFout2FormErrors(fout as ValidatieFout);
+  }
+  return {
+    nonFieldErrors: fout?.detail,
+    errors: {},
+  };
+}
+
 /**
  * Retrieves a CSRF token for securing requests against cross-site request forgery.
  * This method attempts to get the token from a hidden input element in the DOM
@@ -114,7 +139,7 @@ export function getPageFromSearchParams(searchParams: URLSearchParams): number {
  */
 export function validatieFout2FormErrors(
   validatieFout: ValidatieFout | undefined,
-) {
+): FormErrors {
   const invalidParams = validatieFout?.invalidParams || [];
   const nonFieldErrors = invalidParams.find(
     ({ name }) => name === "nonFieldErrors",
