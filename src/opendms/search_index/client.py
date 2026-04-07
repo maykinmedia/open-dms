@@ -12,8 +12,8 @@ from elasticsearch import Elasticsearch
 from elasticsearch.dsl import Q, Search
 from elasticsearch.exceptions import NotFoundError
 
-from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX
-from .index import Document, DocumentResults
+from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX, ZAAK_INDEX
+from .index import Document, DocumentResults, Zaak
 from .utils import download_document
 
 logger = structlog.get_logger(__name__)
@@ -22,6 +22,7 @@ logger = structlog.get_logger(__name__)
 class ElasticSearchClient:
     # TODO add check if index exists, if not create it
     index = DOCUMENT_INDEX
+    zaak_index = ZAAK_INDEX
 
     def __init__(self):
         self._settings = settings.SEARCH_INDEX
@@ -253,6 +254,33 @@ class ElasticSearchClient:
             .get("value_as_string", "")
         )
 
+    def get_last_zaak_registratiedatum(self) -> str:
+        """
+        Return the second latest distinct registratiedatum of zaken in Elasticsearch.
+        This ensures all zaken from the latest date are included when fetching with registratiedatum__gt.
+        """
+        response = self.client.search(
+            index=self.zaak_index,
+            size=0,
+            query={"exists": {"field": "registratiedatum"}},
+            aggs={
+                "dates": {
+                    "terms": {
+                        "field": "registratiedatum",
+                        "size": 2,
+                        "order": {"_key": "desc"},
+                    }
+                }
+            },
+        )
+
+        dates = response.get("aggregations", {}).get("dates", {}).get("buckets", [])
+
+        if len(dates) < 2:
+            return ""  # no second last date, fallback to empty
+
+        return dates[1]["key"]
+
     def index_document(self, document: Document) -> None:
         if (
             document.inhoud
@@ -295,6 +323,14 @@ class ElasticSearchClient:
         except Exception:
             logger.error("failed_to_delete_document")
             return False
+
+    def index_zaken(self, zaak: Zaak) -> None:
+        # TODO check if create or raise error ?
+        zaak.save(
+            id=str(zaak.uuid),
+            using=self.client,
+            refresh=settings.SEARCH_INDEX["REFRESH"],
+        )
 
 
 def get_elasticsearch_client() -> ElasticSearchClient:

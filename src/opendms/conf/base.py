@@ -281,6 +281,10 @@ CELERY_BEAT_SCHEDULE = {
         "task": "opendms.search_index.document_task.index_all_documents",
         "schedule": crontab(minute=0),
     },
+    "update_zaken_hourly": {
+        "task": "opendms.search_index.zaak_task.index_all_zaken",
+        "schedule": crontab(minute=30),
+    },
 }
 
 # Only ACK when the task has been executed. This prevents tasks from getting lost, with

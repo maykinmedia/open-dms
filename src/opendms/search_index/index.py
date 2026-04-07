@@ -94,6 +94,25 @@ class Document(ES_Document):
         name: IndexName = "document"
 
 
+class Zaak(ES_Document):
+    uuid: M[str] = mapped_field(Keyword(required=True))
+    url: M[str] = mapped_field(Keyword(required=True))
+    identificatie: M[str] = mapped_field(Keyword(required=True))
+    bronorganisatie: M[str] = mapped_field(Keyword(required=True))
+    verantwoordelijkeOrganisatie: M[str] = mapped_field(Keyword(required=True))
+
+    omschrijving: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    toelichting: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+    status: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
+
+    registratiedatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
+    startdatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
+    zaaktype: M[str] = mapped_field(Keyword(required=True))
+
+    class Index:
+        name: IndexName = "zaak"
+
+
 @dataclass
 class DocumentResults:
     total_count: int
