@@ -1,6 +1,23 @@
 import factory
 
-from ..index import Document
+from ..index import Document, Zaak
+
+
+class IndexZaakFactory(factory.Factory):
+    uuid = factory.Faker("uuid4", cast_to=str)
+    url = factory.Faker("url")
+    identificatie = factory.Faker("uuid4", cast_to=str)
+    bronorganisatie = factory.Faker("company")
+    verantwoordelijkeOrganisatie = factory.Faker("company")
+    omschrijving = factory.Faker("sentence", nb_words=6)
+    toelichting = factory.Faker("paragraph")
+    status = factory.Faker("word")
+    registratiedatum = factory.Faker("past_date")
+    startdatum = factory.Faker("past_date")
+    zaaktype = factory.Faker("word")
+
+    class Meta:
+        model = Zaak
 
 
 class NestedzaakFactory(factory.Factory):

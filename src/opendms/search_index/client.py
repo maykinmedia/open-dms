@@ -230,12 +230,12 @@ class ElasticSearchClient:
             results=[hit for hit in response.hits],
         )
 
-    def get_total_count(self) -> int:
+    def get_total_count(self, index: str, doc_type: type) -> int:
         """
         Count documents in the index
         """
 
-        search = Search(index=self.index, doc_type=Document).using(self.client)
+        search = Search(index=index, doc_type=doc_type).using(self.client)
         return search.count()
 
     def get_last_document_creatiedatum(self) -> str:
@@ -279,7 +279,7 @@ class ElasticSearchClient:
         if len(dates) < 2:
             return ""  # no second last date, fallback to empty
 
-        return dates[1]["key"]
+        return dates[1]["key_as_string"]
 
     def index_document(self, document: Document) -> None:
         if (
@@ -308,6 +308,18 @@ class ElasticSearchClient:
             return None
         except Exception:
             logger.error("failed_to_fetch_document")
+            return None
+
+    def get_zaak(self, uuid: str) -> Zaak | None:
+        """
+        Retrieve a Zaak from Elasticsearch by its UUID.
+        """
+        try:
+            return Zaak.get(id=uuid, using=self.client)
+        except NotFoundError:
+            return None
+        except Exception:
+            logger.error("failed_to_fetch_zaak")
             return None
 
     def delete_document(self, uuid: str) -> bool:
