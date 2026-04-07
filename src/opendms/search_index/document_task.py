@@ -69,20 +69,7 @@ def index_all_documents() -> None:
                                         service=zaak_service.slug,
                                     )
                                     zaak = ZaakReferenties(
-                                        uuid=zaak_item["uuid"],
-                                        url=zaak_item["url"],
-                                        identificatie=zaak_item["identificatie"],
-                                        bronorganisatie=zaak_item["bronorganisatie"],
-                                        verantwoordelijkeOrganisatie=zaak_item[
-                                            "verantwoordelijkeOrganisatie"
-                                        ],
-                                        omschrijving=zaak_item.get("omschrijving"),
-                                        toelichting=zaak_item.get("toelichting"),
-                                        status=zaak_item.get("status"),
-                                        registratiedatum=zaak_item["registratiedatum"],
-                                        startdatum=zaak_item["startdatum"],
-                                        zaaktype=zaak_item["zaaktype"],
-                                        object_type="zaak",
+                                        **zaak_item, object_type="zaak"
                                     )
                                     break
                             except Exception as e:
