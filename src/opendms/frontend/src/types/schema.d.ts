@@ -384,6 +384,21 @@ export interface components {
             /** @description Uitleg wat er precies fout is met de gegevens */
             reason: string;
         };
+        /** @description Formaat van HTTP 4xx en 5xx fouten. */
+        Fout: {
+            /** @description URI referentie naar het type fout, bedoeld voor developers */
+            type?: string;
+            /** @description Systeemcode die het type fout aangeeft */
+            code: string;
+            /** @description Generieke titel voor het type fout */
+            title: string;
+            /** @description De HTTP status code */
+            status: number;
+            /** @description Extra informatie bij de fout, indien beschikbaar */
+            detail: string;
+            /** @description URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld. */
+            instance: string;
+        };
         PaginatedDocumentList: {
             /** @example 123 */
             count: number;
@@ -593,6 +608,16 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ValidatieFout"];
+                };
+            };
+            403: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Fout"];
                 };
             };
         };
