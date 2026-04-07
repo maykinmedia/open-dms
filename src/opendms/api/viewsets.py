@@ -386,7 +386,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         file_ext = file_response.get("File-Extension", "")
         file_name = f"{self.kwargs.get(self.lookup_field)}{file_ext}"
         tmp_path = os.path.join(tempfile.gettempdir(), file_name)
-        drive_url = ""
+
         try:
             with open(tmp_path, "wb") as tmp_file:
                 for chunk in file_response.streaming_content:
@@ -396,7 +396,8 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             document_edit_backend._set_token(access_token)
             # TODO FIX QUI
 
-            drive_url = document_edit_backend.open(tmp_path)
+            edit_file_url = document_edit_backend.open(tmp_path)
+            return redirect(edit_file_url)
         except Exception as exc:
             raise MsGraphApiBackendError(
                 _("Document upload to Drive failed: %(error)s") % {"error": exc}
@@ -404,9 +405,3 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         finally:
             if os.path.exists(tmp_path):
                 os.unlink(tmp_path)
-
-        data = {"status": "error", "driveUrl": ""}
-        if drive_url:
-            data = {"status": "uploaded", "driveUrl": drive_url}
-
-        return Response(data=data, status=status.HTTP_200_OK)

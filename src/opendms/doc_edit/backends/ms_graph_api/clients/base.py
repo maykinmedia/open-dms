@@ -52,9 +52,7 @@ class GraphClient:
             typically contains key-value pairs.
         :return: The response from the server after processing the POST request.
         """
-        resp = self._request("POST", url, json)
-        # TODO test
-        return resp
+        return self._request("POST", url, json)
 
     def _request(
         self,

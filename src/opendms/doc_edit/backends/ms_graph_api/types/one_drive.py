@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+from datetime import datetime
+from enum import StrEnum
 from typing import TypedDict
 
 
@@ -40,9 +43,45 @@ class FileHashes(TypedDict):
 
 
 class FileInfo(TypedDict):
+    # TODO check if you can add also the name here o the document url
     fileExtension: str
     hashes: FileHashes
     mimeType: str
+
+
+class LinkType(StrEnum):
+    VIEW = "view"
+    EDIT = "edit"
+    EMBED = "embed"
+
+
+class LinkScope(StrEnum):
+    ANONYMOUS = "anonymous"
+    ORGANIZATION = "organization"
+    USERS = "users"
+
+
+@dataclass
+class ShareLink:
+    id: str
+    web_url: str
+    type: LinkType
+    scope: LinkScope
+    expiration: datetime | None = None
+    has_password: bool = False
+
+    @classmethod
+    def from_response(cls, data: dict) -> "ShareLink":
+        link = data["link"]
+        expiry_raw = data.get("expirationDateTime")
+        return cls(
+            id=data["id"],
+            web_url=link["webUrl"],
+            type=LinkType(link["type"]),
+            scope=LinkScope(link["scope"]),
+            expiration=datetime.fromisoformat(expiry_raw) if expiry_raw else None,
+            has_password=data.get("hasPassword", False),
+        )
 
 
 class SpecialFolder(TypedDict):

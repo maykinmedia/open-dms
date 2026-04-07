@@ -1,5 +1,4 @@
 import base64
-import datetime
 import mimetypes
 import os
 import secrets
@@ -80,7 +79,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         request.session["access_token"] = token
         return result
 
-    def open(self, file_path: str) -> Response:
+    def open(self, file_path: str) -> str:
         """
         Start a process to access or edit a file.
 
@@ -120,8 +119,7 @@ class MsGraphApiBackend(DocumentEditBackend):
                 raise error
 
         self._ensure_subscription()
-
-        return drive_item["webUrl"]
+        return self.one_drive_client.get_item_link(item_id=drive_item["id"])
 
     def updated_callback(self, request) -> Response:
         validation_token = request.GET.get("validationToken")

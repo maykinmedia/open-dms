@@ -1,3 +1,4 @@
+from datetime import datetime
 from typing import BinaryIO
 
 import structlog
@@ -7,6 +8,9 @@ from opendms.doc_edit.backends.ms_graph_api.types.one_drive import (
     DriveItem,
     DriveItemCollection,
     DriveItemDelta,
+    LinkScope,
+    LinkType,
+    ShareLink,
 )
 
 from .base import GraphClient
@@ -207,6 +211,93 @@ class OneDriveClient(GraphClient):
         delta: DriveItemDelta = self._get(f"{item_url}/delta")
         logger.debug("Resolving %d delta items for %s", len(delta["value"]), item_url)
         return delta
+
+    def get_item_link(
+        self,
+        *,
+        drive_id: str | None = None,
+        group_id: str | None = None,
+        site_id: str | None = None,
+        user_id: str | None = None,
+        item_id: str = "root",
+        link_type: LinkType = LinkType.EDIT,
+        scope: LinkScope = LinkScope.ORGANIZATION,
+        expiration: datetime | None = None,
+        password: str | None = None,
+        retain_inherited_permissions: bool = True,
+    ) -> ShareLink:
+        """
+        Create a sharing link for a specific OneDrive item.
+
+        This function generates a sharing link for a given item in OneDrive.
+        The link can be for viewing, editing, or embedding the item, and it can be scoped
+        for organizational users, anonymous access, or specific users. Optional parameters
+        allow setting an expiration date, password protection (for personal accounts), and
+        whether to retain inherited permissions on the first share.
+
+        :param drive_id: Target a specific drive.
+            Optional and defaults to None.
+        :param group_id: Target a group's drive.
+            Optional and defaults to None.
+        :param site_id: Target a SharePoint site drive.
+            Optional and defaults to None.
+        :param user_id: Target another user's drive.
+            Optional and defaults to None.
+        :param item_id: The identifier of the item to link.
+            Defaults to "root".
+        :param link_type: Type of link to create: view, edit, or embed.
+            Defaults to LinkType.EDIT.
+        :param scope: Scope of the link: anonymous, organization, or users.
+            Defaults to LinkScope.ORGANIZATION.
+        :param expiration: Optional datetime when the link should expire.
+            Defaults to None.
+        :param password: Optional password for personal accounts.
+            Ignored for organizational accounts.
+            Defaults to None.
+        :param retain_inherited_permissions: Whether to keep existing permissions on the first share.
+            Defaults to True.
+
+        :return: A `ShareLink` object containing the web URL and metadata for the shared item.
+
+        :raises HTTPError: If the API call fails.
+        """
+        if password and scope != LinkScope.ANONYMOUS:
+            raise ValueError(
+                "Password-protected links are only supported for anonymous scope (OneDrive Personal)."
+            )
+
+        item_url = self._get_item_url(
+            drive_id=drive_id,
+            group_id=group_id,
+            site_id=site_id,
+            user_id=user_id,
+            item_id=item_id,
+        )
+
+        body: dict = {
+            "type": link_type,
+            "scope": scope,
+            "retainInheritedPermissions": retain_inherited_permissions,
+        }
+        if expiration:
+            body["expirationDateTime"] = expiration.strftime("%Y-%m-%dT%H:%M:%SZ")
+        if password:
+            body["password"] = password
+
+        logger.debug(
+            "Creating %s/%s link for item %s (expires: %s)",
+            scope,
+            link_type,
+            item_id,
+            expiration or "never",
+        )
+
+        response = self._post(f"{item_url}/createLink", body)
+
+        link = ShareLink.from_response(response)
+
+        logger.info("Share link created: %s", link.web_url)
+        return link.web_url
 
     def list_children(
         self,
