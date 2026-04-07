@@ -53,6 +53,18 @@ paths:
               schema:
                 $ref: '#/components/schemas/ValidatieFout'
           description: ''
+        '403':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Fout'
+          description: ''
   /api/v1/accounts/logout:
     get:
       operationId: apiV1AccountsLogoutRetrieve
@@ -804,6 +816,35 @@ components:
       - code
       - name
       - reason
+    Fout:
+      type: object
+      description: Formaat van HTTP 4xx en 5xx fouten.
+      properties:
+        type:
+          type: string
+          description: URI referentie naar het type fout, bedoeld voor developers
+        code:
+          type: string
+          description: Systeemcode die het type fout aangeeft
+        title:
+          type: string
+          description: Generieke titel voor het type fout
+        status:
+          type: integer
+          description: De HTTP status code
+        detail:
+          type: string
+          description: Extra informatie bij de fout, indien beschikbaar
+        instance:
+          type: string
+          description: URI met referentie naar dit specifiek voorkomen van de fout.
+            Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld.
+      required:
+      - code
+      - detail
+      - instance
+      - status
+      - title
     PaginatedDocumentList:
       type: object
       required:
