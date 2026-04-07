@@ -1,6 +1,7 @@
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
+from zgw_consumers.service import pagination_helper
 
 from ..typing import Zaak, ZakenPaginatedResponse
 from ..utils.mixins import HttpRequestMixin
@@ -14,6 +15,18 @@ class ZaakClient(HttpRequestMixin, NLXClient):
     """
 
     endpoint = "zaken"
+
+    def get_items(self, params: dict | None = None) -> list[Zaak]:
+        """
+        Fetch all zaken using pagination
+        """
+        params = params or {}
+        data = self.make_request(
+            self.endpoint,
+            params={**params},
+            headers=CRS_HEADERS,
+        )
+        return [self._map_zaak(record) for record in pagination_helper(self, data)]
 
     def get_paginated_items_by_zaaktype(
         self,
