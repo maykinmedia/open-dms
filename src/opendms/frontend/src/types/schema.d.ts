@@ -380,6 +380,45 @@ export interface components {
              */
             type: "document";
         };
+        ESZaak: {
+            /**
+             * Format: uuid
+             * @description UUID van dit object. Dit is de unieke identificatiecode van dit object.
+             */
+            uuid: string;
+            /**
+             * Format: uri
+             * @description URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
+             */
+            url: string;
+            /** @description De unieke identificatie van de ZAAK binnen de organisatie die verantwoordelijk is voor de behandeling van de ZAAK. */
+            identificatie: string;
+            /** @description URL-referentie naar het ZAAKTYPE (in de Catalogi API). */
+            zaaktype: string;
+            /** @description Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie die de zaak heeft gecreeerd. */
+            bronorganisatie: string;
+            /** @description Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie die eindverantwoordelijk is voor de behandeling van de zaak. */
+            verantwoordelijkeOrganisatie: string;
+            /**
+             * Format: date
+             * @description De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd
+             */
+            registratiedatum: string;
+            /**
+             * Format: date
+             * @description De datum waarop met de uitvoering van de zaak is gestart.
+             */
+            startdatum: string;
+            /** @description Een korte omschrijving van de zaak. */
+            omschrijving: string;
+            /** @description Een toelichting op de zaak. */
+            toelichting: string;
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            type: "zaak";
+        };
         /** @description Formaat van validatiefouten. */
         FieldValidationError: {
             /** @description Naam van het veld met ongeldige gegevens */
@@ -473,7 +512,7 @@ export interface components {
             type: components["schemas"]["TypeEnum"];
             readonly data: Omit<components["schemas"]["SearchResultData"], "type">;
         };
-        SearchResultData: components["schemas"]["ESDocument"] | components["schemas"]["Zaak"];
+        SearchResultData: components["schemas"]["ESDocument"] | components["schemas"]["ESZaak"];
         Service: {
             /**
              * Service slug
@@ -552,11 +591,6 @@ export interface components {
             omschrijving: string;
             /** @description Een toelichting op de zaak. */
             toelichting: string;
-            /**
-             * @description discriminator enum property added by openapi-typescript
-             * @enum {string}
-             */
-            type: "zaak";
         };
         ZaakType: {
             /**
