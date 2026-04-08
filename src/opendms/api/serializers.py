@@ -386,16 +386,23 @@ class SearchSerializer(serializers.Serializer):
         allow_blank=True,
         help_text=_(
             "Filtering records based on the provided search term. "
+            "The search is performed across both Documents and Zaken index."
             "This search is applied to the following fields:\n\n"
+            "**Documents:**\n"
             "- `identificatie`\n"
             "- `titel`\n"
             "- `bronorganisatie`\n"
             "- `beschrijving`\n"
-            "- `document_data.attachment.content`\n"
+            "- `document_data.attachment.content`\n\n"
             "- `zaak_referenties.identificatie`\n"
             "- `zaak_referenties.omschrijving`\n"
             "- `zaak_referenties.toelichting`\n"
             "- `zaak_referenties.status`\n\n"
+            "**Zaken:**\n"
+            "- `identificatie`\n"
+            "- `omschrijving`\n"
+            "- `toelichting`\n"
+            "- `status`\n\n"
             "You can use double quotes for exact matches and `AND`/`OR` syntax for complex queries."
         ),
         default="",
