@@ -1,0 +1,139 @@
+interactions:
+- request:
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.hansen-tanner.net/","identificatie":"753072fe-4fe0-4114-a70a-c6dda162b1f9","bronorganisatie":"Dorsey,
+      Dominguez and Oneal","verantwoordelijkeOrganisatie":"Mann, Lang and Love","omschrijving":"alpha
+      one","toelichting":"Southern study for stop ability. Economic despite born remember
+      recently.","status":"can","registratiedatum":"2026-03-25","startdatum":"2026-03-17","zaaktype":"record","creatiedatum":"2026-03-25"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.jones-miller.com/","identificatie":"df6efa0a-ae44-4043-a987-27de4c1bdd11","bronorganisatie":"Stewart,
+      Baker and Porter","verantwoordelijkeOrganisatie":"Combs Inc","omschrijving":"beta
+      two","toelichting":"Something level lot from. According force age far friend
+      course today eat.","status":"home","registratiedatum":"2026-03-16","startdatum":"2026-03-28","zaaktype":"kitchen","creatiedatum":"2026-03-16"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"alpha
+      + one","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"alpha
+      + one","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"alpha
+      + one","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document,zaak/_search
+  response:
+    body:
+      string: '{"took":4,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":2.326447,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.hansen-tanner.net/","identificatie":"753072fe-4fe0-4114-a70a-c6dda162b1f9","bronorganisatie":"Dorsey,
+        Dominguez and Oneal","verantwoordelijkeOrganisatie":"Mann, Lang and Love","omschrijving":"alpha
+        one","toelichting":"Southern study for stop ability. Economic despite born
+        remember recently.","status":"can","registratiedatum":"2026-03-25","startdatum":"2026-03-17","zaaktype":"record","creatiedatum":"2026-03-25"},"sort":[2.326447,1774396800000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"one
+      | two","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document,zaak/_search
+  response:
+    body:
+      string: '{"took":13,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":1.1632235,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.hansen-tanner.net/","identificatie":"753072fe-4fe0-4114-a70a-c6dda162b1f9","bronorganisatie":"Dorsey,
+        Dominguez and Oneal","verantwoordelijkeOrganisatie":"Mann, Lang and Love","omschrijving":"alpha
+        one","toelichting":"Southern study for stop ability. Economic despite born
+        remember recently.","status":"can","registratiedatum":"2026-03-25","startdatum":"2026-03-17","zaaktype":"record","creatiedatum":"2026-03-25"},"sort":[1.1632235,1774396800000]},{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":0.5964254,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.jones-miller.com/","identificatie":"df6efa0a-ae44-4043-a987-27de4c1bdd11","bronorganisatie":"Stewart,
+        Baker and Porter","verantwoordelijkeOrganisatie":"Combs Inc","omschrijving":"beta
+        two","toelichting":"Something level lot from. According force age far friend
+        course today eat.","status":"home","registratiedatum":"2026-03-16","startdatum":"2026-03-28","zaaktype":"kitchen","creatiedatum":"2026-03-16"},"sort":[0.5964254,1773619200000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
