@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525485678","number_of_replicas":"1","uuid":"filf8y56RquoiztyAvhFRQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639108193","number_of_replicas":"1","uuid":"Um3bIEUyTIGBWNednBFm7g","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,10 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"62fdeb92-98ad-475c-b184-49ee8a274787","url":"http://www.west.com/","identificatie":"29085c58-b1a9-4c32-a650-adcb7d4a45e2","bronorganisatie":"Baker-Moran","titel":"Southern
-      project save building member.","beschrijving":"Allow concern set network guy
-      result important will. Sure major play statement foreign star.","auteur":"Joseph
-      Soto","taal":"zh","vertrouwelijkheidaanduiding":"effort","status":"evidence","formaat":"wav","bestandsnaam":"care.bmp","informatieobjecttype":"heavy","verschijningsvorm":"floor","bestandsomvang":1000000,"link":"https://tucker.com/","creatiedatum":"2024-01-01","begin_registratie":"2026-03-19T15:00:18.172491"}'
+    body: '{"uuid":"62fdeb92-98ad-475c-b184-49ee8a274787","url":"https://moore.biz/","identificatie":"2866db9b-8c8c-41e5-85ad-35fce59cee9d","bronorganisatie":"Watkins-Warren","titel":"Toward
+      amount listen impact decide between.","beschrijving":"Red speech not own decide
+      without. Data necessary piece continue main mention and. Tough institution degree
+      approach young.","auteur":"Jacob Thomas","taal":"nds","vertrouwelijkheidaanduiding":"thus","status":"own","formaat":"odp","bestandsnaam":"government.flac","informatieobjecttype":"probably","verschijningsvorm":"century","bestandsomvang":1000000,"link":"https://www.powell.net/","creatiedatum":"2024-01-01","begin_registratie":"2026-03-13T04:32:39.144219","zaak_referenties":[{"uuid":"d33c896f-f1b0-4849-9ed4-6bc8fa3f3969","url":"http://contreras-gregory.com/","identificatie":"28f8310d-636f-46c0-8234-91d66a5c7651","bronorganisatie":"Ford,
+      Frederick and Davis","verantwoordelijkeOrganisatie":"Brown, Williams and Freeman","omschrijving":"Research
+      media concern better.","toelichting":"Property most later issue sign. During
+      company onto gas wonder cultural win increase.","status":"which","registratiedatum":"2026-03-24","startdatum":"2026-03-25","zaaktype":"environmental","object_type":"prepare"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -153,7 +156,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525485678","number_of_replicas":"1","uuid":"filf8y56RquoiztyAvhFRQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639108193","number_of_replicas":"1","uuid":"Um3bIEUyTIGBWNednBFm7g","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -165,7 +168,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -193,10 +196,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://kennedy-roman.com/","identificatie":"2cac6cb5-3ff4-4506-b6c9-85e1415a7bb0","bronorganisatie":"Gentry
-      LLC","titel":"Across me box area.","beschrijving":"Herself yes throw long may
-      feel. Control social industry traditional. Kind trade decade here wish.","auteur":"Terry
-      Smith","taal":"csb","vertrouwelijkheidaanduiding":"general","status":"determine","formaat":"docx","bestandsnaam":"key.html","informatieobjecttype":"region","verschijningsvorm":"Mrs","bestandsomvang":1000000,"link":"https://mills.com/","creatiedatum":"2025-02-01","begin_registratie":"2026-03-11T16:19:36.490165"}'
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://cummings.com/","identificatie":"3486611f-7dda-40f9-ab25-94fd918dd1d2","bronorganisatie":"Baldwin
+      and Sons","titel":"Partner catch both measure total modern sing several.","beschrijving":"Hot
+      yes whole pass use whose. General apply now late thus.","auteur":"Christopher
+      Smith","taal":"niu","vertrouwelijkheidaanduiding":"person","status":"important","formaat":"pages","bestandsnaam":"throw.jpeg","informatieobjecttype":"he","verschijningsvorm":"look","bestandsomvang":1000000,"link":"http://www.williams-cervantes.net/","creatiedatum":"2025-02-01","begin_registratie":"2026-03-13T22:13:07.676675","zaak_referenties":[{"uuid":"453a6bde-8e15-4c52-8a91-05578fe57573","url":"http://www.patel.com/","identificatie":"1fa1fe3c-6135-4515-bf6d-630b21dee419","bronorganisatie":"Petersen
+      PLC","verantwoordelijkeOrganisatie":"Thomas, Evans and Robinson","omschrijving":"Some
+      economic rich sit member learn article.","toelichting":"One per whole guess
+      produce. Of have become give but four son dream.","status":"article","registratiedatum":"2026-03-21","startdatum":"2026-03-13","zaaktype":"question","object_type":"serious"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8

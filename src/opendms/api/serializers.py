@@ -1,6 +1,10 @@
 from django.utils.translation import gettext_lazy as _
 
-from drf_spectacular.utils import extend_schema_serializer
+from drf_spectacular.utils import (
+    PolymorphicProxySerializer,
+    extend_schema_field,
+    extend_schema_serializer,
+)
 from rest_framework import serializers
 from zgw_consumers.models import Service
 
@@ -367,3 +371,31 @@ class SearchSerializer(serializers.Serializer):
         default=None,
         help_text=_("Filter documents created on or before this date."),
     )
+
+
+class SearchResultSerializer(serializers.Serializer):
+    type = serializers.ChoiceField(choices=["document", "zaak"])
+
+    data = serializers.SerializerMethodField()
+
+    @extend_schema_field(
+        PolymorphicProxySerializer(
+            component_name="SearchResultData",
+            serializers={
+                "document": ESDocumentSerializer,
+                "zaak": ZaakSerializer,
+            },
+            resource_type_field_name="type",
+        )
+    )
+    def get_data(self, obj):
+        if obj["type"] == "document":
+            return ESDocumentSerializer(obj["data"]).data
+        elif obj["type"] == "zaak":
+            return ZaakSerializer(obj["data"]).data
+        return None
+
+
+class SearchResponseSerializer(serializers.Serializer):
+    count = serializers.IntegerField()
+    results = SearchResultSerializer(many=True)

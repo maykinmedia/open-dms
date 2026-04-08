@@ -1,0 +1,306 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.lawson.org/","identificatie":"afc9a2b7-8e9f-4319-ada6-dbd6c2a85b28","bronorganisatie":"Armstrong
+      and Sons","titel":"Alpha Document","beschrijving":"Hundred college will produce.
+      Relate according ability thing too allow.","auteur":"Stephanie Gonzalez","taal":"ta","vertrouwelijkheidaanduiding":"hit","status":"government","formaat":"flac","bestandsnaam":"young.txt","informatieobjecttype":"scientist","verschijningsvorm":"instead","bestandsomvang":1000000,"link":"https://www.wright-roberts.com/","creatiedatum":"2026-03-20","begin_registratie":"2026-04-06T19:23:09.657079","zaak_referenties":[{"uuid":"9777527a-4e8e-4ad2-a45d-e168ac1b2210","url":"https://cooper-wilson.com/","identificatie":"813e653a-917b-4672-8eb5-646ac79dcaad","bronorganisatie":"Powell,
+      Bautista and Mays","verantwoordelijkeOrganisatie":"Merritt Inc","omschrijving":"Address
+      someone eight half bag.","toelichting":"Part effort letter.","status":"car","registratiedatum":"2026-04-03","startdatum":"2026-04-06","zaaktype":"performance","object_type":"church"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/12fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":7,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":10,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/12fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://franklin-walters.com/","identificatie":"584f5791-e004-46d4-9672-65f073985521","bronorganisatie":"Harvey,
+      Smith and Sawyer","titel":"Beta Document","beschrijving":"Continue sign moment
+      identify dream. Top personal guess generation east.","auteur":"Mr. Jonathan
+      Rhodes","taal":"oc","vertrouwelijkheidaanduiding":"rate","status":"success","formaat":"wav","bestandsnaam":"how.webm","informatieobjecttype":"because","verschijningsvorm":"gun","bestandsomvang":1000000,"link":"http://www.rivera.biz/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-26T18:26:23.513720","zaak_referenties":[{"uuid":"8bef72b6-c949-44da-9081-cfc01fd5769b","url":"https://www.pierce.com/","identificatie":"e34a1b4d-3022-495c-89fa-d73e264e8f80","bronorganisatie":"Mejia
+      Group","verantwoordelijkeOrganisatie":"Mueller Ltd","omschrijving":"Tree eye
+      could light seem.","toelichting":"Carry family data foot collection growth.
+      Control between bad including fire foreign according.","status":"try","registratiedatum":"2026-03-10","startdatum":"2026-03-28","zaaktype":"stuff","object_type":"health"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/13fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":11,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/13fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"14fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.gomez-fuller.info/","identificatie":"4a3f42f6-20bc-4891-9c5a-f4a41f375330","bronorganisatie":"Bennett,
+      Garcia and Russell","verantwoordelijkeOrganisatie":"Rodriguez, Rodriguez and
+      Krause","omschrijving":"Gamma Zaak","toelichting":"Citizen owner keep somebody.
+      Off prepare choice chance. Number policy outside they.","status":"none","registratiedatum":"2026-03-30","startdatum":"2026-03-15","zaaktype":"artist","creatiedatum":"2026-03-30"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/14fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"14fceb92-98bd-475c-b184-49ee8a274787","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":8,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/14fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"Document","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"Document","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"Document","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document,zaak/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.48036653,"_source":{"beschrijving":"Hundred
+        college will produce. Relate according ability thing too allow.","verschijningsvorm":"instead","begin_registratie":"2026-04-06T19:23:09.657079","identificatie":"afc9a2b7-8e9f-4319-ada6-dbd6c2a85b28","bronorganisatie":"Armstrong
+        and Sons","bestandsomvang":1000000,"link":"https://www.wright-roberts.com/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.lawson.org/","taal":"ta","zaak_referenties":[{"omschrijving":"Address
+        someone eight half bag.","identificatie":"813e653a-917b-4672-8eb5-646ac79dcaad","startdatum":"2026-04-06","object_type":"church","bronorganisatie":"Powell,
+        Bautista and Mays","zaaktype":"performance","registratiedatum":"2026-04-03","uuid":"9777527a-4e8e-4ad2-a45d-e168ac1b2210","url":"https://cooper-wilson.com/","verantwoordelijkeOrganisatie":"Merritt
+        Inc","toelichting":"Part effort letter.","status":"car"}],"auteur":"Stephanie
+        Gonzalez","formaat":"flac","titel":"Alpha Document","vertrouwelijkheidaanduiding":"hit","informatieobjecttype":"scientist","bestandsnaam":"young.txt","creatiedatum":"2026-03-20","status":"government"},"sort":[0.48036653,1773964800000]},{"_index":"document","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":0.40733665,"_source":{"beschrijving":"Continue
+        sign moment identify dream. Top personal guess generation east.","verschijningsvorm":"gun","begin_registratie":"2026-03-26T18:26:23.513720","identificatie":"584f5791-e004-46d4-9672-65f073985521","bronorganisatie":"Harvey,
+        Smith and Sawyer","bestandsomvang":1000000,"link":"http://www.rivera.biz/","uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://franklin-walters.com/","taal":"oc","zaak_referenties":[{"omschrijving":"Tree
+        eye could light seem.","identificatie":"e34a1b4d-3022-495c-89fa-d73e264e8f80","startdatum":"2026-03-28","object_type":"health","bronorganisatie":"Mejia
+        Group","zaaktype":"stuff","registratiedatum":"2026-03-10","uuid":"8bef72b6-c949-44da-9081-cfc01fd5769b","url":"https://www.pierce.com/","verantwoordelijkeOrganisatie":"Mueller
+        Ltd","toelichting":"Carry family data foot collection growth. Control between
+        bad including fire foreign according.","status":"try"}],"auteur":"Mr. Jonathan
+        Rhodes","formaat":"wav","titel":"Beta Document","vertrouwelijkheidaanduiding":"rate","informatieobjecttype":"because","bestandsnaam":"how.webm","creatiedatum":"2026-03-18","status":"success"},"sort":[0.40733665,1773792000000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

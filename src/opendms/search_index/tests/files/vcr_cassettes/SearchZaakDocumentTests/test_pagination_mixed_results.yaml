@@ -1,0 +1,336 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://garza-harper.com/","identificatie":"78f2e5d8-e7f4-44d8-8f8d-6f6deb395359","bronorganisatie":"House-Shields","titel":"Doc
+      1","beschrijving":"Likely rule meet us. Trial rest late.","auteur":"Jack Salazar","taal":"tn","vertrouwelijkheidaanduiding":"agreement","status":"some","formaat":"mov","bestandsnaam":"growth.wav","informatieobjecttype":"side","verschijningsvorm":"everyone","bestandsomvang":1000000,"link":"https://www.newman.biz/","creatiedatum":"2026-03-31","begin_registratie":"2026-03-14T00:58:37.518615","zaak_referenties":[{"uuid":"ec2a1756-ce13-4a0f-91bd-73887ea83df6","url":"http://fleming.com/","identificatie":"c940d94d-c4a1-461f-b3b5-bea2fe3561a4","bronorganisatie":"Hill
+      Inc","verantwoordelijkeOrganisatie":"Jimenez-Velasquez","omschrijving":"Play
+      myself foreign name follow foreign yeah.","toelichting":"Soldier nearly history
+      yourself reason table show. Break me newspaper nor sit us. Particular entire
+      central notice.","status":"pressure","registratiedatum":"2026-03-18","startdatum":"2026-03-10","zaaktype":"young","object_type":"them"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/12fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/12fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.keller-chase.com/","identificatie":"b835177e-6d03-4501-a3c2-76048b5dab52","bronorganisatie":"Pollard,
+      Smith and Simmons","titel":"Doc 2","beschrijving":"Be local available everybody
+      suffer conference mean. Others lead meet front according. Foot job fast special
+      ago.","auteur":"Jeanette Lowe","taal":"bho","vertrouwelijkheidaanduiding":"agreement","status":"pressure","formaat":"jpeg","bestandsnaam":"buy.flac","informatieobjecttype":"despite","verschijningsvorm":"character","bestandsomvang":1000000,"link":"https://www.flores-mckinney.com/","creatiedatum":"2026-03-22","begin_registratie":"2026-03-18T08:47:31.910808","zaak_referenties":[{"uuid":"665cc460-70a7-41f7-9afc-d2283f098e03","url":"https://www.davis.com/","identificatie":"8dd2afe3-e9a7-4303-a885-a742ee62b1a8","bronorganisatie":"Nichols,
+      Good and Williams","verantwoordelijkeOrganisatie":"Arellano, Mcintyre and Maldonado","omschrijving":"Food
+      sport as before class stand ready safe.","toelichting":"Society sport that fire
+      trade resource. Offer range per unit generation again despite.","status":"yeah","registratiedatum":"2026-03-31","startdatum":"2026-03-26","zaaktype":"bill","object_type":"role"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/13fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":5,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/13fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"14fceb92-98bd-475c-b184-49ee8a274787","url":"http://moore-miles.net/","identificatie":"1f47a401-44ee-4af8-af42-0989d41b5bd3","bronorganisatie":"Miller
+      LLC","verantwoordelijkeOrganisatie":"Mitchell, Villanueva and Foley","omschrijving":"Zaak
+      1","toelichting":"Throw something peace yet well hour. Cost material subject
+      industry seem sign. We look court us someone wonder race.","status":"defense","registratiedatum":"2026-03-25","startdatum":"2026-03-28","zaaktype":"list","creatiedatum":"2026-03-25"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/14fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"14fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/14fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"15fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.lara-bishop.biz/","identificatie":"a47cd130-f202-4919-b7e4-1687a38b745f","bronorganisatie":"Camacho-Fitzgerald","verantwoordelijkeOrganisatie":"Jackson
+      LLC","omschrijving":"Zaak 2","toelichting":"Even speech chair win. Deep big
+      successful account resource entire dream. Three population effect might condition
+      participant. Position every southern region speech.","status":"side","registratiedatum":"2026-03-19","startdatum":"2026-03-26","zaaktype":"ago","creatiedatum":"2026-03-19"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/15fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"15fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":3,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/15fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"1","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"1","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"1","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":2}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document,zaak/_search
+  response:
+    body:
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":2.5077972,"_source":{"beschrijving":"Likely
+        rule meet us. Trial rest late.","verschijningsvorm":"everyone","begin_registratie":"2026-03-14T00:58:37.518615","identificatie":"78f2e5d8-e7f4-44d8-8f8d-6f6deb395359","bronorganisatie":"House-Shields","bestandsomvang":1000000,"link":"https://www.newman.biz/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://garza-harper.com/","taal":"tn","zaak_referenties":[{"omschrijving":"Play
+        myself foreign name follow foreign yeah.","identificatie":"c940d94d-c4a1-461f-b3b5-bea2fe3561a4","startdatum":"2026-03-10","object_type":"them","bronorganisatie":"Hill
+        Inc","zaaktype":"young","registratiedatum":"2026-03-18","uuid":"ec2a1756-ce13-4a0f-91bd-73887ea83df6","url":"http://fleming.com/","verantwoordelijkeOrganisatie":"Jimenez-Velasquez","toelichting":"Soldier
+        nearly history yourself reason table show. Break me newspaper nor sit us.
+        Particular entire central notice.","status":"pressure"}],"auteur":"Jack Salazar","formaat":"mov","titel":"Doc
+        1","vertrouwelijkheidaanduiding":"agreement","informatieobjecttype":"side","bestandsnaam":"growth.wav","creatiedatum":"2026-03-31","status":"some"},"sort":[2.5077972,1774915200000]},{"_index":"zaak","_id":"14fceb92-98bd-475c-b184-49ee8a274787","_score":1.6584523,"_source":{"uuid":"14fceb92-98bd-475c-b184-49ee8a274787","url":"http://moore-miles.net/","identificatie":"1f47a401-44ee-4af8-af42-0989d41b5bd3","bronorganisatie":"Miller
+        LLC","verantwoordelijkeOrganisatie":"Mitchell, Villanueva and Foley","omschrijving":"Zaak
+        1","toelichting":"Throw something peace yet well hour. Cost material subject
+        industry seem sign. We look court us someone wonder race.","status":"defense","registratiedatum":"2026-03-25","startdatum":"2026-03-28","zaaktype":"list","creatiedatum":"2026-03-25"},"sort":[1.6584523,1774396800000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

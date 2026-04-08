@@ -1,0 +1,216 @@
+interactions:
+- request:
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.clay.biz/","identificatie":"af96bde9-e594-48f7-8a12-6cb3486cacd4","bronorganisatie":"Wise,
+      Nelson and Walker","verantwoordelijkeOrganisatie":"Stewart Ltd","omschrijving":"Finance
+      Zaak","toelichting":"Nation husband process why. Beautiful score pick person.
+      Break ago bad at.","status":"either","registratiedatum":"2026-03-12","startdatum":"2026-03-17","zaaktype":"common","creatiedatum":"2026-03-12"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":10,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '173'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.holland.com/","identificatie":"c70ecd49-6a2f-421d-bec0-cdbc3eaf4c7a","bronorganisatie":"Garner-Rivas","verantwoordelijkeOrganisatie":"Wood,
+      Herrera and Hess","omschrijving":"HR Zaak","toelichting":"Education room yet
+      meet offer skin. Environmental throw art far especially last standard near.","status":"mention","registratiedatum":"2026-03-15","startdatum":"2026-03-28","zaaktype":"authority","creatiedatum":"2026-03-15"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":11,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '173'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"14fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.campbell-cisneros.com/","identificatie":"be91032e-231b-4891-930b-ccd62e87320b","bronorganisatie":"Salas
+      and Sons","titel":"Marketing Document","beschrijving":"Human manager always
+      stuff play miss. Join thing interesting leader carry. Hand skill late detail
+      answer product people mention.","auteur":"Robert Preston","taal":"quz","vertrouwelijkheidaanduiding":"close","status":"throughout","formaat":"png","bestandsnaam":"positive.wav","informatieobjecttype":"necessary","verschijningsvorm":"avoid","bestandsomvang":1000000,"link":"https://www.taylor-austin.com/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-20T14:58:11.040523","zaak_referenties":[{"uuid":"c77d4225-e0b0-4b03-8a97-e6d5ba0d3253","url":"https://vang-davis.com/","identificatie":"31109a84-5642-4ccb-911d-1cb9351b52a6","bronorganisatie":"Chapman,
+      Roy and Lee","verantwoordelijkeOrganisatie":"Gutierrez-Pope","omschrijving":"Modern
+      think strong game type.","toelichting":"End nice though nor life. Still drug
+      believe right a. Line society threat. Worker rich never Mr study.","status":"feeling","registratiedatum":"2026-03-12","startdatum":"2026-03-19","zaaktype":"writer","object_type":"pretty"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/14fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"14fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":14,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/14fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"Zaak","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"Zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"Zaak","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document,zaak/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":0.050884835,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.holland.com/","identificatie":"c70ecd49-6a2f-421d-bec0-cdbc3eaf4c7a","bronorganisatie":"Garner-Rivas","verantwoordelijkeOrganisatie":"Wood,
+        Herrera and Hess","omschrijving":"HR Zaak","toelichting":"Education room yet
+        meet offer skin. Environmental throw art far especially last standard near.","status":"mention","registratiedatum":"2026-03-15","startdatum":"2026-03-28","zaaktype":"authority","creatiedatum":"2026-03-15"},"sort":[0.050884835,1773532800000]},{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.03589287,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.clay.biz/","identificatie":"af96bde9-e594-48f7-8a12-6cb3486cacd4","bronorganisatie":"Wise,
+        Nelson and Walker","verantwoordelijkeOrganisatie":"Stewart Ltd","omschrijving":"Finance
+        Zaak","toelichting":"Nation husband process why. Beautiful score pick person.
+        Break ago bad at.","status":"either","registratiedatum":"2026-03-12","startdatum":"2026-03-17","zaaktype":"common","creatiedatum":"2026-03-12"},"sort":[0.03589287,1773273600000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

@@ -13,7 +13,7 @@ from elasticsearch.dsl import Q, Search
 from elasticsearch.exceptions import NotFoundError
 
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX, ZAAK_INDEX
-from .index import Document, DocumentResults, Zaak
+from .index import Document, DocumentResults, Results, Zaak
 from .utils import download_document
 
 logger = structlog.get_logger(__name__)
@@ -114,18 +114,20 @@ class ElasticSearchClient:
         page: int = 1,
         page_size: int = 10,
         sort: Literal["relevance", "chronological"] = "relevance",
-    ) -> DocumentResults:
+    ) -> Results:
         """
-        Perform the search query in Elasticsearch using the DSL Search object.
+        Perform a search across both Document and Zaak indices.
+        Returns mixed results (Document | Zaak).
         """
 
-        # TODO check if you can have different INDICES
-        search = Search(index=Document.Index.name, doc_type=Document)
+        search = Search(index=[Document.Index.name, Zaak.Index.name])
 
         if query:
+            cleaned_query = self._clean_str_query(query)
+
             doc_query = Q(
                 "simple_query_string",
-                query=self._clean_str_query(query),
+                query=cleaned_query,
                 fields=[
                     "identificatie^3",
                     "titel^2",
@@ -136,12 +138,26 @@ class ElasticSearchClient:
                 flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
                 default_operator="AND",
             )
-            zaak_query = Q(
+
+            zaak_index_query = Q(
+                "simple_query_string",
+                query=cleaned_query,
+                fields=[
+                    "identificatie^3",
+                    "omschrijving^2",
+                    "toelichting^1.5",
+                    "status^1.2",
+                ],
+                flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
+                default_operator="AND",
+            )
+
+            nested_zaak_query = Q(
                 "nested",
                 path="zaak_referenties",
                 query=Q(
                     "simple_query_string",
-                    query=self._clean_str_query(query),
+                    query=cleaned_query,
                     fields=[
                         "zaak_referenties.identificatie^3",
                         "zaak_referenties.omschrijving^2",
@@ -151,10 +167,19 @@ class ElasticSearchClient:
                     flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
                     default_operator="AND",
                 ),
+                ignore_unmapped=True,
             )
 
             search = search.query(
-                Q("bool", should=[doc_query, zaak_query], minimum_should_match=1)
+                Q(
+                    "bool",
+                    should=[
+                        doc_query,
+                        nested_zaak_query,
+                        zaak_index_query,
+                    ],
+                    minimum_should_match=1,
+                )
             )
 
         if creatiedatum_from or creatiedatum_to:
@@ -203,14 +228,21 @@ class ElasticSearchClient:
         page_from = page_size * (page - 1)
         search = search[page_from : page_from + page_size]
 
-        # bind it to the client containing the connection details
         search = search.using(self.client)
         response = search.execute()
 
-        # process the results
-        return DocumentResults(
+        results: list[Document | Zaak] = []
+
+        for hit in response.hits:
+            data = hit.to_dict()
+            if hit.meta.index == Document.Index.name:
+                results.append({"type": "document", "data": data})
+            elif hit.meta.index == Zaak.Index.name:
+                results.append({"type": "zaak", "data": data})
+
+        return Results(
             total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
-            results=[hit for hit in response.hits],
+            results=results,
         )
 
     def get_all_documents(self, page: int = 1, page_size: int = 10) -> DocumentResults:

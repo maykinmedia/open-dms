@@ -8,7 +8,7 @@ from opendms.api.tests.factories import ServiceFactory
 
 from ..client import get_elasticsearch_client
 from .base import ElasticSearchAPITestCase
-from .factories import IndexDocumentFactory
+from .factories import IndexDocumentFactory, IndexZaakFactory
 
 
 class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
@@ -27,7 +27,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(data["count"], 1)
         results = data["results"]
 
-        self.assertEqual(results[0]["uuid"], doc["uuid"])
+        self.assertEqual(results[0]["data"]["uuid"], doc["uuid"])
 
     def test_pagination_next_and_previous(self):
         doc1 = IndexDocumentFactory.build(uuid="85a095ea-e1fa-438c-9e05-1862874f57a0")
@@ -66,7 +66,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         # ordered by creatiedatum
         self.assertEqual(len(data["results"]), 1)
         self.assertEqual(
-            data["results"][0]["uuid"],
+            data["results"][0]["data"]["uuid"],
             "80485d67-0b97-4ed5-8483-f2d03d012e19",
         )
 
@@ -93,9 +93,9 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
 
         self.assertEqual(data["count"], 3)
 
-        self.assertEqual(data["results"][0]["uuid"], doc3["uuid"])
-        self.assertEqual(data["results"][1]["uuid"], doc2["uuid"])
-        self.assertEqual(data["results"][2]["uuid"], doc1["uuid"])
+        self.assertEqual(data["results"][0]["data"]["uuid"], doc3["uuid"])
+        self.assertEqual(data["results"][1]["data"]["uuid"], doc2["uuid"])
+        self.assertEqual(data["results"][2]["data"]["uuid"], doc1["uuid"])
 
         # test if results have the same length as the count
         self.assertEqual(len(data["results"]), 3)
@@ -119,7 +119,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         data = response.json()
 
         self.assertEqual(len(data["results"]), 1)
-        hit = data["results"][0]
+        hit = data["results"][0]["data"]
         self.assertEqual(hit["uuid"], doc1["uuid"])
         self.assertEqual(hit["titel"], doc1["titel"])
         self.assertEqual(hit["identificatie"], doc1["identificatie"])
@@ -165,7 +165,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
         # Check the priority according to field boosts
         # Boost priority:
         # identificatie > titel > beschrijving > document_data.attachment.content > url
-        uuids = [value["uuid"] for value in data["results"]]
+        uuids = [value["data"]["uuid"] for value in data["results"]]
         self.assertIn("3916925a-4260-4505-bfbb-0942113efd49", uuids)
         self.assertIn("d49bc304-01a1-4eda-a914-a8dda5c901e2", uuids)
         self.assertIn("bdcc4cea-b186-425e-8dcd-9fecb6818563", uuids)
@@ -198,7 +198,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
 
         self.assertEqual(data["count"], 1)
         self.assertEqual(
-            data["results"][0]["uuid"], "da45268a-ab21-4a81-bfc4-b0430edf339b"
+            data["results"][0]["data"]["uuid"], "da45268a-ab21-4a81-bfc4-b0430edf339b"
         )
 
     def test_broken_query_string_syntax(self):
@@ -250,7 +250,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(len(data["results"]), 1)
             # Document one
             self.assertEqual(
-                data["results"][0]["uuid"],
+                data["results"][0]["data"]["uuid"],
                 "d6eacab4-cb9f-42f7-abdf-719b358da923",
             )
 
@@ -262,7 +262,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
 
             self.assertEqual(len(data["results"]), 2)
-            uuids = {result["uuid"] for result in data["results"]}
+            uuids = {result["data"]["uuid"] for result in data["results"]}
             self.assertEqual(
                 uuids,
                 {
@@ -294,7 +294,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(len(data["results"]), 1)
             self.assertEqual(
-                data["results"][0]["uuid"],
+                data["results"][0]["data"]["uuid"],
                 "d6eacab4-cb9f-42f7-abdf-719b358da923",
             )
 
@@ -305,7 +305,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(len(data["results"]), 1)
             self.assertEqual(
-                data["results"][0]["uuid"],
+                data["results"][0]["data"]["uuid"],
                 "d6eacab4-cb9f-42f7-abdf-719b358da923",
             )
 
@@ -315,7 +315,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             data = response.json()
             self.assertEqual(len(data["results"]), 2)
-            uuids = {result["uuid"] for result in data["results"]}
+            uuids = {result["data"]["uuid"] for result in data["results"]}
             self.assertEqual(
                 uuids,
                 {
@@ -330,7 +330,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             data = response.json()
             self.assertEqual(len(data["results"]), 2)
-            uuids = {result["uuid"] for result in data["results"]}
+            uuids = {result["data"]["uuid"] for result in data["results"]}
             self.assertEqual(
                 uuids,
                 {
@@ -346,7 +346,7 @@ class SearchApiTest(VCRMixin, ElasticSearchAPITestCase):
             self.assertEqual(response.status_code, status.HTTP_200_OK)
             data = response.json()
             self.assertEqual(len(data["results"]), 2)
-            uuids = {result["uuid"] for result in data["results"]}
+            uuids = {result["data"]["uuid"] for result in data["results"]}
             self.assertEqual(
                 uuids,
                 {
@@ -389,7 +389,7 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
                 "6aac4fb2-d532-490b-bd6b-87b0257c0236",
                 "ef1dead2-e0f8-45be-acf7-3583adc14906",
             }
-            ids = set(result["uuid"] for result in data["results"])
+            ids = set(result["data"]["uuid"] for result in data["results"])
             self.assertEqual(ids, expected_ids)
 
         with self.subTest(
@@ -403,7 +403,7 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(data["count"], 1)
             expected_ids = {"62fceb92-98bd-475c-b184-49ee8a274787"}
-            ids = set(result["uuid"] for result in data["results"])
+            ids = set(result["data"]["uuid"] for result in data["results"])
             self.assertEqual(ids, expected_ids)
 
         with self.subTest(
@@ -421,7 +421,7 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(data["count"], 1)
             expected_ids = {"6aac4fb2-d532-490b-bd6b-87b0257c0236"}
-            ids = set(result["uuid"] for result in data["results"])
+            ids = set(result["data"]["uuid"] for result in data["results"])
             self.assertEqual(ids, expected_ids)
 
     def test_dutch_analyzer(self):
@@ -506,11 +506,12 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(data["count"], 1)
             self.assertEqual(
-                data["results"][0]["uuid"], "12fceb92-98bd-475c-b184-49ee8a274787"
+                data["results"][0]["data"]["uuid"],
+                "12fceb92-98bd-475c-b184-49ee8a274787",
             )
 
         with self.subTest("Ensure nested zaak_referenties is returned correctly"):
-            zaak_refs = data["results"][0].get("zaakReferenties", [])
+            zaak_refs = data["results"][0]["data"].get("zaakReferenties", [])
             self.assertTrue(zaak_refs, "zaakReferenties should not be empty")
             self.assertEqual(
                 zaak_refs[0]["uuid"], "62fceb92-98bd-475c-b184-49ee8a274787"
@@ -525,7 +526,8 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(data["count"], 1)
             self.assertEqual(
-                data["results"][0]["uuid"], "12fceb92-98bd-475c-b184-49ee8a274787"
+                data["results"][0]["data"]["uuid"],
+                "12fceb92-98bd-475c-b184-49ee8a274787",
             )
 
         with self.subTest("Query by nested field 'toelichting'"):
@@ -534,7 +536,8 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             data = response.json()
             self.assertEqual(data["count"], 1)
             self.assertEqual(
-                data["results"][0]["uuid"], "12fceb92-98bd-475c-b184-49ee8a274787"
+                data["results"][0]["data"]["uuid"],
+                "12fceb92-98bd-475c-b184-49ee8a274787",
             )
 
     def test_nested_zaak_query_boosts_and_operators(self):
@@ -566,21 +569,21 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             response = self.client.post(self.url, {"query": "ZA-BOOST-1"})
             data = response.json()
             self.assertEqual(data["count"], 1)
-            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+            self.assertEqual(data["results"][0]["data"]["uuid"], doc["uuid"])
 
         # Search by nested 'omschrijving'
         with self.subTest("Query nested omschrijving with boost"):
             response = self.client.post(self.url, {"query": "Important nested zaak"})
             data = response.json()
             self.assertEqual(data["count"], 1)
-            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+            self.assertEqual(data["results"][0]["data"]["uuid"], doc["uuid"])
 
         # Search by nested 'toelichting'
         with self.subTest("Query nested toelichting"):
             response = self.client.post(self.url, {"query": "Extra nested info"})
             data = response.json()
             self.assertEqual(data["count"], 1)
-            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+            self.assertEqual(data["results"][0]["data"]["uuid"], doc["uuid"])
 
         # Boolean operator AND inside nested field
         with self.subTest("Boolean AND in nested field"):
@@ -589,21 +592,21 @@ class SearchApiFilterTests(VCRMixin, ElasticSearchAPITestCase):
             )
             data = response.json()
             self.assertEqual(data["count"], 1)
-            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+            self.assertEqual(data["results"][0]["data"]["uuid"], doc["uuid"])
 
         # Boolean operator OR inside nested field
         with self.subTest("Boolean OR in nested field"):
             response = self.client.post(self.url, {"query": "zaak OR nonmatch"})
             data = response.json()
             self.assertEqual(data["count"], 1)
-            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+            self.assertEqual(data["results"][0]["data"]["uuid"], doc["uuid"])
 
         # Exact phrase search
         with self.subTest("Exact phrase search in nested field"):
             response = self.client.post(self.url, {"query": '"Important nested zaak"'})
             data = response.json()
             self.assertEqual(data["count"], 1)
-            self.assertEqual(data["results"][0]["uuid"], doc["uuid"])
+            self.assertEqual(data["results"][0]["data"]["uuid"], doc["uuid"])
 
 
 class SearchLastDocumentCreatiedatumTests(VCRMixin, ElasticSearchAPITestCase):
@@ -630,3 +633,157 @@ class SearchLastDocumentCreatiedatumTests(VCRMixin, ElasticSearchAPITestCase):
             result = client.get_last_document_creatiedatum()
 
         self.assertEqual(result, "")
+
+
+class SearchZaakDocumentTests(VCRMixin, ElasticSearchAPITestCase):
+    url = reverse("api:search")
+
+    def test_returns_mixed_document_and_zaak(self):
+        doc = IndexDocumentFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787",
+            titel="Document match",
+        )
+        zaak = IndexZaakFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="Zaak match",
+        )
+
+        self.index_document(doc)
+        self.index_zaak(zaak)
+
+        response = self.client.post(self.url, {"query": "match"})
+        self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+
+        self.assertEqual(data["count"], 2)
+
+        types = {result["type"] for result in data["results"]}
+        self.assertEqual(types, {"document", "zaak"})
+
+    def test_returns_only_documents(self):
+        doc1 = IndexDocumentFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787", titel="Alpha Document"
+        )
+        doc2 = IndexDocumentFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787", titel="Beta Document"
+        )
+        zaak = IndexZaakFactory.build(
+            uuid="14fceb92-98bd-475c-b184-49ee8a274787", omschrijving="Gamma Zaak"
+        )
+
+        self.index_document(doc1)
+        self.index_document(doc2)
+        self.index_zaak(zaak)
+
+        response = self.client.post(self.url, {"query": "Document"})
+        self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+        self.assertEqual(data["count"], 2)
+
+        types = {result["type"] for result in data["results"]}
+        self.assertEqual(types, {"document"})
+
+    def test_returns_only_zaken(self):
+        zaak1 = IndexZaakFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787", omschrijving="Finance Zaak"
+        )
+        zaak2 = IndexZaakFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787", omschrijving="HR Zaak"
+        )
+        doc = IndexDocumentFactory.build(
+            uuid="14fceb92-98bd-475c-b184-49ee8a274787", titel="Marketing Document"
+        )
+
+        self.index_zaak(zaak1)
+        self.index_zaak(zaak2)
+        self.index_document(doc)
+
+        response = self.client.post(self.url, {"query": "Zaak"})
+        self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+        self.assertEqual(data["count"], 2)
+
+        types = {result["type"] for result in data["results"]}
+        self.assertEqual(types, {"zaak"})
+
+    def test_pagination_mixed_results(self):
+        doc1 = IndexDocumentFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787", titel="Doc 1"
+        )
+        doc2 = IndexDocumentFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787", titel="Doc 2"
+        )
+        zaak1 = IndexZaakFactory.build(
+            uuid="14fceb92-98bd-475c-b184-49ee8a274787", omschrijving="Zaak 1"
+        )
+        zaak2 = IndexZaakFactory.build(
+            uuid="15fceb92-98bd-475c-b184-49ee8a274787", omschrijving="Zaak 2"
+        )
+
+        self.index_document(doc1)
+        self.index_document(doc2)
+        self.index_zaak(zaak1)
+        self.index_zaak(zaak2)
+
+        response = self.client.post(self.url, {"query": "1", "page": 1, "pageSize": 2})
+        self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+        self.assertEqual(len(data["results"]), 2)
+
+    def test_handles_empty_query(self):
+        doc = IndexDocumentFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787", titel="Any Document"
+        )
+        zaak = IndexZaakFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787", omschrijving="Any Zaak"
+        )
+
+        self.index_document(doc)
+        self.index_zaak(zaak)
+
+        response = self.client.post(self.url, {"query": ""})
+        self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+        self.assertEqual(data["count"], 2)
+        types = {result["type"] for result in data["results"]}
+        self.assertEqual(types, {"document", "zaak"})
+
+    def test_nested_zaak_referenties_returned_correctly(self):
+        doc = IndexDocumentFactory.build(
+            uuid="doc-100",
+            titel="Document with zaak",
+            zaak_referenties=[
+                {
+                    "url": "http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787",
+                    "uuid": "11111111-2222-3333-4444-555555555555",
+                    "identificatie": "ZA-BOOST-1",
+                    "omschrijving": "Important nested zaak",
+                    "toelichting": "Extra nested info",
+                    "status": "open",
+                    "registratiedatum": date(2026, 1, 1),
+                    "startdatum": date(2024, 1, 1),
+                    "zaaktype": "http://example.com/zaaktype/boost",
+                    "object_type": "zaak",
+                    "bronorganisatie": "org1",
+                    "verantwoordelijkeOrganisatie": "org1",
+                }
+            ],
+        )
+        self.index_document(doc)
+
+        response = self.client.post(self.url, {"query": "ZA-BOOST-1"})
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual(data["count"], 1)
+
+        zaak_refs = data["results"][0]["data"].get("zaakReferenties", [])
+        self.assertTrue(zaak_refs)
+        self.assertEqual(zaak_refs[0]["uuid"], "11111111-2222-3333-4444-555555555555")
+        self.assertEqual(zaak_refs[0]["identificatie"], "ZA-BOOST-1")
+        self.assertEqual(zaak_refs[0]["omschrijving"], "Important nested zaak")
+        self.assertEqual(zaak_refs[0]["toelichting"], "Extra nested info")

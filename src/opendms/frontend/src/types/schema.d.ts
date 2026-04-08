@@ -374,6 +374,11 @@ export interface components {
              */
             inhoud: string;
             zaakReferenties?: components["schemas"]["Zaak"][];
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            type: "document";
         };
         /** @description Formaat van validatiefouten. */
         FieldValidationError: {
@@ -460,6 +465,15 @@ export interface components {
              */
             creatiedatumTotEnMet?: string | null;
         };
+        SearchResponse: {
+            count: number;
+            results: components["schemas"]["SearchResult"][];
+        };
+        SearchResult: {
+            type: components["schemas"]["TypeEnum"];
+            readonly data: Omit<components["schemas"]["SearchResultData"], "type">;
+        };
+        SearchResultData: components["schemas"]["ESDocument"] | components["schemas"]["Zaak"];
         Service: {
             /**
              * Service slug
@@ -470,6 +484,8 @@ export interface components {
         };
         /** @enum {string} */
         SortEnum: "relevance" | "chronological";
+        /** @enum {string} */
+        TypeEnum: "document" | "zaak";
         User: {
             /** ID */
             readonly pk: number;
@@ -536,6 +552,11 @@ export interface components {
             omschrijving: string;
             /** @description Een toelichting op de zaak. */
             toelichting: string;
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            type: "zaak";
         };
         ZaakType: {
             /**
@@ -683,7 +704,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ESDocument"][];
+                    "application/json": components["schemas"]["SearchResponse"][];
                 };
             };
         };
