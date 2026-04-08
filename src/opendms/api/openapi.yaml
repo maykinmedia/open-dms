@@ -724,6 +724,60 @@ components:
       - titel
       - url
       - uuid
+    ESZaak:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+          description: UUID van dit object. Dit is de unieke identificatiecode van
+            dit object.
+        url:
+          type: string
+          format: uri
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+        identificatie:
+          type: string
+          description: De unieke identificatie van de ZAAK binnen de organisatie die
+            verantwoordelijk is voor de behandeling van de ZAAK.
+        zaaktype:
+          type: string
+          description: URL-referentie naar het ZAAKTYPE (in de Catalogi API).
+        bronorganisatie:
+          type: string
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die de zaak heeft gecreeerd.
+        verantwoordelijkeOrganisatie:
+          type: string
+          description: Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie
+            die eindverantwoordelijk is voor de behandeling van de zaak.
+        registratiedatum:
+          type: string
+          format: date
+          description: De datum waarop de zaakbehandelende organisatie de ZAAK heeft
+            geregistreerd
+        startdatum:
+          type: string
+          format: date
+          description: De datum waarop met de uitvoering van de zaak is gestart.
+        omschrijving:
+          type: string
+          description: Een korte omschrijving van de zaak.
+        toelichting:
+          type: string
+          description: Een toelichting op de zaak.
+      required:
+      - bronorganisatie
+      - identificatie
+      - omschrijving
+      - registratiedatum
+      - startdatum
+      - toelichting
+      - url
+      - uuid
+      - verantwoordelijkeOrganisatie
+      - zaaktype
     FieldValidationError:
       type: object
       description: Formaat van validatiefouten.
@@ -862,12 +916,12 @@ components:
     SearchResultData:
       oneOf:
       - $ref: '#/components/schemas/ESDocument'
-      - $ref: '#/components/schemas/Zaak'
+      - $ref: '#/components/schemas/ESZaak'
       discriminator:
         propertyName: type
         mapping:
           document: '#/components/schemas/ESDocument'
-          zaak: '#/components/schemas/Zaak'
+          zaak: '#/components/schemas/ESZaak'
     Service:
       type: object
       properties:
