@@ -465,17 +465,25 @@ export interface components {
         };
         Search: {
             /**
-             * @description Filtering records based on the provided search term. This search is applied to the following fields:
+             * @description Filtering records based on the provided search term. The search is performed across both Documents and Zaken index.This search is applied to the following fields:
              *
+             *     **Documents:**
              *     - `identificatie`
              *     - `titel`
              *     - `bronorganisatie`
              *     - `beschrijving`
              *     - `document_data.attachment.content`
+             *
              *     - `zaak_referenties.identificatie`
              *     - `zaak_referenties.omschrijving`
              *     - `zaak_referenties.toelichting`
              *     - `zaak_referenties.status`
+             *
+             *     **Zaken:**
+             *     - `identificatie`
+             *     - `omschrijving`
+             *     - `toelichting`
+             *     - `status`
              *
              *     You can use double quotes for exact matches and `AND`/`OR` syntax for complex queries.
              * @default
