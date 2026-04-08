@@ -270,7 +270,7 @@ CELERY_BEAT_SCHEDULE = {
     },
     "update_zaken_hourly": {
         "task": "opendms.search_index.zaak_task.index_all_zaken",
-        "schedule": crontab(minute=30),
+        "schedule": crontab(minute=5),
     },
 }
 

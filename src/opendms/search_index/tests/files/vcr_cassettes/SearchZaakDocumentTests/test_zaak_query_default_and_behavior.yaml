@@ -1,0 +1,100 @@
+interactions:
+- request:
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://chambers.com/","identificatie":"611853f9-10ec-4de3-b36c-a1dc2ef64b27","bronorganisatie":"Allen,
+      Curry and Wilson","verantwoordelijkeOrganisatie":"Combs Group","omschrijving":"alpha
+      beta","toelichting":"Peace city ready meeting less. Seven finish wall interesting.","status":"side","registratiedatum":"2026-03-14","startdatum":"2026-03-16","zaaktype":"case","creatiedatum":"2026-03-14"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.scott.com/","identificatie":"2335d54d-e062-474c-8535-0c43c649a97a","bronorganisatie":"Murray,
+      Green and Richardson","verantwoordelijkeOrganisatie":"Cordova Group","omschrijving":"alpha","toelichting":"New
+      fish rule camera part. Respond walk condition brother again film. At child security
+      project professor. Growth this course work top unit.","status":"activity","registratiedatum":"2026-04-05","startdatum":"2026-03-27","zaaktype":"each","creatiedatum":"2026-04-05"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":5,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"alpha
+      beta","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"alpha
+      beta","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"alpha
+      beta","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document,zaak/_search
+  response:
+    body:
+      string: '{"took":4,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.6875055,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://chambers.com/","identificatie":"611853f9-10ec-4de3-b36c-a1dc2ef64b27","bronorganisatie":"Allen,
+        Curry and Wilson","verantwoordelijkeOrganisatie":"Combs Group","omschrijving":"alpha
+        beta","toelichting":"Peace city ready meeting less. Seven finish wall interesting.","status":"side","registratiedatum":"2026-03-14","startdatum":"2026-03-16","zaaktype":"case","creatiedatum":"2026-03-14"},"sort":[0.6875055,1773446400000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

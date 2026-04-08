@@ -369,7 +369,6 @@ class ElasticSearchClient:
             return False
 
     def index_zaken(self, zaak: Zaak) -> None:
-        # TODO check if create or raise error ?
         zaak.save(
             id=str(zaak.uuid),
             using=self.client,

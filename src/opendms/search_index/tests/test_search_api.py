@@ -787,3 +787,168 @@ class SearchZaakDocumentTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(zaak_refs[0]["identificatie"], "ZA-BOOST-1")
         self.assertEqual(zaak_refs[0]["omschrijving"], "Important nested zaak")
         self.assertEqual(zaak_refs[0]["toelichting"], "Extra nested info")
+
+    def test_zaak_query_fields(self):
+        zaak = IndexZaakFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787",
+            identificatie="ZAAK-IDENT",
+            omschrijving="Unieke omschrijving",
+            toelichting="Extra toelichting tekst",
+            status="open",
+        )
+        self.index_zaak(zaak)
+
+        with self.subTest("identificatie"):
+            response = self.client.post(self.url, {"query": "ZAAK-IDENT"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(data["results"][0]["data"]["uuid"], zaak["uuid"])
+
+        with self.subTest("omschrijving"):
+            response = self.client.post(self.url, {"query": "Unieke omschrijving"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+
+        with self.subTest("toelichting"):
+            response = self.client.post(self.url, {"query": "Extra toelichting"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+
+        with self.subTest("status"):
+            response = self.client.post(self.url, {"query": "open"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+
+    def test_zaak_query_default_and_behavior(self):
+        zaak1 = IndexZaakFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="alpha beta",
+        )
+        zaak2 = IndexZaakFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="alpha",
+        )
+
+        self.index_zaak(zaak1)
+        self.index_zaak(zaak2)
+
+        response = self.client.post(self.url, {"query": "alpha beta"})
+        self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+
+        self.assertEqual(data["count"], 1)
+        self.assertEqual(
+            data["results"][0]["data"]["uuid"], "12fceb92-98bd-475c-b184-49ee8a274787"
+        )
+
+    def test_zaak_query_exact_match(self):
+        zaak1 = IndexZaakFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="exact phrase match",
+        )
+        zaak2 = IndexZaakFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="exact phrase something else",
+        )
+
+        self.index_zaak(zaak1)
+        self.index_zaak(zaak2)
+
+        with self.subTest("exact match"):
+            response = self.client.post(self.url, {"query": '"exact phrase match"'})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(
+                data["results"][0]["data"]["uuid"],
+                "12fceb92-98bd-475c-b184-49ee8a274787",
+            )
+
+        with self.subTest("non exact"):
+            response = self.client.post(self.url, {"query": "exact phrase"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 2)
+
+    def test_zaak_query_boolean_operators(self):
+        zaak1 = IndexZaakFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="alpha one",
+        )
+        zaak2 = IndexZaakFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="beta two",
+        )
+
+        self.index_zaak(zaak1)
+        self.index_zaak(zaak2)
+
+        with self.subTest("AND"):
+            response = self.client.post(self.url, {"query": "alpha AND one"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 1)
+            self.assertEqual(
+                data["results"][0]["data"]["uuid"],
+                "12fceb92-98bd-475c-b184-49ee8a274787",
+            )
+
+        with self.subTest("OR"):
+            response = self.client.post(self.url, {"query": "one OR two"})
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+            self.assertEqual(data["count"], 2)
+
+    def test_zaak_recency_boosting(self):
+        old = IndexZaakFactory.build(
+            uuid="12fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="test omschrijving",
+            registratiedatum=date(2024, 1, 1),
+        )
+        new = IndexZaakFactory.build(
+            uuid="13fceb92-98bd-475c-b184-49ee8a274787",
+            omschrijving="test omschrijving",
+            registratiedatum=date(2026, 1, 1),
+        )
+
+        self.index_zaak(old)
+        self.index_zaak(new)
+
+        response = self.client.post(self.url, {"query": "test omschrijving"})
+        self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+
+        self.assertEqual(data["count"], 2)
+        self.assertEqual(
+            data["results"][0]["data"]["uuid"], "13fceb92-98bd-475c-b184-49ee8a274787"
+        )
+
+    def test_zaak_vs_document_relevance(self):
+        doc = IndexDocumentFactory.build(
+            uuid="doc-1",
+            titel="commonterm",
+        )
+        zaak = IndexZaakFactory.build(
+            uuid="zaak-1",
+            identificatie="commonterm",
+        )
+
+        self.index_document(doc)
+        self.index_zaak(zaak)
+
+        response = self.client.post(self.url, {"query": "commonterm"})
+        self.assertEqual(response.status_code, 200)
+
+        data = response.json()
+
+        self.assertEqual(data["count"], 2)
+
+        # Zaak should rank higher due to identificatie boost
+        self.assertEqual(data["results"][0]["type"], "zaak")
+        self.assertEqual(data["results"][0]["data"]["uuid"], "zaak-1")
