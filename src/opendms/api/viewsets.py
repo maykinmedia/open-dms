@@ -21,7 +21,8 @@ from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_clie
 from .models import ZGWApiGroupConfig
 from .serializers import (
     DocumentSerializer,
-    ESDocumentSerializer,
+    SearchResponseSerializer,
+    SearchResultSerializer,
     SearchSerializer,
     ServiceSerializer,
     ZaakSerializer,
@@ -30,8 +31,6 @@ from .serializers import (
 from .typing import (
     DocumentsPaginatedResponse,
     DocumentType,
-    ESDocumentsPaginatedResponse,
-    ESDocumentType,
     PaginatedResponse,
     SearchParameters,
     Zaak,
@@ -65,29 +64,30 @@ class SearchView(APIView):
         operation_id="search",
         description=_("Search the document records."),
         request=SearchSerializer,
-        responses=ESDocumentSerializer(many=True),
+        responses=SearchResponseSerializer(many=True),
     )
-    def post(self, request, *args, **kwargs) -> ESDocumentsPaginatedResponse:
+    def post(self, request, *args, **kwargs):
         query_serializer = SearchSerializer(data=request.data)
         query_serializer.is_valid(raise_exception=True)
         params: SearchParameters = query_serializer.validated_data
 
-        # TODO check if params are required or not
-        # TODO add test for the params
         with get_elasticsearch_client() as client:
             search_results = client.get_search_results(
                 query=params["query"],
-                creatiedatum_from=params["creatiedatum_vanaf"],
-                creatiedatum_to=params["creatiedatum_tot_en_met"],
+                creatiedatum_from=params.get("creatiedatum_vanaf"),
+                creatiedatum_to=params.get("creatiedatum_tot_en_met"),
                 page=params["page"],
                 page_size=params["page_size"],
                 sort=params["sort"],
             )
 
-        results = [ESDocumentType(**record) for record in search_results.results]
-        serializer = ESDocumentSerializer(results, many=True)
+        serializer = SearchResultSerializer(search_results.results, many=True)
+
         return Response(
-            PaginatedResponse(count=search_results.total_count, results=serializer.data)
+            PaginatedResponse(
+                count=search_results.total_count,
+                results=serializer.data,
+            )
         )
 
 

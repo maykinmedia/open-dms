@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,13 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://norman.com/","identificatie":"a89eaed5-5a31-4994-adbf-ce9f2b525f77","bronorganisatie":"Dorsey,
-      Smith and Allen","titel":"Well large because everybody relate.","beschrijving":"Book
-      woman start and per work. White model although generation light. Citizen show
-      cause another list.","auteur":"Matthew Hodge","taal":"cmn","vertrouwelijkheidaanduiding":"sea","status":"I","formaat":"css","bestandsnaam":"them.flac","informatieobjecttype":"hotel","verschijningsvorm":"serve","bestandsomvang":1000000,"link":"https://johnson.info/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-29T06:16:49.249757","zaak_referenties":[{"uuid":"13bafd5b-fc1d-48a6-9f79-2758bfeb4911","url":"http://www.rodriguez-harris.org/","identificatie":"1bc91122-5588-4133-9859-acbf290a428e","bronorganisatie":"Ortiz-White","verantwoordelijkeOrganisatie":"Davis-Garcia","omschrijving":"Smile
-      serve college way impact under movie.","toelichting":"Almost his kid could expert
-      recently dinner window. Charge yard front mother sport. Sign often floor eight
-      range.","status":"grow","registratiedatum":"2026-03-23","startdatum":"2026-03-25","zaaktype":"order","object_type":"high"}]}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://bell-esparza.com/","identificatie":"1a04f540-019a-44ac-ad89-de9d510c45e8","bronorganisatie":"Sims-Cruz","titel":"Leader
+      pay consumer cut life behavior report.","beschrijving":"Fish senior capital
+      change leader. Space thus traditional seem senior.","auteur":"Jonathan Flores","taal":"wal","vertrouwelijkheidaanduiding":"quality","status":"traditional","formaat":"mov","bestandsnaam":"wide.json","informatieobjecttype":"table","verschijningsvorm":"feel","bestandsomvang":1000000,"link":"http://www.jennings.biz/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-14T02:07:27.963547","zaak_referenties":[{"uuid":"daee28f8-ea20-49ee-b105-4c64c599814e","url":"https://green.com/","identificatie":"de6f60ed-c620-483a-89a8-2517ab7d5213","bronorganisatie":"Lewis
+      Inc","verantwoordelijkeOrganisatie":"Tate, Cervantes and Mosley","omschrijving":"Use
+      break result threat blue represent win culture.","toelichting":"Former early
+      claim TV. Ahead culture event travel candidate she blue. Still baby put true
+      south.","status":"will","registratiedatum":"2026-03-11","startdatum":"2026-03-27","zaaktype":"create","object_type":"top"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -156,7 +156,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -168,7 +168,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -196,13 +196,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://green.com/","identificatie":"0649bda3-db75-40b6-ba8d-4b1d978f73b2","bronorganisatie":"Fields,
-      Brown and Rodriguez","titel":"Position sister long whole daughter.","beschrijving":"Traditional
-      husband hope its enter none evidence. Skin develop try create eight blood third.","auteur":"Jeremy
-      Khan","taal":"hr","vertrouwelijkheidaanduiding":"nature","status":"call","formaat":"mov","bestandsnaam":"despite.bmp","informatieobjecttype":"notice","verschijningsvorm":"peace","bestandsomvang":1000000,"link":"http://mata-reyes.org/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-19T17:10:50.283230","zaak_referenties":[{"uuid":"f98825fb-cff7-4db8-8832-352b06e0e226","url":"https://www.pruitt.info/","identificatie":"15531f66-ca76-4ffa-bb2e-8de9d3395114","bronorganisatie":"Porter,
-      Hall and Jordan","verantwoordelijkeOrganisatie":"Schaefer Inc","omschrijving":"Heart
-      southern water whom seven yard.","toelichting":"Thing idea case debate despite
-      action simply. Girl above Congress baby.","status":"magazine","registratiedatum":"2026-03-16","startdatum":"2026-03-11","zaaktype":"though","object_type":"art"}]}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://hernandez.org/","identificatie":"310c0398-26c3-4a0f-b6ba-11da96879e95","bronorganisatie":"Rivera-Elliott","titel":"Fly
+      everyone matter situation recently our station future.","beschrijving":"Wear
+      blood medical evening kind operation blood. Ready pick daughter husband myself
+      else.","auteur":"Jeffrey Ortiz","taal":"xh","vertrouwelijkheidaanduiding":"it","status":"no","formaat":"png","bestandsnaam":"production.numbers","informatieobjecttype":"themselves","verschijningsvorm":"work","bestandsomvang":1000000,"link":"https://www.cox.biz/","creatiedatum":"2026-02-01","begin_registratie":"2026-04-06T18:25:26.628887","zaak_referenties":[{"uuid":"49b2e265-b8ff-4518-9b53-aa1c970181df","url":"https://woods.com/","identificatie":"c030c95c-cf68-4535-af45-6caad15ee52b","bronorganisatie":"Nelson,
+      Miller and Harris","verantwoordelijkeOrganisatie":"Tran, Smith and Martin","omschrijving":"Cold
+      this gas fall.","toelichting":"Easy accept down can discover. Alone issue suddenly
+      event dinner. Whatever stay the think have.","status":"first","registratiedatum":"2026-04-05","startdatum":"2026-03-10","zaaktype":"us","object_type":"catch"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -245,17 +245,16 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.8236673E-10,"_source":{"beschrijving":"Book
-        woman start and per work. White model although generation light. Citizen show
-        cause another list.","verschijningsvorm":"serve","begin_registratie":"2026-03-29T06:16:49.249757","identificatie":"a89eaed5-5a31-4994-adbf-ce9f2b525f77","bronorganisatie":"Dorsey,
-        Smith and Allen","bestandsomvang":1000000,"link":"https://johnson.info/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://norman.com/","taal":"cmn","zaak_referenties":[{"omschrijving":"Smile
-        serve college way impact under movie.","identificatie":"1bc91122-5588-4133-9859-acbf290a428e","startdatum":"2026-03-25","object_type":"high","bronorganisatie":"Ortiz-White","zaaktype":"order","registratiedatum":"2026-03-23","uuid":"13bafd5b-fc1d-48a6-9f79-2758bfeb4911","url":"http://www.rodriguez-harris.org/","verantwoordelijkeOrganisatie":"Davis-Garcia","toelichting":"Almost
-        his kid could expert recently dinner window. Charge yard front mother sport.
-        Sign often floor eight range.","status":"grow"}],"auteur":"Matthew Hodge","formaat":"css","titel":"Well
-        large because everybody relate.","vertrouwelijkheidaanduiding":"sea","informatieobjecttype":"hotel","bestandsnaam":"them.flac","creatiedatum":"2026-01-01","status":"I"},"sort":[1.8236673E-10,1767225600000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.1792496E-11,"_source":{"beschrijving":"Fish
+        senior capital change leader. Space thus traditional seem senior.","verschijningsvorm":"feel","begin_registratie":"2026-03-14T02:07:27.963547","identificatie":"1a04f540-019a-44ac-ad89-de9d510c45e8","bronorganisatie":"Sims-Cruz","bestandsomvang":1000000,"link":"http://www.jennings.biz/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://bell-esparza.com/","taal":"wal","zaak_referenties":[{"omschrijving":"Use
+        break result threat blue represent win culture.","identificatie":"de6f60ed-c620-483a-89a8-2517ab7d5213","startdatum":"2026-03-27","object_type":"top","bronorganisatie":"Lewis
+        Inc","zaaktype":"create","registratiedatum":"2026-03-11","uuid":"daee28f8-ea20-49ee-b105-4c64c599814e","url":"https://green.com/","verantwoordelijkeOrganisatie":"Tate,
+        Cervantes and Mosley","toelichting":"Former early claim TV. Ahead culture
+        event travel candidate she blue. Still baby put true south.","status":"will"}],"auteur":"Jonathan
+        Flores","formaat":"mov","titel":"Leader pay consumer cut life behavior report.","vertrouwelijkheidaanduiding":"quality","informatieobjecttype":"table","bestandsnaam":"wide.json","creatiedatum":"2026-01-01","status":"traditional"},"sort":[1.1792496E-11,1767225600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

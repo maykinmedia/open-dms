@@ -109,11 +109,23 @@ class Zaak(ES_Document):
     startdatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
     zaaktype: M[str] = mapped_field(Keyword(required=True))
 
+    creatiedatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
+
     class Index:
         name: IndexName = "zaak"
+
+    def save(self, **kwargs):
+        self.creatiedatum = self.registratiedatum
+        return super().save(**kwargs)
 
 
 @dataclass
 class DocumentResults:
     total_count: int
     results: Sequence[Document]
+
+
+@dataclass
+class Results:
+    total_count: int
+    results: Sequence[Document | Zaak]

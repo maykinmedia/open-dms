@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775210383129","number_of_replicas":"1","uuid":"39DmBXOLQmy8-5ZMLLBLSw","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639080735","number_of_replicas":"1","uuid":"SHgOOt89TxaXI4-bYG6uWQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"zaaktype":{"type":"keyword"},"url":{"type":"keyword"},"bronorganisatie":{"type":"keyword"}},"type":"nested"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,9 +80,9 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
-      Group","titel":"Document with nested zaak","beschrijving":"Contains zaak info","auteur":"Katie
-      Smith","taal":"pl","vertrouwelijkheidaanduiding":"go","status":"organization","formaat":"tiff","bestandsnaam":"risk.css","informatieobjecttype":"rate","verschijningsvorm":"common","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","creatiedatum":"2026-03-07","begin_registratie":"2026-03-10T11:26:15.309456","zaak_referenties":[{"url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","uuid":"11111111-2222-3333-4444-555555555555","identificatie":"ZA-BOOST-1","omschrijving":"Important
+    body: '{"uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.gomez.info/","identificatie":"a37a505f-3388-4c0b-9fea-b5f55584292d","bronorganisatie":"Johnson
+      Group","titel":"Document with nested zaak","beschrijving":"Contains zaak info","auteur":"John
+      Romero","taal":"fy","vertrouwelijkheidaanduiding":"design","status":"campaign","formaat":"webm","bestandsnaam":"life.mov","informatieobjecttype":"build","verschijningsvorm":"cold","bestandsomvang":1000000,"link":"http://www.hall.com/","creatiedatum":"2026-04-03","begin_registratie":"2026-04-04T07:35:42.798636","zaak_referenties":[{"url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","uuid":"11111111-2222-3333-4444-555555555555","identificatie":"ZA-BOOST-1","omschrijving":"Important
       nested zaak","toelichting":"Extra nested info","status":"open","registratiedatum":"2026-01-01","startdatum":"2024-01-01","zaaktype":"http://example.com/zaaktype/boost","object_type":"zaak","bronorganisatie":"org1","verantwoordelijkeOrganisatie":"org1"}]}'
     headers:
       accept:
@@ -99,7 +99,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/99999999-aaaa-bbbb-cccc-000000000001?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+      string: '{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":8,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/99999999-aaaa-bbbb-cccc-000000000001
@@ -113,7 +113,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"ZA-BOOST-1","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"ZA-BOOST-1","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"ZA-BOOST-1","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"ZA-BOOST-1","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"ZA-BOOST-1","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -126,15 +126,15 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.238973,"_source":{"beschrijving":"Contains
-        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
-        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":4.158883,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"cold","begin_registratie":"2026-04-04T07:35:42.798636","identificatie":"a37a505f-3388-4c0b-9fea-b5f55584292d","bronorganisatie":"Johnson
+        Group","bestandsomvang":1000000,"link":"http://www.hall.com/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.gomez.info/","taal":"fy","zaak_referenties":[{"omschrijving":"Important
         nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
-        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.238973,1772841600000]}]}}'
+        nested info","status":"open"}],"auteur":"John Romero","formaat":"webm","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"design","informatieobjecttype":"build","bestandsnaam":"life.mov","creatiedatum":"2026-04-03","status":"campaign"},"sort":[4.158883,1775174400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -148,7 +148,8 @@ interactions:
 - request:
     body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"Important
       nested zaak","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"Important
-      nested zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+      nested zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"Important
+      nested zaak","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -161,15 +162,15 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.5974325,"_source":{"beschrijving":"Contains
-        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
-        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":13.200446,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"cold","begin_registratie":"2026-04-04T07:35:42.798636","identificatie":"a37a505f-3388-4c0b-9fea-b5f55584292d","bronorganisatie":"Johnson
+        Group","bestandsomvang":1000000,"link":"http://www.hall.com/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.gomez.info/","taal":"fy","zaak_referenties":[{"omschrijving":"Important
         nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
-        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.5974325,1772841600000]}]}}'
+        nested info","status":"open"}],"auteur":"John Romero","formaat":"webm","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"design","informatieobjecttype":"build","bestandsnaam":"life.mov","creatiedatum":"2026-04-03","status":"campaign"},"sort":[13.200446,1775174400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -183,7 +184,8 @@ interactions:
 - request:
     body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"Extra
       nested info","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"Extra
-      nested info","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+      nested info","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"Extra
+      nested info","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -196,15 +198,15 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.5177748,"_source":{"beschrijving":"Contains
-        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
-        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":12.491582,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"cold","begin_registratie":"2026-04-04T07:35:42.798636","identificatie":"a37a505f-3388-4c0b-9fea-b5f55584292d","bronorganisatie":"Johnson
+        Group","bestandsomvang":1000000,"link":"http://www.hall.com/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.gomez.info/","taal":"fy","zaak_referenties":[{"omschrijving":"Important
         nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
-        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.5177748,1772841600000]}]}}'
+        nested info","status":"open"}],"auteur":"John Romero","formaat":"webm","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"design","informatieobjecttype":"build","bestandsnaam":"life.mov","creatiedatum":"2026-04-03","status":"campaign"},"sort":[12.491582,1775174400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -218,7 +220,8 @@ interactions:
 - request:
     body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"\"Important
       nested\" + zaak","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"\"Important
-      nested\" + zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+      nested\" + zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"\"Important
+      nested\" + zaak","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -231,15 +234,15 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.47794598,"_source":{"beschrijving":"Contains
-        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
-        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":10.166159,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"cold","begin_registratie":"2026-04-04T07:35:42.798636","identificatie":"a37a505f-3388-4c0b-9fea-b5f55584292d","bronorganisatie":"Johnson
+        Group","bestandsomvang":1000000,"link":"http://www.hall.com/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.gomez.info/","taal":"fy","zaak_referenties":[{"omschrijving":"Important
         nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
-        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.47794598,1772841600000]}]}}'
+        nested info","status":"open"}],"auteur":"John Romero","formaat":"webm","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"design","informatieobjecttype":"build","bestandsnaam":"life.mov","creatiedatum":"2026-04-03","status":"campaign"},"sort":[10.166159,1775174400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -253,7 +256,8 @@ interactions:
 - request:
     body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"zaak
       | nonmatch","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"zaak
-      | nonmatch","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+      | nonmatch","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"zaak
+      | nonmatch","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -266,15 +270,15 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.41421986,"_source":{"beschrijving":"Contains
-        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
-        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":8.570401,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"cold","begin_registratie":"2026-04-04T07:35:42.798636","identificatie":"a37a505f-3388-4c0b-9fea-b5f55584292d","bronorganisatie":"Johnson
+        Group","bestandsomvang":1000000,"link":"http://www.hall.com/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.gomez.info/","taal":"fy","zaak_referenties":[{"omschrijving":"Important
         nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
-        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.41421986,1772841600000]}]}}'
+        nested info","status":"open"}],"auteur":"John Romero","formaat":"webm","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"design","informatieobjecttype":"build","bestandsnaam":"life.mov","creatiedatum":"2026-04-03","status":"campaign"},"sort":[8.570401,1775174400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -288,7 +292,8 @@ interactions:
 - request:
     body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"\"Important
       nested zaak\"","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"\"Important
-      nested zaak\"","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+      nested zaak\"","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},"ignore_unmapped":true}},{"simple_query_string":{"query":"\"Important
+      nested zaak\"","default_operator":"AND","fields":["identificatie^3","omschrijving^2","toelichting^1.5","status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -301,15 +306,15 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":0.47794595,"_source":{"beschrijving":"Contains
-        zaak info","verschijningsvorm":"common","begin_registratie":"2026-03-10T11:26:15.309456","identificatie":"8db829b5-317a-4d37-bed1-5bed0b31b41f","bronorganisatie":"Brown
-        Group","bestandsomvang":1000000,"link":"https://www.garcia-young.net/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.garcia-thomas.com/","taal":"pl","zaak_referenties":[{"omschrijving":"Important
+      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"99999999-aaaa-bbbb-cccc-000000000001","_score":10.166159,"_source":{"beschrijving":"Contains
+        zaak info","verschijningsvorm":"cold","begin_registratie":"2026-04-04T07:35:42.798636","identificatie":"a37a505f-3388-4c0b-9fea-b5f55584292d","bronorganisatie":"Johnson
+        Group","bestandsomvang":1000000,"link":"http://www.hall.com/","uuid":"99999999-aaaa-bbbb-cccc-000000000001","url":"http://www.gomez.info/","taal":"fy","zaak_referenties":[{"omschrijving":"Important
         nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        nested info","status":"open"}],"auteur":"Katie Smith","formaat":"tiff","titel":"Document
-        with nested zaak","vertrouwelijkheidaanduiding":"go","informatieobjecttype":"rate","bestandsnaam":"risk.css","creatiedatum":"2026-03-07","status":"organization"},"sort":[0.47794595,1772841600000]}]}}'
+        nested info","status":"open"}],"auteur":"John Romero","formaat":"webm","titel":"Document
+        with nested zaak","vertrouwelijkheidaanduiding":"design","informatieobjecttype":"build","bestandsnaam":"life.mov","creatiedatum":"2026-04-03","status":"campaign"},"sort":[10.166159,1775174400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

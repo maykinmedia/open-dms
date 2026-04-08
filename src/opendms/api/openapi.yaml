@@ -121,7 +121,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ESDocument'
+                  $ref: '#/components/schemas/SearchResponse'
           description: ''
   /api/v1/services:
     get:
@@ -835,6 +835,39 @@ components:
           format: date
           nullable: true
           description: Filter documents created on or before this date.
+    SearchResponse:
+      type: object
+      properties:
+        count:
+          type: integer
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchResult'
+      required:
+      - count
+      - results
+    SearchResult:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/TypeEnum'
+        data:
+          allOf:
+          - $ref: '#/components/schemas/SearchResultData'
+          readOnly: true
+      required:
+      - data
+      - type
+    SearchResultData:
+      oneOf:
+      - $ref: '#/components/schemas/ESDocument'
+      - $ref: '#/components/schemas/Zaak'
+      discriminator:
+        propertyName: type
+        mapping:
+          document: '#/components/schemas/ESDocument'
+          zaak: '#/components/schemas/Zaak'
     Service:
       type: object
       properties:
@@ -855,6 +888,11 @@ components:
       enum:
       - relevance
       - chronological
+      type: string
+    TypeEnum:
+      enum:
+      - document
+      - zaak
       type: string
     User:
       type: object

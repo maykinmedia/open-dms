@@ -7,6 +7,7 @@ from elasticsearch.dsl import Document
 
 from opendms.conf.utils import config
 from opendms.search_index.client import get_elasticsearch_client
+from opendms.search_index.index import Zaak
 
 from ...api.tests.api_testcase import APITestCase
 from ..ingest import setup_document_attachment_processor
@@ -126,3 +127,7 @@ class ElasticSearchAPITestCase(ElasticSearchMixin, APITestCase):
     def index_document(self, document: Document):
         with get_elasticsearch_client() as client:
             client.index_document(document)
+
+    def index_zaak(self, zaak: Zaak):
+        with get_elasticsearch_client() as client:
+            client.index_zaken(zaak)

@@ -1,0 +1,188 @@
+interactions:
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.long.org/","identificatie":"ac3a8128-d748-4f8c-a05d-13aeffb10aa0","bronorganisatie":"Rangel-Smith","titel":"Any
+      Document","beschrijving":"Behind whether hold magazine past reason. Chance state
+      blood whom wish threat son bad.","auteur":"Timothy Martinez","taal":"or","vertrouwelijkheidaanduiding":"catch","status":"suffer","formaat":"css","bestandsnaam":"sign.jpeg","informatieobjecttype":"talk","verschijningsvorm":"miss","bestandsomvang":1000000,"link":"https://myers.net/","creatiedatum":"2026-03-13","begin_registratie":"2026-03-16T02:59:53.704126","zaak_referenties":[{"uuid":"adc979ef-26e3-4cfc-ae7e-5c4cde1624c8","url":"http://www.christian.com/","identificatie":"719f692e-6c18-45f9-9420-b30111204ca6","bronorganisatie":"Trujillo
+      Ltd","verantwoordelijkeOrganisatie":"Smith, Villanueva and Ballard","omschrijving":"Summer
+      start resource national.","toelichting":"Concern news sound range care heavy
+      college level. Perhaps service training machine value affect. Use example always
+      TV if treat either. Star enough size teacher dog me politics.","status":"language","registratiedatum":"2026-03-17","startdatum":"2026-03-17","zaaktype":"key","object_type":"author"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/12fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/12fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.warren.com/","identificatie":"55c04101-320c-41e6-8a91-6d1c1f6e7e2d","bronorganisatie":"Knight
+      LLC","verantwoordelijkeOrganisatie":"Hanson and Sons","omschrijving":"Any Zaak","toelichting":"Tough
+      sell season. Now seek talk write very fire law.","status":"discussion","registratiedatum":"2026-03-16","startdatum":"2026-04-06","zaaktype":"enjoy","creatiedatum":"2026-03-16"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"match_all":{}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document,zaak/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":0.43744102,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.warren.com/","identificatie":"55c04101-320c-41e6-8a91-6d1c1f6e7e2d","bronorganisatie":"Knight
+        LLC","verantwoordelijkeOrganisatie":"Hanson and Sons","omschrijving":"Any
+        Zaak","toelichting":"Tough sell season. Now seek talk write very fire law.","status":"discussion","registratiedatum":"2026-03-16","startdatum":"2026-04-06","zaaktype":"enjoy","creatiedatum":"2026-03-16"},"sort":[0.43744102,1773619200000]},{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.3143169,"_source":{"beschrijving":"Behind
+        whether hold magazine past reason. Chance state blood whom wish threat son
+        bad.","verschijningsvorm":"miss","begin_registratie":"2026-03-16T02:59:53.704126","identificatie":"ac3a8128-d748-4f8c-a05d-13aeffb10aa0","bronorganisatie":"Rangel-Smith","bestandsomvang":1000000,"link":"https://myers.net/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.long.org/","taal":"or","zaak_referenties":[{"omschrijving":"Summer
+        start resource national.","identificatie":"719f692e-6c18-45f9-9420-b30111204ca6","startdatum":"2026-03-17","object_type":"author","bronorganisatie":"Trujillo
+        Ltd","zaaktype":"key","registratiedatum":"2026-03-17","uuid":"adc979ef-26e3-4cfc-ae7e-5c4cde1624c8","url":"http://www.christian.com/","verantwoordelijkeOrganisatie":"Smith,
+        Villanueva and Ballard","toelichting":"Concern news sound range care heavy
+        college level. Perhaps service training machine value affect. Use example
+        always TV if treat either. Star enough size teacher dog me politics.","status":"language"}],"auteur":"Timothy
+        Martinez","formaat":"css","titel":"Any Document","vertrouwelijkheidaanduiding":"catch","informatieobjecttype":"talk","bestandsnaam":"sign.jpeg","creatiedatum":"2026-03-13","status":"suffer"},"sort":[0.3143169,1773360000000]}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
