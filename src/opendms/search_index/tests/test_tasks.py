@@ -425,7 +425,9 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         index_all_documents()
         doc = None
         with get_elasticsearch_client() as client:
-            total_documents = client.get_total_count()
+            total_documents = client.get_total_count(
+                index="document", doc_type=Document
+            )
             doc_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
             doc = client.get_document(doc_uuid)
 
@@ -452,7 +454,9 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
         doc = None
         with get_elasticsearch_client() as client:
-            total_documents = client.get_total_count()
+            total_documents = client.get_total_count(
+                index="document", doc_type=Document
+            )
             doc_uuid = "ea16fa8c-4bab-4065-a28a-f6574625205d"
             doc = client.get_document(doc_uuid)
 

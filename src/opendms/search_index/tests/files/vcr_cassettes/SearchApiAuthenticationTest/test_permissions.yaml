@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775202505535","number_of_replicas":"1","uuid":"NavG7K3UTVSG7VSe9SC3eg","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775640355499","number_of_replicas":"1","uuid":"8sWineBVRFaJrfVwQsCScA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"uuid":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"omschrijving":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"toelichting":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,12 +80,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.thomas-osborne.com/","identificatie":"5e333fce-41fd-4382-bd4e-5e1c33996b61","bronorganisatie":"Houston
-      Group","titel":"Blue feel agree so.","beschrijving":"Determine wear past ground.
-      Return able write Congress happen yet seven reach.","auteur":"Lisa Hale","taal":"dv","vertrouwelijkheidaanduiding":"term","status":"of","formaat":"txt","bestandsnaam":"tend.wav","informatieobjecttype":"sport","verschijningsvorm":"help","bestandsomvang":1000000,"link":"https://www.vega.com/","creatiedatum":"2026-03-06","begin_registratie":"2026-03-08T15:15:42.610850","zaak_referenties":[{"uuid":"58789ba7-e390-408f-a3ce-7157af4a9088","url":"https://adams.biz/","identificatie":"a4f28321-a872-499c-8fee-841855263b76","bronorganisatie":"Mayer-Cohen","verantwoordelijkeOrganisatie":"Davenport,
-      West and Tran","omschrijving":"Government wife force special already difference.","toelichting":"Across
-      far trial. Single oil speak couple describe ago you. Money than well people
-      behavior sit. Son detail help under.","status":"summer","registratiedatum":"2026-03-18","startdatum":"2026-03-19","zaaktype":"prepare","object_type":"prevent"}]}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.conner.com/","identificatie":"a264fe55-7947-46fe-a857-bbddb2480bb8","bronorganisatie":"Williams
+      and Sons","titel":"Management may last score.","beschrijving":"Whole movement
+      west field. Top stop the break window. Green drive better much.","auteur":"Brad
+      Roy","taal":"ber","vertrouwelijkheidaanduiding":"suddenly","status":"more","formaat":"jpeg","bestandsnaam":"mission.jpeg","informatieobjecttype":"himself","verschijningsvorm":"break","bestandsomvang":1000000,"link":"http://www.oconnor.com/","creatiedatum":"2026-03-31","begin_registratie":"2026-03-17T13:59:03.061432","zaak_referenties":[{"uuid":"93c8a51b-e008-486a-bd84-8dd50eecc974","url":"http://www.smith.com/","identificatie":"b13b01c8-0d97-4504-9cfe-0aaaa317b547","bronorganisatie":"Dawson-Jones","verantwoordelijkeOrganisatie":"Wilkerson-Cole","omschrijving":"Leader
+      statement collection sort.","toelichting":"Behind positive trade course American
+      now. Population deal street again finish song.","status":"his","registratiedatum":"2026-03-13","startdatum":"2026-03-25","zaaktype":"remember","object_type":"thousand"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -128,16 +128,15 @@ interactions:
       x-elastic-client-meta:
       - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
     method: POST
-    uri: http://localhost:9201/document/_search
+    uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.24635413,"_source":{"beschrijving":"Determine
-        wear past ground. Return able write Congress happen yet seven reach.","verschijningsvorm":"help","begin_registratie":"2026-03-08T15:15:42.610850","identificatie":"5e333fce-41fd-4382-bd4e-5e1c33996b61","bronorganisatie":"Houston
-        Group","bestandsomvang":1000000,"link":"https://www.vega.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.thomas-osborne.com/","taal":"dv","zaak_referenties":[{"omschrijving":"Government
-        wife force special already difference.","identificatie":"a4f28321-a872-499c-8fee-841855263b76","startdatum":"2026-03-19","object_type":"prevent","bronorganisatie":"Mayer-Cohen","zaaktype":"prepare","registratiedatum":"2026-03-18","uuid":"58789ba7-e390-408f-a3ce-7157af4a9088","url":"https://adams.biz/","verantwoordelijkeOrganisatie":"Davenport,
-        West and Tran","toelichting":"Across far trial. Single oil speak couple describe
-        ago you. Money than well people behavior sit. Son detail help under.","status":"summer"}],"auteur":"Lisa
-        Hale","formaat":"txt","titel":"Blue feel agree so.","vertrouwelijkheidaanduiding":"term","informatieobjecttype":"sport","bestandsnaam":"tend.wav","creatiedatum":"2026-03-06","status":"of"},"sort":[0.24635413,1772755200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.99403983,"_source":{"beschrijving":"Whole
+        movement west field. Top stop the break window. Green drive better much.","verschijningsvorm":"break","begin_registratie":"2026-03-17T13:59:03.061432","identificatie":"a264fe55-7947-46fe-a857-bbddb2480bb8","bronorganisatie":"Williams
+        and Sons","bestandsomvang":1000000,"link":"http://www.oconnor.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.conner.com/","taal":"ber","zaak_referenties":[{"omschrijving":"Leader
+        statement collection sort.","identificatie":"b13b01c8-0d97-4504-9cfe-0aaaa317b547","startdatum":"2026-03-25","object_type":"thousand","bronorganisatie":"Dawson-Jones","zaaktype":"remember","registratiedatum":"2026-03-13","uuid":"93c8a51b-e008-486a-bd84-8dd50eecc974","url":"http://www.smith.com/","verantwoordelijkeOrganisatie":"Wilkerson-Cole","toelichting":"Behind
+        positive trade course American now. Population deal street again finish song.","status":"his"}],"auteur":"Brad
+        Roy","formaat":"jpeg","titel":"Management may last score.","vertrouwelijkheidaanduiding":"suddenly","informatieobjecttype":"himself","bestandsnaam":"mission.jpeg","creatiedatum":"2026-03-31","status":"more"},"sort":[0.99403983,1774915200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
