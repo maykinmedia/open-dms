@@ -2,10 +2,11 @@ import type { SearchResult } from "@maykin-ui/admin-ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { initialize, mswLoader } from "msw-storybook-addon";
 import { withRouter } from "storybook-addon-remix-react-router";
-import { withCSRF } from "~/../.storybook/decorators.tsx";
-import { MOCK_SEARCH } from "../../../.storybook/mocks.ts";
-import { sanitizedReactRouterParameters } from "../../../.storybook/utils.ts";
-import { GlobalSearchButton } from "./global-search-button.tsx";
+import { GlobalSearchButton } from "~/components";
+
+import { withCSRF } from "../../../.storybook/decorators";
+import { MOCK_SEARCH } from "../../../.storybook/mocks";
+import { sanitizedReactRouterParameters } from "../../../.storybook/utils";
 
 initialize();
 
@@ -47,6 +48,6 @@ const MOCK_RESULTS: SearchResult[] = [
 
 export const Default: Story = {
   args: {
-    search: async (_query, _options) => MOCK_RESULTS,
+    search: async () => MOCK_RESULTS,
   },
 };
