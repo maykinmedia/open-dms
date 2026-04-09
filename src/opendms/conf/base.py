@@ -43,7 +43,11 @@ STATICFILES_DIRS += [Path(DJANGO_PROJECT_DIR) / "frontend/dist/static"]
 CSRF_FAILURE_VIEW = "maykin_common.views.csrf_failure"
 
 
-FRONTEND_ORIGIN = config("FRONTEND_ORIGIN", "http://localhost:5173")
+FRONTEND_ORIGIN = config(
+    "FRONTEND_ORIGIN",
+    default="http://localhost:5173",
+    help_text="Origin for the frontend application, this gets added to CSRF_TRUSTED_ORIGINS",
+)
 CSRF_TRUSTED_ORIGINS = CSRF_TRUSTED_ORIGINS + [FRONTEND_ORIGIN]
 
 # Development reads CSRF cookie instead of hidden input due to lack of template processing
