@@ -3,6 +3,10 @@ import type { ZaakType } from "~/types";
 
 import { batchFactory, documentFactory, zaakFactory } from "./factories.ts";
 
+export const MOCK_SEARCH = http.post("/api/v1/search", () =>
+  HttpResponse.json(batchFactory(documentFactory, 5)),
+);
+
 //
 // accounts
 //

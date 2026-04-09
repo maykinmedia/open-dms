@@ -3,13 +3,19 @@ import {
   ConfigContext,
   Logo,
   Outline,
+  type SearchResult,
   Sidebar,
   Toolbar,
 } from "@maykin-ui/admin-ui";
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
 import { Outlet, useNavigate, useNavigation } from "react-router";
-import { ServiceSelect, YearSelect, ZaaktypeSelect } from "~/components";
+import {
+  GlobalSearchButton,
+  ServiceSelect,
+  YearSelect,
+  ZaaktypeSelect,
+} from "~/components";
 import { apiClient } from "~/lib";
 
 /**
@@ -43,10 +49,35 @@ export const AuthenticatedLayout = () => {
     navigate("/login");
   };
 
+  const handleSearch = async (
+    query: string,
+    { signal }: { signal: AbortSignal },
+  ): Promise<SearchResult[]> => {
+    const { data } = await apiClient.POST("/api/v1/search", {
+      body: { query, page: 1, pageSize: 10, sort: "relevance" },
+      signal,
+    });
+    // The OpenAPI schema incorrectly declares the response as Document[] but
+    // the API actually returns a paginatedj reponse
+    // TODO: ask backend to fix @extend_schema on SearchView to use inline_serializer
+    // wrapping DocumentSerializer(many=True) in a paginated shape
+    const results =
+      (data as unknown as { results: typeof data })?.results ?? [];
+    // TODO: Expand with more data~
+    return results.map((doc) => ({
+      title: doc.titel,
+      href: doc.url,
+      icon: <Outline.DocumentIcon />,
+      subtitle: doc.bestandsnaam ?? undefined,
+      group: "Documenten",
+    }));
+  };
+
   return (
     <BaseTemplate
       primaryNavigationItems={[
         <Logo abbreviated key={"logo"} />,
+        <GlobalSearchButton key="global-search" search={handleSearch} />,
         "spacer",
         state !== "idle" ? (
           <Outline.ArrowPathIcon
