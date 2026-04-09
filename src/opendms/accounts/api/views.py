@@ -3,7 +3,9 @@ from __future__ import annotations
 from typing import TYPE_CHECKING
 
 from django.contrib.auth import login, logout
+from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 from drf_spectacular.utils import extend_schema
 from rest_framework import status
@@ -76,6 +78,13 @@ class LogoutView(APIView):
 class WhoAmIView(RetrieveAPIView):
     serializer_class = WhoAmISerializer
     permission_classes = ()
+
+    @method_decorator(ensure_csrf_cookie)
+    def get(self, *args, **kwargs):
+        """
+        Wrapper providing `ensure_csrf_cookie` to ensure CSRF cookie is available.
+        """
+        return super().get(*args, **kwargs)
 
     def get_object(self) -> User | AnonymousUser:
         return self.request.user
