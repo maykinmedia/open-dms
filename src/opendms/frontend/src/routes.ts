@@ -8,6 +8,7 @@ import {
   loginAction,
   zakenListLoader,
 } from "~/routes/index.ts";
+import { loginLoader } from "~/routes/login/login.loader.ts";
 
 import { authRouterMiddleware } from "./middleware/auth.ts";
 import { AuthenticatedLayout, Layout } from "./root.tsx";
@@ -19,6 +20,7 @@ export const routes: [RouteObject, ...RouteObject[]] = [
       {
         path: "login",
         Component: Login,
+        loader: loginLoader,
         action: loginAction,
       },
     ],
