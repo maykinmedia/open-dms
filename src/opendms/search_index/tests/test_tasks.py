@@ -376,9 +376,7 @@ class DocumentTaskTest(VCRMixin, ElasticSearchTestCase):
         }
     )
     def test_download_7zip_document_file_size_reached(self):
-        ServiceFactory.create(
-            for_download_url_mock_service=True, for_zrc_service_docker_compose=True
-        )
+        ServiceFactory.create(for_download_url_mock_service=True)
         document_uuid = "d9fe4844-bdf8-4d66-b613-4efa71598105"
         doc = IndexDocumentFactory(
             uuid=document_uuid,
