@@ -29,7 +29,7 @@ export const MOCK_INCORRECT_LOGIN = http.post("/api/v1/accounts/login", () =>
   ),
 );
 
-export const MOCK_WHOAMI = http.post("/api/v1/accounts/whoami", () =>
+export const MOCK_WHOAMI = http.get("/api/v1/accounts/whoami", () =>
   HttpResponse.json({
     isAuthenticated: true,
     user: {

@@ -7,6 +7,7 @@ import { withCSRF } from "../../../.storybook/decorators.tsx";
 import {
   MOCK_CORRECT_LOGIN,
   MOCK_INCORRECT_LOGIN,
+  MOCK_WHOAMI,
 } from "../../../.storybook/mocks.ts";
 import { sanitizedReactRouterParameters } from "../../../.storybook/utils.ts";
 import { Login } from "./login";
@@ -30,7 +31,7 @@ type Story = StoryObj<typeof Login>;
 export const CorrectLogin: Story = {
   parameters: {
     msw: {
-      handlers: [MOCK_CORRECT_LOGIN],
+      handlers: [MOCK_WHOAMI, MOCK_CORRECT_LOGIN],
     },
   },
   play: async ({ canvasElement }) => {
@@ -49,7 +50,7 @@ export const CorrectLogin: Story = {
 export const IncorrectLogin: Story = {
   parameters: {
     msw: {
-      handlers: [MOCK_INCORRECT_LOGIN],
+      handlers: [MOCK_WHOAMI, MOCK_INCORRECT_LOGIN],
     },
   },
   play: async ({ canvasElement }) => {
