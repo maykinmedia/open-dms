@@ -1,11 +1,52 @@
 interactions:
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.arnold.com/","identificatie":"00657273-1cfc-43a1-b69b-fdd0f12082bf","bronorganisatie":"Miller-Richards","titel":"Fight
-      difficult arrive sing military behind.","beschrijving":"Middle worry light investment
-      night. Find book everyone listen fine.","auteur":"William Brown","taal":"tr","vertrouwelijkheidaanduiding":"edge","status":"bar","formaat":"mp3","bestandsnaam":"chance.jpeg","informatieobjecttype":"lay","verschijningsvorm":"feel","bestandsomvang":188,"link":"https://ali-munoz.com/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-22T21:46:50.272866","last_checked_at":"1971-03-24T00:00:00","next_check_at":"2006-12-21T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"0724ecc8-322a-43b0-8432-c80f1836efe4","url":"http://www.martinez.com/","identificatie":"bf2a53a1-bfbc-4476-92f3-a55b549f235b","bronorganisatie":"Miranda
-      Ltd","verantwoordelijkeOrganisatie":"Wagner-Davis","omschrijving":"Image police
-      including pick consider interest college.","toelichting":"Attorney box central
-      argue step. Travel serve heavy give.","status":"debate","registratiedatum":"2026-03-30","startdatum":"2026-03-14","zaaktype":"street","object_type":"seven"}],"inhoud":"http://localhost/document/smol7zip"}'
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Audit-Remarks:
+      - download document for indexing.
+      Audit-User-ID:
+      - Open DMS
+      Audit-User-Representation:
+      - Open DMS (system)
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost/document/smol7zip
+  response:
+    body:
+      string: !!binary |
+        N3q8ryccAARpPmjXiQAAAAAAAAAVAAAAAAAAAC0GYMHgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
+        AGtdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
+        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzP2ZbktSq1ie98MSpEppILf5A47uabGmA4AAAABcG
+        FgEJcwAHCwEAASEhARgMgIUAAA==
+    headers:
+      Connection:
+      - close
+      Content-Length:
+      - '190'
+      Content-Type:
+      - application/x-7z-compressed
+      Date:
+      - Thu, 09 Apr 2026 14:39:08 GMT
+      Server:
+      - Werkzeug/3.1.6 Python/3.12.13
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://martin.net/","identificatie":"c97552e7-baa4-4d96-85ba-0cd07eba78e8","bronorganisatie":"Mckinney,
+      Crawford and Buck","titel":"Me decide job east modern north.","beschrijving":"Whether
+      thing radio character future minute. We course word during.","auteur":"Jack
+      Roman","taal":"fur","vertrouwelijkheidaanduiding":"against","status":"event","formaat":"avi","bestandsnaam":"he.gif","informatieobjecttype":"address","verschijningsvorm":"would","bestandsomvang":188,"link":"https://www.hill.com/","creatiedatum":"2026-03-21","begin_registratie":"2026-03-26T10:03:59.757634","last_checked_at":"2005-02-28T00:00:00","next_check_at":"1989-09-05T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"82cdbcb6-ee1a-419f-b782-32fbf4962827","url":"https://lee.com/","identificatie":"2bb2d56b-870e-4d27-a3ba-0e725e4f6fbd","bronorganisatie":"Thomas
+      PLC","verantwoordelijkeOrganisatie":"Adams-Caldwell","omschrijving":"Least billion
+      defense any.","toelichting":"Picture wait win drop economic eight. Instead discover
+      energy subject. Whatever own bar company.","status":"his","registratiedatum":"2026-04-02","startdatum":"2026-03-16","zaaktype":"ok","object_type":"appear"}],"inhoud":"http://localhost/document/smol7zip","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -21,7 +62,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
@@ -49,18 +90,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Middle
-        worry light investment night. Find book everyone listen fine.","verschijningsvorm":"feel","begin_registratie":"2026-03-22T21:46:50.272866","identificatie":"00657273-1cfc-43a1-b69b-fdd0f12082bf","bronorganisatie":"Miller-Richards","bestandsomvang":188,"link":"https://ali-munoz.com/","next_check_at":"2006-12-21T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.arnold.com/","taal":"tr","zaak_referenties":[{"omschrijving":"Image
-        police including pick consider interest college.","identificatie":"bf2a53a1-bfbc-4476-92f3-a55b549f235b","startdatum":"2026-03-14","object_type":"seven","bronorganisatie":"Miranda
-        Ltd","zaaktype":"street","registratiedatum":"2026-03-30","uuid":"0724ecc8-322a-43b0-8432-c80f1836efe4","url":"http://www.martinez.com/","verantwoordelijkeOrganisatie":"Wagner-Davis","toelichting":"Attorney
-        box central argue step. Travel serve heavy give.","status":"debate"}],"auteur":"William
-        Brown","formaat":"mp3","last_checked_at":"1971-03-24T00:00:00","inhoud":"http://localhost/document/smol7zip","titel":"Fight
-        difficult arrive sing military behind.","vertrouwelijkheidaanduiding":"edge","informatieobjecttype":"lay","bestandsnaam":"chance.jpeg","creatiedatum":"2026-03-14","group_slug":"group-1","status":"bar"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Whether
+        thing radio character future minute. We course word during.","verschijningsvorm":"would","bronorganisatie":"Mckinney,
+        Crawford and Buck","link":"https://www.hill.com/","next_check_at":"1989-09-05T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","formaat":"avi","inhoud":"http://localhost/document/smol7zip","titel":"Me
+        decide job east modern north.","informatieobjecttype":"address","bestandsnaam":"he.gif","creatiedatum":"2026-03-21","group_slug":"group-1","begin_registratie":"2026-03-26T10:03:59.757634","identificatie":"c97552e7-baa4-4d96-85ba-0cd07eba78e8","bestandsomvang":188,"url":"https://martin.net/","taal":"fur","zaak_referenties":[{"omschrijving":"Least
+        billion defense any.","identificatie":"2bb2d56b-870e-4d27-a3ba-0e725e4f6fbd","startdatum":"2026-03-16","object_type":"appear","bronorganisatie":"Thomas
+        PLC","zaaktype":"ok","registratiedatum":"2026-04-02","uuid":"82cdbcb6-ee1a-419f-b782-32fbf4962827","url":"https://lee.com/","verantwoordelijkeOrganisatie":"Adams-Caldwell","toelichting":"Picture
+        wait win drop economic eight. Instead discover energy subject. Whatever own
+        bar company.","status":"his"}],"auteur":"Jack Roman","last_checked_at":"2005-02-28T00:00:00","vertrouwelijkheidaanduiding":"against","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"status":"event"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1441'
+      - '1985'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
