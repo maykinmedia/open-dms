@@ -16,9 +16,9 @@ class ZaakClient(HttpRequestMixin, NLXClient):
 
     endpoint = "zaken"
 
-    def get_items(self, params: dict | None = None) -> list[Zaak]:
+    def get_zaken_for_elasticsearch(self, params: dict | None = None) -> list[Zaak]:
         """
-        Fetch all zaken using pagination
+        Fetch all zaken using pagination, this is used for indexing zaken in Elasticsearch.
         """
         params = params or {}
         data = self.make_request(
