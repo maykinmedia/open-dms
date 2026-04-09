@@ -1,4 +1,4 @@
-import { invariant } from "@maykin-ui/client-common";
+import { getCookie } from "@maykin-ui/client-common";
 import createClient, { type Middleware } from "openapi-fetch";
 import type { ValidatieFout, paths } from "~/types";
 
@@ -41,18 +41,8 @@ const csrfClientMiddleware: Middleware = {
     if (["GET", "HEAD", "CONNECT", "OPTIONS", "TRACE"].includes(request.method))
       return;
 
-    // The token is obtaines using Django's {% csrf_token %}.
-    const csrftoken = document.querySelector<HTMLMetaElement>(
-      "[name=csrfmiddlewaretoken]",
-    )?.content;
-
-    // Assert that the token is resolved.
-    invariant(
-      csrftoken,
-      `CSRF token not found in template, are you requesting the page via Django?`,
-    );
-
-    request.headers.set("X-CSRFToken", csrftoken);
+    // The token is obtained using Django's {% csrf_token %} or the cookie (development).
+    request.headers.set("X-CSRFToken", getCSRFToken());
   },
 };
 
@@ -64,11 +54,57 @@ const csrfClientMiddleware: Middleware = {
  * and adheres to the defined paths structure for endpoint typing and safety.
  */
 export const apiClient = createClient<paths>({
-  // This is needed to make sure on development our proxy works, whilst in production we do want the location's URL
-  baseUrl: import.meta.env.DEV ? "" : window.location.origin,
+  fetch: (input: Request) =>
+    fetch(input, {
+      credentials: "include",
+    }),
 });
 apiClient.use(contentTypeJSONMiddleware);
 apiClient.use(csrfClientMiddleware);
+
+/**
+ * Retrieves a CSRF token for securing requests against cross-site request forgery.
+ * This method attempts to get the token from a hidden input element in the DOM
+ * or, as a fallback, from a cookie (available only in development mode).
+ *
+ * @return {string} A promise that resolves to the CSRF token as a string.
+ * @throws {Error} If the CSRF token cannot be found in the expected sources.
+ */
+export function getCSRFToken(): string {
+  // Attempt to resolve the token via a hidden input.
+  const input = document.querySelector<HTMLMetaElement>(
+    "[name=csrfmiddlewaretoken]",
+  );
+  if (input?.content && input.content !== "{{ csrf_token }}") {
+    return input.content;
+  }
+
+  // Attempt to resolve the token using cookie value.
+  // WARNING: This requires the cookies NOT to be HTTP_ONLY, which may
+  // be considered a security risk.
+  // Using this is therefore restricted to development only.
+  const cookie = getCookie("csrftoken");
+  if (import.meta.env.DEV && cookie) {
+    return cookie;
+  }
+
+  // The cookie can't be resolved, raise an error.
+  throw new Error(
+    `CSRF token not found in template, are you requesting the page via Django?`,
+  );
+}
+
+/**
+ * Retrieves the current page number from the provided URL search parameters.
+ *
+ * @param {URLSearchParams} searchParams - The URL search parameters to extract the page number from.
+ * @return {number} The page number. If the page parameter is not present, invalid, or less than 1, defaults to 1.
+ */
+export function getPageFromSearchParams(searchParams: URLSearchParams): number {
+  const raw = searchParams.get("page");
+  const parsed = parseInt(raw ?? "1");
+  return isNaN(parsed) || parsed < 1 ? 1 : parsed;
+}
 
 /**
  * For endpoints optionally returning `ValidatieFout`, this can be used to create
@@ -88,16 +124,4 @@ export function validatieFout2FormErrors(
     .reduce((acc, { name, reason }) => ({ ...acc, [name]: reason }), {});
 
   return { nonFieldErrors, errors };
-}
-
-/**
- * Retrieves the current page number from the provided URL search parameters.
- *
- * @param {URLSearchParams} searchParams - The URL search parameters to extract the page number from.
- * @return {number} The page number. If the page parameter is not present, invalid, or less than 1, defaults to 1.
- */
-export function getPageFromSearchParams(searchParams: URLSearchParams): number {
-  const raw = searchParams.get("page");
-  const parsed = parseInt(raw ?? "1");
-  return isNaN(parsed) || parsed < 1 ? 1 : parsed;
 }
