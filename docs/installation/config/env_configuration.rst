@@ -129,6 +129,7 @@ Optional
 * ``SITE_DOMAIN``: Defines the primary domain where the application is hosted. Defaults to: ``(empty string)``.
 * ``SENTRY_DSN``: URL of the sentry project to send error reports to. Default empty, i.e. -> no monitoring set up. Highly recommended to configure this.
 * ``DISABLE_2FA``: Whether or not two factor authentication should be disabled. Defaults to: ``False``.
+* ``FRONTEND_ORIGIN``: Origin for the frontend application, this gets added to CSRF_TRUSTED_ORIGINS. Defaults to: ``http://localhost:5173``.
 * ``CELERY_TASK_HARD_TIME_LIMIT``: Hard timeout for Celery tasks in seconds. Defaults to: ``300``.
 * ``CELERY_TASK_SOFT_TIME_LIMIT``: Soft timeout for Celery tasks in seconds. Defaults to: ``60``.
 
