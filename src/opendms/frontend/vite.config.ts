@@ -33,11 +33,7 @@ export default defineConfig(({ mode }) => ({
   server: {
     ...(mode === "development" && {
       proxy: {
-        "/api": {
-          target: "http://localhost:8000",
-          changeOrigin: true,
-          secure: false,
-        },
+        "/api": "http://localhost:8000",
       },
     }),
   },
