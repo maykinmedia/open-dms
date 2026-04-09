@@ -36,7 +36,7 @@ def index_all_zaken() -> None:
             )
 
             with get_zaken_client(service) as zaak_client:
-                all_zaken = zaak_client.get_items(
+                all_zaken = zaak_client.get_zaken_for_elasticsearch(
                     params={"registratiedatum__gt": last_registratiedatum}
                     if last_registratiedatum
                     else {}
