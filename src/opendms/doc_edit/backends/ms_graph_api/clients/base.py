@@ -90,6 +90,7 @@ class GraphClient:
             else f"{self.base_url.rstrip('/')}/{path_or_url.lstrip('/')}"
         )
         headers = self._get_headers(path_or_url, extra_headers, force_default_headers)
+
         response = requests.request(
             method,
             url,
@@ -97,6 +98,7 @@ class GraphClient:
             json=json,
             data=data,
         )
+
         response.raise_for_status()
         if not raw_response:
             data = response.json()

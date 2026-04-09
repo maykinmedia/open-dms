@@ -1,4 +1,5 @@
 import base64
+import datetime
 import mimetypes
 import os
 import secrets
@@ -11,6 +12,7 @@ from django.utils.dateparse import parse_datetime
 import structlog
 from msal import ConfidentialClientApplication
 from requests import HTTPError
+from rest_framework import status
 from rest_framework.request import Request
 from rest_framework.response import Response
 
@@ -79,6 +81,10 @@ class MsGraphApiBackend(DocumentEditBackend):
         request.session["access_token"] = token
         return result
 
+    def _set_token(self, token: str) -> None:
+        self.one_drive_client.token = token
+        self.subscription_client.token = token
+
     def open(self, file_path: str) -> str:
         """
         Start a process to access or edit a file.
@@ -94,7 +100,6 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         with open(file_path, "rb") as f:
             file_name = os.path.basename(file_path)
-
             folder = self._ensure_sync_folder()
             folder_id = folder["id"]
 
@@ -105,17 +110,8 @@ class MsGraphApiBackend(DocumentEditBackend):
                     self._get_mime_type(file_path),
                     parent_item_id=folder_id,
                 )
-
-                # TODO FIX to save file info
-                # TODO remove or replace with cache
-                """
-                with shelve.open("file_map") as file_id_mapping:
-                    file_id_mapping[drive_item["id"]] = file_path
-                """
-
             except HTTPError as error:
-                if error.response.status_code == 423:
-                    raise BlockingIOError("The file could not be opened")
+                logger.exception("error_file_could_not_be_opened")
                 raise error
 
         self._ensure_subscription()
@@ -124,16 +120,17 @@ class MsGraphApiBackend(DocumentEditBackend):
     def updated_callback(self, request) -> Response:
         validation_token = request.GET.get("validationToken")
         if validation_token:
-            return Response(validation_token, status=200, content_type="text/plain")
+            return Response(
+                "Document uploaded",
+                status=status.HTTP_200_OK,
+                content_type="text/plain",
+            )
 
         data: SubscriptionItemCollection = request.data or {}
         notifications = data.get("value")
 
         result: tuple[GraphSubscription, SubscriptionItem] | None = None
 
-        logger.info("notifications")
-        logger.info(notifications)
-        logger.info("notifications")
         for notification in notifications:
             try:
                 subscription = GraphSubscription.objects.get(
@@ -145,37 +142,36 @@ class MsGraphApiBackend(DocumentEditBackend):
                 continue
 
         if not result:
-            logger.error("Unknown subscription")
+            logger.warning("subscription_not_found")
+            # TODO test this case here, if the doc exists in OneDrive, but no more subs are available
             return Response(
-                "Unknown subscription", status=400, content_type="text/plain"
+                "Unknown subscription",
+                status=status.HTTP_400_BAD_REQUEST,
+                content_type="text/plain",
             )
 
         subscription, notification = result
 
         if subscription.client_state != notification["client_state"]:
-            logger.error("Invalid clientState")
+            logger.warning("client_state_not_valid")
             return Response(
-                "Invalid clientState", status=400, content_type="text/plain"
+                "Invalid clientState",
+                status=status.HTTP_400_BAD_REQUEST,
+                content_type="text/plain",
             )
-
-        subscription_meta = {
-            "client_state": subscription.client_state,
-            "delta_url": subscription.delta_url,
-            "expiration": subscription.expiration_date_time,
-            "token": subscription.token,
-        }
-
-        self._sync_updated_files(subscription_meta)
 
         return Response(status=204, content_type="text/plain")
 
-    #
-    # Private API.
-    #
+        # {
+        # "client_state": subscription.client_state,
+        # "delta_url": subscription.delta_url,
+        # "expiration": subscription.expiration_date_time,
+        # "token": subscription.token,
+        # }
 
-    def _set_token(self, token: str) -> None:
-        self.one_drive_client.token = token
-        self.subscription_client.token = token
+        # logger.error("_sync_updated_files")
+        # self._sync_updated_files(subscription_meta)
+        # return Response(status=204, content_type="text/plain")
 
     def _build_msal_app(self) -> ConfidentialClientApplication:
         """
@@ -197,7 +193,6 @@ class MsGraphApiBackend(DocumentEditBackend):
             client_credential=settings.MSGRAPH_API_BACKEND_CLIENT_SECRET,
         )
 
-    # TODO test this folder, env var folder?
     def _ensure_sync_folder(self) -> DriveItem:
         """
         Ensures the existence of MSGRAPH_API_BACKEND_SYNC_FOLDER in the user's OneDrive.
@@ -219,6 +214,15 @@ class MsGraphApiBackend(DocumentEditBackend):
         )
 
     def _ensure_subscription(self) -> Subscription:
+        """
+        Ensure an active subscription exists by checking the current subscriptions and renewing
+        an existing one or creating a new subscription if necessary. This function interacts with
+        a Graph API endpoint to manage subscriptions.
+
+        :return: The current or newly created subscription.
+        """
+        self._cleanup_cache()
+
         data = self.subscription_client.list_subscriptions()
         subscriptions: list[Subscription] = data["value"]
         webhook_url = reverse("webhook")
@@ -294,30 +298,21 @@ class MsGraphApiBackend(DocumentEditBackend):
         random_bytes = secrets.token_bytes(64)
         return base64.urlsafe_b64encode(random_bytes).rstrip(b"=").decode("utf-8")
 
+    def _cleanup_cache(self):
+        """
+        This function performs a cleanup operation on a global cache by removing expired
+        entries. It checks each entry in the cache for an expiration timestamp and deletes
+        any that have expired based on the current UTC time.
+
+        Note: this does not unsubscribe webhooks.
+
+        :return: None
+        """
+        now = datetime.datetime.now(datetime.UTC)
+        for sub in GraphSubscription.objects.all():
+            if sub.expiration_date_time < now:
+                sub.delete()
+
     def _sync_updated_files(self, subscription_meta: SubscriptionMeta):
-        delta = self.one_drive_client.get_delta(subscription_meta["delta_url"])
-        subscription_meta["delta_url"] = delta.get("@odata.deltaLink")
-        deltas = delta["value"]
-
-        if not deltas:
-            return
-        """
-        with shelve.open("file_map") as file_id_mapping:
-            for item in deltas:
-                item_id = item["id"]
-                file_path = file_id_mapping.get(item["id"])
-
-                if file_path:
-                    self._download_file(item_id, file_path)
-        """
-        for item in deltas:
-            item_id = item["id"]
-            if "file" in item:
-                self._download_file(item_id, "tmp/test.txt")
-
-    def _download_file(self: str, item_id: str, file_path: str):
-        response = self.one_drive_client.download_item(item_id=item_id)
-        file_name = os.path.basename(file_path)
-        if response.status_code == 200:
-            with open(file_name, "wb") as f:
-                f.write(response.content)
+        # TODO
+        pass

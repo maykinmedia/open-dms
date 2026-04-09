@@ -367,8 +367,8 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         with get_documenten_client(self.zgw_group.drc_service) as client:
             return client.download_document(obj["inhoud"])
 
-    @action(methods=["get"], detail=True, name="document_upload")
-    def upload(self, request: Request, *args, **kwargs) -> Response:
+    @action(methods=["get"], detail=True, name="document_edit")
+    def edit(self, request: Request, *args, **kwargs) -> Response:
         access_token = request.session.get("access_token", None)
         logger.info(access_token)
         if not access_token:
