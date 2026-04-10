@@ -1,12 +1,14 @@
 interactions:
 - request:
-    body: '{"uuid":"expired-1","url":"https://www.mueller.com/","identificatie":"6a14e69c-3970-48f2-a879-cd0dc1999537","bronorganisatie":"Ballard-Brewer","titel":"Anyone
-      lot stop summer.","beschrijving":"Recent cost bank force. Interesting industry
-      your indeed stage between maybe. Already energy space newspaper station common.","auteur":"Ashley
-      Walker","taal":"mg","vertrouwelijkheidaanduiding":"white","status":"watch","formaat":"xlsx","bestandsnaam":"interest.js","informatieobjecttype":"race","verschijningsvorm":"recent","bestandsomvang":1000000,"link":"https://atkins.org/","creatiedatum":"2026-03-14","begin_registratie":"2026-04-02T21:38:58.230042","last_checked_at":"2026-04-08T09:05:16.333017+00:00","next_check_at":"2026-04-09T09:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"ce075c8c-181e-4d8c-bf85-d96b81200659","url":"https://www.harris.com/","identificatie":"01776771-a040-4cc2-982b-0ccc8d84e98e","bronorganisatie":"Stephens,
-      Welch and Johnson","verantwoordelijkeOrganisatie":"Stanley Ltd","omschrijving":"Above
-      grow establish wall participant.","toelichting":"Tax create best party field.
-      View someone measure there campaign account.","status":"firm","registratiedatum":"2026-03-27","startdatum":"2026-03-22","zaaktype":"great","object_type":"real"}]}'
+    body: '{"uuid":"expired-1","url":"http://www.willis.biz/","identificatie":"959465ab-b46d-4b2d-8d92-67a02040bafc","bronorganisatie":"Miller,
+      Vasquez and Johnson","titel":"Staff able child bit mind sea bit.","beschrijving":"Behavior
+      Congress dog teach character collection off. Image evidence nice else respond
+      kitchen three. White beyond common thought week claim without.","auteur":"Patricia
+      Hardy","taal":"am","vertrouwelijkheidaanduiding":"industry","status":"under","formaat":"odp","bestandsnaam":"report.pages","informatieobjecttype":"kind","verschijningsvorm":"never","bestandsomvang":1000000,"link":"https://franklin.info/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-26T18:24:09.214384","last_checked_at":"2026-04-08T12:28:57.666255+00:00","next_check_at":"2026-04-09T12:28:57.666255+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"f391811f-bcf3-49f3-9ef1-e33a573972a2","url":"https://reed.com/","identificatie":"6b486667-70bd-461e-b3c2-1ffffc7d6c3e","bronorganisatie":"Gonzalez,
+      Mcneil and Hughes","verantwoordelijkeOrganisatie":"Robles Inc","omschrijving":"Spring
+      smile enough true international.","toelichting":"Writer indeed common outside
+      sit realize out. Create experience nature bank check. Project majority baby
+      argue describe American any.","status":"teacher","registratiedatum":"2026-03-29","startdatum":"2026-03-18","zaaktype":"arm","object_type":"happen","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -36,12 +38,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"expired-2","url":"http://french.com/","identificatie":"27c0f8e2-0178-43f3-8ef6-8a0dd925521e","bronorganisatie":"Rodriguez
-      Ltd","titel":"Middle from pattern because smile animal son hospital.","beschrijving":"Give
-      him raise loss. Realize same sense thousand learn travel. Take how consumer
-      song determine traditional.","auteur":"Timothy Diaz","taal":"ckb","vertrouwelijkheidaanduiding":"ask","status":"although","formaat":"pptx","bestandsnaam":"body.html","informatieobjecttype":"actually","verschijningsvorm":"and","bestandsomvang":1000000,"link":"https://www.snyder.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-29T13:20:21.390349","last_checked_at":"2026-04-09T08:05:16.333017+00:00","next_check_at":"2026-04-10T08:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"fd5392f9-25a7-4db5-9eaf-dacac3c5e2a7","url":"http://www.moreno.com/","identificatie":"e7332c9b-d587-4d19-95da-d13ceb77257c","bronorganisatie":"Bradley-Meadows","verantwoordelijkeOrganisatie":"Farrell-Parks","omschrijving":"Thought
-      north year kid upon green.","toelichting":"Beautiful start food resource record.
-      Thought each how dream break.","status":"together","registratiedatum":"2026-03-18","startdatum":"2026-03-13","zaaktype":"live","object_type":"four"}]}'
+    body: '{"uuid":"expired-2","url":"http://www.campbell-leach.com/","identificatie":"ac68b5d2-2930-441e-8cd9-5a59c2f957f5","bronorganisatie":"Lee
+      Inc","titel":"Laugh across learn agency decade.","beschrijving":"Book apply
+      really. Foot room film home every enjoy. Agency significant until.","auteur":"Bradley
+      Burns","taal":"hy","vertrouwelijkheidaanduiding":"evening","status":"sister","formaat":"jpeg","bestandsnaam":"magazine.mp4","informatieobjecttype":"direction","verschijningsvorm":"bit","bestandsomvang":1000000,"link":"https://www.bryant.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-31T22:29:22.939736","last_checked_at":"2026-04-09T11:28:57.666255+00:00","next_check_at":"2026-04-10T11:28:57.666255+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"aa7fd70f-0c2c-41ea-a31c-4cdef28f05d8","url":"http://collins.net/","identificatie":"f58e11f6-1a41-41a6-9a7d-41b5b2b1fbe3","bronorganisatie":"Bell,
+      Weaver and Yates","verantwoordelijkeOrganisatie":"Thompson Inc","omschrijving":"Without
+      happy necessary best cup kitchen.","toelichting":"Leave small building allow
+      class anyone. To full authority value. Old save PM wife let.","status":"truth","registratiedatum":"2026-03-26","startdatum":"2026-03-25","zaaktype":"whom","object_type":"Democrat","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -71,12 +74,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"valid-1","url":"https://www.smith-wood.com/","identificatie":"12f347d8-7c31-4362-8a63-b468aec6c3db","bronorganisatie":"Perez
-      and Sons","titel":"Understand green community police begin dog.","beschrijving":"Development
-      rest age choose free. Resource with risk professor.","auteur":"Kevin Jenkins","taal":"nhn","vertrouwelijkheidaanduiding":"time","status":"particularly","formaat":"xls","bestandsnaam":"owner.odt","informatieobjecttype":"brother","verschijningsvorm":"address","bestandsomvang":1000000,"link":"http://reyes.net/","creatiedatum":"2026-03-16","begin_registratie":"2026-04-04T07:00:12.884503","last_checked_at":"2026-04-10T09:05:16.333017+00:00","next_check_at":"2026-04-11T09:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"6e5ffe95-7eb7-41e3-a65b-42298fb61ca9","url":"https://www.walter-simmons.net/","identificatie":"eaa412bb-7767-46bf-bfda-fbfa2e95538b","bronorganisatie":"Castillo
-      Group","verantwoordelijkeOrganisatie":"Rogers-Moore","omschrijving":"Yes bill
-      certainly maybe study kid everyone pretty.","toelichting":"Sign deep young attention.
-      Sell political consumer theory.","status":"personal","registratiedatum":"2026-04-01","startdatum":"2026-03-13","zaaktype":"allow","object_type":"adult"}]}'
+    body: '{"uuid":"valid-1","url":"http://www.parker-dean.info/","identificatie":"e6f3f919-a823-42bc-bd99-4ee00f4184ef","bronorganisatie":"Howell-Thompson","titel":"Tree
+      visit industry protect.","beschrijving":"Safe computer manage shake. Moment
+      plant law fill hope price. Least store wife.","auteur":"Cody Horne","taal":"or","vertrouwelijkheidaanduiding":"assume","status":"arrive","formaat":"mov","bestandsnaam":"always.flac","informatieobjecttype":"friend","verschijningsvorm":"television","bestandsomvang":1000000,"link":"https://www.mccoy.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-23T19:32:03.389126","last_checked_at":"2026-04-10T12:28:57.666255+00:00","next_check_at":"2026-04-11T12:28:57.666255+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"fa99fe87-0756-46b3-bc2a-97109a72cca6","url":"http://harrison-smith.com/","identificatie":"c63ecb3d-5b69-407f-baf5-bfa5e8201c4b","bronorganisatie":"Shepherd,
+      Gomez and Rice","verantwoordelijkeOrganisatie":"Clark-Velez","omschrijving":"American
+      majority almost defense eye father.","toelichting":"Push case clearly coach
+      experience somebody. Public leader action sport.","status":"same","registratiedatum":"2026-03-20","startdatum":"2026-03-28","zaaktype":"thank","object_type":"skill","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -106,7 +109,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-10T09:05:16.333017+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
+    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-10T12:28:57.666255+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -122,7 +125,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
     headers:
       Transfer-Encoding:
       - chunked

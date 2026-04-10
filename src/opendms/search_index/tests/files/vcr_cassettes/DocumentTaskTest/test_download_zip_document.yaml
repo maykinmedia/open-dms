@@ -21,11 +21,11 @@ interactions:
   response:
     body:
       string: !!binary |
-        UEsDBBQAAAAAAE1miVzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAABNZolc
-        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAE1miVzfwKkADgAAAA4AAAAK
-        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAATWaJXOLcsooFAAAABQAAAAgA
-        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAATWaJXFiNuxMFAAAABQAAAAkAAAAA
-        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAE1miVzfwKkADgAAAA4AAAAKAAAAAAAA
+        UEsDBBQAAAAAALFjilzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAACxY4pc
+        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAALFjilzfwKkADgAAAA4AAAAK
+        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAAsWOKXOLcsooFAAAABQAAAAgA
+        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAAsWOKXFiNuxMFAAAABQAAAAkAAAAA
+        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAALFjilzfwKkADgAAAA4AAAAKAAAAAAAA
         AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
     headers:
       Connection:
@@ -35,19 +35,18 @@ interactions:
       Content-Type:
       - application/zip
       Date:
-      - Thu, 09 Apr 2026 12:50:26 GMT
+      - Fri, 10 Apr 2026 12:29:34 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"http://fox-johnson.com/","identificatie":"f8888af7-3bd7-49de-9ba6-ff623e00224f","bronorganisatie":"Anderson,
-      Adkins and Nunez","titel":"Better feel for remember her.","beschrijving":"She
-      event summer room car. Bad natural now.","auteur":"Cameron Henry","taal":"ast","vertrouwelijkheidaanduiding":"bag","status":"involve","formaat":"flac","bestandsnaam":"table.css","informatieobjecttype":"star","verschijningsvorm":"wish","bestandsomvang":1000,"link":"https://butler.com/","creatiedatum":"2026-03-24","begin_registratie":"2026-03-13T00:54:25.457803","last_checked_at":"1981-04-05T00:00:00","next_check_at":"2000-11-23T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"8c9acfc6-d6fd-43d9-9a34-1e2f5a2fc40d","url":"https://johnson.com/","identificatie":"605a5927-9a84-452f-ab5f-602e7c0b8171","bronorganisatie":"Rose
-      Inc","verantwoordelijkeOrganisatie":"Roberts-Thornton","omschrijving":"North
-      major read side fact affect between.","toelichting":"Again nor night indicate.
-      Far adult nice yet necessary key miss. Glass serious teach say.","status":"get","registratiedatum":"2026-03-14","startdatum":"2026-03-22","zaaktype":"chance","object_type":"red"}],"inhoud":"http://localhost/document/zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"https://wolfe-taylor.com/","identificatie":"dc2f1f76-49c0-47fa-9c10-4f36e3e7aa4b","bronorganisatie":"Ingram,
+      Hernandez and Gould","titel":"Yet gun much material whether particular investment
+      body.","beschrijving":"After discover role mother yourself call beat prevent.
+      Score real choice where talk start town.","auteur":"Anna Davis","taal":"bhb","vertrouwelijkheidaanduiding":"list","status":"daughter","formaat":"ods","bestandsnaam":"picture.css","informatieobjecttype":"class","verschijningsvorm":"style","bestandsomvang":1000,"link":"http://www.williams.com/","creatiedatum":"2026-04-07","begin_registratie":"2026-04-07T08:43:09.725434","last_checked_at":"1997-09-20T00:00:00","next_check_at":"1991-12-20T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"1dea7679-5c4f-4c98-8388-89328249b4f0","url":"http://faulkner.com/","identificatie":"9d355b36-9ae2-40e0-9160-35ff710f3d39","bronorganisatie":"Vance-King","verantwoordelijkeOrganisatie":"Brown-Banks","omschrijving":"Chance
+      hold too outside.","toelichting":"Pattern son government bank identify participant.","status":"age","registratiedatum":"2026-03-29","startdatum":"2026-03-29","zaaktype":"term","object_type":"fast","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -91,19 +90,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
   response:
     body:
-      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"She
-        event summer room car. Bad natural now.","verschijningsvorm":"wish","bronorganisatie":"Anderson,
-        Adkins and Nunez","link":"https://butler.com/","next_check_at":"2000-11-23T00:00:00","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","formaat":"flac","inhoud":"http://localhost/document/zip","titel":"Better
-        feel for remember her.","informatieobjecttype":"star","bestandsnaam":"table.css","creatiedatum":"2026-03-24","group_slug":"group-1","begin_registratie":"2026-03-13T00:54:25.457803","identificatie":"f8888af7-3bd7-49de-9ba6-ff623e00224f","bestandsomvang":1000,"url":"http://fox-johnson.com/","taal":"ast","zaak_referenties":[{"omschrijving":"North
-        major read side fact affect between.","identificatie":"605a5927-9a84-452f-ab5f-602e7c0b8171","startdatum":"2026-03-22","object_type":"red","bronorganisatie":"Rose
-        Inc","zaaktype":"chance","registratiedatum":"2026-03-14","uuid":"8c9acfc6-d6fd-43d9-9a34-1e2f5a2fc40d","url":"https://johnson.com/","verantwoordelijkeOrganisatie":"Roberts-Thornton","toelichting":"Again
-        nor night indicate. Far adult nice yet necessary key miss. Glass serious teach
-        say.","status":"get"}],"auteur":"Cameron Henry","last_checked_at":"1981-04-05T00:00:00","vertrouwelijkheidaanduiding":"bag","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"status":"involve"}}'
+      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"After
+        discover role mother yourself call beat prevent. Score real choice where talk
+        start town.","verschijningsvorm":"style","bronorganisatie":"Ingram, Hernandez
+        and Gould","link":"http://www.williams.com/","next_check_at":"1991-12-20T00:00:00","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","formaat":"ods","inhoud":"http://localhost/document/zip","titel":"Yet
+        gun much material whether particular investment body.","informatieobjecttype":"class","bestandsnaam":"picture.css","creatiedatum":"2026-04-07","group_slug":"group-1","begin_registratie":"2026-04-07T08:43:09.725434","identificatie":"dc2f1f76-49c0-47fa-9c10-4f36e3e7aa4b","bestandsomvang":1000,"url":"https://wolfe-taylor.com/","taal":"bhb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"9d355b36-9ae2-40e0-9160-35ff710f3d39","object_type":"fast","bronorganisatie":"Vance-King","zaaktype":"term","registratiedatum":"2026-03-29","uuid":"1dea7679-5c4f-4c98-8388-89328249b4f0","url":"http://faulkner.com/","verantwoordelijkeOrganisatie":"Brown-Banks","omschrijving":"Chance
+        hold too outside.","startdatum":"2026-03-29","toelichting":"Pattern son government
+        bank identify participant.","status":"age"}],"auteur":"Anna Davis","last_checked_at":"1997-09-20T00:00:00","vertrouwelijkheidaanduiding":"list","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"status":"daughter"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1510'
+      - '1565'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

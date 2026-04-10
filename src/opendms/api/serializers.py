@@ -94,6 +94,59 @@ class ZaakSerializer(serializers.Serializer):
     )
 
 
+class ESZaakSerializer(serializers.Serializer):
+    uuid = serializers.UUIDField(
+        help_text=_(
+            "UUID van dit object. Dit is de unieke identificatiecode van dit object."
+        ),
+    )
+    url = serializers.URLField(
+        help_text=_(
+            "URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object."
+        ),
+    )
+    identificatie = serializers.CharField(
+        help_text=_(
+            "De unieke identificatie van de ZAAK binnen de organisatie "
+            "die verantwoordelijk is voor de behandeling van de ZAAK.",
+        ),
+    )
+    zaaktype = serializers.CharField(
+        help_text=_("URL-referentie naar het ZAAKTYPE (in de Catalogi API)."),
+    )
+    bronorganisatie = serializers.CharField(
+        help_text=_(
+            "Het RSIN van de Niet-natuurlijk persoon zijnde de "
+            "organisatie die de zaak heeft gecreeerd."
+        ),
+    )
+    verantwoordelijkeOrganisatie = serializers.CharField(
+        help_text=_(
+            "Het RSIN van de Niet-natuurlijk persoon zijnde de organisatie "
+            "die eindverantwoordelijk is voor de behandeling van de zaak."
+        ),
+    )
+    registratiedatum = serializers.DateField(
+        help_text=_(
+            "De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd"
+        ),
+    )
+    startdatum = serializers.DateField(
+        help_text=_("De datum waarop met de uitvoering van de zaak is gestart."),
+    )
+    omschrijving = serializers.CharField(
+        help_text=_("Een korte omschrijving van de zaak."),
+    )
+    toelichting = serializers.CharField(
+        help_text=_("Een toelichting op de zaak."),
+    )
+    service_slug = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_("De slug van de bronservice die deze zaak heeft geïndexeerd."),
+    )
+
+
 @extend_schema_serializer()
 class DocumentSerializer(serializers.Serializer):
     uuid = serializers.CharField(
@@ -337,7 +390,7 @@ class ESDocumentSerializer(serializers.Serializer):
             "De slug van de groep waartoe de bronservice behoort die dit document heeft geïndexeerd."
         ),
     )
-    zaak_referenties = ZaakSerializer(many=True, required=False, default=list)
+    zaak_referenties = ESZaakSerializer(many=True, required=False, default=list)
 
 
 class SearchSerializer(serializers.Serializer):

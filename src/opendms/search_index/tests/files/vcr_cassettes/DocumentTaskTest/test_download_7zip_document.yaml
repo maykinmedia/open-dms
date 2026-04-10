@@ -27,7 +27,7 @@ interactions:
         0ZERqq1gHbrOsScYXFmG6WZSWL7pdqxZ5OVbBQj5x9qt/PtSK3TNHlsgQvndUz34KWQJO4DLKmzf
         tTvwxL0uX6oPPktmQpATDv8Qk/hxeFn4A5th6ADgAKYAc10AAIEzB64P1THNtWclRSgpPgItLOIk
         n4jd4NxFlN/WRYH+oBHsAIuGBrkJNQOfyRT2oCy/ylI0RGbuJFreEwY3l+e3Jai1iCUvvqmIHOIo
-        2TmwgLb5B/IKE4DIcaNrbBgcK5IXAa52xF7ecb1rZR/vtgAAAAAXBoDhAQl7AAcLAQABISEBGAyA
+        2TmwgLb5BkkIpRCS8HYQ3hOp9ufDDadIT5EjyO1KGqosMAAAAAAXBoDhAQl7AAcLAQABISEBGAyA
         pwAA
     headers:
       Connection:
@@ -37,20 +37,19 @@ interactions:
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Thu, 09 Apr 2026 12:50:24 GMT
+      - Fri, 10 Apr 2026 12:29:32 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.owen.com/","identificatie":"84d70e8e-8366-4e84-87c2-96771e87a1f7","bronorganisatie":"Howard,
-      Reynolds and Williams","titel":"Four million past quality law.","beschrijving":"Protect
-      follow draw result help. Garden enough do. Next occur stand clearly understand.","auteur":"Richard
-      Mcclain","taal":"unm","vertrouwelijkheidaanduiding":"peace","status":"country","formaat":"mp4","bestandsnaam":"full.gif","informatieobjecttype":"particularly","verschijningsvorm":"economy","bestandsomvang":1000,"link":"https://avery-smith.com/","creatiedatum":"2026-03-30","begin_registratie":"2026-03-21T21:47:11.874501","last_checked_at":"2015-04-01T00:00:00","next_check_at":"1984-01-21T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"8c64dcad-71c8-41e4-b518-058ea5a09077","url":"http://www.ferguson-cooper.com/","identificatie":"fb54d705-19b8-4843-b076-41667c3e5fdf","bronorganisatie":"Powell
-      and Sons","verantwoordelijkeOrganisatie":"Odom, Ruiz and Palmer","omschrijving":"Player
-      out argue yeah.","toelichting":"Stop serious represent. Method country relate
-      talk drop.","status":"explain","registratiedatum":"2026-04-03","startdatum":"2026-03-25","zaaktype":"lead","object_type":"per"}],"inhoud":"http://localhost/document/7zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.norman-romero.com/","identificatie":"97b30b60-389d-4848-ba89-8afaa76fedb6","bronorganisatie":"Crawford
+      Group","titel":"Industry church spring cell.","beschrijving":"Station site level
+      attorney. But country assume movie. Forget employee analysis trip organization
+      need sign.","auteur":"Karen Collins","taal":"uz","vertrouwelijkheidaanduiding":"author","status":"community","formaat":"wav","bestandsnaam":"war.pages","informatieobjecttype":"technology","verschijningsvorm":"which","bestandsomvang":1000,"link":"http://mitchell-cunningham.info/","creatiedatum":"2026-03-15","begin_registratie":"2026-04-06T16:28:44.119482","last_checked_at":"2013-03-16T00:00:00","next_check_at":"1989-12-30T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"71faed32-29af-48c6-86de-1d5ef2a84646","url":"https://www.odonnell.net/","identificatie":"46e8a9f9-01a5-4bd3-be92-44b5d464219f","bronorganisatie":"Green-Lewis","verantwoordelijkeOrganisatie":"Lane
+      LLC","omschrijving":"Company project argue though black back after.","toelichting":"Almost
+      pass lose scientist policy child world.","status":"community","registratiedatum":"2026-03-26","startdatum":"2026-03-12","zaaktype":"sound","object_type":"treatment","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/7zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -94,19 +93,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Protect
-        follow draw result help. Garden enough do. Next occur stand clearly understand.","verschijningsvorm":"economy","bronorganisatie":"Howard,
-        Reynolds and Williams","link":"https://avery-smith.com/","next_check_at":"1984-01-21T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","formaat":"mp4","inhoud":"http://localhost/document/7zip","titel":"Four
-        million past quality law.","informatieobjecttype":"particularly","bestandsnaam":"full.gif","creatiedatum":"2026-03-30","group_slug":"group-1","begin_registratie":"2026-03-21T21:47:11.874501","identificatie":"84d70e8e-8366-4e84-87c2-96771e87a1f7","bestandsomvang":1000,"url":"https://www.owen.com/","taal":"unm","zaak_referenties":[{"omschrijving":"Player
-        out argue yeah.","identificatie":"fb54d705-19b8-4843-b076-41667c3e5fdf","startdatum":"2026-03-25","object_type":"per","bronorganisatie":"Powell
-        and Sons","zaaktype":"lead","registratiedatum":"2026-04-03","uuid":"8c64dcad-71c8-41e4-b518-058ea5a09077","url":"http://www.ferguson-cooper.com/","verantwoordelijkeOrganisatie":"Odom,
-        Ruiz and Palmer","toelichting":"Stop serious represent. Method country relate
-        talk drop.","status":"explain"}],"auteur":"Richard Mcclain","last_checked_at":"2015-04-01T00:00:00","vertrouwelijkheidaanduiding":"peace","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"status":"country"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":3,"_seq_no":2,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Station
+        site level attorney. But country assume movie. Forget employee analysis trip
+        organization need sign.","verschijningsvorm":"which","bronorganisatie":"Crawford
+        Group","link":"http://mitchell-cunningham.info/","next_check_at":"1989-12-30T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","formaat":"wav","inhoud":"http://localhost/document/7zip","titel":"Industry
+        church spring cell.","informatieobjecttype":"technology","bestandsnaam":"war.pages","creatiedatum":"2026-03-15","group_slug":"group-1","begin_registratie":"2026-04-06T16:28:44.119482","identificatie":"97b30b60-389d-4848-ba89-8afaa76fedb6","bestandsomvang":1000,"url":"https://www.norman-romero.com/","taal":"uz","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"46e8a9f9-01a5-4bd3-be92-44b5d464219f","object_type":"treatment","bronorganisatie":"Green-Lewis","zaaktype":"sound","registratiedatum":"2026-03-26","uuid":"71faed32-29af-48c6-86de-1d5ef2a84646","url":"https://www.odonnell.net/","verantwoordelijkeOrganisatie":"Lane
+        LLC","omschrijving":"Company project argue though black back after.","startdatum":"2026-03-12","toelichting":"Almost
+        pass lose scientist policy child world.","status":"community"}],"auteur":"Karen
+        Collins","last_checked_at":"2013-03-16T00:00:00","vertrouwelijkheidaanduiding":"author","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"status":"community"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1547'
+      - '1592'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

@@ -1,12 +1,12 @@
 interactions:
 - request:
-    body: '{"uuid":"doc-valid","url":"http://www.benjamin.com/","identificatie":"625a0704-76c7-467a-9268-f74a5b08a262","bronorganisatie":"Martinez
-      Ltd","titel":"Seem also shoulder born.","beschrijving":"Attention wish cell
-      why. Provide second approach production. Weight fine instead nearly top feeling
-      poor board.","auteur":"Terry Arroyo","taal":"gu","vertrouwelijkheidaanduiding":"loss","status":"actually","formaat":"html","bestandsnaam":"student.key","informatieobjecttype":"return","verschijningsvorm":"process","bestandsomvang":1000000,"link":"http://www.weiss.info/","creatiedatum":"2026-04-06","begin_registratie":"2026-04-08T23:30:31.443352","last_checked_at":"2026-04-10T09:05:19.360450+00:00","next_check_at":"2026-04-15T09:05:19.360453+00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"13df9fe8-8566-472a-9088-2791fb269ec6","url":"https://www.baxter-davis.com/","identificatie":"9bdd691d-0891-4234-a026-0e234582338e","bronorganisatie":"Morgan
-      PLC","verantwoordelijkeOrganisatie":"Stone, Ponce and Davis","omschrijving":"Chance
-      president Republican.","toelichting":"Anything that loss contain Congress front
-      history. Real nation both reason president note. Rock direction white never.","status":"involve","registratiedatum":"2026-03-19","startdatum":"2026-04-07","zaaktype":"new","object_type":"tax"}]}'
+    body: '{"uuid":"doc-valid","url":"http://www.ramirez.biz/","identificatie":"b1cacdbe-2ce7-422a-9793-968baa051052","bronorganisatie":"Francis
+      Inc","titel":"Age class deal executive never sea current.","beschrijving":"State
+      record skill lawyer. Tonight will your himself woman seat must. Drug seek boy
+      reflect tough yeah through.","auteur":"Martin Perry","taal":"hy","vertrouwelijkheidaanduiding":"significant","status":"while","formaat":"avi","bestandsnaam":"answer.wav","informatieobjecttype":"finish","verschijningsvorm":"stand","bestandsomvang":1000000,"link":"https://thomas-murillo.biz/","creatiedatum":"2026-03-31","begin_registratie":"2026-04-02T22:24:10.334689","last_checked_at":"2026-04-10T12:29:00.684027+00:00","next_check_at":"2026-04-15T12:29:00.684030+00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"e820e59f-0790-414d-8885-9e480bd70436","url":"http://shields.com/","identificatie":"82c98961-8002-4782-9c95-d32c83701137","bronorganisatie":"Price,
+      Harris and Roberson","verantwoordelijkeOrganisatie":"Lucero, Holland and Andrade","omschrijving":"Rise
+      mention its effort firm.","toelichting":"About possible my wear adult. Off try
+      sort usually institution. Peace standard firm. Meeting husband firm seem common.","status":"provide","registratiedatum":"2026-03-14","startdatum":"2026-03-13","zaaktype":"identify","object_type":"purpose","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -62,7 +62,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-10T09:05:20.150838+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug","creatiedatum"]}'
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-10T12:29:01.458170+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8

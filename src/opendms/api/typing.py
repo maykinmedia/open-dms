@@ -31,6 +31,20 @@ class Zaak(TypedDict):
     toelichting: str
 
 
+class ESZaak(TypedDict):
+    uuid: UUID
+    url: str
+    identificatie: str
+    zaaktype: str
+    bronorganisatie: str
+    verantwoordelijkeOrganisatie: str
+    registratiedatum: date
+    startdatum: date
+    omschrijving: str
+    toelichting: str
+    service_slug: str | None
+
+
 class DocumentType(TypedDict):
     uuid: str
     url: str
@@ -76,7 +90,7 @@ class ESDocumentType(TypedDict):
     service_slug: str | None
     group_slug: str | None
 
-    zaak_referenties: list[Zaak]
+    zaak_referenties: list[ESZaak]
 
 
 class ObjectInformatieObjectType(TypedDict):
