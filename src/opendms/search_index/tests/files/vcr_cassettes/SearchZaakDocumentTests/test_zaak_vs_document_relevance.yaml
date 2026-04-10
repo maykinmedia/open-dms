@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775653704838","number_of_replicas":"1","uuid":"WEZ1Fu4sTB6K0BcADtvpAQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775807142767","number_of_replicas":"1","uuid":"BO20UNAFTjO5flH6YQQ6gQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"omschrijving":{"analyzer":"dutch","type":"text"},"toelichting":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"zaaktype":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"object_type":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"}},"type":"nested"},"formaat":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"status":{"analyzer":"dutch","type":"text"},"object_type":{"type":"keyword"},"uuid":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"toelichting":{"analyzer":"dutch","type":"text"},"omschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"zaaktype":{"type":"keyword"}},"type":"nested"},"status":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"taal":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,14 +80,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"doc-1","url":"https://thompson-avila.org/","identificatie":"a0586ab7-3e01-4bcd-bba3-29a84153f7c6","bronorganisatie":"Hendrix,
-      Griffin and Wright","titel":"commonterm","beschrijving":"Body together large.
-      American speak remember election describe. Art play leg paper score example
-      specific. Before campaign law black responsibility.","auteur":"Robert Dean","taal":"et","vertrouwelijkheidaanduiding":"table","status":"ever","formaat":"ods","bestandsnaam":"simple.pptx","informatieobjecttype":"kid","verschijningsvorm":"picture","bestandsomvang":1000000,"link":"http://lang.com/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-18T09:48:09.784657","zaak_referenties":[{"uuid":"a9393a5d-cdeb-44ef-999a-6fc8276ca309","url":"http://graham.com/","identificatie":"24f80c74-5d03-4034-abc9-77a73f4f3b56","bronorganisatie":"Harvey
-      and Sons","verantwoordelijkeOrganisatie":"Murray Ltd","omschrijving":"Small
-      during American sense but hot.","toelichting":"Section hundred manage radio
-      language cover from. Despite cold allow woman agreement. Stock kind edge special
-      risk become focus.","status":"speak","registratiedatum":"2026-04-05","startdatum":"2026-03-30","zaaktype":"audience","object_type":"scene"}]}'
+    body: '{"uuid":"doc-1","url":"https://www.hoffman.com/","identificatie":"26553982-3ccc-43b4-b40e-e1c979e8690d","bronorganisatie":"Hill
+      LLC","titel":"commonterm","beschrijving":"Experience knowledge to statement
+      water lay.","auteur":"Jacqueline Cook","taal":"ff","vertrouwelijkheidaanduiding":"blue","status":"society","formaat":"mp4","bestandsnaam":"century.csv","informatieobjecttype":"enough","verschijningsvorm":"talk","bestandsomvang":1000000,"link":"https://www.jenkins.com/","creatiedatum":"2026-04-02","begin_registratie":"2026-03-14T19:50:43.684634","zaak_referenties":[{"uuid":"faa8a0dc-8fc3-430a-8627-6a3ff9c94527","url":"https://davis-brown.com/","identificatie":"52004a67-13d2-4b28-bbb6-7166c5646e19","bronorganisatie":"Rogers,
+      Hunt and Riley","verantwoordelijkeOrganisatie":"Norton, Torres and Mcneil","omschrijving":"Happen
+      see heart toward senior.","toelichting":"Thank catch it these walk player environmental
+      so. Cut local interview computer military.","status":"line","registratiedatum":"2026-03-25","startdatum":"2026-04-08","zaaktype":"picture","object_type":"determine"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -117,10 +115,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"zaak-1","url":"http://lopez.com/","identificatie":"commonterm","bronorganisatie":"Stephens-Lewis","verantwoordelijkeOrganisatie":"Molina,
-      Thomas and Johnson","omschrijving":"Go ahead effect scientist.","toelichting":"Owner
-      each film see beat out. Law week phone design painting. Soon low upon cold development
-      American market. Record type glass wear thought play.","status":"lay","registratiedatum":"2026-03-15","startdatum":"2026-03-28","zaaktype":"perhaps","creatiedatum":"2026-03-15"}'
+    body: '{"uuid":"zaak-1","url":"https://hill.com/","identificatie":"commonterm","bronorganisatie":"Duke
+      Group","verantwoordelijkeOrganisatie":"Cummings, Bryant and Glass","omschrijving":"Customer
+      threat represent article arm.","toelichting":"Although training half another
+      increase.","status":"expect","registratiedatum":"2026-03-23","startdatum":"2026-03-13","zaaktype":"exist","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-23"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -166,18 +164,17 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"zaak-1","_score":0.66849685,"_source":{"uuid":"zaak-1","url":"http://lopez.com/","identificatie":"commonterm","bronorganisatie":"Stephens-Lewis","verantwoordelijkeOrganisatie":"Molina,
-        Thomas and Johnson","omschrijving":"Go ahead effect scientist.","toelichting":"Owner
-        each film see beat out. Law week phone design painting. Soon low upon cold
-        development American market. Record type glass wear thought play.","status":"lay","registratiedatum":"2026-03-15","startdatum":"2026-03-28","zaaktype":"perhaps","creatiedatum":"2026-03-15"},"sort":[0.66849685,1773532800000]},{"_index":"document","_id":"doc-1","_score":0.1376433,"_source":{"beschrijving":"Body
-        together large. American speak remember election describe. Art play leg paper
-        score example specific. Before campaign law black responsibility.","verschijningsvorm":"picture","begin_registratie":"2026-03-18T09:48:09.784657","identificatie":"a0586ab7-3e01-4bcd-bba3-29a84153f7c6","bronorganisatie":"Hendrix,
-        Griffin and Wright","bestandsomvang":1000000,"link":"http://lang.com/","uuid":"doc-1","url":"https://thompson-avila.org/","taal":"et","zaak_referenties":[{"omschrijving":"Small
-        during American sense but hot.","identificatie":"24f80c74-5d03-4034-abc9-77a73f4f3b56","startdatum":"2026-03-30","object_type":"scene","bronorganisatie":"Harvey
-        and Sons","zaaktype":"audience","registratiedatum":"2026-04-05","uuid":"a9393a5d-cdeb-44ef-999a-6fc8276ca309","url":"http://graham.com/","verantwoordelijkeOrganisatie":"Murray
-        Ltd","toelichting":"Section hundred manage radio language cover from. Despite
-        cold allow woman agreement. Stock kind edge special risk become focus.","status":"speak"}],"auteur":"Robert
-        Dean","formaat":"ods","titel":"commonterm","vertrouwelijkheidaanduiding":"table","informatieobjecttype":"kid","bestandsnaam":"simple.pptx","creatiedatum":"2026-03-11","status":"ever"},"sort":[0.1376433,1773187200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"zaak-1","_score":1.1628307,"_source":{"uuid":"zaak-1","url":"https://hill.com/","identificatie":"commonterm","bronorganisatie":"Duke
+        Group","verantwoordelijkeOrganisatie":"Cummings, Bryant and Glass","omschrijving":"Customer
+        threat represent article arm.","toelichting":"Although training half another
+        increase.","status":"expect","registratiedatum":"2026-03-23","startdatum":"2026-03-13","zaaktype":"exist","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-23"},"sort":[1.1628307,1774224000000]},{"_index":"document","_id":"doc-1","_score":0.57226795,"_source":{"beschrijving":"Experience
+        knowledge to statement water lay.","verschijningsvorm":"talk","begin_registratie":"2026-03-14T19:50:43.684634","identificatie":"26553982-3ccc-43b4-b40e-e1c979e8690d","bronorganisatie":"Hill
+        LLC","bestandsomvang":1000000,"link":"https://www.jenkins.com/","uuid":"doc-1","url":"https://www.hoffman.com/","taal":"ff","zaak_referenties":[{"omschrijving":"Happen
+        see heart toward senior.","identificatie":"52004a67-13d2-4b28-bbb6-7166c5646e19","startdatum":"2026-04-08","object_type":"determine","bronorganisatie":"Rogers,
+        Hunt and Riley","zaaktype":"picture","registratiedatum":"2026-03-25","uuid":"faa8a0dc-8fc3-430a-8627-6a3ff9c94527","url":"https://davis-brown.com/","verantwoordelijkeOrganisatie":"Norton,
+        Torres and Mcneil","toelichting":"Thank catch it these walk player environmental
+        so. Cut local interview computer military.","status":"line"}],"auteur":"Jacqueline
+        Cook","formaat":"mp4","titel":"commonterm","vertrouwelijkheidaanduiding":"blue","informatieobjecttype":"enough","bestandsnaam":"century.csv","creatiedatum":"2026-04-02","status":"society"},"sort":[0.57226795,1775088000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

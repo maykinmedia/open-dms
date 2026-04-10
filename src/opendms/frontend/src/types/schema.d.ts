@@ -413,6 +413,10 @@ export interface components {
             omschrijving: string;
             /** @description Een toelichting op de zaak. */
             toelichting: string;
+            /** @description De slug van de bronservice die deze zaak heeft geïndexeerd. */
+            serviceSlug?: string | null;
+            /** @description De slug van de groep waartoe de bronservice behoort die deze zaak heeft geïndexeerd. */
+            groupSlug?: string | null;
             /**
              * @description discriminator enum property added by openapi-typescript
              * @enum {string}

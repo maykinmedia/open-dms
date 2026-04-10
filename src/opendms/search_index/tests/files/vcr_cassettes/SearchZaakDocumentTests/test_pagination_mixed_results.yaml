@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806624758","number_of_replicas":"1","uuid":"M1TnzGbBTRyJtRRdMOc6Zw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,12 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://garza-harper.com/","identificatie":"78f2e5d8-e7f4-44d8-8f8d-6f6deb395359","bronorganisatie":"House-Shields","titel":"Doc
-      1","beschrijving":"Likely rule meet us. Trial rest late.","auteur":"Jack Salazar","taal":"tn","vertrouwelijkheidaanduiding":"agreement","status":"some","formaat":"mov","bestandsnaam":"growth.wav","informatieobjecttype":"side","verschijningsvorm":"everyone","bestandsomvang":1000000,"link":"https://www.newman.biz/","creatiedatum":"2026-03-31","begin_registratie":"2026-03-14T00:58:37.518615","zaak_referenties":[{"uuid":"ec2a1756-ce13-4a0f-91bd-73887ea83df6","url":"http://fleming.com/","identificatie":"c940d94d-c4a1-461f-b3b5-bea2fe3561a4","bronorganisatie":"Hill
-      Inc","verantwoordelijkeOrganisatie":"Jimenez-Velasquez","omschrijving":"Play
-      myself foreign name follow foreign yeah.","toelichting":"Soldier nearly history
-      yourself reason table show. Break me newspaper nor sit us. Particular entire
-      central notice.","status":"pressure","registratiedatum":"2026-03-18","startdatum":"2026-03-10","zaaktype":"young","object_type":"them"}]}'
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.werner.info/","identificatie":"7b54c242-a6bf-4438-9ba8-481c236e18fd","bronorganisatie":"Reed,
+      Huber and Browning","titel":"Doc 1","beschrijving":"Plant wonder claim member
+      especially. Agent now rule. Player sea actually career discuss north.","auteur":"Norman
+      Rogers","taal":"nhn","vertrouwelijkheidaanduiding":"white","status":"try","formaat":"html","bestandsnaam":"measure.flac","informatieobjecttype":"technology","verschijningsvorm":"decide","bestandsomvang":1000000,"link":"http://webb.com/","creatiedatum":"2026-04-04","begin_registratie":"2026-03-11T10:56:15.414974","zaak_referenties":[{"uuid":"5c38de38-079c-47e1-940e-69ccdda841e1","url":"http://www.allen.org/","identificatie":"72bfde10-530d-49d9-969f-9ffae5955c76","bronorganisatie":"Lopez
+      LLC","verantwoordelijkeOrganisatie":"Madden-Horn","omschrijving":"Customer member
+      expert fly person this course.","toelichting":"Hard throw argue line matter
+      prove manager. Hospital investment appear perform.","status":"attack","registratiedatum":"2026-03-20","startdatum":"2026-04-07","zaaktype":"development","object_type":"wide"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -155,7 +156,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806624758","number_of_replicas":"1","uuid":"M1TnzGbBTRyJtRRdMOc6Zw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -167,7 +168,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -195,13 +196,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.keller-chase.com/","identificatie":"b835177e-6d03-4501-a3c2-76048b5dab52","bronorganisatie":"Pollard,
-      Smith and Simmons","titel":"Doc 2","beschrijving":"Be local available everybody
-      suffer conference mean. Others lead meet front according. Foot job fast special
-      ago.","auteur":"Jeanette Lowe","taal":"bho","vertrouwelijkheidaanduiding":"agreement","status":"pressure","formaat":"jpeg","bestandsnaam":"buy.flac","informatieobjecttype":"despite","verschijningsvorm":"character","bestandsomvang":1000000,"link":"https://www.flores-mckinney.com/","creatiedatum":"2026-03-22","begin_registratie":"2026-03-18T08:47:31.910808","zaak_referenties":[{"uuid":"665cc460-70a7-41f7-9afc-d2283f098e03","url":"https://www.davis.com/","identificatie":"8dd2afe3-e9a7-4303-a885-a742ee62b1a8","bronorganisatie":"Nichols,
-      Good and Williams","verantwoordelijkeOrganisatie":"Arellano, Mcintyre and Maldonado","omschrijving":"Food
-      sport as before class stand ready safe.","toelichting":"Society sport that fire
-      trade resource. Offer range per unit generation again despite.","status":"yeah","registratiedatum":"2026-03-31","startdatum":"2026-03-26","zaaktype":"bill","object_type":"role"}]}'
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.nunez.biz/","identificatie":"04a7e550-9473-41f5-9f43-0eb0f26207f7","bronorganisatie":"Cortez-West","titel":"Doc
+      2","beschrijving":"White join consumer office difference I. For fly want despite
+      truth. Teacher speak heavy religious fast rich.","auteur":"Shaun Hall","taal":"hak","vertrouwelijkheidaanduiding":"into","status":"week","formaat":"mp4","bestandsnaam":"low.jpg","informatieobjecttype":"ahead","verschijningsvorm":"kid","bestandsomvang":1000000,"link":"https://massey.com/","creatiedatum":"2026-04-08","begin_registratie":"2026-03-26T00:48:57.969433","zaak_referenties":[{"uuid":"9a605429-32d1-494c-afc2-717c8ec7ef6a","url":"http://www.waller.biz/","identificatie":"a0e2cdbc-3c98-4f34-9ea5-15eb282f2fd2","bronorganisatie":"Gonzalez,
+      Bishop and Rivers","verantwoordelijkeOrganisatie":"Thompson-Meza","omschrijving":"Idea
+      pass whether build point check.","toelichting":"Else keep near. Wish concern
+      break skill face.","status":"including","registratiedatum":"2026-03-25","startdatum":"2026-03-26","zaaktype":"many","object_type":"church"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -231,10 +231,11 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"14fceb92-98bd-475c-b184-49ee8a274787","url":"http://moore-miles.net/","identificatie":"1f47a401-44ee-4af8-af42-0989d41b5bd3","bronorganisatie":"Miller
-      LLC","verantwoordelijkeOrganisatie":"Mitchell, Villanueva and Foley","omschrijving":"Zaak
-      1","toelichting":"Throw something peace yet well hour. Cost material subject
-      industry seem sign. We look court us someone wonder race.","status":"defense","registratiedatum":"2026-03-25","startdatum":"2026-03-28","zaaktype":"list","creatiedatum":"2026-03-25"}'
+    body: '{"uuid":"14fceb92-98bd-475c-b184-49ee8a274787","url":"http://moore.info/","identificatie":"51bf4f45-c50d-4d55-ad37-b775fd6a9c3d","bronorganisatie":"Gallagher,
+      Francis and Todd","verantwoordelijkeOrganisatie":"Santiago, Jones and Burke","omschrijving":"Zaak
+      1","toelichting":"Other allow call form project find south. Large pick risk
+      old film talk single. School rather fund dog. Respond care opportunity positive
+      evidence certainly.","status":"leave","registratiedatum":"2026-03-22","startdatum":"2026-03-26","zaaktype":"save","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-22"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -264,10 +265,9 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"15fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.lara-bishop.biz/","identificatie":"a47cd130-f202-4919-b7e4-1687a38b745f","bronorganisatie":"Camacho-Fitzgerald","verantwoordelijkeOrganisatie":"Jackson
-      LLC","omschrijving":"Zaak 2","toelichting":"Even speech chair win. Deep big
-      successful account resource entire dream. Three population effect might condition
-      participant. Position every southern region speech.","status":"side","registratiedatum":"2026-03-19","startdatum":"2026-03-26","zaaktype":"ago","creatiedatum":"2026-03-19"}'
+    body: '{"uuid":"15fceb92-98bd-475c-b184-49ee8a274787","url":"http://pope.com/","identificatie":"8e01c1bf-f73e-4582-859e-de2759aac851","bronorganisatie":"Lucero
+      Ltd","verantwoordelijkeOrganisatie":"Jordan-Henry","omschrijving":"Zaak 2","toelichting":"Mind
+      clearly southern begin choice lot. Trouble key voice. Especially upon us least.","status":"each","registratiedatum":"2026-03-27","startdatum":"2026-03-13","zaaktype":"team","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-27"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -313,16 +313,18 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":2.5077972,"_source":{"beschrijving":"Likely
-        rule meet us. Trial rest late.","verschijningsvorm":"everyone","begin_registratie":"2026-03-14T00:58:37.518615","identificatie":"78f2e5d8-e7f4-44d8-8f8d-6f6deb395359","bronorganisatie":"House-Shields","bestandsomvang":1000000,"link":"https://www.newman.biz/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://garza-harper.com/","taal":"tn","zaak_referenties":[{"omschrijving":"Play
-        myself foreign name follow foreign yeah.","identificatie":"c940d94d-c4a1-461f-b3b5-bea2fe3561a4","startdatum":"2026-03-10","object_type":"them","bronorganisatie":"Hill
-        Inc","zaaktype":"young","registratiedatum":"2026-03-18","uuid":"ec2a1756-ce13-4a0f-91bd-73887ea83df6","url":"http://fleming.com/","verantwoordelijkeOrganisatie":"Jimenez-Velasquez","toelichting":"Soldier
-        nearly history yourself reason table show. Break me newspaper nor sit us.
-        Particular entire central notice.","status":"pressure"}],"auteur":"Jack Salazar","formaat":"mov","titel":"Doc
-        1","vertrouwelijkheidaanduiding":"agreement","informatieobjecttype":"side","bestandsnaam":"growth.wav","creatiedatum":"2026-03-31","status":"some"},"sort":[2.5077972,1774915200000]},{"_index":"zaak","_id":"14fceb92-98bd-475c-b184-49ee8a274787","_score":1.6584523,"_source":{"uuid":"14fceb92-98bd-475c-b184-49ee8a274787","url":"http://moore-miles.net/","identificatie":"1f47a401-44ee-4af8-af42-0989d41b5bd3","bronorganisatie":"Miller
-        LLC","verantwoordelijkeOrganisatie":"Mitchell, Villanueva and Foley","omschrijving":"Zaak
-        1","toelichting":"Throw something peace yet well hour. Cost material subject
-        industry seem sign. We look court us someone wonder race.","status":"defense","registratiedatum":"2026-03-25","startdatum":"2026-03-28","zaaktype":"list","creatiedatum":"2026-03-25"},"sort":[1.6584523,1774396800000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":2.5226097,"_source":{"beschrijving":"Plant
+        wonder claim member especially. Agent now rule. Player sea actually career
+        discuss north.","verschijningsvorm":"decide","begin_registratie":"2026-03-11T10:56:15.414974","identificatie":"7b54c242-a6bf-4438-9ba8-481c236e18fd","bronorganisatie":"Reed,
+        Huber and Browning","bestandsomvang":1000000,"link":"http://webb.com/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.werner.info/","taal":"nhn","zaak_referenties":[{"omschrijving":"Customer
+        member expert fly person this course.","identificatie":"72bfde10-530d-49d9-969f-9ffae5955c76","startdatum":"2026-04-07","object_type":"wide","bronorganisatie":"Lopez
+        LLC","zaaktype":"development","registratiedatum":"2026-03-20","uuid":"5c38de38-079c-47e1-940e-69ccdda841e1","url":"http://www.allen.org/","verantwoordelijkeOrganisatie":"Madden-Horn","toelichting":"Hard
+        throw argue line matter prove manager. Hospital investment appear perform.","status":"attack"}],"auteur":"Norman
+        Rogers","formaat":"html","titel":"Doc 1","vertrouwelijkheidaanduiding":"white","informatieobjecttype":"technology","bestandsnaam":"measure.flac","creatiedatum":"2026-04-04","status":"try"},"sort":[2.5226097,1775260800000]},{"_index":"zaak","_id":"14fceb92-98bd-475c-b184-49ee8a274787","_score":1.2292358,"_source":{"uuid":"14fceb92-98bd-475c-b184-49ee8a274787","url":"http://moore.info/","identificatie":"51bf4f45-c50d-4d55-ad37-b775fd6a9c3d","bronorganisatie":"Gallagher,
+        Francis and Todd","verantwoordelijkeOrganisatie":"Santiago, Jones and Burke","omschrijving":"Zaak
+        1","toelichting":"Other allow call form project find south. Large pick risk
+        old film talk single. School rather fund dog. Respond care opportunity positive
+        evidence certainly.","status":"leave","registratiedatum":"2026-03-22","startdatum":"2026-03-26","zaaktype":"save","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-22"},"sort":[1.2292358,1774137600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

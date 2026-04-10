@@ -1,8 +1,7 @@
 interactions:
 - request:
-    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://williams.info/","identificatie":"ZAAK-IDENT","bronorganisatie":"Thompson
-      LLC","verantwoordelijkeOrganisatie":"Robertson-Santos","omschrijving":"Unieke
-      omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-19","startdatum":"2026-03-23","zaaktype":"shake","creatiedatum":"2026-03-19"}'
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.thompson.com/","identificatie":"ZAAK-IDENT","bronorganisatie":"Solomon-Martin","verantwoordelijkeOrganisatie":"Hernandez-Leach","omschrijving":"Unieke
+      omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-15","startdatum":"2026-03-22","zaaktype":"level","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-15"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -18,7 +17,7 @@ interactions:
     uri: http://localhost:9201/zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
   response:
     body:
-      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":7,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":12,"_primary_term":1}'
+      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":9,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":26,"_primary_term":1}'
     headers:
       Location:
       - /zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787
@@ -48,9 +47,8 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":5.7066855,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://williams.info/","identificatie":"ZAAK-IDENT","bronorganisatie":"Thompson
-        LLC","verantwoordelijkeOrganisatie":"Robertson-Santos","omschrijving":"Unieke
-        omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-19","startdatum":"2026-03-23","zaaktype":"shake","creatiedatum":"2026-03-19"},"sort":[5.7066855,1773878400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":4.376205,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.thompson.com/","identificatie":"ZAAK-IDENT","bronorganisatie":"Solomon-Martin","verantwoordelijkeOrganisatie":"Hernandez-Leach","omschrijving":"Unieke
+        omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-15","startdatum":"2026-03-22","zaaktype":"level","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-15"},"sort":[4.376205,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -81,9 +79,8 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":4.009488,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://williams.info/","identificatie":"ZAAK-IDENT","bronorganisatie":"Thompson
-        LLC","verantwoordelijkeOrganisatie":"Robertson-Santos","omschrijving":"Unieke
-        omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-19","startdatum":"2026-03-23","zaaktype":"shake","creatiedatum":"2026-03-19"},"sort":[4.009488,1773878400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":2.9992685,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.thompson.com/","identificatie":"ZAAK-IDENT","bronorganisatie":"Solomon-Martin","verantwoordelijkeOrganisatie":"Hernandez-Leach","omschrijving":"Unieke
+        omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-15","startdatum":"2026-03-22","zaaktype":"level","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-15"},"sort":[2.9992685,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -114,9 +111,8 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":4.026774,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://williams.info/","identificatie":"ZAAK-IDENT","bronorganisatie":"Thompson
-        LLC","verantwoordelijkeOrganisatie":"Robertson-Santos","omschrijving":"Unieke
-        omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-19","startdatum":"2026-03-23","zaaktype":"shake","creatiedatum":"2026-03-19"},"sort":[4.026774,1773878400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":3.2202835,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.thompson.com/","identificatie":"ZAAK-IDENT","bronorganisatie":"Solomon-Martin","verantwoordelijkeOrganisatie":"Hernandez-Leach","omschrijving":"Unieke
+        omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-15","startdatum":"2026-03-22","zaaktype":"level","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-15"},"sort":[3.2202835,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -144,9 +140,8 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":5,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":1.141337,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://williams.info/","identificatie":"ZAAK-IDENT","bronorganisatie":"Thompson
-        LLC","verantwoordelijkeOrganisatie":"Robertson-Santos","omschrijving":"Unieke
-        omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-19","startdatum":"2026-03-23","zaaktype":"shake","creatiedatum":"2026-03-19"},"sort":[1.141337,1773878400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.875241,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.thompson.com/","identificatie":"ZAAK-IDENT","bronorganisatie":"Solomon-Martin","verantwoordelijkeOrganisatie":"Hernandez-Leach","omschrijving":"Unieke
+        omschrijving","toelichting":"Extra toelichting tekst","status":"open","registratiedatum":"2026-03-15","startdatum":"2026-03-22","zaaktype":"level","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-15"},"sort":[0.875241,1773532800000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

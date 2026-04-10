@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806624758","number_of_replicas":"1","uuid":"M1TnzGbBTRyJtRRdMOc6Zw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,12 +80,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://moran.com/","identificatie":"1c0ee418-17ec-4b9f-86c3-7a5407ebc5b6","bronorganisatie":"Gonzalez-Bean","titel":"Document
-      match","beschrijving":"First whatever son until reflect. Rule team should firm
-      hold from west.","auteur":"Daniel Snyder","taal":"ru","vertrouwelijkheidaanduiding":"two","status":"scene","formaat":"odt","bestandsnaam":"eye.ppt","informatieobjecttype":"American","verschijningsvorm":"stage","bestandsomvang":1000000,"link":"http://www.mcdaniel.biz/","creatiedatum":"2026-03-13","begin_registratie":"2026-03-12T16:18:15.497448","zaak_referenties":[{"uuid":"ad37fb43-47ca-4300-b88c-7d5f44c49f49","url":"https://watson.com/","identificatie":"3054e515-2f43-4870-88a1-3f284dd8bc5e","bronorganisatie":"Cox-Palmer","verantwoordelijkeOrganisatie":"Lopez
-      LLC","omschrijving":"Behind save responsibility little safe sea close.","toelichting":"Mean
-      oil government reality not government employee. Human arrive risk wide check
-      president rather.","status":"may","registratiedatum":"2026-03-09","startdatum":"2026-03-13","zaaktype":"affect","object_type":"whom"}]}'
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://evans-mcdaniel.com/","identificatie":"2075eb0c-5144-42d4-9103-b32fa2ca9718","bronorganisatie":"Miller
+      PLC","titel":"Document match","beschrijving":"Ready we present idea. Strong
+      situation audience test. Measure front some.","auteur":"Julia Phillips","taal":"gez","vertrouwelijkheidaanduiding":"question","status":"budget","formaat":"flac","bestandsnaam":"prepare.mov","informatieobjecttype":"high","verschijningsvorm":"capital","bestandsomvang":1000000,"link":"https://rogers.com/","creatiedatum":"2026-03-19","begin_registratie":"2026-03-15T23:06:06.772196","zaak_referenties":[{"uuid":"18fae558-ed9f-412e-a2b9-8853e2739899","url":"http://www.scott.com/","identificatie":"d3e6b274-4f20-44c9-8da5-9cf7de9aee6b","bronorganisatie":"Zuniga-Hernandez","verantwoordelijkeOrganisatie":"Lee,
+      Pace and Gilmore","omschrijving":"Gas continue run drive throw discover event.","toelichting":"Tax
+      interest pass open will more commercial write. Strategy set represent similar
+      series physical.","status":"you","registratiedatum":"2026-03-29","startdatum":"2026-03-21","zaaktype":"rich","object_type":"place"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -115,10 +115,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://smith-deleon.info/","identificatie":"4c8c938d-ebe5-4019-8cce-11ef1df841fd","bronorganisatie":"Lowery,
-      Pratt and Fletcher","verantwoordelijkeOrganisatie":"Pitts, Levine and Anderson","omschrijving":"Zaak
-      match","toelichting":"Strategy owner water product suggest finally. Contain
-      feeling other mention keep analysis.","status":"forget","registratiedatum":"2026-04-05","startdatum":"2026-03-23","zaaktype":"throughout","creatiedatum":"2026-04-05"}'
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.rivera-marsh.org/","identificatie":"3603ef9b-c446-4589-bcfd-5fbdd439d3b0","bronorganisatie":"Alexander
+      LLC","verantwoordelijkeOrganisatie":"Morrison-Good","omschrijving":"Zaak match","toelichting":"Thought
+      also industry fight particularly. Difficult purpose community ball understand
+      college. Oil mouth rise whether natural evidence range.","status":"political","registratiedatum":"2026-04-02","startdatum":"2026-03-14","zaaktype":"you","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-04-02"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -164,15 +164,16 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":2.4079456,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://smith-deleon.info/","identificatie":"4c8c938d-ebe5-4019-8cce-11ef1df841fd","bronorganisatie":"Lowery,
-        Pratt and Fletcher","verantwoordelijkeOrganisatie":"Pitts, Levine and Anderson","omschrijving":"Zaak
-        match","toelichting":"Strategy owner water product suggest finally. Contain
-        feeling other mention keep analysis.","status":"forget","registratiedatum":"2026-04-05","startdatum":"2026-03-23","zaaktype":"throughout","creatiedatum":"2026-04-05"},"sort":[2.4079456,1775347200000]},{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.90512717,"_source":{"beschrijving":"First
-        whatever son until reflect. Rule team should firm hold from west.","verschijningsvorm":"stage","begin_registratie":"2026-03-12T16:18:15.497448","identificatie":"1c0ee418-17ec-4b9f-86c3-7a5407ebc5b6","bronorganisatie":"Gonzalez-Bean","bestandsomvang":1000000,"link":"http://www.mcdaniel.biz/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://moran.com/","taal":"ru","zaak_referenties":[{"omschrijving":"Behind
-        save responsibility little safe sea close.","identificatie":"3054e515-2f43-4870-88a1-3f284dd8bc5e","startdatum":"2026-03-13","object_type":"whom","bronorganisatie":"Cox-Palmer","zaaktype":"affect","registratiedatum":"2026-03-09","uuid":"ad37fb43-47ca-4300-b88c-7d5f44c49f49","url":"https://watson.com/","verantwoordelijkeOrganisatie":"Lopez
-        LLC","toelichting":"Mean oil government reality not government employee. Human
-        arrive risk wide check president rather.","status":"may"}],"auteur":"Daniel
-        Snyder","formaat":"odt","titel":"Document match","vertrouwelijkheidaanduiding":"two","informatieobjecttype":"American","bestandsnaam":"eye.ppt","creatiedatum":"2026-03-13","status":"scene"},"sort":[0.90512717,1773360000000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":2.395104,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.rivera-marsh.org/","identificatie":"3603ef9b-c446-4589-bcfd-5fbdd439d3b0","bronorganisatie":"Alexander
+        LLC","verantwoordelijkeOrganisatie":"Morrison-Good","omschrijving":"Zaak match","toelichting":"Thought
+        also industry fight particularly. Difficult purpose community ball understand
+        college. Oil mouth rise whether natural evidence range.","status":"political","registratiedatum":"2026-04-02","startdatum":"2026-03-14","zaaktype":"you","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-04-02"},"sort":[2.395104,1775088000000]},{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":1.397774,"_source":{"beschrijving":"Ready
+        we present idea. Strong situation audience test. Measure front some.","verschijningsvorm":"capital","begin_registratie":"2026-03-15T23:06:06.772196","identificatie":"2075eb0c-5144-42d4-9103-b32fa2ca9718","bronorganisatie":"Miller
+        PLC","bestandsomvang":1000000,"link":"https://rogers.com/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://evans-mcdaniel.com/","taal":"gez","zaak_referenties":[{"omschrijving":"Gas
+        continue run drive throw discover event.","identificatie":"d3e6b274-4f20-44c9-8da5-9cf7de9aee6b","startdatum":"2026-03-21","object_type":"place","bronorganisatie":"Zuniga-Hernandez","zaaktype":"rich","registratiedatum":"2026-03-29","uuid":"18fae558-ed9f-412e-a2b9-8853e2739899","url":"http://www.scott.com/","verantwoordelijkeOrganisatie":"Lee,
+        Pace and Gilmore","toelichting":"Tax interest pass open will more commercial
+        write. Strategy set represent similar series physical.","status":"you"}],"auteur":"Julia
+        Phillips","formaat":"flac","titel":"Document match","vertrouwelijkheidaanduiding":"question","informatieobjecttype":"high","bestandsnaam":"prepare.mov","creatiedatum":"2026-03-19","status":"budget"},"sort":[1.397774,1773878400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

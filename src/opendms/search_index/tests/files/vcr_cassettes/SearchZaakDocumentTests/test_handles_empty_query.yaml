@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806624758","number_of_replicas":"1","uuid":"M1TnzGbBTRyJtRRdMOc6Zw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,13 +80,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.long.org/","identificatie":"ac3a8128-d748-4f8c-a05d-13aeffb10aa0","bronorganisatie":"Rangel-Smith","titel":"Any
-      Document","beschrijving":"Behind whether hold magazine past reason. Chance state
-      blood whom wish threat son bad.","auteur":"Timothy Martinez","taal":"or","vertrouwelijkheidaanduiding":"catch","status":"suffer","formaat":"css","bestandsnaam":"sign.jpeg","informatieobjecttype":"talk","verschijningsvorm":"miss","bestandsomvang":1000000,"link":"https://myers.net/","creatiedatum":"2026-03-13","begin_registratie":"2026-03-16T02:59:53.704126","zaak_referenties":[{"uuid":"adc979ef-26e3-4cfc-ae7e-5c4cde1624c8","url":"http://www.christian.com/","identificatie":"719f692e-6c18-45f9-9420-b30111204ca6","bronorganisatie":"Trujillo
-      Ltd","verantwoordelijkeOrganisatie":"Smith, Villanueva and Ballard","omschrijving":"Summer
-      start resource national.","toelichting":"Concern news sound range care heavy
-      college level. Perhaps service training machine value affect. Use example always
-      TV if treat either. Star enough size teacher dog me politics.","status":"language","registratiedatum":"2026-03-17","startdatum":"2026-03-17","zaaktype":"key","object_type":"author"}]}'
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.doyle.com/","identificatie":"21da0fc1-c938-4a1b-8e19-e1be5d7b4020","bronorganisatie":"Jones
+      LLC","titel":"Any Document","beschrijving":"Talk third control across church
+      during quickly. Rich skill check history carry.","auteur":"Gregory James","taal":"ug","vertrouwelijkheidaanduiding":"expect","status":"partner","formaat":"js","bestandsnaam":"defense.key","informatieobjecttype":"sell","verschijningsvorm":"may","bestandsomvang":1000000,"link":"http://www.mays-webb.net/","creatiedatum":"2026-03-24","begin_registratie":"2026-04-08T09:22:49.351738","zaak_referenties":[{"uuid":"87e6da87-0050-45e7-8397-3b9e2b06a421","url":"https://www.parks.com/","identificatie":"b04b3f56-c2fb-4115-804b-dfdb6aae7fd3","bronorganisatie":"Kelley,
+      Morales and Roach","verantwoordelijkeOrganisatie":"Contreras-Branch","omschrijving":"Mrs
+      matter southern.","toelichting":"Call itself exist blood.","status":"popular","registratiedatum":"2026-04-02","startdatum":"2026-04-03","zaaktype":"vote","object_type":"cell"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,9 +114,10 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.warren.com/","identificatie":"55c04101-320c-41e6-8a91-6d1c1f6e7e2d","bronorganisatie":"Knight
-      LLC","verantwoordelijkeOrganisatie":"Hanson and Sons","omschrijving":"Any Zaak","toelichting":"Tough
-      sell season. Now seek talk write very fire law.","status":"discussion","registratiedatum":"2026-03-16","startdatum":"2026-04-06","zaaktype":"enjoy","creatiedatum":"2026-03-16"}'
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.davis.com/","identificatie":"6d251184-69ca-4582-be99-c2f1daaa1025","bronorganisatie":"Griffith,
+      Jensen and Davis","verantwoordelijkeOrganisatie":"Cook Group","omschrijving":"Any
+      Zaak","toelichting":"Far remain old in camera other. Unit spend entire subject
+      technology agree.","status":"start","registratiedatum":"2026-03-29","startdatum":"2026-03-27","zaaktype":"sign","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-29"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -164,17 +163,16 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":0.43744102,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.warren.com/","identificatie":"55c04101-320c-41e6-8a91-6d1c1f6e7e2d","bronorganisatie":"Knight
-        LLC","verantwoordelijkeOrganisatie":"Hanson and Sons","omschrijving":"Any
-        Zaak","toelichting":"Tough sell season. Now seek talk write very fire law.","status":"discussion","registratiedatum":"2026-03-16","startdatum":"2026-04-06","zaaktype":"enjoy","creatiedatum":"2026-03-16"},"sort":[0.43744102,1773619200000]},{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.3143169,"_source":{"beschrijving":"Behind
-        whether hold magazine past reason. Chance state blood whom wish threat son
-        bad.","verschijningsvorm":"miss","begin_registratie":"2026-03-16T02:59:53.704126","identificatie":"ac3a8128-d748-4f8c-a05d-13aeffb10aa0","bronorganisatie":"Rangel-Smith","bestandsomvang":1000000,"link":"https://myers.net/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.long.org/","taal":"or","zaak_referenties":[{"omschrijving":"Summer
-        start resource national.","identificatie":"719f692e-6c18-45f9-9420-b30111204ca6","startdatum":"2026-03-17","object_type":"author","bronorganisatie":"Trujillo
-        Ltd","zaaktype":"key","registratiedatum":"2026-03-17","uuid":"adc979ef-26e3-4cfc-ae7e-5c4cde1624c8","url":"http://www.christian.com/","verantwoordelijkeOrganisatie":"Smith,
-        Villanueva and Ballard","toelichting":"Concern news sound range care heavy
-        college level. Perhaps service training machine value affect. Use example
-        always TV if treat either. Star enough size teacher dog me politics.","status":"language"}],"auteur":"Timothy
-        Martinez","formaat":"css","titel":"Any Document","vertrouwelijkheidaanduiding":"catch","informatieobjecttype":"talk","bestandsnaam":"sign.jpeg","creatiedatum":"2026-03-13","status":"suffer"},"sort":[0.3143169,1773360000000]}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":0.91658026,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.davis.com/","identificatie":"6d251184-69ca-4582-be99-c2f1daaa1025","bronorganisatie":"Griffith,
+        Jensen and Davis","verantwoordelijkeOrganisatie":"Cook Group","omschrijving":"Any
+        Zaak","toelichting":"Far remain old in camera other. Unit spend entire subject
+        technology agree.","status":"start","registratiedatum":"2026-03-29","startdatum":"2026-03-27","zaaktype":"sign","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-29"},"sort":[0.91658026,1774742400000]},{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.7204108,"_source":{"beschrijving":"Talk
+        third control across church during quickly. Rich skill check history carry.","verschijningsvorm":"may","begin_registratie":"2026-04-08T09:22:49.351738","identificatie":"21da0fc1-c938-4a1b-8e19-e1be5d7b4020","bronorganisatie":"Jones
+        LLC","bestandsomvang":1000000,"link":"http://www.mays-webb.net/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.doyle.com/","taal":"ug","zaak_referenties":[{"omschrijving":"Mrs
+        matter southern.","identificatie":"b04b3f56-c2fb-4115-804b-dfdb6aae7fd3","startdatum":"2026-04-03","object_type":"cell","bronorganisatie":"Kelley,
+        Morales and Roach","zaaktype":"vote","registratiedatum":"2026-04-02","uuid":"87e6da87-0050-45e7-8397-3b9e2b06a421","url":"https://www.parks.com/","verantwoordelijkeOrganisatie":"Contreras-Branch","toelichting":"Call
+        itself exist blood.","status":"popular"}],"auteur":"Gregory James","formaat":"js","titel":"Any
+        Document","vertrouwelijkheidaanduiding":"expect","informatieobjecttype":"sell","bestandsnaam":"defense.key","creatiedatum":"2026-03-24","status":"partner"},"sort":[0.7204108,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

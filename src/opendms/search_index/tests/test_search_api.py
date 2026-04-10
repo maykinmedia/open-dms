@@ -845,6 +845,8 @@ class SearchZaakDocumentTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(
             data["results"][0]["data"]["uuid"], "12fceb92-98bd-475c-b184-49ee8a274787"
         )
+        self.assertEqual(data["results"][0]["data"]["serviceSlug"], "test-service")
+        self.assertEqual(data["results"][0]["data"]["groupSlug"], "test-group")
 
     def test_zaak_query_exact_match(self):
         zaak1 = IndexZaakFactory.build(

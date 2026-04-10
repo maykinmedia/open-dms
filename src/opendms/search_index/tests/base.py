@@ -129,5 +129,7 @@ class ElasticSearchAPITestCase(ElasticSearchMixin, APITestCase):
             client.index_document(document)
 
     def index_zaak(self, zaak: Zaak):
+        service = "test-service"
+        group_slug = "test-group"
         with get_elasticsearch_client() as client:
-            client.index_zaken(zaak)
+            client.index_zaken(zaak, service_slug=service, group_slug=group_slug)

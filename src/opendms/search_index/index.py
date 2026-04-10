@@ -109,6 +109,9 @@ class Zaak(ES_Document):
     startdatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
     zaaktype: M[str] = mapped_field(Keyword(required=True))
 
+    service_slug: M[str] = mapped_field(Keyword())
+    group_slug: M[str | None] = mapped_field(Keyword())
+
     creatiedatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
 
     class Index:

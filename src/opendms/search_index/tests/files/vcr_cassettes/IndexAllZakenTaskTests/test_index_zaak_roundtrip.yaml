@@ -1,9 +1,10 @@
 interactions:
 - request:
-    body: '{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/zaken/1","identificatie":"ZA-2026-0001","bronorganisatie":"Cook-Garcia","verantwoordelijkeOrganisatie":"Beasley
-      Group","omschrijving":"Test Zaak","toelichting":"Hotel walk animal blood this
-      include take. Involve seven purpose night those. Employee when sense after cause
-      model high.","status":"where","registratiedatum":"2026-04-07","startdatum":"2026-01-01","zaaktype":"position"}'
+    body: '{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/zaken/1","identificatie":"ZA-2026-0001","bronorganisatie":"White,
+      Sullivan and Hodge","verantwoordelijkeOrganisatie":"Scott, Clark and Mack","omschrijving":"Test
+      Zaak","toelichting":"Face keep certain bar special model own. Peace research
+      no. Nearly southern important through station sometimes arrive. Action everybody
+      yes part look.","status":"simple","registratiedatum":"2026-04-07","startdatum":"2026-01-01","zaaktype":"manage","service_slug":"zaken-api","group_slug":"group-1","creatiedatum":"2026-04-07"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -47,15 +48,16 @@ interactions:
     uri: http://localhost:9201/zaak/_doc/0095704d-4216-4de3-83d2-20dba551b0dc
   response:
     body:
-      string: '{"_index":"zaak","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/zaken/1","identificatie":"ZA-2026-0001","bronorganisatie":"Cook-Garcia","verantwoordelijkeOrganisatie":"Beasley
-        Group","omschrijving":"Test Zaak","toelichting":"Hotel walk animal blood this
-        include take. Involve seven purpose night those. Employee when sense after
-        cause model high.","status":"where","registratiedatum":"2026-04-07","startdatum":"2026-01-01","zaaktype":"position"}}'
+      string: '{"_index":"zaak","_id":"0095704d-4216-4de3-83d2-20dba551b0dc","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"uuid":"0095704d-4216-4de3-83d2-20dba551b0dc","url":"http://localhost/zaken/1","identificatie":"ZA-2026-0001","bronorganisatie":"White,
+        Sullivan and Hodge","verantwoordelijkeOrganisatie":"Scott, Clark and Mack","omschrijving":"Test
+        Zaak","toelichting":"Face keep certain bar special model own. Peace research
+        no. Nearly southern important through station sometimes arrive. Action everybody
+        yes part look.","status":"simple","registratiedatum":"2026-04-07","startdatum":"2026-01-01","zaaktype":"manage","service_slug":"zaken-api","group_slug":"group-1","creatiedatum":"2026-04-07"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '581'
+      - '710'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

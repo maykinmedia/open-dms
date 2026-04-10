@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639080735","number_of_replicas":"1","uuid":"SHgOOt89TxaXI4-bYG6uWQ","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806594922","number_of_replicas":"1","uuid":"8Au3UBL-TjWl5j7U6nknZQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,14 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.wright.biz/","identificatie":"21e14a7c-3b02-4b0f-945c-38883031d0d5","bronorganisatie":"Anderson-Rangel","titel":"Dutch
-      analyzer","beschrijving":"Een document om de Nederlandse analyzer te testen.
-      We doen dit door middel van een willekeurige stem (in ons geval ''lichamelijk'')
-      in deze tekst te vermelden, zodat we kunnen zoeken metwoorden die de zelfde
-      stem bevatten.","auteur":"Keith Williams","taal":"ce","vertrouwelijkheidaanduiding":"laugh","status":"way","formaat":"png","bestandsnaam":"cell.css","informatieobjecttype":"term","verschijningsvorm":"form","bestandsomvang":1000000,"link":"http://morris-gonzalez.com/","creatiedatum":"2026-04-05","begin_registratie":"2026-03-11T21:15:44.187395","zaak_referenties":[{"uuid":"f4579a20-0af6-44f0-95e9-2de89fba8f4b","url":"http://wright.biz/","identificatie":"d4d19010-dbd1-40bd-99c7-9805d0d8de84","bronorganisatie":"Williams-Kennedy","verantwoordelijkeOrganisatie":"Garza-Wolf","omschrijving":"Include
-      pretty remain across six tree control.","toelichting":"Lead beyond before minute
-      car space room. Seek just right partner partner consider leg environmental.
-      Foot outside me somebody military he.","status":"easy","registratiedatum":"2026-03-28","startdatum":"2026-03-20","zaaktype":"week","object_type":"operation"}]}'
+    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.lee.biz/","identificatie":"ed180dcf-1125-4bbc-8650-961e773095d9","bronorganisatie":"Reeves,
+      Phillips and Ward","titel":"Dutch analyzer","beschrijving":"Een document om
+      de Nederlandse analyzer te testen. We doen dit door middel van een willekeurige
+      stem (in ons geval ''lichamelijk'') in deze tekst te vermelden, zodat we kunnen
+      zoeken metwoorden die de zelfde stem bevatten.","auteur":"Jose Reyes","taal":"eu","vertrouwelijkheidaanduiding":"actually","status":"own","formaat":"css","bestandsnaam":"where.webm","informatieobjecttype":"particularly","verschijningsvorm":"traditional","bestandsomvang":1000000,"link":"https://woodward-graham.com/","creatiedatum":"2026-03-23","begin_registratie":"2026-03-21T02:24:53.915324","zaak_referenties":[{"uuid":"ec7b5489-20a3-42a8-b169-ceee88a61bb1","url":"http://www.santiago.com/","identificatie":"7ab7dddb-d792-4d37-961b-e671625b00a8","bronorganisatie":"Hall,
+      Bryant and Burch","verantwoordelijkeOrganisatie":"Hicks, Ortiz and Stewart","omschrijving":"Institution
+      before serve.","toelichting":"Item mission chance kid field conference strong.","status":"she","registratiedatum":"2026-03-14","startdatum":"2026-03-29","zaaktype":"instead","object_type":"rich"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -133,14 +132,16 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":7,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34521848,"_source":{"beschrijving":"Een
+      string: '{"took":18,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.23266938,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"form","begin_registratie":"2026-03-11T21:15:44.187395","identificatie":"21e14a7c-3b02-4b0f-945c-38883031d0d5","bronorganisatie":"Anderson-Rangel","bestandsomvang":1000000,"link":"http://morris-gonzalez.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.wright.biz/","taal":"ce","zaak_referenties":[{"omschrijving":"Include
-        pretty remain across six tree control.","identificatie":"d4d19010-dbd1-40bd-99c7-9805d0d8de84","startdatum":"2026-03-20","object_type":"operation","bronorganisatie":"Williams-Kennedy","zaaktype":"week","registratiedatum":"2026-03-28","uuid":"f4579a20-0af6-44f0-95e9-2de89fba8f4b","url":"http://wright.biz/","verantwoordelijkeOrganisatie":"Garza-Wolf","toelichting":"Lead
-        beyond before minute car space room. Seek just right partner partner consider
-        leg environmental. Foot outside me somebody military he.","status":"easy"}],"auteur":"Keith
-        Williams","formaat":"png","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"laugh","informatieobjecttype":"term","bestandsnaam":"cell.css","creatiedatum":"2026-04-05","status":"way"},"sort":[0.34521848,1775347200000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"traditional","begin_registratie":"2026-03-21T02:24:53.915324","identificatie":"ed180dcf-1125-4bbc-8650-961e773095d9","bronorganisatie":"Reeves,
+        Phillips and Ward","bestandsomvang":1000000,"link":"https://woodward-graham.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.lee.biz/","taal":"eu","zaak_referenties":[{"omschrijving":"Institution
+        before serve.","identificatie":"7ab7dddb-d792-4d37-961b-e671625b00a8","startdatum":"2026-03-29","object_type":"rich","bronorganisatie":"Hall,
+        Bryant and Burch","zaaktype":"instead","registratiedatum":"2026-03-14","uuid":"ec7b5489-20a3-42a8-b169-ceee88a61bb1","url":"http://www.santiago.com/","verantwoordelijkeOrganisatie":"Hicks,
+        Ortiz and Stewart","toelichting":"Item mission chance kid field conference
+        strong.","status":"she"}],"auteur":"Jose Reyes","formaat":"css","titel":"Dutch
+        analyzer","vertrouwelijkheidaanduiding":"actually","informatieobjecttype":"particularly","bestandsnaam":"where.webm","creatiedatum":"2026-03-23","status":"own"},"sort":[0.23266938,1774224000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -168,14 +169,16 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34521848,"_source":{"beschrijving":"Een
+      string: '{"took":9,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.23266938,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"form","begin_registratie":"2026-03-11T21:15:44.187395","identificatie":"21e14a7c-3b02-4b0f-945c-38883031d0d5","bronorganisatie":"Anderson-Rangel","bestandsomvang":1000000,"link":"http://morris-gonzalez.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.wright.biz/","taal":"ce","zaak_referenties":[{"omschrijving":"Include
-        pretty remain across six tree control.","identificatie":"d4d19010-dbd1-40bd-99c7-9805d0d8de84","startdatum":"2026-03-20","object_type":"operation","bronorganisatie":"Williams-Kennedy","zaaktype":"week","registratiedatum":"2026-03-28","uuid":"f4579a20-0af6-44f0-95e9-2de89fba8f4b","url":"http://wright.biz/","verantwoordelijkeOrganisatie":"Garza-Wolf","toelichting":"Lead
-        beyond before minute car space room. Seek just right partner partner consider
-        leg environmental. Foot outside me somebody military he.","status":"easy"}],"auteur":"Keith
-        Williams","formaat":"png","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"laugh","informatieobjecttype":"term","bestandsnaam":"cell.css","creatiedatum":"2026-04-05","status":"way"},"sort":[0.34521848,1775347200000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"traditional","begin_registratie":"2026-03-21T02:24:53.915324","identificatie":"ed180dcf-1125-4bbc-8650-961e773095d9","bronorganisatie":"Reeves,
+        Phillips and Ward","bestandsomvang":1000000,"link":"https://woodward-graham.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.lee.biz/","taal":"eu","zaak_referenties":[{"omschrijving":"Institution
+        before serve.","identificatie":"7ab7dddb-d792-4d37-961b-e671625b00a8","startdatum":"2026-03-29","object_type":"rich","bronorganisatie":"Hall,
+        Bryant and Burch","zaaktype":"instead","registratiedatum":"2026-03-14","uuid":"ec7b5489-20a3-42a8-b169-ceee88a61bb1","url":"http://www.santiago.com/","verantwoordelijkeOrganisatie":"Hicks,
+        Ortiz and Stewart","toelichting":"Item mission chance kid field conference
+        strong.","status":"she"}],"auteur":"Jose Reyes","formaat":"css","titel":"Dutch
+        analyzer","vertrouwelijkheidaanduiding":"actually","informatieobjecttype":"particularly","bestandsnaam":"where.webm","creatiedatum":"2026-03-23","status":"own"},"sort":[0.23266938,1774224000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -203,14 +206,16 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34521848,"_source":{"beschrijving":"Een
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.23266937,"_source":{"beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"form","begin_registratie":"2026-03-11T21:15:44.187395","identificatie":"21e14a7c-3b02-4b0f-945c-38883031d0d5","bronorganisatie":"Anderson-Rangel","bestandsomvang":1000000,"link":"http://morris-gonzalez.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.wright.biz/","taal":"ce","zaak_referenties":[{"omschrijving":"Include
-        pretty remain across six tree control.","identificatie":"d4d19010-dbd1-40bd-99c7-9805d0d8de84","startdatum":"2026-03-20","object_type":"operation","bronorganisatie":"Williams-Kennedy","zaaktype":"week","registratiedatum":"2026-03-28","uuid":"f4579a20-0af6-44f0-95e9-2de89fba8f4b","url":"http://wright.biz/","verantwoordelijkeOrganisatie":"Garza-Wolf","toelichting":"Lead
-        beyond before minute car space room. Seek just right partner partner consider
-        leg environmental. Foot outside me somebody military he.","status":"easy"}],"auteur":"Keith
-        Williams","formaat":"png","titel":"Dutch analyzer","vertrouwelijkheidaanduiding":"laugh","informatieobjecttype":"term","bestandsnaam":"cell.css","creatiedatum":"2026-04-05","status":"way"},"sort":[0.34521848,1775347200000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"traditional","begin_registratie":"2026-03-21T02:24:53.915324","identificatie":"ed180dcf-1125-4bbc-8650-961e773095d9","bronorganisatie":"Reeves,
+        Phillips and Ward","bestandsomvang":1000000,"link":"https://woodward-graham.com/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"https://www.lee.biz/","taal":"eu","zaak_referenties":[{"omschrijving":"Institution
+        before serve.","identificatie":"7ab7dddb-d792-4d37-961b-e671625b00a8","startdatum":"2026-03-29","object_type":"rich","bronorganisatie":"Hall,
+        Bryant and Burch","zaaktype":"instead","registratiedatum":"2026-03-14","uuid":"ec7b5489-20a3-42a8-b169-ceee88a61bb1","url":"http://www.santiago.com/","verantwoordelijkeOrganisatie":"Hicks,
+        Ortiz and Stewart","toelichting":"Item mission chance kid field conference
+        strong.","status":"she"}],"auteur":"Jose Reyes","formaat":"css","titel":"Dutch
+        analyzer","vertrouwelijkheidaanduiding":"actually","informatieobjecttype":"particularly","bestandsnaam":"where.webm","creatiedatum":"2026-03-23","status":"own"},"sort":[0.23266937,1774224000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -238,7 +243,7 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":0,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
     headers:
       Transfer-Encoding:
       - chunked

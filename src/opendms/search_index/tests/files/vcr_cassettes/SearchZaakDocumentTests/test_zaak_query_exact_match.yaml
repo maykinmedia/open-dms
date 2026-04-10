@@ -1,9 +1,9 @@
 interactions:
 - request:
-    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://kim-mckinney.com/","identificatie":"1076253c-75cf-4987-bb61-0e2ce4c7effc","bronorganisatie":"Cooper,
-      Andrade and Miller","verantwoordelijkeOrganisatie":"Ball-Horn","omschrijving":"exact
-      phrase match","toelichting":"Under face tell weight. Billion skill all serious
-      finally hundred.","status":"clearly","registratiedatum":"2026-03-17","startdatum":"2026-03-30","zaaktype":"attack","creatiedatum":"2026-03-17"}'
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://lopez.biz/","identificatie":"8b42f182-fa45-447e-90a8-a338cb67bb38","bronorganisatie":"Sanchez
+      Group","verantwoordelijkeOrganisatie":"Webb-Contreras","omschrijving":"exact
+      phrase match","toelichting":"Fund reveal husband natural professional east word
+      floor. Difficult of it between any already interesting character.","status":"born","registratiedatum":"2026-03-24","startdatum":"2026-03-17","zaaktype":"carry","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-24"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -19,23 +19,24 @@ interactions:
     uri: http://localhost:9201/zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
   response:
     body:
-      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":8,"_primary_term":1}'
+      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":7,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":22,"_primary_term":1}'
     headers:
       Location:
       - /zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '172'
+      - '173'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.nelson-abbott.biz/","identificatie":"fcaf80a3-5b5f-49d1-9529-39e9f1cfda46","bronorganisatie":"Richard
-      LLC","verantwoordelijkeOrganisatie":"Wilson-York","omschrijving":"exact phrase
-      something else","toelichting":"Eight second I kid organization article figure.","status":"suffer","registratiedatum":"2026-03-20","startdatum":"2026-03-29","zaaktype":"window","creatiedatum":"2026-03-20"}'
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.howard-wiggins.info/","identificatie":"ef947947-f680-4334-9f4d-216882256b88","bronorganisatie":"Kelly,
+      Long and Yang","verantwoordelijkeOrganisatie":"Morgan-Wright","omschrijving":"exact
+      phrase something else","toelichting":"Foot woman bad husband she. Across power
+      eight learn politics add.","status":"energy","registratiedatum":"2026-03-31","startdatum":"2026-03-11","zaaktype":"go","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-31"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -51,14 +52,14 @@ interactions:
     uri: http://localhost:9201/zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
   response:
     body:
-      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":9,"_primary_term":1}'
+      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":11,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":23,"_primary_term":1}'
     headers:
       Location:
       - /zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '172'
+      - '174'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -84,10 +85,10 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":3.0614195,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://kim-mckinney.com/","identificatie":"1076253c-75cf-4987-bb61-0e2ce4c7effc","bronorganisatie":"Cooper,
-        Andrade and Miller","verantwoordelijkeOrganisatie":"Ball-Horn","omschrijving":"exact
-        phrase match","toelichting":"Under face tell weight. Billion skill all serious
-        finally hundred.","status":"clearly","registratiedatum":"2026-03-17","startdatum":"2026-03-30","zaaktype":"attack","creatiedatum":"2026-03-17"},"sort":[3.0614195,1773705600000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":6.4154553,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://lopez.biz/","identificatie":"8b42f182-fa45-447e-90a8-a338cb67bb38","bronorganisatie":"Sanchez
+        Group","verantwoordelijkeOrganisatie":"Webb-Contreras","omschrijving":"exact
+        phrase match","toelichting":"Fund reveal husband natural professional east
+        word floor. Difficult of it between any already interesting character.","status":"born","registratiedatum":"2026-03-24","startdatum":"2026-03-17","zaaktype":"carry","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-24"},"sort":[6.4154553,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -118,12 +119,13 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":1.9624484,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.nelson-abbott.biz/","identificatie":"fcaf80a3-5b5f-49d1-9529-39e9f1cfda46","bronorganisatie":"Richard
-        LLC","verantwoordelijkeOrganisatie":"Wilson-York","omschrijving":"exact phrase
-        something else","toelichting":"Eight second I kid organization article figure.","status":"suffer","registratiedatum":"2026-03-20","startdatum":"2026-03-29","zaaktype":"window","creatiedatum":"2026-03-20"},"sort":[1.9624484,1773964800000]},{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":1.7513189,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://kim-mckinney.com/","identificatie":"1076253c-75cf-4987-bb61-0e2ce4c7effc","bronorganisatie":"Cooper,
-        Andrade and Miller","verantwoordelijkeOrganisatie":"Ball-Horn","omschrijving":"exact
-        phrase match","toelichting":"Under face tell weight. Billion skill all serious
-        finally hundred.","status":"clearly","registratiedatum":"2026-03-17","startdatum":"2026-03-30","zaaktype":"attack","creatiedatum":"2026-03-17"},"sort":[1.7513189,1773705600000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":4.9319434,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.howard-wiggins.info/","identificatie":"ef947947-f680-4334-9f4d-216882256b88","bronorganisatie":"Kelly,
+        Long and Yang","verantwoordelijkeOrganisatie":"Morgan-Wright","omschrijving":"exact
+        phrase something else","toelichting":"Foot woman bad husband she. Across power
+        eight learn politics add.","status":"energy","registratiedatum":"2026-03-31","startdatum":"2026-03-11","zaaktype":"go","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-31"},"sort":[4.9319434,1774915200000]},{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":4.2769704,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://lopez.biz/","identificatie":"8b42f182-fa45-447e-90a8-a338cb67bb38","bronorganisatie":"Sanchez
+        Group","verantwoordelijkeOrganisatie":"Webb-Contreras","omschrijving":"exact
+        phrase match","toelichting":"Fund reveal husband natural professional east
+        word floor. Difficult of it between any already interesting character.","status":"born","registratiedatum":"2026-03-24","startdatum":"2026-03-17","zaaktype":"carry","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-24"},"sort":[4.2769704,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,13 +80,14 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://gomez.com/","identificatie":"document1","bronorganisatie":"Johnson
-      PLC","titel":"Unique Document","beschrijving":"Enjoy begin actually near back.
-      Employee reach eight thank. Company clear among start interview.","auteur":"Jacob
-      Gomez","taal":"my","vertrouwelijkheidaanduiding":"ground","status":"identify","formaat":"mov","bestandsnaam":"car.txt","informatieobjecttype":"role","verschijningsvorm":"page","bestandsomvang":1000000,"link":"https://harrell.com/","creatiedatum":"2026-03-27","begin_registratie":"2026-04-01T15:03:08.018740","zaak_referenties":[{"uuid":"40c662d4-202f-43a7-b24c-1bea091a66d2","url":"https://www.stephens.info/","identificatie":"f1ccdc11-44f5-42f4-b65d-342721738ea1","bronorganisatie":"Lee,
-      Hess and Brooks","verantwoordelijkeOrganisatie":"Mills-White","omschrijving":"Society
-      trouble guess in money seven religious.","toelichting":"Attack fine glass fish
-      should whatever. Owner enter mention similar. Later plan western us face house.","status":"study","registratiedatum":"2026-03-15","startdatum":"2026-03-18","zaaktype":"team","object_type":"evidence"}]}'
+    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://leblanc.org/","identificatie":"document1","bronorganisatie":"Matthews-Hogan","titel":"Unique
+      Document","beschrijving":"Young player effect expect cover work personal seek.
+      Hair throw page safe magazine modern east. Fire end affect hotel fire top decide.","auteur":"Amy
+      Jones","taal":"af","vertrouwelijkheidaanduiding":"various","status":"none","formaat":"flac","bestandsnaam":"stage.wav","informatieobjecttype":"dark","verschijningsvorm":"say","bestandsomvang":1000000,"link":"https://www.dillon.com/","creatiedatum":"2026-03-19","begin_registratie":"2026-03-23T02:46:48.456284","zaak_referenties":[{"uuid":"47e51d58-8dae-4c10-8e2b-f217e102bd4d","url":"https://www.doyle.com/","identificatie":"4436171e-d799-4ebf-b858-4ca39af47026","bronorganisatie":"Holt,
+      Lopez and Mason","verantwoordelijkeOrganisatie":"Cummings and Sons","omschrijving":"Society
+      prevent and worker far member speak.","toelichting":"Large term require eat
+      raise. Chance room difficult about. Recent people former begin respond single
+      scene machine.","status":"accept","registratiedatum":"2026-03-31","startdatum":"2026-03-20","zaaktype":"public","object_type":"send"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -156,7 +157,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -168,7 +169,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -196,13 +197,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://parker.org/","identificatie":"document2","bronorganisatie":"Hall
-      Inc","titel":"Unique Document2","beschrijving":"Worker despite check consumer
-      from detail. Perform sing life report thought tonight show. East glass recognize
-      manage per as much. Participant north production building able value movie newspaper.","auteur":"Karen
-      Brown","taal":"fi","vertrouwelijkheidaanduiding":"have","status":"cost","formaat":"numbers","bestandsnaam":"another.webm","informatieobjecttype":"into","verschijningsvorm":"today","bestandsomvang":1000000,"link":"https://www.bell-miller.net/","creatiedatum":"2026-04-06","begin_registratie":"2026-04-07T13:01:46.573305","zaak_referenties":[{"uuid":"fd24d70e-9abf-4064-80d9-5c400a3846a6","url":"http://hoffman-shah.biz/","identificatie":"7acf1f85-e051-4c85-b1e0-a9f49f53e232","bronorganisatie":"Brandt-Cantrell","verantwoordelijkeOrganisatie":"Mendez
-      Group","omschrijving":"Myself picture part reflect school.","toelichting":"Watch
-      charge everything woman save traditional bit your. Draw certainly reveal three.","status":"hour","registratiedatum":"2026-04-04","startdatum":"2026-03-12","zaaktype":"course","object_type":"local"}]}'
+    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://www.morris.info/","identificatie":"document2","bronorganisatie":"Wallace,
+      King and Lindsey","titel":"Unique Document2","beschrijving":"Moment around walk
+      side. Sing least ago husband draw.","auteur":"Brandon Rodriguez","taal":"ln","vertrouwelijkheidaanduiding":"item","status":"official","formaat":"webm","bestandsnaam":"alone.xlsx","informatieobjecttype":"social","verschijningsvorm":"region","bestandsomvang":1000000,"link":"http://www.yang.org/","creatiedatum":"2026-03-17","begin_registratie":"2026-03-23T10:55:24.911837","zaak_referenties":[{"uuid":"7fbe2fde-3a22-4970-81a8-62cf7e43944c","url":"https://www.ball.com/","identificatie":"3ff7a63e-8f49-4372-b94a-f989f7735f6c","bronorganisatie":"Mann
+      Group","verantwoordelijkeOrganisatie":"Patterson and Sons","omschrijving":"At
+      performance artist during.","toelichting":"Science eye continue building song.
+      Four shake force price effort operation. Over know seek.","status":"nothing","registratiedatum":"2026-03-18","startdatum":"2026-03-23","zaaktype":"require","object_type":"shoulder"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -248,15 +248,14 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":9.187525,"_source":{"beschrijving":"Enjoy
-        begin actually near back. Employee reach eight thank. Company clear among
-        start interview.","verschijningsvorm":"page","begin_registratie":"2026-04-01T15:03:08.018740","identificatie":"document1","bronorganisatie":"Johnson
-        PLC","bestandsomvang":1000000,"link":"https://harrell.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://gomez.com/","taal":"my","zaak_referenties":[{"omschrijving":"Society
-        trouble guess in money seven religious.","identificatie":"f1ccdc11-44f5-42f4-b65d-342721738ea1","startdatum":"2026-03-18","object_type":"evidence","bronorganisatie":"Lee,
-        Hess and Brooks","zaaktype":"team","registratiedatum":"2026-03-15","uuid":"40c662d4-202f-43a7-b24c-1bea091a66d2","url":"https://www.stephens.info/","verantwoordelijkeOrganisatie":"Mills-White","toelichting":"Attack
-        fine glass fish should whatever. Owner enter mention similar. Later plan western
-        us face house.","status":"study"}],"auteur":"Jacob Gomez","formaat":"mov","titel":"Unique
-        Document","vertrouwelijkheidaanduiding":"ground","informatieobjecttype":"role","bestandsnaam":"car.txt","creatiedatum":"2026-03-27","status":"identify"},"sort":[9.187525,1774569600000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":4.875323,"_source":{"beschrijving":"Young
+        player effect expect cover work personal seek. Hair throw page safe magazine
+        modern east. Fire end affect hotel fire top decide.","verschijningsvorm":"say","begin_registratie":"2026-03-23T02:46:48.456284","identificatie":"document1","bronorganisatie":"Matthews-Hogan","bestandsomvang":1000000,"link":"https://www.dillon.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://leblanc.org/","taal":"af","zaak_referenties":[{"omschrijving":"Society
+        prevent and worker far member speak.","identificatie":"4436171e-d799-4ebf-b858-4ca39af47026","startdatum":"2026-03-20","object_type":"send","bronorganisatie":"Holt,
+        Lopez and Mason","zaaktype":"public","registratiedatum":"2026-03-31","uuid":"47e51d58-8dae-4c10-8e2b-f217e102bd4d","url":"https://www.doyle.com/","verantwoordelijkeOrganisatie":"Cummings
+        and Sons","toelichting":"Large term require eat raise. Chance room difficult
+        about. Recent people former begin respond single scene machine.","status":"accept"}],"auteur":"Amy
+        Jones","formaat":"flac","titel":"Unique Document","vertrouwelijkheidaanduiding":"various","informatieobjecttype":"dark","bestandsnaam":"stage.wav","creatiedatum":"2026-03-19","status":"none"},"sort":[4.875323,1773878400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
