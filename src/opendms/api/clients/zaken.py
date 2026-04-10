@@ -3,7 +3,7 @@ from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
 from zgw_consumers.service import pagination_helper
 
-from ..typing import Zaak, ZakenPaginatedResponse
+from ..typing import ESZaak, Zaak, ZakenPaginatedResponse
 from ..utils.mixins import HttpRequestMixin
 
 CRS_HEADERS = {"Content-Crs": "EPSG:4326", "Accept-Crs": "EPSG:4326"}
@@ -16,7 +16,7 @@ class ZaakClient(HttpRequestMixin, NLXClient):
 
     endpoint = "zaken"
 
-    def get_zaken_for_elasticsearch(self, params: dict | None = None) -> list[Zaak]:
+    def get_zaken_for_elasticsearch(self, params: dict | None = None) -> list[ESZaak]:
         """
         Fetch all zaken using pagination, this is used for indexing zaken in Elasticsearch.
         """

@@ -16,6 +16,9 @@ class IndexZaakFactory(factory.Factory):
     startdatum = factory.Faker("past_date")
     zaaktype = factory.Faker("word")
 
+    service_slug = "zaken-api"
+    group_slug = "group-1"
+
     class Meta:
         model = Zaak
 

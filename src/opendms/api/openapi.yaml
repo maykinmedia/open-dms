@@ -779,6 +779,15 @@ components:
         toelichting:
           type: string
           description: Een toelichting op de zaak.
+        serviceSlug:
+          type: string
+          nullable: true
+          description: De slug van de bronservice die deze zaak heeft geïndexeerd.
+        groupSlug:
+          type: string
+          nullable: true
+          description: De slug van de groep waartoe de bronservice behoort die deze
+            zaak heeft geïndexeerd.
       required:
       - bronorganisatie
       - identificatie

@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,11 +80,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://cowan-anderson.com/","identificatie":"ff0c1ef5-f56e-48f0-bc83-2091185008cc","bronorganisatie":"Bennett,
-      Smith and Miles","titel":"Document one","beschrijving":"snowflake1","auteur":"Todd
-      Jordan","taal":"tn","vertrouwelijkheidaanduiding":"focus","status":"air","formaat":"wav","bestandsnaam":"quite.html","informatieobjecttype":"as","verschijningsvorm":"pull","bestandsomvang":1000000,"link":"http://lee.com/","creatiedatum":"2026-03-24","begin_registratie":"2026-03-28T19:39:20.731195","zaak_referenties":[{"uuid":"a21be92d-52c6-44f3-a54f-61e9572f0a9c","url":"https://scott.com/","identificatie":"156b4df3-d5f4-4988-99d8-2db26fe17282","bronorganisatie":"Lindsey-Hicks","verantwoordelijkeOrganisatie":"Griffin,
-      Jennings and Taylor","omschrijving":"Fire case evidence behind add late speak
-      this.","toelichting":"Physical certain nor measure keep care.","status":"world","registratiedatum":"2026-03-24","startdatum":"2026-03-16","zaaktype":"can","object_type":"reason"}]}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.williamson.net/","identificatie":"8a566751-bdcf-4408-a10d-0efdafcd40e0","bronorganisatie":"Hendrix-Rocha","titel":"Document
+      one","beschrijving":"snowflake1","auteur":"Christy Howell","taal":"nan","vertrouwelijkheidaanduiding":"test","status":"develop","formaat":"txt","bestandsnaam":"pretty.html","informatieobjecttype":"accept","verschijningsvorm":"again","bestandsomvang":1000000,"link":"https://barnett.com/","creatiedatum":"2026-03-24","begin_registratie":"2026-03-13T05:17:00.135106","zaak_referenties":[{"uuid":"df2d5198-59bc-475a-8256-80e909048a46","url":"https://www.ramos.org/","identificatie":"355f516c-01dd-42c5-b1c6-89c8f230725f","bronorganisatie":"Kidd
+      PLC","verantwoordelijkeOrganisatie":"Doyle-Whitehead","omschrijving":"Because
+      over dog compare three.","toelichting":"Small other among role power describe
+      couple. Carry force bring cover them.","status":"those","registratiedatum":"2026-03-22","startdatum":"2026-03-30","zaaktype":"fine","object_type":"over"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -154,7 +154,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -166,7 +166,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -194,13 +194,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.perez.com/","identificatie":"2236757f-092a-49ab-a84c-303f89f92cf9","bronorganisatie":"Fields,
-      Nicholson and Vega","titel":"Document two","beschrijving":"snowflake2","auteur":"Heidi
-      Thomas","taal":"ff","vertrouwelijkheidaanduiding":"work","status":"gas","formaat":"png","bestandsnaam":"PM.json","informatieobjecttype":"effect","verschijningsvorm":"stop","bestandsomvang":1000000,"link":"https://hart.com/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-19T08:55:35.928235","zaak_referenties":[{"uuid":"ab3094e7-98df-4b4d-b248-1bb8da39ac81","url":"https://www.hunter-garcia.info/","identificatie":"70a2e061-0a32-40e9-b8dd-bbe13f6fddf4","bronorganisatie":"Carter
-      PLC","verantwoordelijkeOrganisatie":"Bennett, Garza and Howard","omschrijving":"Determine
-      he well subject focus toward show another.","toelichting":"Fall keep director
-      wish glass break walk wish. Record woman simply better live. College hotel kitchen
-      tax item class.","status":"apply","registratiedatum":"2026-03-17","startdatum":"2026-03-11","zaaktype":"send","object_type":"whatever"}]}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://kelley.biz/","identificatie":"8d46bad3-f656-4434-9eb8-339ec235d198","bronorganisatie":"Chavez-Riley","titel":"Document
+      two","beschrijving":"snowflake2","auteur":"Jennifer Mcfarland","taal":"sat","vertrouwelijkheidaanduiding":"possible","status":"food","formaat":"numbers","bestandsnaam":"mind.xlsx","informatieobjecttype":"specific","verschijningsvorm":"attorney","bestandsomvang":1000000,"link":"http://yu.com/","creatiedatum":"2026-04-03","begin_registratie":"2026-03-19T17:19:00.639222","zaak_referenties":[{"uuid":"c5d5c2a5-d84c-40da-a89f-637f75f2d152","url":"http://www.ward-garcia.info/","identificatie":"a21da72b-1f38-40f3-ac16-4c194a1f3dbb","bronorganisatie":"Graham-Wright","verantwoordelijkeOrganisatie":"Schmidt
+      PLC","omschrijving":"Trial music meet almost every PM.","toelichting":"Current
+      ahead air yes. Fill state himself buy. Region every tree mean reality somebody
+      around.","status":"station","registratiedatum":"2026-03-21","startdatum":"2026-03-18","zaaktype":"or","object_type":"rise"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -249,11 +247,11 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.1260595,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"pull","begin_registratie":"2026-03-28T19:39:20.731195","identificatie":"ff0c1ef5-f56e-48f0-bc83-2091185008cc","bronorganisatie":"Bennett,
-        Smith and Miles","bestandsomvang":1000000,"link":"http://lee.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://cowan-anderson.com/","taal":"tn","zaak_referenties":[{"omschrijving":"Fire
-        case evidence behind add late speak this.","identificatie":"156b4df3-d5f4-4988-99d8-2db26fe17282","startdatum":"2026-03-16","object_type":"reason","bronorganisatie":"Lindsey-Hicks","zaaktype":"can","registratiedatum":"2026-03-24","uuid":"a21be92d-52c6-44f3-a54f-61e9572f0a9c","url":"https://scott.com/","verantwoordelijkeOrganisatie":"Griffin,
-        Jennings and Taylor","toelichting":"Physical certain nor measure keep care.","status":"world"}],"auteur":"Todd
-        Jordan","formaat":"wav","titel":"Document one","vertrouwelijkheidaanduiding":"focus","informatieobjecttype":"as","bestandsnaam":"quite.html","creatiedatum":"2026-03-24","status":"air"},"sort":[6.1260595,1774310400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":5.298981,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"again","begin_registratie":"2026-03-13T05:17:00.135106","identificatie":"8a566751-bdcf-4408-a10d-0efdafcd40e0","bronorganisatie":"Hendrix-Rocha","bestandsomvang":1000000,"link":"https://barnett.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.williamson.net/","taal":"nan","zaak_referenties":[{"omschrijving":"Because
+        over dog compare three.","identificatie":"355f516c-01dd-42c5-b1c6-89c8f230725f","startdatum":"2026-03-30","object_type":"over","bronorganisatie":"Kidd
+        PLC","zaaktype":"fine","registratiedatum":"2026-03-22","uuid":"df2d5198-59bc-475a-8256-80e909048a46","url":"https://www.ramos.org/","verantwoordelijkeOrganisatie":"Doyle-Whitehead","toelichting":"Small
+        other among role power describe couple. Carry force bring cover them.","status":"those"}],"auteur":"Christy
+        Howell","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"test","informatieobjecttype":"accept","bestandsnaam":"pretty.html","creatiedatum":"2026-03-24","status":"develop"},"sort":[5.298981,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -284,11 +282,11 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.1260595,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"pull","begin_registratie":"2026-03-28T19:39:20.731195","identificatie":"ff0c1ef5-f56e-48f0-bc83-2091185008cc","bronorganisatie":"Bennett,
-        Smith and Miles","bestandsomvang":1000000,"link":"http://lee.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://cowan-anderson.com/","taal":"tn","zaak_referenties":[{"omschrijving":"Fire
-        case evidence behind add late speak this.","identificatie":"156b4df3-d5f4-4988-99d8-2db26fe17282","startdatum":"2026-03-16","object_type":"reason","bronorganisatie":"Lindsey-Hicks","zaaktype":"can","registratiedatum":"2026-03-24","uuid":"a21be92d-52c6-44f3-a54f-61e9572f0a9c","url":"https://scott.com/","verantwoordelijkeOrganisatie":"Griffin,
-        Jennings and Taylor","toelichting":"Physical certain nor measure keep care.","status":"world"}],"auteur":"Todd
-        Jordan","formaat":"wav","titel":"Document one","vertrouwelijkheidaanduiding":"focus","informatieobjecttype":"as","bestandsnaam":"quite.html","creatiedatum":"2026-03-24","status":"air"},"sort":[6.1260595,1774310400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":5.298981,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"again","begin_registratie":"2026-03-13T05:17:00.135106","identificatie":"8a566751-bdcf-4408-a10d-0efdafcd40e0","bronorganisatie":"Hendrix-Rocha","bestandsomvang":1000000,"link":"https://barnett.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.williamson.net/","taal":"nan","zaak_referenties":[{"omschrijving":"Because
+        over dog compare three.","identificatie":"355f516c-01dd-42c5-b1c6-89c8f230725f","startdatum":"2026-03-30","object_type":"over","bronorganisatie":"Kidd
+        PLC","zaaktype":"fine","registratiedatum":"2026-03-22","uuid":"df2d5198-59bc-475a-8256-80e909048a46","url":"https://www.ramos.org/","verantwoordelijkeOrganisatie":"Doyle-Whitehead","toelichting":"Small
+        other among role power describe couple. Carry force bring cover them.","status":"those"}],"auteur":"Christy
+        Howell","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"test","informatieobjecttype":"accept","bestandsnaam":"pretty.html","creatiedatum":"2026-03-24","status":"develop"},"sort":[5.298981,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -319,17 +317,15 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.9437048,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"pull","begin_registratie":"2026-03-28T19:39:20.731195","identificatie":"ff0c1ef5-f56e-48f0-bc83-2091185008cc","bronorganisatie":"Bennett,
-        Smith and Miles","bestandsomvang":1000000,"link":"http://lee.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://cowan-anderson.com/","taal":"tn","zaak_referenties":[{"omschrijving":"Fire
-        case evidence behind add late speak this.","identificatie":"156b4df3-d5f4-4988-99d8-2db26fe17282","startdatum":"2026-03-16","object_type":"reason","bronorganisatie":"Lindsey-Hicks","zaaktype":"can","registratiedatum":"2026-03-24","uuid":"a21be92d-52c6-44f3-a54f-61e9572f0a9c","url":"https://scott.com/","verantwoordelijkeOrganisatie":"Griffin,
-        Jennings and Taylor","toelichting":"Physical certain nor measure keep care.","status":"world"}],"auteur":"Todd
-        Jordan","formaat":"wav","titel":"Document one","vertrouwelijkheidaanduiding":"focus","informatieobjecttype":"as","bestandsnaam":"quite.html","creatiedatum":"2026-03-24","status":"air"},"sort":[3.9437048,1774310400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.7295038,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"stop","begin_registratie":"2026-03-19T08:55:35.928235","identificatie":"2236757f-092a-49ab-a84c-303f89f92cf9","bronorganisatie":"Fields,
-        Nicholson and Vega","bestandsomvang":1000000,"link":"https://hart.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.perez.com/","taal":"ff","zaak_referenties":[{"omschrijving":"Determine
-        he well subject focus toward show another.","identificatie":"70a2e061-0a32-40e9-b8dd-bbe13f6fddf4","startdatum":"2026-03-11","object_type":"whatever","bronorganisatie":"Carter
-        PLC","zaaktype":"send","registratiedatum":"2026-03-17","uuid":"ab3094e7-98df-4b4d-b248-1bb8da39ac81","url":"https://www.hunter-garcia.info/","verantwoordelijkeOrganisatie":"Bennett,
-        Garza and Howard","toelichting":"Fall keep director wish glass break walk
-        wish. Record woman simply better live. College hotel kitchen tax item class.","status":"apply"}],"auteur":"Heidi
-        Thomas","formaat":"png","titel":"Document two","vertrouwelijkheidaanduiding":"work","informatieobjecttype":"effect","bestandsnaam":"PM.json","creatiedatum":"2026-03-14","status":"gas"},"sort":[1.7295038,1773446400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.7336454,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"attorney","begin_registratie":"2026-03-19T17:19:00.639222","identificatie":"8d46bad3-f656-4434-9eb8-339ec235d198","bronorganisatie":"Chavez-Riley","bestandsomvang":1000000,"link":"http://yu.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://kelley.biz/","taal":"sat","zaak_referenties":[{"omschrijving":"Trial
+        music meet almost every PM.","identificatie":"a21da72b-1f38-40f3-ac16-4c194a1f3dbb","startdatum":"2026-03-18","object_type":"rise","bronorganisatie":"Graham-Wright","zaaktype":"or","registratiedatum":"2026-03-21","uuid":"c5d5c2a5-d84c-40da-a89f-637f75f2d152","url":"http://www.ward-garcia.info/","verantwoordelijkeOrganisatie":"Schmidt
+        PLC","toelichting":"Current ahead air yes. Fill state himself buy. Region
+        every tree mean reality somebody around.","status":"station"}],"auteur":"Jennifer
+        Mcfarland","formaat":"numbers","titel":"Document two","vertrouwelijkheidaanduiding":"possible","informatieobjecttype":"specific","bestandsnaam":"mind.xlsx","creatiedatum":"2026-04-03","status":"food"},"sort":[4.7336454,1775174400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.411266,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"again","begin_registratie":"2026-03-13T05:17:00.135106","identificatie":"8a566751-bdcf-4408-a10d-0efdafcd40e0","bronorganisatie":"Hendrix-Rocha","bestandsomvang":1000000,"link":"https://barnett.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.williamson.net/","taal":"nan","zaak_referenties":[{"omschrijving":"Because
+        over dog compare three.","identificatie":"355f516c-01dd-42c5-b1c6-89c8f230725f","startdatum":"2026-03-30","object_type":"over","bronorganisatie":"Kidd
+        PLC","zaaktype":"fine","registratiedatum":"2026-03-22","uuid":"df2d5198-59bc-475a-8256-80e909048a46","url":"https://www.ramos.org/","verantwoordelijkeOrganisatie":"Doyle-Whitehead","toelichting":"Small
+        other among role power describe couple. Carry force bring cover them.","status":"those"}],"auteur":"Christy
+        Howell","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"test","informatieobjecttype":"accept","bestandsnaam":"pretty.html","creatiedatum":"2026-03-24","status":"develop"},"sort":[3.411266,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -360,17 +356,15 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.9437048,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"pull","begin_registratie":"2026-03-28T19:39:20.731195","identificatie":"ff0c1ef5-f56e-48f0-bc83-2091185008cc","bronorganisatie":"Bennett,
-        Smith and Miles","bestandsomvang":1000000,"link":"http://lee.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://cowan-anderson.com/","taal":"tn","zaak_referenties":[{"omschrijving":"Fire
-        case evidence behind add late speak this.","identificatie":"156b4df3-d5f4-4988-99d8-2db26fe17282","startdatum":"2026-03-16","object_type":"reason","bronorganisatie":"Lindsey-Hicks","zaaktype":"can","registratiedatum":"2026-03-24","uuid":"a21be92d-52c6-44f3-a54f-61e9572f0a9c","url":"https://scott.com/","verantwoordelijkeOrganisatie":"Griffin,
-        Jennings and Taylor","toelichting":"Physical certain nor measure keep care.","status":"world"}],"auteur":"Todd
-        Jordan","formaat":"wav","titel":"Document one","vertrouwelijkheidaanduiding":"focus","informatieobjecttype":"as","bestandsnaam":"quite.html","creatiedatum":"2026-03-24","status":"air"},"sort":[3.9437048,1774310400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.7295036,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"stop","begin_registratie":"2026-03-19T08:55:35.928235","identificatie":"2236757f-092a-49ab-a84c-303f89f92cf9","bronorganisatie":"Fields,
-        Nicholson and Vega","bestandsomvang":1000000,"link":"https://hart.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.perez.com/","taal":"ff","zaak_referenties":[{"omschrijving":"Determine
-        he well subject focus toward show another.","identificatie":"70a2e061-0a32-40e9-b8dd-bbe13f6fddf4","startdatum":"2026-03-11","object_type":"whatever","bronorganisatie":"Carter
-        PLC","zaaktype":"send","registratiedatum":"2026-03-17","uuid":"ab3094e7-98df-4b4d-b248-1bb8da39ac81","url":"https://www.hunter-garcia.info/","verantwoordelijkeOrganisatie":"Bennett,
-        Garza and Howard","toelichting":"Fall keep director wish glass break walk
-        wish. Record woman simply better live. College hotel kitchen tax item class.","status":"apply"}],"auteur":"Heidi
-        Thomas","formaat":"png","titel":"Document two","vertrouwelijkheidaanduiding":"work","informatieobjecttype":"effect","bestandsnaam":"PM.json","creatiedatum":"2026-03-14","status":"gas"},"sort":[1.7295036,1773446400000]}]}}'
+      string: '{"took":4,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":4.7336454,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"attorney","begin_registratie":"2026-03-19T17:19:00.639222","identificatie":"8d46bad3-f656-4434-9eb8-339ec235d198","bronorganisatie":"Chavez-Riley","bestandsomvang":1000000,"link":"http://yu.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://kelley.biz/","taal":"sat","zaak_referenties":[{"omschrijving":"Trial
+        music meet almost every PM.","identificatie":"a21da72b-1f38-40f3-ac16-4c194a1f3dbb","startdatum":"2026-03-18","object_type":"rise","bronorganisatie":"Graham-Wright","zaaktype":"or","registratiedatum":"2026-03-21","uuid":"c5d5c2a5-d84c-40da-a89f-637f75f2d152","url":"http://www.ward-garcia.info/","verantwoordelijkeOrganisatie":"Schmidt
+        PLC","toelichting":"Current ahead air yes. Fill state himself buy. Region
+        every tree mean reality somebody around.","status":"station"}],"auteur":"Jennifer
+        Mcfarland","formaat":"numbers","titel":"Document two","vertrouwelijkheidaanduiding":"possible","informatieobjecttype":"specific","bestandsnaam":"mind.xlsx","creatiedatum":"2026-04-03","status":"food"},"sort":[4.7336454,1775174400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":3.4112659,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"again","begin_registratie":"2026-03-13T05:17:00.135106","identificatie":"8a566751-bdcf-4408-a10d-0efdafcd40e0","bronorganisatie":"Hendrix-Rocha","bestandsomvang":1000000,"link":"https://barnett.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.williamson.net/","taal":"nan","zaak_referenties":[{"omschrijving":"Because
+        over dog compare three.","identificatie":"355f516c-01dd-42c5-b1c6-89c8f230725f","startdatum":"2026-03-30","object_type":"over","bronorganisatie":"Kidd
+        PLC","zaaktype":"fine","registratiedatum":"2026-03-22","uuid":"df2d5198-59bc-475a-8256-80e909048a46","url":"https://www.ramos.org/","verantwoordelijkeOrganisatie":"Doyle-Whitehead","toelichting":"Small
+        other among role power describe couple. Carry force bring cover them.","status":"those"}],"auteur":"Christy
+        Howell","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"test","informatieobjecttype":"accept","bestandsnaam":"pretty.html","creatiedatum":"2026-03-24","status":"develop"},"sort":[3.4112659,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -401,17 +395,15 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.8684373,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"pull","begin_registratie":"2026-03-28T19:39:20.731195","identificatie":"ff0c1ef5-f56e-48f0-bc83-2091185008cc","bronorganisatie":"Bennett,
-        Smith and Miles","bestandsomvang":1000000,"link":"http://lee.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://cowan-anderson.com/","taal":"tn","zaak_referenties":[{"omschrijving":"Fire
-        case evidence behind add late speak this.","identificatie":"156b4df3-d5f4-4988-99d8-2db26fe17282","startdatum":"2026-03-16","object_type":"reason","bronorganisatie":"Lindsey-Hicks","zaaktype":"can","registratiedatum":"2026-03-24","uuid":"a21be92d-52c6-44f3-a54f-61e9572f0a9c","url":"https://scott.com/","verantwoordelijkeOrganisatie":"Griffin,
-        Jennings and Taylor","toelichting":"Physical certain nor measure keep care.","status":"world"}],"auteur":"Todd
-        Jordan","formaat":"wav","titel":"Document one","vertrouwelijkheidaanduiding":"focus","informatieobjecttype":"as","bestandsnaam":"quite.html","creatiedatum":"2026-03-24","status":"air"},"sort":[6.8684373,1774310400000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":2.6865706,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"stop","begin_registratie":"2026-03-19T08:55:35.928235","identificatie":"2236757f-092a-49ab-a84c-303f89f92cf9","bronorganisatie":"Fields,
-        Nicholson and Vega","bestandsomvang":1000000,"link":"https://hart.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"https://www.perez.com/","taal":"ff","zaak_referenties":[{"omschrijving":"Determine
-        he well subject focus toward show another.","identificatie":"70a2e061-0a32-40e9-b8dd-bbe13f6fddf4","startdatum":"2026-03-11","object_type":"whatever","bronorganisatie":"Carter
-        PLC","zaaktype":"send","registratiedatum":"2026-03-17","uuid":"ab3094e7-98df-4b4d-b248-1bb8da39ac81","url":"https://www.hunter-garcia.info/","verantwoordelijkeOrganisatie":"Bennett,
-        Garza and Howard","toelichting":"Fall keep director wish glass break walk
-        wish. Record woman simply better live. College hotel kitchen tax item class.","status":"apply"}],"auteur":"Heidi
-        Thomas","formaat":"png","titel":"Document two","vertrouwelijkheidaanduiding":"work","informatieobjecttype":"effect","bestandsnaam":"PM.json","creatiedatum":"2026-03-14","status":"gas"},"sort":[2.6865706,1773446400000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":7.353134,"_source":{"beschrijving":"snowflake2","verschijningsvorm":"attorney","begin_registratie":"2026-03-19T17:19:00.639222","identificatie":"8d46bad3-f656-4434-9eb8-339ec235d198","bronorganisatie":"Chavez-Riley","bestandsomvang":1000000,"link":"http://yu.com/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://kelley.biz/","taal":"sat","zaak_referenties":[{"omschrijving":"Trial
+        music meet almost every PM.","identificatie":"a21da72b-1f38-40f3-ac16-4c194a1f3dbb","startdatum":"2026-03-18","object_type":"rise","bronorganisatie":"Graham-Wright","zaaktype":"or","registratiedatum":"2026-03-21","uuid":"c5d5c2a5-d84c-40da-a89f-637f75f2d152","url":"http://www.ward-garcia.info/","verantwoordelijkeOrganisatie":"Schmidt
+        PLC","toelichting":"Current ahead air yes. Fill state himself buy. Region
+        every tree mean reality somebody around.","status":"station"}],"auteur":"Jennifer
+        Mcfarland","formaat":"numbers","titel":"Document two","vertrouwelijkheidaanduiding":"possible","informatieobjecttype":"specific","bestandsnaam":"mind.xlsx","creatiedatum":"2026-04-03","status":"food"},"sort":[7.353134,1775174400000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":6.0298777,"_source":{"beschrijving":"snowflake1","verschijningsvorm":"again","begin_registratie":"2026-03-13T05:17:00.135106","identificatie":"8a566751-bdcf-4408-a10d-0efdafcd40e0","bronorganisatie":"Hendrix-Rocha","bestandsomvang":1000000,"link":"https://barnett.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://www.williamson.net/","taal":"nan","zaak_referenties":[{"omschrijving":"Because
+        over dog compare three.","identificatie":"355f516c-01dd-42c5-b1c6-89c8f230725f","startdatum":"2026-03-30","object_type":"over","bronorganisatie":"Kidd
+        PLC","zaaktype":"fine","registratiedatum":"2026-03-22","uuid":"df2d5198-59bc-475a-8256-80e909048a46","url":"https://www.ramos.org/","verantwoordelijkeOrganisatie":"Doyle-Whitehead","toelichting":"Small
+        other among role power describe couple. Carry force bring cover them.","status":"those"}],"auteur":"Christy
+        Howell","formaat":"txt","titel":"Document one","vertrouwelijkheidaanduiding":"test","informatieobjecttype":"accept","bestandsnaam":"pretty.html","creatiedatum":"2026-03-24","status":"develop"},"sort":[6.0298777,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

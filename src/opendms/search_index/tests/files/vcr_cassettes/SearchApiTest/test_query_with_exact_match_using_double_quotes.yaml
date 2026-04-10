@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,11 +80,11 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.schwartz.net/","identificatie":"ddd65b03-39a9-4b25-b745-34acfcb6b6b6","bronorganisatie":"Page-Richards","titel":"","beschrijving":"Document
-      one, on which we expect an exact phrase match.","auteur":"Rebecca King","taal":"mhr","vertrouwelijkheidaanduiding":"sea","status":"camera","formaat":"pptx","bestandsnaam":"last.pptx","informatieobjecttype":"guess","verschijningsvorm":"language","bestandsomvang":1000000,"link":"https://maxwell-davis.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-09T23:32:40.156907","zaak_referenties":[{"uuid":"88fc53b6-c1b8-41bd-8268-43d1fda0d9b8","url":"https://www.nunez.info/","identificatie":"c97a93a7-e42e-49a3-8e39-c452cc5acf91","bronorganisatie":"Lambert,
-      Schaefer and Aguilar","verantwoordelijkeOrganisatie":"Woodard, Hart and Thomas","omschrijving":"Arm
-      themselves within politics sure.","toelichting":"Beat decide large us wife who
-      participant. Plant program open great watch. Fire strategy write blood behind.","status":"continue","registratiedatum":"2026-03-27","startdatum":"2026-03-31","zaaktype":"herself","object_type":"guess"}]}'
+    body: '{"uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://davis.net/","identificatie":"9b8c44fe-73d2-4af9-b76b-2dbdd12eab34","bronorganisatie":"Day-Church","titel":"","beschrijving":"Document
+      one, on which we expect an exact phrase match.","auteur":"Mrs. Maria Cline","taal":"quz","vertrouwelijkheidaanduiding":"ago","status":"place","formaat":"doc","bestandsnaam":"challenge.js","informatieobjecttype":"month","verschijningsvorm":"the","bestandsomvang":1000000,"link":"https://rios.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-11T14:41:19.890205","zaak_referenties":[{"uuid":"f531aa70-9956-4c19-9312-e55e46621005","url":"https://black.biz/","identificatie":"a62c8091-e264-40b5-a0d9-d0c2c7998c6e","bronorganisatie":"Durham,
+      Blake and Johnson","verantwoordelijkeOrganisatie":"Miller LLC","omschrijving":"Speech
+      suffer me although.","toelichting":"Blue yet country. Eat for total agreement
+      place several. Stay outside arrive enjoy one history.","status":"decision","registratiedatum":"2026-03-13","startdatum":"2026-04-01","zaaktype":"station","object_type":"pick"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -154,7 +154,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -166,7 +166,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -194,13 +194,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.hughes.biz/","identificatie":"241825de-0ce4-4a34-9394-bdf8a347981a","bronorganisatie":"Acosta,
-      Thompson and Carroll","titel":"","beschrijving":"Document two, the document
-      that came after one.","auteur":"Donald Johnson","taal":"mr","vertrouwelijkheidaanduiding":"born","status":"wrong","formaat":"mp3","bestandsnaam":"of.wav","informatieobjecttype":"art","verschijningsvorm":"never","bestandsomvang":1000000,"link":"http://mckee-maxwell.info/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-30T14:13:17.393916","zaak_referenties":[{"uuid":"5195d7d4-ac18-4e0e-af84-f179c23a8de1","url":"http://weber-allen.net/","identificatie":"404ae2b3-2eb5-4bbf-a4d1-7ecf4742ce87","bronorganisatie":"Brown
-      Group","verantwoordelijkeOrganisatie":"Gibson, Garcia and Lopez","omschrijving":"Return
-      southern run operation.","toelichting":"Town individual he staff behavior. Buy
-      its against have vote new. Although offer partner however. Drop course kind
-      where pressure.","status":"phone","registratiedatum":"2026-03-14","startdatum":"2026-03-17","zaaktype":"their","object_type":"say"}]}'
+    body: '{"uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.carr.biz/","identificatie":"cc8079c6-d8d2-432f-9fe8-ac52e90596ea","bronorganisatie":"Chavez
+      Inc","titel":"","beschrijving":"Document two, the document that came after one.","auteur":"Heather
+      Martinez","taal":"bho","vertrouwelijkheidaanduiding":"process","status":"site","formaat":"xlsx","bestandsnaam":"watch.flac","informatieobjecttype":"tough","verschijningsvorm":"million","bestandsomvang":1000000,"link":"https://www.hernandez-tapia.net/","creatiedatum":"2026-03-27","begin_registratie":"2026-03-18T07:28:57.956091","zaak_referenties":[{"uuid":"ea2a3de1-2718-4632-aa53-502fc1f764b3","url":"https://www.thomas.org/","identificatie":"0b9e3c4f-bdcd-4c2a-83c7-7aec43de41d3","bronorganisatie":"Franklin
+      and Sons","verantwoordelijkeOrganisatie":"Harrington and Sons","omschrijving":"Kid
+      seat carry Congress order appear.","toelichting":"Expert clearly democratic
+      war fish draw.","status":"whatever","registratiedatum":"2026-03-20","startdatum":"2026-04-08","zaaktype":"back","object_type":"station"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -249,13 +248,13 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.7374797,"_source":{"beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"language","begin_registratie":"2026-03-09T23:32:40.156907","identificatie":"ddd65b03-39a9-4b25-b745-34acfcb6b6b6","bronorganisatie":"Page-Richards","bestandsomvang":1000000,"link":"https://maxwell-davis.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.schwartz.net/","taal":"mhr","zaak_referenties":[{"omschrijving":"Arm
-        themselves within politics sure.","identificatie":"c97a93a7-e42e-49a3-8e39-c452cc5acf91","startdatum":"2026-03-31","object_type":"guess","bronorganisatie":"Lambert,
-        Schaefer and Aguilar","zaaktype":"herself","registratiedatum":"2026-03-27","uuid":"88fc53b6-c1b8-41bd-8268-43d1fda0d9b8","url":"https://www.nunez.info/","verantwoordelijkeOrganisatie":"Woodard,
-        Hart and Thomas","toelichting":"Beat decide large us wife who participant.
-        Plant program open great watch. Fire strategy write blood behind.","status":"continue"}],"auteur":"Rebecca
-        King","formaat":"pptx","titel":"","vertrouwelijkheidaanduiding":"sea","informatieobjecttype":"guess","bestandsnaam":"last.pptx","creatiedatum":"2026-03-28","status":"camera"},"sort":[4.7374797,1774656000000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.479397,"_source":{"beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"the","begin_registratie":"2026-03-11T14:41:19.890205","identificatie":"9b8c44fe-73d2-4af9-b76b-2dbdd12eab34","bronorganisatie":"Day-Church","bestandsomvang":1000000,"link":"https://rios.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://davis.net/","taal":"quz","zaak_referenties":[{"omschrijving":"Speech
+        suffer me although.","identificatie":"a62c8091-e264-40b5-a0d9-d0c2c7998c6e","startdatum":"2026-04-01","object_type":"pick","bronorganisatie":"Durham,
+        Blake and Johnson","zaaktype":"station","registratiedatum":"2026-03-13","uuid":"f531aa70-9956-4c19-9312-e55e46621005","url":"https://black.biz/","verantwoordelijkeOrganisatie":"Miller
+        LLC","toelichting":"Blue yet country. Eat for total agreement place several.
+        Stay outside arrive enjoy one history.","status":"decision"}],"auteur":"Mrs.
+        Maria Cline","formaat":"doc","titel":"","vertrouwelijkheidaanduiding":"ago","informatieobjecttype":"month","bestandsnaam":"challenge.js","creatiedatum":"2026-03-28","status":"place"},"sort":[4.479397,1774656000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -286,20 +285,19 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.7374797,"_source":{"beschrijving":"Document
-        one, on which we expect an exact phrase match.","verschijningsvorm":"language","begin_registratie":"2026-03-09T23:32:40.156907","identificatie":"ddd65b03-39a9-4b25-b745-34acfcb6b6b6","bronorganisatie":"Page-Richards","bestandsomvang":1000000,"link":"https://maxwell-davis.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"https://www.schwartz.net/","taal":"mhr","zaak_referenties":[{"omschrijving":"Arm
-        themselves within politics sure.","identificatie":"c97a93a7-e42e-49a3-8e39-c452cc5acf91","startdatum":"2026-03-31","object_type":"guess","bronorganisatie":"Lambert,
-        Schaefer and Aguilar","zaaktype":"herself","registratiedatum":"2026-03-27","uuid":"88fc53b6-c1b8-41bd-8268-43d1fda0d9b8","url":"https://www.nunez.info/","verantwoordelijkeOrganisatie":"Woodard,
-        Hart and Thomas","toelichting":"Beat decide large us wife who participant.
-        Plant program open great watch. Fire strategy write blood behind.","status":"continue"}],"auteur":"Rebecca
-        King","formaat":"pptx","titel":"","vertrouwelijkheidaanduiding":"sea","informatieobjecttype":"guess","bestandsnaam":"last.pptx","creatiedatum":"2026-03-28","status":"camera"},"sort":[4.7374797,1774656000000]},{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":1.5503805,"_source":{"beschrijving":"Document
-        two, the document that came after one.","verschijningsvorm":"never","begin_registratie":"2026-03-30T14:13:17.393916","identificatie":"241825de-0ce4-4a34-9394-bdf8a347981a","bronorganisatie":"Acosta,
-        Thompson and Carroll","bestandsomvang":1000000,"link":"http://mckee-maxwell.info/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.hughes.biz/","taal":"mr","zaak_referenties":[{"omschrijving":"Return
-        southern run operation.","identificatie":"404ae2b3-2eb5-4bbf-a4d1-7ecf4742ce87","startdatum":"2026-03-17","object_type":"say","bronorganisatie":"Brown
-        Group","zaaktype":"their","registratiedatum":"2026-03-14","uuid":"5195d7d4-ac18-4e0e-af84-f179c23a8de1","url":"http://weber-allen.net/","verantwoordelijkeOrganisatie":"Gibson,
-        Garcia and Lopez","toelichting":"Town individual he staff behavior. Buy its
-        against have vote new. Although offer partner however. Drop course kind where
-        pressure.","status":"phone"}],"auteur":"Donald Johnson","formaat":"mp3","titel":"","vertrouwelijkheidaanduiding":"born","informatieobjecttype":"art","bestandsnaam":"of.wav","creatiedatum":"2026-03-11","status":"wrong"},"sort":[1.5503805,1773187200000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","_score":5.4035,"_source":{"beschrijving":"Document
+        two, the document that came after one.","verschijningsvorm":"million","begin_registratie":"2026-03-18T07:28:57.956091","identificatie":"cc8079c6-d8d2-432f-9fe8-ac52e90596ea","bronorganisatie":"Chavez
+        Inc","bestandsomvang":1000000,"link":"https://www.hernandez-tapia.net/","uuid":"a8fce14e-88d1-4f60-a69b-bbcc7033afe9","url":"http://www.carr.biz/","taal":"bho","zaak_referenties":[{"omschrijving":"Kid
+        seat carry Congress order appear.","identificatie":"0b9e3c4f-bdcd-4c2a-83c7-7aec43de41d3","startdatum":"2026-04-08","object_type":"station","bronorganisatie":"Franklin
+        and Sons","zaaktype":"back","registratiedatum":"2026-03-20","uuid":"ea2a3de1-2718-4632-aa53-502fc1f764b3","url":"https://www.thomas.org/","verantwoordelijkeOrganisatie":"Harrington
+        and Sons","toelichting":"Expert clearly democratic war fish draw.","status":"whatever"}],"auteur":"Heather
+        Martinez","formaat":"xlsx","titel":"","vertrouwelijkheidaanduiding":"process","informatieobjecttype":"tough","bestandsnaam":"watch.flac","creatiedatum":"2026-03-27","status":"site"},"sort":[5.4035,1774569600000]},{"_index":"document","_id":"d6eacab4-cb9f-42f7-abdf-719b358da923","_score":4.479397,"_source":{"beschrijving":"Document
+        one, on which we expect an exact phrase match.","verschijningsvorm":"the","begin_registratie":"2026-03-11T14:41:19.890205","identificatie":"9b8c44fe-73d2-4af9-b76b-2dbdd12eab34","bronorganisatie":"Day-Church","bestandsomvang":1000000,"link":"https://rios.com/","uuid":"d6eacab4-cb9f-42f7-abdf-719b358da923","url":"http://davis.net/","taal":"quz","zaak_referenties":[{"omschrijving":"Speech
+        suffer me although.","identificatie":"a62c8091-e264-40b5-a0d9-d0c2c7998c6e","startdatum":"2026-04-01","object_type":"pick","bronorganisatie":"Durham,
+        Blake and Johnson","zaaktype":"station","registratiedatum":"2026-03-13","uuid":"f531aa70-9956-4c19-9312-e55e46621005","url":"https://black.biz/","verantwoordelijkeOrganisatie":"Miller
+        LLC","toelichting":"Blue yet country. Eat for total agreement place several.
+        Stay outside arrive enjoy one history.","status":"decision"}],"auteur":"Mrs.
+        Maria Cline","formaat":"doc","titel":"","vertrouwelijkheidaanduiding":"ago","informatieobjecttype":"month","bestandsnaam":"challenge.js","creatiedatum":"2026-03-28","status":"place"},"sort":[4.479397,1774656000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

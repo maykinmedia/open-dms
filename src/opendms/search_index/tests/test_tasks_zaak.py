@@ -42,7 +42,7 @@ class IndexAllZakenTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
         with get_elasticsearch_client() as client:
             obj = Zaak(**zaak_data)
-            client.index_zaken(obj)
+            client.index_zaken(obj, service_slug="zaken-api", group_slug="group-1")
             zaak = client.get_zaak(self.zaak_uuid)
 
         self.assertIsNotNone(zaak)

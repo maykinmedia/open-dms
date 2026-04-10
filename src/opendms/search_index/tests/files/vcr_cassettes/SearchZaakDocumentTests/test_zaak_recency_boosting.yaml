@@ -1,9 +1,7 @@
 interactions:
 - request:
-    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.alexander.com/","identificatie":"00b0b9cc-6dd2-45e2-a262-1e51d41e838d","bronorganisatie":"Schmitt,
-      Hernandez and Carpenter","verantwoordelijkeOrganisatie":"Jones-George","omschrijving":"test
-      omschrijving","toelichting":"Wear life body method common. Draw unit news agency
-      wrong own within.","status":"simple","registratiedatum":"2024-01-01","startdatum":"2026-04-02","zaaktype":"look","creatiedatum":"2024-01-01"}'
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://jacobson-santiago.com/","identificatie":"d1734bf2-99c2-4923-b987-3ab28c3c0169","bronorganisatie":"Tucker-Thomas","verantwoordelijkeOrganisatie":"Riggs-Sherman","omschrijving":"test
+      omschrijving","toelichting":"Line including everything job.","status":"analysis","registratiedatum":"2024-01-01","startdatum":"2026-03-22","zaaktype":"college","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2024-01-01"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -19,23 +17,23 @@ interactions:
     uri: http://localhost:9201/zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
   response:
     body:
-      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":11,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":28,"_primary_term":1}'
     headers:
       Location:
       - /zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '172'
+      - '174'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.peters.com/","identificatie":"b2d14a03-18a9-4aa9-858b-b85f1efa0330","bronorganisatie":"Vega-Lopez","verantwoordelijkeOrganisatie":"Roth
-      Group","omschrijving":"test omschrijving","toelichting":"Arm food provide huge.
-      Project city financial partner current audience.","status":"teach","registratiedatum":"2026-01-01","startdatum":"2026-04-03","zaaktype":"store","creatiedatum":"2026-01-01"}'
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.gates.org/","identificatie":"5c0f88aa-654d-4d80-8ce0-9c2b5352e2d0","bronorganisatie":"Stevens-Rivas","verantwoordelijkeOrganisatie":"Carter-Bell","omschrijving":"test
+      omschrijving","toelichting":"Very wife charge talk south light at friend. Way
+      join animal suffer anyone buy final blood.","status":"face","registratiedatum":"2026-01-01","startdatum":"2026-03-22","zaaktype":"set","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-01-01"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -51,14 +49,14 @@ interactions:
     uri: http://localhost:9201/zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
   response:
     body:
-      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":13,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":29,"_primary_term":1}'
     headers:
       Location:
       - /zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '172'
+      - '174'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -84,12 +82,10 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":5,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":7.828389E-12,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.peters.com/","identificatie":"b2d14a03-18a9-4aa9-858b-b85f1efa0330","bronorganisatie":"Vega-Lopez","verantwoordelijkeOrganisatie":"Roth
-        Group","omschrijving":"test omschrijving","toelichting":"Arm food provide
-        huge. Project city financial partner current audience.","status":"teach","registratiedatum":"2026-01-01","startdatum":"2026-04-03","zaaktype":"store","creatiedatum":"2026-01-01"},"sort":[7.828389E-12,1767225600000]},{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.alexander.com/","identificatie":"00b0b9cc-6dd2-45e2-a262-1e51d41e838d","bronorganisatie":"Schmitt,
-        Hernandez and Carpenter","verantwoordelijkeOrganisatie":"Jones-George","omschrijving":"test
-        omschrijving","toelichting":"Wear life body method common. Draw unit news
-        agency wrong own within.","status":"simple","registratiedatum":"2024-01-01","startdatum":"2026-04-02","zaaktype":"look","creatiedatum":"2024-01-01"},"sort":[0.0,1704067200000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_score":2.8375165E-11,"_source":{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.gates.org/","identificatie":"5c0f88aa-654d-4d80-8ce0-9c2b5352e2d0","bronorganisatie":"Stevens-Rivas","verantwoordelijkeOrganisatie":"Carter-Bell","omschrijving":"test
+        omschrijving","toelichting":"Very wife charge talk south light at friend.
+        Way join animal suffer anyone buy final blood.","status":"face","registratiedatum":"2026-01-01","startdatum":"2026-03-22","zaaktype":"set","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-01-01"},"sort":[2.8375165E-11,1767225600000]},{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://jacobson-santiago.com/","identificatie":"d1734bf2-99c2-4923-b987-3ab28c3c0169","bronorganisatie":"Tucker-Thomas","verantwoordelijkeOrganisatie":"Riggs-Sherman","omschrijving":"test
+        omschrijving","toelichting":"Line including everything job.","status":"analysis","registratiedatum":"2024-01-01","startdatum":"2026-03-22","zaaktype":"college","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2024-01-01"},"sort":[0.0,1704067200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

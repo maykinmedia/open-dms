@@ -368,7 +368,11 @@ class ElasticSearchClient:
             logger.error("failed_to_delete_document")
             return False
 
-    def index_zaken(self, zaak: Zaak) -> None:
+    def index_zaken(
+        self, zaak: Zaak, service_slug: str, group_slug: str | None
+    ) -> None:
+        zaak.service_slug = service_slug
+        zaak.group_slug = group_slug
         zaak.save(
             id=str(zaak.uuid),
             using=self.client,

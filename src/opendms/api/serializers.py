@@ -144,6 +144,18 @@ class ESZaakSerializer(serializers.Serializer):
     toelichting = serializers.CharField(
         help_text=_("Een toelichting op de zaak."),
     )
+    service_slug = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_("De slug van de bronservice die deze zaak heeft geïndexeerd."),
+    )
+    group_slug = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_(
+            "De slug van de groep waartoe de bronservice behoort die deze zaak heeft geïndexeerd."
+        ),
+    )
 
 
 @extend_schema_serializer()

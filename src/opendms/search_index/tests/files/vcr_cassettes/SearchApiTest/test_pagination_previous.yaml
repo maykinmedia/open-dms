@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,13 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://bell-esparza.com/","identificatie":"1a04f540-019a-44ac-ad89-de9d510c45e8","bronorganisatie":"Sims-Cruz","titel":"Leader
-      pay consumer cut life behavior report.","beschrijving":"Fish senior capital
-      change leader. Space thus traditional seem senior.","auteur":"Jonathan Flores","taal":"wal","vertrouwelijkheidaanduiding":"quality","status":"traditional","formaat":"mov","bestandsnaam":"wide.json","informatieobjecttype":"table","verschijningsvorm":"feel","bestandsomvang":1000000,"link":"http://www.jennings.biz/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-14T02:07:27.963547","zaak_referenties":[{"uuid":"daee28f8-ea20-49ee-b105-4c64c599814e","url":"https://green.com/","identificatie":"de6f60ed-c620-483a-89a8-2517ab7d5213","bronorganisatie":"Lewis
-      Inc","verantwoordelijkeOrganisatie":"Tate, Cervantes and Mosley","omschrijving":"Use
-      break result threat blue represent win culture.","toelichting":"Former early
-      claim TV. Ahead culture event travel candidate she blue. Still baby put true
-      south.","status":"will","registratiedatum":"2026-03-11","startdatum":"2026-03-27","zaaktype":"create","object_type":"top"}]}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.huff.com/","identificatie":"217b0866-4cde-4c3e-9b85-7426e57e5203","bronorganisatie":"Palmer
+      Group","titel":"Tv practice its also.","beschrijving":"Student toward interesting
+      such even green simple. Culture before stop whether technology.","auteur":"Darin
+      Munoz","taal":"kn","vertrouwelijkheidaanduiding":"north","status":"more","formaat":"json","bestandsnaam":"modern.pptx","informatieobjecttype":"its","verschijningsvorm":"report","bestandsomvang":1000000,"link":"https://www.gregory.org/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-22T06:59:06.792320","zaak_referenties":[{"uuid":"86c2e9b7-9884-4ea9-b1b5-381dad55ed44","url":"http://flores-lynch.com/","identificatie":"0f64ce5c-279d-4d3a-8aa3-b1a007778960","bronorganisatie":"King,
+      Davis and Holland","verantwoordelijkeOrganisatie":"Castillo-Snyder","omschrijving":"Full
+      fish stuff.","toelichting":"Hair officer beautiful clear indicate to why success.
+      Ever someone change TV. Bill again among.","status":"mother","registratiedatum":"2026-04-08","startdatum":"2026-03-28","zaaktype":"chance","object_type":"kitchen"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -156,7 +156,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -168,7 +168,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -196,13 +196,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://hernandez.org/","identificatie":"310c0398-26c3-4a0f-b6ba-11da96879e95","bronorganisatie":"Rivera-Elliott","titel":"Fly
-      everyone matter situation recently our station future.","beschrijving":"Wear
-      blood medical evening kind operation blood. Ready pick daughter husband myself
-      else.","auteur":"Jeffrey Ortiz","taal":"xh","vertrouwelijkheidaanduiding":"it","status":"no","formaat":"png","bestandsnaam":"production.numbers","informatieobjecttype":"themselves","verschijningsvorm":"work","bestandsomvang":1000000,"link":"https://www.cox.biz/","creatiedatum":"2026-02-01","begin_registratie":"2026-04-06T18:25:26.628887","zaak_referenties":[{"uuid":"49b2e265-b8ff-4518-9b53-aa1c970181df","url":"https://woods.com/","identificatie":"c030c95c-cf68-4535-af45-6caad15ee52b","bronorganisatie":"Nelson,
-      Miller and Harris","verantwoordelijkeOrganisatie":"Tran, Smith and Martin","omschrijving":"Cold
-      this gas fall.","toelichting":"Easy accept down can discover. Alone issue suddenly
-      event dinner. Whatever stay the think have.","status":"first","registratiedatum":"2026-04-05","startdatum":"2026-03-10","zaaktype":"us","object_type":"catch"}]}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.shaw.com/","identificatie":"bdcf41b1-77b4-4146-b02e-5461c57bfa12","bronorganisatie":"Wade-Reed","titel":"Heart
+      situation each she.","beschrijving":"Easy certainly second mean difference.
+      Recent fact operation case send. Approach change seven time after this onto.","auteur":"Christopher
+      Johnson","taal":"bo","vertrouwelijkheidaanduiding":"several","status":"add","formaat":"html","bestandsnaam":"claim.css","informatieobjecttype":"personal","verschijningsvorm":"ground","bestandsomvang":1000000,"link":"http://www.wilson.com/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-12T15:37:19.198951","zaak_referenties":[{"uuid":"a833fff4-a8ca-4c5a-a893-be85b6004d60","url":"https://moore.info/","identificatie":"c1dccca4-87d2-4b64-a412-d852a73e37b8","bronorganisatie":"White
+      PLC","verantwoordelijkeOrganisatie":"Santos-Ellis","omschrijving":"Agree right
+      sound give few.","toelichting":"East dog amount begin reflect. News say far.","status":"kind","registratiedatum":"2026-04-02","startdatum":"2026-03-14","zaaktype":"however","object_type":"that"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -248,13 +247,14 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.1792496E-11,"_source":{"beschrijving":"Fish
-        senior capital change leader. Space thus traditional seem senior.","verschijningsvorm":"feel","begin_registratie":"2026-03-14T02:07:27.963547","identificatie":"1a04f540-019a-44ac-ad89-de9d510c45e8","bronorganisatie":"Sims-Cruz","bestandsomvang":1000000,"link":"http://www.jennings.biz/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://bell-esparza.com/","taal":"wal","zaak_referenties":[{"omschrijving":"Use
-        break result threat blue represent win culture.","identificatie":"de6f60ed-c620-483a-89a8-2517ab7d5213","startdatum":"2026-03-27","object_type":"top","bronorganisatie":"Lewis
-        Inc","zaaktype":"create","registratiedatum":"2026-03-11","uuid":"daee28f8-ea20-49ee-b105-4c64c599814e","url":"https://green.com/","verantwoordelijkeOrganisatie":"Tate,
-        Cervantes and Mosley","toelichting":"Former early claim TV. Ahead culture
-        event travel candidate she blue. Still baby put true south.","status":"will"}],"auteur":"Jonathan
-        Flores","formaat":"mov","titel":"Leader pay consumer cut life behavior report.","vertrouwelijkheidaanduiding":"quality","informatieobjecttype":"table","bestandsnaam":"wide.json","creatiedatum":"2026-01-01","status":"traditional"},"sort":[1.1792496E-11,1767225600000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":3.9600315E-12,"_source":{"beschrijving":"Student
+        toward interesting such even green simple. Culture before stop whether technology.","verschijningsvorm":"report","begin_registratie":"2026-03-22T06:59:06.792320","identificatie":"217b0866-4cde-4c3e-9b85-7426e57e5203","bronorganisatie":"Palmer
+        Group","bestandsomvang":1000000,"link":"https://www.gregory.org/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.huff.com/","taal":"kn","zaak_referenties":[{"omschrijving":"Full
+        fish stuff.","identificatie":"0f64ce5c-279d-4d3a-8aa3-b1a007778960","startdatum":"2026-03-28","object_type":"kitchen","bronorganisatie":"King,
+        Davis and Holland","zaaktype":"chance","registratiedatum":"2026-04-08","uuid":"86c2e9b7-9884-4ea9-b1b5-381dad55ed44","url":"http://flores-lynch.com/","verantwoordelijkeOrganisatie":"Castillo-Snyder","toelichting":"Hair
+        officer beautiful clear indicate to why success. Ever someone change TV. Bill
+        again among.","status":"mother"}],"auteur":"Darin Munoz","formaat":"json","titel":"Tv
+        practice its also.","vertrouwelijkheidaanduiding":"north","informatieobjecttype":"its","bestandsnaam":"modern.pptx","creatiedatum":"2026-01-01","status":"more"},"sort":[3.9600315E-12,1767225600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

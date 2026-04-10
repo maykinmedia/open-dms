@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639453719","number_of_replicas":"1","uuid":"sb6mxeJERnuVOmF_HPTwEw","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806624758","number_of_replicas":"1","uuid":"M1TnzGbBTRyJtRRdMOc6Zw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"identificatie":{"type":"keyword"},"inhoud":{"type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bronorganisatie":{"type":"keyword"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"titel":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,9 +80,10 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"doc-100","url":"http://www.edwards.com/","identificatie":"c2aa407c-dcec-496b-a63f-353a66a412d9","bronorganisatie":"Kelly-Allen","titel":"Document
-      with zaak","beschrijving":"Star guess front environment give expert. Party statement
-      size environmental theory write challenge.","auteur":"Linda Smith","taal":"cs","vertrouwelijkheidaanduiding":"four","status":"movie","formaat":"mp3","bestandsnaam":"put.docx","informatieobjecttype":"mother","verschijningsvorm":"college","bestandsomvang":1000000,"link":"http://www.tanner.net/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-11T19:54:20.149209","zaak_referenties":[{"url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","uuid":"11111111-2222-3333-4444-555555555555","identificatie":"ZA-BOOST-1","omschrijving":"Important
+    body: '{"uuid":"doc-100","url":"https://www.morrow.com/","identificatie":"3b98695d-5706-4d33-80a6-6edf8945fb3d","bronorganisatie":"Grimes,
+      Smith and Harris","titel":"Document with zaak","beschrijving":"Herself maintain
+      open agreement attorney them admit. Hundred miss group blood. Run national stop
+      address.","auteur":"Rebekah Serrano","taal":"bhb","vertrouwelijkheidaanduiding":"understand","status":"attorney","formaat":"png","bestandsnaam":"teach.pdf","informatieobjecttype":"rest","verschijningsvorm":"option","bestandsomvang":1000000,"link":"http://gould.com/","creatiedatum":"2026-03-24","begin_registratie":"2026-03-19T07:34:40.326045","zaak_referenties":[{"url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","uuid":"11111111-2222-3333-4444-555555555555","identificatie":"ZA-BOOST-1","omschrijving":"Important
       nested zaak","toelichting":"Extra nested info","status":"open","registratiedatum":"2026-01-01","startdatum":"2024-01-01","zaaktype":"http://example.com/zaaktype/boost","object_type":"zaak","bronorganisatie":"org1","verantwoordelijkeOrganisatie":"org1"}]}'
     headers:
       accept:
@@ -129,12 +130,13 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"doc-100","_score":1.0994815,"_source":{"beschrijving":"Star
-        guess front environment give expert. Party statement size environmental theory
-        write challenge.","verschijningsvorm":"college","begin_registratie":"2026-03-11T19:54:20.149209","identificatie":"c2aa407c-dcec-496b-a63f-353a66a412d9","bronorganisatie":"Kelly-Allen","bestandsomvang":1000000,"link":"http://www.tanner.net/","uuid":"doc-100","url":"http://www.edwards.com/","taal":"cs","zaak_referenties":[{"omschrijving":"Important
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"doc-100","_score":1.4980512,"_source":{"beschrijving":"Herself
+        maintain open agreement attorney them admit. Hundred miss group blood. Run
+        national stop address.","verschijningsvorm":"option","begin_registratie":"2026-03-19T07:34:40.326045","identificatie":"3b98695d-5706-4d33-80a6-6edf8945fb3d","bronorganisatie":"Grimes,
+        Smith and Harris","bestandsomvang":1000000,"link":"http://gould.com/","uuid":"doc-100","url":"https://www.morrow.com/","taal":"bhb","zaak_referenties":[{"omschrijving":"Important
         nested zaak","identificatie":"ZA-BOOST-1","startdatum":"2024-01-01","object_type":"zaak","zaaktype":"http://example.com/zaaktype/boost","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"11111111-2222-3333-4444-555555555555","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        nested info","status":"open"}],"auteur":"Linda Smith","formaat":"mp3","titel":"Document
-        with zaak","vertrouwelijkheidaanduiding":"four","informatieobjecttype":"mother","bestandsnaam":"put.docx","creatiedatum":"2026-03-18","status":"movie"},"sort":[1.0994815,1773792000000]}]}}'
+        nested info","status":"open"}],"auteur":"Rebekah Serrano","formaat":"png","titel":"Document
+        with zaak","vertrouwelijkheidaanduiding":"understand","informatieobjecttype":"rest","bestandsnaam":"teach.pdf","creatiedatum":"2026-03-24","status":"attorney"},"sort":[1.4980512,1774310400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

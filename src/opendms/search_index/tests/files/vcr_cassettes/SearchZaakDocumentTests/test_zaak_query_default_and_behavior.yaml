@@ -1,8 +1,8 @@
 interactions:
 - request:
-    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://chambers.com/","identificatie":"611853f9-10ec-4de3-b36c-a1dc2ef64b27","bronorganisatie":"Allen,
-      Curry and Wilson","verantwoordelijkeOrganisatie":"Combs Group","omschrijving":"alpha
-      beta","toelichting":"Peace city ready meeting less. Seven finish wall interesting.","status":"side","registratiedatum":"2026-03-14","startdatum":"2026-03-16","zaaktype":"case","creatiedatum":"2026-03-14"}'
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.collins-ward.biz/","identificatie":"abdca650-d001-4f7b-9c38-dd5d633b5456","bronorganisatie":"Sullivan-Greene","verantwoordelijkeOrganisatie":"Bishop-Hawkins","omschrijving":"alpha
+      beta","toelichting":"City once evidence focus her myself. Our guy enjoy statement
+      learn let. Member travel upon phone stage feel few.","status":"really","registratiedatum":"2026-04-01","startdatum":"2026-03-12","zaaktype":"above","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-04-01"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -18,24 +18,23 @@ interactions:
     uri: http://localhost:9201/zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
   response:
     body:
-      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
+      string: '{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":18,"_primary_term":1}'
     headers:
       Location:
       - /zaak/_doc/12fceb92-98bd-475c-b184-49ee8a274787
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '172'
+      - '173'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.scott.com/","identificatie":"2335d54d-e062-474c-8535-0c43c649a97a","bronorganisatie":"Murray,
-      Green and Richardson","verantwoordelijkeOrganisatie":"Cordova Group","omschrijving":"alpha","toelichting":"New
-      fish rule camera part. Respond walk condition brother again film. At child security
-      project professor. Growth this course work top unit.","status":"activity","registratiedatum":"2026-04-05","startdatum":"2026-03-27","zaaktype":"each","creatiedatum":"2026-04-05"}'
+    body: '{"uuid":"13fceb92-98bd-475c-b184-49ee8a274787","url":"http://www.reyes.info/","identificatie":"f88c6473-39c6-4407-81b9-2ff843ae4008","bronorganisatie":"Lewis-Martinez","verantwoordelijkeOrganisatie":"Acosta-Davis","omschrijving":"alpha","toelichting":"Option
+      real place. Season professional financial myself factor something at. Require
+      guy law focus speech.","status":"fill","registratiedatum":"2026-03-15","startdatum":"2026-03-22","zaaktype":"either","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-03-15"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -51,14 +50,14 @@ interactions:
     uri: http://localhost:9201/zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787?refresh=wait_for
   response:
     body:
-      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":3,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":5,"_primary_term":1}'
+      string: '{"_index":"zaak","_id":"13fceb92-98bd-475c-b184-49ee8a274787","_version":9,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":19,"_primary_term":1}'
     headers:
       Location:
       - /zaak/_doc/13fceb92-98bd-475c-b184-49ee8a274787
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '172'
+      - '173'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -84,9 +83,9 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":4,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.6875055,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://chambers.com/","identificatie":"611853f9-10ec-4de3-b36c-a1dc2ef64b27","bronorganisatie":"Allen,
-        Curry and Wilson","verantwoordelijkeOrganisatie":"Combs Group","omschrijving":"alpha
-        beta","toelichting":"Peace city ready meeting less. Seven finish wall interesting.","status":"side","registratiedatum":"2026-03-14","startdatum":"2026-03-16","zaaktype":"case","creatiedatum":"2026-03-14"},"sort":[0.6875055,1773446400000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"zaak","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":5.404315,"_source":{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.collins-ward.biz/","identificatie":"abdca650-d001-4f7b-9c38-dd5d633b5456","bronorganisatie":"Sullivan-Greene","verantwoordelijkeOrganisatie":"Bishop-Hawkins","omschrijving":"alpha
+        beta","toelichting":"City once evidence focus her myself. Our guy enjoy statement
+        learn let. Member travel upon phone stage feel few.","status":"really","registratiedatum":"2026-04-01","startdatum":"2026-03-12","zaaktype":"above","service_slug":"test-service","group_slug":"test-group","creatiedatum":"2026-04-01"},"sort":[5.404315,1775001600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

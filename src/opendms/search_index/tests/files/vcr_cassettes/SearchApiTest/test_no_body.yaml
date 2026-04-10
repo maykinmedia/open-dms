@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775639086899","number_of_replicas":"1","uuid":"HTM6wbcFTkO9ylbWTN5uEA","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"object_type":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"begin_registratie":{"type":"date"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"bestandsomvang":{"type":"long"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,12 +80,14 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.pham.org/","identificatie":"b8a30f2b-02b5-44c8-896d-1937ce8a36e8","bronorganisatie":"Sanders-Mitchell","titel":"Argue
-      a friend catch agreement.","beschrijving":"Home agreement customer sometimes
-      series reality interest true. His yard force building always air late.","auteur":"Brittany
-      Bowers","taal":"te","vertrouwelijkheidaanduiding":"either","status":"science","formaat":"odp","bestandsnaam":"suffer.css","informatieobjecttype":"peace","verschijningsvorm":"up","bestandsomvang":1000000,"link":"http://perry.info/","creatiedatum":"2026-03-18","begin_registratie":"2026-04-07T10:51:30.969331","zaak_referenties":[{"uuid":"44ed9b18-e3a1-4710-8937-cad2a4d87819","url":"http://skinner.org/","identificatie":"678d84fa-e711-4985-89ce-c42cf2cf011b","bronorganisatie":"Knight-Greene","verantwoordelijkeOrganisatie":"Salas-Davis","omschrijving":"Church
-      however sometimes home fear by board.","toelichting":"Could artist yourself.
-      Rich environmental toward.","status":"cell","registratiedatum":"2026-03-12","startdatum":"2026-03-20","zaaktype":"do","object_type":"call"}]}'
+    body: '{"uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://www.baxter-mullen.info/","identificatie":"d71f93a2-9486-4456-b129-f75504c16d9b","bronorganisatie":"King
+      Group","titel":"Brother someone information maintain less chair campaign.","beschrijving":"Up
+      serve activity beat. Western training news work international. Technology program
+      question down class. Parent threat model against book author.","auteur":"Mark
+      Robbins","taal":"ht","vertrouwelijkheidaanduiding":"artist","status":"same","formaat":"html","bestandsnaam":"TV.flac","informatieobjecttype":"however","verschijningsvorm":"rest","bestandsomvang":1000000,"link":"http://patterson.com/","creatiedatum":"2026-04-08","begin_registratie":"2026-04-04T23:42:31.435952","zaak_referenties":[{"uuid":"ea0c639f-f59c-4232-9fc0-b7540ecc8b91","url":"http://cuevas-west.net/","identificatie":"369a3002-6b7b-4069-8488-f3a28641b6ff","bronorganisatie":"Hahn,
+      Moody and Schroeder","verantwoordelijkeOrganisatie":"Wang and Sons","omschrijving":"Need
+      continue receive bit market.","toelichting":"Catch exactly budget various. Kid
+      necessary speech expert.","status":"war","registratiedatum":"2026-03-19","startdatum":"2026-03-15","zaaktype":"media","object_type":"again"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -131,12 +133,15 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":0.5289383,"_source":{"beschrijving":"Home
-        agreement customer sometimes series reality interest true. His yard force
-        building always air late.","verschijningsvorm":"up","begin_registratie":"2026-04-07T10:51:30.969331","identificatie":"b8a30f2b-02b5-44c8-896d-1937ce8a36e8","bronorganisatie":"Sanders-Mitchell","bestandsomvang":1000000,"link":"http://perry.info/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"https://www.pham.org/","taal":"te","zaak_referenties":[{"omschrijving":"Church
-        however sometimes home fear by board.","identificatie":"678d84fa-e711-4985-89ce-c42cf2cf011b","startdatum":"2026-03-20","object_type":"call","bronorganisatie":"Knight-Greene","zaaktype":"do","registratiedatum":"2026-03-12","uuid":"44ed9b18-e3a1-4710-8937-cad2a4d87819","url":"http://skinner.org/","verantwoordelijkeOrganisatie":"Salas-Davis","toelichting":"Could
-        artist yourself. Rich environmental toward.","status":"cell"}],"auteur":"Brittany
-        Bowers","formaat":"odp","titel":"Argue a friend catch agreement.","vertrouwelijkheidaanduiding":"either","informatieobjecttype":"peace","bestandsnaam":"suffer.css","creatiedatum":"2026-03-18","status":"science"},"sort":[0.5289383,1773792000000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"525747fd-7e58-4005-8efa-59bcf4403385","_score":1.0,"_source":{"beschrijving":"Up
+        serve activity beat. Western training news work international. Technology
+        program question down class. Parent threat model against book author.","verschijningsvorm":"rest","begin_registratie":"2026-04-04T23:42:31.435952","identificatie":"d71f93a2-9486-4456-b129-f75504c16d9b","bronorganisatie":"King
+        Group","bestandsomvang":1000000,"link":"http://patterson.com/","uuid":"525747fd-7e58-4005-8efa-59bcf4403385","url":"http://www.baxter-mullen.info/","taal":"ht","zaak_referenties":[{"omschrijving":"Need
+        continue receive bit market.","identificatie":"369a3002-6b7b-4069-8488-f3a28641b6ff","startdatum":"2026-03-15","object_type":"again","bronorganisatie":"Hahn,
+        Moody and Schroeder","zaaktype":"media","registratiedatum":"2026-03-19","uuid":"ea0c639f-f59c-4232-9fc0-b7540ecc8b91","url":"http://cuevas-west.net/","verantwoordelijkeOrganisatie":"Wang
+        and Sons","toelichting":"Catch exactly budget various. Kid necessary speech
+        expert.","status":"war"}],"auteur":"Mark Robbins","formaat":"html","titel":"Brother
+        someone information maintain less chair campaign.","vertrouwelijkheidaanduiding":"artist","informatieobjecttype":"however","bestandsnaam":"TV.flac","creatiedatum":"2026-04-08","status":"same"},"sort":[1.0,1775606400000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
