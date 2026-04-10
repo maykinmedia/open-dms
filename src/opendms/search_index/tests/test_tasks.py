@@ -734,3 +734,9 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
                         "11111111-1111-1111-1111-111111111111"
                     )
                     self.assertIsNone(deleted)
+
+    def test_no_services_raises_exception(self):
+        ZGWApiGroupConfig.objects.all().delete()
+
+        with self.assertRaises(ExternalServiceUnavailable):
+            validate_expired_documents(batch_size=10)
