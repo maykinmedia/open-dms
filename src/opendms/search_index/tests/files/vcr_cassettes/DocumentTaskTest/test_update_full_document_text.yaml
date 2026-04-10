@@ -29,18 +29,18 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 09 Apr 2026 12:50:37 GMT
+      - Fri, 10 Apr 2026 12:29:45 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://wright.org/","identificatie":"96e4cfa9-64ff-49b8-9ad2-1c3b85147bb9","bronorganisatie":"Crawford-Dawson","titel":"Chair
-      learn strong machine establish surface matter.","beschrijving":"Contain forget
-      election hundred. Win dog talk international.","auteur":"Stacey Mcintyre DVM","taal":"nl","vertrouwelijkheidaanduiding":"or","status":"low","formaat":"flac","bestandsnaam":"rock.doc","informatieobjecttype":"development","verschijningsvorm":"onto","bestandsomvang":1000,"link":"https://www.thomas-hamilton.info/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-30T08:21:27.121554","last_checked_at":"1989-04-14T00:00:00","next_check_at":"2012-07-14T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"97f379e5-2bac-4f10-95ec-61d770c410c4","url":"http://james.net/","identificatie":"a3f4a9f5-692b-487f-a7d1-11b54f27911f","bronorganisatie":"Vazquez-Wells","verantwoordelijkeOrganisatie":"Cooper
-      Group","omschrijving":"Improve production assume thought herself.","toelichting":"Down
-      door specific tend phone. Occur section final Congress act.","status":"check","registratiedatum":"2026-04-02","startdatum":"2026-04-04","zaaktype":"religious","object_type":"rather"}],"inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://lewis.com/","identificatie":"9a030dce-50c1-48b8-a4c6-80980fdffd44","bronorganisatie":"Snyder-Weaver","titel":"Decide
+      take institution picture.","beschrijving":"Carry relate next dream cell forget
+      pass. Whatever gas huge important.","auteur":"Jeanne Smith","taal":"so","vertrouwelijkheidaanduiding":"week","status":"phone","formaat":"mov","bestandsnaam":"election.doc","informatieobjecttype":"senior","verschijningsvorm":"outside","bestandsomvang":1000,"link":"https://www.rodriguez.biz/","creatiedatum":"2026-03-17","begin_registratie":"2026-04-06T01:32:43.762709","last_checked_at":"2016-05-03T00:00:00","next_check_at":"2006-05-02T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"c06587cf-972c-4375-b84a-acf6cf680049","url":"https://www.martin.com/","identificatie":"a1377357-d04e-4897-9f53-b9a447c8492c","bronorganisatie":"Mitchell-Dean","verantwoordelijkeOrganisatie":"Taylor
+      and Sons","omschrijving":"Source plan tend attack away do.","toelichting":"These
+      many age under. Above various whose matter key hot suffer.","status":"increase","registratiedatum":"2026-03-31","startdatum":"2026-04-03","zaaktype":"also","object_type":"mother","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -84,18 +84,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Contain
-        forget election hundred. Win dog talk international.","verschijningsvorm":"onto","bronorganisatie":"Crawford-Dawson","link":"https://www.thomas-hamilton.info/","next_check_at":"2012-07-14T00:00:00","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","formaat":"flac","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Chair
-        learn strong machine establish surface matter.","informatieobjecttype":"development","bestandsnaam":"rock.doc","creatiedatum":"2026-03-15","group_slug":"group-1","begin_registratie":"2026-03-30T08:21:27.121554","identificatie":"96e4cfa9-64ff-49b8-9ad2-1c3b85147bb9","bestandsomvang":1000,"url":"https://wright.org/","taal":"nl","zaak_referenties":[{"omschrijving":"Improve
-        production assume thought herself.","identificatie":"a3f4a9f5-692b-487f-a7d1-11b54f27911f","startdatum":"2026-04-04","object_type":"rather","bronorganisatie":"Vazquez-Wells","zaaktype":"religious","registratiedatum":"2026-04-02","uuid":"97f379e5-2bac-4f10-95ec-61d770c410c4","url":"http://james.net/","verantwoordelijkeOrganisatie":"Cooper
-        Group","toelichting":"Down door specific tend phone. Occur section final Congress
-        act.","status":"check"}],"auteur":"Stacey Mcintyre DVM","last_checked_at":"1989-04-14T00:00:00","vertrouwelijkheidaanduiding":"or","document_data":[{"attachment":{"content":"Document
-        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"status":"low"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Carry
+        relate next dream cell forget pass. Whatever gas huge important.","verschijningsvorm":"outside","bronorganisatie":"Snyder-Weaver","link":"https://www.rodriguez.biz/","next_check_at":"2006-05-02T00:00:00","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","formaat":"mov","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Decide
+        take institution picture.","informatieobjecttype":"senior","bestandsnaam":"election.doc","creatiedatum":"2026-03-17","group_slug":"group-1","begin_registratie":"2026-04-06T01:32:43.762709","identificatie":"9a030dce-50c1-48b8-a4c6-80980fdffd44","bestandsomvang":1000,"url":"https://lewis.com/","taal":"so","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"a1377357-d04e-4897-9f53-b9a447c8492c","object_type":"mother","bronorganisatie":"Mitchell-Dean","zaaktype":"also","registratiedatum":"2026-03-31","uuid":"c06587cf-972c-4375-b84a-acf6cf680049","url":"https://www.martin.com/","verantwoordelijkeOrganisatie":"Taylor
+        and Sons","omschrijving":"Source plan tend attack away do.","startdatum":"2026-04-03","toelichting":"These
+        many age under. Above various whose matter key hot suffer.","status":"increase"}],"auteur":"Jeanne
+        Smith","last_checked_at":"2016-05-03T00:00:00","vertrouwelijkheidaanduiding":"week","document_data":[{"attachment":{"content":"Document
+        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"status":"phone"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1577'
+      - '1579'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -131,19 +131,19 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 09 Apr 2026 12:50:38 GMT
+      - Fri, 10 Apr 2026 12:29:46 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://www.allen.com/","identificatie":"b74c456d-a6d1-4862-ae79-014f7eaaf093","bronorganisatie":"Golden-Kelly","titel":"Or
-      successful prove only child.","beschrijving":"Movie return ready everyone. Term
-      score attorney professor live.","auteur":"Sara Smith","taal":"ug","vertrouwelijkheidaanduiding":"hit","status":"contain","formaat":"png","bestandsnaam":"church.mov","informatieobjecttype":"support","verschijningsvorm":"short","bestandsomvang":1000,"link":"https://porter-juarez.biz/","creatiedatum":"2026-03-24","begin_registratie":"2026-04-05T01:38:14.615724","last_checked_at":"2024-03-29T00:00:00","next_check_at":"1986-08-12T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"28085ac2-b58c-4819-bd3b-caedc772e284","url":"https://rivera-tucker.com/","identificatie":"33891e99-945c-46d3-85b4-99705f1679aa","bronorganisatie":"Dawson
-      and Sons","verantwoordelijkeOrganisatie":"Ortiz-Hampton","omschrijving":"News
-      along by none.","toelichting":"Whose meet certain manager lose kitchen. Strong
-      product amount fund view.","status":"street","registratiedatum":"2026-03-10","startdatum":"2026-03-25","zaaktype":"rock","object_type":"enough"}],"inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://howard-lawrence.com/","identificatie":"600d16e7-21f7-48e5-8f44-7cf2413cb26f","bronorganisatie":"Williams-Gregory","titel":"Friend
+      two particularly health thousand hold.","beschrijving":"Last daughter will staff
+      some administration they. Water number I outside.","auteur":"Kristin Andrews","taal":"so","vertrouwelijkheidaanduiding":"high","status":"special","formaat":"wav","bestandsnaam":"image.numbers","informatieobjecttype":"brother","verschijningsvorm":"away","bestandsomvang":1000,"link":"https://www.kemp-murray.info/","creatiedatum":"2026-03-25","begin_registratie":"2026-03-21T09:31:33.955233","last_checked_at":"2021-04-29T00:00:00","next_check_at":"2024-10-19T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"93bd6c84-71d2-4cdf-ac8d-deaf264693fe","url":"http://www.george-ford.com/","identificatie":"8a4a6e1e-0302-4cf8-9e7d-7ee77686847d","bronorganisatie":"Watkins
+      Ltd","verantwoordelijkeOrganisatie":"Brown, Ortiz and Fox","omschrijving":"Society
+      at not cover force every cultural.","toelichting":"Hear study thought effort
+      reason.","status":"baby","registratiedatum":"2026-03-18","startdatum":"2026-04-01","zaaktype":"which","object_type":"offer","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -185,19 +185,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Movie
-        return ready everyone. Term score attorney professor live.","verschijningsvorm":"short","bronorganisatie":"Golden-Kelly","link":"https://porter-juarez.biz/","next_check_at":"1986-08-12T00:00:00","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","formaat":"png","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Or
-        successful prove only child.","informatieobjecttype":"support","bestandsnaam":"church.mov","creatiedatum":"2026-03-24","group_slug":"group-1","begin_registratie":"2026-04-05T01:38:14.615724","identificatie":"b74c456d-a6d1-4862-ae79-014f7eaaf093","bestandsomvang":1000,"url":"https://www.allen.com/","taal":"ug","zaak_referenties":[{"omschrijving":"News
-        along by none.","identificatie":"33891e99-945c-46d3-85b4-99705f1679aa","startdatum":"2026-03-25","object_type":"enough","bronorganisatie":"Dawson
-        and Sons","zaaktype":"rock","registratiedatum":"2026-03-10","uuid":"28085ac2-b58c-4819-bd3b-caedc772e284","url":"https://rivera-tucker.com/","verantwoordelijkeOrganisatie":"Ortiz-Hampton","toelichting":"Whose
-        meet certain manager lose kitchen. Strong product amount fund view.","status":"street"}],"auteur":"Sara
-        Smith","last_checked_at":"2024-03-29T00:00:00","vertrouwelijkheidaanduiding":"hit","document_data":[{"attachment":{"content":"Document
-        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"status":"contain"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Last
+        daughter will staff some administration they. Water number I outside.","verschijningsvorm":"away","bronorganisatie":"Williams-Gregory","link":"https://www.kemp-murray.info/","next_check_at":"2024-10-19T00:00:00","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","formaat":"wav","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Friend
+        two particularly health thousand hold.","informatieobjecttype":"brother","bestandsnaam":"image.numbers","creatiedatum":"2026-03-25","group_slug":"group-1","begin_registratie":"2026-03-21T09:31:33.955233","identificatie":"600d16e7-21f7-48e5-8f44-7cf2413cb26f","bestandsomvang":1000,"url":"http://howard-lawrence.com/","taal":"so","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"8a4a6e1e-0302-4cf8-9e7d-7ee77686847d","object_type":"offer","bronorganisatie":"Watkins
+        Ltd","zaaktype":"which","registratiedatum":"2026-03-18","uuid":"93bd6c84-71d2-4cdf-ac8d-deaf264693fe","url":"http://www.george-ford.com/","verantwoordelijkeOrganisatie":"Brown,
+        Ortiz and Fox","omschrijving":"Society at not cover force every cultural.","startdatum":"2026-04-01","toelichting":"Hear
+        study thought effort reason.","status":"baby"}],"auteur":"Kristin Andrews","last_checked_at":"2021-04-29T00:00:00","vertrouwelijkheidaanduiding":"high","document_data":[{"attachment":{"content":"Document
+        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"status":"special"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1541'
+      - '1597'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

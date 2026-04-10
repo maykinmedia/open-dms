@@ -29,21 +29,21 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Thu, 09 Apr 2026 12:50:32 GMT
+      - Fri, 10 Apr 2026 12:29:40 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 400
       message: BAD REQUEST
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://carlson-brown.org/","identificatie":"98b20569-1240-498a-8c33-4bdecbb2d720","bronorganisatie":"Martin-Smith","titel":"Campaign
-      friend knowledge long usually step up.","beschrijving":"Return kitchen great
-      newspaper successful strong. Color some follow price option why. Admit become
-      seat experience good people. Style every trial small marriage.","auteur":"Justin
-      Martin","taal":"or","vertrouwelijkheidaanduiding":"responsibility","status":"small","formaat":"webm","bestandsnaam":"consumer.numbers","informatieobjecttype":"lead","verschijningsvorm":"sister","bestandsomvang":1000000,"link":"https://www.vang.com/","creatiedatum":"2026-03-31","begin_registratie":"2026-03-20T19:59:29.585047","last_checked_at":"2021-03-25T00:00:00","next_check_at":"1979-06-14T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"0bbfd43f-905c-449a-a3bb-ae0a91d2e48d","url":"https://www.schwartz.com/","identificatie":"4e3b4d30-9646-4180-bc0a-069575aa409d","bronorganisatie":"Day-Walker","verantwoordelijkeOrganisatie":"Cohen,
-      Powell and Richardson","omschrijving":"Thing century training author table.","toelichting":"Market
-      by imagine none blood age. Buy relationship along analysis. Couple large pass
-      where poor guy.","status":"challenge","registratiedatum":"2026-03-18","startdatum":"2026-03-25","zaaktype":"time","object_type":"security"}],"inhoud":"http://localhost/document/error"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://bullock.biz/","identificatie":"cfa6ed73-9de4-4d08-8b9d-f48fb4d23846","bronorganisatie":"Sullivan,
+      Smith and Johnston","titel":"White range trade together almost detail.","beschrijving":"Theory
+      structure better military. Sea model current however cell notice goal work.
+      Nor near imagine. Field modern minute town relationship prevent.","auteur":"Jason
+      Rios","taal":"bs","vertrouwelijkheidaanduiding":"evening","status":"message","formaat":"json","bestandsnaam":"town.mp4","informatieobjecttype":"reflect","verschijningsvorm":"remember","bestandsomvang":1000000,"link":"https://scott.com/","creatiedatum":"2026-04-01","begin_registratie":"2026-04-07T15:00:55.397490","last_checked_at":"1992-03-05T00:00:00","next_check_at":"2008-03-28T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"fd1f1f72-7d57-406c-aef5-a5183c4bbbd1","url":"https://www.rivera-henry.com/","identificatie":"25e163ed-e278-4d34-86f9-c56bd38d4672","bronorganisatie":"Shah
+      LLC","verantwoordelijkeOrganisatie":"Alvarez and Sons","omschrijving":"Likely
+      order first animal trade current pick.","toelichting":"Member law where statement
+      range. Reality great include manager ago direction.","status":"quite","registratiedatum":"2026-03-19","startdatum":"2026-03-20","zaaktype":"management","object_type":"hold","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/error"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -87,19 +87,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Return
-        kitchen great newspaper successful strong. Color some follow price option
-        why. Admit become seat experience good people. Style every trial small marriage.","verschijningsvorm":"sister","begin_registratie":"2026-03-20T19:59:29.585047","identificatie":"98b20569-1240-498a-8c33-4bdecbb2d720","bronorganisatie":"Martin-Smith","bestandsomvang":1000000,"link":"https://www.vang.com/","next_check_at":"1979-06-14T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://carlson-brown.org/","taal":"or","zaak_referenties":[{"omschrijving":"Thing
-        century training author table.","identificatie":"4e3b4d30-9646-4180-bc0a-069575aa409d","startdatum":"2026-03-25","object_type":"security","bronorganisatie":"Day-Walker","zaaktype":"time","registratiedatum":"2026-03-18","uuid":"0bbfd43f-905c-449a-a3bb-ae0a91d2e48d","url":"https://www.schwartz.com/","verantwoordelijkeOrganisatie":"Cohen,
-        Powell and Richardson","toelichting":"Market by imagine none blood age. Buy
-        relationship along analysis. Couple large pass where poor guy.","status":"challenge"}],"auteur":"Justin
-        Martin","formaat":"webm","last_checked_at":"2021-03-25T00:00:00","inhoud":"http://localhost/document/error","titel":"Campaign
-        friend knowledge long usually step up.","vertrouwelijkheidaanduiding":"responsibility","informatieobjecttype":"lead","bestandsnaam":"consumer.numbers","creatiedatum":"2026-03-31","group_slug":"group-1","status":"small"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Theory
+        structure better military. Sea model current however cell notice goal work.
+        Nor near imagine. Field modern minute town relationship prevent.","verschijningsvorm":"remember","begin_registratie":"2026-04-07T15:00:55.397490","identificatie":"cfa6ed73-9de4-4d08-8b9d-f48fb4d23846","bronorganisatie":"Sullivan,
+        Smith and Johnston","bestandsomvang":1000000,"link":"https://scott.com/","next_check_at":"2008-03-28T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://bullock.biz/","taal":"bs","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"25e163ed-e278-4d34-86f9-c56bd38d4672","object_type":"hold","bronorganisatie":"Shah
+        LLC","zaaktype":"management","registratiedatum":"2026-03-19","uuid":"fd1f1f72-7d57-406c-aef5-a5183c4bbbd1","url":"https://www.rivera-henry.com/","verantwoordelijkeOrganisatie":"Alvarez
+        and Sons","omschrijving":"Likely order first animal trade current pick.","startdatum":"2026-03-20","toelichting":"Member
+        law where statement range. Reality great include manager ago direction.","status":"quite"}],"auteur":"Jason
+        Rios","formaat":"json","last_checked_at":"1992-03-05T00:00:00","inhoud":"http://localhost/document/error","titel":"White
+        range trade together almost detail.","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"reflect","bestandsnaam":"town.mp4","creatiedatum":"2026-04-01","group_slug":"group-1","status":"message"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1605'
+      - '1583'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

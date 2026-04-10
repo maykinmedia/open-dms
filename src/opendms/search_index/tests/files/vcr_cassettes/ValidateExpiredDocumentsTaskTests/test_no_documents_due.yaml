@@ -1,12 +1,11 @@
 interactions:
 - request:
-    body: '{"uuid":"doc-valid","url":"http://www.benjamin.com/","identificatie":"625a0704-76c7-467a-9268-f74a5b08a262","bronorganisatie":"Martinez
-      Ltd","titel":"Seem also shoulder born.","beschrijving":"Attention wish cell
-      why. Provide second approach production. Weight fine instead nearly top feeling
-      poor board.","auteur":"Terry Arroyo","taal":"gu","vertrouwelijkheidaanduiding":"loss","status":"actually","formaat":"html","bestandsnaam":"student.key","informatieobjecttype":"return","verschijningsvorm":"process","bestandsomvang":1000000,"link":"http://www.weiss.info/","creatiedatum":"2026-04-06","begin_registratie":"2026-04-08T23:30:31.443352","last_checked_at":"2026-04-10T09:05:19.360450+00:00","next_check_at":"2026-04-15T09:05:19.360453+00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"13df9fe8-8566-472a-9088-2791fb269ec6","url":"https://www.baxter-davis.com/","identificatie":"9bdd691d-0891-4234-a026-0e234582338e","bronorganisatie":"Morgan
-      PLC","verantwoordelijkeOrganisatie":"Stone, Ponce and Davis","omschrijving":"Chance
-      president Republican.","toelichting":"Anything that loss contain Congress front
-      history. Real nation both reason president note. Rock direction white never.","status":"involve","registratiedatum":"2026-03-19","startdatum":"2026-04-07","zaaktype":"new","object_type":"tax"}]}'
+    body: '{"uuid":"doc-valid","url":"http://mckinney.com/","identificatie":"63e344a3-c9e5-4c9c-91fa-7e98e9868b19","bronorganisatie":"Villarreal-White","titel":"Much
+      tonight vote heart.","beschrijving":"Theory Republican bank claim. Something
+      meet across.","auteur":"Ashley Duran","taal":"or","vertrouwelijkheidaanduiding":"four","status":"fire","formaat":"pages","bestandsnaam":"Mrs.mp4","informatieobjecttype":"quite","verschijningsvorm":"sit","bestandsomvang":1000000,"link":"https://stewart-barnes.net/","creatiedatum":"2026-03-11","begin_registratie":"2026-03-24T09:17:19.803247","last_checked_at":"2026-04-10T13:43:11.054313+00:00","next_check_at":"2026-04-15T13:43:11.054317+00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"bfe47a2e-2669-45dd-9d09-81bf47a990f4","url":"http://palmer-beard.com/","identificatie":"4514fe41-257a-402f-ae53-bea6d34df47e","bronorganisatie":"Valentine,
+      Lee and Jones","verantwoordelijkeOrganisatie":"Chambers, Austin and Reeves","omschrijving":"Buy
+      dark painting party.","toelichting":"Scientist woman sometimes walk. Move claim
+      positive sign their gas. Doctor age read tend decide.","status":"gas","registratiedatum":"2026-04-06","startdatum":"2026-03-23","zaaktype":"north","object_type":"general","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -62,7 +61,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-10T09:05:20.150838+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug","creatiedatum"]}'
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-10T13:43:11.848215+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -78,7 +77,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
     headers:
       Transfer-Encoding:
       - chunked

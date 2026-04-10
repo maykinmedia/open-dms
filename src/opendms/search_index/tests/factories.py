@@ -36,6 +36,7 @@ class NestedzaakFactory(factory.Factory):
     startdatum = factory.Faker("past_date")
     zaaktype = factory.Faker("word")
     object_type = factory.Faker("word")
+    service_slug = "zaken-api"
 
     class Meta:
         model = dict

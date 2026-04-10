@@ -1,12 +1,12 @@
 interactions:
 - request:
-    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"https://berry.com/","identificatie":"f5995141-84e0-4213-a59a-e4dc6cc37e5d","bronorganisatie":"Wood,
-      Miller and Flores","titel":"Party hit his what respond.","beschrijving":"Successful
-      education force across theory stock group. Pm war child safe knowledge same.
-      Three card behavior same hope meeting ok.","auteur":"Mr. Jason Proctor","taal":"st","vertrouwelijkheidaanduiding":"drug","status":"water","formaat":"jpeg","bestandsnaam":"paper.doc","informatieobjecttype":"language","verschijningsvorm":"already","bestandsomvang":1000000,"link":"https://forbes.net/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-27T11:11:20.002242","last_checked_at":"2026-03-28T12:00:00+00:00","next_check_at":"2026-03-29T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"cbf77ce3-2c11-4b1f-9cac-a5c8d6886247","url":"https://www.bartlett.org/","identificatie":"91eebfc1-abd2-465d-89ae-814402fa8088","bronorganisatie":"Matthews-Rodriguez","verantwoordelijkeOrganisatie":"Reed
-      Inc","omschrijving":"When particularly fear.","toelichting":"Exist capital sport
-      tough. Boy action include hour minute. Dog purpose quality evening nature seven
-      be.","status":"court","registratiedatum":"2026-03-23","startdatum":"2026-03-13","zaaktype":"find","object_type":"story"}]}'
+    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"https://cantrell-wilson.net/","identificatie":"1dde9a81-b363-4821-a61f-71b45b65c9ea","bronorganisatie":"Wise
+      Inc","titel":"Power drive wish page remember middle break others.","beschrijving":"Investment
+      station if physical. Year poor similar response. Ground system weight fish child.","auteur":"Tracey
+      Tucker","taal":"nn","vertrouwelijkheidaanduiding":"trouble","status":"enter","formaat":"avi","bestandsnaam":"recognize.json","informatieobjecttype":"thousand","verschijningsvorm":"without","bestandsomvang":1000000,"link":"https://www.chang.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-18T19:13:58.318339","last_checked_at":"2026-03-28T12:00:00+00:00","next_check_at":"2026-03-29T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"74610a31-ae9e-4899-b38d-7988eaced634","url":"https://www.wilson-smith.com/","identificatie":"85f64eae-6dcb-4034-9492-52fbf5afc055","bronorganisatie":"West,
+      Barton and Garcia","verantwoordelijkeOrganisatie":"Huynh-Knox","omschrijving":"Recognize
+      international step build subject break executive.","toelichting":"Again appear
+      surface prepare. Three happen order anyone into guy.","status":"hotel","registratiedatum":"2026-03-08","startdatum":"2026-03-26","zaaktype":"keep","object_type":"traditional","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -36,13 +36,14 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"http://maldonado-murray.net/","identificatie":"69988220-8999-48d8-bd61-6cf40d76e1d8","bronorganisatie":"Scott,
-      Adams and Flores","titel":"Name difference fish author force exactly.","beschrijving":"Require
-      American idea. There base least wide minute. School point off which describe
-      many.","auteur":"Lauren Wheeler","taal":"doi","vertrouwelijkheidaanduiding":"beyond","status":"rich","formaat":"wav","bestandsnaam":"why.mp4","informatieobjecttype":"level","verschijningsvorm":"crime","bestandsomvang":1000000,"link":"http://www.caldwell.com/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-16T08:40:50.008642","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"5f0fae6f-1465-4142-a6d8-86703f9f89e0","url":"http://www.weeks-camacho.com/","identificatie":"8b365d5e-ce13-4203-9e8a-2b0123a658cf","bronorganisatie":"Washington
-      LLC","verantwoordelijkeOrganisatie":"Walls-Patterson","omschrijving":"Local
-      opportunity easy defense attack.","toelichting":"Finally office ago main food
-      since stage. Goal audience measure debate run upon remember.","status":"media","registratiedatum":"2026-03-28","startdatum":"2026-03-05","zaaktype":"authority","object_type":"rest"}]}'
+    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"http://robinson.com/","identificatie":"24ff6517-895f-4106-bd65-025727fe68f6","bronorganisatie":"Fowler
+      Ltd","titel":"Economic assume this seven could nearly husband alone.","beschrijving":"Garden
+      father often can rock manager attention. Society event audience matter doctor
+      stop worry. Put much heart about responsibility agent forward off.","auteur":"Krystal
+      Fitzgerald","taal":"nb","vertrouwelijkheidaanduiding":"north","status":"picture","formaat":"avi","bestandsnaam":"enter.js","informatieobjecttype":"over","verschijningsvorm":"business","bestandsomvang":1000000,"link":"https://clark-wilson.info/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-08T20:03:30.500204","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"1cb33c12-e050-4aed-9737-b007709562f3","url":"http://olsen-evans.com/","identificatie":"d4a45b15-f7cb-41b1-8768-4bf9f737214f","bronorganisatie":"Sandoval
+      Ltd","verantwoordelijkeOrganisatie":"Robertson, Lee and Park","omschrijving":"Try
+      occur race policy effect two.","toelichting":"Story crime option method policy
+      school. Such nature successful stand appear million family begin.","status":"condition","registratiedatum":"2026-03-28","startdatum":"2026-03-07","zaaktype":"man","object_type":"into","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -72,12 +73,14 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"33333333-3333-3333-3333-333333333333","url":"https://riddle.org/","identificatie":"556c4b1e-cdb0-40f2-b573-ced98507dfbc","bronorganisatie":"Fisher-Anderson","titel":"Final
-      nature order single difference child.","beschrijving":"Yourself cover man.","auteur":"Ashley
-      Mendoza","taal":"nr","vertrouwelijkheidaanduiding":"deal","status":"hope","formaat":"webm","bestandsnaam":"environmental.mp3","informatieobjecttype":"pick","verschijningsvorm":"campaign","bestandsomvang":1000000,"link":"http://www.levy.net/","creatiedatum":"2026-03-30","begin_registratie":"2026-03-24T11:23:31.184521","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-04T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"ca8c6b9f-9fb9-4825-88c5-69676c38cd09","url":"http://meyer-reid.com/","identificatie":"faa6c930-6ab0-40b0-a7ff-40c56481d804","bronorganisatie":"Scott-Lopez","verantwoordelijkeOrganisatie":"Mercer
-      Inc","omschrijving":"Least morning store society.","toelichting":"Long challenge
-      work sister although soon especially. Weight tree goal base. Already relationship
-      happen hotel model idea which.","status":"way","registratiedatum":"2026-02-28","startdatum":"2026-03-16","zaaktype":"success","object_type":"major"}]}'
+    body: '{"uuid":"33333333-3333-3333-3333-333333333333","url":"https://www.mckinney.com/","identificatie":"33ca703f-3407-43be-ad31-522ac37d5042","bronorganisatie":"Cooper,
+      Ward and Jimenez","titel":"Wonder project activity type quite.","beschrijving":"Class
+      house need anyone place trial. Pull professor hot determine front meeting discover
+      sense.","auteur":"John Hunter","taal":"aa","vertrouwelijkheidaanduiding":"kitchen","status":"understand","formaat":"mov","bestandsnaam":"reason.bmp","informatieobjecttype":"ready","verschijningsvorm":"environmental","bestandsomvang":1000000,"link":"https://www.cox-davis.com/","creatiedatum":"2026-03-30","begin_registratie":"2026-03-27T17:45:05.617099","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-04T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"f85681c1-cd5c-4bef-9265-29a6836de401","url":"https://www.holt-travis.com/","identificatie":"52ff7add-0103-4062-bf75-9cfa8cbd3298","bronorganisatie":"Fischer,
+      Guerra and Miller","verantwoordelijkeOrganisatie":"Davenport, Garrett and Chung","omschrijving":"Responsibility
+      artist support prove knowledge other sign and.","toelichting":"Treatment share
+      course. Whose officer above dark Mr huge drive professional. Prevent unit serious
+      stand them.","status":"gas","registratiedatum":"2026-03-08","startdatum":"2026-03-20","zaaktype":"discover","object_type":"participant","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -107,12 +110,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"44444444-4444-4444-4444-444444444444","url":"https://hunt-james.org/","identificatie":"8feb5a54-d7ec-4ee5-b41c-3721b514df77","bronorganisatie":"Bell,
-      Bailey and Campos","titel":"Consumer case table.","beschrijving":"For quite
-      exist best long. Option alone strategy foreign.","auteur":"Marie Alvarez DDS","taal":"eo","vertrouwelijkheidaanduiding":"east","status":"relate","formaat":"png","bestandsnaam":"discuss.wav","informatieobjecttype":"describe","verschijningsvorm":"budget","bestandsomvang":1000000,"link":"https://oliver.com/","creatiedatum":"2026-03-25","begin_registratie":"2026-03-07T09:46:24.259503","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"accdfa3f-2882-4d8e-8950-fe1a493390c3","url":"https://cole.com/","identificatie":"d38abf6f-3309-4868-8cec-a9f0c9038f08","bronorganisatie":"Rose-Smith","verantwoordelijkeOrganisatie":"Nolan
-      Inc","omschrijving":"Trip suffer up say out.","toelichting":"Offer group foot
-      approach stage. Yet or right real. Fire billion such include read experience
-      administration.","status":"half","registratiedatum":"2026-03-05","startdatum":"2026-03-21","zaaktype":"you","object_type":"language"}]}'
+    body: '{"uuid":"44444444-4444-4444-4444-444444444444","url":"https://walker.info/","identificatie":"7b116da4-1ec9-4d9c-8c8c-f7e4f493589b","bronorganisatie":"Brown-Nguyen","titel":"Deep
+      light loss plant charge author find hear.","beschrijving":"Kid although detail
+      dinner building. Ready set mission player a. Compare sport check medical name
+      paper treatment perhaps.","auteur":"James Holt","taal":"fo","vertrouwelijkheidaanduiding":"build","status":"organization","formaat":"odt","bestandsnaam":"forward.css","informatieobjecttype":"record","verschijningsvorm":"eye","bestandsomvang":1000000,"link":"http://munoz.biz/","creatiedatum":"2026-03-25","begin_registratie":"2026-03-29T02:28:17.132980","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"6fd85454-da5f-48ef-a2e3-557e0dff2d0b","url":"https://www.nichols.info/","identificatie":"2c8b25ca-b67a-4502-88d8-0f3858166b17","bronorganisatie":"Campbell
+      PLC","verantwoordelijkeOrganisatie":"Gallegos and Sons","omschrijving":"Nearly
+      thousand could perhaps fish first.","toelichting":"Perhaps fear appear reduce
+      quickly eight reach. Hot maintain sense consumer message should.","status":"possible","registratiedatum":"2026-03-08","startdatum":"2026-03-14","zaaktype":"indicate","object_type":"area","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -142,13 +146,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://leonard.com/","identificatie":"1e5a90e1-e794-4558-a228-569d4be7a333","bronorganisatie":"Dean,
-      Freeman and Smith","titel":"Baby for on population their.","beschrijving":"Enough
-      right use partner democratic author arrive. Name nature better position.","auteur":"John
-      Rogers","taal":"nr","vertrouwelijkheidaanduiding":"production","status":"only","formaat":"flac","bestandsnaam":"important.pages","informatieobjecttype":"mind","verschijningsvorm":"hold","bestandsomvang":1000000,"link":"https://www.rogers-cobb.org/","creatiedatum":"2026-03-20","begin_registratie":"2026-03-06T20:50:22.531748","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"4ee13c11-72cf-4685-9950-bdea61f2c2ec","url":"http://rangel-vang.net/","identificatie":"24d9a4fa-a7ed-4fec-85c0-76add68b691e","bronorganisatie":"Benitez-Lamb","verantwoordelijkeOrganisatie":"Ortiz,
-      Humphrey and Berger","omschrijving":"Little positive government human total
-      over identify.","toelichting":"Establish for board. Week political certain child
-      many develop radio.","status":"every","registratiedatum":"2026-03-06","startdatum":"2026-03-19","zaaktype":"impact","object_type":"win"}]}'
+    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://miller-meyer.com/","identificatie":"a413ae3c-2f6b-4e78-a82f-c7c6c9736ec0","bronorganisatie":"Thompson,
+      Phelps and Ward","titel":"Something world theory window heart.","beschrijving":"Expert
+      thousand but time region bank. Reduce subject beyond meet.","auteur":"Gerald
+      Stone","taal":"ro","vertrouwelijkheidaanduiding":"garden","status":"carry","formaat":"wav","bestandsnaam":"position.ods","informatieobjecttype":"dinner","verschijningsvorm":"real","bestandsomvang":1000000,"link":"http://bell-leonard.com/","creatiedatum":"2026-03-20","begin_registratie":"2026-03-22T02:56:11.978328","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"1e4c9439-9566-4bea-b810-802ea370319d","url":"http://www.caldwell.com/","identificatie":"c9a8fb56-456b-4f61-9b1d-45d8fe0ec23c","bronorganisatie":"Padilla,
+      Mcdowell and Davis","verantwoordelijkeOrganisatie":"Hicks LLC","omschrijving":"Politics
+      value wife hotel.","toelichting":"May practice during professor far bring. Move
+      federal white specific.","status":"page","registratiedatum":"2026-03-03","startdatum":"2026-03-13","zaaktype":"main","object_type":"hair","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -194,7 +198,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0512933,"hits":[{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2"}},{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2"}}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0512933,"hits":[{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2"}},{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2"}}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -268,20 +272,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":1,"_seq_no":8,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Successful
-        education force across theory stock group. Pm war child safe knowledge same.
-        Three card behavior same hope meeting ok.","verschijningsvorm":"already","begin_registratie":"2026-03-27T11:11:20.002242","identificatie":"f5995141-84e0-4213-a59a-e4dc6cc37e5d","bronorganisatie":"Wood,
-        Miller and Flores","bestandsomvang":1000000,"link":"https://forbes.net/","next_check_at":"2026-03-29T12:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"https://berry.com/","taal":"st","zaak_referenties":[{"omschrijving":"When
-        particularly fear.","identificatie":"91eebfc1-abd2-465d-89ae-814402fa8088","startdatum":"2026-03-13","object_type":"story","bronorganisatie":"Matthews-Rodriguez","zaaktype":"find","registratiedatum":"2026-03-23","uuid":"cbf77ce3-2c11-4b1f-9cac-a5c8d6886247","url":"https://www.bartlett.org/","verantwoordelijkeOrganisatie":"Reed
-        Inc","toelichting":"Exist capital sport tough. Boy action include hour minute.
-        Dog purpose quality evening nature seven be.","status":"court"}],"auteur":"Mr.
-        Jason Proctor","formaat":"jpeg","last_checked_at":"2026-03-28T12:00:00+00:00","titel":"Party
-        hit his what respond.","vertrouwelijkheidaanduiding":"drug","informatieobjecttype":"language","bestandsnaam":"paper.doc","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2","status":"water"}}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":1,"_seq_no":8,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Investment
+        station if physical. Year poor similar response. Ground system weight fish
+        child.","verschijningsvorm":"without","begin_registratie":"2026-03-18T19:13:58.318339","identificatie":"1dde9a81-b363-4821-a61f-71b45b65c9ea","bronorganisatie":"Wise
+        Inc","bestandsomvang":1000000,"link":"https://www.chang.com/","next_check_at":"2026-03-29T12:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"https://cantrell-wilson.net/","taal":"nn","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"85f64eae-6dcb-4034-9492-52fbf5afc055","object_type":"traditional","bronorganisatie":"West,
+        Barton and Garcia","zaaktype":"keep","registratiedatum":"2026-03-08","uuid":"74610a31-ae9e-4899-b38d-7988eaced634","url":"https://www.wilson-smith.com/","verantwoordelijkeOrganisatie":"Huynh-Knox","omschrijving":"Recognize
+        international step build subject break executive.","startdatum":"2026-03-26","toelichting":"Again
+        appear surface prepare. Three happen order anyone into guy.","status":"hotel"}],"auteur":"Tracey
+        Tucker","formaat":"avi","last_checked_at":"2026-03-28T12:00:00+00:00","titel":"Power
+        drive wish page remember middle break others.","vertrouwelijkheidaanduiding":"trouble","informatieobjecttype":"thousand","bestandsnaam":"recognize.json","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2","status":"enter"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1493'
+      - '1523'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -328,20 +332,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222
   response:
     body:
-      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":1,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Require
-        American idea. There base least wide minute. School point off which describe
-        many.","verschijningsvorm":"crime","begin_registratie":"2026-03-16T08:40:50.008642","identificatie":"69988220-8999-48d8-bd61-6cf40d76e1d8","bronorganisatie":"Scott,
-        Adams and Flores","bestandsomvang":1000000,"link":"http://www.caldwell.com/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"http://maldonado-murray.net/","taal":"doi","zaak_referenties":[{"omschrijving":"Local
-        opportunity easy defense attack.","identificatie":"8b365d5e-ce13-4203-9e8a-2b0123a658cf","startdatum":"2026-03-05","object_type":"rest","bronorganisatie":"Washington
-        LLC","zaaktype":"authority","registratiedatum":"2026-03-28","uuid":"5f0fae6f-1465-4142-a6d8-86703f9f89e0","url":"http://www.weeks-camacho.com/","verantwoordelijkeOrganisatie":"Walls-Patterson","toelichting":"Finally
-        office ago main food since stage. Goal audience measure debate run upon remember.","status":"media"}],"auteur":"Lauren
-        Wheeler","formaat":"wav","last_checked_at":"2026-03-29T11:00:00+00:00","titel":"Name
-        difference fish author force exactly.","vertrouwelijkheidaanduiding":"beyond","informatieobjecttype":"level","bestandsnaam":"why.mp4","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2","status":"rich"}}'
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":1,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Garden
+        father often can rock manager attention. Society event audience matter doctor
+        stop worry. Put much heart about responsibility agent forward off.","verschijningsvorm":"business","begin_registratie":"2026-03-08T20:03:30.500204","identificatie":"24ff6517-895f-4106-bd65-025727fe68f6","bronorganisatie":"Fowler
+        Ltd","bestandsomvang":1000000,"link":"https://clark-wilson.info/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"http://robinson.com/","taal":"nb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"d4a45b15-f7cb-41b1-8768-4bf9f737214f","object_type":"into","bronorganisatie":"Sandoval
+        Ltd","zaaktype":"man","registratiedatum":"2026-03-28","uuid":"1cb33c12-e050-4aed-9737-b007709562f3","url":"http://olsen-evans.com/","verantwoordelijkeOrganisatie":"Robertson,
+        Lee and Park","omschrijving":"Try occur race policy effect two.","startdatum":"2026-03-07","toelichting":"Story
+        crime option method policy school. Such nature successful stand appear million
+        family begin.","status":"condition"}],"auteur":"Krystal Fitzgerald","formaat":"avi","last_checked_at":"2026-03-29T11:00:00+00:00","titel":"Economic
+        assume this seven could nearly husband alone.","vertrouwelijkheidaanduiding":"north","informatieobjecttype":"over","bestandsnaam":"enter.js","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2","status":"picture"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1487'
+      - '1578'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -418,26 +422,30 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"For
-        quite exist best long. Option alone strategy foreign.","verschijningsvorm":"budget","begin_registratie":"2026-03-07T09:46:24.259503","identificatie":"8feb5a54-d7ec-4ee5-b41c-3721b514df77","bronorganisatie":"Bell,
-        Bailey and Campos","bestandsomvang":1000000,"link":"https://oliver.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://hunt-james.org/","taal":"eo","zaak_referenties":[{"omschrijving":"Trip
-        suffer up say out.","identificatie":"d38abf6f-3309-4868-8cec-a9f0c9038f08","startdatum":"2026-03-21","object_type":"language","bronorganisatie":"Rose-Smith","zaaktype":"you","registratiedatum":"2026-03-05","uuid":"accdfa3f-2882-4d8e-8950-fe1a493390c3","url":"https://cole.com/","verantwoordelijkeOrganisatie":"Nolan
-        Inc","toelichting":"Offer group foot approach stage. Yet or right real. Fire
-        billion such include read experience administration.","status":"half"}],"auteur":"Marie
-        Alvarez DDS","formaat":"png","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Consumer
-        case table.","vertrouwelijkheidaanduiding":"east","informatieobjecttype":"describe","bestandsnaam":"discuss.wav","creatiedatum":"2026-03-25","group_slug":"zgw-api-group-2","status":"relate"}},{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Yourself
-        cover man.","verschijningsvorm":"campaign","begin_registratie":"2026-03-24T11:23:31.184521","identificatie":"556c4b1e-cdb0-40f2-b573-ced98507dfbc","bronorganisatie":"Fisher-Anderson","bestandsomvang":1000000,"link":"http://www.levy.net/","next_check_at":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"https://riddle.org/","taal":"nr","zaak_referenties":[{"omschrijving":"Least
-        morning store society.","identificatie":"faa6c930-6ab0-40b0-a7ff-40c56481d804","startdatum":"2026-03-16","object_type":"major","bronorganisatie":"Scott-Lopez","zaaktype":"success","registratiedatum":"2026-02-28","uuid":"ca8c6b9f-9fb9-4825-88c5-69676c38cd09","url":"http://meyer-reid.com/","verantwoordelijkeOrganisatie":"Mercer
-        Inc","toelichting":"Long challenge work sister although soon especially. Weight
-        tree goal base. Already relationship happen hotel model idea which.","status":"way"}],"auteur":"Ashley
-        Mendoza","formaat":"webm","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Final
-        nature order single difference child.","vertrouwelijkheidaanduiding":"deal","informatieobjecttype":"pick","bestandsnaam":"environmental.mp3","creatiedatum":"2026-03-30","group_slug":"zgw-api-group-2","status":"hope"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Enough
-        right use partner democratic author arrive. Name nature better position.","verschijningsvorm":"hold","begin_registratie":"2026-03-06T20:50:22.531748","identificatie":"1e5a90e1-e794-4558-a228-569d4be7a333","bronorganisatie":"Dean,
-        Freeman and Smith","bestandsomvang":1000000,"link":"https://www.rogers-cobb.org/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://leonard.com/","taal":"nr","zaak_referenties":[{"omschrijving":"Little
-        positive government human total over identify.","identificatie":"24d9a4fa-a7ed-4fec-85c0-76add68b691e","startdatum":"2026-03-19","object_type":"win","bronorganisatie":"Benitez-Lamb","zaaktype":"impact","registratiedatum":"2026-03-06","uuid":"4ee13c11-72cf-4685-9950-bdea61f2c2ec","url":"http://rangel-vang.net/","verantwoordelijkeOrganisatie":"Ortiz,
-        Humphrey and Berger","toelichting":"Establish for board. Week political certain
-        child many develop radio.","status":"every"}],"auteur":"John Rogers","formaat":"flac","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Baby
-        for on population their.","vertrouwelijkheidaanduiding":"production","informatieobjecttype":"mind","bestandsnaam":"important.pages","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"only"}}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Class
+        house need anyone place trial. Pull professor hot determine front meeting
+        discover sense.","verschijningsvorm":"environmental","begin_registratie":"2026-03-27T17:45:05.617099","identificatie":"33ca703f-3407-43be-ad31-522ac37d5042","bronorganisatie":"Cooper,
+        Ward and Jimenez","bestandsomvang":1000000,"link":"https://www.cox-davis.com/","next_check_at":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"https://www.mckinney.com/","taal":"aa","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"52ff7add-0103-4062-bf75-9cfa8cbd3298","object_type":"participant","bronorganisatie":"Fischer,
+        Guerra and Miller","zaaktype":"discover","registratiedatum":"2026-03-08","uuid":"f85681c1-cd5c-4bef-9265-29a6836de401","url":"https://www.holt-travis.com/","verantwoordelijkeOrganisatie":"Davenport,
+        Garrett and Chung","omschrijving":"Responsibility artist support prove knowledge
+        other sign and.","startdatum":"2026-03-20","toelichting":"Treatment share
+        course. Whose officer above dark Mr huge drive professional. Prevent unit
+        serious stand them.","status":"gas"}],"auteur":"John Hunter","formaat":"mov","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Wonder
+        project activity type quite.","vertrouwelijkheidaanduiding":"kitchen","informatieobjecttype":"ready","bestandsnaam":"reason.bmp","creatiedatum":"2026-03-30","group_slug":"zgw-api-group-2","status":"understand"}},{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Kid
+        although detail dinner building. Ready set mission player a. Compare sport
+        check medical name paper treatment perhaps.","verschijningsvorm":"eye","begin_registratie":"2026-03-29T02:28:17.132980","identificatie":"7b116da4-1ec9-4d9c-8c8c-f7e4f493589b","bronorganisatie":"Brown-Nguyen","bestandsomvang":1000000,"link":"http://munoz.biz/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://walker.info/","taal":"fo","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"2c8b25ca-b67a-4502-88d8-0f3858166b17","object_type":"area","bronorganisatie":"Campbell
+        PLC","zaaktype":"indicate","registratiedatum":"2026-03-08","uuid":"6fd85454-da5f-48ef-a2e3-557e0dff2d0b","url":"https://www.nichols.info/","verantwoordelijkeOrganisatie":"Gallegos
+        and Sons","omschrijving":"Nearly thousand could perhaps fish first.","startdatum":"2026-03-14","toelichting":"Perhaps
+        fear appear reduce quickly eight reach. Hot maintain sense consumer message
+        should.","status":"possible"}],"auteur":"James Holt","formaat":"odt","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Deep
+        light loss plant charge author find hear.","vertrouwelijkheidaanduiding":"build","informatieobjecttype":"record","bestandsnaam":"forward.css","creatiedatum":"2026-03-25","group_slug":"zgw-api-group-2","status":"organization"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Expert
+        thousand but time region bank. Reduce subject beyond meet.","verschijningsvorm":"real","begin_registratie":"2026-03-22T02:56:11.978328","identificatie":"a413ae3c-2f6b-4e78-a82f-c7c6c9736ec0","bronorganisatie":"Thompson,
+        Phelps and Ward","bestandsomvang":1000000,"link":"http://bell-leonard.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://miller-meyer.com/","taal":"ro","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"c9a8fb56-456b-4f61-9b1d-45d8fe0ec23c","object_type":"hair","bronorganisatie":"Padilla,
+        Mcdowell and Davis","zaaktype":"main","registratiedatum":"2026-03-03","uuid":"1e4c9439-9566-4bea-b810-802ea370319d","url":"http://www.caldwell.com/","verantwoordelijkeOrganisatie":"Hicks
+        LLC","omschrijving":"Politics value wife hotel.","startdatum":"2026-03-13","toelichting":"May
+        practice during professor far bring. Move federal white specific.","status":"page"}],"auteur":"Gerald
+        Stone","formaat":"wav","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Something
+        world theory window heart.","vertrouwelijkheidaanduiding":"garden","informatieobjecttype":"dinner","bestandsnaam":"position.ods","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"carry"}}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -463,18 +471,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":2,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Enough
-        right use partner democratic author arrive. Name nature better position.","verschijningsvorm":"hold","begin_registratie":"2026-03-06T20:50:22.531748","identificatie":"1e5a90e1-e794-4558-a228-569d4be7a333","bronorganisatie":"Dean,
-        Freeman and Smith","bestandsomvang":1000000,"link":"https://www.rogers-cobb.org/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://leonard.com/","taal":"nr","zaak_referenties":[{"omschrijving":"Little
-        positive government human total over identify.","identificatie":"24d9a4fa-a7ed-4fec-85c0-76add68b691e","startdatum":"2026-03-19","object_type":"win","bronorganisatie":"Benitez-Lamb","zaaktype":"impact","registratiedatum":"2026-03-06","uuid":"4ee13c11-72cf-4685-9950-bdea61f2c2ec","url":"http://rangel-vang.net/","verantwoordelijkeOrganisatie":"Ortiz,
-        Humphrey and Berger","toelichting":"Establish for board. Week political certain
-        child many develop radio.","status":"every"}],"auteur":"John Rogers","formaat":"flac","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Baby
-        for on population their.","vertrouwelijkheidaanduiding":"production","informatieobjecttype":"mind","bestandsnaam":"important.pages","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"only"}}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":2,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Expert
+        thousand but time region bank. Reduce subject beyond meet.","verschijningsvorm":"real","begin_registratie":"2026-03-22T02:56:11.978328","identificatie":"a413ae3c-2f6b-4e78-a82f-c7c6c9736ec0","bronorganisatie":"Thompson,
+        Phelps and Ward","bestandsomvang":1000000,"link":"http://bell-leonard.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://miller-meyer.com/","taal":"ro","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"c9a8fb56-456b-4f61-9b1d-45d8fe0ec23c","object_type":"hair","bronorganisatie":"Padilla,
+        Mcdowell and Davis","zaaktype":"main","registratiedatum":"2026-03-03","uuid":"1e4c9439-9566-4bea-b810-802ea370319d","url":"http://www.caldwell.com/","verantwoordelijkeOrganisatie":"Hicks
+        LLC","omschrijving":"Politics value wife hotel.","startdatum":"2026-03-13","toelichting":"May
+        practice during professor far bring. Move federal white specific.","status":"page"}],"auteur":"Gerald
+        Stone","formaat":"wav","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Something
+        world theory window heart.","vertrouwelijkheidaanduiding":"garden","informatieobjecttype":"dinner","bestandsnaam":"position.ods","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"carry"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1461'
+      - '1450'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -495,18 +504,21 @@ interactions:
     uri: http://localhost:9201/document/_doc/33333333-3333-3333-3333-333333333333
   response:
     body:
-      string: '{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_version":1,"_seq_no":10,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Yourself
-        cover man.","verschijningsvorm":"campaign","begin_registratie":"2026-03-24T11:23:31.184521","identificatie":"556c4b1e-cdb0-40f2-b573-ced98507dfbc","bronorganisatie":"Fisher-Anderson","bestandsomvang":1000000,"link":"http://www.levy.net/","next_check_at":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"https://riddle.org/","taal":"nr","zaak_referenties":[{"omschrijving":"Least
-        morning store society.","identificatie":"faa6c930-6ab0-40b0-a7ff-40c56481d804","startdatum":"2026-03-16","object_type":"major","bronorganisatie":"Scott-Lopez","zaaktype":"success","registratiedatum":"2026-02-28","uuid":"ca8c6b9f-9fb9-4825-88c5-69676c38cd09","url":"http://meyer-reid.com/","verantwoordelijkeOrganisatie":"Mercer
-        Inc","toelichting":"Long challenge work sister although soon especially. Weight
-        tree goal base. Already relationship happen hotel model idea which.","status":"way"}],"auteur":"Ashley
-        Mendoza","formaat":"webm","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Final
-        nature order single difference child.","vertrouwelijkheidaanduiding":"deal","informatieobjecttype":"pick","bestandsnaam":"environmental.mp3","creatiedatum":"2026-03-30","group_slug":"zgw-api-group-2","status":"hope"}}'
+      string: '{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_version":1,"_seq_no":10,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Class
+        house need anyone place trial. Pull professor hot determine front meeting
+        discover sense.","verschijningsvorm":"environmental","begin_registratie":"2026-03-27T17:45:05.617099","identificatie":"33ca703f-3407-43be-ad31-522ac37d5042","bronorganisatie":"Cooper,
+        Ward and Jimenez","bestandsomvang":1000000,"link":"https://www.cox-davis.com/","next_check_at":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"https://www.mckinney.com/","taal":"aa","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"52ff7add-0103-4062-bf75-9cfa8cbd3298","object_type":"participant","bronorganisatie":"Fischer,
+        Guerra and Miller","zaaktype":"discover","registratiedatum":"2026-03-08","uuid":"f85681c1-cd5c-4bef-9265-29a6836de401","url":"https://www.holt-travis.com/","verantwoordelijkeOrganisatie":"Davenport,
+        Garrett and Chung","omschrijving":"Responsibility artist support prove knowledge
+        other sign and.","startdatum":"2026-03-20","toelichting":"Treatment share
+        course. Whose officer above dark Mr huge drive professional. Prevent unit
+        serious stand them.","status":"gas"}],"auteur":"John Hunter","formaat":"mov","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Wonder
+        project activity type quite.","vertrouwelijkheidaanduiding":"kitchen","informatieobjecttype":"ready","bestandsnaam":"reason.bmp","creatiedatum":"2026-03-30","group_slug":"zgw-api-group-2","status":"understand"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1417'
+      - '1598'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -527,19 +539,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/44444444-4444-4444-4444-444444444444
   response:
     body:
-      string: '{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"For
-        quite exist best long. Option alone strategy foreign.","verschijningsvorm":"budget","begin_registratie":"2026-03-07T09:46:24.259503","identificatie":"8feb5a54-d7ec-4ee5-b41c-3721b514df77","bronorganisatie":"Bell,
-        Bailey and Campos","bestandsomvang":1000000,"link":"https://oliver.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://hunt-james.org/","taal":"eo","zaak_referenties":[{"omschrijving":"Trip
-        suffer up say out.","identificatie":"d38abf6f-3309-4868-8cec-a9f0c9038f08","startdatum":"2026-03-21","object_type":"language","bronorganisatie":"Rose-Smith","zaaktype":"you","registratiedatum":"2026-03-05","uuid":"accdfa3f-2882-4d8e-8950-fe1a493390c3","url":"https://cole.com/","verantwoordelijkeOrganisatie":"Nolan
-        Inc","toelichting":"Offer group foot approach stage. Yet or right real. Fire
-        billion such include read experience administration.","status":"half"}],"auteur":"Marie
-        Alvarez DDS","formaat":"png","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Consumer
-        case table.","vertrouwelijkheidaanduiding":"east","informatieobjecttype":"describe","bestandsnaam":"discuss.wav","creatiedatum":"2026-03-25","group_slug":"zgw-api-group-2","status":"relate"}}'
+      string: '{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Kid
+        although detail dinner building. Ready set mission player a. Compare sport
+        check medical name paper treatment perhaps.","verschijningsvorm":"eye","begin_registratie":"2026-03-29T02:28:17.132980","identificatie":"7b116da4-1ec9-4d9c-8c8c-f7e4f493589b","bronorganisatie":"Brown-Nguyen","bestandsomvang":1000000,"link":"http://munoz.biz/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://walker.info/","taal":"fo","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"2c8b25ca-b67a-4502-88d8-0f3858166b17","object_type":"area","bronorganisatie":"Campbell
+        PLC","zaaktype":"indicate","registratiedatum":"2026-03-08","uuid":"6fd85454-da5f-48ef-a2e3-557e0dff2d0b","url":"https://www.nichols.info/","verantwoordelijkeOrganisatie":"Gallegos
+        and Sons","omschrijving":"Nearly thousand could perhaps fish first.","startdatum":"2026-03-14","toelichting":"Perhaps
+        fear appear reduce quickly eight reach. Hot maintain sense consumer message
+        should.","status":"possible"}],"auteur":"James Holt","formaat":"odt","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Deep
+        light loss plant charge author find hear.","vertrouwelijkheidaanduiding":"build","informatieobjecttype":"record","bestandsnaam":"forward.css","creatiedatum":"2026-03-25","group_slug":"zgw-api-group-2","status":"organization"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1413'
+      - '1533'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

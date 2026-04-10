@@ -1,12 +1,11 @@
 interactions:
 - request:
-    body: '{"uuid":"expired-1","url":"https://www.mueller.com/","identificatie":"6a14e69c-3970-48f2-a879-cd0dc1999537","bronorganisatie":"Ballard-Brewer","titel":"Anyone
-      lot stop summer.","beschrijving":"Recent cost bank force. Interesting industry
-      your indeed stage between maybe. Already energy space newspaper station common.","auteur":"Ashley
-      Walker","taal":"mg","vertrouwelijkheidaanduiding":"white","status":"watch","formaat":"xlsx","bestandsnaam":"interest.js","informatieobjecttype":"race","verschijningsvorm":"recent","bestandsomvang":1000000,"link":"https://atkins.org/","creatiedatum":"2026-03-14","begin_registratie":"2026-04-02T21:38:58.230042","last_checked_at":"2026-04-08T09:05:16.333017+00:00","next_check_at":"2026-04-09T09:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"ce075c8c-181e-4d8c-bf85-d96b81200659","url":"https://www.harris.com/","identificatie":"01776771-a040-4cc2-982b-0ccc8d84e98e","bronorganisatie":"Stephens,
-      Welch and Johnson","verantwoordelijkeOrganisatie":"Stanley Ltd","omschrijving":"Above
-      grow establish wall participant.","toelichting":"Tax create best party field.
-      View someone measure there campaign account.","status":"firm","registratiedatum":"2026-03-27","startdatum":"2026-03-22","zaaktype":"great","object_type":"real"}]}'
+    body: '{"uuid":"expired-1","url":"http://www.nguyen.com/","identificatie":"d4e32473-e25a-437a-b614-4d0774e38549","bronorganisatie":"Lynch-Patel","titel":"Peace
+      campaign inside under local every.","beschrijving":"People hear beat girl perhaps
+      require. Bad TV someone yourself blood sometimes government. Best bar edge society
+      pass usually other.","auteur":"Abigail Doyle","taal":"sc","vertrouwelijkheidaanduiding":"tough","status":"around","formaat":"jpg","bestandsnaam":"figure.xlsx","informatieobjecttype":"drug","verschijningsvorm":"after","bestandsomvang":1000000,"link":"http://obrien.info/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-31T08:28:19.840756","last_checked_at":"2026-04-08T13:43:08.062490+00:00","next_check_at":"2026-04-09T13:43:08.062490+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"402f445f-a287-4c5e-8103-172924ce71e8","url":"http://lewis.net/","identificatie":"1f1f757e-7bef-43e1-8a94-6c653c462080","bronorganisatie":"Adams-Wilson","verantwoordelijkeOrganisatie":"Miller-Dunn","omschrijving":"Data
+      which recently believe close.","toelichting":"Short least hundred human. Charge
+      call have.","status":"billion","registratiedatum":"2026-03-31","startdatum":"2026-03-23","zaaktype":"pay","object_type":"usually","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -36,12 +35,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"expired-2","url":"http://french.com/","identificatie":"27c0f8e2-0178-43f3-8ef6-8a0dd925521e","bronorganisatie":"Rodriguez
-      Ltd","titel":"Middle from pattern because smile animal son hospital.","beschrijving":"Give
-      him raise loss. Realize same sense thousand learn travel. Take how consumer
-      song determine traditional.","auteur":"Timothy Diaz","taal":"ckb","vertrouwelijkheidaanduiding":"ask","status":"although","formaat":"pptx","bestandsnaam":"body.html","informatieobjecttype":"actually","verschijningsvorm":"and","bestandsomvang":1000000,"link":"https://www.snyder.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-29T13:20:21.390349","last_checked_at":"2026-04-09T08:05:16.333017+00:00","next_check_at":"2026-04-10T08:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"fd5392f9-25a7-4db5-9eaf-dacac3c5e2a7","url":"http://www.moreno.com/","identificatie":"e7332c9b-d587-4d19-95da-d13ceb77257c","bronorganisatie":"Bradley-Meadows","verantwoordelijkeOrganisatie":"Farrell-Parks","omschrijving":"Thought
-      north year kid upon green.","toelichting":"Beautiful start food resource record.
-      Thought each how dream break.","status":"together","registratiedatum":"2026-03-18","startdatum":"2026-03-13","zaaktype":"live","object_type":"four"}]}'
+    body: '{"uuid":"expired-2","url":"http://foster.org/","identificatie":"28e9a1b0-6cc4-4d4d-a21c-ef5bf234489f","bronorganisatie":"Mckenzie
+      Ltd","titel":"Vote others wrong system prevent she.","beschrijving":"Man all
+      voice in whatever certainly ok statement. Deep specific nature trouble through
+      left ago.","auteur":"Marcus Mueller","taal":"sid","vertrouwelijkheidaanduiding":"else","status":"someone","formaat":"html","bestandsnaam":"entire.jpeg","informatieobjecttype":"ago","verschijningsvorm":"own","bestandsomvang":1000000,"link":"https://www.hudson-griffith.info/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-22T10:41:42.647522","last_checked_at":"2026-04-09T12:43:08.062490+00:00","next_check_at":"2026-04-10T12:43:08.062490+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"20ba6688-66ad-4842-b0c9-217865e85930","url":"http://www.vance.org/","identificatie":"a039ea20-7a82-43a9-9b26-3f41e80192a8","bronorganisatie":"Rush-Cox","verantwoordelijkeOrganisatie":"Cox,
+      Cervantes and Soto","omschrijving":"Trade capital smile first son pick though.","toelichting":"Probably
+      responsibility single. Rest wish effect campaign attorney common occur. Enjoy
+      able road modern own probably past order.","status":"general","registratiedatum":"2026-04-02","startdatum":"2026-03-17","zaaktype":"feel","object_type":"compare","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -71,12 +71,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"valid-1","url":"https://www.smith-wood.com/","identificatie":"12f347d8-7c31-4362-8a63-b468aec6c3db","bronorganisatie":"Perez
-      and Sons","titel":"Understand green community police begin dog.","beschrijving":"Development
-      rest age choose free. Resource with risk professor.","auteur":"Kevin Jenkins","taal":"nhn","vertrouwelijkheidaanduiding":"time","status":"particularly","formaat":"xls","bestandsnaam":"owner.odt","informatieobjecttype":"brother","verschijningsvorm":"address","bestandsomvang":1000000,"link":"http://reyes.net/","creatiedatum":"2026-03-16","begin_registratie":"2026-04-04T07:00:12.884503","last_checked_at":"2026-04-10T09:05:16.333017+00:00","next_check_at":"2026-04-11T09:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"6e5ffe95-7eb7-41e3-a65b-42298fb61ca9","url":"https://www.walter-simmons.net/","identificatie":"eaa412bb-7767-46bf-bfda-fbfa2e95538b","bronorganisatie":"Castillo
-      Group","verantwoordelijkeOrganisatie":"Rogers-Moore","omschrijving":"Yes bill
-      certainly maybe study kid everyone pretty.","toelichting":"Sign deep young attention.
-      Sell political consumer theory.","status":"personal","registratiedatum":"2026-04-01","startdatum":"2026-03-13","zaaktype":"allow","object_type":"adult"}]}'
+    body: '{"uuid":"valid-1","url":"https://vargas.com/","identificatie":"2ed4617f-98fc-4f74-89de-df0df4cf6be4","bronorganisatie":"Alvarez
+      LLC","titel":"Financial west positive about weight fill own.","beschrijving":"Economy
+      area hair kid history indeed enjoy.","auteur":"Ashley Adams","taal":"so","vertrouwelijkheidaanduiding":"decision","status":"eat","formaat":"mov","bestandsnaam":"scientist.flac","informatieobjecttype":"their","verschijningsvorm":"ten","bestandsomvang":1000000,"link":"http://gomez.info/","creatiedatum":"2026-03-16","begin_registratie":"2026-04-01T21:15:43.581821","last_checked_at":"2026-04-10T13:43:08.062490+00:00","next_check_at":"2026-04-11T13:43:08.062490+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"587bbc62-749d-4332-b361-65def1690e39","url":"https://williamson.com/","identificatie":"0c4f1d48-6ddd-408e-82b7-65809ac79f50","bronorganisatie":"Rodriguez-Alexander","verantwoordelijkeOrganisatie":"Green
+      Inc","omschrijving":"Reflect bring someone hit.","toelichting":"Hot agree the
+      wall. Management ago Congress offer them west share team. Goal raise civil around
+      involve.","status":"nothing","registratiedatum":"2026-03-22","startdatum":"2026-03-12","zaaktype":"price","object_type":"dog","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -106,7 +106,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-10T09:05:16.333017+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
+    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-10T13:43:08.062490+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -122,7 +122,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
+      string: '{"took":10,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
     headers:
       Transfer-Encoding:
       - chunked

@@ -45,6 +45,8 @@ class ZaakReferenties(InnerDoc):
     zaaktype: M[str] = mapped_field(Keyword(required=True))
     object_type: M[str] = mapped_field(Keyword(required=True))
 
+    service_slug: M[str | None] = mapped_field(Keyword())
+
 
 # create empty base mapping instance
 DOCUMENT_MAPPING = Mapping()

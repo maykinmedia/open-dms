@@ -21,32 +21,33 @@ interactions:
   response:
     body:
       string: !!binary |
-        N3q8ryccAARpPmjXiQAAAAAAAAAVAAAAAAAAAC0GYMHgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
-        AGtdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
-        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzP2ZbktSq1ie98MSpEppILf5A47uabGmA4AAAABcG
-        FgEJcwAHCwEAASEhARgMgIUAAA==
+        N3q8ryccAAQw1YWZigAAAAAAAAAVAAAAAAAAAFj+mTzgAfgADl0AOhlKzh2tQkj/27vqYAAA4ACE
+        AGxdAACBMweuD89dLwwHsMPaKtdYZKyzeM5U3jfNm7yEfvJr/uhY+Ft1ku+mQJvM9GojVCOY6jD9
+        PivXFhyMxE0I8rMVT+Z2BErxexAbxfv5goPzQ7YCA92fEg+xCBFNboupDDIFL2CCVWv4NIAAAAAX
+        BhYBCXQABwsBAAEhIQEYDICFAAA=
     headers:
       Connection:
       - close
       Content-Length:
-      - '190'
+      - '191'
       Content-Type:
       - application/x-7z-compressed
       Date:
-      - Thu, 09 Apr 2026 14:39:08 GMT
+      - Fri, 10 Apr 2026 12:29:33 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://martin.net/","identificatie":"c97552e7-baa4-4d96-85ba-0cd07eba78e8","bronorganisatie":"Mckinney,
-      Crawford and Buck","titel":"Me decide job east modern north.","beschrijving":"Whether
-      thing radio character future minute. We course word during.","auteur":"Jack
-      Roman","taal":"fur","vertrouwelijkheidaanduiding":"against","status":"event","formaat":"avi","bestandsnaam":"he.gif","informatieobjecttype":"address","verschijningsvorm":"would","bestandsomvang":188,"link":"https://www.hill.com/","creatiedatum":"2026-03-21","begin_registratie":"2026-03-26T10:03:59.757634","last_checked_at":"2005-02-28T00:00:00","next_check_at":"1989-09-05T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"82cdbcb6-ee1a-419f-b782-32fbf4962827","url":"https://lee.com/","identificatie":"2bb2d56b-870e-4d27-a3ba-0e725e4f6fbd","bronorganisatie":"Thomas
-      PLC","verantwoordelijkeOrganisatie":"Adams-Caldwell","omschrijving":"Least billion
-      defense any.","toelichting":"Picture wait win drop economic eight. Instead discover
-      energy subject. Whatever own bar company.","status":"his","registratiedatum":"2026-04-02","startdatum":"2026-03-16","zaaktype":"ok","object_type":"appear"}],"inhoud":"http://localhost/document/smol7zip","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.pruitt.com/","identificatie":"08f20de4-bc8f-4b22-b5ed-5b265c3ba519","bronorganisatie":"Riley
+      Inc","titel":"Reason born get fast.","beschrijving":"Might look week provide.
+      Lot develop hard letter floor. Article risk could pressure suggest hard most.","auteur":"Amanda
+      Johnson","taal":"ts","vertrouwelijkheidaanduiding":"like","status":"would","formaat":"js","bestandsnaam":"concern.avi","informatieobjecttype":"candidate","verschijningsvorm":"local","bestandsomvang":188,"link":"https://www.flores.net/","creatiedatum":"2026-04-08","begin_registratie":"2026-03-25T04:06:08.153807","last_checked_at":"2018-04-26T00:00:00","next_check_at":"2013-11-15T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"f12fe924-fb09-460a-aa45-ab42373a95fb","url":"http://www.ponce.com/","identificatie":"b36c1371-9b48-4b20-a1ac-7d25ff61fed1","bronorganisatie":"Young-Nelson","verantwoordelijkeOrganisatie":"Mcmahon,
+      Carlson and Hill","omschrijving":"Assume form past answer ever attack.","toelichting":"Prepare
+      thing late away rather radio power. Choose visit statement my scientist similar.
+      Deal international another type tree wear environment. Watch recently audience
+      him stuff use product student.","status":"entire","registratiedatum":"2026-03-17","startdatum":"2026-04-04","zaaktype":"law","object_type":"back","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/smol7zip","document_data":[{"document_data":"dGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDF0ZXN0MXRlc3QxdGVzdDE="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -62,7 +63,7 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":4,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
@@ -90,19 +91,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Whether
-        thing radio character future minute. We course word during.","verschijningsvorm":"would","bronorganisatie":"Mckinney,
-        Crawford and Buck","link":"https://www.hill.com/","next_check_at":"1989-09-05T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","formaat":"avi","inhoud":"http://localhost/document/smol7zip","titel":"Me
-        decide job east modern north.","informatieobjecttype":"address","bestandsnaam":"he.gif","creatiedatum":"2026-03-21","group_slug":"group-1","begin_registratie":"2026-03-26T10:03:59.757634","identificatie":"c97552e7-baa4-4d96-85ba-0cd07eba78e8","bestandsomvang":188,"url":"https://martin.net/","taal":"fur","zaak_referenties":[{"omschrijving":"Least
-        billion defense any.","identificatie":"2bb2d56b-870e-4d27-a3ba-0e725e4f6fbd","startdatum":"2026-03-16","object_type":"appear","bronorganisatie":"Thomas
-        PLC","zaaktype":"ok","registratiedatum":"2026-04-02","uuid":"82cdbcb6-ee1a-419f-b782-32fbf4962827","url":"https://lee.com/","verantwoordelijkeOrganisatie":"Adams-Caldwell","toelichting":"Picture
-        wait win drop economic eight. Instead discover energy subject. Whatever own
-        bar company.","status":"his"}],"auteur":"Jack Roman","last_checked_at":"2005-02-28T00:00:00","vertrouwelijkheidaanduiding":"against","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"status":"event"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":5,"_seq_no":4,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Might
+        look week provide. Lot develop hard letter floor. Article risk could pressure
+        suggest hard most.","verschijningsvorm":"local","bronorganisatie":"Riley Inc","link":"https://www.flores.net/","next_check_at":"2013-11-15T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","formaat":"js","inhoud":"http://localhost/document/smol7zip","titel":"Reason
+        born get fast.","informatieobjecttype":"candidate","bestandsnaam":"concern.avi","creatiedatum":"2026-04-08","group_slug":"group-1","begin_registratie":"2026-03-25T04:06:08.153807","identificatie":"08f20de4-bc8f-4b22-b5ed-5b265c3ba519","bestandsomvang":188,"url":"http://www.pruitt.com/","taal":"ts","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"b36c1371-9b48-4b20-a1ac-7d25ff61fed1","object_type":"back","bronorganisatie":"Young-Nelson","zaaktype":"law","registratiedatum":"2026-03-17","uuid":"f12fe924-fb09-460a-aa45-ab42373a95fb","url":"http://www.ponce.com/","verantwoordelijkeOrganisatie":"Mcmahon,
+        Carlson and Hill","omschrijving":"Assume form past answer ever attack.","startdatum":"2026-04-04","toelichting":"Prepare
+        thing late away rather radio power. Choose visit statement my scientist similar.
+        Deal international another type tree wear environment. Watch recently audience
+        him stuff use product student.","status":"entire"}],"auteur":"Amanda Johnson","last_checked_at":"2018-04-26T00:00:00","vertrouwelijkheidaanduiding":"like","document_data":[{"attachment":{"content":"test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1test1"}}],"status":"would"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1985'
+      - '2161'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
