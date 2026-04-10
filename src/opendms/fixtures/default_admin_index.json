@@ -76,7 +76,11 @@
         "models": [
             [
                 "doc_edit",
-                "graphsubscription"
+                "basedrivesubscription"
+            ],
+            [
+                "doc_edit",
+                "basedrivedocument"
             ]
         ]
     }

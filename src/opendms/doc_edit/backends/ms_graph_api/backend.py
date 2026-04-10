@@ -1,5 +1,4 @@
 import base64
-import datetime
 import mimetypes
 import os
 import secrets
@@ -7,6 +6,7 @@ import secrets
 from django.conf import settings
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 
 import structlog
@@ -21,15 +21,13 @@ from opendms.doc_edit.backends.ms_graph_api.clients.one_drive import OneDriveCli
 from opendms.doc_edit.backends.ms_graph_api.clients.subscription import (
     SubscriptionClient,
 )
-from opendms.doc_edit.backends.ms_graph_api.types.backend import SubscriptionMeta
 from opendms.doc_edit.backends.ms_graph_api.types.one_drive import DriveItem
 from opendms.doc_edit.backends.ms_graph_api.types.subscription import (
     Subscription,
     SubscriptionItem,
     SubscriptionItemCollection,
 )
-
-from .models import GraphSubscription
+from opendms.doc_edit.models import BaseDriveDocument, BaseDriveSubscription
 
 SUBSCRIPTION_CACHE_PREFIX = "subscription_meta"
 logger = structlog.stdlib.get_logger(__name__)
@@ -114,36 +112,46 @@ class MsGraphApiBackend(DocumentEditBackend):
                 logger.exception("error_file_could_not_be_opened")
                 raise error
 
+        document_id = drive_item["id"]
+
+        # create instance to check the status of the document
+        BaseDriveDocument.objects.update_or_create(
+            document_id=document_id,
+            defaults={"document_name": drive_item["name"]},
+        )
+
         self._ensure_subscription()
-        return self.one_drive_client.get_item_link(item_id=drive_item["id"])
+        return self.one_drive_client.get_item_link(item_id=document_id)
 
     def updated_callback(self, request) -> Response:
         validation_token = request.GET.get("validationToken")
         if validation_token:
+            logger.info("validation_token")
+            logger.info(validation_token)
+            logger.info("validation_token")
             return Response(
-                "Document uploaded",
+                validation_token,
                 status=status.HTTP_200_OK,
                 content_type="text/plain",
             )
 
         data: SubscriptionItemCollection = request.data or {}
-        notifications = data.get("value")
+        notifications = data.get("value", [])
 
-        result: tuple[GraphSubscription, SubscriptionItem] | None = None
+        result: tuple[BaseDriveSubscription, SubscriptionItem] | None = None
 
         for notification in notifications:
             try:
-                subscription = GraphSubscription.objects.get(
+                subscription = BaseDriveSubscription.objects.get(
                     subscription_id=notification["subscription_id"]
                 )
                 result = (subscription, notification)
                 break
-            except GraphSubscription.DoesNotExist:
+            except BaseDriveSubscription.DoesNotExist:
                 continue
 
         if not result:
-            logger.warning("subscription_not_found")
-            # TODO test this case here, if the doc exists in OneDrive, but no more subs are available
+            logger.error("subscription_not_found")
             return Response(
                 "Unknown subscription",
                 status=status.HTTP_400_BAD_REQUEST,
@@ -153,25 +161,15 @@ class MsGraphApiBackend(DocumentEditBackend):
         subscription, notification = result
 
         if subscription.client_state != notification["client_state"]:
-            logger.warning("client_state_not_valid")
+            logger.error("client_state_not_valid")
             return Response(
                 "Invalid clientState",
                 status=status.HTTP_400_BAD_REQUEST,
                 content_type="text/plain",
             )
 
-        return Response(status=204, content_type="text/plain")
-
-        # {
-        # "client_state": subscription.client_state,
-        # "delta_url": subscription.delta_url,
-        # "expiration": subscription.expiration_date_time,
-        # "token": subscription.token,
-        # }
-
-        # logger.error("_sync_updated_files")
-        # self._sync_updated_files(subscription_meta)
-        # return Response(status=204, content_type="text/plain")
+        self._sync_updated_files(subscription)
+        return Response(status=204)
 
     def _build_msal_app(self) -> ConfidentialClientApplication:
         """
@@ -213,6 +211,7 @@ class MsGraphApiBackend(DocumentEditBackend):
             settings.MSGRAPH_API_BACKEND_SYNC_FOLDER, folder=True
         )
 
+    # TODO create endpoint -> /sync to update/run _ensure_subscription method
     def _ensure_subscription(self) -> Subscription:
         """
         Ensure an active subscription exists by checking the current subscriptions and renewing
@@ -221,7 +220,8 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         :return: The current or newly created subscription.
         """
-        self._cleanup_cache()
+
+        self._cleanup_subscriptions()
 
         data = self.subscription_client.list_subscriptions()
         subscriptions: list[Subscription] = data["value"]
@@ -243,7 +243,7 @@ class MsGraphApiBackend(DocumentEditBackend):
                     subscription, client_state=client_state
                 )
 
-                GraphSubscription.objects.update_or_create(
+                BaseDriveSubscription.objects.update_or_create(
                     subscription_id=subscription_id,
                     defaults={
                         "client_state": client_state,
@@ -259,18 +259,17 @@ class MsGraphApiBackend(DocumentEditBackend):
 
             return subscription
 
+        logger.info("create_new_subscription")
+
         client_state = self._create_client_state_secret()
         subscription = self.subscription_client.create_subscription(
             webhook_url,
             change_type="updated",
-            resource="/me/drive/root",
+            resource="/me/drive/root",  # microsoft business allow only subscriptions for this folder
             client_state=client_state,
         )
-
-        subscription_id = subscription["id"]
-
-        GraphSubscription.objects.update_or_create(
-            subscription_id=subscription_id,
+        BaseDriveSubscription.objects.update_or_create(
+            subscription_id=subscription["id"],
             defaults={
                 "client_state": client_state,
                 "resource": subscription["resource"],
@@ -298,21 +297,49 @@ class MsGraphApiBackend(DocumentEditBackend):
         random_bytes = secrets.token_bytes(64)
         return base64.urlsafe_b64encode(random_bytes).rstrip(b"=").decode("utf-8")
 
-    def _cleanup_cache(self):
+    def _cleanup_subscriptions(self):
         """
-        This function performs a cleanup operation on a global cache by removing expired
-        entries. It checks each entry in the cache for an expiration timestamp and deletes
-        any that have expired based on the current UTC time.
-
+        Removes expired subscriptions from the database based on the current UTC time.
         Note: this does not unsubscribe webhooks.
-
-        :return: None
         """
-        now = datetime.datetime.now(datetime.UTC)
-        for sub in GraphSubscription.objects.all():
-            if sub.expiration_date_time < now:
-                sub.delete()
+        deleted_count, _ = BaseDriveSubscription.objects.filter(
+            expiration_date_time__lt=timezone.now()
+        ).delete()
 
-    def _sync_updated_files(self, subscription_meta: SubscriptionMeta):
-        # TODO
-        pass
+        if deleted_count:
+            logger.info("subscriptions_deleted")
+
+    def _sync_updated_files(self, subscription: BaseDriveSubscription):
+        self._set_token(subscription.token)
+
+        documents = BaseDriveDocument.objects.all()
+        if not documents.exists():
+            return
+
+        to_update = []
+
+        for document in documents:
+            delta = self.one_drive_client.get_delta(item_id=document.document_id)
+
+            items = delta.get("value")
+            if not items:
+                logger.warning("no_delta_value_for_document")
+                continue
+
+            document_delta = items[0]
+            modified = parse_datetime(document_delta.get("lastModifiedDateTime", ""))
+            if not modified:
+                logger.warning("no_update_date_for_document")
+                continue
+
+            # lastModifiedBy exists only when is created
+            if document_delta.get("lastModifiedBy", {}):
+                continue
+
+            if not document.updated_at or document.updated_at < modified:
+                document.updated_at = timezone.now()
+                to_update.append(document)
+
+        if to_update:
+            BaseDriveDocument.objects.bulk_update(to_update, fields=["updated_at"])
+            logger.info("documents_updated")  # TODO improve logs, with more details

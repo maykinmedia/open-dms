@@ -44,6 +44,7 @@ class HttpRequestMixin:
         """
         params = params or {}
         headers = headers or {}
+
         try:
             response = self.get(url, params=params, headers=headers)
 
@@ -62,6 +63,7 @@ class HttpRequestMixin:
                     )
 
             response.raise_for_status()
+
             return response.json()
 
         except Timeout as exc:

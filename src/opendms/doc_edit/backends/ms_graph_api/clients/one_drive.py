@@ -64,7 +64,6 @@ class OneDriveClient(GraphClient):
         if additional_props:
             payload.update(additional_props)
 
-        logger.debug("Creating %s: %s", "folder" if folder else "file", name)
         drive_item: DriveItem = self._post(url, payload)
         logger.debug("Created %s: %s", "folder" if folder else "file", drive_item["id"])
         return drive_item
@@ -207,6 +206,7 @@ class OneDriveClient(GraphClient):
             user_id=user_id,
             item_id=item_id,
         )
+
         logger.debug("Resolving delta by item_url: %s", item_url)
         delta: DriveItemDelta = self._get(f"{item_url}/delta")
         logger.debug("Resolving %d delta items for %s", len(delta["value"]), item_url)

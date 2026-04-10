@@ -43,7 +43,6 @@ class FileHashes(TypedDict):
 
 
 class FileInfo(TypedDict):
-    # TODO check if you can add also the name here o the document url
     fileExtension: str
     hashes: FileHashes
     mimeType: str

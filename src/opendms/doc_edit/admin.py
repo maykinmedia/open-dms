@@ -1,10 +1,10 @@
 from django.contrib import admin
 
-from .backends.ms_graph_api.models import GraphSubscription
+from .models import BaseDriveDocument, BaseDriveSubscription
 
 
-@admin.register(GraphSubscription)
-class GraphSubscriptionAdmin(admin.ModelAdmin):
+@admin.register(BaseDriveSubscription)
+class BaseDriveSubscriptionAdmin(admin.ModelAdmin):
     list_display = [
         "subscription_id",
         "resource",
@@ -23,5 +23,22 @@ class GraphSubscriptionAdmin(admin.ModelAdmin):
         "delta_url",
         "created_at",
         "updated_at",
+    ]
+    ordering = ["-created_at"]
+
+
+@admin.register(BaseDriveDocument)
+class BaseDriveDocumentAdmin(admin.ModelAdmin):
+    list_display = [
+        "document_id",
+        "document_name",
+        "updated_at",
+        "created_at",
+    ]
+    readonly_fields = [
+        "document_id",
+        "document_name",
+        "updated_at",
+        "created_at",
     ]
     ordering = ["-created_at"]
