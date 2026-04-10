@@ -1,91 +1,12 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://www.carter.net/","identificatie":"0b4f521c-03dc-47dd-af0d-cf9a5de669b5","bronorganisatie":"Powers,
-      Romero and Reid","titel":"Be better fund discussion become site news coach.","beschrijving":"Network
-      science how free. Any window then reflect defense sing partner.","auteur":"Timothy
-      Smith","taal":"ms","vertrouwelijkheidaanduiding":"exist","status":"list","formaat":"jpg","bestandsnaam":"onto.mp4","informatieobjecttype":"detail","verschijningsvorm":"window","bestandsomvang":1000000,"link":"http://www.kelly-barker.info/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-23T02:55:04.889303","zaak_referenties":[{"uuid":"0df51cb4-67a8-4cf9-8c9b-e2dad9a570e8","url":"http://garcia.com/","identificatie":"fe530c2b-e1b9-440d-87b5-df247a147452","bronorganisatie":"Jones-Russell","verantwoordelijkeOrganisatie":"Morgan
-      PLC","omschrijving":"Agent change poor step prepare.","toelichting":"Chair mind
-      social friend executive he always.","status":"fact","registratiedatum":"2026-03-04","startdatum":"2026-04-01","zaaktype":"study","object_type":"several"}]}'
+    body: '{"uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://adams-wright.net/","identificatie":"02407ff5-ee5d-437a-b30c-a44e9d4b6ddf","bronorganisatie":"Morris
+      Inc","titel":"Dream occur relationship field under get choice.","beschrijving":"Result
+      level think sense because. Reveal he teach. Performance way try.","auteur":"Jason
+      Miller","taal":"he","vertrouwelijkheidaanduiding":"we","status":"wind","formaat":"wav","bestandsnaam":"enter.js","informatieobjecttype":"fill","verschijningsvorm":"house","bestandsomvang":1000000,"link":"http://smith.com/","creatiedatum":"2026-04-02","begin_registratie":"2026-04-10T02:27:29.932755","last_checked_at":"1996-09-12T00:00:00","next_check_at":"1984-12-20T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"33d8eab8-373f-4a62-84da-945a9a995556","url":"https://garner-white.net/","identificatie":"7290c448-ff55-43dd-9094-f9090978ae28","bronorganisatie":"Cochran,
+      Hall and King","verantwoordelijkeOrganisatie":"Little, Zamora and Fisher","omschrijving":"Investment
+      me sure commercial large.","toelichting":"Crime each candidate alone. Open concern
+      garden mission win candidate themselves number.","status":"picture","registratiedatum":"2026-03-13","startdatum":"2026-04-06","zaaktype":"score","object_type":"bag"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -115,93 +36,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.anderson.net/","identificatie":"d2e56c21-03df-4b81-a915-c3e10e311db0","bronorganisatie":"Higgins,
-      Moreno and Johnson","titel":"Hair call wonder threat.","beschrijving":"Program
-      office power fine black national. Hard while more base himself institution group.","auteur":"Carolyn
-      Rangel","taal":"as","vertrouwelijkheidaanduiding":"cost","status":"think","formaat":"doc","bestandsnaam":"design.xls","informatieobjecttype":"hand","verschijningsvorm":"near","bestandsomvang":1000000,"link":"http://james-graham.com/","creatiedatum":"2026-03-22","begin_registratie":"2026-03-25T22:44:57.271148","zaak_referenties":[{"uuid":"14d413f3-7291-4bf1-a94c-79b51ae0222d","url":"http://www.gray-anderson.com/","identificatie":"6cb906d1-4889-4602-8801-ee6961938c22","bronorganisatie":"Aguilar-Olsen","verantwoordelijkeOrganisatie":"Pearson
-      Group","omschrijving":"Heavy city sense.","toelichting":"Ready reduce letter
-      painting in. Whose tree force officer understand cold. However pretty choose
-      establish any.","status":"discussion","registratiedatum":"2026-03-04","startdatum":"2026-03-19","zaaktype":"rate","object_type":"daughter"}]}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.mercado.org/","identificatie":"3fe37c3b-7ec5-4751-9ae0-bdb09f62fc5d","bronorganisatie":"Hanson,
+      Crawford and Gonzales","titel":"Current nature process actually no.","beschrijving":"Accept
+      have civil wide return yourself far.","auteur":"Connie Harper","taal":"raj","vertrouwelijkheidaanduiding":"chance","status":"still","formaat":"webm","bestandsnaam":"respond.png","informatieobjecttype":"common","verschijningsvorm":"even","bestandsomvang":1000000,"link":"https://www.owens.com/","creatiedatum":"2026-03-21","begin_registratie":"2026-03-22T21:13:30.388159","last_checked_at":"1997-08-20T00:00:00","next_check_at":"2011-03-05T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"e394c94f-d950-43d8-8786-d0132b8c17ab","url":"https://vincent.com/","identificatie":"dbd65860-263b-4e96-841f-e90db6907587","bronorganisatie":"Huff,
+      Gonzalez and Richmond","verantwoordelijkeOrganisatie":"Serrano, Barr and Zhang","omschrijving":"Per
+      management wear radio.","toelichting":"Condition billion as return industry
+      force attorney tend. Wait side woman water.","status":"sense","registratiedatum":"2026-03-31","startdatum":"2026-03-14","zaaktype":"many","object_type":"them"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -247,14 +87,15 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":0.9165396,"_source":{"beschrijving":"Program
-        office power fine black national. Hard while more base himself institution
-        group.","verschijningsvorm":"near","begin_registratie":"2026-03-25T22:44:57.271148","identificatie":"d2e56c21-03df-4b81-a915-c3e10e311db0","bronorganisatie":"Higgins,
-        Moreno and Johnson","bestandsomvang":1000000,"link":"http://james-graham.com/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"http://www.anderson.net/","taal":"as","zaak_referenties":[{"omschrijving":"Heavy
-        city sense.","identificatie":"6cb906d1-4889-4602-8801-ee6961938c22","startdatum":"2026-03-19","object_type":"daughter","bronorganisatie":"Aguilar-Olsen","zaaktype":"rate","registratiedatum":"2026-03-04","uuid":"14d413f3-7291-4bf1-a94c-79b51ae0222d","url":"http://www.gray-anderson.com/","verantwoordelijkeOrganisatie":"Pearson
-        Group","toelichting":"Ready reduce letter painting in. Whose tree force officer
-        understand cold. However pretty choose establish any.","status":"discussion"}],"auteur":"Carolyn
-        Rangel","formaat":"doc","titel":"Hair call wonder threat.","vertrouwelijkheidaanduiding":"cost","informatieobjecttype":"hand","bestandsnaam":"design.xls","creatiedatum":"2026-03-22","status":"think"},"sort":[0.9165396,1774137600000]}]}}'
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"85a095ea-e1fa-438c-9e05-1862874f57a0","_score":0.99477994,"_source":{"service_slug":"test-service","beschrijving":"Result
+        level think sense because. Reveal he teach. Performance way try.","verschijningsvorm":"house","begin_registratie":"2026-04-10T02:27:29.932755","identificatie":"02407ff5-ee5d-437a-b30c-a44e9d4b6ddf","bronorganisatie":"Morris
+        Inc","bestandsomvang":1000000,"link":"http://smith.com/","next_check_at":"1984-12-20T00:00:00","uuid":"85a095ea-e1fa-438c-9e05-1862874f57a0","url":"http://adams-wright.net/","taal":"he","zaak_referenties":[{"omschrijving":"Investment
+        me sure commercial large.","identificatie":"7290c448-ff55-43dd-9094-f9090978ae28","startdatum":"2026-04-06","object_type":"bag","bronorganisatie":"Cochran,
+        Hall and King","zaaktype":"score","registratiedatum":"2026-03-13","uuid":"33d8eab8-373f-4a62-84da-945a9a995556","url":"https://garner-white.net/","verantwoordelijkeOrganisatie":"Little,
+        Zamora and Fisher","toelichting":"Crime each candidate alone. Open concern
+        garden mission win candidate themselves number.","status":"picture"}],"auteur":"Jason
+        Miller","formaat":"wav","last_checked_at":"1996-09-12T00:00:00","titel":"Dream
+        occur relationship field under get choice.","vertrouwelijkheidaanduiding":"we","informatieobjecttype":"fill","bestandsnaam":"enter.js","creatiedatum":"2026-04-02","group_slug":"test-group","status":"wind"},"sort":[0.99477994,1775088000000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

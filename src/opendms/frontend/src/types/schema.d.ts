@@ -373,6 +373,10 @@ export interface components {
              * @default
              */
             inhoud: string;
+            /** @description De slug van de bronservice die dit document heeft geïndexeerd. */
+            serviceSlug?: string | null;
+            /** @description De slug van de groep waartoe de bronservice behoort die dit document heeft geïndexeerd. */
+            groupSlug?: string | null;
             zaakReferenties?: components["schemas"]["Zaak"][];
         };
         /** @description Formaat van validatiefouten. */

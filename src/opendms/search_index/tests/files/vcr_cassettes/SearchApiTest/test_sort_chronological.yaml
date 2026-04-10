@@ -1,92 +1,12 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://rodriguez.com/","identificatie":"8eca461f-ff84-47c6-82a6-f16b2e641aa2","bronorganisatie":"Walsh,
-      Brown and Jackson","titel":"Area long protect better black.","beschrijving":"Billion
-      out thing standard personal continue speech hot. Book section camera region
-      rule case. Into source discuss church responsibility safe.","auteur":"Amanda
-      Johnson","taal":"ca","vertrouwelijkheidaanduiding":"have","status":"sense","formaat":"mp3","bestandsnaam":"heart.gif","informatieobjecttype":"history","verschijningsvorm":"admit","bestandsomvang":1000000,"link":"http://faulkner-villegas.com/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-27T00:41:01.503697","zaak_referenties":[{"uuid":"86e0cebe-e91b-4bf5-a83a-d0dbc192387a","url":"https://hodges.net/","identificatie":"a90c4aa4-8756-4ee8-afd9-7a83783cf1e9","bronorganisatie":"Perez-Cervantes","verantwoordelijkeOrganisatie":"Scott-Thomas","omschrijving":"Remember
-      thus fact country.","toelichting":"Mr wonder particularly relationship also
-      loss. Far carry nature suffer like life training.","status":"dinner","registratiedatum":"2026-03-11","startdatum":"2026-03-12","zaaktype":"series","object_type":"stock"}]}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.reed.org/","identificatie":"10662081-e678-4b32-b70a-0fa24ffd15e3","bronorganisatie":"Faulkner
+      Ltd","titel":"Low to site need stay lot page Mr.","beschrijving":"Position million
+      head serious enter usually. Fish camera history everybody.","auteur":"Nicole
+      Henderson","taal":"yo","vertrouwelijkheidaanduiding":"receive","status":"pick","formaat":"mov","bestandsnaam":"edge.avi","informatieobjecttype":"travel","verschijningsvorm":"write","bestandsomvang":1000000,"link":"http://long.info/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-16T00:56:26.603802","last_checked_at":"1998-07-31T00:00:00","next_check_at":"1996-09-19T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"267b8840-bd6b-4380-8caf-b48015299fe1","url":"http://www.myers.com/","identificatie":"93522f05-3ec8-4f13-ac84-9dcdba1132f6","bronorganisatie":"Garcia,
+      Khan and Taylor","verantwoordelijkeOrganisatie":"Holmes Ltd","omschrijving":"Later
+      your matter stop evening remember say.","toelichting":"Will today see impact
+      its bank fast. Figure city improve test perform machine.","status":"teach","registratiedatum":"2026-03-14","startdatum":"2026-03-13","zaaktype":"line","object_type":"around"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,92 +36,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.sutton.biz/","identificatie":"cef4b0d3-17c7-4b71-a0e5-17e93a27c472","bronorganisatie":"Hayes-Burns","titel":"Black
-      assume position system herself camera.","beschrijving":"Property night ground
-      reveal wonder. Daughter claim base expert speak near fill.","auteur":"Kenneth
-      Welch","taal":"sat","vertrouwelijkheidaanduiding":"hard","status":"yet","formaat":"txt","bestandsnaam":"market.numbers","informatieobjecttype":"eye","verschijningsvorm":"military","bestandsomvang":1000000,"link":"https://www.gilbert.net/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-15T11:30:23.107383","zaak_referenties":[{"uuid":"c6aa6f2a-e18b-48d1-830e-644454c13bfd","url":"https://www.harrison-murray.com/","identificatie":"6b7c7322-8ca1-46e0-9d8e-323424438421","bronorganisatie":"Salazar-Tran","verantwoordelijkeOrganisatie":"Sanchez,
-      Ramos and Thomas","omschrijving":"If focus land single above provide.","toelichting":"Side
-      need garden hand wear according draw draw. Into thousand behavior.","status":"affect","registratiedatum":"2026-03-29","startdatum":"2026-03-11","zaaktype":"short","object_type":"rather"}]}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://williams-knox.info/","identificatie":"cdcadaf2-08ef-4f7c-9042-2901d3a73806","bronorganisatie":"Wells,
+      Hall and Yoder","titel":"Drive meet human myself present film power.","beschrijving":"Similar
+      wear list mind. At ago assume government.","auteur":"Christine Spencer","taal":"kl","vertrouwelijkheidaanduiding":"around","status":"condition","formaat":"avi","bestandsnaam":"necessary.png","informatieobjecttype":"figure","verschijningsvorm":"lay","bestandsomvang":1000000,"link":"http://smith.com/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-25T08:08:59.372408","last_checked_at":"1990-02-16T00:00:00","next_check_at":"1988-01-23T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"a9a1284d-da8a-4629-be69-38a49dc58899","url":"https://weeks-wang.com/","identificatie":"567aca73-c7be-4ea8-b71c-92a9e86f4164","bronorganisatie":"Hill
+      Ltd","verantwoordelijkeOrganisatie":"Miller, Weeks and White","omschrijving":"Loss
+      quickly never gas discover save son.","toelichting":"Mouth least impact parent
+      artist. Investment next itself suggest short.","status":"recently","registratiedatum":"2026-03-19","startdatum":"2026-04-08","zaaktype":"day","object_type":"something"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -231,93 +71,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","url":"https://www.mills.com/","identificatie":"735f6173-a59a-4495-9e38-894e1013e13a","bronorganisatie":"Cortez-Lopez","titel":"Month
-      method investment six.","beschrijving":"View speech service hope decade. Take
-      value range thought. Walk left some unit lawyer box receive. Executive group
-      rate civil charge vote again.","auteur":"Robert Harris","taal":"bem","vertrouwelijkheidaanduiding":"me","status":"executive","formaat":"ppt","bestandsnaam":"necessary.webm","informatieobjecttype":"base","verschijningsvorm":"beat","bestandsomvang":1000000,"link":"http://rivera.org/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-21T16:03:05.113302","zaak_referenties":[{"uuid":"f3f77eb6-be06-46f9-af39-41e031632a52","url":"http://welch.org/","identificatie":"d2643ceb-53bf-464c-90c7-d29ec45b5748","bronorganisatie":"Wright
-      Group","verantwoordelijkeOrganisatie":"Goodman Inc","omschrijving":"Reality
-      laugh administration eye feel herself many.","toelichting":"Hair former me because.
-      Yeah exist happy. Including news west me. Cup final alone public its.","status":"either","registratiedatum":"2026-03-19","startdatum":"2026-03-25","zaaktype":"interest","object_type":"along"}]}'
+    body: '{"uuid":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","url":"http://www.wolf-carter.info/","identificatie":"df449826-4cf8-425e-a272-b8edec8500af","bronorganisatie":"Oneill,
+      Fisher and Taylor","titel":"Well medical force nothing enjoy or.","beschrijving":"Stay
+      myself long let avoid peace such war. Can wrong race smile audience note investment
+      unit.","auteur":"Erin Wallace","taal":"ar","vertrouwelijkheidaanduiding":"country","status":"degree","formaat":"jpeg","bestandsnaam":"fly.mp4","informatieobjecttype":"garden","verschijningsvorm":"international","bestandsomvang":1000000,"link":"http://www.smith-fox.org/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-30T13:48:13.453835","last_checked_at":"1989-05-29T00:00:00","next_check_at":"1979-05-11T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"c92837a4-52d0-4da5-87c4-49c67c968c88","url":"https://www.doyle.org/","identificatie":"4ab684b6-4423-4413-af34-13c39400d5c7","bronorganisatie":"Roberts
+      Group","verantwoordelijkeOrganisatie":"Becker, Brown and Mendoza","omschrijving":"Tough
+      next detail generation course born respond.","toelichting":"Room per sea kind.
+      Improve respond either. You particularly maybe agent.","status":"base","registratiedatum":"2026-03-29","startdatum":"2026-03-13","zaaktype":"whether","object_type":"recently"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -363,26 +123,29 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","_score":0.118370414,"_source":{"beschrijving":"View
-        speech service hope decade. Take value range thought. Walk left some unit
-        lawyer box receive. Executive group rate civil charge vote again.","verschijningsvorm":"beat","begin_registratie":"2026-03-21T16:03:05.113302","identificatie":"735f6173-a59a-4495-9e38-894e1013e13a","bronorganisatie":"Cortez-Lopez","bestandsomvang":1000000,"link":"http://rivera.org/","uuid":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","url":"https://www.mills.com/","taal":"bem","zaak_referenties":[{"omschrijving":"Reality
-        laugh administration eye feel herself many.","identificatie":"d2643ceb-53bf-464c-90c7-d29ec45b5748","startdatum":"2026-03-25","object_type":"along","bronorganisatie":"Wright
-        Group","zaaktype":"interest","registratiedatum":"2026-03-19","uuid":"f3f77eb6-be06-46f9-af39-41e031632a52","url":"http://welch.org/","verantwoordelijkeOrganisatie":"Goodman
-        Inc","toelichting":"Hair former me because. Yeah exist happy. Including news
-        west me. Cup final alone public its.","status":"either"}],"auteur":"Robert
-        Harris","formaat":"ppt","titel":"Month method investment six.","vertrouwelijkheidaanduiding":"me","informatieobjecttype":"base","bestandsnaam":"necessary.webm","creatiedatum":"2026-03-01","status":"executive"},"sort":[1772323200000,0.118370414]},{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":1.12829424E-4,"_source":{"beschrijving":"Property
-        night ground reveal wonder. Daughter claim base expert speak near fill.","verschijningsvorm":"military","begin_registratie":"2026-03-15T11:30:23.107383","identificatie":"cef4b0d3-17c7-4b71-a0e5-17e93a27c472","bronorganisatie":"Hayes-Burns","bestandsomvang":1000000,"link":"https://www.gilbert.net/","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://www.sutton.biz/","taal":"sat","zaak_referenties":[{"omschrijving":"If
-        focus land single above provide.","identificatie":"6b7c7322-8ca1-46e0-9d8e-323424438421","startdatum":"2026-03-11","object_type":"rather","bronorganisatie":"Salazar-Tran","zaaktype":"short","registratiedatum":"2026-03-29","uuid":"c6aa6f2a-e18b-48d1-830e-644454c13bfd","url":"https://www.harrison-murray.com/","verantwoordelijkeOrganisatie":"Sanchez,
-        Ramos and Thomas","toelichting":"Side need garden hand wear according draw
-        draw. Into thousand behavior.","status":"affect"}],"auteur":"Kenneth Welch","formaat":"txt","titel":"Black
-        assume position system herself camera.","vertrouwelijkheidaanduiding":"hard","informatieobjecttype":"eye","bestandsnaam":"market.numbers","creatiedatum":"2026-02-01","status":"yet"},"sort":[1769904000000,1.12829424E-4]},{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.8234877E-10,"_source":{"beschrijving":"Billion
-        out thing standard personal continue speech hot. Book section camera region
-        rule case. Into source discuss church responsibility safe.","verschijningsvorm":"admit","begin_registratie":"2026-03-27T00:41:01.503697","identificatie":"8eca461f-ff84-47c6-82a6-f16b2e641aa2","bronorganisatie":"Walsh,
-        Brown and Jackson","bestandsomvang":1000000,"link":"http://faulkner-villegas.com/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://rodriguez.com/","taal":"ca","zaak_referenties":[{"omschrijving":"Remember
-        thus fact country.","identificatie":"a90c4aa4-8756-4ee8-afd9-7a83783cf1e9","startdatum":"2026-03-12","object_type":"stock","bronorganisatie":"Perez-Cervantes","zaaktype":"series","registratiedatum":"2026-03-11","uuid":"86e0cebe-e91b-4bf5-a83a-d0dbc192387a","url":"https://hodges.net/","verantwoordelijkeOrganisatie":"Scott-Thomas","toelichting":"Mr
-        wonder particularly relationship also loss. Far carry nature suffer like life
-        training.","status":"dinner"}],"auteur":"Amanda Johnson","formaat":"mp3","titel":"Area
-        long protect better black.","vertrouwelijkheidaanduiding":"have","informatieobjecttype":"history","bestandsnaam":"heart.gif","creatiedatum":"2026-01-01","status":"sense"},"sort":[1767225600000,1.8234877E-10]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","_score":0.032815583,"_source":{"service_slug":"test-service","beschrijving":"Stay
+        myself long let avoid peace such war. Can wrong race smile audience note investment
+        unit.","verschijningsvorm":"international","begin_registratie":"2026-03-30T13:48:13.453835","identificatie":"df449826-4cf8-425e-a272-b8edec8500af","bronorganisatie":"Oneill,
+        Fisher and Taylor","bestandsomvang":1000000,"link":"http://www.smith-fox.org/","next_check_at":"1979-05-11T00:00:00","uuid":"6a7a0f60-eeb7-4a99-8a88-7e49cea15f20","url":"http://www.wolf-carter.info/","taal":"ar","zaak_referenties":[{"omschrijving":"Tough
+        next detail generation course born respond.","identificatie":"4ab684b6-4423-4413-af34-13c39400d5c7","startdatum":"2026-03-13","object_type":"recently","bronorganisatie":"Roberts
+        Group","zaaktype":"whether","registratiedatum":"2026-03-29","uuid":"c92837a4-52d0-4da5-87c4-49c67c968c88","url":"https://www.doyle.org/","verantwoordelijkeOrganisatie":"Becker,
+        Brown and Mendoza","toelichting":"Room per sea kind. Improve respond either.
+        You particularly maybe agent.","status":"base"}],"auteur":"Erin Wallace","formaat":"jpeg","last_checked_at":"1989-05-29T00:00:00","titel":"Well
+        medical force nothing enjoy or.","vertrouwelijkheidaanduiding":"country","informatieobjecttype":"garden","bestandsnaam":"fly.mp4","creatiedatum":"2026-03-01","group_slug":"test-group","status":"degree"},"sort":[1772323200000,0.032815583]},{"_index":"document","_id":"48981334-b480-4e7d-8c8d-925bbc67a969","_score":9.374521E-6,"_source":{"service_slug":"test-service","beschrijving":"Similar
+        wear list mind. At ago assume government.","verschijningsvorm":"lay","begin_registratie":"2026-03-25T08:08:59.372408","identificatie":"cdcadaf2-08ef-4f7c-9042-2901d3a73806","bronorganisatie":"Wells,
+        Hall and Yoder","bestandsomvang":1000000,"link":"http://smith.com/","next_check_at":"1988-01-23T00:00:00","uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://williams-knox.info/","taal":"kl","zaak_referenties":[{"omschrijving":"Loss
+        quickly never gas discover save son.","identificatie":"567aca73-c7be-4ea8-b71c-92a9e86f4164","startdatum":"2026-04-08","object_type":"something","bronorganisatie":"Hill
+        Ltd","zaaktype":"day","registratiedatum":"2026-03-19","uuid":"a9a1284d-da8a-4629-be69-38a49dc58899","url":"https://weeks-wang.com/","verantwoordelijkeOrganisatie":"Miller,
+        Weeks and White","toelichting":"Mouth least impact parent artist. Investment
+        next itself suggest short.","status":"recently"}],"auteur":"Christine Spencer","formaat":"avi","last_checked_at":"1990-02-16T00:00:00","titel":"Drive
+        meet human myself present film power.","vertrouwelijkheidaanduiding":"around","informatieobjecttype":"figure","bestandsnaam":"necessary.png","creatiedatum":"2026-02-01","group_slug":"test-group","status":"condition"},"sort":[1769904000000,9.374521E-6]},{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":3.9907114E-12,"_source":{"service_slug":"test-service","beschrijving":"Position
+        million head serious enter usually. Fish camera history everybody.","verschijningsvorm":"write","begin_registratie":"2026-03-16T00:56:26.603802","identificatie":"10662081-e678-4b32-b70a-0fa24ffd15e3","bronorganisatie":"Faulkner
+        Ltd","bestandsomvang":1000000,"link":"http://long.info/","next_check_at":"1996-09-19T00:00:00","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.reed.org/","taal":"yo","zaak_referenties":[{"omschrijving":"Later
+        your matter stop evening remember say.","identificatie":"93522f05-3ec8-4f13-ac84-9dcdba1132f6","startdatum":"2026-03-13","object_type":"around","bronorganisatie":"Garcia,
+        Khan and Taylor","zaaktype":"line","registratiedatum":"2026-03-14","uuid":"267b8840-bd6b-4380-8caf-b48015299fe1","url":"http://www.myers.com/","verantwoordelijkeOrganisatie":"Holmes
+        Ltd","toelichting":"Will today see impact its bank fast. Figure city improve
+        test perform machine.","status":"teach"}],"auteur":"Nicole Henderson","formaat":"mov","last_checked_at":"1998-07-31T00:00:00","titel":"Low
+        to site need stay lot page Mr.","vertrouwelijkheidaanduiding":"receive","informatieobjecttype":"travel","bestandsnaam":"edge.avi","creatiedatum":"2026-01-01","group_slug":"test-group","status":"pick"},"sort":[1767225600000,3.9907114E-12]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

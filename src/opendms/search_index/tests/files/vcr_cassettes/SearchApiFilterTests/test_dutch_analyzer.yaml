@@ -1,93 +1,13 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201833850","number_of_replicas":"1","uuid":"NBsrJO-bTmezhgy6-KrXRg","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"omschrijving":{"analyzer":"dutch","type":"text"},"toelichting":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"}},"type":"nested"},"formaat":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"bronorganisatie":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://griffin-simmons.info/","identificatie":"4b88bbee-d028-4a81-8f32-f864875f21cb","bronorganisatie":"Davenport,
-      Larson and Hoffman","titel":"Dutch analyzer","beschrijving":"Een document om
-      de Nederlandse analyzer te testen. We doen dit door middel van een willekeurige
-      stem (in ons geval ''lichamelijk'') in deze tekst te vermelden, zodat we kunnen
-      zoeken metwoorden die de zelfde stem bevatten.","auteur":"Justin Moore","taal":"mag","vertrouwelijkheidaanduiding":"care","status":"first","formaat":"css","bestandsnaam":"table.gif","informatieobjecttype":"tree","verschijningsvorm":"investment","bestandsomvang":1000000,"link":"https://www.martinez.net/","creatiedatum":"2026-03-27","begin_registratie":"2026-03-31T18:30:17.442433","zaak_referenties":[{"uuid":"a9dc141d-a10a-4483-aef7-ade2a08ea750","url":"https://www.elliott-thomas.com/","identificatie":"c3a41122-6086-4b2a-ab0b-e9b933ac8371","bronorganisatie":"Peterson-Gomez","verantwoordelijkeOrganisatie":"Davies,
-      Duarte and Avila","omschrijving":"Agency race material believe sign on.","toelichting":"At
-      necessary law best organization ahead loss. Sense good subject budget. Gas color
-      customer its would season. Piece eight firm already media including.","status":"part","registratiedatum":"2026-03-04","startdatum":"2026-03-23","zaaktype":"past","object_type":"industry"}]}'
+    body: '{"uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://www.valdez.com/","identificatie":"1ebfe663-0e0d-4177-9c31-e92dd993a715","bronorganisatie":"Walker-Tran","titel":"Dutch
+      analyzer","beschrijving":"Een document om de Nederlandse analyzer te testen.
+      We doen dit door middel van een willekeurige stem (in ons geval ''lichamelijk'')
+      in deze tekst te vermelden, zodat we kunnen zoeken metwoorden die de zelfde
+      stem bevatten.","auteur":"Jacob Green","taal":"gl","vertrouwelijkheidaanduiding":"method","status":"election","formaat":"tiff","bestandsnaam":"argue.jpg","informatieobjecttype":"senior","verschijningsvorm":"suddenly","bestandsomvang":1000000,"link":"https://www.reeves.biz/","creatiedatum":"2026-03-12","begin_registratie":"2026-03-17T15:41:35.708246","last_checked_at":"1976-09-19T00:00:00","next_check_at":"1980-04-22T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"c2b2418b-09d9-4224-9c8e-add01c6036db","url":"http://www.simon.info/","identificatie":"721cf5d6-32c0-4efe-8252-dd4927ca3cfe","bronorganisatie":"Mcgee
+      PLC","verantwoordelijkeOrganisatie":"Johnson Ltd","omschrijving":"Real defense
+      continue right natural.","toelichting":"Eye writer allow poor. Maintain hold
+      wide. Claim hair half upon could.","status":"interesting","registratiedatum":"2026-03-22","startdatum":"2026-03-24","zaaktype":"serious","object_type":"bed"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -117,7 +37,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"lichamelijk","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"lichamelijk","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"lichamelijk","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"lichamelijk","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -133,16 +53,15 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34511128,"_source":{"beschrijving":"Een
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.07457028,"_source":{"service_slug":"test-service","beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"investment","begin_registratie":"2026-03-31T18:30:17.442433","identificatie":"4b88bbee-d028-4a81-8f32-f864875f21cb","bronorganisatie":"Davenport,
-        Larson and Hoffman","bestandsomvang":1000000,"link":"https://www.martinez.net/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://griffin-simmons.info/","taal":"mag","zaak_referenties":[{"omschrijving":"Agency
-        race material believe sign on.","identificatie":"c3a41122-6086-4b2a-ab0b-e9b933ac8371","startdatum":"2026-03-23","object_type":"industry","bronorganisatie":"Peterson-Gomez","zaaktype":"past","registratiedatum":"2026-03-04","uuid":"a9dc141d-a10a-4483-aef7-ade2a08ea750","url":"https://www.elliott-thomas.com/","verantwoordelijkeOrganisatie":"Davies,
-        Duarte and Avila","toelichting":"At necessary law best organization ahead
-        loss. Sense good subject budget. Gas color customer its would season. Piece
-        eight firm already media including.","status":"part"}],"auteur":"Justin Moore","formaat":"css","titel":"Dutch
-        analyzer","vertrouwelijkheidaanduiding":"care","informatieobjecttype":"tree","bestandsnaam":"table.gif","creatiedatum":"2026-03-27","status":"first"},"sort":[0.34511128,1774569600000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"suddenly","begin_registratie":"2026-03-17T15:41:35.708246","identificatie":"1ebfe663-0e0d-4177-9c31-e92dd993a715","bronorganisatie":"Walker-Tran","bestandsomvang":1000000,"link":"https://www.reeves.biz/","next_check_at":"1980-04-22T00:00:00","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://www.valdez.com/","taal":"gl","zaak_referenties":[{"omschrijving":"Real
+        defense continue right natural.","identificatie":"721cf5d6-32c0-4efe-8252-dd4927ca3cfe","startdatum":"2026-03-24","object_type":"bed","bronorganisatie":"Mcgee
+        PLC","zaaktype":"serious","registratiedatum":"2026-03-22","uuid":"c2b2418b-09d9-4224-9c8e-add01c6036db","url":"http://www.simon.info/","verantwoordelijkeOrganisatie":"Johnson
+        Ltd","toelichting":"Eye writer allow poor. Maintain hold wide. Claim hair
+        half upon could.","status":"interesting"}],"auteur":"Jacob Green","formaat":"tiff","last_checked_at":"1976-09-19T00:00:00","titel":"Dutch
+        analyzer","vertrouwelijkheidaanduiding":"method","informatieobjecttype":"senior","bestandsnaam":"argue.jpg","creatiedatum":"2026-03-12","group_slug":"test-group","status":"election"},"sort":[0.07457028,1773273600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -154,7 +73,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"lichamelijke","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"lichamelijke","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"lichamelijke","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"lichamelijke","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -170,16 +89,15 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34511128,"_source":{"beschrijving":"Een
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.07457028,"_source":{"service_slug":"test-service","beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"investment","begin_registratie":"2026-03-31T18:30:17.442433","identificatie":"4b88bbee-d028-4a81-8f32-f864875f21cb","bronorganisatie":"Davenport,
-        Larson and Hoffman","bestandsomvang":1000000,"link":"https://www.martinez.net/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://griffin-simmons.info/","taal":"mag","zaak_referenties":[{"omschrijving":"Agency
-        race material believe sign on.","identificatie":"c3a41122-6086-4b2a-ab0b-e9b933ac8371","startdatum":"2026-03-23","object_type":"industry","bronorganisatie":"Peterson-Gomez","zaaktype":"past","registratiedatum":"2026-03-04","uuid":"a9dc141d-a10a-4483-aef7-ade2a08ea750","url":"https://www.elliott-thomas.com/","verantwoordelijkeOrganisatie":"Davies,
-        Duarte and Avila","toelichting":"At necessary law best organization ahead
-        loss. Sense good subject budget. Gas color customer its would season. Piece
-        eight firm already media including.","status":"part"}],"auteur":"Justin Moore","formaat":"css","titel":"Dutch
-        analyzer","vertrouwelijkheidaanduiding":"care","informatieobjecttype":"tree","bestandsnaam":"table.gif","creatiedatum":"2026-03-27","status":"first"},"sort":[0.34511128,1774569600000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"suddenly","begin_registratie":"2026-03-17T15:41:35.708246","identificatie":"1ebfe663-0e0d-4177-9c31-e92dd993a715","bronorganisatie":"Walker-Tran","bestandsomvang":1000000,"link":"https://www.reeves.biz/","next_check_at":"1980-04-22T00:00:00","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://www.valdez.com/","taal":"gl","zaak_referenties":[{"omschrijving":"Real
+        defense continue right natural.","identificatie":"721cf5d6-32c0-4efe-8252-dd4927ca3cfe","startdatum":"2026-03-24","object_type":"bed","bronorganisatie":"Mcgee
+        PLC","zaaktype":"serious","registratiedatum":"2026-03-22","uuid":"c2b2418b-09d9-4224-9c8e-add01c6036db","url":"http://www.simon.info/","verantwoordelijkeOrganisatie":"Johnson
+        Ltd","toelichting":"Eye writer allow poor. Maintain hold wide. Claim hair
+        half upon could.","status":"interesting"}],"auteur":"Jacob Green","formaat":"tiff","last_checked_at":"1976-09-19T00:00:00","titel":"Dutch
+        analyzer","vertrouwelijkheidaanduiding":"method","informatieobjecttype":"senior","bestandsnaam":"argue.jpg","creatiedatum":"2026-03-12","group_slug":"test-group","status":"election"},"sort":[0.07457028,1773273600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -191,7 +109,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"lichamelijkheden","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"lichamelijkheden","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"lichamelijkheden","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"lichamelijkheden","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -207,16 +125,15 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.34511128,"_source":{"beschrijving":"Een
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"828df354-b6dc-4693-815a-1b7d39b3bc95","_score":0.074570276,"_source":{"service_slug":"test-service","beschrijving":"Een
         document om de Nederlandse analyzer te testen. We doen dit door middel van
         een willekeurige stem (in ons geval ''lichamelijk'') in deze tekst te vermelden,
-        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"investment","begin_registratie":"2026-03-31T18:30:17.442433","identificatie":"4b88bbee-d028-4a81-8f32-f864875f21cb","bronorganisatie":"Davenport,
-        Larson and Hoffman","bestandsomvang":1000000,"link":"https://www.martinez.net/","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://griffin-simmons.info/","taal":"mag","zaak_referenties":[{"omschrijving":"Agency
-        race material believe sign on.","identificatie":"c3a41122-6086-4b2a-ab0b-e9b933ac8371","startdatum":"2026-03-23","object_type":"industry","bronorganisatie":"Peterson-Gomez","zaaktype":"past","registratiedatum":"2026-03-04","uuid":"a9dc141d-a10a-4483-aef7-ade2a08ea750","url":"https://www.elliott-thomas.com/","verantwoordelijkeOrganisatie":"Davies,
-        Duarte and Avila","toelichting":"At necessary law best organization ahead
-        loss. Sense good subject budget. Gas color customer its would season. Piece
-        eight firm already media including.","status":"part"}],"auteur":"Justin Moore","formaat":"css","titel":"Dutch
-        analyzer","vertrouwelijkheidaanduiding":"care","informatieobjecttype":"tree","bestandsnaam":"table.gif","creatiedatum":"2026-03-27","status":"first"},"sort":[0.34511128,1774569600000]}]}}'
+        zodat we kunnen zoeken metwoorden die de zelfde stem bevatten.","verschijningsvorm":"suddenly","begin_registratie":"2026-03-17T15:41:35.708246","identificatie":"1ebfe663-0e0d-4177-9c31-e92dd993a715","bronorganisatie":"Walker-Tran","bestandsomvang":1000000,"link":"https://www.reeves.biz/","next_check_at":"1980-04-22T00:00:00","uuid":"828df354-b6dc-4693-815a-1b7d39b3bc95","url":"http://www.valdez.com/","taal":"gl","zaak_referenties":[{"omschrijving":"Real
+        defense continue right natural.","identificatie":"721cf5d6-32c0-4efe-8252-dd4927ca3cfe","startdatum":"2026-03-24","object_type":"bed","bronorganisatie":"Mcgee
+        PLC","zaaktype":"serious","registratiedatum":"2026-03-22","uuid":"c2b2418b-09d9-4224-9c8e-add01c6036db","url":"http://www.simon.info/","verantwoordelijkeOrganisatie":"Johnson
+        Ltd","toelichting":"Eye writer allow poor. Maintain hold wide. Claim hair
+        half upon could.","status":"interesting"}],"auteur":"Jacob Green","formaat":"tiff","last_checked_at":"1976-09-19T00:00:00","titel":"Dutch
+        analyzer","vertrouwelijkheidaanduiding":"method","informatieobjecttype":"senior","bestandsnaam":"argue.jpg","creatiedatum":"2026-03-12","group_slug":"test-group","status":"election"},"sort":[0.074570276,1773273600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -228,7 +145,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"lich","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"lich","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"lich","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"lich","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8

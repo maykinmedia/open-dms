@@ -325,6 +325,18 @@ class ESDocumentSerializer(serializers.Serializer):
             "De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen in de index."
         ),
     )
+    service_slug = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_("De slug van de bronservice die dit document heeft geïndexeerd."),
+    )
+    group_slug = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_(
+            "De slug van de groep waartoe de bronservice behoort die dit document heeft geïndexeerd."
+        ),
+    )
     zaak_referenties = ZaakSerializer(many=True, required=False, default=list)
 
 

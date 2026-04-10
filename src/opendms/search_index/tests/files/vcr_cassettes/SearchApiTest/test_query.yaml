@@ -1,92 +1,12 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://johnson.com/","identificatie":"document1","bronorganisatie":"Reynolds-Pierce","titel":"Unique
-      Document","beschrijving":"Discover push than finish effort deep music. Turn
-      suddenly surface style. Paper yes matter administration.","auteur":"Billy Kim","taal":"da","vertrouwelijkheidaanduiding":"very","status":"citizen","formaat":"json","bestandsnaam":"its.mov","informatieobjecttype":"student","verschijningsvorm":"explain","bestandsomvang":1000000,"link":"http://smith.com/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-10T06:57:01.098257","zaak_referenties":[{"uuid":"cadcd637-4853-40d6-a077-96c4e7c6b2e0","url":"http://www.terrell.net/","identificatie":"a7aed808-09cf-44f0-be6d-3fd4c13f9b84","bronorganisatie":"Esparza,
-      Hopkins and Bennett","verantwoordelijkeOrganisatie":"Garrison and Sons","omschrijving":"Group
-      left candidate senior our day amount.","toelichting":"Us or protect personal
-      chair any enter. Research officer worker evidence. Their job various drive though
-      imagine.","status":"it","registratiedatum":"2026-03-24","startdatum":"2026-03-29","zaaktype":"commercial","object_type":"billion"}]}'
+    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://www.williams.com/","identificatie":"document1","bronorganisatie":"Wilkerson,
+      Peterson and Martin","titel":"Unique Document","beschrijving":"Ready health
+      develop beat arrive her along. Reach we son year economy manager. Performance
+      blue research.","auteur":"Beth Calhoun","taal":"mni","vertrouwelijkheidaanduiding":"Democrat","status":"often","formaat":"bmp","bestandsnaam":"report.html","informatieobjecttype":"rather","verschijningsvorm":"interest","bestandsomvang":1000000,"link":"https://robinson-leonard.biz/","creatiedatum":"2026-03-11","begin_registratie":"2026-04-08T02:39:08.143014","last_checked_at":"1979-02-28T00:00:00","next_check_at":"1971-12-28T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"4b9bf35c-053a-4e58-b4d4-cbddf5e7e063","url":"http://gutierrez-klein.info/","identificatie":"fbae5e7c-15de-452b-9774-192e52c9a6ba","bronorganisatie":"Mullins,
+      Smith and Lopez","verantwoordelijkeOrganisatie":"Mills-Klein","omschrijving":"Much
+      goal same nice.","toelichting":"Around final light conference. Suddenly ten
+      ten national.","status":"choice","registratiedatum":"2026-03-26","startdatum":"2026-03-17","zaaktype":"follow","object_type":"outside"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,92 +36,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://walker.net/","identificatie":"document2","bronorganisatie":"Anderson-Baker","titel":"Unique
-      Document2","beschrijving":"Already situation reduce do must. Collection down
-      window throughout bar common.","auteur":"Ashley Ferguson","taal":"pl","vertrouwelijkheidaanduiding":"some","status":"present","formaat":"mov","bestandsnaam":"surface.mp3","informatieobjecttype":"first","verschijningsvorm":"head","bestandsomvang":1000000,"link":"http://nguyen.com/","creatiedatum":"2026-03-26","begin_registratie":"2026-03-16T23:13:08.976201","zaak_referenties":[{"uuid":"d809ba1c-db04-4eef-bb07-e595f4fcd65a","url":"http://www.chapman-thompson.net/","identificatie":"b50ff256-a4a8-489a-8deb-b03c40d79ee0","bronorganisatie":"Shaffer,
-      Maldonado and Jordan","verantwoordelijkeOrganisatie":"Bailey LLC","omschrijving":"Team
-      think because school newspaper face.","toelichting":"Poor contain mean decade.
-      Page at visit yourself character.","status":"outside","registratiedatum":"2026-03-12","startdatum":"2026-03-14","zaaktype":"often","object_type":"happy"}]}'
+    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://www.wilson.org/","identificatie":"document2","bronorganisatie":"Jenkins
+      and Sons","titel":"Unique Document2","beschrijving":"Whole mouth make run upon
+      take. Hold there successful bit. Top its thought. Buy friend question happy
+      require building family.","auteur":"Scott Ward","taal":"az","vertrouwelijkheidaanduiding":"along","status":"that","formaat":"wav","bestandsnaam":"modern.avi","informatieobjecttype":"spend","verschijningsvorm":"every","bestandsomvang":1000000,"link":"http://contreras.biz/","creatiedatum":"2026-03-21","begin_registratie":"2026-03-29T04:23:05.400484","last_checked_at":"1984-01-01T00:00:00","next_check_at":"1976-04-08T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"4a94f2fe-d527-44f5-b092-994159c611c8","url":"https://www.martinez-stokes.com/","identificatie":"39e2847d-519e-4afa-b0b0-b9e9d6bdc671","bronorganisatie":"King-Montoya","verantwoordelijkeOrganisatie":"Barr-Williams","omschrijving":"Popular
+      partner sit.","toelichting":"Enter yet partner. Nor international big accept
+      candidate tell several.","status":"response","registratiedatum":"2026-04-06","startdatum":"2026-03-23","zaaktype":"per","object_type":"various"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -231,7 +71,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"document1","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"document1","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"document1","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"document1","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -247,14 +87,15 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":3.8431349,"_source":{"beschrijving":"Discover
-        push than finish effort deep music. Turn suddenly surface style. Paper yes
-        matter administration.","verschijningsvorm":"explain","begin_registratie":"2026-03-10T06:57:01.098257","identificatie":"document1","bronorganisatie":"Reynolds-Pierce","bestandsomvang":1000000,"link":"http://smith.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://johnson.com/","taal":"da","zaak_referenties":[{"omschrijving":"Group
-        left candidate senior our day amount.","identificatie":"a7aed808-09cf-44f0-be6d-3fd4c13f9b84","startdatum":"2026-03-29","object_type":"billion","bronorganisatie":"Esparza,
-        Hopkins and Bennett","zaaktype":"commercial","registratiedatum":"2026-03-24","uuid":"cadcd637-4853-40d6-a077-96c4e7c6b2e0","url":"http://www.terrell.net/","verantwoordelijkeOrganisatie":"Garrison
-        and Sons","toelichting":"Us or protect personal chair any enter. Research
-        officer worker evidence. Their job various drive though imagine.","status":"it"}],"auteur":"Billy
-        Kim","formaat":"json","titel":"Unique Document","vertrouwelijkheidaanduiding":"very","informatieobjecttype":"student","bestandsnaam":"its.mov","creatiedatum":"2026-03-18","status":"citizen"},"sort":[3.8431349,1773792000000]}]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":0.94257474,"_source":{"service_slug":"test-service","beschrijving":"Ready
+        health develop beat arrive her along. Reach we son year economy manager. Performance
+        blue research.","verschijningsvorm":"interest","begin_registratie":"2026-04-08T02:39:08.143014","identificatie":"document1","bronorganisatie":"Wilkerson,
+        Peterson and Martin","bestandsomvang":1000000,"link":"https://robinson-leonard.biz/","next_check_at":"1971-12-28T00:00:00","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://www.williams.com/","taal":"mni","zaak_referenties":[{"omschrijving":"Much
+        goal same nice.","identificatie":"fbae5e7c-15de-452b-9774-192e52c9a6ba","startdatum":"2026-03-17","object_type":"outside","bronorganisatie":"Mullins,
+        Smith and Lopez","zaaktype":"follow","registratiedatum":"2026-03-26","uuid":"4b9bf35c-053a-4e58-b4d4-cbddf5e7e063","url":"http://gutierrez-klein.info/","verantwoordelijkeOrganisatie":"Mills-Klein","toelichting":"Around
+        final light conference. Suddenly ten ten national.","status":"choice"}],"auteur":"Beth
+        Calhoun","formaat":"bmp","last_checked_at":"1979-02-28T00:00:00","titel":"Unique
+        Document","vertrouwelijkheidaanduiding":"Democrat","informatieobjecttype":"rather","bestandsnaam":"report.html","creatiedatum":"2026-03-11","group_slug":"test-group","status":"often"},"sort":[0.94257474,1773187200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

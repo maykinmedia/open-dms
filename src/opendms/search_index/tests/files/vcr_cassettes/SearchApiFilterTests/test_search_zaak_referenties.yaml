@@ -1,88 +1,8 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775200962809","number_of_replicas":"1","uuid":"wota12QYSWmF9NKLcDMZOg","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"toelichting":{"analyzer":"dutch","type":"text"},"omschrijving":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"}},"type":"nested"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"status":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://drake-jones.com/","identificatie":"de77919c-0081-424b-abaa-116f4bb3b83d","bronorganisatie":"Stewart,
-      Savage and Rhodes","titel":"Document with zaak","beschrijving":"Some description","auteur":"Christopher
-      Miller","taal":"ti","vertrouwelijkheidaanduiding":"defense","status":"detail","formaat":"jpg","bestandsnaam":"public.pages","informatieobjecttype":"no","verschijningsvorm":"anyone","bestandsomvang":1000000,"link":"http://bender.com/","creatiedatum":"2024-02-11","begin_registratie":"2026-03-21T22:24:21.268774","zaak_referenties":[{"url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","identificatie":"ZA123","omschrijving":"This
+    body: '{"uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.bennett.org/","identificatie":"39f27a58-a996-4565-922f-c812c239e5b1","bronorganisatie":"Davis,
+      Scott and Mckay","titel":"Document with zaak","beschrijving":"Some description","auteur":"Leslie
+      Jackson","taal":"lt","vertrouwelijkheidaanduiding":"interesting","status":"throughout","formaat":"mov","bestandsnaam":"voice.mp3","informatieobjecttype":"bring","verschijningsvorm":"idea","bestandsomvang":1000000,"link":"https://ortiz.com/","creatiedatum":"2024-02-11","begin_registratie":"2026-03-28T07:11:41.296381","last_checked_at":"2016-02-13T00:00:00","next_check_at":"1989-01-22T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","identificatie":"ZA123","omschrijving":"This
       is a test zaak","toelichting":"Extra info","status":"open","registratiedatum":"2026-01-01","startdatum":"2024-02-11","zaaktype":"http://example.com/zaaktype/52fceb92-98bd-475c-b184-49ee8a274787","object_type":"objectX","bronorganisatie":"org1","verantwoordelijkeOrganisatie":"org1"}]}'
     headers:
       accept:
@@ -99,21 +19,21 @@ interactions:
     uri: http://localhost:9201/document/_doc/12fceb92-98bd-475c-b184-49ee8a274787?pipeline=document_attachment&refresh=wait_for
   response:
     body:
-      string: '{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+      string: '{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":10,"_primary_term":1}'
     headers:
       Location:
       - /document/_doc/12fceb92-98bd-475c-b184-49ee8a274787
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '176'
+      - '177'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"ZA123","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"ZA123","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+    body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"ZA123","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"ZA123","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -129,12 +49,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"beschrijving":"Some
-        description","verschijningsvorm":"anyone","begin_registratie":"2026-03-21T22:24:21.268774","identificatie":"de77919c-0081-424b-abaa-116f4bb3b83d","bronorganisatie":"Stewart,
-        Savage and Rhodes","bestandsomvang":1000000,"link":"http://bender.com/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://drake-jones.com/","taal":"ti","zaak_referenties":[{"omschrijving":"This
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"service_slug":"test-service","beschrijving":"Some
+        description","verschijningsvorm":"idea","begin_registratie":"2026-03-28T07:11:41.296381","identificatie":"39f27a58-a996-4565-922f-c812c239e5b1","bronorganisatie":"Davis,
+        Scott and Mckay","bestandsomvang":1000000,"link":"https://ortiz.com/","next_check_at":"1989-01-22T00:00:00","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.bennett.org/","taal":"lt","zaak_referenties":[{"omschrijving":"This
         is a test zaak","identificatie":"ZA123","startdatum":"2024-02-11","object_type":"objectX","zaaktype":"http://example.com/zaaktype/52fceb92-98bd-475c-b184-49ee8a274787","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        info","status":"open"}],"auteur":"Christopher Miller","formaat":"jpg","titel":"Document
-        with zaak","vertrouwelijkheidaanduiding":"defense","informatieobjecttype":"no","bestandsnaam":"public.pages","creatiedatum":"2024-02-11","status":"detail"},"sort":[0.0,1707609600000]}]}}'
+        info","status":"open"}],"auteur":"Leslie Jackson","formaat":"mov","last_checked_at":"2016-02-13T00:00:00","titel":"Document
+        with zaak","vertrouwelijkheidaanduiding":"interesting","informatieobjecttype":"bring","bestandsnaam":"voice.mp3","creatiedatum":"2024-02-11","group_slug":"test-group","status":"throughout"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -148,7 +68,7 @@ interactions:
 - request:
     body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"test
       zaak","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"test
-      zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+      zaak","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -164,12 +84,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"beschrijving":"Some
-        description","verschijningsvorm":"anyone","begin_registratie":"2026-03-21T22:24:21.268774","identificatie":"de77919c-0081-424b-abaa-116f4bb3b83d","bronorganisatie":"Stewart,
-        Savage and Rhodes","bestandsomvang":1000000,"link":"http://bender.com/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://drake-jones.com/","taal":"ti","zaak_referenties":[{"omschrijving":"This
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"service_slug":"test-service","beschrijving":"Some
+        description","verschijningsvorm":"idea","begin_registratie":"2026-03-28T07:11:41.296381","identificatie":"39f27a58-a996-4565-922f-c812c239e5b1","bronorganisatie":"Davis,
+        Scott and Mckay","bestandsomvang":1000000,"link":"https://ortiz.com/","next_check_at":"1989-01-22T00:00:00","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.bennett.org/","taal":"lt","zaak_referenties":[{"omschrijving":"This
         is a test zaak","identificatie":"ZA123","startdatum":"2024-02-11","object_type":"objectX","zaaktype":"http://example.com/zaaktype/52fceb92-98bd-475c-b184-49ee8a274787","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        info","status":"open"}],"auteur":"Christopher Miller","formaat":"jpg","titel":"Document
-        with zaak","vertrouwelijkheidaanduiding":"defense","informatieobjecttype":"no","bestandsnaam":"public.pages","creatiedatum":"2024-02-11","status":"detail"},"sort":[0.0,1707609600000]}]}}'
+        info","status":"open"}],"auteur":"Leslie Jackson","formaat":"mov","last_checked_at":"2016-02-13T00:00:00","titel":"Document
+        with zaak","vertrouwelijkheidaanduiding":"interesting","informatieobjecttype":"bring","bestandsnaam":"voice.mp3","creatiedatum":"2024-02-11","group_slug":"test-group","status":"throughout"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -183,7 +103,7 @@ interactions:
 - request:
     body: '{"query":{"function_score":{"functions":[{"gauss":{"creatiedatum":{"origin":"now","scale":"15d","offset":"7d","decay":0.5}}}],"query":{"bool":{"minimum_should_match":1,"should":[{"simple_query_string":{"query":"Extra
       info","default_operator":"AND","fields":["identificatie^3","titel^2","bestandsnaam^1.5","beschrijving^1.2","document_data.attachment.content"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}},{"nested":{"path":"zaak_referenties","query":{"simple_query_string":{"query":"Extra
-      info","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"]}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
+      info","default_operator":"AND","fields":["zaak_referenties.identificatie^3","zaak_referenties.omschrijving^2","zaak_referenties.toelichting^1.5","zaak_referenties.status^1.2"],"flags":"OR|AND|PHRASE|PRECEDENCE|WHITESPACE"}}}}]}},"score_mode":"multiply"}},"sort":["_score",{"creatiedatum":{"order":"desc"}}],"from":0,"size":10}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -199,12 +119,12 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"beschrijving":"Some
-        description","verschijningsvorm":"anyone","begin_registratie":"2026-03-21T22:24:21.268774","identificatie":"de77919c-0081-424b-abaa-116f4bb3b83d","bronorganisatie":"Stewart,
-        Savage and Rhodes","bestandsomvang":1000000,"link":"http://bender.com/","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"http://drake-jones.com/","taal":"ti","zaak_referenties":[{"omschrijving":"This
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"12fceb92-98bd-475c-b184-49ee8a274787","_score":0.0,"_source":{"service_slug":"test-service","beschrijving":"Some
+        description","verschijningsvorm":"idea","begin_registratie":"2026-03-28T07:11:41.296381","identificatie":"39f27a58-a996-4565-922f-c812c239e5b1","bronorganisatie":"Davis,
+        Scott and Mckay","bestandsomvang":1000000,"link":"https://ortiz.com/","next_check_at":"1989-01-22T00:00:00","uuid":"12fceb92-98bd-475c-b184-49ee8a274787","url":"https://www.bennett.org/","taal":"lt","zaak_referenties":[{"omschrijving":"This
         is a test zaak","identificatie":"ZA123","startdatum":"2024-02-11","object_type":"objectX","zaaktype":"http://example.com/zaaktype/52fceb92-98bd-475c-b184-49ee8a274787","bronorganisatie":"org1","registratiedatum":"2026-01-01","uuid":"62fceb92-98bd-475c-b184-49ee8a274787","url":"http://example.com/zaak/62fceb92-98bd-475c-b184-49ee8a274787","verantwoordelijkeOrganisatie":"org1","toelichting":"Extra
-        info","status":"open"}],"auteur":"Christopher Miller","formaat":"jpg","titel":"Document
-        with zaak","vertrouwelijkheidaanduiding":"defense","informatieobjecttype":"no","bestandsnaam":"public.pages","creatiedatum":"2024-02-11","status":"detail"},"sort":[0.0,1707609600000]}]}}'
+        info","status":"open"}],"auteur":"Leslie Jackson","formaat":"mov","last_checked_at":"2016-02-13T00:00:00","titel":"Document
+        with zaak","vertrouwelijkheidaanduiding":"interesting","informatieobjecttype":"bring","bestandsnaam":"voice.mp3","creatiedatum":"2024-02-11","group_slug":"test-group","status":"throughout"},"sort":[0.0,1707609600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

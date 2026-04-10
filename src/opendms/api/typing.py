@@ -73,6 +73,8 @@ class ESDocumentType(TypedDict):
     beschrijving: str | None
     verschijningsvorm: str | None
     bestandsomvang: int | None
+    service_slug: str | None
+    group_slug: str | None
 
     zaak_referenties: list[Zaak]
 

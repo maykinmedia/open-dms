@@ -1,92 +1,12 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://norman.com/","identificatie":"a89eaed5-5a31-4994-adbf-ce9f2b525f77","bronorganisatie":"Dorsey,
-      Smith and Allen","titel":"Well large because everybody relate.","beschrijving":"Book
-      woman start and per work. White model although generation light. Citizen show
-      cause another list.","auteur":"Matthew Hodge","taal":"cmn","vertrouwelijkheidaanduiding":"sea","status":"I","formaat":"css","bestandsnaam":"them.flac","informatieobjecttype":"hotel","verschijningsvorm":"serve","bestandsomvang":1000000,"link":"https://johnson.info/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-29T06:16:49.249757","zaak_referenties":[{"uuid":"13bafd5b-fc1d-48a6-9f79-2758bfeb4911","url":"http://www.rodriguez-harris.org/","identificatie":"1bc91122-5588-4133-9859-acbf290a428e","bronorganisatie":"Ortiz-White","verantwoordelijkeOrganisatie":"Davis-Garcia","omschrijving":"Smile
-      serve college way impact under movie.","toelichting":"Almost his kid could expert
-      recently dinner window. Charge yard front mother sport. Sign often floor eight
-      range.","status":"grow","registratiedatum":"2026-03-23","startdatum":"2026-03-25","zaaktype":"order","object_type":"high"}]}'
+    body: '{"uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.lucas-lawrence.com/","identificatie":"0af52341-2271-491c-bd03-8503a5e8bb91","bronorganisatie":"Mcclain
+      Group","titel":"Sure remain grow popular white.","beschrijving":"Employee buy
+      response always table activity clear chance. Fight church prove themselves.
+      Several action country happen college put war.","auteur":"Jennifer Parker","taal":"nb","vertrouwelijkheidaanduiding":"hope","status":"enjoy","formaat":"mp4","bestandsnaam":"start.gif","informatieobjecttype":"for","verschijningsvorm":"reflect","bestandsomvang":1000000,"link":"http://robinson.net/","creatiedatum":"2026-01-01","begin_registratie":"2026-03-12T10:39:10.816859","last_checked_at":"1983-01-03T00:00:00","next_check_at":"1979-03-16T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"aa4711fa-0cf7-4e3d-9d70-4d2a0aa0a2c6","url":"https://brown-franklin.com/","identificatie":"ff2b3ede-a2e8-445a-bd62-43abc2579196","bronorganisatie":"Jones
+      PLC","verantwoordelijkeOrganisatie":"Wright, Pacheco and Moore","omschrijving":"Wish
+      pressure wait front condition.","toelichting":"Whom another onto drive. Candidate
+      marriage outside try. Should plan from effort mouth standard song.","status":"national","registratiedatum":"2026-03-17","startdatum":"2026-04-06","zaaktype":"simple","object_type":"including"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -116,93 +36,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775201939741","number_of_replicas":"1","uuid":"hoRf8YLqQ_Ozgq0C3yeS1w","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"identificatie":{"type":"keyword"}},"type":"nested"},"beschrijving":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"auteur":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"inhoud":{"type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://green.com/","identificatie":"0649bda3-db75-40b6-ba8d-4b1d978f73b2","bronorganisatie":"Fields,
-      Brown and Rodriguez","titel":"Position sister long whole daughter.","beschrijving":"Traditional
-      husband hope its enter none evidence. Skin develop try create eight blood third.","auteur":"Jeremy
-      Khan","taal":"hr","vertrouwelijkheidaanduiding":"nature","status":"call","formaat":"mov","bestandsnaam":"despite.bmp","informatieobjecttype":"notice","verschijningsvorm":"peace","bestandsomvang":1000000,"link":"http://mata-reyes.org/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-19T17:10:50.283230","zaak_referenties":[{"uuid":"f98825fb-cff7-4db8-8832-352b06e0e226","url":"https://www.pruitt.info/","identificatie":"15531f66-ca76-4ffa-bb2e-8de9d3395114","bronorganisatie":"Porter,
-      Hall and Jordan","verantwoordelijkeOrganisatie":"Schaefer Inc","omschrijving":"Heart
-      southern water whom seven yard.","toelichting":"Thing idea case debate despite
-      action simply. Girl above Congress baby.","status":"magazine","registratiedatum":"2026-03-16","startdatum":"2026-03-11","zaaktype":"though","object_type":"art"}]}'
+    body: '{"uuid":"48981334-b480-4e7d-8c8d-925bbc67a969","url":"https://phillips-davis.com/","identificatie":"ec05e976-a747-4111-9d19-3762a1d607c8","bronorganisatie":"Ramirez
+      Ltd","titel":"Born three win employee people.","beschrijving":"Line lead yet
+      term break certainly only. Various fire something step. Away wait color everybody
+      senior.","auteur":"Jonathan Allen","taal":"lv","vertrouwelijkheidaanduiding":"computer","status":"government","formaat":"avi","bestandsnaam":"dream.avi","informatieobjecttype":"option","verschijningsvorm":"surface","bestandsomvang":1000000,"link":"http://herrera.com/","creatiedatum":"2026-02-01","begin_registratie":"2026-03-14T16:50:03.781130","last_checked_at":"1992-02-18T00:00:00","next_check_at":"2002-02-27T00:00:00","service_slug":"test-service","group_slug":"test-group","zaak_referenties":[{"uuid":"420034de-4ba0-4127-8dec-46054ade763d","url":"http://www.bowers.net/","identificatie":"5e449c11-467d-489c-81cf-bf6a4b91b9d3","bronorganisatie":"Henry,
+      Boyd and Edwards","verantwoordelijkeOrganisatie":"Baker, Davis and Mcdonald","omschrijving":"Level
+      drop music yes issue room consumer.","toelichting":"Anything data according
+      senior himself. Relationship prepare capital eye.","status":"how","registratiedatum":"2026-03-27","startdatum":"2026-03-23","zaaktype":"interview","object_type":"throw"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -248,14 +88,16 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":1.8236673E-10,"_source":{"beschrijving":"Book
-        woman start and per work. White model although generation light. Citizen show
-        cause another list.","verschijningsvorm":"serve","begin_registratie":"2026-03-29T06:16:49.249757","identificatie":"a89eaed5-5a31-4994-adbf-ce9f2b525f77","bronorganisatie":"Dorsey,
-        Smith and Allen","bestandsomvang":1000000,"link":"https://johnson.info/","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"https://norman.com/","taal":"cmn","zaak_referenties":[{"omschrijving":"Smile
-        serve college way impact under movie.","identificatie":"1bc91122-5588-4133-9859-acbf290a428e","startdatum":"2026-03-25","object_type":"high","bronorganisatie":"Ortiz-White","zaaktype":"order","registratiedatum":"2026-03-23","uuid":"13bafd5b-fc1d-48a6-9f79-2758bfeb4911","url":"http://www.rodriguez-harris.org/","verantwoordelijkeOrganisatie":"Davis-Garcia","toelichting":"Almost
-        his kid could expert recently dinner window. Charge yard front mother sport.
-        Sign often floor eight range.","status":"grow"}],"auteur":"Matthew Hodge","formaat":"css","titel":"Well
-        large because everybody relate.","vertrouwelijkheidaanduiding":"sea","informatieobjecttype":"hotel","bestandsnaam":"them.flac","creatiedatum":"2026-01-01","status":"I"},"sort":[1.8236673E-10,1767225600000]}]}}'
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"80485d67-0b97-4ed5-8483-f2d03d012e19","_score":3.9911373E-12,"_source":{"service_slug":"test-service","beschrijving":"Employee
+        buy response always table activity clear chance. Fight church prove themselves.
+        Several action country happen college put war.","verschijningsvorm":"reflect","begin_registratie":"2026-03-12T10:39:10.816859","identificatie":"0af52341-2271-491c-bd03-8503a5e8bb91","bronorganisatie":"Mcclain
+        Group","bestandsomvang":1000000,"link":"http://robinson.net/","next_check_at":"1979-03-16T00:00:00","uuid":"80485d67-0b97-4ed5-8483-f2d03d012e19","url":"http://www.lucas-lawrence.com/","taal":"nb","zaak_referenties":[{"omschrijving":"Wish
+        pressure wait front condition.","identificatie":"ff2b3ede-a2e8-445a-bd62-43abc2579196","startdatum":"2026-04-06","object_type":"including","bronorganisatie":"Jones
+        PLC","zaaktype":"simple","registratiedatum":"2026-03-17","uuid":"aa4711fa-0cf7-4e3d-9d70-4d2a0aa0a2c6","url":"https://brown-franklin.com/","verantwoordelijkeOrganisatie":"Wright,
+        Pacheco and Moore","toelichting":"Whom another onto drive. Candidate marriage
+        outside try. Should plan from effort mouth standard song.","status":"national"}],"auteur":"Jennifer
+        Parker","formaat":"mp4","last_checked_at":"1983-01-03T00:00:00","titel":"Sure
+        remain grow popular white.","vertrouwelijkheidaanduiding":"hope","informatieobjecttype":"for","bestandsnaam":"start.gif","creatiedatum":"2026-01-01","group_slug":"test-group","status":"enjoy"},"sort":[3.9911373E-12,1767225600000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked
