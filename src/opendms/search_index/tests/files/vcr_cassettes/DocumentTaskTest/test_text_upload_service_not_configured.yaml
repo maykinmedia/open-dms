@@ -1,11 +1,13 @@
 interactions:
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://martinez-garcia.org/","identificatie":"713151bd-6a28-4ec0-92c9-328cc56d902c","bronorganisatie":"Murillo,
-      Barajas and Perry","titel":"Enough vote economic prove evening like.","beschrijving":"Glass
-      stay spring water citizen nothing animal. Statement theory whole most television
-      collection.","auteur":"Kristina Brooks","taal":"shs","vertrouwelijkheidaanduiding":"table","status":"effort","formaat":"xlsx","bestandsnaam":"east.xlsx","informatieobjecttype":"small","verschijningsvorm":"everybody","bestandsomvang":1000000,"link":"http://www.wolf.biz/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-31T02:58:59.998985","last_checked_at":"1974-05-01T00:00:00","next_check_at":"2002-10-05T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"1ee4a241-00e8-45e3-9a7a-74d6215ec26d","url":"http://www.gallegos-bryant.biz/","identificatie":"06126f25-50cd-42be-9d6a-6f4b6b16fe2c","bronorganisatie":"Christian-Martinez","verantwoordelijkeOrganisatie":"Sexton,
-      Taylor and Cruz","omschrijving":"Word per available step industry.","toelichting":"Way
-      exist service care determine figure. Husband office film lot often.","status":"remain","registratiedatum":"2026-03-12","startdatum":"2026-03-28","zaaktype":"condition","object_type":"team"}],"inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://zavala.net/","identificatie":"f6db9c88-79a9-48ac-887d-f05f0b12b0c5","bronorganisatie":"Stewart
+      Ltd","titel":"Wish attack final discussion.","beschrijving":"Not blue relationship
+      sport. Entire keep man worker. Throw list ok body now three network.","auteur":"Lori
+      Mcneil","taal":"yue","vertrouwelijkheidaanduiding":"expect","status":"avoid","formaat":"mp4","bestandsnaam":"inside.gif","informatieobjecttype":"note","verschijningsvorm":"sense","bestandsomvang":1000000,"link":"http://diaz.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-25T16:36:54.959473","last_checked_at":"2016-11-23T00:00:00","next_check_at":"2023-04-22T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"20edbfd0-42e9-4ef1-9c08-044c39586d56","url":"http://ross-robinson.com/","identificatie":"432067c7-c176-4e7f-8d8b-3573352f552c","bronorganisatie":"Smith,
+      Giles and Mcclain","verantwoordelijkeOrganisatie":"Holt PLC","omschrijving":"Grow
+      machine suffer rule child dream.","toelichting":"Popular really security heart
+      try including allow. Month reduce program onto a behavior popular leave. Fill
+      Democrat everything someone never.","status":"visit","registratiedatum":"2026-03-26","startdatum":"2026-03-24","zaaktype":"same","object_type":"help","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -49,19 +51,21 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":3,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Glass
-        stay spring water citizen nothing animal. Statement theory whole most television
-        collection.","verschijningsvorm":"everybody","begin_registratie":"2026-03-31T02:58:59.998985","identificatie":"713151bd-6a28-4ec0-92c9-328cc56d902c","bronorganisatie":"Murillo,
-        Barajas and Perry","bestandsomvang":1000000,"link":"http://www.wolf.biz/","next_check_at":"2002-10-05T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://martinez-garcia.org/","taal":"shs","zaak_referenties":[{"omschrijving":"Word
-        per available step industry.","identificatie":"06126f25-50cd-42be-9d6a-6f4b6b16fe2c","startdatum":"2026-03-28","object_type":"team","bronorganisatie":"Christian-Martinez","zaaktype":"condition","registratiedatum":"2026-03-12","uuid":"1ee4a241-00e8-45e3-9a7a-74d6215ec26d","url":"http://www.gallegos-bryant.biz/","verantwoordelijkeOrganisatie":"Sexton,
-        Taylor and Cruz","toelichting":"Way exist service care determine figure. Husband
-        office film lot often.","status":"remain"}],"auteur":"Kristina Brooks","formaat":"xlsx","last_checked_at":"1974-05-01T00:00:00","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Enough
-        vote economic prove evening like.","vertrouwelijkheidaanduiding":"table","informatieobjecttype":"small","bestandsnaam":"east.xlsx","creatiedatum":"2026-03-16","group_slug":"group-1","status":"effort"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":3,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Not
+        blue relationship sport. Entire keep man worker. Throw list ok body now three
+        network.","verschijningsvorm":"sense","begin_registratie":"2026-03-25T16:36:54.959473","identificatie":"f6db9c88-79a9-48ac-887d-f05f0b12b0c5","bronorganisatie":"Stewart
+        Ltd","bestandsomvang":1000000,"link":"http://diaz.com/","next_check_at":"2023-04-22T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://zavala.net/","taal":"yue","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"432067c7-c176-4e7f-8d8b-3573352f552c","object_type":"help","bronorganisatie":"Smith,
+        Giles and Mcclain","zaaktype":"same","registratiedatum":"2026-03-26","uuid":"20edbfd0-42e9-4ef1-9c08-044c39586d56","url":"http://ross-robinson.com/","verantwoordelijkeOrganisatie":"Holt
+        PLC","omschrijving":"Grow machine suffer rule child dream.","startdatum":"2026-03-24","toelichting":"Popular
+        really security heart try including allow. Month reduce program onto a behavior
+        popular leave. Fill Democrat everything someone never.","status":"visit"}],"auteur":"Lori
+        Mcneil","formaat":"mp4","last_checked_at":"2016-11-23T00:00:00","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Wish
+        attack final discussion.","vertrouwelijkheidaanduiding":"expect","informatieobjecttype":"note","bestandsnaam":"inside.gif","creatiedatum":"2026-03-28","group_slug":"group-1","status":"avoid"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1547'
+      - '1573'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

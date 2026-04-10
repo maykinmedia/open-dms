@@ -498,6 +498,25 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertNotEqual(zaak.identificatie, "")
         self.assertIsNotNone(zaak.omschrijving)
 
+    def test_document_contains_zaakreferentie_service_slug(self):
+        index_all_documents()
+
+        doc_uuid = "d34816d6-50c6-49ea-9b84-4803cbc45a3a"
+
+        with get_elasticsearch_client() as client:
+            doc = client.get_document(doc_uuid)
+
+        self.assertIsNotNone(doc)
+        self.assertTrue(doc.zaak_referenties)
+
+        zaak = doc.zaak_referenties[0]
+
+        self.assertIn("/zaken/", zaak.url)
+        self.assertEqual(zaak.service_slug, "zaken-api")
+
+        self.assertNotEqual(zaak.identificatie, "")
+        self.assertIsNotNone(zaak.omschrijving)
+
     def test_document_without_oio_or_zaak_results_in_empty_zaak_refs(self):
         with patch(
             "opendms.api.clients.documenten.ObjectInformatieObjectClient.get_by_informatieobject",
