@@ -24,20 +24,16 @@ def index_all_documents() -> None:
     """
     groups = ZGWApiGroupConfig.objects.all()
 
-    doc_services = []
-    for group in groups:
-        if group.drc_service:
-            doc_services.append(group.drc_service)
+    if not any(group.drc_service for group in groups):
+        raise ExternalServiceUnavailable("No DRC API services configured!")
 
-    zaak_services = []
+    if not any(group.zrc_service for group in groups):
+        raise ExternalServiceUnavailable("No ZRC services configured!")
+
+    zaak_services = set()
     for group in groups:
         if group.zrc_service:
-            zaak_services.append(group.zrc_service)
-
-    if not doc_services:
-        raise ExternalServiceUnavailable("No DRC API services configured!")
-    if not zaak_services:
-        raise ExternalServiceUnavailable("No ZRC services configured!")
+            zaak_services.add(group.zrc_service)
 
     with get_elasticsearch_client() as es_client:
         # TODO: add to docker compose
@@ -45,9 +41,14 @@ def index_all_documents() -> None:
 
         last_creatiedatum = es_client.get_last_document_creatiedatum()
 
-        for doc_service in doc_services:
-            group_config = doc_service.zgwset_drc_config.first()
-            zgw_group_slug = group_config.identifier if group_config else None
+        seen_doc_services = set()
+
+        for group in groups:
+            doc_service = group.drc_service
+            if not doc_service or doc_service.id in seen_doc_services:
+                continue
+            seen_doc_services.add(doc_service.id)
+
             logger.info(
                 "fetching_documents",
                 service=doc_service.slug,
@@ -107,7 +108,7 @@ def index_all_documents() -> None:
 
                     obj = Document(**doc, zaak_referenties=zaak_refs)
                     es_client.index_document(
-                        obj, service=doc_service.slug, group_slug=zgw_group_slug
+                        obj, service=doc_service.slug, group_slug=group.identifier
                     )
 
             logger.info("indexing_scheduled", total_documents=len(all_documents))
@@ -121,18 +122,28 @@ def validate_expired_documents(batch_size: int = 100):
     - If not, delete it from Elasticsearch
     """
     groups = ZGWApiGroupConfig.objects.all()
-    services = []
-    for group in groups:
-        if group.drc_service:
-            services.append(group.drc_service)
 
-    if not services:
+    if not any(group.drc_service for group in groups):
         raise ExternalServiceUnavailable("No DRC API services configured!")
 
     now = datetime.now(UTC)
 
     with get_elasticsearch_client() as es_client:
-        for service in services:
+        seen_drc_services = set()
+
+        for group in groups:
+            service = group.drc_service
+
+            if not service or service.id in seen_drc_services:
+                continue
+
+            seen_drc_services.add(service.id)
+
+            logger.info(
+                "validating_expired_documents",
+                service=service.slug,
+            )
+
             # Get expired documents from Elasticsearch
             expired_docs = es_client.get_expired_documents(
                 now, batch_size, service_slug=service.slug
@@ -154,7 +165,7 @@ def validate_expired_documents(batch_size: int = 100):
             min_creatiedatum = min(creatiedata)
             max_creatiedatum = max(creatiedata)
 
-            # Fetch all OpenZaak documents between min and max creatiedatum
+            # Fetch OpenZaak documents in range
             with get_documenten_client(service) as doc_client:
                 oz_docs = doc_client.get_items(
                     params={

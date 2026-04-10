@@ -1,11 +1,12 @@
 interactions:
 - request:
-    body: '{"uuid":"expired-1","url":"https://mason-reyes.com/","identificatie":"dd1cd7a5-ffb9-4a9d-a787-4d238db7f147","bronorganisatie":"Barry-Vazquez","titel":"Suggest
-      believe couple answer system site.","beschrijving":"Customer kid network interesting
-      tell person. Probably air mouth her black appear road. Require college hear
-      direction itself wait.","auteur":"Alexandra Ho","taal":"zu","vertrouwelijkheidaanduiding":"shake","status":"I","formaat":"webm","bestandsnaam":"letter.js","informatieobjecttype":"western","verschijningsvorm":"your","bestandsomvang":1000000,"link":"http://baker.biz/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-31T03:43:44.793775","last_checked_at":"2026-04-08T07:17:29.895867+00:00","next_check_at":"2026-04-09T07:17:29.895867+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"705af760-c630-42f2-ad58-f3d51c585010","url":"https://www.jackson.com/","identificatie":"5d7b3db0-7cb9-47b8-a5e1-462569da98ec","bronorganisatie":"Brooks-Davis","verantwoordelijkeOrganisatie":"Barton
-      and Sons","omschrijving":"Especially family attack staff state.","toelichting":"Discuss
-      relate myself series return thousand. About only as let.","status":"senior","registratiedatum":"2026-04-08","startdatum":"2026-04-03","zaaktype":"age","object_type":"nice"}]}'
+    body: '{"uuid":"expired-1","url":"https://www.mueller.com/","identificatie":"6a14e69c-3970-48f2-a879-cd0dc1999537","bronorganisatie":"Ballard-Brewer","titel":"Anyone
+      lot stop summer.","beschrijving":"Recent cost bank force. Interesting industry
+      your indeed stage between maybe. Already energy space newspaper station common.","auteur":"Ashley
+      Walker","taal":"mg","vertrouwelijkheidaanduiding":"white","status":"watch","formaat":"xlsx","bestandsnaam":"interest.js","informatieobjecttype":"race","verschijningsvorm":"recent","bestandsomvang":1000000,"link":"https://atkins.org/","creatiedatum":"2026-03-14","begin_registratie":"2026-04-02T21:38:58.230042","last_checked_at":"2026-04-08T09:05:16.333017+00:00","next_check_at":"2026-04-09T09:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"ce075c8c-181e-4d8c-bf85-d96b81200659","url":"https://www.harris.com/","identificatie":"01776771-a040-4cc2-982b-0ccc8d84e98e","bronorganisatie":"Stephens,
+      Welch and Johnson","verantwoordelijkeOrganisatie":"Stanley Ltd","omschrijving":"Above
+      grow establish wall participant.","toelichting":"Tax create best party field.
+      View someone measure there campaign account.","status":"firm","registratiedatum":"2026-03-27","startdatum":"2026-03-22","zaaktype":"great","object_type":"real"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -35,13 +36,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"expired-2","url":"http://www.forbes.com/","identificatie":"fc9ce938-9e53-40ff-a8cc-73c35773a430","bronorganisatie":"Evans-Meyer","titel":"Total
-      however place money person.","beschrijving":"Speech seek activity worry recent.
-      Realize side front hotel.","auteur":"Valerie Smith","taal":"ja","vertrouwelijkheidaanduiding":"fly","status":"far","formaat":"flac","bestandsnaam":"help.mp4","informatieobjecttype":"activity","verschijningsvorm":"prevent","bestandsomvang":1000000,"link":"http://osborn.org/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-25T18:15:14.627140","last_checked_at":"2026-04-09T06:17:29.895867+00:00","next_check_at":"2026-04-10T06:17:29.895867+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"7f0d6c05-6740-4d43-b727-cfc6269788c8","url":"https://hardy.com/","identificatie":"22e945e2-74e7-4485-aac5-e8760ec7b956","bronorganisatie":"Alvarado-Cross","verantwoordelijkeOrganisatie":"Conrad,
-      Nixon and Ramos","omschrijving":"Tell democratic mouth skill industry mention
-      quickly.","toelichting":"Possible television order sit technology alone party.
-      Central job step at interview relationship choose. Defense design center participant.
-      With green partner mean wide.","status":"important","registratiedatum":"2026-04-05","startdatum":"2026-03-17","zaaktype":"let","object_type":"others"}]}'
+    body: '{"uuid":"expired-2","url":"http://french.com/","identificatie":"27c0f8e2-0178-43f3-8ef6-8a0dd925521e","bronorganisatie":"Rodriguez
+      Ltd","titel":"Middle from pattern because smile animal son hospital.","beschrijving":"Give
+      him raise loss. Realize same sense thousand learn travel. Take how consumer
+      song determine traditional.","auteur":"Timothy Diaz","taal":"ckb","vertrouwelijkheidaanduiding":"ask","status":"although","formaat":"pptx","bestandsnaam":"body.html","informatieobjecttype":"actually","verschijningsvorm":"and","bestandsomvang":1000000,"link":"https://www.snyder.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-29T13:20:21.390349","last_checked_at":"2026-04-09T08:05:16.333017+00:00","next_check_at":"2026-04-10T08:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"fd5392f9-25a7-4db5-9eaf-dacac3c5e2a7","url":"http://www.moreno.com/","identificatie":"e7332c9b-d587-4d19-95da-d13ceb77257c","bronorganisatie":"Bradley-Meadows","verantwoordelijkeOrganisatie":"Farrell-Parks","omschrijving":"Thought
+      north year kid upon green.","toelichting":"Beautiful start food resource record.
+      Thought each how dream break.","status":"together","registratiedatum":"2026-03-18","startdatum":"2026-03-13","zaaktype":"live","object_type":"four"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -71,14 +71,12 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"valid-1","url":"https://www.williams.com/","identificatie":"a292488a-6e1a-4526-a978-17e0a6c6c299","bronorganisatie":"Gill
-      Group","titel":"Wish morning knowledge decide.","beschrijving":"Too memory successful
-      art who major whether decision. Team Democrat hard down above.","auteur":"Michaela
-      Valdez","taal":"sc","vertrouwelijkheidaanduiding":"thus","status":"country","formaat":"jpeg","bestandsnaam":"find.docx","informatieobjecttype":"reach","verschijningsvorm":"partner","bestandsomvang":1000000,"link":"http://davis-sharp.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-21T19:38:01.404273","last_checked_at":"2026-04-10T07:17:29.895867+00:00","next_check_at":"2026-04-11T07:17:29.895867+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"336d7a67-f907-42b7-be68-d99c8cda5d27","url":"http://www.white.com/","identificatie":"8483dadc-b868-44f9-a1cd-363d0ad46bf1","bronorganisatie":"Jackson
-      and Sons","verantwoordelijkeOrganisatie":"Hall, Tran and Garcia","omschrijving":"Actually
-      expert tough me will view writer.","toelichting":"Case social marriage speak
-      chance. Woman particularly finally property region third. Its call we where
-      card already car thus.","status":"toward","registratiedatum":"2026-03-25","startdatum":"2026-03-29","zaaktype":"everything","object_type":"no"}]}'
+    body: '{"uuid":"valid-1","url":"https://www.smith-wood.com/","identificatie":"12f347d8-7c31-4362-8a63-b468aec6c3db","bronorganisatie":"Perez
+      and Sons","titel":"Understand green community police begin dog.","beschrijving":"Development
+      rest age choose free. Resource with risk professor.","auteur":"Kevin Jenkins","taal":"nhn","vertrouwelijkheidaanduiding":"time","status":"particularly","formaat":"xls","bestandsnaam":"owner.odt","informatieobjecttype":"brother","verschijningsvorm":"address","bestandsomvang":1000000,"link":"http://reyes.net/","creatiedatum":"2026-03-16","begin_registratie":"2026-04-04T07:00:12.884503","last_checked_at":"2026-04-10T09:05:16.333017+00:00","next_check_at":"2026-04-11T09:05:16.333017+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"6e5ffe95-7eb7-41e3-a65b-42298fb61ca9","url":"https://www.walter-simmons.net/","identificatie":"eaa412bb-7767-46bf-bfda-fbfa2e95538b","bronorganisatie":"Castillo
+      Group","verantwoordelijkeOrganisatie":"Rogers-Moore","omschrijving":"Yes bill
+      certainly maybe study kid everyone pretty.","toelichting":"Sign deep young attention.
+      Sell political consumer theory.","status":"personal","registratiedatum":"2026-04-01","startdatum":"2026-03-13","zaaktype":"allow","object_type":"adult"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -108,7 +106,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-10T07:17:29.895867+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
+    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-10T09:05:16.333017+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -124,7 +122,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":6,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
     headers:
       Transfer-Encoding:
       - chunked
