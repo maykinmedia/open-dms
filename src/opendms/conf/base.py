@@ -303,18 +303,21 @@ CELERY_WORKER_PREFETCH_MULTIPLIER = 1
 #
 MSGRAPH_API_BACKEND_TENANT_ID = config(
     "MSGRAPH_API_BACKEND_TENANT_ID",
+    None,
     group="Microsoft configuration",
     help_text="The Azure Entra ID tenant (directory) ID used by MsGraphApiBackend.",
 )
 
 MSGRAPH_API_BACKEND_CLIENT_ID = config(
     "MSGRAPH_API_BACKEND_CLIENT_ID",
+    None,
     group="Microsoft configuration",
     help_text="The Application (client) ID registered for MsGraphApiBackend in Entra ID.",
 )
 
 MSGRAPH_API_BACKEND_CLIENT_SECRET = config(
     "MSGRAPH_API_BACKEND_CLIENT_SECRET",
+    None,
     group="Microsoft configuration",
     help_text="The client secret used by MsGraphApiBackend to authenticate against Microsoft Graph API.",
 )

@@ -67,11 +67,40 @@ document_edit_backend = MsGraphApiBackend()
 class WebhookView(APIView):
     renderer_classes = [PlainTextRenderer]
 
+    @extend_schema(
+        summary="Webhook callback",
+        description="Endpoint webhook che riceve notifiche dal backend document_edit.",
+        request=OpenApiTypes.OBJECT,
+        responses={
+            (status.HTTP_200_OK, "text/plain"): OpenApiResponse(
+                description="Webhook verwerkt",
+                response=OpenApiTypes.STR,
+            ),
+            status.HTTP_400_BAD_REQUEST: OpenApiResponse(
+                description="Ongeldige payload",
+            ),
+        },
+    )
     def post(self, request, *args, **kwargs):
         return document_edit_backend.updated_callback(request)
 
 
 class MsAuthCallbackView(APIView):
+    @extend_schema(
+        summary="Microsoft authentication callback",
+        description="Callback endpoint voor Microsoft OAuth authenticatie.",
+        responses={
+            status.HTTP_302_FOUND: OpenApiResponse(
+                description="Redirect naar de oorspronkelijke URL na succesvolle authenticatie",
+            ),
+            status.HTTP_400_BAD_REQUEST: OpenApiResponse(
+                description="Invalid callback of fout tijdens authenticatie",
+            ),
+            status.HTTP_401_UNAUTHORIZED: OpenApiResponse(
+                description="Authenticatie mislukt (geen access token)",
+            ),
+        },
+    )
     def get(self, request, *args, **kwargs):
         auth_flow = request.session.get("auth_flow")
         if not auth_flow:
@@ -362,13 +391,29 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         },
     )
     @action(methods=["get"], detail=True, name="document_download")
-    def download(self, request, *args, **kwargs):
+    def download(self, request: Request, *args, **kwargs):
         obj = self.get_object()
         with get_documenten_client(self.zgw_group.drc_service) as client:
             return client.download_document(obj["inhoud"])
 
+    @extend_schema(
+        "document_edit",
+        summary="documentsEdit",
+        description="Een document met binaire gegevens bewerken op OneDrive",
+        parameters=[
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAKEN_ZAAK_UUID_PARAM,
+            DOCUMENT_PARAM,
+        ],
+        responses={
+            (status.HTTP_302_FOUND, "application/octet-stream"): OpenApiResponse(
+                description="Redirect naar de binaire bestandsinhoud",
+            )
+        },
+    )
     @action(methods=["get"], detail=True, name="document_edit")
-    def edit(self, request: Request, *args, **kwargs) -> Response:
+    def edit(self, request: Request, *args, **kwargs):
         access_token = request.session.get("access_token", None)
         logger.info(access_token)
         if not access_token:

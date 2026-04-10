@@ -141,6 +141,7 @@ class AnonCSRFSessionAuthenticationExtension(OpenApiAuthenticationExtension):
 
 class PlainTextRenderer(BaseRenderer):
     media_type = "text/plain"
+    format = "txt"
 
     def render(self, data, accepted_media_type=None, renderer_context=None):
         return data.encode("utf-8") if isinstance(data, str) else data
