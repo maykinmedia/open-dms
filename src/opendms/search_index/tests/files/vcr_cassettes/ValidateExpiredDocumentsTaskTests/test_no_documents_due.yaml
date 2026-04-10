@@ -1,11 +1,11 @@
 interactions:
 - request:
-    body: '{"uuid":"doc-valid","url":"https://wilkerson.net/","identificatie":"f68b2d77-5f04-4301-b3e6-98819a90035a","bronorganisatie":"Potter,
-      Munoz and Oconnor","titel":"Need system stand someone tough.","beschrijving":"Maybe
-      somebody store way here stock up. Hair use none.","auteur":"Paula Cochran","taal":"bs","vertrouwelijkheidaanduiding":"trial","status":"expect","formaat":"js","bestandsnaam":"cost.mp3","informatieobjecttype":"store","verschijningsvorm":"court","bestandsomvang":1000000,"link":"https://www.smith.com/","creatiedatum":"2026-04-02","begin_registratie":"2026-03-16T13:45:01.731580","last_checked_at":"2026-04-09T12:25:43.062205+00:00","next_check_at":"2026-04-14T12:25:43.062208+00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"e5fca081-5da6-4ebf-8c9c-f434716636b3","url":"http://www.lee.org/","identificatie":"38a25e86-d40a-46d6-bf2f-dd5b8522cba8","bronorganisatie":"Johnston,
-      Moran and Wiggins","verantwoordelijkeOrganisatie":"Mcgee, Walters and Hoffman","omschrijving":"Discover
-      which reality apply.","toelichting":"Appear deal stage fact budget. Process
-      lot my manage sing keep with. Occur young book center. Rise law maybe cause.","status":"among","registratiedatum":"2026-03-29","startdatum":"2026-03-19","zaaktype":"industry","object_type":"say"}]}'
+    body: '{"uuid":"doc-valid","url":"https://grimes.com/","identificatie":"5408236f-a19b-4e2a-8b79-fe720b1eed7a","bronorganisatie":"Sullivan
+      PLC","titel":"Sell local anything rock soon course rule.","beschrijving":"Push
+      difference Democrat official. Throughout maybe plan my. Fire foreign store one
+      never.","auteur":"Michele Smith","taal":"the","vertrouwelijkheidaanduiding":"place","status":"possible","formaat":"wav","bestandsnaam":"west.pdf","informatieobjecttype":"bring","verschijningsvorm":"head","bestandsomvang":1000000,"link":"http://www.wright.com/","creatiedatum":"2026-03-17","begin_registratie":"2026-04-05T10:41:41.148922","last_checked_at":"2026-04-10T07:17:32.924605+00:00","next_check_at":"2026-04-15T07:17:32.924609+00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"6b45538f-dd4a-4f52-9a49-8435f7c6a0f7","url":"http://www.salas-ramirez.com/","identificatie":"0e071e5c-4015-4d39-8381-d71dc7dac5f0","bronorganisatie":"White-Gallagher","verantwoordelijkeOrganisatie":"Kelly-Johnson","omschrijving":"Tend
+      seat today a institution remain.","toelichting":"Bar use suffer practice. Very
+      brother sit pay.","status":"discover","registratiedatum":"2026-03-30","startdatum":"2026-04-01","zaaktype":"increase","object_type":"save"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -61,7 +61,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-09T12:25:43.850403+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug","creatiedatum"]}'
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-10T07:17:33.729928+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -77,7 +77,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
     headers:
       Transfer-Encoding:
       - chunked
