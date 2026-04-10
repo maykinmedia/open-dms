@@ -89,7 +89,9 @@ def index_all_documents() -> None:
                                         service=zaak_service.slug,
                                     )
                                     zaak = ZaakReferenties(
-                                        **zaak_item, object_type="zaak"
+                                        **zaak_item,
+                                        object_type="zaak",
+                                        service_slug=zaak_service.slug,
                                     )
                                     break
                             except Exception as e:

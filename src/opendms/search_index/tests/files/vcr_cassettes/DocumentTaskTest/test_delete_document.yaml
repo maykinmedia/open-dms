@@ -52,12 +52,13 @@ interactions:
       code: 404
       message: Not Found
 - request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.watkins.info/","identificatie":"a7c94a98-27f0-407c-83fe-7dec1d55d40e","bronorganisatie":"Brady
-      and Sons","titel":"Until nearly mission.","beschrijving":"Address together sing
-      meeting machine too seek just.","auteur":"Veronica Tran","taal":"bem","vertrouwelijkheidaanduiding":"discover","status":"again","formaat":"gif","bestandsnaam":"quite.flac","informatieobjecttype":"particular","verschijningsvorm":"truth","bestandsomvang":1000000,"link":"http://www.stewart-murphy.com/","creatiedatum":"2026-03-12","begin_registratie":"2026-04-07T12:18:13.909080","last_checked_at":"1988-12-15T00:00:00","next_check_at":"2015-03-20T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"6a925b7b-ffdf-4439-8633-2f6999f30c8e","url":"https://www.ward.com/","identificatie":"577f75c0-05b0-452b-b621-628669aefb7a","bronorganisatie":"Dominguez-Rivera","verantwoordelijkeOrganisatie":"Chung
-      LLC","omschrijving":"Maybe believe candidate because treat organization economic.","toelichting":"Industry
-      nor lay conference remain remember third. Focus level movie international. Treatment
-      so tend long store truth.","status":"discover","registratiedatum":"2026-04-03","startdatum":"2026-03-26","zaaktype":"boy","object_type":"memory"}]}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.russo-hoffman.info/","identificatie":"af248814-a6fd-40cd-9c9e-12f8dca1ca40","bronorganisatie":"Duffy,
+      Johnston and Chavez","titel":"Do capital one coach.","beschrijving":"Situation
+      building anyone moment total break single brother. Now company food fill.","auteur":"Rhonda
+      Combs","taal":"nb","vertrouwelijkheidaanduiding":"modern","status":"shoulder","formaat":"js","bestandsnaam":"prevent.html","informatieobjecttype":"morning","verschijningsvorm":"shoulder","bestandsomvang":1000000,"link":"https://lewis.com/","creatiedatum":"2026-04-06","begin_registratie":"2026-03-31T02:15:57.078100","last_checked_at":"2020-11-07T00:00:00","next_check_at":"1988-07-27T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"67517092-0484-4e3b-b7e3-59ffec63ca8d","url":"https://bradley-rowe.com/","identificatie":"31470346-f535-40ef-b0e5-731a6c15d1da","bronorganisatie":"Moore,
+      Anderson and Hayes","verantwoordelijkeOrganisatie":"Singh-Kaiser","omschrijving":"She
+      card theory right throw.","toelichting":"Add call something campaign response
+      history forget. Want sing economic.","status":"occur","registratiedatum":"2026-03-25","startdatum":"2026-03-23","zaaktype":"mother","object_type":"form","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -101,14 +102,14 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Address
-        together sing meeting machine too seek just.","verschijningsvorm":"truth","begin_registratie":"2026-04-07T12:18:13.909080","identificatie":"a7c94a98-27f0-407c-83fe-7dec1d55d40e","bronorganisatie":"Brady
-        and Sons","bestandsomvang":1000000,"link":"http://www.stewart-murphy.com/","next_check_at":"2015-03-20T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.watkins.info/","taal":"bem","zaak_referenties":[{"omschrijving":"Maybe
-        believe candidate because treat organization economic.","identificatie":"577f75c0-05b0-452b-b621-628669aefb7a","startdatum":"2026-03-26","object_type":"memory","bronorganisatie":"Dominguez-Rivera","zaaktype":"boy","registratiedatum":"2026-04-03","uuid":"6a925b7b-ffdf-4439-8633-2f6999f30c8e","url":"https://www.ward.com/","verantwoordelijkeOrganisatie":"Chung
-        LLC","toelichting":"Industry nor lay conference remain remember third. Focus
-        level movie international. Treatment so tend long store truth.","status":"discover"}],"auteur":"Veronica
-        Tran","formaat":"gif","last_checked_at":"1988-12-15T00:00:00","titel":"Until
-        nearly mission.","vertrouwelijkheidaanduiding":"discover","informatieobjecttype":"particular","bestandsnaam":"quite.flac","creatiedatum":"2026-03-12","group_slug":"group-1","status":"again"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Situation
+        building anyone moment total break single brother. Now company food fill.","verschijningsvorm":"shoulder","begin_registratie":"2026-03-31T02:15:57.078100","identificatie":"af248814-a6fd-40cd-9c9e-12f8dca1ca40","bronorganisatie":"Duffy,
+        Johnston and Chavez","bestandsomvang":1000000,"link":"https://lewis.com/","next_check_at":"1988-07-27T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.russo-hoffman.info/","taal":"nb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"31470346-f535-40ef-b0e5-731a6c15d1da","object_type":"form","bronorganisatie":"Moore,
+        Anderson and Hayes","zaaktype":"mother","registratiedatum":"2026-03-25","uuid":"67517092-0484-4e3b-b7e3-59ffec63ca8d","url":"https://bradley-rowe.com/","verantwoordelijkeOrganisatie":"Singh-Kaiser","omschrijving":"She
+        card theory right throw.","startdatum":"2026-03-23","toelichting":"Add call
+        something campaign response history forget. Want sing economic.","status":"occur"}],"auteur":"Rhonda
+        Combs","formaat":"js","last_checked_at":"2020-11-07T00:00:00","titel":"Do
+        capital one coach.","vertrouwelijkheidaanduiding":"modern","informatieobjecttype":"morning","bestandsnaam":"prevent.html","creatiedatum":"2026-04-06","group_slug":"group-1","status":"shoulder"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
@@ -134,14 +135,14 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Address
-        together sing meeting machine too seek just.","verschijningsvorm":"truth","begin_registratie":"2026-04-07T12:18:13.909080","identificatie":"a7c94a98-27f0-407c-83fe-7dec1d55d40e","bronorganisatie":"Brady
-        and Sons","bestandsomvang":1000000,"link":"http://www.stewart-murphy.com/","next_check_at":"2015-03-20T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"http://www.watkins.info/","taal":"bem","zaak_referenties":[{"omschrijving":"Maybe
-        believe candidate because treat organization economic.","identificatie":"577f75c0-05b0-452b-b621-628669aefb7a","startdatum":"2026-03-26","object_type":"memory","bronorganisatie":"Dominguez-Rivera","zaaktype":"boy","registratiedatum":"2026-04-03","uuid":"6a925b7b-ffdf-4439-8633-2f6999f30c8e","url":"https://www.ward.com/","verantwoordelijkeOrganisatie":"Chung
-        LLC","toelichting":"Industry nor lay conference remain remember third. Focus
-        level movie international. Treatment so tend long store truth.","status":"discover"}],"auteur":"Veronica
-        Tran","formaat":"gif","last_checked_at":"1988-12-15T00:00:00","titel":"Until
-        nearly mission.","vertrouwelijkheidaanduiding":"discover","informatieobjecttype":"particular","bestandsnaam":"quite.flac","creatiedatum":"2026-03-12","group_slug":"group-1","status":"again"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Situation
+        building anyone moment total break single brother. Now company food fill.","verschijningsvorm":"shoulder","begin_registratie":"2026-03-31T02:15:57.078100","identificatie":"af248814-a6fd-40cd-9c9e-12f8dca1ca40","bronorganisatie":"Duffy,
+        Johnston and Chavez","bestandsomvang":1000000,"link":"https://lewis.com/","next_check_at":"1988-07-27T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.russo-hoffman.info/","taal":"nb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"31470346-f535-40ef-b0e5-731a6c15d1da","object_type":"form","bronorganisatie":"Moore,
+        Anderson and Hayes","zaaktype":"mother","registratiedatum":"2026-03-25","uuid":"67517092-0484-4e3b-b7e3-59ffec63ca8d","url":"https://bradley-rowe.com/","verantwoordelijkeOrganisatie":"Singh-Kaiser","omschrijving":"She
+        card theory right throw.","startdatum":"2026-03-23","toelichting":"Add call
+        something campaign response history forget. Want sing economic.","status":"occur"}],"auteur":"Rhonda
+        Combs","formaat":"js","last_checked_at":"2020-11-07T00:00:00","titel":"Do
+        capital one coach.","vertrouwelijkheidaanduiding":"modern","informatieobjecttype":"morning","bestandsnaam":"prevent.html","creatiedatum":"2026-04-06","group_slug":"group-1","status":"shoulder"}}'
     headers:
       X-elastic-product:
       - Elasticsearch

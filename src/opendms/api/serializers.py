@@ -401,7 +401,7 @@ class ESDocumentSerializer(serializers.Serializer):
             "De slug van de groep waartoe de bronservice behoort die dit document heeft geïndexeerd."
         ),
     )
-    zaak_referenties = ZaakSerializer(many=True, required=False, default=list)
+    zaak_referenties = ESZaakSerializer(many=True, required=False, default=list)
 
 
 class SearchSerializer(serializers.Serializer):

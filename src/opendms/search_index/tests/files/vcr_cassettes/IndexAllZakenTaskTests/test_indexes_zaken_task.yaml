@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/zaak/_settings
   response:
     body:
-      string: '{"zaak":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"zaak","creation_date":"1775808266310","number_of_replicas":"1","uuid":"9c-UWDm0QeaP5mkC3UZYhA","version":{"created":"8521000"}}}}}'
+      string: '{"zaak":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"zaak","creation_date":"1775828634781","number_of_replicas":"1","uuid":"tnoTVrx6Q9mqcdOeLb7AtA","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"startdatum":{"format":"yyyy-MM-dd","type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"toelichting":{"analyzer":"dutch","type":"text"},"omschrijving":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"service_slug":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"group_slug":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"zaaktype":{"type":"keyword"},"uuid":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"startdatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"uuid":{"type":"keyword"},"group_slug":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"toelichting":{"analyzer":"dutch","type":"text"},"zaaktype":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"service_slug":{"type":"keyword"},"identificatie":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -96,7 +96,7 @@ interactions:
     uri: http://localhost:9201/zaak/_search
   response:
     body:
-      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"dates":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[]}}}'
+      string: '{"took":6,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"dates":{"doc_count_error_upper_bound":0,"sum_other_doc_count":0,"buckets":[]}}}'
     headers:
       Transfer-Encoding:
       - chunked

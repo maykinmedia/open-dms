@@ -1,13 +1,12 @@
 interactions:
 - request:
-    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"http://king.biz/","identificatie":"d38556cf-f411-4299-804d-7199ea597953","bronorganisatie":"King,
-      Richardson and Garner","titel":"Before arrive painting degree send see.","beschrijving":"Option
-      why cut property maintain easy know. Red cut collection kid site require.","auteur":"Teresa
-      White","taal":"ur","vertrouwelijkheidaanduiding":"ground","status":"most","formaat":"flac","bestandsnaam":"day.pages","informatieobjecttype":"old","verschijningsvorm":"deal","bestandsomvang":1000000,"link":"https://liu.org/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-19T17:39:07.035376","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"e68b4a49-0948-442e-ac83-240ae888cacf","url":"https://www.diaz.com/","identificatie":"3c549e91-2cce-4be6-8c0a-b393cb327269","bronorganisatie":"Mitchell
-      LLC","verantwoordelijkeOrganisatie":"Taylor-Kennedy","omschrijving":"Mother
-      mention worry expect specific compare test back.","toelichting":"Top hair trouble
-      discuss step side nearly. Religious by music hospital challenge mother. Defense
-      full left either.","status":"foot","registratiedatum":"2026-03-05","startdatum":"2026-03-19","zaaktype":"dream","object_type":"live"}]}'
+    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"http://www.jones-ramirez.biz/","identificatie":"6a7da8fe-4173-4436-bd9b-a8fefd1b1b4d","bronorganisatie":"Wade
+      PLC","titel":"Success TV get price artist strategy development wrong.","beschrijving":"Think
+      again try whose however writer. When away ball you behind Republican support
+      open.","auteur":"Jonathan Lewis","taal":"gu","vertrouwelijkheidaanduiding":"majority","status":"around","formaat":"mp3","bestandsnaam":"report.txt","informatieobjecttype":"only","verschijningsvorm":"responsibility","bestandsomvang":1000000,"link":"https://bentley-gardner.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-18T13:03:14.743794","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"0b91157e-329a-46c1-ba77-0beb92fb4aa9","url":"https://www.winters.org/","identificatie":"44095bc8-167d-4bab-af71-d9948e0dcc7d","bronorganisatie":"Franklin,
+      Harris and Richards","verantwoordelijkeOrganisatie":"Camacho Ltd","omschrijving":"One
+      like culture.","toelichting":"International light expect between officer him
+      grow. Sort player soldier question.","status":"state","registratiedatum":"2026-03-06","startdatum":"2026-03-26","zaaktype":"without","object_type":"full","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -37,13 +36,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"http://www.murphy.org/","identificatie":"2697db40-2b55-4ad4-91ca-f38775324533","bronorganisatie":"Cunningham-Robinson","titel":"Air
-      nor result behavior begin blood offer former.","beschrijving":"Wear future since
-      whose. Bank long agree can lose blood.","auteur":"Gregory Miller","taal":"id","vertrouwelijkheidaanduiding":"garden","status":"open","formaat":"wav","bestandsnaam":"attorney.numbers","informatieobjecttype":"executive","verschijningsvorm":"follow","bestandsomvang":1000000,"link":"https://www.garcia.net/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-16T13:42:33.609768","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"29ef8029-3af2-469a-9f24-72f14408b926","url":"http://www.bender.com/","identificatie":"f1b54af6-ecb2-4501-8e7f-b673af3183cd","bronorganisatie":"Maldonado
-      Ltd","verantwoordelijkeOrganisatie":"Evans and Sons","omschrijving":"Audience
-      education pick political small.","toelichting":"Style say card white truth.
-      Determine discuss stock population. Radio debate something west employee white
-      event.","status":"firm","registratiedatum":"2026-02-28","startdatum":"2026-03-18","zaaktype":"listen","object_type":"yard"}]}'
+    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"https://henderson.com/","identificatie":"48acc96d-9eef-4acf-894e-d598952cf5dc","bronorganisatie":"Carter,
+      Gordon and Wells","titel":"Usually never arm visit car success year.","beschrijving":"Home
+      until executive recognize model. Inside line everyone high.","auteur":"Amanda
+      Thompson","taal":"de","vertrouwelijkheidaanduiding":"party","status":"four","formaat":"tiff","bestandsnaam":"career.webm","informatieobjecttype":"your","verschijningsvorm":"difficult","bestandsomvang":1000000,"link":"http://www.carlson.info/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-20T10:30:45.348228","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"6506c396-ff05-45fc-adc1-256b8b74e850","url":"http://anderson-smith.com/","identificatie":"d5a1bce4-82b7-4941-a3ce-0d1ebb0d75d1","bronorganisatie":"Santos-King","verantwoordelijkeOrganisatie":"Salazar
+      Group","omschrijving":"That majority laugh product we look.","toelichting":"Investment
+      prevent then former there especially finally. Watch his arrive add look. Among
+      news analysis price various. Low best trade pull.","status":"sure","registratiedatum":"2026-03-08","startdatum":"2026-03-28","zaaktype":"end","object_type":"scientist","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -73,11 +72,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://www.jordan-johnson.com/","identificatie":"cb49d1d6-7c7f-420d-9e4d-3924a49a0872","bronorganisatie":"Barnes-Lam","titel":"Them
-      analysis apply.","beschrijving":"Staff those remain house true. Pressure drive
-      town despite officer.","auteur":"Holly Gallegos","taal":"be","vertrouwelijkheidaanduiding":"woman","status":"apply","formaat":"jpeg","bestandsnaam":"civil.wav","informatieobjecttype":"hotel","verschijningsvorm":"door","bestandsomvang":1000000,"link":"https://mclean.com/","creatiedatum":"2026-03-20","begin_registratie":"2026-03-03T21:24:54.365027","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"a70a3a80-e2ef-40cd-b1e0-4bff8def7691","url":"https://williamson-lewis.com/","identificatie":"b91cc5bf-8ab0-4470-b2a0-a7876b8ee9cd","bronorganisatie":"Garcia-Williams","verantwoordelijkeOrganisatie":"Miller-Hopkins","omschrijving":"Home
-      issue dog push hold know similar across.","toelichting":"However to base including.
-      Toward month may simply me. Stuff decide born against Republican commercial.","status":"history","registratiedatum":"2026-03-09","startdatum":"2026-02-28","zaaktype":"trade","object_type":"dream"}]}'
+    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://spencer.com/","identificatie":"eae5d8b3-950f-44da-9914-860d8478cc9b","bronorganisatie":"Perez-Gibson","titel":"Poor
+      Mr simple idea party watch.","beschrijving":"Agreement try practice short. Human
+      when prove activity will establish poor. Large professor family last over.","auteur":"Carrie
+      Frost","taal":"nr","vertrouwelijkheidaanduiding":"could","status":"compare","formaat":"csv","bestandsnaam":"goal.js","informatieobjecttype":"four","verschijningsvorm":"class","bestandsomvang":1000000,"link":"http://www.robinson.com/","creatiedatum":"2026-03-20","begin_registratie":"2026-03-25T14:29:13.064933","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"2885f6eb-c5df-4ec2-97a6-4a447ac6bc86","url":"http://norman.com/","identificatie":"7e4eadaf-e122-42a0-9d51-2e8a7676170c","bronorganisatie":"Proctor,
+      Hampton and Reed","verantwoordelijkeOrganisatie":"Snow LLC","omschrijving":"Perform
+      phone carry region.","toelichting":"State many marriage us mind official ten.
+      Financial eight tough region present old. Test majority son minute.","status":"base","registratiedatum":"2026-03-13","startdatum":"2026-03-02","zaaktype":"simply","object_type":"south","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -197,19 +198,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":3,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Option
-        why cut property maintain easy know. Red cut collection kid site require.","verschijningsvorm":"deal","begin_registratie":"2026-03-19T17:39:07.035376","identificatie":"d38556cf-f411-4299-804d-7199ea597953","bronorganisatie":"King,
-        Richardson and Garner","bestandsomvang":1000000,"link":"https://liu.org/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"http://king.biz/","taal":"ur","zaak_referenties":[{"omschrijving":"Mother
-        mention worry expect specific compare test back.","identificatie":"3c549e91-2cce-4be6-8c0a-b393cb327269","startdatum":"2026-03-19","object_type":"live","bronorganisatie":"Mitchell
-        LLC","zaaktype":"dream","registratiedatum":"2026-03-05","uuid":"e68b4a49-0948-442e-ac83-240ae888cacf","url":"https://www.diaz.com/","verantwoordelijkeOrganisatie":"Taylor-Kennedy","toelichting":"Top
-        hair trouble discuss step side nearly. Religious by music hospital challenge
-        mother. Defense full left either.","status":"foot"}],"auteur":"Teresa White","formaat":"flac","last_checked_at":"2026-03-29T12:00:00+00:00","titel":"Before
-        arrive painting degree send see.","vertrouwelijkheidaanduiding":"ground","informatieobjecttype":"old","bestandsnaam":"day.pages","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2","status":"most"}}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":3,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Think
+        again try whose however writer. When away ball you behind Republican support
+        open.","verschijningsvorm":"responsibility","begin_registratie":"2026-03-18T13:03:14.743794","identificatie":"6a7da8fe-4173-4436-bd9b-a8fefd1b1b4d","bronorganisatie":"Wade
+        PLC","bestandsomvang":1000000,"link":"https://bentley-gardner.com/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"http://www.jones-ramirez.biz/","taal":"gu","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"44095bc8-167d-4bab-af71-d9948e0dcc7d","object_type":"full","bronorganisatie":"Franklin,
+        Harris and Richards","zaaktype":"without","registratiedatum":"2026-03-06","uuid":"0b91157e-329a-46c1-ba77-0beb92fb4aa9","url":"https://www.winters.org/","verantwoordelijkeOrganisatie":"Camacho
+        Ltd","omschrijving":"One like culture.","startdatum":"2026-03-26","toelichting":"International
+        light expect between officer him grow. Sort player soldier question.","status":"state"}],"auteur":"Jonathan
+        Lewis","formaat":"mp3","last_checked_at":"2026-03-29T12:00:00+00:00","titel":"Success
+        TV get price artist strategy development wrong.","vertrouwelijkheidaanduiding":"majority","informatieobjecttype":"only","bestandsnaam":"report.txt","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2","status":"around"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1482'
+      - '1506'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -256,19 +258,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222
   response:
     body:
-      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":3,"_seq_no":20,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Wear
-        future since whose. Bank long agree can lose blood.","verschijningsvorm":"follow","begin_registratie":"2026-03-16T13:42:33.609768","identificatie":"2697db40-2b55-4ad4-91ca-f38775324533","bronorganisatie":"Cunningham-Robinson","bestandsomvang":1000000,"link":"https://www.garcia.net/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"http://www.murphy.org/","taal":"id","zaak_referenties":[{"omschrijving":"Audience
-        education pick political small.","identificatie":"f1b54af6-ecb2-4501-8e7f-b673af3183cd","startdatum":"2026-03-18","object_type":"yard","bronorganisatie":"Maldonado
-        Ltd","zaaktype":"listen","registratiedatum":"2026-02-28","uuid":"29ef8029-3af2-469a-9f24-72f14408b926","url":"http://www.bender.com/","verantwoordelijkeOrganisatie":"Evans
-        and Sons","toelichting":"Style say card white truth. Determine discuss stock
-        population. Radio debate something west employee white event.","status":"firm"}],"auteur":"Gregory
-        Miller","formaat":"wav","last_checked_at":"2026-03-29T11:00:00+00:00","titel":"Air
-        nor result behavior begin blood offer former.","vertrouwelijkheidaanduiding":"garden","informatieobjecttype":"executive","bestandsnaam":"attorney.numbers","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2","status":"open"}}'
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":3,"_seq_no":20,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Home
+        until executive recognize model. Inside line everyone high.","verschijningsvorm":"difficult","begin_registratie":"2026-03-20T10:30:45.348228","identificatie":"48acc96d-9eef-4acf-894e-d598952cf5dc","bronorganisatie":"Carter,
+        Gordon and Wells","bestandsomvang":1000000,"link":"http://www.carlson.info/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"https://henderson.com/","taal":"de","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"d5a1bce4-82b7-4941-a3ce-0d1ebb0d75d1","object_type":"scientist","bronorganisatie":"Santos-King","zaaktype":"end","registratiedatum":"2026-03-08","uuid":"6506c396-ff05-45fc-adc1-256b8b74e850","url":"http://anderson-smith.com/","verantwoordelijkeOrganisatie":"Salazar
+        Group","omschrijving":"That majority laugh product we look.","startdatum":"2026-03-28","toelichting":"Investment
+        prevent then former there especially finally. Watch his arrive add look. Among
+        news analysis price various. Low best trade pull.","status":"sure"}],"auteur":"Amanda
+        Thompson","formaat":"tiff","last_checked_at":"2026-03-29T11:00:00+00:00","titel":"Usually
+        never arm visit car success year.","vertrouwelijkheidaanduiding":"party","informatieobjecttype":"your","bestandsnaam":"career.webm","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2","status":"four"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1476'
+      - '1528'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -343,17 +345,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"_seq_no":24,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Staff
-        those remain house true. Pressure drive town despite officer.","verschijningsvorm":"door","begin_registratie":"2026-03-03T21:24:54.365027","identificatie":"cb49d1d6-7c7f-420d-9e4d-3924a49a0872","bronorganisatie":"Barnes-Lam","bestandsomvang":1000000,"link":"https://mclean.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://www.jordan-johnson.com/","taal":"be","zaak_referenties":[{"omschrijving":"Home
-        issue dog push hold know similar across.","identificatie":"b91cc5bf-8ab0-4470-b2a0-a7876b8ee9cd","startdatum":"2026-02-28","object_type":"dream","bronorganisatie":"Garcia-Williams","zaaktype":"trade","registratiedatum":"2026-03-09","uuid":"a70a3a80-e2ef-40cd-b1e0-4bff8def7691","url":"https://williamson-lewis.com/","verantwoordelijkeOrganisatie":"Miller-Hopkins","toelichting":"However
-        to base including. Toward month may simply me. Stuff decide born against Republican
-        commercial.","status":"history"}],"auteur":"Holly Gallegos","formaat":"jpeg","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Them
-        analysis apply.","vertrouwelijkheidaanduiding":"woman","informatieobjecttype":"hotel","bestandsnaam":"civil.wav","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"apply"}}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"_seq_no":24,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Agreement
+        try practice short. Human when prove activity will establish poor. Large professor
+        family last over.","verschijningsvorm":"class","begin_registratie":"2026-03-25T14:29:13.064933","identificatie":"eae5d8b3-950f-44da-9914-860d8478cc9b","bronorganisatie":"Perez-Gibson","bestandsomvang":1000000,"link":"http://www.robinson.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://spencer.com/","taal":"nr","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"7e4eadaf-e122-42a0-9d51-2e8a7676170c","object_type":"south","bronorganisatie":"Proctor,
+        Hampton and Reed","zaaktype":"simply","registratiedatum":"2026-03-13","uuid":"2885f6eb-c5df-4ec2-97a6-4a447ac6bc86","url":"http://norman.com/","verantwoordelijkeOrganisatie":"Snow
+        LLC","omschrijving":"Perform phone carry region.","startdatum":"2026-03-02","toelichting":"State
+        many marriage us mind official ten. Financial eight tough region present old.
+        Test majority son minute.","status":"base"}],"auteur":"Carrie Frost","formaat":"csv","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Poor
+        Mr simple idea party watch.","vertrouwelijkheidaanduiding":"could","informatieobjecttype":"four","bestandsnaam":"goal.js","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"compare"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1448'
+      - '1503'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

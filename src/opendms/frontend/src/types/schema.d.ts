@@ -377,7 +377,7 @@ export interface components {
             serviceSlug?: string | null;
             /** @description De slug van de groep waartoe de bronservice behoort die dit document heeft geïndexeerd. */
             groupSlug?: string | null;
-            zaakReferenties?: components["schemas"]["Zaak"][];
+            zaakReferenties?: components["schemas"]["ESZaak"][];
             /**
              * @description discriminator enum property added by openapi-typescript
              * @enum {string}

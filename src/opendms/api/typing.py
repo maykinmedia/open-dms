@@ -91,7 +91,7 @@ class ESDocumentType(TypedDict):
     service_slug: str | None
     group_slug: str | None
 
-    zaak_referenties: list[Zaak]
+    zaak_referenties: list[ESZaak]
 
 
 class ObjectInformatieObjectType(TypedDict):

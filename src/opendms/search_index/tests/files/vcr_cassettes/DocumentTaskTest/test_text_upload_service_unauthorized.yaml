@@ -1,11 +1,12 @@
 interactions:
 - request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.delgado.info/","identificatie":"698f44c9-5fb3-4693-96fc-503c410f709d","bronorganisatie":"Rogers,
-      Snyder and Lopez","titel":"Rest its watch mind.","beschrijving":"Together agree
-      light enough hear sometimes both after. Real same door.","auteur":"Rebecca Lewis","taal":"niu","vertrouwelijkheidaanduiding":"information","status":"movement","formaat":"wav","bestandsnaam":"more.pages","informatieobjecttype":"others","verschijningsvorm":"light","bestandsomvang":1000000,"link":"https://www.wright.com/","creatiedatum":"2026-03-23","begin_registratie":"2026-03-23T15:56:37.819331","last_checked_at":"1996-06-23T00:00:00","next_check_at":"2000-10-13T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"8d2fce18-cad3-41d8-84d9-f12431d7bbdc","url":"https://bradshaw.com/","identificatie":"ba757586-21e2-4118-ae15-fcea4f723a89","bronorganisatie":"Maldonado,
-      Adkins and Burke","verantwoordelijkeOrganisatie":"Reyes Ltd","omschrijving":"Region
-      try finally story.","toelichting":"Evidence heavy often lay recent cost anything
-      majority. Suggest piece money property hold business somebody.","status":"trade","registratiedatum":"2026-03-15","startdatum":"2026-03-10","zaaktype":"image","object_type":"page"}],"inhoud":"https://www.example.com/downloads/1"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://braun.com/","identificatie":"b1ee2bd8-c0f5-42fc-bdb7-915d5f2538ea","bronorganisatie":"Simpson
+      Inc","titel":"Nearly attention travel campaign nearly site back ahead.","beschrijving":"Space
+      wrong local yourself alone yeah. Grow pass media lot. Stuff us after.","auteur":"Jeff
+      Lewis","taal":"tg","vertrouwelijkheidaanduiding":"ever","status":"more","formaat":"css","bestandsnaam":"nice.html","informatieobjecttype":"law","verschijningsvorm":"protect","bestandsomvang":1000000,"link":"http://sawyer-jensen.org/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-29T03:12:43.225425","last_checked_at":"2011-10-03T00:00:00","next_check_at":"1976-08-15T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"a30bc117-e557-4b42-abcd-bba17951c8ab","url":"http://www.rivera.com/","identificatie":"e6b24828-e73a-4109-81b3-a09735b0edf9","bronorganisatie":"Moore-Patterson","verantwoordelijkeOrganisatie":"Baker-Oliver","omschrijving":"Which
+      run science away read.","toelichting":"Early town whom young impact mind tough.
+      Fill then worker skin fall and question. Amount never produce federal cover
+      job example.","status":"stage","registratiedatum":"2026-04-06","startdatum":"2026-03-15","zaaktype":"join","object_type":"buy","service_slug":"zaken-api"}],"inhoud":"https://www.example.com/downloads/1"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -49,20 +50,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Together
-        agree light enough hear sometimes both after. Real same door.","verschijningsvorm":"light","begin_registratie":"2026-03-23T15:56:37.819331","identificatie":"698f44c9-5fb3-4693-96fc-503c410f709d","bronorganisatie":"Rogers,
-        Snyder and Lopez","bestandsomvang":1000000,"link":"https://www.wright.com/","next_check_at":"2000-10-13T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.delgado.info/","taal":"niu","zaak_referenties":[{"omschrijving":"Region
-        try finally story.","identificatie":"ba757586-21e2-4118-ae15-fcea4f723a89","startdatum":"2026-03-10","object_type":"page","bronorganisatie":"Maldonado,
-        Adkins and Burke","zaaktype":"image","registratiedatum":"2026-03-15","uuid":"8d2fce18-cad3-41d8-84d9-f12431d7bbdc","url":"https://bradshaw.com/","verantwoordelijkeOrganisatie":"Reyes
-        Ltd","toelichting":"Evidence heavy often lay recent cost anything majority.
-        Suggest piece money property hold business somebody.","status":"trade"}],"auteur":"Rebecca
-        Lewis","formaat":"wav","last_checked_at":"1996-06-23T00:00:00","inhoud":"https://www.example.com/downloads/1","titel":"Rest
-        its watch mind.","vertrouwelijkheidaanduiding":"information","informatieobjecttype":"others","bestandsnaam":"more.pages","creatiedatum":"2026-03-23","group_slug":"group-1","status":"movement"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Space
+        wrong local yourself alone yeah. Grow pass media lot. Stuff us after.","verschijningsvorm":"protect","begin_registratie":"2026-03-29T03:12:43.225425","identificatie":"b1ee2bd8-c0f5-42fc-bdb7-915d5f2538ea","bronorganisatie":"Simpson
+        Inc","bestandsomvang":1000000,"link":"http://sawyer-jensen.org/","next_check_at":"1976-08-15T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://braun.com/","taal":"tg","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"e6b24828-e73a-4109-81b3-a09735b0edf9","object_type":"buy","bronorganisatie":"Moore-Patterson","zaaktype":"join","registratiedatum":"2026-04-06","uuid":"a30bc117-e557-4b42-abcd-bba17951c8ab","url":"http://www.rivera.com/","verantwoordelijkeOrganisatie":"Baker-Oliver","omschrijving":"Which
+        run science away read.","startdatum":"2026-03-15","toelichting":"Early town
+        whom young impact mind tough. Fill then worker skin fall and question. Amount
+        never produce federal cover job example.","status":"stage"}],"auteur":"Jeff
+        Lewis","formaat":"css","last_checked_at":"2011-10-03T00:00:00","inhoud":"https://www.example.com/downloads/1","titel":"Nearly
+        attention travel campaign nearly site back ahead.","vertrouwelijkheidaanduiding":"ever","informatieobjecttype":"law","bestandsnaam":"nice.html","creatiedatum":"2026-03-18","group_slug":"group-1","status":"more"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1483'
+      - '1529'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
