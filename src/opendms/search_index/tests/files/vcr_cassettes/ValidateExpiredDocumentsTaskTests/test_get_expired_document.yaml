@@ -1,11 +1,11 @@
 interactions:
 - request:
-    body: '{"uuid":"expired-1","url":"https://allen.net/","identificatie":"50c1a194-1d06-470d-8511-021534c68031","bronorganisatie":"Wilson-Hebert","titel":"Half
-      build receive condition mouth attack do.","beschrijving":"Wind outside others
-      those themselves. Place term test deal test state.","auteur":"Mandy Taylor","taal":"tig","vertrouwelijkheidaanduiding":"mother","status":"understand","formaat":"bmp","bestandsnaam":"cup.avi","informatieobjecttype":"statement","verschijningsvorm":"certain","bestandsomvang":1000000,"link":"http://www.washington.net/","creatiedatum":"2026-03-14","begin_registratie":"2026-04-06T02:27:52.151138","last_checked_at":"2026-04-07T12:25:40.041736+00:00","next_check_at":"2026-04-08T12:25:40.041736+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"361c9c97-cebb-4042-b327-e30c90f8cee3","url":"http://www.burke.biz/","identificatie":"4cbd93a9-c74d-4eec-b9b7-1208f6aadd56","bronorganisatie":"Stuart
-      Ltd","verantwoordelijkeOrganisatie":"Lopez and Sons","omschrijving":"Tree eight
-      card doctor phone.","toelichting":"Mind discussion environment record. Relationship
-      throw next ok price computer. Cold report be happen south.","status":"table","registratiedatum":"2026-03-24","startdatum":"2026-04-02","zaaktype":"writer","object_type":"federal"}]}'
+    body: '{"uuid":"expired-1","url":"https://mason-reyes.com/","identificatie":"dd1cd7a5-ffb9-4a9d-a787-4d238db7f147","bronorganisatie":"Barry-Vazquez","titel":"Suggest
+      believe couple answer system site.","beschrijving":"Customer kid network interesting
+      tell person. Probably air mouth her black appear road. Require college hear
+      direction itself wait.","auteur":"Alexandra Ho","taal":"zu","vertrouwelijkheidaanduiding":"shake","status":"I","formaat":"webm","bestandsnaam":"letter.js","informatieobjecttype":"western","verschijningsvorm":"your","bestandsomvang":1000000,"link":"http://baker.biz/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-31T03:43:44.793775","last_checked_at":"2026-04-08T07:17:29.895867+00:00","next_check_at":"2026-04-09T07:17:29.895867+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"705af760-c630-42f2-ad58-f3d51c585010","url":"https://www.jackson.com/","identificatie":"5d7b3db0-7cb9-47b8-a5e1-462569da98ec","bronorganisatie":"Brooks-Davis","verantwoordelijkeOrganisatie":"Barton
+      and Sons","omschrijving":"Especially family attack staff state.","toelichting":"Discuss
+      relate myself series return thousand. About only as let.","status":"senior","registratiedatum":"2026-04-08","startdatum":"2026-04-03","zaaktype":"age","object_type":"nice"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -35,12 +35,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"expired-2","url":"https://www.robinson-mitchell.com/","identificatie":"ed188146-c94c-44f7-9b2a-8c75d1aeb8be","bronorganisatie":"Ingram,
-      Perez and James","titel":"Wear light same cut.","beschrijving":"None degree
-      network east ago. Our avoid since impact she.","auteur":"Jeremy Chung","taal":"hu","vertrouwelijkheidaanduiding":"research","status":"education","formaat":"jpeg","bestandsnaam":"bad.html","informatieobjecttype":"budget","verschijningsvorm":"thought","bestandsomvang":1000000,"link":"https://www.bailey.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-31T19:35:37.942220","last_checked_at":"2026-04-08T11:25:40.041736+00:00","next_check_at":"2026-04-09T11:25:40.041736+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"48dd74cb-976a-4951-adde-b5bd04107329","url":"https://nixon-wilson.net/","identificatie":"f5328088-84f1-45df-a747-ec461f836e85","bronorganisatie":"Martin
-      Ltd","verantwoordelijkeOrganisatie":"Mathis-Jennings","omschrijving":"Hold quality
-      phone far draw community thousand.","toelichting":"Task likely soon human many.
-      Carry coach learn sea position one account.","status":"real","registratiedatum":"2026-04-04","startdatum":"2026-04-05","zaaktype":"outside","object_type":"four"}]}'
+    body: '{"uuid":"expired-2","url":"http://www.forbes.com/","identificatie":"fc9ce938-9e53-40ff-a8cc-73c35773a430","bronorganisatie":"Evans-Meyer","titel":"Total
+      however place money person.","beschrijving":"Speech seek activity worry recent.
+      Realize side front hotel.","auteur":"Valerie Smith","taal":"ja","vertrouwelijkheidaanduiding":"fly","status":"far","formaat":"flac","bestandsnaam":"help.mp4","informatieobjecttype":"activity","verschijningsvorm":"prevent","bestandsomvang":1000000,"link":"http://osborn.org/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-25T18:15:14.627140","last_checked_at":"2026-04-09T06:17:29.895867+00:00","next_check_at":"2026-04-10T06:17:29.895867+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"7f0d6c05-6740-4d43-b727-cfc6269788c8","url":"https://hardy.com/","identificatie":"22e945e2-74e7-4485-aac5-e8760ec7b956","bronorganisatie":"Alvarado-Cross","verantwoordelijkeOrganisatie":"Conrad,
+      Nixon and Ramos","omschrijving":"Tell democratic mouth skill industry mention
+      quickly.","toelichting":"Possible television order sit technology alone party.
+      Central job step at interview relationship choose. Defense design center participant.
+      With green partner mean wide.","status":"important","registratiedatum":"2026-04-05","startdatum":"2026-03-17","zaaktype":"let","object_type":"others"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -70,12 +71,14 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"valid-1","url":"https://gonzalez.info/","identificatie":"111d52ee-bfd9-4541-bda7-13b671c7a8b0","bronorganisatie":"White,
-      Craig and Washington","titel":"Continue north travel federal couple police.","beschrijving":"Step
-      make become few half. Responsibility trade describe address treat six wish.
-      Arm much still. Police off save choice movement.","auteur":"Julia Price","taal":"pl","vertrouwelijkheidaanduiding":"benefit","status":"piece","formaat":"mov","bestandsnaam":"technology.pages","informatieobjecttype":"green","verschijningsvorm":"address","bestandsomvang":1000000,"link":"http://long-nunez.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-26T16:02:08.954767","last_checked_at":"2026-04-09T12:25:40.041736+00:00","next_check_at":"2026-04-10T12:25:40.041736+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"6bf1b620-e634-43ce-82cb-0da6d7bca576","url":"http://www.porter-lester.biz/","identificatie":"ddbeee9e-f978-4f70-826f-0a65e7008a02","bronorganisatie":"Moran
-      LLC","verantwoordelijkeOrganisatie":"Acosta LLC","omschrijving":"Among treatment
-      already draw tell.","toelichting":"Card apply sign political create.","status":"control","registratiedatum":"2026-03-17","startdatum":"2026-04-01","zaaktype":"trial","object_type":"face"}]}'
+    body: '{"uuid":"valid-1","url":"https://www.williams.com/","identificatie":"a292488a-6e1a-4526-a978-17e0a6c6c299","bronorganisatie":"Gill
+      Group","titel":"Wish morning knowledge decide.","beschrijving":"Too memory successful
+      art who major whether decision. Team Democrat hard down above.","auteur":"Michaela
+      Valdez","taal":"sc","vertrouwelijkheidaanduiding":"thus","status":"country","formaat":"jpeg","bestandsnaam":"find.docx","informatieobjecttype":"reach","verschijningsvorm":"partner","bestandsomvang":1000000,"link":"http://davis-sharp.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-03-21T19:38:01.404273","last_checked_at":"2026-04-10T07:17:29.895867+00:00","next_check_at":"2026-04-11T07:17:29.895867+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"336d7a67-f907-42b7-be68-d99c8cda5d27","url":"http://www.white.com/","identificatie":"8483dadc-b868-44f9-a1cd-363d0ad46bf1","bronorganisatie":"Jackson
+      and Sons","verantwoordelijkeOrganisatie":"Hall, Tran and Garcia","omschrijving":"Actually
+      expert tough me will view writer.","toelichting":"Case social marriage speak
+      chance. Woman particularly finally property region third. Its call we where
+      card already car thus.","status":"toward","registratiedatum":"2026-03-25","startdatum":"2026-03-29","zaaktype":"everything","object_type":"no"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -105,7 +108,7 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-09T12:25:40.041736+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
+    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-10T07:17:29.895867+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -121,7 +124,7 @@ interactions:
     uri: http://localhost:9201/document/_search
   response:
     body:
-      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
+      string: '{"took":6,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
     headers:
       Transfer-Encoding:
       - chunked

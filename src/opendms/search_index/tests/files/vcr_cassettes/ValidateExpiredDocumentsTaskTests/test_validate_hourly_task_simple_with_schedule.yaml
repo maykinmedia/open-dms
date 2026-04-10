@@ -1,11 +1,13 @@
 interactions:
 - request:
-    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"https://hawkins-watson.net/","identificatie":"041183bb-0809-4304-b8ce-1318e5daa308","bronorganisatie":"Crawford-Pope","titel":"Away
-      room central concern speech.","beschrijving":"Purpose administration hand same
-      write interesting space. Response firm record. Trouble some amount use likely
-      enter. Respond board approach fill.","auteur":"Bobby Bell","taal":"te","vertrouwelijkheidaanduiding":"during","status":"have","formaat":"ppt","bestandsnaam":"finish.avi","informatieobjecttype":"institution","verschijningsvorm":"ago","bestandsomvang":1000000,"link":"https://woodard.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-16T22:58:48.897293","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"e723e258-4428-42d6-a29b-fd9903c6f7b1","url":"http://obrien.com/","identificatie":"8fd08fd7-00e1-4d2e-8ac0-33712e3eb788","bronorganisatie":"Ortega,
-      Tate and Cain","verantwoordelijkeOrganisatie":"Williams, Conner and Cochran","omschrijving":"Republican
-      media interest.","toelichting":"Point get name if offer.","status":"difficult","registratiedatum":"2026-03-02","startdatum":"2026-03-13","zaaktype":"order","object_type":"conference"}]}'
+    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"https://www.crane.info/","identificatie":"9572f83d-bbce-425a-8219-748028dc4479","bronorganisatie":"Young
+      Ltd","titel":"Glass other conference within western evening.","beschrijving":"Job
+      benefit by movement five grow also open. Loss away avoid more nothing become
+      part make. Race heart I various mention responsibility beautiful that. Add yeah
+      career too.","auteur":"Rachel Mclean","taal":"gl","vertrouwelijkheidaanduiding":"my","status":"choice","formaat":"flac","bestandsnaam":"full.mov","informatieobjecttype":"raise","verschijningsvorm":"home","bestandsomvang":1000000,"link":"https://www.krueger.info/","creatiedatum":"2026-03-28","begin_registratie":"2026-02-28T17:03:36.622143","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"1d4a8268-0805-481f-8c96-db49575c6d06","url":"http://mcconnell.biz/","identificatie":"c0edfd35-7d92-4dc5-a682-b7236ee7be55","bronorganisatie":"Villegas,
+      Moreno and Hughes","verantwoordelijkeOrganisatie":"Lowery Inc","omschrijving":"Among
+      official every.","toelichting":"Ahead glass public television environmental
+      many long. Like market well really guy employee.","status":"small","registratiedatum":"2026-03-27","startdatum":"2026-03-25","zaaktype":"range","object_type":"move"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -35,13 +37,14 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"http://jenkins-parker.biz/","identificatie":"260319c8-e0d1-43d1-844d-fe8da7d00145","bronorganisatie":"Campbell
-      PLC","titel":"Between dark south get.","beschrijving":"Upon whose walk class.
-      Administration social go her order significant.","auteur":"Pamela Estrada","taal":"tl","vertrouwelijkheidaanduiding":"them","status":"population","formaat":"mp4","bestandsnaam":"expect.mov","informatieobjecttype":"statement","verschijningsvorm":"could","bestandsomvang":1000000,"link":"http://frazier.net/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-02T09:20:55.814039","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"1a898427-b1c6-49c0-b561-f354db8fa9ad","url":"https://www.harper-palmer.biz/","identificatie":"33fc62f4-2e50-478c-a0ff-2bf068cb24f7","bronorganisatie":"Osborne
-      Group","verantwoordelijkeOrganisatie":"Mcdonald-George","omschrijving":"Campaign
-      risk every white television news.","toelichting":"Interview administration should.
-      Data partner play benefit similar. College occur current quickly guy themselves.
-      Paper rather size him back vote cold.","status":"operation","registratiedatum":"2026-03-21","startdatum":"2026-03-14","zaaktype":"effect","object_type":"black"}]}'
+    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"https://www.fowler-cook.com/","identificatie":"3a93ab23-6576-4f9a-a207-6e239b17c658","bronorganisatie":"Gilbert
+      Group","titel":"Student speak newspaper away.","beschrijving":"Environment dinner
+      rather human building practice very. Mr land set relate thought season their
+      year. Out TV safe their plant go. Southern couple TV opportunity.","auteur":"James
+      Herman","taal":"nso","vertrouwelijkheidaanduiding":"couple","status":"whom","formaat":"ppt","bestandsnaam":"south.mp4","informatieobjecttype":"bring","verschijningsvorm":"cold","bestandsomvang":1000000,"link":"http://www.owens-maxwell.info/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-26T03:55:31.417481","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"76111dd7-28ae-4efd-8190-38dc74b4c0ed","url":"http://www.elliott.com/","identificatie":"199cbf7c-12db-42bb-bf45-b23dd11f3bcb","bronorganisatie":"Davis,
+      Singh and Stuart","verantwoordelijkeOrganisatie":"Moreno-Young","omschrijving":"In
+      thus suggest spring debate red.","toelichting":"Discussion ahead hope thus.
+      Goal nature big TV admit. Around everyone consumer million reality light can.","status":"history","registratiedatum":"2026-03-17","startdatum":"2026-03-02","zaaktype":"form","object_type":"significant"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -71,12 +74,13 @@ interactions:
       code: 201
       message: Created
 - request:
-    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://garcia.info/","identificatie":"d9335e50-9923-4e8d-b120-940d6e4f6611","bronorganisatie":"Bright-Reid","titel":"Adult
-      wide any protect since.","beschrijving":"Surface each know run near leave. Building
-      outside fill green mention bag actually real.","auteur":"Kathleen Cooper","taal":"sk","vertrouwelijkheidaanduiding":"inside","status":"institution","formaat":"txt","bestandsnaam":"lot.xlsx","informatieobjecttype":"item","verschijningsvorm":"also","bestandsomvang":1000000,"link":"http://johnson.com/","creatiedatum":"2026-03-20","begin_registratie":"2026-03-18T02:02:42.883935","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"8687a239-9bf9-4476-987b-f9080bfaaa55","url":"https://www.bennett.com/","identificatie":"a6274b57-4f97-4f66-a646-1054c2ec2ff2","bronorganisatie":"Coleman-Jenkins","verantwoordelijkeOrganisatie":"Rodriguez-Riley","omschrijving":"Including
-      significant offer together.","toelichting":"Condition them subject pay style
-      he forward resource. Modern rich interview run. Anyone arrive water. Soldier
-      democratic reason mother woman show amount later.","status":"later","registratiedatum":"2026-03-05","startdatum":"2026-03-25","zaaktype":"receive","object_type":"include"}]}'
+    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://lozano.net/","identificatie":"3816e134-6825-40c0-90ef-e2cf6f538365","bronorganisatie":"Rich
+      and Sons","titel":"Tree yet teacher including loss yet benefit will.","beschrijving":"Figure
+      wide person beyond nor take.","auteur":"Jessica Harris","taal":"xh","vertrouwelijkheidaanduiding":"finish","status":"interview","formaat":"key","bestandsnaam":"moment.wav","informatieobjecttype":"finish","verschijningsvorm":"fear","bestandsomvang":1000000,"link":"https://chase-smith.com/","creatiedatum":"2026-03-20","begin_registratie":"2026-03-05T10:31:27.635340","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"b02dd62f-a40d-4033-bbd2-0365f4b6ae0a","url":"http://wallace.com/","identificatie":"cd7e3ef5-a858-4c8b-89d5-a1d85efdc052","bronorganisatie":"Smith,
+      Buck and Taylor","verantwoordelijkeOrganisatie":"Kline, Schmidt and Martinez","omschrijving":"Report
+      region price but green record lot.","toelichting":"Beat report foot cost. Maybe
+      area future idea data better should sing. Company church hand so experience
+      traditional organization.","status":"against","registratiedatum":"2026-03-12","startdatum":"2026-03-11","zaaktype":"dog","object_type":"if"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -160,12 +164,12 @@ interactions:
       Content-Length:
       - '1942'
       Content-Security-Policy:
-      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
-        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
-        cdn.jsdelivr.net; frame-src ''self''; script-src ''self'' ''unsafe-inline''
-        cdnjs.cloudflare.com cdn.jsdelivr.net; object-src ''none''; font-src ''self''
-        fonts.gstatic.com; worker-src ''self'' blob:; default-src ''self''; base-uri
-        ''self''; form-action ''self''; frame-ancestors ''none'''
+      - 'font-src ''self'' fonts.gstatic.com; frame-src ''self''; img-src ''self''
+        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org; frame-ancestors
+        ''none''; style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; default-src ''self''; form-action ''self''; worker-src ''self''
+        blob:; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net;
+        object-src ''none''; base-uri ''self'''
       Content-Type:
       - application/json
       Cross-Origin-Opener-Policy:
@@ -196,19 +200,22 @@ interactions:
     uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111
   response:
     body:
-      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":3,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Purpose
-        administration hand same write interesting space. Response firm record. Trouble
-        some amount use likely enter. Respond board approach fill.","verschijningsvorm":"ago","begin_registratie":"2026-03-16T22:58:48.897293","identificatie":"041183bb-0809-4304-b8ce-1318e5daa308","bronorganisatie":"Crawford-Pope","bestandsomvang":1000000,"link":"https://woodard.com/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"https://hawkins-watson.net/","taal":"te","zaak_referenties":[{"omschrijving":"Republican
-        media interest.","identificatie":"8fd08fd7-00e1-4d2e-8ac0-33712e3eb788","startdatum":"2026-03-13","object_type":"conference","bronorganisatie":"Ortega,
-        Tate and Cain","zaaktype":"order","registratiedatum":"2026-03-02","uuid":"e723e258-4428-42d6-a29b-fd9903c6f7b1","url":"http://obrien.com/","verantwoordelijkeOrganisatie":"Williams,
-        Conner and Cochran","toelichting":"Point get name if offer.","status":"difficult"}],"auteur":"Bobby
-        Bell","formaat":"ppt","last_checked_at":"2026-03-29T12:00:00+00:00","titel":"Away
-        room central concern speech.","vertrouwelijkheidaanduiding":"during","informatieobjecttype":"institution","bestandsnaam":"finish.avi","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2","status":"have"}}'
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":3,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Job
+        benefit by movement five grow also open. Loss away avoid more nothing become
+        part make. Race heart I various mention responsibility beautiful that. Add
+        yeah career too.","verschijningsvorm":"home","begin_registratie":"2026-02-28T17:03:36.622143","identificatie":"9572f83d-bbce-425a-8219-748028dc4479","bronorganisatie":"Young
+        Ltd","bestandsomvang":1000000,"link":"https://www.krueger.info/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"https://www.crane.info/","taal":"gl","zaak_referenties":[{"omschrijving":"Among
+        official every.","identificatie":"c0edfd35-7d92-4dc5-a682-b7236ee7be55","startdatum":"2026-03-25","object_type":"move","bronorganisatie":"Villegas,
+        Moreno and Hughes","zaaktype":"range","registratiedatum":"2026-03-27","uuid":"1d4a8268-0805-481f-8c96-db49575c6d06","url":"http://mcconnell.biz/","verantwoordelijkeOrganisatie":"Lowery
+        Inc","toelichting":"Ahead glass public television environmental many long.
+        Like market well really guy employee.","status":"small"}],"auteur":"Rachel
+        Mclean","formaat":"flac","last_checked_at":"2026-03-29T12:00:00+00:00","titel":"Glass
+        other conference within western evening.","vertrouwelijkheidaanduiding":"my","informatieobjecttype":"raise","bestandsnaam":"full.mov","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2","status":"choice"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1460'
+      - '1535'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -255,20 +262,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222
   response:
     body:
-      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":3,"_seq_no":20,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Upon
-        whose walk class. Administration social go her order significant.","verschijningsvorm":"could","begin_registratie":"2026-03-02T09:20:55.814039","identificatie":"260319c8-e0d1-43d1-844d-fe8da7d00145","bronorganisatie":"Campbell
-        PLC","bestandsomvang":1000000,"link":"http://frazier.net/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"http://jenkins-parker.biz/","taal":"tl","zaak_referenties":[{"omschrijving":"Campaign
-        risk every white television news.","identificatie":"33fc62f4-2e50-478c-a0ff-2bf068cb24f7","startdatum":"2026-03-14","object_type":"black","bronorganisatie":"Osborne
-        Group","zaaktype":"effect","registratiedatum":"2026-03-21","uuid":"1a898427-b1c6-49c0-b561-f354db8fa9ad","url":"https://www.harper-palmer.biz/","verantwoordelijkeOrganisatie":"Mcdonald-George","toelichting":"Interview
-        administration should. Data partner play benefit similar. College occur current
-        quickly guy themselves. Paper rather size him back vote cold.","status":"operation"}],"auteur":"Pamela
-        Estrada","formaat":"mp4","last_checked_at":"2026-03-29T11:00:00+00:00","titel":"Between
-        dark south get.","vertrouwelijkheidaanduiding":"them","informatieobjecttype":"statement","bestandsnaam":"expect.mov","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2","status":"population"}}'
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":3,"_seq_no":20,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Environment
+        dinner rather human building practice very. Mr land set relate thought season
+        their year. Out TV safe their plant go. Southern couple TV opportunity.","verschijningsvorm":"cold","begin_registratie":"2026-03-26T03:55:31.417481","identificatie":"3a93ab23-6576-4f9a-a207-6e239b17c658","bronorganisatie":"Gilbert
+        Group","bestandsomvang":1000000,"link":"http://www.owens-maxwell.info/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"https://www.fowler-cook.com/","taal":"nso","zaak_referenties":[{"omschrijving":"In
+        thus suggest spring debate red.","identificatie":"199cbf7c-12db-42bb-bf45-b23dd11f3bcb","startdatum":"2026-03-02","object_type":"significant","bronorganisatie":"Davis,
+        Singh and Stuart","zaaktype":"form","registratiedatum":"2026-03-17","uuid":"76111dd7-28ae-4efd-8190-38dc74b4c0ed","url":"http://www.elliott.com/","verantwoordelijkeOrganisatie":"Moreno-Young","toelichting":"Discussion
+        ahead hope thus. Goal nature big TV admit. Around everyone consumer million
+        reality light can.","status":"history"}],"auteur":"James Herman","formaat":"ppt","last_checked_at":"2026-03-29T11:00:00+00:00","titel":"Student
+        speak newspaper away.","vertrouwelijkheidaanduiding":"couple","informatieobjecttype":"bring","bestandsnaam":"south.mp4","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2","status":"whom"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1509'
+      - '1557'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -343,19 +350,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
   response:
     body:
-      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"_seq_no":24,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Surface
-        each know run near leave. Building outside fill green mention bag actually
-        real.","verschijningsvorm":"also","begin_registratie":"2026-03-18T02:02:42.883935","identificatie":"d9335e50-9923-4e8d-b120-940d6e4f6611","bronorganisatie":"Bright-Reid","bestandsomvang":1000000,"link":"http://johnson.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://garcia.info/","taal":"sk","zaak_referenties":[{"omschrijving":"Including
-        significant offer together.","identificatie":"a6274b57-4f97-4f66-a646-1054c2ec2ff2","startdatum":"2026-03-25","object_type":"include","bronorganisatie":"Coleman-Jenkins","zaaktype":"receive","registratiedatum":"2026-03-05","uuid":"8687a239-9bf9-4476-987b-f9080bfaaa55","url":"https://www.bennett.com/","verantwoordelijkeOrganisatie":"Rodriguez-Riley","toelichting":"Condition
-        them subject pay style he forward resource. Modern rich interview run. Anyone
-        arrive water. Soldier democratic reason mother woman show amount later.","status":"later"}],"auteur":"Kathleen
-        Cooper","formaat":"txt","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Adult
-        wide any protect since.","vertrouwelijkheidaanduiding":"inside","informatieobjecttype":"item","bestandsnaam":"lot.xlsx","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"institution"}}'
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":5,"_seq_no":24,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Figure
+        wide person beyond nor take.","verschijningsvorm":"fear","begin_registratie":"2026-03-05T10:31:27.635340","identificatie":"3816e134-6825-40c0-90ef-e2cf6f538365","bronorganisatie":"Rich
+        and Sons","bestandsomvang":1000000,"link":"https://chase-smith.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://lozano.net/","taal":"xh","zaak_referenties":[{"omschrijving":"Report
+        region price but green record lot.","identificatie":"cd7e3ef5-a858-4c8b-89d5-a1d85efdc052","startdatum":"2026-03-11","object_type":"if","bronorganisatie":"Smith,
+        Buck and Taylor","zaaktype":"dog","registratiedatum":"2026-03-12","uuid":"b02dd62f-a40d-4033-bbd2-0365f4b6ae0a","url":"http://wallace.com/","verantwoordelijkeOrganisatie":"Kline,
+        Schmidt and Martinez","toelichting":"Beat report foot cost. Maybe area future
+        idea data better should sing. Company church hand so experience traditional
+        organization.","status":"against"}],"auteur":"Jessica Harris","formaat":"key","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Tree
+        yet teacher including loss yet benefit will.","vertrouwelijkheidaanduiding":"finish","informatieobjecttype":"finish","bestandsnaam":"moment.wav","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"interview"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1520'
+      - '1475'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

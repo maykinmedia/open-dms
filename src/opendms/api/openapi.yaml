@@ -709,6 +709,15 @@ components:
           default: ''
           description: De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen
             in de index.
+        serviceSlug:
+          type: string
+          nullable: true
+          description: De slug van de bronservice die dit document heeft geïndexeerd.
+        groupSlug:
+          type: string
+          nullable: true
+          description: De slug van de groep waartoe de bronservice behoort die dit
+            document heeft geïndexeerd.
         zaakReferenties:
           type: array
           items:
