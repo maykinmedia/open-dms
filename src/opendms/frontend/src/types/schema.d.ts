@@ -417,6 +417,12 @@ export interface components {
             serviceSlug?: string | null;
             /** @description De slug van de groep waartoe de bronservice behoort die deze zaak heeft geïndexeerd. */
             groupSlug?: string | null;
+            /** @description De slug van de ZTC service die gekoppeld is aan de bronservice die deze zaak heeft geïndexeerd. */
+            ztcServiceSlug?: string | null;
+            /** @description De UUID van de zaak in de ZTC, indien deze bekend is en gekoppeld kan worden. */
+            ztcUuid?: string | null;
+            /** @description Het jaar waarin de zaak is gestart. Dit veld is optioneel en kan worden gebruikt voor aanvullende filtering of sortering op jaarniveau. */
+            startjaar?: string | null;
             /**
              * @description discriminator enum property added by openapi-typescript
              * @enum {string}

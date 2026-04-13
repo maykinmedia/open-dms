@@ -156,6 +156,27 @@ class ESZaakSerializer(serializers.Serializer):
             "De slug van de groep waartoe de bronservice behoort die deze zaak heeft geïndexeerd."
         ),
     )
+    ztc_service_slug = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_(
+            "De slug van de ZTC service die gekoppeld is aan de bronservice die deze zaak heeft geïndexeerd."
+        ),
+    )
+    ztc_uuid = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_(
+            "De UUID van de zaak in de ZTC, indien deze bekend is en gekoppeld kan worden."
+        ),
+    )
+    startjaar = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_(
+            "Het jaar waarin de zaak is gestart. Dit veld is optioneel en kan worden gebruikt voor aanvullende filtering of sortering op jaarniveau."
+        ),
+    )
 
 
 @extend_schema_serializer()
