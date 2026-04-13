@@ -398,6 +398,7 @@ export interface components {
              * @default
              */
             inhoud: string;
+            readonly hasPendingUpdates: boolean;
         };
         ESDocument: {
             /** @description Unieke resource identifier (UUID4) */

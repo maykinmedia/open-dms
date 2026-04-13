@@ -653,6 +653,7 @@ paths:
               additionalProperties: {}
       security:
       - cookieAuth: []
+      - {}
       responses:
         '200':
           headers:
@@ -774,11 +775,15 @@ components:
           default: ''
           description: De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen
             in de index.
+        hasPendingUpdates:
+          type: boolean
+          readOnly: true
       required:
       - auteur
       - beginRegistratie
       - bronorganisatie
       - creatiedatum
+      - hasPendingUpdates
       - identificatie
       - informatieobjecttype
       - taal

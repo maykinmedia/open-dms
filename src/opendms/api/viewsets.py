@@ -505,6 +505,4 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     def _redirect_to_ms_auth(self, request: Request):
         callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
         request.session["origin_url"] = request.build_absolute_uri()
-        return document_edit_backend.authenticate(
-            request, redirect_url=callback_url
-        )
+        return document_edit_backend.authenticate(request, redirect_url=callback_url)

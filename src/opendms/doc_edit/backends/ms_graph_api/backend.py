@@ -4,7 +4,6 @@ import secrets
 
 from django.conf import settings
 from django.shortcuts import redirect
-from django.urls import reverse
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 
@@ -225,7 +224,9 @@ class MsGraphApiBackend(DocumentEditBackend):
         webhook_url = settings.MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL
 
         if webhook_url is None:
-            raise ValueError("MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL is not configured!")
+            raise ValueError(
+                "MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL is not configured!"
+            )
 
         for subscription in subscriptions:
             if (

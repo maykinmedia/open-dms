@@ -1,13 +1,18 @@
+from django.utils.timezone import get_current_timezone
 from django.utils.translation import gettext_lazy as _
 
+import dateutil.parser
 from drf_spectacular.utils import (
     PolymorphicProxySerializer,
+    extend_schema_field,
     extend_schema_serializer,
 )
 from rest_framework import serializers
 from zgw_consumers.models import Service
 
+from ..doc_edit.models import BaseDriveDocument
 from .constants import SortChoices
+from .typing import ESDocumentType
 
 
 class ServiceSerializer(serializers.ModelSerializer):
@@ -293,6 +298,18 @@ class DocumentSerializer(serializers.Serializer):
             "De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen in de index."
         ),
     )
+
+    has_pending_updates = serializers.SerializerMethodField()
+
+    @extend_schema_field(serializers.BooleanField)
+    def get_has_pending_updates(self, document: ESDocumentType) -> bool:
+        uuid = document["uuid"]
+        created = dateutil.parser.isoparse(document["creatiedatum"])
+        created = created.replace(tzinfo=get_current_timezone())
+        qs = BaseDriveDocument.objects.filter(
+            document_uuid=uuid, updated_at__gt=created
+        )
+        return qs.exists()
 
 
 class ESDocumentSerializer(serializers.Serializer):
