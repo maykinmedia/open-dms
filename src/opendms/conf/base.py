@@ -328,3 +328,10 @@ MSGRAPH_API_BACKEND_SYNC_FOLDER = config(
     group="Microsoft configuration",
     help_text="The folder where MsGraphApiBackend syncs data.",
 )
+
+MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL = config(
+    "MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL",
+    default=None,
+    group="Microsoft configuration",
+    help_text="The callback notification URL to use for subscription webhooks.",
+)

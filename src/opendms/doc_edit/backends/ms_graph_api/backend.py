@@ -222,7 +222,10 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         data = self.subscription_client.list_subscriptions()
         subscriptions: list[Subscription] = data["value"]
-        webhook_url = reverse("webhook")
+        webhook_url = settings.MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL
+
+        if webhook_url is None:
+            raise ValueError("MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL is not configured!")
 
         for subscription in subscriptions:
             if (

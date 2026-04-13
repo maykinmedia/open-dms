@@ -68,7 +68,7 @@ class SubscriptionClient(GraphClient):
             json={
                 "changeType": change_type,
                 # TODO TEMPORARY URL
-                "notificationUrl": "https://heady-wonda-unstaved.ngrok-free.dev/webhook",
+                "notificationUrl": webhook_url,
                 # TODO TEMPORARY URL
                 "resource": resource,
                 "expirationDateTime": expiration,

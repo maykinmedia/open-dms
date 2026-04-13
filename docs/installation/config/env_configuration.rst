@@ -112,6 +112,7 @@ Microsoft configuration
 * ``MSGRAPH_API_BACKEND_CLIENT_ID``: The Application (client) ID registered for MsGraphApiBackend in Entra ID. Defaults to: ``None``.
 * ``MSGRAPH_API_BACKEND_CLIENT_SECRET``: The client secret used by MsGraphApiBackend to authenticate against Microsoft Graph API. Defaults to: ``None``.
 * ``MSGRAPH_API_BACKEND_SYNC_FOLDER``: The folder where MsGraphApiBackend syncs data. Defaults to: ``ODS_SYNC``.
+* ``MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL``: The callback notification URL to use for subscription webhooks. Defaults to: ``None``.
 
 
 Optional
