@@ -423,11 +423,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     def edit(self, request: Request, *args, **kwargs):
         access_token = request.session.get("access_token", None)
         if not access_token:
-            callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
-            request.session["origin_url"] = request.build_absolute_uri()
-            return document_edit_backend.authenticate(
-                request, redirect_url=callback_url
-            )
+            return self._redirect_to_ms_auth(request)
 
         obj = self.get_object()
 
@@ -451,6 +447,10 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             edit_file_url = document_edit_backend.open(tmp_path, file_uuid, file_ext)
             return redirect(edit_file_url)
         except Exception as exc:
+            response = getattr(exc, "response", None)
+            if response and response.status_code == status.HTTP_401_UNAUTHORIZED:
+                return self._redirect_to_ms_auth(request)
+
             logger.exception("Document upload to Drive failed")
             raise MsGraphApiBackendError(_("Document upload to Drive failed.")) from exc
         finally:
@@ -501,3 +501,10 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 mime_type=document_info["mimeType"],
             )
         return Response(message, status=status_code)
+
+    def _redirect_to_ms_auth(self, request: Request):
+        callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
+        request.session["origin_url"] = request.build_absolute_uri()
+        return document_edit_backend.authenticate(
+            request, redirect_url=callback_url
+        )
