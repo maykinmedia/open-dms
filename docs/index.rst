@@ -14,3 +14,4 @@ Getting Started
    installation/index
    testing
    changelog
+   why-bsl

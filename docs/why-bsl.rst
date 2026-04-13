@@ -45,14 +45,14 @@ good at developing quality products and consultancy. Hence, we primarily will
 get our money from developing. Using the BSL allows us to do just that.
 
 Can I use Open Documentbeheer?
-------------------------
+------------------------------
 
 Yes! You personally, or your organization can use this project for demo and 
 test purposes or in pilot projects. If you want to use it in production, 
 contact `Maykin`_ for an appropriate license.
 
 Can I use Open Documentbeheer in production?
---------------------------------------
+--------------------------------------------
 
 Yes, just not with the BSL. You can contact `Maykin`_ for an appropriate 
 license to use it in production.
@@ -68,7 +68,7 @@ The BSL also enforces the eventual release of this project as open source, in
 this case the `EUPL`_. This explicit promise is very important to us.
 
 Can I contribute to Open Documentbeheer?
-----------------------------------
+----------------------------------------
 
 Ofcourse! Within the `Common Ground community`_ there are many pilot projects
 that require a product offering the Haal Centraal BRP API. These projects can
