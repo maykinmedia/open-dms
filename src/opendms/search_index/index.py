@@ -139,11 +139,22 @@ class Zaak(ES_Document):
     startjaar: M[str | None] = mapped_field(Keyword())
     creatiedatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
 
+    last_checked_at: M[datetime] = mapped_field(Date())
+    next_check_at: M[datetime] = mapped_field(Date())
+
     class Index:
         name: IndexName = "zaak"
 
     def save(self, **kwargs):
         self.creatiedatum = self.registratiedatum
+
+        now = datetime.now(UTC)
+        if not self.last_checked_at:
+            self.last_checked_at = now
+
+        if not self.next_check_at:
+            self.next_check_at = now + timedelta(days=CHECK_EXTENSION_DAYS)
+
         return super().save(**kwargs)
 
 

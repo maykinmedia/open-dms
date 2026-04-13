@@ -28,6 +28,18 @@ class ZaakClient(HttpRequestMixin, NLXClient):
         )
         return [self._map_zaak(record) for record in pagination_helper(self, data)]
 
+    def get_items(self, params: dict | None = None) -> list[Zaak]:
+        """
+        Fetch all zaken using pagination, this is used for retrieving zaken for the API.
+        """
+        params = params or {}
+        data = self.make_request(
+            self.endpoint,
+            params={**params},
+            headers=CRS_HEADERS,
+        )
+        return [self._map_zaak(record) for record in pagination_helper(self, data)]
+
     def get_paginated_items_by_zaaktype(
         self,
         zaaktype_url: str,

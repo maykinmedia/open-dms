@@ -454,6 +454,83 @@ class ElasticSearchClient:
             refresh=settings.SEARCH_INDEX["REFRESH"],
         )
 
+    def get_expired_zaken(
+        self, now: datetime, batch_size: int = 100, service_slug: str | None = None
+    ) -> list[dict]:
+        """
+        Retrieve expired zaken with UUID, service_slug, and group_slug.
+        """
+        try:
+            query = {"range": {"next_check_at": {"lte": now}}}
+            if service_slug:
+                query = {
+                    "bool": {"must": [query, {"term": {"service_slug": service_slug}}]}
+                }
+            response = self.client.search(
+                index=self.zaak_index,
+                size=batch_size,
+                _source=["service_slug", "group_slug", "registratiedatum"],
+                query=query,
+            )
+            hits = response.get("hits", {}).get("hits", [])
+            results = []
+
+            for hit in hits:
+                source = hit.get("_source", {})
+                results.append(
+                    {
+                        "uuid": hit.get("_id"),
+                        "service_slug": source.get("service_slug"),
+                        "group_slug": source.get("group_slug"),
+                        "registratiedatum": source.get("registratiedatum"),
+                    }
+                )
+
+            return results
+
+        except Exception:
+            logger.exception("failed_to_fetch_expired_zaken")
+            return []
+
+    def update_check_times(
+        self, uuid: str, last_checked_at: datetime, next_check_at: datetime
+    ) -> bool:
+        """
+        Update the check times for a document.
+        """
+        try:
+            self.client.update(
+                index=self.zaak_index,
+                id=uuid,
+                body={
+                    "doc": {
+                        "last_checked_at": last_checked_at,
+                        "next_check_at": next_check_at,
+                    }
+                },
+                refresh=self._settings["REFRESH"],
+            )
+            return True
+        except NotFoundError:
+            return False
+        except Exception:
+            logger.exception("failed_to_update_update_check_times", uuid=uuid)
+            return False
+
+    def delete_zaak(self, uuid: str) -> bool:
+        """
+        Delete a Zaak from Elasticsearch by its UUID.
+        """
+        try:
+            doc = Zaak.get(id=uuid, using=self.client)
+            doc.delete(using=self.client, refresh=settings.SEARCH_INDEX["REFRESH"])
+            return True
+        except NotFoundError:
+            return False
+        except Exception:
+            logger.error("failed_to_delete_zaak")
+            return False
+
 
 def get_elasticsearch_client() -> ElasticSearchClient:
     return ElasticSearchClient()
