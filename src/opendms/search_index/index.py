@@ -165,6 +165,12 @@ class DocumentResults:
 
 
 @dataclass
+class ZaakResults:
+    total_count: int
+    results: Sequence[Zaak]
+
+
+@dataclass
 class Results:
     total_count: int
     results: Sequence[SearchResultItem]

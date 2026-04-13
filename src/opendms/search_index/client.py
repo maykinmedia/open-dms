@@ -13,7 +13,7 @@ from elasticsearch.dsl import Q, Search
 from elasticsearch.exceptions import NotFoundError
 
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX, ZAAK_INDEX
-from .index import Document, DocumentResults, Results, Zaak
+from .index import Document, DocumentResults, Results, Zaak, ZaakResults
 from .utils import download_document
 
 logger = structlog.get_logger(__name__)
@@ -258,6 +258,23 @@ class ElasticSearchClient:
         response = search.execute()
         # process the results
         return DocumentResults(
+            total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
+            results=[hit for hit in response.hits],
+        )
+
+    def get_all_zaken(self, page: int = 1, page_size: int = 10) -> ZaakResults:
+        """
+        Retrieve all documents from the index, paginated.
+        """
+        search = Search(index=self.zaak_index, doc_type=Zaak)
+
+        page_from = page_size * (page - 1)
+        search = search[page_from : page_from + page_size]
+        search = search.query("match_all")
+        search = search.using(self.client)
+        response = search.execute()
+        # process the results
+        return ZaakResults(
             total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
             results=[hit for hit in response.hits],
         )

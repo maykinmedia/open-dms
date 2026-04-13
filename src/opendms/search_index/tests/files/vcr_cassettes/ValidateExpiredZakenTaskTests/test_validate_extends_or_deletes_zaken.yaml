@@ -1,0 +1,663 @@
+interactions:
+- request:
+    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"https://www.griffin.info/","identificatie":"2fe99c65-7ce6-4d89-ba95-2c051087d9fe","bronorganisatie":"Smith
+      PLC","verantwoordelijkeOrganisatie":"Foley-Baker","omschrijving":"Fund let student
+      out former behavior than.","toelichting":"Professor mean behavior fly station.
+      Star almost step push turn southern.","status":"evening","registratiedatum":"2026-03-28","startdatum":"2026-03-04","zaaktype":"success","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-28T12:00:00+00:00","next_check_at":"2026-03-29T12:00:00+00:00","creatiedatum":"2026-03-28"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/11111111-1111-1111-1111-111111111111?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"11111111-1111-1111-1111-111111111111","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":8,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/11111111-1111-1111-1111-111111111111
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"http://www.flowers-randall.biz/","identificatie":"7333dcd6-3c64-4d1c-9d55-89b297e82fdf","bronorganisatie":"Soto
+      Ltd","verantwoordelijkeOrganisatie":"Powell and Sons","omschrijving":"Thing
+      film box popular evening side your long.","toelichting":"Success important resource
+      though lot. Also small focus necessary. Pick evidence enter perform take. Write
+      figure send language themselves.","status":"yourself","registratiedatum":"2026-03-29","startdatum":"2026-03-05","zaaktype":"public","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","creatiedatum":"2026-03-29"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/22222222-2222-2222-2222-222222222222?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"22222222-2222-2222-2222-222222222222","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":9,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/22222222-2222-2222-2222-222222222222
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '172'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.stanley.com/","identificatie":"46811270-23d1-4878-8731-dbacec22719a","bronorganisatie":"Nguyen-Ryan","verantwoordelijkeOrganisatie":"Rowe-Thompson","omschrijving":"Wall
+      agent usually commercial place wrong cold.","toelichting":"If should western
+      go again power industry player. Use could direction radio. Budget power today
+      process company include.","status":"two","registratiedatum":"2026-03-30","startdatum":"2026-03-27","zaaktype":"story","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-04T12:00:00+00:00","creatiedatum":"2026-03-30"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/33333333-3333-3333-3333-333333333333?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"33333333-3333-3333-3333-333333333333","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":10,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/33333333-3333-3333-3333-333333333333
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '173'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"44444444-4444-4444-4444-444444444444","url":"http://www.nichols.com/","identificatie":"9a497b0e-915d-4fd7-96cd-61fdd675818e","bronorganisatie":"Cervantes
+      Inc","verantwoordelijkeOrganisatie":"Hodge, Davis and Cox","omschrijving":"Production
+      institution those.","toelichting":"Outside section which measure create three
+      this. Him down worker majority dark.","status":"whole","registratiedatum":"2026-03-25","startdatum":"2026-03-13","zaaktype":"land","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","creatiedatum":"2026-03-25"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/44444444-4444-4444-4444-444444444444?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"44444444-4444-4444-4444-444444444444","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":11,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/44444444-4444-4444-4444-444444444444
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '173'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"85169f14-b860-4590-8787-4e026f90703e","url":"https://suarez.org/","identificatie":"8f2466a2-0d14-4fd2-9c15-be3e743d1457","bronorganisatie":"Tran,
+      English and Ferguson","verantwoordelijkeOrganisatie":"Price Inc","omschrijving":"Throughout
+      end quite.","toelichting":"Quite phone fight skill.","status":"north","registratiedatum":"2026-03-20","startdatum":"2026-03-05","zaaktype":"street","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","creatiedatum":"2026-03-20"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/85169f14-b860-4590-8787-4e026f90703e?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"85169f14-b860-4590-8787-4e026f90703e","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":12,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/85169f14-b860-4590-8787-4e026f90703e
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '173'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-03-30T12:00:00+00:00"}}},{"term":{"service_slug":"zaken-api"}}]}},"size":10,"_source":["service_slug","group_slug","registratiedatum"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/zaak/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0512933,"hits":[{"_index":"zaak","_id":"11111111-1111-1111-1111-111111111111","_score":1.0512933,"_source":{"registratiedatum":"2026-03-28","service_slug":"zaken-api","group_slug":"group-test"}},{"_index":"zaak","_id":"22222222-2222-2222-2222-222222222222","_score":1.0512933,"_source":{"registratiedatum":"2026-03-29","service_slug":"zaken-api","group_slug":"group-test"}},{"_index":"zaak","_id":"85169f14-b860-4590-8787-4e026f90703e","_score":1.0512933,"_source":{"registratiedatum":"2026-03-20","service_slug":"zaken-api","group_slug":"group-test"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost:8003/zaken/api/v1/zaken?registratiedatum__gt=2026-03-20&registratiedatum__lt=2026-03-29
+  response:
+    body:
+      string: '{"count":20,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/zaken/api/v1/zaken/bc5d35a8-956d-4b94-80af-86796d626f08","uuid":"bc5d35a8-956d-4b94-80af-86796d626f08","identificatie":"ZAAK-2025-0000000009","bronorganisatie":"000000085","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000085","startdatum":"2025-02-05","einddatum":"2025-03-03","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-02-19","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.390000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/0db55c65-22ca-4da9-8486-8f768fdacdf6","http://localhost:8003/zaken/api/v1/rollen/e35f175b-5f3e-407f-bb2a-0ea0d19e23eb"],"status":"http://localhost:8003/zaken/api/v1/statussen/a483020a-6868-45e5-b9fa-130f00ef30e1","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/1075043c-ee8a-4392-8397-e4ca0a886ac2"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2026-03-03","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/50bbed68-1d91-434f-b2e0-a29a452e0617","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2025-03-03","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","uuid":"85169f14-b860-4590-8787-4e026f90703e","identificatie":"ZAAK-2026-0000000011","bronorganisatie":"000000280","omschrijving":"verklaring
+        van vernietiging","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000152","startdatum":"2026-01-20","einddatum":"2026-02-15","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-02-03","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.601000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/e8d3e763-79f4-4095-b967-35a1e8c8d976","http://localhost:8003/zaken/api/v1/rollen/6ba1ba36-d58b-4e16-9e02-134b76621438"],"status":"http://localhost:8003/zaken/api/v1/statussen/4b6a9a44-bdad-46e6-b40c-27483b5f65c0","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f40d0d92-56b4-4972-a01c-f5989f9c3f5d"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2027-02-15","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/0babd4ef-1d69-4652-ba93-a8c53c1085c9","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2026-02-15","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/8c8375cf-f780-4c97-9ef5-630d55423a2e","uuid":"8c8375cf-f780-4c97-9ef5-630d55423a2e","identificatie":"ZAAK-2025-0000000008","bronorganisatie":"000000061","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000243","startdatum":"2025-06-25","einddatum":"2025-07-06","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-07-09","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.526000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/ade13409-61f7-47c6-adfc-92f7a325ac9b","http://localhost:8003/zaken/api/v1/rollen/fa55f471-7bef-46e0-9e02-90e6638a56bc"],"status":"http://localhost:8003/zaken/api/v1/statussen/a6fcf183-1e71-41df-b1ae-0a44bb72fa6e","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/36f57df2-e0d6-4c7c-979b-905a37aee3f9"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2026-07-06","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/158fb9dc-bcdc-446f-afbc-b4404233e9ee","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2025-07-06","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/2ae1c6df-c7f7-43c4-8d69-40db7022ccc2","uuid":"2ae1c6df-c7f7-43c4-8d69-40db7022ccc2","identificatie":"ZAAK-2025-0000000007","bronorganisatie":"000000164","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000218","startdatum":"2025-02-05","einddatum":"2025-02-25","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-02-19","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.661000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/47cd0e6a-8943-4da5-9935-43480448b115","http://localhost:8003/zaken/api/v1/rollen/67cb19cf-7c8e-443c-9015-ad9e0047777f"],"status":"http://localhost:8003/zaken/api/v1/statussen/7ce26416-0515-45c7-a6f7-0b080f37677f","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/e92f4253-83a6-4f78-8249-458b81b32b91"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2026-02-25","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/e67076c5-860d-43ee-ad3f-e11e843ce75f","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2025-02-25","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/2c8c15af-4fdc-4b6a-a29c-75df40df38ed","uuid":"2c8c15af-4fdc-4b6a-a29c-75df40df38ed","identificatie":"ZAAK-2026-0000000010","bronorganisatie":"000000231","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000292","startdatum":"2026-01-15","einddatum":"2026-01-23","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-02-06","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.152000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/c86626a3-ce3f-4934-8fdb-11023b7feb77","http://localhost:8003/zaken/api/v1/rollen/44c2fa67-9083-4874-9121-f69b5885108f"],"status":"http://localhost:8003/zaken/api/v1/statussen/fb957884-fc81-4378-96f0-0ea1ed7f1d9f","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/b489a7de-3f66-4fa6-9bb1-12c01befbc35"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2027-01-23","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/5fdc8d45-ade3-4039-ab3b-bea11c9b755c","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2026-01-23","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/511f30e1-7538-48c0-af85-41e76a38cd24","uuid":"511f30e1-7538-48c0-af85-41e76a38cd24","identificatie":"ZAAK-2026-0000000009","bronorganisatie":"000000061","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000309","startdatum":"2026-02-14","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-03-08","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.630000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/9a7f9d65-3e22-46e9-83fe-150d085c4de0","http://localhost:8003/zaken/api/v1/rollen/789c64a8-9e96-4958-bf92-4c2d14c96212"],"status":"http://localhost:8003/zaken/api/v1/statussen/cc0eef15-d79d-43b4-8f33-541a52e0bf1e","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/e7a265d7-36ef-4c34-9dea-eff00e8723c6"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/71f05dee-6ded-4e81-bef8-4a141912d73d","uuid":"71f05dee-6ded-4e81-bef8-4a141912d73d","identificatie":"ZAAK-2025-0000000006","bronorganisatie":"000000073","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000231","startdatum":"2025-02-05","einddatum":"2025-03-03","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-02-27","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.970000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/4ea93b8e-52c4-42a3-8aee-3d054e3d7175","http://localhost:8003/zaken/api/v1/rollen/c4412c4b-ef75-4d99-9d6a-c293937936e7"],"status":"http://localhost:8003/zaken/api/v1/statussen/dc4bb601-b8c0-47f6-bd60-c30669cf69af","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/c077f3c3-02ad-44d6-a242-54c7a0413bee"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2026-03-03","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/3d2d4a21-4ff0-403f-ab25-0a669a9432b8","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2025-03-03","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/f0502f2c-ace2-42b0-9d3d-84e3543d8b6a","uuid":"f0502f2c-ace2-42b0-9d3d-84e3543d8b6a","identificatie":"ZAAK-2025-0000000005","bronorganisatie":"000000218","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000176","startdatum":"2025-12-18","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-01-09","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.540000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/a37fee67-d193-4c64-82e2-c5ad3c0a4b26","http://localhost:8003/zaken/api/v1/rollen/d01cab64-f21f-43ca-ba08-c70fd6074916"],"status":"http://localhost:8003/zaken/api/v1/statussen/86368510-eed0-4108-852a-8bdb1ad3f036","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/d4ddeace-80fc-4cd4-8c86-e6a4761e7d94"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/3c3f01b0-359b-4f68-9b0a-813e6cce4817","uuid":"3c3f01b0-359b-4f68-9b0a-813e6cce4817","identificatie":"ZAAK-2026-0000000008","bronorganisatie":"000000218","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000139","startdatum":"2026-02-18","einddatum":"2026-03-04","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-03-12","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.102000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/1ddd85db-c036-450b-a236-b2373ca33aea","http://localhost:8003/zaken/api/v1/rollen/fe9c3798-0684-48c3-b236-5be32f51a747"],"status":"http://localhost:8003/zaken/api/v1/statussen/3cfe1020-eb21-44a4-8d41-db8ed828dbea","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/b647cdee-9a95-4681-861d-b57e8eea5021"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2027-03-04","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/7abd2188-dff9-42b7-b155-cc7b34bf868b","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2026-03-04","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/8687acc6-3386-4a84-98f0-07a1d53db5ae","uuid":"8687acc6-3386-4a84-98f0-07a1d53db5ae","identificatie":"ZAAK-2026-0000000007","bronorganisatie":"000000115","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000097","startdatum":"2026-02-08","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-03-02","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.481000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/5bc54f7b-f661-459f-bea6-8098b0b02ef1"],"status":"http://localhost:8003/zaken/api/v1/statussen/5fedeb4e-cc86-4d73-8c4a-3c18cfb1a157","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/49b83ac3-95ff-4343-b3f7-7adf7bd8efc6"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/d89fc6fd-29ce-493d-b27d-b2e4fd4424fe","uuid":"d89fc6fd-29ce-493d-b27d-b2e4fd4424fe","identificatie":"ZAAK-2026-0000000006","bronorganisatie":"000000140","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000371","startdatum":"2026-01-23","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-02-14","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.379000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/747e4f57-81b0-4b47-9394-0c9dd0d07aab","http://localhost:8003/zaken/api/v1/rollen/060d7b5b-5330-482e-b4e8-c1f96a932cb4"],"status":"http://localhost:8003/zaken/api/v1/statussen/41e88791-28ba-4a5b-b619-1e2983932811","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/984cc103-cf37-40cb-81d4-14bcbc51d03e"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/fc35705e-6a27-46c8-8cf1-b3119dba7bde","uuid":"fc35705e-6a27-46c8-8cf1-b3119dba7bde","identificatie":"ZAAK-2025-0000000004","bronorganisatie":"000000310","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000097","startdatum":"2025-12-01","einddatum":"2025-12-13","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-12-23","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.903000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/553f83f2-3c9e-43cd-9633-d2a804a50c9f","http://localhost:8003/zaken/api/v1/rollen/2c942412-be06-4a29-ae24-ef363877d2e3"],"status":"http://localhost:8003/zaken/api/v1/statussen/b8ee6fde-eb5e-4059-9d70-a7e15f7f7d2e","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/5a9acb7b-db93-49b5-9b52-f263a00e1dea"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2026-12-13","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/6c764fa5-44e9-45ce-8e80-99475ac181f0","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2025-12-13","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/918b7c32-c0f1-4a1f-b50b-e803e6694fa4","uuid":"918b7c32-c0f1-4a1f-b50b-e803e6694fa4","identificatie":"ZAAK-2026-0000000005","bronorganisatie":"000000206","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000334","startdatum":"2026-02-16","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-03-02","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.379000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/942dba29-d5b0-4e0f-bc62-bf1cef8b87f6"],"status":"http://localhost:8003/zaken/api/v1/statussen/fc7b1cce-08d9-40f3-af3f-6a32585a8533","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/b7886b37-06d6-4bf3-99b3-4206f194e23a"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/6ef989c2-4df9-44fa-8b8a-e48a87a12b3f","uuid":"6ef989c2-4df9-44fa-8b8a-e48a87a12b3f","identificatie":"ZAAK-2026-0000000004","bronorganisatie":"000000176","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000334","startdatum":"2026-01-13","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-01-27","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.279000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/d190fdfd-5b69-4b48-a926-c4ad0f51a789","http://localhost:8003/zaken/api/v1/rollen/467dd52e-ae36-4f5a-8035-f5bd818e8be0"],"status":"http://localhost:8003/zaken/api/v1/statussen/54a0483e-a579-4d37-b941-06e54630dd6c","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f3c93780-6fd8-47fb-9af6-9b18f81b3b88"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/94bbcc1c-24ce-49ee-8855-62aed026a830","uuid":"94bbcc1c-24ce-49ee-8855-62aed026a830","identificatie":"ZAAK-2026-0000000003","bronorganisatie":"000000140","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000218","startdatum":"2026-03-24","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-04-07","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.221000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/10f6ca56-629f-46d7-a7e3-5d429b87f7de"],"status":"http://localhost:8003/zaken/api/v1/statussen/e681a175-2240-4c73-8cd4-c8b5032bfba1","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/2151e4f5-b7a3-4d23-9644-431727cb5b40"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/34faf0d8-7dce-460f-8e63-063b137374fb","uuid":"34faf0d8-7dce-460f-8e63-063b137374fb","identificatie":"ZAAK-2025-0000000003","bronorganisatie":"000000280","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000024","startdatum":"2025-12-07","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-12-21","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.195000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/67093324-3d0a-4912-b8a3-964930ae8686","http://localhost:8003/zaken/api/v1/rollen/7161f4b8-1d5b-4282-bd09-916ef952fc6d"],"status":"http://localhost:8003/zaken/api/v1/statussen/eb45a91e-10da-4f42-a51f-c585da8c758b","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/190f1178-4701-438b-840e-16a1fadaaf10"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/df01f13a-844d-4901-9fe4-dd19603557c2","uuid":"df01f13a-844d-4901-9fe4-dd19603557c2","identificatie":"ZAAK-2025-0000000002","bronorganisatie":"000000358","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000292","startdatum":"2025-02-05","einddatum":"2025-03-03","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-02-27","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.272000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/d163ebb7-51ae-484c-83a8-bf95ede5c2f8","http://localhost:8003/zaken/api/v1/rollen/0e48670e-1334-48a0-8c95-fb81fedb1bbb"],"status":"http://localhost:8003/zaken/api/v1/statussen/ba52528d-c9d6-4c28-8a1f-2fe74a05ef3f","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/1cdc89db-7678-46ea-b2cb-03b3d80b1819"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2026-03-03","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/e1607a6c-eda6-472c-9ccb-cc78da7c05fe","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2025-03-03","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/30876d53-51f3-4d75-a132-d8764f55e1e5","uuid":"30876d53-51f3-4d75-a132-d8764f55e1e5","identificatie":"ZAAK-2025-0000000001","bronorganisatie":"000000255","omschrijving":"verklaring
+        van vernietiging","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000280","startdatum":"2025-02-05","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-02-27","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.716000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/2fa9d380-56e4-470f-b038-98068a6f5443","http://localhost:8003/zaken/api/v1/rollen/6109e951-f025-4e70-9cbe-14a450fe4ab9"],"status":"http://localhost:8003/zaken/api/v1/statussen/ac1eb458-fe2e-4a42-a400-654fd2c83bfb","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f7b8d99e-37b9-420f-a74a-5d8a03e5b391"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2026-02-26","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/5dc0ef8f-fcde-4330-9f38-e49b8a77a6d8","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2025-02-26","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/840a1355-dd6d-48a4-a849-38fbf832db44","uuid":"840a1355-dd6d-48a4-a849-38fbf832db44","identificatie":"ZAAK-2026-0000000002","bronorganisatie":"000000231","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000127","startdatum":"2026-01-06","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-01-28","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.049000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/c22e8892-8cee-4be4-89b9-406152bc4e34"],"status":"http://localhost:8003/zaken/api/v1/statussen/6e925560-9deb-4467-a819-afc1382d13a9","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f931b3f6-f92e-4c46-b484-f68aa68acc18"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","uuid":"da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","identificatie":"ZAAK-2026-0000000001","bronorganisatie":"000000103","omschrijving":"","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000152","startdatum":"2026-03-03","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-03-25","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:19.172000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/5d99e224-771d-40bc-8726-e26b50d8e4dd"],"status":"http://localhost:8003/zaken/api/v1/statussen/54058c1b-352e-42d2-bde5-cb7e9eb9daf8","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/efef805d-87f2-4e9a-86ed-98a6dfe9deb1"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":null,"archiefstatus":"nog_te_archiveren","archiefactiedatum":null,"resultaat":null,"opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":null,"processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}}]}'
+    headers:
+      API-version:
+      - 1.5.1
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Crs:
+      - EPSG:4326
+      Content-Length:
+      - '35563'
+      Content-Security-Policy:
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
+        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
+        ''self'' fonts.gstatic.com; default-src ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost:8003/zaken/api/v1/zaken?registratiedatum=2026-03-20
+  response:
+    body:
+      string: '{"count":0,"next":null,"previous":null,"results":[]}'
+    headers:
+      API-version:
+      - 1.5.1
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Crs:
+      - EPSG:4326
+      Content-Length:
+      - '52'
+      Content-Security-Policy:
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
+        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
+        ''self'' fonts.gstatic.com; default-src ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost:8003/zaken/api/v1/zaken?registratiedatum=2026-03-29
+  response:
+    body:
+      string: '{"count":0,"next":null,"previous":null,"results":[]}'
+    headers:
+      API-version:
+      - 1.5.1
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Crs:
+      - EPSG:4326
+      Content-Length:
+      - '52'
+      Content-Security-Policy:
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
+        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
+        ''self'' fonts.gstatic.com; default-src ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/zaak/_doc/11111111-1111-1111-1111-111111111111
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"11111111-1111-1111-1111-111111111111","_version":1,"_seq_no":8,"_primary_term":1,"found":true,"_source":{"uuid":"11111111-1111-1111-1111-111111111111","url":"https://www.griffin.info/","identificatie":"2fe99c65-7ce6-4d89-ba95-2c051087d9fe","bronorganisatie":"Smith
+        PLC","verantwoordelijkeOrganisatie":"Foley-Baker","omschrijving":"Fund let
+        student out former behavior than.","toelichting":"Professor mean behavior
+        fly station. Star almost step push turn southern.","status":"evening","registratiedatum":"2026-03-28","startdatum":"2026-03-04","zaaktype":"success","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-28T12:00:00+00:00","next_check_at":"2026-03-29T12:00:00+00:00","creatiedatum":"2026-03-28"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '793'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: DELETE
+    uri: http://localhost:9201/zaak/_doc/11111111-1111-1111-1111-111111111111?if_primary_term=1&if_seq_no=8&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"11111111-1111-1111-1111-111111111111","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":13,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '173'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/zaak/_doc/22222222-2222-2222-2222-222222222222
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"22222222-2222-2222-2222-222222222222","_version":1,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"uuid":"22222222-2222-2222-2222-222222222222","url":"http://www.flowers-randall.biz/","identificatie":"7333dcd6-3c64-4d1c-9d55-89b297e82fdf","bronorganisatie":"Soto
+        Ltd","verantwoordelijkeOrganisatie":"Powell and Sons","omschrijving":"Thing
+        film box popular evening side your long.","toelichting":"Success important
+        resource though lot. Also small focus necessary. Pick evidence enter perform
+        take. Write figure send language themselves.","status":"yourself","registratiedatum":"2026-03-29","startdatum":"2026-03-05","zaaktype":"public","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","creatiedatum":"2026-03-29"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '872'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: DELETE
+    uri: http://localhost:9201/zaak/_doc/22222222-2222-2222-2222-222222222222?if_primary_term=1&if_seq_no=9&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"22222222-2222-2222-2222-222222222222","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":14,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '173'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"doc":{"last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00"}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/zaak/_update/85169f14-b860-4590-8787-4e026f90703e?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"85169f14-b860-4590-8787-4e026f90703e","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":15,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '173'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"match_all":{}},"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/zaak/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"zaak","_id":"33333333-3333-3333-3333-333333333333","_score":1.0,"_source":{"uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.stanley.com/","identificatie":"46811270-23d1-4878-8731-dbacec22719a","bronorganisatie":"Nguyen-Ryan","verantwoordelijkeOrganisatie":"Rowe-Thompson","omschrijving":"Wall
+        agent usually commercial place wrong cold.","toelichting":"If should western
+        go again power industry player. Use could direction radio. Budget power today
+        process company include.","status":"two","registratiedatum":"2026-03-30","startdatum":"2026-03-27","zaaktype":"story","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-04T12:00:00+00:00","creatiedatum":"2026-03-30"}},{"_index":"zaak","_id":"44444444-4444-4444-4444-444444444444","_score":1.0,"_source":{"uuid":"44444444-4444-4444-4444-444444444444","url":"http://www.nichols.com/","identificatie":"9a497b0e-915d-4fd7-96cd-61fdd675818e","bronorganisatie":"Cervantes
+        Inc","verantwoordelijkeOrganisatie":"Hodge, Davis and Cox","omschrijving":"Production
+        institution those.","toelichting":"Outside section which measure create three
+        this. Him down worker majority dark.","status":"whole","registratiedatum":"2026-03-25","startdatum":"2026-03-13","zaaktype":"land","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","creatiedatum":"2026-03-25"}},{"_index":"zaak","_id":"85169f14-b860-4590-8787-4e026f90703e","_score":1.0,"_source":{"uuid":"85169f14-b860-4590-8787-4e026f90703e","url":"https://suarez.org/","identificatie":"8f2466a2-0d14-4fd2-9c15-be3e743d1457","bronorganisatie":"Tran,
+        English and Ferguson","verantwoordelijkeOrganisatie":"Price Inc","omschrijving":"Throughout
+        end quite.","toelichting":"Quite phone fight skill.","status":"north","registratiedatum":"2026-03-20","startdatum":"2026-03-05","zaaktype":"street","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","creatiedatum":"2026-03-20"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/zaak/_doc/85169f14-b860-4590-8787-4e026f90703e
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"85169f14-b860-4590-8787-4e026f90703e","_version":2,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"uuid":"85169f14-b860-4590-8787-4e026f90703e","url":"https://suarez.org/","identificatie":"8f2466a2-0d14-4fd2-9c15-be3e743d1457","bronorganisatie":"Tran,
+        English and Ferguson","verantwoordelijkeOrganisatie":"Price Inc","omschrijving":"Throughout
+        end quite.","toelichting":"Quite phone fight skill.","status":"north","registratiedatum":"2026-03-20","startdatum":"2026-03-05","zaaktype":"street","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","creatiedatum":"2026-03-20"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '730'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/zaak/_doc/33333333-3333-3333-3333-333333333333
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"33333333-3333-3333-3333-333333333333","_version":1,"_seq_no":10,"_primary_term":1,"found":true,"_source":{"uuid":"33333333-3333-3333-3333-333333333333","url":"http://www.stanley.com/","identificatie":"46811270-23d1-4878-8731-dbacec22719a","bronorganisatie":"Nguyen-Ryan","verantwoordelijkeOrganisatie":"Rowe-Thompson","omschrijving":"Wall
+        agent usually commercial place wrong cold.","toelichting":"If should western
+        go again power industry player. Use could direction radio. Budget power today
+        process company include.","status":"two","registratiedatum":"2026-03-30","startdatum":"2026-03-27","zaaktype":"story","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-04T12:00:00+00:00","creatiedatum":"2026-03-30"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '842'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/zaak/_doc/44444444-4444-4444-4444-444444444444
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"44444444-4444-4444-4444-444444444444","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"uuid":"44444444-4444-4444-4444-444444444444","url":"http://www.nichols.com/","identificatie":"9a497b0e-915d-4fd7-96cd-61fdd675818e","bronorganisatie":"Cervantes
+        Inc","verantwoordelijkeOrganisatie":"Hodge, Davis and Cox","omschrijving":"Production
+        institution those.","toelichting":"Outside section which measure create three
+        this. Him down worker majority dark.","status":"whole","registratiedatum":"2026-03-25","startdatum":"2026-03-13","zaaktype":"land","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","creatiedatum":"2026-03-25"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '793'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/zaak/_doc/11111111-1111-1111-1111-111111111111
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"11111111-1111-1111-1111-111111111111","found":false}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '76'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/zaak/_doc/22222222-2222-2222-2222-222222222222
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"22222222-2222-2222-2222-222222222222","found":false}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '76'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 404
+      message: Not Found
+version: 1

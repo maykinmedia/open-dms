@@ -1,0 +1,115 @@
+interactions:
+- request:
+    body: '{"uuid":"zaak-valid","url":"http://moore.com/","identificatie":"ae54b722-646a-4318-b3ab-7aff6e341200","bronorganisatie":"Walter,
+      Lopez and Boyd","verantwoordelijkeOrganisatie":"Odonnell-Ramirez","omschrijving":"Activity
+      sense let choose.","toelichting":"Its responsibility cover national before.
+      Visit yes process a than how spend. Body speech strategy today career.","status":"matter","registratiedatum":"2026-03-31","startdatum":"2026-04-10","zaaktype":"hand","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-1","last_checked_at":"2026-04-13T14:45:45.330080+00:00","next_check_at":"2026-04-18T14:45:45.330084+00:00","creatiedatum":"2026-03-31"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/zaak-valid?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"zaak-valid","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":6,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/zaak-valid
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '146'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/zaak/_count
+  response:
+    body:
+      string: '{"count":1,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '71'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-13T14:45:45.946057+00:00"}}},{"term":{"service_slug":"zaken-api"}}]}},"size":100,"_source":["service_slug","group_slug","registratiedatum"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/zaak/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/zaak/_count
+  response:
+    body:
+      string: '{"count":1,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '71'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
