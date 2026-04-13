@@ -17,6 +17,7 @@ class IndexZaakFactory(factory.Factory):
     zaaktype = factory.Faker("word")
 
     service_slug = "zaken-api"
+    ztc_service_slug = "catalogi-api"
     group_slug = "group-1"
 
     class Meta:

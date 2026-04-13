@@ -25,8 +25,13 @@ class IndexAllZakenTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
         cls.zaken_service = ServiceFactory.create(for_zrc_service_docker_compose=True)
         cls.zaken_service2 = ServiceFactory.create(for_zrc_service_docker_compose=True)
+        cls.zaaktype_service = ServiceFactory.create(
+            for_ztc_service_docker_compose=True
+        )
 
-        ZGWApiGroupConfigFactory.create(zrc_service=cls.zaken_service)
+        ZGWApiGroupConfigFactory.create(
+            zrc_service=cls.zaken_service, ztc_service=cls.zaaktype_service
+        )
         ZGWApiGroupConfigFactory.create(zrc_service=cls.zaken_service2)
 
     def test_index_zaak_roundtrip(self):
@@ -49,6 +54,7 @@ class IndexAllZakenTaskTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertEqual(zaak.identificatie, "ZA-2026-0001")
         self.assertEqual(zaak.omschrijving, "Test Zaak")
         self.assertEqual(zaak.url, "http://localhost/zaken/1")
+        self.assertEqual(zaak.ztc_service_slug, "catalogi-api")
 
     def test_indexes_zaken_task(self):
         index_all_zaken()
@@ -61,6 +67,9 @@ class IndexAllZakenTaskTests(VCRMixin, ElasticSearchAPITestCase):
             zaak = client.get_zaak("85169f14-b860-4590-8787-4e026f90703e")
             self.assertIsNotNone(zaak)
             self.assertEqual(zaak.omschrijving, "verklaring van vernietiging")
+            self.assertIsNotNone(zaak.ztc_service_slug)
+            self.assertIsNotNone(zaak.startjaar)
+            self.assertIsNotNone(zaak.ztc_uuid)
 
     def test_registratiedatum_prevents_double_indexing(self):
         index_all_zaken()

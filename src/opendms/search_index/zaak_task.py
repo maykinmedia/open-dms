@@ -6,6 +6,7 @@ from opendms.api.models import ZGWApiGroupConfig
 from opendms.api.utils.exceptions import (
     ExternalServiceUnavailable,
 )
+from opendms.api.utils.validators import extract_uuid
 from opendms.celery import app
 
 from .client import get_elasticsearch_client
@@ -33,6 +34,8 @@ def index_all_zaken() -> None:
 
         for group in groups:
             service = group.zrc_service
+            ztc_service_slug = group.ztc_service.slug if group.ztc_service else None
+
             if not group.zrc_service:
                 continue
 
@@ -55,7 +58,15 @@ def index_all_zaken() -> None:
 
             logger.info("zaken_fetched", count=len(all_zaken))
             for zaak in all_zaken:
-                obj = Zaak(**zaak)
+                ztc_uuid = extract_uuid(zaak.get("zaaktype"))
+                startjaar = zaak.get("startdatum", "")[:4]
+
+                obj = Zaak(
+                    **zaak,
+                    ztc_uuid=ztc_uuid,
+                    startjaar=startjaar,
+                    ztc_service_slug=ztc_service_slug,
+                )
                 es_client.index_zaken(
                     obj, service_slug=service.slug, group_slug=group.identifier
                 )

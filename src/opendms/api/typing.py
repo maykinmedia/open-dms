@@ -44,6 +44,9 @@ class ESZaak(TypedDict):
     toelichting: str
     service_slug: str | None
     group_slug: str | None
+    ztc_service_slug: str | None
+    ztc_uuid: UUID | None
+    startjaar: str | None
 
 
 class DocumentType(TypedDict):
