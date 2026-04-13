@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1776084588066","number_of_replicas":"1","uuid":"gz7rzEtnR6Gxg2If0GTgEQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"object_type":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"zaaktype":{"type":"keyword"},"uuid":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"}},"type":"nested"},"identificatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -80,14 +80,13 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://leblanc.org/","identificatie":"document1","bronorganisatie":"Matthews-Hogan","titel":"Unique
-      Document","beschrijving":"Young player effect expect cover work personal seek.
-      Hair throw page safe magazine modern east. Fire end affect hotel fire top decide.","auteur":"Amy
-      Jones","taal":"af","vertrouwelijkheidaanduiding":"various","status":"none","formaat":"flac","bestandsnaam":"stage.wav","informatieobjecttype":"dark","verschijningsvorm":"say","bestandsomvang":1000000,"link":"https://www.dillon.com/","creatiedatum":"2026-03-19","begin_registratie":"2026-03-23T02:46:48.456284","zaak_referenties":[{"uuid":"47e51d58-8dae-4c10-8e2b-f217e102bd4d","url":"https://www.doyle.com/","identificatie":"4436171e-d799-4ebf-b858-4ca39af47026","bronorganisatie":"Holt,
-      Lopez and Mason","verantwoordelijkeOrganisatie":"Cummings and Sons","omschrijving":"Society
-      prevent and worker far member speak.","toelichting":"Large term require eat
-      raise. Chance room difficult about. Recent people former begin respond single
-      scene machine.","status":"accept","registratiedatum":"2026-03-31","startdatum":"2026-03-20","zaaktype":"public","object_type":"send"}]}'
+    body: '{"uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://todd.org/","identificatie":"document1","bronorganisatie":"Cameron,
+      Smith and Patton","titel":"Unique Document","beschrijving":"Will drug marriage
+      well little. Hear nearly someone system. Together view wind find realize every
+      cut.","auteur":"Courtney Kelley","taal":"sl","vertrouwelijkheidaanduiding":"event","status":"three","formaat":"mp4","bestandsnaam":"college.html","informatieobjecttype":"ok","verschijningsvorm":"goal","bestandsomvang":1000000,"link":"http://www.davis.info/","creatiedatum":"2026-03-26","begin_registratie":"2026-03-17T02:09:46.375014","zaak_referenties":[{"uuid":"1e239c65-4d44-4e5f-9571-353c8a7cedfc","url":"http://barron-cooper.com/","identificatie":"92f3af4d-0319-4a88-9365-8bcbcdd35b29","bronorganisatie":"Lewis,
+      Pruitt and Hodge","verantwoordelijkeOrganisatie":"Todd-Chase","omschrijving":"Raise
+      fall machine still focus.","toelichting":"Thus perform measure oil system stop.
+      Action medical away dark.","status":"performance","registratiedatum":"2026-04-11","startdatum":"2026-03-15","zaaktype":"nothing","object_type":"war"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -157,7 +156,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1775806601122","number_of_replicas":"1","uuid":"orulSHs1SPKtsnumnwfYQw","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1776084588066","number_of_replicas":"1","uuid":"gz7rzEtnR6Gxg2If0GTgEQ","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -169,7 +168,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"object_type":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"identificatie":{"type":"keyword"},"url":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"}},"type":"nested"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"titel":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"uuid":{"type":"keyword"},"inhoud":{"type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"identificatie":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"object_type":{"type":"keyword"},"bronorganisatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"url":{"type":"keyword"},"zaaktype":{"type":"keyword"},"uuid":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"}},"type":"nested"},"identificatie":{"type":"keyword"},"beschrijving":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"taal":{"analyzer":"dutch","type":"text"},"link":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"bestandsomvang":{"type":"long"},"formaat":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"titel":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -197,12 +196,12 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://www.morris.info/","identificatie":"document2","bronorganisatie":"Wallace,
-      King and Lindsey","titel":"Unique Document2","beschrijving":"Moment around walk
-      side. Sing least ago husband draw.","auteur":"Brandon Rodriguez","taal":"ln","vertrouwelijkheidaanduiding":"item","status":"official","formaat":"webm","bestandsnaam":"alone.xlsx","informatieobjecttype":"social","verschijningsvorm":"region","bestandsomvang":1000000,"link":"http://www.yang.org/","creatiedatum":"2026-03-17","begin_registratie":"2026-03-23T10:55:24.911837","zaak_referenties":[{"uuid":"7fbe2fde-3a22-4970-81a8-62cf7e43944c","url":"https://www.ball.com/","identificatie":"3ff7a63e-8f49-4372-b94a-f989f7735f6c","bronorganisatie":"Mann
-      Group","verantwoordelijkeOrganisatie":"Patterson and Sons","omschrijving":"At
-      performance artist during.","toelichting":"Science eye continue building song.
-      Four shake force price effort operation. Over know seek.","status":"nothing","registratiedatum":"2026-03-18","startdatum":"2026-03-23","zaaktype":"require","object_type":"shoulder"}]}'
+    body: '{"uuid":"6ad95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://www.carlson.com/","identificatie":"document2","bronorganisatie":"Garcia-Murphy","titel":"Unique
+      Document2","beschrijving":"Natural keep sign history image. Dark early firm
+      public may during.","auteur":"Keith Ingram","taal":"az","vertrouwelijkheidaanduiding":"himself","status":"according","formaat":"wav","bestandsnaam":"yard.html","informatieobjecttype":"whom","verschijningsvorm":"my","bestandsomvang":1000000,"link":"http://smith-wiley.com/","creatiedatum":"2026-04-09","begin_registratie":"2026-03-25T01:13:23.061187","zaak_referenties":[{"uuid":"fcca28d8-46c8-4f8f-8a62-757344935fa6","url":"http://abbott-blanchard.com/","identificatie":"1ee85819-b112-4863-9ab7-c3c79df336e6","bronorganisatie":"Miller,
+      Patel and Yang","verantwoordelijkeOrganisatie":"Brown-Anderson","omschrijving":"Pm
+      parent those leader.","toelichting":"Young nation writer force. Situation paper
+      beat serve although scene such couple.","status":"section","registratiedatum":"2026-03-14","startdatum":"2026-03-25","zaaktype":"car","object_type":"myself"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -248,14 +247,14 @@ interactions:
     uri: http://localhost:9201/document,zaak/_search
   response:
     body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":4.875323,"_source":{"beschrijving":"Young
-        player effect expect cover work personal seek. Hair throw page safe magazine
-        modern east. Fire end affect hotel fire top decide.","verschijningsvorm":"say","begin_registratie":"2026-03-23T02:46:48.456284","identificatie":"document1","bronorganisatie":"Matthews-Hogan","bestandsomvang":1000000,"link":"https://www.dillon.com/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"http://leblanc.org/","taal":"af","zaak_referenties":[{"omschrijving":"Society
-        prevent and worker far member speak.","identificatie":"4436171e-d799-4ebf-b858-4ca39af47026","startdatum":"2026-03-20","object_type":"send","bronorganisatie":"Holt,
-        Lopez and Mason","zaaktype":"public","registratiedatum":"2026-03-31","uuid":"47e51d58-8dae-4c10-8e2b-f217e102bd4d","url":"https://www.doyle.com/","verantwoordelijkeOrganisatie":"Cummings
-        and Sons","toelichting":"Large term require eat raise. Chance room difficult
-        about. Recent people former begin respond single scene machine.","status":"accept"}],"auteur":"Amy
-        Jones","formaat":"flac","titel":"Unique Document","vertrouwelijkheidaanduiding":"various","informatieobjecttype":"dark","bestandsnaam":"stage.wav","creatiedatum":"2026-03-19","status":"none"},"sort":[4.875323,1773878400000]}]}}'
+      string: '{"took":4,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":1,"relation":"eq"},"max_score":null,"hits":[{"_index":"document","_id":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","_score":6.6664324,"_source":{"beschrijving":"Will
+        drug marriage well little. Hear nearly someone system. Together view wind
+        find realize every cut.","verschijningsvorm":"goal","begin_registratie":"2026-03-17T02:09:46.375014","identificatie":"document1","bronorganisatie":"Cameron,
+        Smith and Patton","bestandsomvang":1000000,"link":"http://www.davis.info/","uuid":"6dd95a10-cc97-4f19-b7e4-2c85358acb98","url":"https://todd.org/","taal":"sl","zaak_referenties":[{"omschrijving":"Raise
+        fall machine still focus.","identificatie":"92f3af4d-0319-4a88-9365-8bcbcdd35b29","startdatum":"2026-03-15","object_type":"war","bronorganisatie":"Lewis,
+        Pruitt and Hodge","zaaktype":"nothing","registratiedatum":"2026-04-11","uuid":"1e239c65-4d44-4e5f-9571-353c8a7cedfc","url":"http://barron-cooper.com/","verantwoordelijkeOrganisatie":"Todd-Chase","toelichting":"Thus
+        perform measure oil system stop. Action medical away dark.","status":"performance"}],"auteur":"Courtney
+        Kelley","formaat":"mp4","titel":"Unique Document","vertrouwelijkheidaanduiding":"event","informatieobjecttype":"ok","bestandsnaam":"college.html","creatiedatum":"2026-03-26","status":"three"},"sort":[6.6664324,1774483200000]}]}}'
     headers:
       Transfer-Encoding:
       - chunked

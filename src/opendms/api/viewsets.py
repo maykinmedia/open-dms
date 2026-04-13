@@ -22,7 +22,6 @@ from .models import ZGWApiGroupConfig
 from .serializers import (
     DocumentSerializer,
     SearchResponseSerializer,
-    SearchResultSerializer,
     SearchSerializer,
     ServiceSerializer,
     ZaakSerializer,
@@ -31,7 +30,6 @@ from .serializers import (
 from .typing import (
     DocumentsPaginatedResponse,
     DocumentType,
-    PaginatedResponse,
     SearchParameters,
     Zaak,
     ZaakType,
@@ -81,13 +79,11 @@ class SearchView(APIView):
                 sort=params["sort"],
             )
 
-        serializer = SearchResultSerializer(search_results.results, many=True)
-
         return Response(
-            PaginatedResponse(
-                count=search_results.total_count,
-                results=serializer.data,
-            )
+            {
+                "count": search_results.total_count,
+                "results": search_results.results,
+            }
         )
 
 

@@ -2,7 +2,6 @@ from django.utils.translation import gettext_lazy as _
 
 from drf_spectacular.utils import (
     PolymorphicProxySerializer,
-    extend_schema_field,
     extend_schema_serializer,
 )
 from rest_framework import serializers
@@ -461,29 +460,25 @@ class SearchSerializer(serializers.Serializer):
     )
 
 
-class SearchResultSerializer(serializers.Serializer):
-    type = serializers.ChoiceField(choices=["document", "zaak"])
+class SearchResultDocumentSerializer(serializers.Serializer):
+    type = serializers.ChoiceField(choices=["document"])
+    data = ESDocumentSerializer()
 
-    data = serializers.SerializerMethodField()
 
-    @extend_schema_field(
-        PolymorphicProxySerializer(
-            component_name="SearchResultData",
-            serializers={
-                "document": ESDocumentSerializer,
-                "zaak": ESZaakSerializer,
-            },
-            resource_type_field_name="type",
-        )
-    )
-    def get_data(self, obj):
-        if obj["type"] == "document":
-            return ESDocumentSerializer(obj["data"]).data
-        elif obj["type"] == "zaak":
-            return ESZaakSerializer(obj["data"]).data
-        return None
+class SearchResultZaakSerializer(serializers.Serializer):
+    type = serializers.ChoiceField(choices=["zaak"])
+    data = ESZaakSerializer()
 
 
 class SearchResponseSerializer(serializers.Serializer):
     count = serializers.IntegerField()
-    results = SearchResultSerializer(many=True)
+
+    results = PolymorphicProxySerializer(
+        component_name="SearchResult",
+        serializers={
+            "document": SearchResultDocumentSerializer,
+            "zaak": SearchResultZaakSerializer,
+        },
+        resource_type_field_name="type",
+        many=True,
+    )

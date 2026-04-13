@@ -973,26 +973,42 @@ components:
       - count
       - results
     SearchResult:
-      type: object
-      properties:
-        type:
-          $ref: '#/components/schemas/TypeEnum'
-        data:
-          allOf:
-          - $ref: '#/components/schemas/SearchResultData'
-          readOnly: true
-      required:
-      - data
-      - type
-    SearchResultData:
       oneOf:
-      - $ref: '#/components/schemas/ESDocument'
-      - $ref: '#/components/schemas/ESZaak'
+      - $ref: '#/components/schemas/SearchResultDocument'
+      - $ref: '#/components/schemas/SearchResultZaak'
       discriminator:
         propertyName: type
         mapping:
-          document: '#/components/schemas/ESDocument'
-          zaak: '#/components/schemas/ESZaak'
+          document: '#/components/schemas/SearchResultDocument'
+          zaak: '#/components/schemas/SearchResultZaak'
+    SearchResultDocument:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SearchResultDocumentTypeEnum'
+        data:
+          $ref: '#/components/schemas/ESDocument'
+      required:
+      - data
+      - type
+    SearchResultDocumentTypeEnum:
+      enum:
+      - document
+      type: string
+    SearchResultZaak:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/SearchResultZaakTypeEnum'
+        data:
+          $ref: '#/components/schemas/ESZaak'
+      required:
+      - data
+      - type
+    SearchResultZaakTypeEnum:
+      enum:
+      - zaak
+      type: string
     Service:
       type: object
       properties:
@@ -1013,11 +1029,6 @@ components:
       enum:
       - relevance
       - chronological
-      type: string
-    TypeEnum:
-      enum:
-      - document
-      - zaak
       type: string
     User:
       type: object
