@@ -374,11 +374,6 @@ export interface components {
              */
             inhoud: string;
             zaakReferenties?: components["schemas"]["ESZaak"][];
-            /**
-             * @description discriminator enum property added by openapi-typescript
-             * @enum {string}
-             */
-            type: "document";
         };
         ESZaak: {
             /**
@@ -423,11 +418,6 @@ export interface components {
             ztcUuid?: string | null;
             /** @description Het jaar waarin de zaak is gestart. Dit veld is optioneel en kan worden gebruikt voor aanvullende filtering of sortering op jaarniveau. */
             startjaar?: string | null;
-            /**
-             * @description discriminator enum property added by openapi-typescript
-             * @enum {string}
-             */
-            type: "zaak";
         };
         /** @description Formaat van validatiefouten. */
         FieldValidationError: {
@@ -511,11 +501,27 @@ export interface components {
             count: number;
             results: components["schemas"]["SearchResult"][];
         };
-        SearchResult: {
-            type: components["schemas"]["TypeEnum"];
-            readonly data: Omit<components["schemas"]["SearchResultData"], "type">;
+        SearchResult: components["schemas"]["SearchResultDocument"] | components["schemas"]["SearchResultZaak"];
+        SearchResultDocument: {
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            type: "document";
+            data: components["schemas"]["ESDocument"];
         };
-        SearchResultData: components["schemas"]["ESDocument"] | components["schemas"]["ESZaak"];
+        /** @enum {string} */
+        SearchResultDocumentTypeEnum: "document";
+        SearchResultZaak: {
+            /**
+             * @description discriminator enum property added by openapi-typescript
+             * @enum {string}
+             */
+            type: "zaak";
+            data: components["schemas"]["ESZaak"];
+        };
+        /** @enum {string} */
+        SearchResultZaakTypeEnum: "zaak";
         Service: {
             /**
              * Service slug
@@ -526,8 +532,6 @@ export interface components {
         };
         /** @enum {string} */
         SortEnum: "relevance" | "chronological";
-        /** @enum {string} */
-        TypeEnum: "document" | "zaak";
         User: {
             /** ID */
             readonly pk: number;

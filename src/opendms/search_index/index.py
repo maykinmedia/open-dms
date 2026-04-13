@@ -18,9 +18,7 @@ from elasticsearch.dsl import (
     mapped_field,
 )
 
-from .typing import (
-    IndexName,
-)
+from .typing import IndexName, SearchResultItem
 
 DEFAULT_ANALYZER = os.environ.get("ELASTICSEARCH_ANALYZER", "dutch")
 
@@ -134,4 +132,4 @@ class DocumentResults:
 @dataclass
 class Results:
     total_count: int
-    results: Sequence[Document | Zaak]
+    results: Sequence[SearchResultItem]
