@@ -21,12 +21,7 @@ def index_all_zaken() -> None:
     """
     groups = ZGWApiGroupConfig.objects.all()
 
-    zaak_services = []
-    for group in groups:
-        if group.zrc_service:
-            zaak_services.append(group.zrc_service)
-
-    if not zaak_services:
+    if not any(group.zrc_service for group in groups):
         raise ExternalServiceUnavailable("No ZRC API services configured!")
 
     last_registratiedatum = ""
@@ -34,9 +29,17 @@ def index_all_zaken() -> None:
         Zaak.init(using=es_client.client)
         last_registratiedatum = es_client.get_last_zaak_registratiedatum()
 
-        for service in zaak_services:
-            group_config = service.zgwset_zrc_config.first()
-            zgw_group_slug = group_config.identifier if group_config else None
+        seen_zaak_services = set()
+
+        for group in groups:
+            service = group.zrc_service
+            if not group.zrc_service:
+                continue
+
+            if not service or service.id in seen_zaak_services:
+                continue
+            seen_zaak_services.add(service.id)
+
             logger.info(
                 "fetching_zaken",
                 service=service.slug,
@@ -54,7 +57,7 @@ def index_all_zaken() -> None:
             for zaak in all_zaken:
                 obj = Zaak(**zaak)
                 es_client.index_zaken(
-                    obj, service_slug=service.slug, group_slug=zgw_group_slug
+                    obj, service_slug=service.slug, group_slug=group.identifier
                 )
 
             logger.info("indexing_scheduled", total_zaken=len(all_zaken))
