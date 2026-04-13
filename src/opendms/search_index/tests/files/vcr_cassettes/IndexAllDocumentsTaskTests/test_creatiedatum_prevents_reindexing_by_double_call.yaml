@@ -40,7 +40,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1776067702380","number_of_replicas":"1","uuid":"J-jornStQMut2ckhnXns0g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1776069439347","number_of_replicas":"1","uuid":"6P3O2uI6T8ueFsiloTVG2Q","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -52,7 +52,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"ztc_service_slug":{"type":"keyword"},"service_slug":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"next_check_at":{"type":"date"},"inhoud":{"type":"text"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"group_slug":{"type":"keyword"},"last_checked_at":{"type":"date"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"service_slug":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"bronorganisatie":{"type":"keyword"},"ztc_service_slug":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"ztc_uuid":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"service_slug":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"}},"type":"nested"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"next_check_at":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"group_slug":{"type":"keyword"},"service_slug":{"type":"keyword"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bestandsomvang":{"type":"long"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"last_checked_at":{"type":"date"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -351,7 +351,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"a9c82615-cee7-4e9d-b7a8-460623882c38","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000176","creatiedatum":"2026-03-16","titel":"aanvraag
-      formulier","auteur":"Mads Mulder","taal":"nld","begin_registratie":"2026-03-30T14:51:13.125000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38/download?versie=2","link":"","beschrijving":"beschrijving2","verschijningsvorm":"","bestandsomvang":5,"zaak_referenties":[{"uuid":"840a1355-dd6d-48a4-a849-38fbf832db44","url":"http://localhost:8003/zaken/api/v1/zaken/840a1355-dd6d-48a4-a849-38fbf832db44","identificatie":"ZAAK-2026-0000000002","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000231","verantwoordelijkeOrganisatie":"000000127","registratiedatum":"2026-03-25","startdatum":"2026-01-06","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"document_data":[{"document_data":""}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:22.811455+00:00","next_check_at":"2026-04-23T08:08:22.811455+00:00"}'
+      formulier","auteur":"Mads Mulder","taal":"nld","begin_registratie":"2026-03-30T14:51:13.125000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38/download?versie=2","link":"","beschrijving":"beschrijving2","verschijningsvorm":"","bestandsomvang":5,"zaak_referenties":[{"uuid":"840a1355-dd6d-48a4-a849-38fbf832db44","url":"http://localhost:8003/zaken/api/v1/zaken/840a1355-dd6d-48a4-a849-38fbf832db44","identificatie":"ZAAK-2026-0000000002","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000231","verantwoordelijkeOrganisatie":"000000127","registratiedatum":"2026-03-25","startdatum":"2026-01-06","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"840a1355-dd6d-48a4-a849-38fbf832db44"}],"document_data":[{"document_data":""}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:19.766463+00:00","next_check_at":"2026-04-23T08:37:19.766463+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -535,7 +535,7 @@ interactions:
       message: Not Found
 - request:
     body: '{"uuid":"ea16fa8c-4bab-4065-a28a-f6574625205d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000115","creatiedatum":"2026-01-15","titel":"aanvraag
-      formulier","auteur":"Niek van den Berg","taal":"nld","begin_registratie":"2026-03-30T10:07:34.951000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","bestandsomvang":10,"zaak_referenties":[{"uuid":"da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","url":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","identificatie":"ZAAK-2026-0000000001","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000103","verantwoordelijkeOrganisatie":"000000152","registratiedatum":"2026-03-25","startdatum":"2026-03-03","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:23.509239+00:00","next_check_at":"2026-04-23T08:08:23.509239+00:00"}'
+      formulier","auteur":"Niek van den Berg","taal":"nld","begin_registratie":"2026-03-30T10:07:34.951000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","bestandsomvang":10,"zaak_referenties":[{"uuid":"da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","url":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","identificatie":"ZAAK-2026-0000000001","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000103","verantwoordelijkeOrganisatie":"000000152","registratiedatum":"2026-03-25","startdatum":"2026-03-03","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:20.470762+00:00","next_check_at":"2026-04-23T08:37:20.470762+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -668,7 +668,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"dbfe1f09-2803-4a40-862c-f2ca75f384d1","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000152","creatiedatum":"2026-03-12","titel":"aanvraag
-      formulier","auteur":"Ayden van Velzen","taal":"nld","begin_registratie":"2026-03-25T13:51:45.837000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"fc35705e-6a27-46c8-8cf1-b3119dba7bde","url":"http://localhost:8003/zaken/api/v1/zaken/fc35705e-6a27-46c8-8cf1-b3119dba7bde","identificatie":"ZAAK-2025-0000000004","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000310","verantwoordelijkeOrganisatie":"000000097","registratiedatum":"2026-03-25","startdatum":"2025-12-01","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:24.505567+00:00","next_check_at":"2026-04-23T08:08:24.505567+00:00"}'
+      formulier","auteur":"Ayden van Velzen","taal":"nld","begin_registratie":"2026-03-25T13:51:45.837000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"fc35705e-6a27-46c8-8cf1-b3119dba7bde","url":"http://localhost:8003/zaken/api/v1/zaken/fc35705e-6a27-46c8-8cf1-b3119dba7bde","identificatie":"ZAAK-2025-0000000004","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000310","verantwoordelijkeOrganisatie":"000000097","registratiedatum":"2026-03-25","startdatum":"2025-12-01","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"fc35705e-6a27-46c8-8cf1-b3119dba7bde"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:21.472706+00:00","next_check_at":"2026-04-23T08:37:21.472706+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -801,7 +801,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"801ddfea-a4a6-4846-9887-1efc0adb910b","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/801ddfea-a4a6-4846-9887-1efc0adb910b","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000279","creatiedatum":"2026-03-01","titel":"aanvraag
-      formulier","auteur":"Mare Janssen","taal":"nld","begin_registratie":"2026-03-25T13:51:31.331000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/801ddfea-a4a6-4846-9887-1efc0adb910b/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"3c3f01b0-359b-4f68-9b0a-813e6cce4817","url":"http://localhost:8003/zaken/api/v1/zaken/3c3f01b0-359b-4f68-9b0a-813e6cce4817","identificatie":"ZAAK-2026-0000000008","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000218","verantwoordelijkeOrganisatie":"000000139","registratiedatum":"2026-03-25","startdatum":"2026-02-18","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:25.496366+00:00","next_check_at":"2026-04-23T08:08:25.496366+00:00"}'
+      formulier","auteur":"Mare Janssen","taal":"nld","begin_registratie":"2026-03-25T13:51:31.331000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/801ddfea-a4a6-4846-9887-1efc0adb910b/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"3c3f01b0-359b-4f68-9b0a-813e6cce4817","url":"http://localhost:8003/zaken/api/v1/zaken/3c3f01b0-359b-4f68-9b0a-813e6cce4817","identificatie":"ZAAK-2026-0000000008","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000218","verantwoordelijkeOrganisatie":"000000139","registratiedatum":"2026-03-25","startdatum":"2026-02-18","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"3c3f01b0-359b-4f68-9b0a-813e6cce4817"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:22.474866+00:00","next_check_at":"2026-04-23T08:37:22.474866+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -936,7 +936,7 @@ interactions:
 - request:
     body: '{"uuid":"f7eec7ce-9bae-4b15-8928-2c87d0071def","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f7eec7ce-9bae-4b15-8928-2c87d0071def","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000243","creatiedatum":"2026-02-04","titel":"aanvraag
       formulier","auteur":"Gijs Wolters","taal":"nld","begin_registratie":"2026-03-25T13:51:37.872000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f7eec7ce-9bae-4b15-8928-2c87d0071def/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"30876d53-51f3-4d75-a132-d8764f55e1e5","url":"http://localhost:8003/zaken/api/v1/zaken/30876d53-51f3-4d75-a132-d8764f55e1e5","identificatie":"ZAAK-2025-0000000001","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000255","verantwoordelijkeOrganisatie":"000000280","registratiedatum":"2026-03-25","startdatum":"2025-02-05","omschrijving":"verklaring
-      van vernietiging","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:26.507410+00:00","next_check_at":"2026-04-23T08:08:26.507410+00:00"}'
+      van vernietiging","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"30876d53-51f3-4d75-a132-d8764f55e1e5"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:23.477995+00:00","next_check_at":"2026-04-23T08:37:23.477995+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1069,7 +1069,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"2f3722d8-c919-495b-a973-0802bd678887","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/2f3722d8-c919-495b-a973-0802bd678887","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000061","creatiedatum":"2026-01-19","titel":"aanvraag
-      formulier","auteur":"Joshua Ouwerkerk","taal":"nld","begin_registratie":"2026-03-25T13:51:26.818000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/2f3722d8-c919-495b-a973-0802bd678887/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"8c8375cf-f780-4c97-9ef5-630d55423a2e","url":"http://localhost:8003/zaken/api/v1/zaken/8c8375cf-f780-4c97-9ef5-630d55423a2e","identificatie":"ZAAK-2025-0000000008","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000061","verantwoordelijkeOrganisatie":"000000243","registratiedatum":"2026-03-25","startdatum":"2025-06-25","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:27.515103+00:00","next_check_at":"2026-04-23T08:08:27.515103+00:00"}'
+      formulier","auteur":"Joshua Ouwerkerk","taal":"nld","begin_registratie":"2026-03-25T13:51:26.818000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/2f3722d8-c919-495b-a973-0802bd678887/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"8c8375cf-f780-4c97-9ef5-630d55423a2e","url":"http://localhost:8003/zaken/api/v1/zaken/8c8375cf-f780-4c97-9ef5-630d55423a2e","identificatie":"ZAAK-2025-0000000008","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000061","verantwoordelijkeOrganisatie":"000000243","registratiedatum":"2026-03-25","startdatum":"2025-06-25","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"8c8375cf-f780-4c97-9ef5-630d55423a2e"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:24.500866+00:00","next_check_at":"2026-04-23T08:37:24.500866+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1202,7 +1202,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000036","creatiedatum":"2026-01-14","titel":"aanvraag
-      formulier","auteur":"Kick Welf","taal":"nld","begin_registratie":"2026-03-25T13:51:03.495000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"94bbcc1c-24ce-49ee-8855-62aed026a830","url":"http://localhost:8003/zaken/api/v1/zaken/94bbcc1c-24ce-49ee-8855-62aed026a830","identificatie":"ZAAK-2026-0000000003","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000140","verantwoordelijkeOrganisatie":"000000218","registratiedatum":"2026-03-25","startdatum":"2026-03-24","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:28.516319+00:00","next_check_at":"2026-04-23T08:08:28.516319+00:00"}'
+      formulier","auteur":"Kick Welf","taal":"nld","begin_registratie":"2026-03-25T13:51:03.495000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"94bbcc1c-24ce-49ee-8855-62aed026a830","url":"http://localhost:8003/zaken/api/v1/zaken/94bbcc1c-24ce-49ee-8855-62aed026a830","identificatie":"ZAAK-2026-0000000003","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000140","verantwoordelijkeOrganisatie":"000000218","registratiedatum":"2026-03-25","startdatum":"2026-03-24","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"94bbcc1c-24ce-49ee-8855-62aed026a830"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:25.485236+00:00","next_check_at":"2026-04-23T08:37:25.485236+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1335,7 +1335,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000255","creatiedatum":"2026-03-21","titel":"aanvraag
-      formulier","auteur":"Dean Gnodde","taal":"nld","begin_registratie":"2026-03-25T13:51:10.096000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"71f05dee-6ded-4e81-bef8-4a141912d73d","url":"http://localhost:8003/zaken/api/v1/zaken/71f05dee-6ded-4e81-bef8-4a141912d73d","identificatie":"ZAAK-2025-0000000006","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000073","verantwoordelijkeOrganisatie":"000000231","registratiedatum":"2026-03-25","startdatum":"2025-02-05","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:29.532636+00:00","next_check_at":"2026-04-23T08:08:29.532636+00:00"}'
+      formulier","auteur":"Dean Gnodde","taal":"nld","begin_registratie":"2026-03-25T13:51:10.096000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"71f05dee-6ded-4e81-bef8-4a141912d73d","url":"http://localhost:8003/zaken/api/v1/zaken/71f05dee-6ded-4e81-bef8-4a141912d73d","identificatie":"ZAAK-2025-0000000006","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000073","verantwoordelijkeOrganisatie":"000000231","registratiedatum":"2026-03-25","startdatum":"2025-02-05","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"71f05dee-6ded-4e81-bef8-4a141912d73d"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:26.507367+00:00","next_check_at":"2026-04-23T08:37:26.507367+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1468,7 +1468,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"0faee041-27ec-4b81-99a0-42ebab29a7db","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/0faee041-27ec-4b81-99a0-42ebab29a7db","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000188","creatiedatum":"2026-03-12","titel":"aanvraag
-      formulier","auteur":"Nienke Brouwer-Ruijs","taal":"nld","begin_registratie":"2026-03-25T13:51:16.920000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/0faee041-27ec-4b81-99a0-42ebab29a7db/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"511f30e1-7538-48c0-af85-41e76a38cd24","url":"http://localhost:8003/zaken/api/v1/zaken/511f30e1-7538-48c0-af85-41e76a38cd24","identificatie":"ZAAK-2026-0000000009","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000061","verantwoordelijkeOrganisatie":"000000309","registratiedatum":"2026-03-25","startdatum":"2026-02-14","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:30.541783+00:00","next_check_at":"2026-04-23T08:08:30.541783+00:00"}'
+      formulier","auteur":"Nienke Brouwer-Ruijs","taal":"nld","begin_registratie":"2026-03-25T13:51:16.920000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/0faee041-27ec-4b81-99a0-42ebab29a7db/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"511f30e1-7538-48c0-af85-41e76a38cd24","url":"http://localhost:8003/zaken/api/v1/zaken/511f30e1-7538-48c0-af85-41e76a38cd24","identificatie":"ZAAK-2026-0000000009","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000061","verantwoordelijkeOrganisatie":"000000309","registratiedatum":"2026-03-25","startdatum":"2026-02-14","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"511f30e1-7538-48c0-af85-41e76a38cd24"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:27.510354+00:00","next_check_at":"2026-04-23T08:37:27.510354+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1601,7 +1601,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"fc58a8f1-f2f0-4eb8-919c-4360f91a3415","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/fc58a8f1-f2f0-4eb8-919c-4360f91a3415","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000140","creatiedatum":"2026-03-03","titel":"aanvraag
-      formulier","auteur":"Jasmijn van Waas","taal":"nld","begin_registratie":"2026-03-25T13:50:57.623000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/fc58a8f1-f2f0-4eb8-919c-4360f91a3415/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"2c8c15af-4fdc-4b6a-a29c-75df40df38ed","url":"http://localhost:8003/zaken/api/v1/zaken/2c8c15af-4fdc-4b6a-a29c-75df40df38ed","identificatie":"ZAAK-2026-0000000010","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000231","verantwoordelijkeOrganisatie":"000000292","registratiedatum":"2026-03-25","startdatum":"2026-01-15","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:31.563215+00:00","next_check_at":"2026-04-23T08:08:31.563215+00:00"}'
+      formulier","auteur":"Jasmijn van Waas","taal":"nld","begin_registratie":"2026-03-25T13:50:57.623000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/fc58a8f1-f2f0-4eb8-919c-4360f91a3415/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"2c8c15af-4fdc-4b6a-a29c-75df40df38ed","url":"http://localhost:8003/zaken/api/v1/zaken/2c8c15af-4fdc-4b6a-a29c-75df40df38ed","identificatie":"ZAAK-2026-0000000010","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000231","verantwoordelijkeOrganisatie":"000000292","registratiedatum":"2026-03-25","startdatum":"2026-01-15","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"2c8c15af-4fdc-4b6a-a29c-75df40df38ed"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:28.524590+00:00","next_check_at":"2026-04-23T08:37:28.524590+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1734,7 +1734,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"630f20a5-b099-4d84-a504-51796b6c5504","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/630f20a5-b099-4d84-a504-51796b6c5504","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000061","creatiedatum":"2026-01-21","titel":"aanvraag
-      formulier","auteur":"Stan Jacobs","taal":"nld","begin_registratie":"2026-03-25T13:50:52.609000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/630f20a5-b099-4d84-a504-51796b6c5504/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"6ef989c2-4df9-44fa-8b8a-e48a87a12b3f","url":"http://localhost:8003/zaken/api/v1/zaken/6ef989c2-4df9-44fa-8b8a-e48a87a12b3f","identificatie":"ZAAK-2026-0000000004","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000176","verantwoordelijkeOrganisatie":"000000334","registratiedatum":"2026-03-25","startdatum":"2026-01-13","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:32.547001+00:00","next_check_at":"2026-04-23T08:08:32.547001+00:00"}'
+      formulier","auteur":"Stan Jacobs","taal":"nld","begin_registratie":"2026-03-25T13:50:52.609000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/630f20a5-b099-4d84-a504-51796b6c5504/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"6ef989c2-4df9-44fa-8b8a-e48a87a12b3f","url":"http://localhost:8003/zaken/api/v1/zaken/6ef989c2-4df9-44fa-8b8a-e48a87a12b3f","identificatie":"ZAAK-2026-0000000004","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000176","verantwoordelijkeOrganisatie":"000000334","registratiedatum":"2026-03-25","startdatum":"2026-01-13","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"6ef989c2-4df9-44fa-8b8a-e48a87a12b3f"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:29.525246+00:00","next_check_at":"2026-04-23T08:37:29.525246+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -1867,7 +1867,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"10e3074d-c0ee-49e0-b099-6abe066cd56a","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/10e3074d-c0ee-49e0-b099-6abe066cd56a","identificatie":"DOCUMENT-2026-0000000002","bronorganisatie":"000000218","creatiedatum":"2026-01-05","titel":"aanvraag
-      formulier","auteur":"Nadia van Evelingen","taal":"nld","begin_registratie":"2026-03-25T13:50:47.449000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/10e3074d-c0ee-49e0-b099-6abe066cd56a/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"8687acc6-3386-4a84-98f0-07a1d53db5ae","url":"http://localhost:8003/zaken/api/v1/zaken/8687acc6-3386-4a84-98f0-07a1d53db5ae","identificatie":"ZAAK-2026-0000000007","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000115","verantwoordelijkeOrganisatie":"000000097","registratiedatum":"2026-03-25","startdatum":"2026-02-08","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:33.552496+00:00","next_check_at":"2026-04-23T08:08:33.552496+00:00"}'
+      formulier","auteur":"Nadia van Evelingen","taal":"nld","begin_registratie":"2026-03-25T13:50:47.449000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/10e3074d-c0ee-49e0-b099-6abe066cd56a/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"8687acc6-3386-4a84-98f0-07a1d53db5ae","url":"http://localhost:8003/zaken/api/v1/zaken/8687acc6-3386-4a84-98f0-07a1d53db5ae","identificatie":"ZAAK-2026-0000000007","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000115","verantwoordelijkeOrganisatie":"000000097","registratiedatum":"2026-03-25","startdatum":"2026-02-08","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"8687acc6-3386-4a84-98f0-07a1d53db5ae"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:30.561320+00:00","next_check_at":"2026-04-23T08:37:30.561320+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2000,7 +2000,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"435b77c7-db8d-47cf-b2df-eea3a91089ee","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/435b77c7-db8d-47cf-b2df-eea3a91089ee","identificatie":"DOCUMENT-2026-0000000003","bronorganisatie":"000000012","creatiedatum":"2026-02-15","titel":"aanvraag
-      formulier","auteur":"Maud Friehus","taal":"nld","begin_registratie":"2026-03-25T13:50:42.700000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/435b77c7-db8d-47cf-b2df-eea3a91089ee/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"d89fc6fd-29ce-493d-b27d-b2e4fd4424fe","url":"http://localhost:8003/zaken/api/v1/zaken/d89fc6fd-29ce-493d-b27d-b2e4fd4424fe","identificatie":"ZAAK-2026-0000000006","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000140","verantwoordelijkeOrganisatie":"000000371","registratiedatum":"2026-03-25","startdatum":"2026-01-23","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:34.566334+00:00","next_check_at":"2026-04-23T08:08:34.566334+00:00"}'
+      formulier","auteur":"Maud Friehus","taal":"nld","begin_registratie":"2026-03-25T13:50:42.700000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/435b77c7-db8d-47cf-b2df-eea3a91089ee/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"d89fc6fd-29ce-493d-b27d-b2e4fd4424fe","url":"http://localhost:8003/zaken/api/v1/zaken/d89fc6fd-29ce-493d-b27d-b2e4fd4424fe","identificatie":"ZAAK-2026-0000000006","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000140","verantwoordelijkeOrganisatie":"000000371","registratiedatum":"2026-03-25","startdatum":"2026-01-23","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"d89fc6fd-29ce-493d-b27d-b2e4fd4424fe"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:31.541425+00:00","next_check_at":"2026-04-23T08:37:31.541425+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2133,7 +2133,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"6df0ae09-0f21-4c8e-bc49-5bb23915f606","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6df0ae09-0f21-4c8e-bc49-5bb23915f606","identificatie":"DOCUMENT-2026-0000000003","bronorganisatie":"000000206","creatiedatum":"2026-03-07","titel":"aanvraag
-      formulier","auteur":"Lisa Bastiaense","taal":"nld","begin_registratie":"2026-03-25T13:50:38.364000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6df0ae09-0f21-4c8e-bc49-5bb23915f606/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"bc5d35a8-956d-4b94-80af-86796d626f08","url":"http://localhost:8003/zaken/api/v1/zaken/bc5d35a8-956d-4b94-80af-86796d626f08","identificatie":"ZAAK-2025-0000000009","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000085","verantwoordelijkeOrganisatie":"000000085","registratiedatum":"2026-03-25","startdatum":"2025-02-05","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:35.576529+00:00","next_check_at":"2026-04-23T08:08:35.576529+00:00"}'
+      formulier","auteur":"Lisa Bastiaense","taal":"nld","begin_registratie":"2026-03-25T13:50:38.364000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6df0ae09-0f21-4c8e-bc49-5bb23915f606/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"bc5d35a8-956d-4b94-80af-86796d626f08","url":"http://localhost:8003/zaken/api/v1/zaken/bc5d35a8-956d-4b94-80af-86796d626f08","identificatie":"ZAAK-2025-0000000009","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000085","verantwoordelijkeOrganisatie":"000000085","registratiedatum":"2026-03-25","startdatum":"2025-02-05","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"bc5d35a8-956d-4b94-80af-86796d626f08"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:32.546462+00:00","next_check_at":"2026-04-23T08:37:32.546462+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2268,7 +2268,7 @@ interactions:
 - request:
     body: '{"uuid":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
       formulier","auteur":"Mason van Breukeleveen","taal":"nld","begin_registratie":"2026-03-25T13:50:33.793000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"85169f14-b860-4590-8787-4e026f90703e","url":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","identificatie":"ZAAK-2026-0000000011","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000280","verantwoordelijkeOrganisatie":"000000152","registratiedatum":"2026-03-25","startdatum":"2026-01-20","omschrijving":"verklaring
-      van vernietiging","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:36.584061+00:00","next_check_at":"2026-04-23T08:08:36.584061+00:00"}'
+      van vernietiging","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"85169f14-b860-4590-8787-4e026f90703e"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:33.566455+00:00","next_check_at":"2026-04-23T08:37:33.566455+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2401,7 +2401,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"a2d46f98-baa0-4b33-9c87-c14517ae695b","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a2d46f98-baa0-4b33-9c87-c14517ae695b","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000206","creatiedatum":"2026-02-15","titel":"aanvraag
-      formulier","auteur":"Rowan Jeggij","taal":"nld","begin_registratie":"2026-03-25T13:50:18.321000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a2d46f98-baa0-4b33-9c87-c14517ae695b/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"918b7c32-c0f1-4a1f-b50b-e803e6694fa4","url":"http://localhost:8003/zaken/api/v1/zaken/918b7c32-c0f1-4a1f-b50b-e803e6694fa4","identificatie":"ZAAK-2026-0000000005","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000206","verantwoordelijkeOrganisatie":"000000334","registratiedatum":"2026-03-25","startdatum":"2026-02-16","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:37.619343+00:00","next_check_at":"2026-04-23T08:08:37.619343+00:00"}'
+      formulier","auteur":"Rowan Jeggij","taal":"nld","begin_registratie":"2026-03-25T13:50:18.321000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a2d46f98-baa0-4b33-9c87-c14517ae695b/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"918b7c32-c0f1-4a1f-b50b-e803e6694fa4","url":"http://localhost:8003/zaken/api/v1/zaken/918b7c32-c0f1-4a1f-b50b-e803e6694fa4","identificatie":"ZAAK-2026-0000000005","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000206","verantwoordelijkeOrganisatie":"000000334","registratiedatum":"2026-03-25","startdatum":"2026-02-16","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"918b7c32-c0f1-4a1f-b50b-e803e6694fa4"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:34.570058+00:00","next_check_at":"2026-04-23T08:37:34.570058+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2534,7 +2534,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000255","creatiedatum":"2026-02-18","titel":"aanvraag
-      formulier","auteur":"Fem van Laar","taal":"nld","begin_registratie":"2026-03-25T13:50:23.852000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"34faf0d8-7dce-460f-8e63-063b137374fb","url":"http://localhost:8003/zaken/api/v1/zaken/34faf0d8-7dce-460f-8e63-063b137374fb","identificatie":"ZAAK-2025-0000000003","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000280","verantwoordelijkeOrganisatie":"000000024","registratiedatum":"2026-03-25","startdatum":"2025-12-07","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:38.617231+00:00","next_check_at":"2026-04-23T08:08:38.617231+00:00"}'
+      formulier","auteur":"Fem van Laar","taal":"nld","begin_registratie":"2026-03-25T13:50:23.852000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"34faf0d8-7dce-460f-8e63-063b137374fb","url":"http://localhost:8003/zaken/api/v1/zaken/34faf0d8-7dce-460f-8e63-063b137374fb","identificatie":"ZAAK-2025-0000000003","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000280","verantwoordelijkeOrganisatie":"000000024","registratiedatum":"2026-03-25","startdatum":"2025-12-07","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"34faf0d8-7dce-460f-8e63-063b137374fb"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:35.590351+00:00","next_check_at":"2026-04-23T08:37:35.590351+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2667,7 +2667,7 @@ interactions:
       message: OK
 - request:
     body: "{\"uuid\":\"819c31fc-81e0-4d96-990f-6221cbe987c6\",\"url\":\"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/819c31fc-81e0-4d96-990f-6221cbe987c6\",\"identificatie\":\"DOCUMENT-2026-0000000004\",\"bronorganisatie\":\"000000097\",\"creatiedatum\":\"2026-01-21\",\"titel\":\"aanvraag
-      formulier\",\"auteur\":\"Chlo\xE9 Velderman\",\"taal\":\"nld\",\"begin_registratie\":\"2026-03-25T13:50:29.108000+00:00\",\"informatieobjecttype\":\"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab\",\"vertrouwelijkheidaanduiding\":\"confidentieel\",\"status\":\"\",\"formaat\":\"\",\"bestandsnaam\":\"\",\"link\":\"\",\"beschrijving\":\"\",\"verschijningsvorm\":\"\",\"zaak_referenties\":[{\"uuid\":\"df01f13a-844d-4901-9fe4-dd19603557c2\",\"url\":\"http://localhost:8003/zaken/api/v1/zaken/df01f13a-844d-4901-9fe4-dd19603557c2\",\"identificatie\":\"ZAAK-2025-0000000002\",\"zaaktype\":\"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d\",\"bronorganisatie\":\"000000358\",\"verantwoordelijkeOrganisatie\":\"000000292\",\"registratiedatum\":\"2026-03-25\",\"startdatum\":\"2025-02-05\",\"omschrijving\":\"\",\"toelichting\":\"\",\"object_type\":\"zaak\",\"service_slug\":\"zaken-api\",\"ztc_service_slug\":\"catalogi-api\"}],\"service_slug\":\"documenten-api\",\"group_slug\":\"zgw-api-group-0\",\"last_checked_at\":\"2026-04-13T08:08:39.618018+00:00\",\"next_check_at\":\"2026-04-23T08:08:39.618018+00:00\"}"
+      formulier\",\"auteur\":\"Chlo\xE9 Velderman\",\"taal\":\"nld\",\"begin_registratie\":\"2026-03-25T13:50:29.108000+00:00\",\"informatieobjecttype\":\"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab\",\"vertrouwelijkheidaanduiding\":\"confidentieel\",\"status\":\"\",\"formaat\":\"\",\"bestandsnaam\":\"\",\"link\":\"\",\"beschrijving\":\"\",\"verschijningsvorm\":\"\",\"zaak_referenties\":[{\"uuid\":\"df01f13a-844d-4901-9fe4-dd19603557c2\",\"url\":\"http://localhost:8003/zaken/api/v1/zaken/df01f13a-844d-4901-9fe4-dd19603557c2\",\"identificatie\":\"ZAAK-2025-0000000002\",\"zaaktype\":\"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d\",\"bronorganisatie\":\"000000358\",\"verantwoordelijkeOrganisatie\":\"000000292\",\"registratiedatum\":\"2026-03-25\",\"startdatum\":\"2025-02-05\",\"omschrijving\":\"\",\"toelichting\":\"\",\"object_type\":\"zaak\",\"service_slug\":\"zaken-api\",\"ztc_service_slug\":\"catalogi-api\",\"ztc_uuid\":\"df01f13a-844d-4901-9fe4-dd19603557c2\"}],\"service_slug\":\"documenten-api\",\"group_slug\":\"zgw-api-group-0\",\"last_checked_at\":\"2026-04-13T08:37:36.585473+00:00\",\"next_check_at\":\"2026-04-23T08:37:36.585473+00:00\"}"
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2800,7 +2800,7 @@ interactions:
       message: OK
 - request:
     body: '{"uuid":"f8c1d2cc-780e-452a-8871-187048341200","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f8c1d2cc-780e-452a-8871-187048341200","identificatie":"DOCUMENT-2026-0000000005","bronorganisatie":"000000176","creatiedatum":"2026-03-01","titel":"aanvraag
-      formulier","auteur":"Olivia Fiere","taal":"nld","begin_registratie":"2026-03-25T13:50:11.576000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f8c1d2cc-780e-452a-8871-187048341200/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"f0502f2c-ace2-42b0-9d3d-84e3543d8b6a","url":"http://localhost:8003/zaken/api/v1/zaken/f0502f2c-ace2-42b0-9d3d-84e3543d8b6a","identificatie":"ZAAK-2025-0000000005","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000218","verantwoordelijkeOrganisatie":"000000176","registratiedatum":"2026-03-25","startdatum":"2025-12-18","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:40.643597+00:00","next_check_at":"2026-04-23T08:08:40.643597+00:00"}'
+      formulier","auteur":"Olivia Fiere","taal":"nld","begin_registratie":"2026-03-25T13:50:11.576000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f8c1d2cc-780e-452a-8871-187048341200/download?versie=2","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"f0502f2c-ace2-42b0-9d3d-84e3543d8b6a","url":"http://localhost:8003/zaken/api/v1/zaken/f0502f2c-ace2-42b0-9d3d-84e3543d8b6a","identificatie":"ZAAK-2025-0000000005","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000218","verantwoordelijkeOrganisatie":"000000176","registratiedatum":"2026-03-25","startdatum":"2025-12-18","omschrijving":"","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"f0502f2c-ace2-42b0-9d3d-84e3543d8b6a"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:37.596743+00:00","next_check_at":"2026-04-23T08:37:37.596743+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -2933,7 +2933,7 @@ interactions:
       message: OK
 - request:
     body: "{\"uuid\":\"d34816d6-50c6-49ea-9b84-4803cbc45a3a\",\"url\":\"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/d34816d6-50c6-49ea-9b84-4803cbc45a3a\",\"identificatie\":\"DOCUMENT-2026-0000000005\",\"bronorganisatie\":\"000000012\",\"creatiedatum\":\"2026-01-25\",\"titel\":\"aanvraag
-      formulier\",\"auteur\":\"Jo\xEBlle Bastiaanse\",\"taal\":\"nld\",\"begin_registratie\":\"2026-03-25T13:50:06.934000+00:00\",\"informatieobjecttype\":\"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab\",\"vertrouwelijkheidaanduiding\":\"confidentieel\",\"status\":\"\",\"formaat\":\"\",\"bestandsnaam\":\"\",\"inhoud\":\"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/d34816d6-50c6-49ea-9b84-4803cbc45a3a/download?versie=2\",\"link\":\"\",\"beschrijving\":\"\",\"verschijningsvorm\":\"\",\"zaak_referenties\":[{\"uuid\":\"2ae1c6df-c7f7-43c4-8d69-40db7022ccc2\",\"url\":\"http://localhost:8003/zaken/api/v1/zaken/2ae1c6df-c7f7-43c4-8d69-40db7022ccc2\",\"identificatie\":\"ZAAK-2025-0000000007\",\"zaaktype\":\"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03\",\"bronorganisatie\":\"000000164\",\"verantwoordelijkeOrganisatie\":\"000000218\",\"registratiedatum\":\"2026-03-25\",\"startdatum\":\"2025-02-05\",\"omschrijving\":\"\",\"toelichting\":\"\",\"object_type\":\"zaak\",\"service_slug\":\"zaken-api\",\"ztc_service_slug\":\"catalogi-api\"}],\"service_slug\":\"documenten-api\",\"group_slug\":\"zgw-api-group-0\",\"last_checked_at\":\"2026-04-13T08:08:41.638571+00:00\",\"next_check_at\":\"2026-04-23T08:08:41.638571+00:00\"}"
+      formulier\",\"auteur\":\"Jo\xEBlle Bastiaanse\",\"taal\":\"nld\",\"begin_registratie\":\"2026-03-25T13:50:06.934000+00:00\",\"informatieobjecttype\":\"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab\",\"vertrouwelijkheidaanduiding\":\"confidentieel\",\"status\":\"\",\"formaat\":\"\",\"bestandsnaam\":\"\",\"inhoud\":\"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/d34816d6-50c6-49ea-9b84-4803cbc45a3a/download?versie=2\",\"link\":\"\",\"beschrijving\":\"\",\"verschijningsvorm\":\"\",\"zaak_referenties\":[{\"uuid\":\"2ae1c6df-c7f7-43c4-8d69-40db7022ccc2\",\"url\":\"http://localhost:8003/zaken/api/v1/zaken/2ae1c6df-c7f7-43c4-8d69-40db7022ccc2\",\"identificatie\":\"ZAAK-2025-0000000007\",\"zaaktype\":\"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03\",\"bronorganisatie\":\"000000164\",\"verantwoordelijkeOrganisatie\":\"000000218\",\"registratiedatum\":\"2026-03-25\",\"startdatum\":\"2025-02-05\",\"omschrijving\":\"\",\"toelichting\":\"\",\"object_type\":\"zaak\",\"service_slug\":\"zaken-api\",\"ztc_service_slug\":\"catalogi-api\",\"ztc_uuid\":\"2ae1c6df-c7f7-43c4-8d69-40db7022ccc2\"}],\"service_slug\":\"documenten-api\",\"group_slug\":\"zgw-api-group-0\",\"last_checked_at\":\"2026-04-13T08:37:38.604122+00:00\",\"next_check_at\":\"2026-04-23T08:37:38.604122+00:00\"}"
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -3003,7 +3003,7 @@ interactions:
     uri: http://localhost:9201/document/_settings
   response:
     body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1776067702380","number_of_replicas":"1","uuid":"J-jornStQMut2ckhnXns0g","version":{"created":"8521000"}}}}}'
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1776069439347","number_of_replicas":"1","uuid":"6P3O2uI6T8ueFsiloTVG2Q","version":{"created":"8521000"}}}}}'
     headers:
       Transfer-Encoding:
       - chunked
@@ -3015,295 +3015,7 @@ interactions:
       code: 200
       message: OK
 - request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"ztc_service_slug":{"type":"keyword"},"service_slug":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"next_check_at":{"type":"date"},"inhoud":{"type":"text"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"group_slug":{"type":"keyword"},"last_checked_at":{"type":"date"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"service_slug":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"exists":{"field":"creatiedatum"}},"size":0}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: POST
-    uri: http://localhost:9201/document/_search
-  response:
-    body:
-      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":20,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7743104E12,"value_as_string":"2026-03-24"}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Connection:
-      - keep-alive
-      User-Agent:
-      - python-requests/2.32.5
-    method: GET
-    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-24&objectinformatieobjecten__objectType=zaak
-  response:
-    body:
-      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
-        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mason van
-        Breukeleveen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:33.793000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
-    headers:
-      API-version:
-      - 1.4.2
-      Allow:
-      - GET, POST, HEAD, OPTIONS
-      Content-Length:
-      - '1002'
-      Content-Security-Policy:
-      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
-        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
-        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
-        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
-        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
-        ''self'' fonts.gstatic.com; default-src ''self'''
-      Content-Type:
-      - application/json
-      Cross-Origin-Opener-Policy:
-      - same-origin
-      Referrer-Policy:
-      - same-origin
-      Vary:
-      - origin, Cookie
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Crs:
-      - EPSG:4326
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Connection:
-      - keep-alive
-      Content-Crs:
-      - EPSG:4326
-      User-Agent:
-      - python-requests/2.32.5
-    method: GET
-    uri: http://localhost:8003/documenten/api/v1/objectinformatieobjecten?informatieobject=http%3A%2F%2Flocalhost%3A8003%2Fdocumenten%2Fapi%2Fv1%2Fenkelvoudiginformatieobjecten%2Fef55f9ea-4004-4832-803e-2672bb1c6d4d
-  response:
-    body:
-      string: '[{"url":"http://localhost:8003/documenten/api/v1/objectinformatieobjecten/f1a2da47-a15b-45c4-ba94-e8e63b0844fa","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","object":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","objectType":"zaak"}]'
-    headers:
-      API-version:
-      - 1.4.2
-      Allow:
-      - GET, POST, HEAD, OPTIONS
-      Content-Length:
-      - '350'
-      Content-Security-Policy:
-      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
-        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
-        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
-        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
-        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
-        ''self'' fonts.gstatic.com; default-src ''self'''
-      Content-Type:
-      - application/json
-      Cross-Origin-Opener-Policy:
-      - same-origin
-      Referrer-Policy:
-      - same-origin
-      Vary:
-      - Accept, origin, Cookie
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      Accept:
-      - '*/*'
-      Accept-Crs:
-      - EPSG:4326
-      Accept-Encoding:
-      - gzip, deflate, br, zstd
-      Connection:
-      - keep-alive
-      Content-Crs:
-      - EPSG:4326
-      User-Agent:
-      - python-requests/2.32.5
-    method: GET
-    uri: http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e
-  response:
-    body:
-      string: '{"url":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","uuid":"85169f14-b860-4590-8787-4e026f90703e","identificatie":"ZAAK-2026-0000000011","bronorganisatie":"000000280","omschrijving":"verklaring
-        van vernietiging","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000152","startdatum":"2026-01-20","einddatum":"2026-02-15","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-02-03","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.601000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/e8d3e763-79f4-4095-b967-35a1e8c8d976","http://localhost:8003/zaken/api/v1/rollen/6ba1ba36-d58b-4e16-9e02-134b76621438"],"status":"http://localhost:8003/zaken/api/v1/statussen/4b6a9a44-bdad-46e6-b40c-27483b5f65c0","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f40d0d92-56b4-4972-a01c-f5989f9c3f5d"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2027-02-15","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/0babd4ef-1d69-4652-ba93-a8c53c1085c9","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2026-02-15","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}}'
-    headers:
-      API-version:
-      - 1.5.1
-      Allow:
-      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
-      Content-Crs:
-      - EPSG:4326
-      Content-Length:
-      - '1876'
-      Content-Security-Policy:
-      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
-        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
-        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
-        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
-        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
-        ''self'' fonts.gstatic.com; default-src ''self'''
-      Content-Type:
-      - application/json
-      Cross-Origin-Opener-Policy:
-      - same-origin
-      ETag:
-      - '"d5eb3b7a2974350e11f1ac4705f04b14"'
-      Referrer-Policy:
-      - same-origin
-      Vary:
-      - origin, Cookie
-      X-Content-Type-Options:
-      - nosniff
-      X-Frame-Options:
-      - DENY
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
-      formulier","auteur":"Mason van Breukeleveen","taal":"nld","begin_registratie":"2026-03-25T13:50:33.793000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"85169f14-b860-4590-8787-4e026f90703e","url":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","identificatie":"ZAAK-2026-0000000011","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000280","verantwoordelijkeOrganisatie":"000000152","registratiedatum":"2026-03-25","startdatum":"2026-01-20","omschrijving":"verklaring
-      van vernietiging","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:42.723830+00:00","next_check_at":"2026-04-23T08:08:42.723830+00:00"}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_doc/ef55f9ea-4004-4832-803e-2672bb1c6d4d?pipeline=document_attachment&refresh=wait_for
-  response:
-    body:
-      string: '{"_index":"document","_id":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":20,"_primary_term":1}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '177'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1776067702380","number_of_replicas":"1","uuid":"J-jornStQMut2ckhnXns0g","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"omschrijving":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"startdatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"uuid":{"type":"keyword"},"zaaktype":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"identificatie":{"type":"keyword"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"bronorganisatie":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"ztc_service_slug":{"type":"keyword"},"service_slug":{"type":"keyword"},"url":{"type":"keyword"}},"type":"nested"},"auteur":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"next_check_at":{"type":"date"},"inhoud":{"type":"text"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"group_slug":{"type":"keyword"},"last_checked_at":{"type":"date"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"service_slug":{"type":"keyword"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"bestandsomvang":{"type":"long"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"status":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"url":{"type":"keyword"}}}'
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"bronorganisatie":{"type":"keyword"},"ztc_service_slug":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"ztc_uuid":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"service_slug":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"}},"type":"nested"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"next_check_at":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"group_slug":{"type":"keyword"},"service_slug":{"type":"keyword"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bestandsomvang":{"type":"long"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"last_checked_at":{"type":"date"},"url":{"type":"keyword"}}}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -3511,7 +3223,295 @@ interactions:
 - request:
     body: '{"uuid":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
       formulier","auteur":"Mason van Breukeleveen","taal":"nld","begin_registratie":"2026-03-25T13:50:33.793000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"85169f14-b860-4590-8787-4e026f90703e","url":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","identificatie":"ZAAK-2026-0000000011","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000280","verantwoordelijkeOrganisatie":"000000152","registratiedatum":"2026-03-25","startdatum":"2026-01-20","omschrijving":"verklaring
-      van vernietiging","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:08:43.719132+00:00","next_check_at":"2026-04-23T08:08:43.719132+00:00"}'
+      van vernietiging","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"85169f14-b860-4590-8787-4e026f90703e"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:39.670580+00:00","next_check_at":"2026-04-23T08:37:39.670580+00:00"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/ef55f9ea-4004-4832-803e-2672bb1c6d4d?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":20,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: HEAD
+    uri: http://localhost:9201/document
+  response:
+    body:
+      string: ''
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_settings
+  response:
+    body:
+      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1776069439347","number_of_replicas":"1","uuid":"6P3O2uI6T8ueFsiloTVG2Q","version":{"created":"8521000"}}}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"zaak_referenties":{"properties":{"bronorganisatie":{"type":"keyword"},"ztc_service_slug":{"type":"keyword"},"status":{"analyzer":"dutch","type":"text"},"ztc_uuid":{"type":"keyword"},"omschrijving":{"analyzer":"dutch","type":"text"},"uuid":{"type":"keyword"},"service_slug":{"type":"keyword"},"toelichting":{"analyzer":"dutch","type":"text"},"registratiedatum":{"format":"yyyy-MM-dd","type":"date"},"object_type":{"type":"keyword"},"verantwoordelijkeOrganisatie":{"type":"keyword"},"zaaktype":{"type":"keyword"},"url":{"type":"keyword"},"identificatie":{"type":"keyword"},"startdatum":{"format":"yyyy-MM-dd","type":"date"}},"type":"nested"},"status":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"identificatie":{"type":"keyword"},"link":{"analyzer":"dutch","type":"text"},"titel":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"begin_registratie":{"type":"date"},"next_check_at":{"type":"date"},"formaat":{"analyzer":"dutch","type":"text"},"bronorganisatie":{"type":"keyword"},"group_slug":{"type":"keyword"},"service_slug":{"type":"keyword"},"uuid":{"type":"keyword"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"bestandsomvang":{"type":"long"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"last_checked_at":{"type":"date"},"url":{"type":"keyword"}}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_mapping
+  response:
+    body:
+      string: '{"acknowledged":true}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '21'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"aggs":{"latest_date":{"max":{"field":"creatiedatum"}}},"query":{"exists":{"field":"creatiedatum"}},"size":0}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":2,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":20,"relation":"eq"},"max_score":null,"hits":[]},"aggregations":{"latest_date":{"value":1.7743104E12,"value_as_string":"2026-03-24"}}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-24&objectinformatieobjecten__objectType=zaak
+  response:
+    body:
+      string: '{"count":1,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mason van
+        Breukeleveen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:33.793000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
+    headers:
+      API-version:
+      - 1.4.2
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Length:
+      - '1002'
+      Content-Security-Policy:
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
+        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
+        ''self'' fonts.gstatic.com; default-src ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost:8003/documenten/api/v1/objectinformatieobjecten?informatieobject=http%3A%2F%2Flocalhost%3A8003%2Fdocumenten%2Fapi%2Fv1%2Fenkelvoudiginformatieobjecten%2Fef55f9ea-4004-4832-803e-2672bb1c6d4d
+  response:
+    body:
+      string: '[{"url":"http://localhost:8003/documenten/api/v1/objectinformatieobjecten/f1a2da47-a15b-45c4-ba94-e8e63b0844fa","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","object":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","objectType":"zaak"}]'
+    headers:
+      API-version:
+      - 1.4.2
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Length:
+      - '350'
+      Content-Security-Policy:
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
+        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
+        ''self'' fonts.gstatic.com; default-src ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - Accept, origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e
+  response:
+    body:
+      string: '{"url":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","uuid":"85169f14-b860-4590-8787-4e026f90703e","identificatie":"ZAAK-2026-0000000011","bronorganisatie":"000000280","omschrijving":"verklaring
+        van vernietiging","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000152","startdatum":"2026-01-20","einddatum":"2026-02-15","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-02-03","publicatiedatum":null,"laatstGemuteerd":"2026-03-25T11:39:20.601000Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/e8d3e763-79f4-4095-b967-35a1e8c8d976","http://localhost:8003/zaken/api/v1/rollen/6ba1ba36-d58b-4e16-9e02-134b76621438"],"status":"http://localhost:8003/zaken/api/v1/statussen/4b6a9a44-bdad-46e6-b40c-27483b5f65c0","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f40d0d92-56b4-4972-a01c-f5989f9c3f5d"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2027-02-15","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/0babd4ef-1d69-4652-ba93-a8c53c1085c9","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2026-02-15","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}}'
+    headers:
+      API-version:
+      - 1.5.1
+      Allow:
+      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      Content-Crs:
+      - EPSG:4326
+      Content-Length:
+      - '1876'
+      Content-Security-Policy:
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
+        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
+        ''self'' fonts.gstatic.com; default-src ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      ETag:
+      - '"d5eb3b7a2974350e11f1ac4705f04b14"'
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"uuid":"ef55f9ea-4004-4832-803e-2672bb1c6d4d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
+      formulier","auteur":"Mason van Breukeleveen","taal":"nld","begin_registratie":"2026-03-25T13:50:33.793000+00:00","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","vertrouwelijkheidaanduiding":"confidentieel","status":"","formaat":"","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","link":"","beschrijving":"","verschijningsvorm":"","zaak_referenties":[{"uuid":"85169f14-b860-4590-8787-4e026f90703e","url":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","identificatie":"ZAAK-2026-0000000011","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","bronorganisatie":"000000280","verantwoordelijkeOrganisatie":"000000152","registratiedatum":"2026-03-25","startdatum":"2026-01-20","omschrijving":"verklaring
+      van vernietiging","toelichting":"","object_type":"zaak","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","ztc_uuid":"85169f14-b860-4590-8787-4e026f90703e"}],"service_slug":"documenten-api","group_slug":"zgw-api-group-0","last_checked_at":"2026-04-13T08:37:40.680301+00:00","next_check_at":"2026-04-23T08:37:40.680301+00:00"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -3579,14 +3579,14 @@ interactions:
     uri: http://localhost:9201/document/_doc/ea16fa8c-4bab-4065-a28a-f6574625205d
   response:
     body:
-      string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":1,"_seq_no":1,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","begin_registratie":"2026-03-30T10:07:34.951000+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000115","bestandsomvang":10,"link":"","next_check_at":"2026-04-23T08:08:23.509239+00:00","uuid":"ea16fa8c-4bab-4065-a28a-f6574625205d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d","taal":"nld","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"catalogi-api","identificatie":"ZAAK-2026-0000000001","object_type":"zaak","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000103","registratiedatum":"2026-03-25","uuid":"da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","url":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","verantwoordelijkeOrganisatie":"000000152","omschrijving":"","startdatum":"2026-03-03","toelichting":""}],"auteur":"Niek
-        van den Berg","formaat":"","last_checked_at":"2026-04-13T08:08:23.509239+00:00","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=2","titel":"aanvraag
+      string: '{"_index":"document","_id":"ea16fa8c-4bab-4065-a28a-f6574625205d","_version":1,"_seq_no":1,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","begin_registratie":"2026-03-30T10:07:34.951000+00:00","beschrijving":"","verschijningsvorm":"","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000115","bestandsomvang":10,"link":"","next_check_at":"2026-04-23T08:37:20.470762+00:00","uuid":"ea16fa8c-4bab-4065-a28a-f6574625205d","url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d","taal":"nld","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"catalogi-api","identificatie":"ZAAK-2026-0000000001","object_type":"zaak","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","bronorganisatie":"000000103","registratiedatum":"2026-03-25","uuid":"da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","url":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","verantwoordelijkeOrganisatie":"000000152","omschrijving":"","ztc_uuid":"da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","startdatum":"2026-03-03","toelichting":""}],"auteur":"Niek
+        van den Berg","formaat":"","last_checked_at":"2026-04-13T08:37:20.470762+00:00","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=2","titel":"aanvraag
         formulier","vertrouwelijkheidaanduiding":"confidentieel","informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","bestandsnaam":"","creatiedatum":"2026-01-15","group_slug":"zgw-api-group-0","status":""}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1647'
+      - '1697'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

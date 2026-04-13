@@ -45,6 +45,8 @@ class ZaakReferenties(InnerDoc):
 
     service_slug: M[str | None] = mapped_field(Keyword())
     ztc_service_slug: M[str | None] = mapped_field(Keyword())
+    ztc_uuid: M[str | None] = mapped_field(Keyword())
+    startjaar: M[str | None] = mapped_field(Keyword())
 
 
 # create empty base mapping instance

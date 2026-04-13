@@ -518,6 +518,7 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         self.assertIn("/zaken/", zaak.url)
         self.assertEqual(zaak.service_slug, "zaken-api")
         self.assertEqual(zaak.ztc_service_slug, "catalogi-api")
+        self.assertIsNotNone(zaak.ztc_uuid)
 
         self.assertNotEqual(zaak.identificatie, "")
         self.assertIsNotNone(zaak.omschrijving)
@@ -684,12 +685,12 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         )
         with get_elasticsearch_client() as client:
             client.index_document(doc, service="documenten-api", group_slug="group-1")
-            count_before = client.get_total_count()
+            count_before = client.get_total_count(index="document", doc_type=Document)
 
         validate_expired_documents()
 
         with get_elasticsearch_client() as client:
-            count_after = client.get_total_count()
+            count_after = client.get_total_count(index="document", doc_type=Document)
 
         self.assertEqual(count_before, count_after)
 

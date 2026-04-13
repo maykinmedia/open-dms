@@ -6,6 +6,7 @@ from celery.exceptions import SoftTimeLimitExceeded
 from opendms.api.clients import get_documenten_client, get_oio_client, get_zaken_client
 from opendms.api.models import ZGWApiGroupConfig
 from opendms.api.utils.exceptions import ExternalServiceUnavailable
+from opendms.api.utils.validators import extract_uuid
 from opendms.celery import app
 
 from .client import get_elasticsearch_client
@@ -90,11 +91,15 @@ def index_all_documents() -> None:
                                         uuid=uuid,
                                         service=zaak_service.slug,
                                     )
+                                    ztc_uuid = extract_uuid(zaak_item.get("zaaktype"))
+                                    startjaar = zaak_item.get("startdatum", "")[:4]
                                     zaak = ZaakReferenties(
                                         **zaak_item,
                                         object_type="zaak",
                                         service_slug=zaak_service.slug,
                                         ztc_service_slug=ztc_service_slug,
+                                        ztc_uuid=ztc_uuid,
+                                        startjaar=startjaar,
                                     )
                                     break
                             except Exception as e:
