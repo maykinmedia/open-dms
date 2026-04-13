@@ -232,7 +232,9 @@ class MsGraphApiBackend(DocumentEditBackend):
             if (
                 not subscription["notificationUrl"].endswith(webhook_url)
                 or subscription["resource"] != "/me/drive/root"
+                or not BaseDriveSubscription.objects.filter(subscription_id=subscription["id"]).exists()
             ):
+                logger.debug("Ignoring existing subscription %s", subscription["id"])
                 continue
 
             subscription_id = subscription["id"]
@@ -246,8 +248,8 @@ class MsGraphApiBackend(DocumentEditBackend):
 
                 BaseDriveSubscription.objects.update_or_create(
                     subscription_id=subscription_id,
+                    client_state=client_state,
                     defaults={
-                        "client_state": client_state,
                         "resource": subscription["resource"],
                         "notification_url": subscription["notificationUrl"],
                         "expiration_date_time": parse_datetime(
