@@ -1,6 +1,5 @@
 import base64
 import mimetypes
-import os
 import secrets
 
 from django.conf import settings
@@ -83,7 +82,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         self.one_drive_client.token = token
         self.subscription_client.token = token
 
-    def open(self, file_path: str) -> str:
+    def open(self, file_path: str, file_name: str) -> str:
         """
         Start a process to access or edit a file.
 
@@ -97,10 +96,8 @@ class MsGraphApiBackend(DocumentEditBackend):
         """
 
         with open(file_path, "rb") as f:
-            file_name = os.path.basename(file_path)
             folder = self._ensure_sync_folder()
             folder_id = folder["id"]
-
             try:
                 drive_item = self.one_drive_client.upload_item(
                     file_name,
@@ -126,13 +123,8 @@ class MsGraphApiBackend(DocumentEditBackend):
     def updated_callback(self, request) -> Response:
         validation_token = request.GET.get("validationToken")
         if validation_token:
-            logger.info("validation_token")
-            logger.info(validation_token)
-            logger.info("validation_token")
             return Response(
-                validation_token,
-                status=status.HTTP_200_OK,
-                content_type="text/plain",
+                validation_token, status=status.HTTP_200_OK, content_type="text/plain"
             )
 
         data: SubscriptionItemCollection = request.data or {}
@@ -260,7 +252,6 @@ class MsGraphApiBackend(DocumentEditBackend):
             return subscription
 
         logger.info("create_new_subscription")
-
         client_state = self._create_client_state_secret()
         subscription = self.subscription_client.create_subscription(
             webhook_url,

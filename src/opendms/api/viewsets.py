@@ -110,8 +110,12 @@ class MsAuthCallbackView(APIView):
             )
         try:
             result = document_edit_backend.authenticated_callback(request)
-        except Exception as e:
-            return Response({"status": "error", "detail": str(e)}, status=400)
+        except Exception:
+            logger.exception("Document upload to Drive failed")
+            return Response(
+                {"status": "error", "detail": _("authenticated_callback_failed")},
+                status=400,
+            )
 
         if not result.get("access_token"):
             return Response(
@@ -430,23 +434,23 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
         file_ext = file_response.get("File-Extension", "")
         file_name = f"{self.kwargs.get(self.lookup_field)}{file_ext}"
-        tmp_path = os.path.join(tempfile.gettempdir(), file_name)
+        tmp_path = None
 
         try:
-            with open(tmp_path, "wb") as tmp_file:
+            with tempfile.NamedTemporaryFile(
+                suffix=file_ext,
+                delete=False,
+            ) as tmp_file:
                 for chunk in file_response.streaming_content:
                     tmp_file.write(chunk)
+                tmp_path = tmp_file.name
 
-            # TODO FIX QUI
             document_edit_backend._set_token(access_token)
-            # TODO FIX QUI
-
-            edit_file_url = document_edit_backend.open(tmp_path)
+            edit_file_url = document_edit_backend.open(tmp_path, file_name)
             return redirect(edit_file_url)
         except Exception as exc:
-            raise MsGraphApiBackendError(
-                _("Document upload to Drive failed: %(error)s") % {"error": exc}
-            ) from exc
+            logger.exception("Document upload to Drive failed")
+            raise MsGraphApiBackendError(_("Document upload to Drive failed.")) from exc
         finally:
-            if os.path.exists(tmp_path):
+            if tmp_path and os.path.exists(tmp_path):
                 os.unlink(tmp_path)
