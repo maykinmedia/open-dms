@@ -64,7 +64,7 @@ class SearchView(APIView):
         operation_id="search",
         description=_("Search the document records."),
         request=SearchSerializer,
-        responses=SearchResponseSerializer(many=True),
+        responses=SearchResponseSerializer,
     )
     def post(self, request, *args, **kwargs):
         query_serializer = SearchSerializer(data=request.data)

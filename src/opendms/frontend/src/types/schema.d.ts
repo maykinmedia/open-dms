@@ -373,7 +373,7 @@ export interface components {
              * @default
              */
             inhoud: string;
-            zaakReferenties?: components["schemas"]["Zaak"][];
+            zaakReferenties?: components["schemas"]["ESZaak"][];
             /**
              * @description discriminator enum property added by openapi-typescript
              * @enum {string}
@@ -731,7 +731,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["SearchResponse"][];
+                    "application/json": components["schemas"]["SearchResponse"];
                 };
             };
         };
