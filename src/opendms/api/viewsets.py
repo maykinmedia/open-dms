@@ -113,8 +113,8 @@ class MsAuthCallbackView(APIView):
             )
         try:
             result = document_edit_backend.authenticated_callback(request)
-        except Exception:
-            logger.exception("Document upload to Drive failed")
+        except Exception as exc:
+            logger.exception(str(exc))
             return Response(
                 {"status": "error", "detail": _("authenticated_callback_failed")},
                 status=400,
@@ -453,7 +453,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             except AttributeError:
                 pass
 
-            logger.exception("Document upload to Drive failed")
+            logger.exception(str(exc))
             raise MsGraphApiBackendError(_("Document upload to Drive failed.")) from exc
         finally:
             if tmp_path and os.path.exists(tmp_path):
