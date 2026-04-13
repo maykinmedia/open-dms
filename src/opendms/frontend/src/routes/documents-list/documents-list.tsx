@@ -38,13 +38,25 @@ export const DocumentsList = () => {
           title: doc.titel,
           icon: <Outline.DocumentIcon />,
           informationLines: [doc.formaat],
-          actions: [
-            {
-              as: "a",
-              download: true,
-              href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
-            },
-          ],
+          actions: doc.hasPendingUpdates
+            ? [
+                {
+                  as: "a",
+                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
+                  target: "_blank",
+                },
+                {
+                  as: "a",
+                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/upload`,
+                },
+              ]
+            : [
+                {
+                  as: "a",
+                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
+                  target: "_blank",
+                },
+              ],
         };
       }) ?? []
     );

@@ -3,6 +3,7 @@ import type { Document, Zaak } from "~/types";
 type FactoryFn<T extends object> = (values?: Partial<T>) => T;
 
 export const documentFactory = createFactory<Document>({
+  hasPendingUpdates: false,
   identificatie: "doc-{index}",
   titel: "Document {index}",
   bestandsnaam: "document-{index}.pdf",
