@@ -45,6 +45,8 @@ def index_all_documents() -> None:
 
         for group in groups:
             doc_service = group.drc_service
+            ztc_service_slug = group.ztc_service.slug if group.ztc_service else None
+
             if not doc_service or doc_service.id in seen_doc_services:
                 continue
             seen_doc_services.add(doc_service.id)
@@ -92,6 +94,7 @@ def index_all_documents() -> None:
                                         **zaak_item,
                                         object_type="zaak",
                                         service_slug=zaak_service.slug,
+                                        ztc_service_slug=ztc_service_slug,
                                     )
                                     break
                             except Exception as e:

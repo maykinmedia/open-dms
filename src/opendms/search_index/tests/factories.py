@@ -38,6 +38,7 @@ class NestedzaakFactory(factory.Factory):
     zaaktype = factory.Faker("word")
     object_type = factory.Faker("word")
     service_slug = "zaken-api"
+    ztc_service_slug = "ztc-service"
 
     class Meta:
         model = dict

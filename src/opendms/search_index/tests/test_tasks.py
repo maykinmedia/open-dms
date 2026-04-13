@@ -419,9 +419,13 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
             for_drc_service_docker_compose=True
         )
         cls.zaken_service = ServiceFactory.create(for_zrc_service_docker_compose=True)
+        cls.zaaktypen_service = ServiceFactory.create(
+            for_ztc_service_docker_compose=True
+        )
         ZGWApiGroupConfigFactory.create(
             drc_service=cls.documenten_service,
             zrc_service=cls.zaken_service,
+            ztc_service=cls.zaaktypen_service,
         )
 
         cls.documenten_service_2 = ServiceFactory.create(
@@ -513,6 +517,7 @@ class IndexAllDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
         self.assertIn("/zaken/", zaak.url)
         self.assertEqual(zaak.service_slug, "zaken-api")
+        self.assertEqual(zaak.ztc_service_slug, "catalogi-api")
 
         self.assertNotEqual(zaak.identificatie, "")
         self.assertIsNotNone(zaak.omschrijving)
