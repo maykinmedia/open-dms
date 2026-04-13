@@ -96,6 +96,8 @@ class BaseDriveDocument(models.Model):
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
+        null=True,
+        blank=True,
         help_text=_(
             "Timestamp when this record was first created in the local database."
         ),
@@ -120,3 +122,8 @@ class BaseDriveDocument(models.Model):
     def has_been_modified(self) -> bool:
         """Returns True if the document has been modified at least once since creation."""
         return self.updated_at is not None
+
+    @property
+    def is_valid(self) -> bool:
+        """Returns True if the document has been disabled"""
+        return self.created_at is not None

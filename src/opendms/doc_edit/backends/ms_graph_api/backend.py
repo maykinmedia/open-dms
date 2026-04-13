@@ -27,6 +27,7 @@ from opendms.doc_edit.backends.ms_graph_api.types.subscription import (
     SubscriptionItemCollection,
 )
 from opendms.doc_edit.models import BaseDriveDocument, BaseDriveSubscription
+from opendms.doc_edit.utils import is_within_threshold
 
 SUBSCRIPTION_CACHE_PREFIX = "subscription_meta"
 logger = structlog.stdlib.get_logger(__name__)
@@ -143,7 +144,7 @@ class MsGraphApiBackend(DocumentEditBackend):
                 continue
 
         if not result:
-            logger.error("subscription_not_found")
+            logger.warning("no_subscriptions_saved", notifications=notifications)
             return Response(
                 "Unknown subscription",
                 status=status.HTTP_400_BAD_REQUEST,
@@ -288,7 +289,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         random_bytes = secrets.token_bytes(64)
         return base64.urlsafe_b64encode(random_bytes).rstrip(b"=").decode("utf-8")
 
-    def _cleanup_subscriptions(self):
+    def _cleanup_subscriptions(self) -> None:
         """
         Removes expired subscriptions from the database based on the current UTC time.
         Note: this does not unsubscribe webhooks.
@@ -300,31 +301,44 @@ class MsGraphApiBackend(DocumentEditBackend):
         if deleted_count:
             logger.info("subscriptions_deleted")
 
-    def _sync_updated_files(self, subscription: BaseDriveSubscription):
+    def _sync_updated_files(self, subscription: BaseDriveSubscription) -> None:
         self._set_token(subscription.token)
 
-        documents = BaseDriveDocument.objects.all()
+        documents = BaseDriveDocument.objects.filter(created_at__isnull=False)
         if not documents.exists():
             return
+
+        drive_documents = self.one_drive_client.list_children(
+            item_id=f"root:/{settings.MSGRAPH_API_BACKEND_SYNC_FOLDER}:"
+        ).get("value", [])
+        if not drive_documents:
+            logger.warning("no_drive_documents_found")
+            return
+
+        drive_documents_dict = {
+            doc["id"]: doc.get("fileSystemInfo", {}) for doc in drive_documents
+        }
 
         to_update = []
 
         for document in documents:
-            delta = self.one_drive_client.get_delta(item_id=document.document_id)
-
-            items = delta.get("value")
-            if not items:
-                logger.warning("no_delta_value_for_document")
+            file_system_info = drive_documents_dict.get(document.document_id)
+            if file_system_info is None:
+                # TODO decide whether to delete or disable the document
+                document.created_at = None
+                document.save()
+                logger.exception("disable_document")
                 continue
 
-            document_delta = items[0]
-            modified = parse_datetime(document_delta.get("lastModifiedDateTime", ""))
+            created = parse_datetime(file_system_info.get("createdDateTime"))
+            modified = parse_datetime(file_system_info.get("lastModifiedDateTime"))
+
             if not modified:
                 logger.warning("no_update_date_for_document")
                 continue
 
-            # lastModifiedBy exists only when is created
-            if document_delta.get("lastModifiedBy", {}):
+            if is_within_threshold(created, modified):
+                logger.warning("new_file_not_modified")
                 continue
 
             if not document.updated_at or document.updated_at < modified:
@@ -332,5 +346,6 @@ class MsGraphApiBackend(DocumentEditBackend):
                 to_update.append(document)
 
         if to_update:
+            # TODO improve logs, with more details
             BaseDriveDocument.objects.bulk_update(to_update, fields=["updated_at"])
-            logger.info("documents_updated")  # TODO improve logs, with more details
+            logger.info("documents_updated")
