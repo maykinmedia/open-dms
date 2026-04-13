@@ -92,7 +92,7 @@ class ESDocumentType(TypedDict):
     verschijningsvorm: str | None
     bestandsomvang: int | None
 
-    zaak_referenties: list[Zaak]
+    zaak_referenties: list[ESZaak]
 
 
 class ObjectInformatieObjectType(TypedDict):

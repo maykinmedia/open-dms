@@ -131,9 +131,7 @@ paths:
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/SearchResponse'
+                $ref: '#/components/schemas/SearchResponse'
           description: ''
   /api/v1/services:
     get:
@@ -724,7 +722,7 @@ components:
         zaakReferenties:
           type: array
           items:
-            $ref: '#/components/schemas/Zaak'
+            $ref: '#/components/schemas/ESZaak'
       required:
       - auteur
       - beginRegistratie
