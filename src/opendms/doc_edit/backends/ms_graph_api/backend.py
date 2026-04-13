@@ -83,7 +83,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         self.one_drive_client.token = token
         self.subscription_client.token = token
 
-    def open(self, file_path: str, file_name: str) -> str:
+    def open(self, file_path: str, file_uuid: str, file_ext: str) -> str:
         """
         Start a process to access or edit a file.
 
@@ -99,6 +99,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         with open(file_path, "rb") as f:
             folder = self._ensure_sync_folder()
             folder_id = folder["id"]
+            file_name = f"{file_uuid}{file_ext}"
             try:
                 drive_item = self.one_drive_client.upload_item(
                     file_name,
@@ -110,16 +111,19 @@ class MsGraphApiBackend(DocumentEditBackend):
                 logger.exception("error_file_could_not_be_opened")
                 raise error
 
-        document_id = drive_item["id"]
+        document_drive_id = drive_item["id"]
 
         # create instance to check the status of the document
         BaseDriveDocument.objects.update_or_create(
-            document_id=document_id,
-            defaults={"document_name": drive_item["name"]},
+            document_uuid=file_uuid,
+            defaults={
+                "document_drive_id": document_drive_id,
+                "document_extension": file_ext,
+            },
         )
 
         self._ensure_subscription()
-        return self.one_drive_client.get_item_link(item_id=document_id)
+        return self.one_drive_client.get_item_link(item_id=document_drive_id)
 
     def updated_callback(self, request) -> Response:
         validation_token = request.GET.get("validationToken")
@@ -322,7 +326,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         to_update = []
 
         for document in documents:
-            file_system_info = drive_documents_dict.get(document.document_id)
+            file_system_info = drive_documents_dict.get(document.document_drive_id)
             if file_system_info is None:
                 # TODO decide whether to delete or disable the document
                 document.created_at = None

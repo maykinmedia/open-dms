@@ -30,14 +30,14 @@ class BaseDriveSubscriptionAdmin(admin.ModelAdmin):
 @admin.register(BaseDriveDocument)
 class BaseDriveDocumentAdmin(admin.ModelAdmin):
     list_display = [
-        "document_id",
-        "document_name",
+        "document_uuid",
+        "document_drive_id",
         "updated_at",
         "created_at",
     ]
     readonly_fields = [
-        "document_id",
-        "document_name",
+        "document_drive_id",
+        "document_uuid",
         "updated_at",
         "created_at",
     ]

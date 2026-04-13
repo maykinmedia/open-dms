@@ -99,6 +99,41 @@ class OneDriveClient(GraphClient):
         logger.debug("Downloading item: %s", item_url)
         return self._request("GET", f"{item_url}/content", raw_response=True)
 
+    def get_item_info(
+        self,
+        *,
+        drive_id: str | None = None,
+        group_id: str | None = None,
+        site_id: str | None = None,
+        user_id: str | None = None,
+        item_id: str = "root",
+    ) -> dict:
+        """
+        Get size item from a specific location within a drive, site, group, or user context
+        and returns the raw response. The method constructs a content URL based on the specified
+        parameters and initiates a GET request to retrieve the item.
+
+        :param drive_id: The unique identifier of the drive. Optional.
+        :param group_id: The unique identifier of the group. Optional.
+        :param site_id: The unique identifier of the site. Optional.
+        :param user_id: The unique identifier of the user. Optional.
+        :param item_id: The unique identifier of the item to download. Defaults to "root".
+        :return: A ``Response`` object containing the raw data of the downloaded item.
+        """
+        item_url = self._get_item_url(
+            drive_id=drive_id,
+            group_id=group_id,
+            site_id=site_id,
+            user_id=user_id,
+            item_id=item_id,
+        )
+        logger.debug("Downloading item: %s", item_url)
+        data = self._request("GET", f"{item_url}")
+        return {
+            "size": data.get("size", 0),
+            "mimeType": data.get("mimeType", "application/octet-stream"),
+        }
+
     def upload_item(
         self,
         filename: str,

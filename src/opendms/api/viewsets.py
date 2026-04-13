@@ -23,6 +23,7 @@ from zgw_consumers.models import Service
 
 from opendms.doc_edit.backends.ms_graph_api.backend import MsGraphApiBackend
 from opendms.doc_edit.backends.ms_graph_api.exceptions import MsGraphApiBackendError
+from opendms.doc_edit.models import BaseDriveDocument
 from opendms.search_index.client import get_elasticsearch_client
 
 from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_client
@@ -403,7 +404,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     @extend_schema(
         "document_edit",
         summary="documentsEdit",
-        description="Een document met binaire gegevens bewerken op OneDrive",
+        description=_("Een document met binaire gegevens bewerken op OneDrive"),
         parameters=[
             SERVICE_PARAM,
             ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
@@ -419,7 +420,6 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     @action(methods=["get"], detail=True, name="document_edit")
     def edit(self, request: Request, *args, **kwargs):
         access_token = request.session.get("access_token", None)
-        logger.info(access_token)
         if not access_token:
             callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
             request.session["origin_url"] = request.build_absolute_uri()
@@ -433,7 +433,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             file_response = client.download_document(obj["inhoud"])
 
         file_ext = file_response.get("File-Extension", "")
-        file_name = f"{self.kwargs.get(self.lookup_field)}{file_ext}"
+        file_uuid = self.kwargs.get(self.lookup_field)
         tmp_path = None
 
         try:
@@ -446,7 +446,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 tmp_path = tmp_file.name
 
             document_edit_backend._set_token(access_token)
-            edit_file_url = document_edit_backend.open(tmp_path, file_name)
+            edit_file_url = document_edit_backend.open(tmp_path, file_uuid, file_ext)
             return redirect(edit_file_url)
         except Exception as exc:
             logger.exception("Document upload to Drive failed")
@@ -454,3 +454,48 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         finally:
             if tmp_path and os.path.exists(tmp_path):
                 os.unlink(tmp_path)
+
+    @extend_schema(
+        "document_upload",
+        summary="documentsUpload",
+        description=_("Een nieuwe versie van een document uploaden naar OpenZaak"),
+        parameters=[
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAKEN_ZAAK_UUID_PARAM,
+            DOCUMENT_PARAM,
+        ],
+    )
+    @action(methods=["get"], detail=True, name="document_upload")
+    def upload(self, request: Request, *args, **kwargs):
+        access_token = request.session.get("access_token", None)
+        if not access_token:
+            callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
+            request.session["origin_url"] = request.build_absolute_uri()
+            return document_edit_backend.authenticate(
+                request, redirect_url=callback_url
+            )
+
+        document_uuid = self.kwargs.get(self.lookup_field)
+        document = BaseDriveDocument.objects.filter(document_uuid=document_uuid).first()
+
+        if not document:
+            return Response(
+                "Document not found in OneDrive", status=status.HTTP_404_NOT_FOUND
+            )
+
+        document_edit_backend._set_token(access_token)
+        document_drive = document_edit_backend.one_drive_client.download_item(
+            item_id=document.document_drive_id
+        )
+        document_info = document_edit_backend.one_drive_client.get_item_info(
+            item_id=document.document_drive_id
+        )
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            status_code, message = client.upload_document(
+                document_uuid,
+                content=document_drive.content,
+                size=document_info["size"],
+                mime_type=document_info["mimeType"],
+            )
+        return Response(message, status=status_code)

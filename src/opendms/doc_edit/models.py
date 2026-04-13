@@ -79,20 +79,22 @@ class BaseDriveDocument(models.Model):
     Model representing a file tracked from any cloud storage driver.
     """
 
-    document_id = models.CharField(
+    document_drive_id = models.CharField(
         max_length=255,
         blank=True,
-        default="",
         db_index=True,
         help_text=_("The unique identifier of the file on the storage provider."),
     )
-    document_name = models.CharField(
+    document_uuid = models.CharField(
         max_length=255,
+        unique=True,
+        db_index=True,
+        help_text=_("The unique identifier of the file on the OpenZaak Client"),
+    )
+    document_extension = models.CharField(
+        max_length=10,
         blank=True,
-        default="",
-        help_text=_(
-            "The display name of the file as it appears on the storage provider."
-        ),
+        help_text=_("The file extension"),
     )
     created_at = models.DateTimeField(
         auto_now_add=True,
@@ -117,6 +119,12 @@ class BaseDriveDocument(models.Model):
 
     def __str__(self):
         return self.document_name
+
+    @property
+    def document_name(self) -> str:
+        if self.document_extension:
+            return f"{self.document_uuid}{self.document_extension}"
+        return self.document_uuid
 
     @property
     def has_been_modified(self) -> bool:
