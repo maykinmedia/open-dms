@@ -1,7 +1,9 @@
 from datetime import datetime
+from http import HTTPStatus
 from typing import BinaryIO
 
 import structlog
+from requests import RequestException
 from rest_framework.response import Response
 
 from opendms.doc_edit.backends.ms_graph_api.types.one_drive import (
@@ -12,6 +14,7 @@ from opendms.doc_edit.backends.ms_graph_api.types.one_drive import (
     LinkType,
     ShareLink,
 )
+from opendms.doc_edit.utils import handle_exception
 
 from .base import GraphClient
 
@@ -46,6 +49,7 @@ class OneDriveClient(GraphClient):
         :param parent_item_id: The unique identifier of the parent item under which
             the new item will be created. Defaults to "root".
         :return: The created DriveItem object.
+        :raises IOError: On error.
         """
         url = self._get_children_url(
             drive_id=drive_id,
@@ -64,8 +68,19 @@ class OneDriveClient(GraphClient):
         if additional_props:
             payload.update(additional_props)
 
-        drive_item: DriveItem = self._post(url, payload)
-        logger.debug("Created %s: %s", "folder" if folder else "file", drive_item["id"])
+        logger.debug("Creating %s: %s", "folder" if folder else "file", name)
+
+        try:
+            drive_item: DriveItem = self._post(url, payload)
+            logger.debug(
+                "Created %s: %s (%s)",
+                "folder" if folder else "file",
+                drive_item["id"],
+                name,
+            )
+        except RequestException as e:
+            handle_exception(e, "Unable to create drive item")
+
         return drive_item
 
     def download_item(
@@ -109,7 +124,7 @@ class OneDriveClient(GraphClient):
         item_id: str = "root",
     ) -> dict:
         """
-        Get size item from a specific location within a drive, site, group, or user context
+        Get item info from a specific location within a drive, site, group, or user context
         and returns the raw response. The method constructs a content URL based on the specified
         parameters and initiates a GET request to retrieve the item.
 
@@ -119,6 +134,7 @@ class OneDriveClient(GraphClient):
         :param user_id: The unique identifier of the user. Optional.
         :param item_id: The unique identifier of the item to download. Defaults to "root".
         :return: A ``Response`` object containing the raw data of the downloaded item.
+        :raises IOError: On error.
         """
         item_url = self._get_item_url(
             drive_id=drive_id,
@@ -127,12 +143,15 @@ class OneDriveClient(GraphClient):
             user_id=user_id,
             item_id=item_id,
         )
-        logger.debug("Downloading item: %s", item_url)
-        data = self._request("GET", f"{item_url}")
-        return {
-            "size": data.get("size", 0),
-            "mimeType": data.get("mimeType", "application/octet-stream"),
-        }
+        logger.debug("Getting info for: %s", item_url)
+        try:
+            data = self._request("GET", f"{item_url}")
+            return {
+                "size": data.get("size", 0),
+                "mimeType": data.get("mimeType", "application/octet-stream"),
+            }
+        except RequestException as e:
+            handle_exception(e, "Unable to get item info")
 
     def upload_item(
         self,
@@ -172,6 +191,8 @@ class OneDriveClient(GraphClient):
                                Example: 'folder-id-789abc'
         :return: A Response object containing information about the outcome of the upload operation.
                  This includes details such as HTTP status, headers, and any payload returned by the server.
+        :raises BlockingIOError: If the file is locked.
+        :raises IOError: On error.
         """
         item_url = self._get_item_url(
             drive_id=drive_id,
@@ -184,14 +205,23 @@ class OneDriveClient(GraphClient):
         # TODO: Consider migrating to different API to allow bigger uploads?
 
         logger.debug("Uploading: %s (%s)", filename, content_type)
-        drive_item: DriveItem = self._request(
-            "PUT",
-            f"{item_url}:/{filename}:/content",
-            data=content,
-            extra_headers={"Content-Type": content_type},
-        )
-        logger.debug("Uploaded: %s to %s", filename, drive_item["id"])
-        return drive_item
+        try:
+            drive_item: DriveItem = self._request(
+                "PUT",
+                f"{item_url}:/{filename}:/content",
+                data=content,
+                extra_headers={"Content-Type": content_type},
+            )
+            logger.debug("Uploaded: %s to %s", filename, drive_item["id"])
+            return drive_item
+        except RequestException as e:
+            if e.response.status_code == HTTPStatus.LOCKED:
+                if getattr(e, "response", None):
+                    logger.debug(e.response.text)
+
+                raise BlockingIOError("Unable to upload, resource locked")
+
+            handle_exception(e, "Unable to upload")
 
     def get_delta(
         self,
@@ -214,7 +244,7 @@ class OneDriveClient(GraphClient):
 
         :param delta_link: Delta link to directly fetch the changes. If provided, the
             other parameters are ignored. Can be None.
-        :param drive_id: Unique identifier for the drive. Needed for specific drive
+        :param drive_id: Unique identifier for the drive. Needed for a specific drive
             context. Optional and defaults to None.
         :param group_id: Unique identifier for the group. Needed for group-specific
             context. Optional and defaults to None.
@@ -225,14 +255,18 @@ class OneDriveClient(GraphClient):
         :param item_id: Identifier for the specific drive item to track. Defaults to
             "root".
         :return: A `DriveItemDelta` object containing the changes since the last query.
+        :raises IOError: On error.
         """
         if delta_link:
             logger.debug("Resolving delta by delta link: %s", delta_link)
-            delta = self._request("GET", delta_link, force_default_headers=True)
-            logger.debug(
-                "Resolving %d delta items for %s", len(delta["value"]), delta_link
-            )
-            return delta
+            try:
+                delta = self._request("GET", delta_link, force_default_headers=True)
+                logger.debug(
+                    "Resolved %d delta items for %s", len(delta["value"]), delta_link
+                )
+                return delta
+            except RequestException as e:
+                self.handle_exception(e, "Unable to resolve delta")
 
         item_url = self._get_item_url(
             drive_id=drive_id,
@@ -243,9 +277,15 @@ class OneDriveClient(GraphClient):
         )
 
         logger.debug("Resolving delta by item_url: %s", item_url)
-        delta: DriveItemDelta = self._get(f"{item_url}/delta")
-        logger.debug("Resolving %d delta items for %s", len(delta["value"]), item_url)
-        return delta
+
+        try:
+            delta: DriveItemDelta = self._get(f"{item_url}/delta")
+            logger.debug(
+                "Resolved %d delta items for %s", len(delta["value"]), item_url
+            )
+            return delta
+        except RequestException as e:
+            handle_exception(e, "Unable to resolve delta")
 
     def get_item_link(
         self,
@@ -260,7 +300,7 @@ class OneDriveClient(GraphClient):
         expiration: datetime | None = None,
         password: str | None = None,
         retain_inherited_permissions: bool = True,
-    ) -> ShareLink:
+    ) -> str:
         """
         Create a sharing link for a specific OneDrive item.
 
@@ -293,8 +333,7 @@ class OneDriveClient(GraphClient):
             Defaults to True.
 
         :return: A `ShareLink` object containing the web URL and metadata for the shared item.
-
-        :raises HTTPError: If the API call fails.
+        :raises IOError: On error.
         """
         if password and scope != LinkScope.ANONYMOUS:
             raise ValueError(
@@ -327,12 +366,13 @@ class OneDriveClient(GraphClient):
             expiration or "never",
         )
 
-        response = self._post(f"{item_url}/createLink", body)
-
-        link = ShareLink.from_response(response)
-
-        logger.info("Share link created: %s", link.web_url)
-        return link.web_url
+        try:
+            response = self._post(f"{item_url}/createLink", body)
+            link = ShareLink.from_response(response)
+            logger.debug("Share link created: %s", link.web_url)
+            return link.web_url
+        except RequestException as e:
+            handle_exception(e, "Unable to create link")
 
     def list_children(
         self,
@@ -370,7 +410,12 @@ class OneDriveClient(GraphClient):
             item_id=item_id,
         )
         logger.debug("Listing children for: %s", children_url)
-        return self._get(children_url)
+        try:
+            children = self._get(children_url)
+            logger.debug("Listed %s children", len(children["value"]))
+            return children
+        except RequestException as e:
+            handle_exception(e, "Unable to list children")
 
     def _get_item_url(
         self,

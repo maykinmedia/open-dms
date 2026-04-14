@@ -306,8 +306,9 @@ class DocumentSerializer(serializers.Serializer):
         uuid = document["uuid"]
         created = dateutil.parser.isoparse(document["creatiedatum"])
         created = created.replace(tzinfo=get_current_timezone())
+
         qs = BaseDriveDocument.objects.filter(
-            document_uuid=uuid, updated_at__gt=created
+            document_uuid=uuid, updated_at__gte=created
         )
         return qs.exists()
 

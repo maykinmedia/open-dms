@@ -3,13 +3,13 @@ import mimetypes
 import secrets
 
 from django.conf import settings
+from django.http import HttpResponseRedirect
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
 
 import structlog
 from msal import ConfidentialClientApplication
-from requests import HTTPError
 from rest_framework import status
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -31,7 +31,6 @@ from opendms.doc_edit.utils import is_within_threshold
 SUBSCRIPTION_CACHE_PREFIX = "subscription_meta"
 logger = structlog.stdlib.get_logger(__name__)
 
-
 SCOPES = ["Files.ReadWrite"]
 
 
@@ -40,11 +39,13 @@ class MsGraphApiBackend(DocumentEditBackend):
         self.one_drive_client = OneDriveClient()
         self.subscription_client = SubscriptionClient()
 
-    def authenticate(self, request: Request, redirect_url: str | None = None):
+    def authenticate(
+        self, request: Request, redirect_url: str | None = None
+    ) -> HttpResponseRedirect:
         """
         Begin the OAuth2 PKCE authentication flow.
 
-        :param request: Django request object
+        :param request: Request object
         :param redirect_url: URL to redirect to after login
         :return: Django redirect response to Microsoft login
         """
@@ -54,16 +55,17 @@ class MsGraphApiBackend(DocumentEditBackend):
         request.session["auth_flow"] = auth_flow
         return redirect(auth_flow["auth_uri"])
 
-    def authenticated_callback(self, request: Request) -> dict:
+    def authenticated_callback(self, request: Request) -> None:
         """
         Complete the PKCE authentication flow using the code in request.GET.
 
-        :param request: Django request object
-        :return: dict with access token and authentication result
+        :param request: Request object
+        :raises IOError: If `auth_flow` is not correctly initialized.
+        :raises PermissionError: If the login is not successful.
         """
         auth_flow = request.session.get("auth_flow")
         if not auth_flow:
-            raise ValueError("Authentication flow not initialized in session.")
+            raise OSError("Authentication flow not initialized in session.")
 
         app_msal = self._build_msal_app()
         result = app_msal.acquire_token_by_auth_code_flow(auth_flow, request.GET)
@@ -71,7 +73,9 @@ class MsGraphApiBackend(DocumentEditBackend):
         request.session.pop("auth_flow", None)
         token = result["access_token"]
         if not token:
-            raise ValueError(result.get("error_description", "Authentication failed."))
+            raise PermissionError(
+                result.get("error_description", "Authentication failed.")
+            )
 
         self._set_token(token)
 
@@ -82,7 +86,9 @@ class MsGraphApiBackend(DocumentEditBackend):
         self.one_drive_client.token = token
         self.subscription_client.token = token
 
-    def open(self, file_path: str, file_uuid: str, file_ext: str) -> str:
+    def open(
+        self, request: Request, file_path: str, file_name: str, file_ext: str
+    ) -> HttpResponseRedirect:
         """
         Start a process to access or edit a file.
 
@@ -90,31 +96,37 @@ class MsGraphApiBackend(DocumentEditBackend):
         ensures a change subscription is active, and redirects the user to the
         Microsoft-hosted editor for the uploaded file.
 
-        :param file_path: Identifier or path of the target file.
+        :param request: Request object
+        :param file_path: Full path of the target file.
+        :param file_name: File name.
+        :param file_ext: File extension.
         :return: A response that continues the file access/edit flow.
         :raises BlockingIOError: If the file cannot be accessed at this time.
+        :raises PermissionError: If the login is not successful.
         """
+
+        # Bail early if access_token not set
+        access_token = request.session.get("access_token", None)
+        if not access_token:
+            raise PermissionError("Not authenticated.")
+        self._set_token(access_token)
 
         with open(file_path, "rb") as f:
             folder = self._ensure_sync_folder()
             folder_id = folder["id"]
-            file_name = f"{file_uuid}{file_ext}"
-            try:
-                drive_item = self.one_drive_client.upload_item(
-                    file_name,
-                    f,
-                    self._get_mime_type(file_path),
-                    parent_item_id=folder_id,
-                )
-            except HTTPError as error:
-                logger.exception("error_file_could_not_be_opened")
-                raise error
+            full_name = f"{file_name}{file_ext}"
+            drive_item = self.one_drive_client.upload_item(
+                full_name,
+                f,
+                self._get_mime_type(file_path),
+                parent_item_id=folder_id,
+            )
 
         document_drive_id = drive_item["id"]
 
-        # create instance to check the status of the document
+        # create an instance to check the status of the document
         BaseDriveDocument.objects.update_or_create(
-            document_uuid=file_uuid,
+            document_uuid=file_name,
             defaults={
                 "document_drive_id": document_drive_id,
                 "document_extension": file_ext,
@@ -122,9 +134,16 @@ class MsGraphApiBackend(DocumentEditBackend):
         )
 
         self._ensure_subscription()
-        return self.one_drive_client.get_item_link(item_id=document_drive_id)
+        return redirect(self.one_drive_client.get_item_link(item_id=document_drive_id))
 
     def updated_callback(self, request) -> Response:
+        """
+        Handle a callback indicating that a file or resource has changed.
+
+        :param request: Request object
+        :return: A response acknowledging or processing the update.
+        """
+        # Validate the webhook handshake.
         validation_token = request.GET.get("validationToken")
         if validation_token:
             return Response(
@@ -134,16 +153,33 @@ class MsGraphApiBackend(DocumentEditBackend):
         data: SubscriptionItemCollection = request.data or {}
         notifications = data.get("value", [])
 
+        # Get BaseDriveSubscription matching SubscriptionItem
         result: tuple[BaseDriveSubscription, SubscriptionItem] | None = None
-
         for notification in notifications:
             try:
+                # TODO: Optimize
+
+                # Get the subscription for this notification
                 subscription = BaseDriveSubscription.objects.get(
                     subscription_id=notification["subscription_id"]
                 )
+
+                # Subscription is expired, remove the subscription
+                if subscription.is_expired:
+                    subscription.delete()
+
                 result = (subscription, notification)
+
+                self.subscription_client.renew_subscription(
+                    subscription={"id": notification["subscription_id"]},
+                    client_state=subscription.client_state,
+                )
+
+                # See: ODS_ROOT_FOLDER: Only subscriptions to root are allowed
+                # With a single resolved subscription, we can call _mark_updated_files()
                 break
             except BaseDriveSubscription.DoesNotExist:
+                # Unknown suscription, continue
                 continue
 
         if not result:
@@ -156,6 +192,7 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         subscription, notification = result
 
+        # Validate client_state token
         if subscription.client_state != notification["client_state"]:
             logger.error("client_state_not_valid")
             return Response(
@@ -164,7 +201,8 @@ class MsGraphApiBackend(DocumentEditBackend):
                 content_type="text/plain",
             )
 
-        self._sync_updated_files(subscription)
+        # Mark changed files as such
+        self._mark_updated_files(subscription)
         return Response(status=204)
 
     def _build_msal_app(self) -> ConfidentialClientApplication:
@@ -232,7 +270,9 @@ class MsGraphApiBackend(DocumentEditBackend):
             if (
                 not subscription["notificationUrl"].endswith(webhook_url)
                 or subscription["resource"] != "/me/drive/root"
-                or not BaseDriveSubscription.objects.filter(subscription_id=subscription["id"]).exists()
+                or not BaseDriveSubscription.objects.filter(
+                    subscription_id=subscription["id"]
+                ).exists()
             ):
                 logger.debug("Ignoring existing subscription %s", subscription["id"])
                 continue
@@ -267,7 +307,9 @@ class MsGraphApiBackend(DocumentEditBackend):
         subscription = self.subscription_client.create_subscription(
             webhook_url,
             change_type="updated",
-            resource="/me/drive/root",  # microsoft business allow only subscriptions for this folder
+            # See: ODS_ROOT_FOLDER: Only subscriptions to root are allowed
+            # We listen to notification on this level and handle file change detection later
+            resource="/me/drive/root",
             client_state=client_state,
         )
         BaseDriveSubscription.objects.update_or_create(
@@ -311,50 +353,57 @@ class MsGraphApiBackend(DocumentEditBackend):
         if deleted_count:
             logger.info("subscriptions_deleted")
 
-    def _sync_updated_files(self, subscription: BaseDriveSubscription) -> None:
+    def _mark_updated_files(self, subscription: BaseDriveSubscription) -> None:
         self._set_token(subscription.token)
 
         documents = BaseDriveDocument.objects.filter(created_at__isnull=False)
         if not documents.exists():
+            breakpoint()
             return
 
-        drive_documents = self.one_drive_client.list_children(
+        drive_items = self.one_drive_client.list_children(
             item_id=f"root:/{settings.MSGRAPH_API_BACKEND_SYNC_FOLDER}:"
         ).get("value", [])
-        if not drive_documents:
+
+        # No items found, bail early
+        if not drive_items:
+            breakpoint()
             logger.warning("no_drive_documents_found")
             return
 
+        # Create a lookup table for accessing filesystem info by drive item id
         drive_documents_dict = {
-            doc["id"]: doc.get("fileSystemInfo", {}) for doc in drive_documents
+            drive_item["id"]: drive_item.get("fileSystemInfo", {})
+            for drive_item in drive_items
         }
 
         to_update = []
-
         for document in documents:
+            # TODO decide whether to delete or disable the document when no filesystem info is available
             file_system_info = drive_documents_dict.get(document.document_drive_id)
             if file_system_info is None:
-                # TODO decide whether to delete or disable the document
                 document.created_at = None
                 document.save()
                 logger.exception("disable_document")
                 continue
 
-            created = parse_datetime(file_system_info.get("createdDateTime"))
-            modified = parse_datetime(file_system_info.get("lastModifiedDateTime"))
+            date_created = parse_datetime(file_system_info.get("createdDateTime"))
+            date_modified = parse_datetime(file_system_info.get("lastModifiedDateTime"))
 
-            if not modified:
+            # File isn't modified
+            if not date_modified:
                 logger.warning("no_update_date_for_document")
                 continue
 
-            if is_within_threshold(created, modified):
+            # File is within a minimum time frame between created and modified
+            if is_within_threshold(date_created, date_modified):
                 logger.warning("new_file_not_modified")
                 continue
 
-            if not document.updated_at or document.updated_at < modified:
+            # File is modified, mark is as such
+            if not document.updated_at or document.updated_at < date_modified:
                 document.updated_at = timezone.now()
                 to_update.append(document)
-
         if to_update:
             # TODO improve logs, with more details
             BaseDriveDocument.objects.bulk_update(to_update, fields=["updated_at"])

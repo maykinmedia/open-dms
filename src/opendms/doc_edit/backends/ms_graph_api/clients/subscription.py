@@ -2,6 +2,9 @@ import datetime
 from typing import Literal
 
 import structlog
+from requests import RequestException
+
+from opendms.doc_edit.utils import handle_exception
 
 from ..types.subscription import (
     Subscription,
@@ -25,7 +28,10 @@ class SubscriptionClient(GraphClient):
         :return: A collection of subscriptions.
         """
         logger.debug("Listing subscriptions")
-        return self._get("/subscriptions")
+        try:
+            return self._get("/subscriptions")
+        except RequestException as e:
+            handle_exception(e, "Unable to list subscriptions")
 
     def create_subscription(
         self,
@@ -51,6 +57,7 @@ class SubscriptionClient(GraphClient):
         :param client_state: Optional string used to verify notifications. If provided, it
             is included in each notification for validation purposes.
         :return: An instance of `Subscription` representing the created subscription.
+        :raises IOError: On error.
         """
         expiration = (
             datetime.datetime.now(datetime.UTC)
@@ -63,20 +70,24 @@ class SubscriptionClient(GraphClient):
             resource,
             webhook_url,
         )
-        subscription: Subscription = self._post(
-            "/subscriptions",
-            json={
-                "changeType": change_type,
-                # TODO TEMPORARY URL
-                "notificationUrl": webhook_url,
-                # TODO TEMPORARY URL
-                "resource": resource,
-                "expirationDateTime": expiration,
-                "clientState": client_state,
-            },
-        )
-        logger.debug("Created subscription %s", subscription["id"])
-        return subscription
+        try:
+            subscription: Subscription = self._post(
+                "/subscriptions",
+                json={
+                    "changeType": change_type,
+                    # TODO TEMPORARY URL
+                    "notificationUrl": webhook_url,
+                    # TODO TEMPORARY URL
+                    "resource": resource,
+                    "expirationDateTime": expiration,
+                    "clientState": client_state,
+                },
+            )
+            logger.debug("Created subscription %s", subscription["id"])
+            return subscription
+        except RequestException as e:
+            logger.debug(e.response.text)
+            handle_exception(e, "Unable to create subscription")
 
     def renew_subscription(
         self,
@@ -98,6 +109,7 @@ class SubscriptionClient(GraphClient):
             subscription's expiration. Defaults to 60 minutes if not specified.
         :return: The updated subscription object with the newly applied expiration
             time.
+        :raises IOError: On error.
         """
         now = datetime.datetime.now(datetime.UTC)
         new_expiry = (now + datetime.timedelta(minutes=expiration_minutes)).isoformat()
@@ -106,16 +118,19 @@ class SubscriptionClient(GraphClient):
             payload["clientState"] = client_state
 
         logger.debug("Renewing subscription for: %s", subscription["id"])
-        subscription: Subscription = self._patch(
-            f"/subscriptions/{subscription['id']}",
-            json=payload,
-        )
-        logger.debug(
-            "Updated subscription %s, new expiration time: %s",
-            subscription["id"],
-            new_expiry,
-        )
-        return subscription
+        try:
+            subscription: Subscription = self._patch(
+                f"/subscriptions/{subscription['id']}",
+                json=payload,
+            )
+            logger.debug(
+                "Renewed subscription %s, new expiration time: %s",
+                subscription["id"],
+                new_expiry,
+            )
+            return subscription
+        except RequestException as e:
+            handle_exception(e, "unable to renew subscription")
 
     def is_expiring(
         self, subscription: Subscription, minutes_threshold: int = 10

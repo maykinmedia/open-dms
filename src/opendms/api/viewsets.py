@@ -1,6 +1,7 @@
 import os
 import tempfile
 
+from django.http import Http404
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -23,7 +24,6 @@ from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
 
 from opendms.doc_edit.backends.ms_graph_api.backend import MsGraphApiBackend
-from opendms.doc_edit.backends.ms_graph_api.exceptions import MsGraphApiBackendError
 from opendms.doc_edit.models import BaseDriveDocument
 from opendms.search_index.client import get_elasticsearch_client
 
@@ -105,32 +105,27 @@ class MsAuthCallbackView(APIView):
         },
     )
     def get(self, request, *args, **kwargs):
-        auth_flow = request.session.get("auth_flow")
-        if not auth_flow:
+        try:
+            # Process callback
+            document_edit_backend.authenticated_callback(request)
+
+            # Redirect to "origin_url"
+            origin_url = request.session.pop("origin_url", "/")
+            return redirect(origin_url)
+        except PermissionError as exc:
+            # When the authentication fails
+            logger.exception(str(exc))
+            return Response(
+                {"status": "error", "detail": _("Authentication failed")},
+                status=403,
+            )
+        except OSError as exc:
+            # When the authentication initialization fails
+            logger.exception(str(exc))
             return Response(
                 {"status": "error", "detail": "Invalid callback"},
                 status=400,
             )
-        try:
-            result = document_edit_backend.authenticated_callback(request)
-        except Exception as exc:
-            logger.exception(str(exc))
-            return Response(
-                {"status": "error", "detail": _("authenticated_callback_failed")},
-                status=400,
-            )
-
-        if not result.get("access_token"):
-            return Response(
-                {
-                    "status": "error",
-                    "detail": result.get("error_description", "Auth failed"),
-                },
-                status=401,
-            )
-
-        origin_url = request.session.pop("origin_url", "/")
-        return redirect(origin_url)
 
 
 class SearchView(APIView):
@@ -421,20 +416,22 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     )
     @action(methods=["get"], detail=True, name="document_edit")
     def edit(self, request: Request, *args, **kwargs):
-        access_token = request.session.get("access_token", None)
-        if not access_token:
-            return self._redirect_to_ms_auth(request)
-
+        # Get document
         obj = self.get_object()
+        if not obj:
+            raise Http404
 
+        # Download file contents
         with get_documenten_client(self.zgw_group.drc_service) as client:
             file_response = client.download_document(obj["inhoud"])
 
+        # Get file meta-information
         file_ext = file_response.get("File-Extension", "")
         file_uuid = self.kwargs.get(self.lookup_field)
         tmp_path = None
 
         try:
+            # Create the temp file
             with tempfile.NamedTemporaryFile(
                 suffix=file_ext,
                 delete=False,
@@ -443,18 +440,11 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                     tmp_file.write(chunk)
                 tmp_path = tmp_file.name
 
-            document_edit_backend._set_token(access_token)
-            edit_file_url = document_edit_backend.open(tmp_path, file_uuid, file_ext)
-            return redirect(edit_file_url)
-        except Exception as exc:
-            try:
-                if exc.response.status_code == status.HTTP_401_UNAUTHORIZED:
-                    return self._redirect_to_ms_auth(request)
-            except AttributeError:
-                pass
-
-            logger.exception(str(exc))
-            raise MsGraphApiBackendError(_("Document upload to Drive failed.")) from exc
+            # Open temp file in document_edit_backend
+            return document_edit_backend.open(request, tmp_path, file_uuid, file_ext)
+        except PermissionError:
+            # (Re-)authenticate
+            return self._redirect_to_ms_auth(request)
         finally:
             if tmp_path and os.path.exists(tmp_path):
                 os.unlink(tmp_path)
@@ -474,11 +464,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     def upload(self, request: Request, *args, **kwargs):
         access_token = request.session.get("access_token", None)
         if not access_token:
-            callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
-            request.session["origin_url"] = request.build_absolute_uri()
-            return document_edit_backend.authenticate(
-                request, redirect_url=callback_url
-            )
+            return self._redirect_to_ms_auth(request)
 
         document_uuid = self.kwargs.get(self.lookup_field)
         document = BaseDriveDocument.objects.filter(document_uuid=document_uuid).first()
@@ -502,6 +488,11 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 size=document_info["size"],
                 mime_type=document_info["mimeType"],
             )
+
+        # Mark as up-to-date
+        document.updated_at = None
+        document.save()
+
         return Response(message, status=status_code)
 
     def _redirect_to_ms_auth(self, request: Request):
