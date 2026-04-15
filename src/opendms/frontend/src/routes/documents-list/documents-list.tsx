@@ -42,18 +42,51 @@ export const DocumentsList = () => {
             ? [
                 {
                   as: "a",
+                  children: <Outline.ArrowDownOnSquareIcon />,
+                  download: true,
+                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
+                  title: "Bestand downloaden",
+                },
+                {
+                  as: "a",
+                  children: <Outline.PencilSquareIcon />,
                   href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
+                  title: "Bestand bewerken",
                   target: "_blank",
                 },
                 {
                   as: "a",
+                  children: (
+                    <>
+                      <Outline.CloudArrowUpIcon />
+                      Opslaan
+                    </>
+                  ),
                   href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/upload`,
+                  square: false,
+                  target: "_blank",
+                  title: "Bestand opslaan in Open Zaak",
                 },
               ]
             : [
                 {
                   as: "a",
+                  children: <Outline.ArrowDownOnSquareIcon />,
+                  download: true,
+                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
+                  title: "Bestand downloaden",
+                },
+                {
+                  as: "a",
+                  children: (
+                    <>
+                      <Outline.PencilSquareIcon />
+                      Bewerken
+                    </>
+                  ),
                   href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
+                  square: false,
+                  title: "Bestand bewerken",
                   target: "_blank",
                 },
               ],
