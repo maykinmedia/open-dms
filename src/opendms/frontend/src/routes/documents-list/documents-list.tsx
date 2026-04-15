@@ -3,12 +3,14 @@ import {
   ItemGridTemplate,
   Outline,
   P,
+  useAlert,
 } from "@maykin-ui/admin-ui";
 import { invariant } from "@maykin-ui/client-common";
-import { useMemo } from "react";
+import { type MouseEventHandler, useCallback, useMemo } from "react";
 import {
   useLoaderData,
   useParams,
+  useRevalidator,
   useRouteLoaderData,
   useSearchParams,
 } from "react-router";
@@ -30,6 +32,47 @@ export const DocumentsList = () => {
   };
   const rootData =
     useRouteLoaderData<typeof authenticatedRootLoader>("authenticated-root");
+
+  const alert = useAlert();
+  const { revalidate } = useRevalidator();
+
+  /**
+   * Handles the upload of a document by fetching the resource from the provided link
+   * (anchor element's href) and processing the response. If the fetch operation
+   * is successful, it displays a success alert; otherwise, it shows an error alert.
+   * The function ensures that an optional revalidation action is triggered in the end.
+   *
+   * Dependencies:
+   * - Uses the `useCallback` hook for memoizing the function instance.
+   * - Uses an `alert` function to display user feedback messages.
+   * - Calls a `revalidate` function after the operation completes, regardless of success.
+   *
+   * @param {MouseEvent} e - The mouse event triggered by the user interaction.
+   */
+  const handleUpload = useCallback<MouseEventHandler<Element>>(
+    (e) => {
+      e.preventDefault();
+      const target: HTMLAnchorElement = e.target as HTMLAnchorElement;
+      fetch(target.href)
+        .then((response: Response) => {
+          if (!response.ok) throw response;
+          return response;
+        })
+        .then((response) => response.json())
+        .then(() =>
+          alert(
+            "Document opgeslagen",
+            "Document is successvol opgeslagen in Open Zaak.",
+            "Ok",
+          ),
+        )
+        .catch(() =>
+          alert("Foutmelding!", "Document kon niet worden opgeslagen.", "Ok"),
+        )
+        .finally(revalidate);
+    },
+    [alert, revalidate],
+  );
 
   const items = useMemo<ItemGridItemProps[]>(() => {
     return (
@@ -66,6 +109,7 @@ export const DocumentsList = () => {
                   square: false,
                   target: "_blank",
                   title: "Bestand opslaan in Open Zaak",
+                  onClick: handleUpload,
                 },
               ]
             : [
@@ -93,7 +137,7 @@ export const DocumentsList = () => {
         };
       }) ?? []
     );
-  }, [data?.results, serviceSlug, zaaktypeUuid, zaakId]);
+  }, [data?.results, serviceSlug, zaaktypeUuid, zaakId, handleUpload]);
 
   if (!data) return null;
   invariant(rootData?.zaaktype?.identificatie, "Zaaktype not loaded!");
