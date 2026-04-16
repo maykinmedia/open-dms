@@ -1,10 +1,8 @@
 import base64
-import mimetypes
 
-from django.http import StreamingHttpResponse
+from django.http import HttpResponse
 from django.utils.translation import gettext_lazy as _
 
-import magic
 import structlog
 from requests.exceptions import RequestException, Timeout
 from rest_framework import exceptions, status
@@ -20,6 +18,7 @@ from ..typing import (
     DocumentType,
     ObjectInformatieObjectType,
 )
+from ..utils.file import guess_extension_by_response
 from ..utils.mixins import HttpRequestMixin
 
 CRS_HEADERS = {"Content-Crs": "EPSG:4326", "Accept-Crs": "EPSG:4326"}
@@ -50,30 +49,32 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         data = self.make_request(f"{self.endpoint}/{uuid}")
         return self._map_document(data)
 
-    def download_document(self, document_url: str) -> DocumentType:
+    def download_document(self, document: DocumentType) -> HttpResponse:
+        document_url = document["inhoud"]
+
         if not document_url:
             raise exceptions.NotFound(
                 _("Resource at {url} not found").format(url=document_url)
             )
 
-        response = self.get(document_url, stream=True)
+        response = self.get(document_url)
 
         if response.status_code == 204:
-            return StreamingHttpResponse(status=204)
+            return HttpResponse(status=204)
 
-        first_chunk = next(response.iter_content(chunk_size=8192))
-        mime_type = magic.from_buffer(first_chunk, mime=True)
-        extension = mimetypes.guess_extension(mime_type) or ""
+        name = document.get("name", document["identificatie"])
+        extension = guess_extension_by_response(response)
+        fullname = f"{name}{extension}"
 
-        def stream():
-            yield first_chunk
-            for chunk in response.iter_content(chunk_size=8192):  # noqa
-                yield chunk
-
-        file_response = StreamingHttpResponse(
-            stream(), headers={**response.headers, "File-Extension": extension}
+        return HttpResponse(
+            response.content,
+            headers={
+                **response.headers,
+                "Content-Disposition": f'attachment; filename="{fullname}"',
+                "File-Name": fullname,
+                "File-Extension": extension,
+            },
         )
-        return file_response
 
     def upload_document(
         self,

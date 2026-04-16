@@ -396,7 +396,8 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     def download(self, request: Request, *args, **kwargs):
         obj = self.get_object()
         with get_documenten_client(self.zgw_group.drc_service) as client:
-            return client.download_document(obj["inhoud"])
+            response = client.download_document(obj)
+            return response
 
     @extend_schema(
         "document_edit",
@@ -423,7 +424,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
 
         # Download file contents
         with get_documenten_client(self.zgw_group.drc_service) as client:
-            file_response = client.download_document(obj["inhoud"])
+            file_response = client.download_document(obj)
 
         # Get file meta-information
         file_ext = file_response.get("File-Extension", "")
@@ -436,8 +437,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 suffix=file_ext,
                 delete=False,
             ) as tmp_file:
-                for chunk in file_response.streaming_content:
-                    tmp_file.write(chunk)
+                tmp_file.write(file_response.content)
                 tmp_path = tmp_file.name
 
             # Open temp file in document_edit_backend
