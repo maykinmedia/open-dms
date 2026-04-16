@@ -14,14 +14,19 @@ import {
   useRouteLoaderData,
   useSearchParams,
 } from "react-router";
+import { usePoll } from "~/hooks";
 import { getPageFromSearchParams } from "~/lib";
 import { authenticatedRootLoader } from "~/routes/authenticated-root.loader.ts";
-import type { documentsListLoader } from "~/routes/documents-list/documents-list.loader.ts";
+import {
+  type documentsListLoader,
+  fetchDocuments,
+} from "~/routes/documents-list/documents-list.loader.ts";
 
 export const DocumentsList = () => {
   // TODO: Validation. See issue gh-#42
   const data = useLoaderData<typeof documentsListLoader>();
   const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get("page") || undefined;
 
   // TODO: Validation. See issue gh-#42
   const { serviceSlug, zaaktypeUuid, zaakYear, zaakId } = useParams() as {
@@ -35,6 +40,32 @@ export const DocumentsList = () => {
 
   const alert = useAlert();
   const { revalidate } = useRevalidator();
+
+  /**
+   * Polls the backend for the documents list.
+   * Revalidates (reload) the page if anything is changed.
+   */
+  usePoll(
+    async (signal?: AbortSignal) => {
+      if (!serviceSlug || !zaaktypeUuid || !zaakId) return null;
+
+      const { data: pollData, response } = await fetchDocuments(
+        serviceSlug,
+        zaaktypeUuid,
+        zaakId,
+        page,
+        signal,
+      );
+
+      // Revalidate if data is changed.
+      if (response.ok) {
+        const a = JSON.stringify(data?.results);
+        const b = JSON.stringify(pollData?.results);
+        if (a !== b) revalidate();
+      }
+    },
+    [serviceSlug, zaaktypeUuid, zaakId, fetchDocuments, page, data?.results],
+  );
 
   /**
    * Handles the upload of a document by fetching the resource from the provided link
