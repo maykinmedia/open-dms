@@ -397,30 +397,30 @@ class ElasticSearchClient:
             logger.error("failed_to_delete_document")
             return False
 
-    def update_check_times(
-        self, uuid: str, last_checked_at: datetime, next_check_at: datetime
-    ) -> bool:
-        """
-        Update the check times for a document.
-        """
-        try:
-            self.client.update(
-                index=self.index,
-                id=uuid,
-                body={
-                    "doc": {
-                        "last_checked_at": last_checked_at,
-                        "next_check_at": next_check_at,
-                    }
-                },
-                refresh=self._settings["REFRESH"],
-            )
-            return True
-        except NotFoundError:
-            return False
-        except Exception:
-            logger.exception("failed_to_update_update_check_times", uuid=uuid)
-            return False
+    # def update_check_times(
+    #     self, uuid: str, last_checked_at: datetime, next_check_at: datetime
+    # ) -> bool:
+    #     """
+    #     Update the check times for a document.
+    #     """
+    #     try:
+    #         self.client.update(
+    #             index=self.index,
+    #             id=uuid,
+    #             body={
+    #                 "doc": {
+    #                     "last_checked_at": last_checked_at,
+    #                     "next_check_at": next_check_at,
+    #                 }
+    #             },
+    #             refresh=self._settings["REFRESH"],
+    #         )
+    #         return True
+    #     except NotFoundError:
+    #         return False
+    #     except Exception:
+    #         logger.exception("failed_to_update_update_check_times", uuid=uuid)
+    #         return False
 
     def get_expired_documents(
         self, now: datetime, batch_size: int = 100, service_slug: str | None = None
