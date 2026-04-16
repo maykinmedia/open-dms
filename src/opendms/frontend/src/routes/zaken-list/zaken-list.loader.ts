@@ -16,6 +16,11 @@ export async function zakenListLoader({
   const startdatum = new Date(params.zaakYear);
   if (isNaN(startdatum.getFullYear())) return null; // Not a valid date, bail early.
 
+  const einddatum = new Date(startdatum);
+  einddatum.setFullYear(startdatum.getFullYear() + 1);
+  einddatum.setMonth(0);
+  einddatum.setDate(1);
+
   const url = new URL(request.url);
   const urlSearchParams = new URLSearchParams(url.search);
 
@@ -27,6 +32,7 @@ export async function zakenListLoader({
         path: params,
         query: {
           startdatum__gte: formatDate(startdatum),
+          startdatum__lte: formatDate(einddatum),
           identificatie__icontains: urlSearchParams.get(
             "identificatie__icontains",
           ),
