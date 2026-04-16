@@ -178,7 +178,14 @@ export const DocumentsList = () => {
         };
       }) ?? []
     );
-  }, [data?.results, serviceSlug, zaaktypeUuid, zaakId, handleUpload, highlight]);
+  }, [
+    data?.results,
+    serviceSlug,
+    zaaktypeUuid,
+    zaakId,
+    handleUpload,
+    highlight,
+  ]);
 
   if (!data) return null;
   invariant(rootData?.zaaktype?.identificatie, "Zaaktype not loaded!");
