@@ -1,89 +1,13 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.barrett.com/","identificatie":"399e4804-8dc8-428f-b224-013bfd1e979a","bronorganisatie":"Gibbs,
-      Smith and Cunningham","titel":"Friend teacher product act.","beschrijving":"Capital
-      over compare action laugh she our. Development life movie at fear range month.
-      Knowledge middle action candidate west sea reason.","auteur":"Jason Trujillo","taal":"gd","vertrouwelijkheidaanduiding":"themselves","status":"hospital","formaat":"flac","bestandsnaam":"someone.xls","informatieobjecttype":"half","verschijningsvorm":"once","bestandsomvang":1000000,"link":"https://hall-brown.info/","creatiedatum":"2026-03-04","begin_registratie":"2026-03-04T23:25:19.994233","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://zavala.net/","identificatie":"f6db9c88-79a9-48ac-887d-f05f0b12b0c5","bronorganisatie":"Stewart
+      Ltd","titel":"Wish attack final discussion.","beschrijving":"Not blue relationship
+      sport. Entire keep man worker. Throw list ok body now three network.","auteur":"Lori
+      Mcneil","taal":"yue","vertrouwelijkheidaanduiding":"expect","status":"avoid","formaat":"mp4","bestandsnaam":"inside.gif","informatieobjecttype":"note","verschijningsvorm":"sense","bestandsomvang":1000000,"link":"http://diaz.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-25T16:36:54.959473","last_checked_at":"2016-11-23T00:00:00","next_check_at":"2023-04-22T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"20edbfd0-42e9-4ef1-9c08-044c39586d56","url":"http://ross-robinson.com/","identificatie":"432067c7-c176-4e7f-8d8b-3573352f552c","bronorganisatie":"Smith,
+      Giles and Mcclain","verantwoordelijkeOrganisatie":"Holt PLC","omschrijving":"Grow
+      machine suffer rule child dream.","toelichting":"Popular really security heart
+      try including allow. Month reduce program onto a behavior popular leave. Fill
+      Democrat everything someone never.","status":"visit","registratiedatum":"2026-03-26","startdatum":"2026-03-24","zaaktype":"same","object_type":"help","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -127,17 +51,21 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":3,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"beschrijving":"Capital
-        over compare action laugh she our. Development life movie at fear range month.
-        Knowledge middle action candidate west sea reason.","verschijningsvorm":"once","begin_registratie":"2026-03-04T23:25:19.994233","identificatie":"399e4804-8dc8-428f-b224-013bfd1e979a","bronorganisatie":"Gibbs,
-        Smith and Cunningham","bestandsomvang":1000000,"link":"https://hall-brown.info/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.barrett.com/","taal":"gd","auteur":"Jason
-        Trujillo","formaat":"flac","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Friend
-        teacher product act.","vertrouwelijkheidaanduiding":"themselves","informatieobjecttype":"half","bestandsnaam":"someone.xls","creatiedatum":"2026-03-04","status":"hospital"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":3,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Not
+        blue relationship sport. Entire keep man worker. Throw list ok body now three
+        network.","verschijningsvorm":"sense","begin_registratie":"2026-03-25T16:36:54.959473","identificatie":"f6db9c88-79a9-48ac-887d-f05f0b12b0c5","bronorganisatie":"Stewart
+        Ltd","bestandsomvang":1000000,"link":"http://diaz.com/","next_check_at":"2023-04-22T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://zavala.net/","taal":"yue","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"432067c7-c176-4e7f-8d8b-3573352f552c","object_type":"help","bronorganisatie":"Smith,
+        Giles and Mcclain","zaaktype":"same","registratiedatum":"2026-03-26","uuid":"20edbfd0-42e9-4ef1-9c08-044c39586d56","url":"http://ross-robinson.com/","verantwoordelijkeOrganisatie":"Holt
+        PLC","omschrijving":"Grow machine suffer rule child dream.","startdatum":"2026-03-24","toelichting":"Popular
+        really security heart try including allow. Month reduce program onto a behavior
+        popular leave. Fill Democrat everything someone never.","status":"visit"}],"auteur":"Lori
+        Mcneil","formaat":"mp4","last_checked_at":"2016-11-23T00:00:00","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Wish
+        attack final discussion.","vertrouwelijkheidaanduiding":"expect","informatieobjecttype":"note","bestandsnaam":"inside.gif","creatiedatum":"2026-03-28","group_slug":"group-1","status":"avoid"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '923'
+      - '1573'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

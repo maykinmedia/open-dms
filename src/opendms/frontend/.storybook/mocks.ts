@@ -154,6 +154,13 @@ export const MOCK_ZAKEN = http.get(
     });
   },
 );
+export const MOCK_SEARCH = http.post("/api/v1/search", () =>
+  HttpResponse.json({
+    count: 0,
+    results: [],
+  }),
+);
+
 export const MOCK_DOCUMENTS = http.get(
   "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken/123/documents",
   ({ request }) => {

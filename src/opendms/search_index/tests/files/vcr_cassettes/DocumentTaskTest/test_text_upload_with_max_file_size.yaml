@@ -1,89 +1,12 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://www.wright.com/","identificatie":"439bd78a-b335-46b7-ae12-5a7704829ad7","bronorganisatie":"Miller
-      LLC","titel":"Consider economy how believe economic.","beschrijving":"Individual
-      practice field from development too. Under home tonight data do event.","auteur":"Jon
-      Ponce","taal":"yi","vertrouwelijkheidaanduiding":"approach","status":"the","formaat":"mp4","bestandsnaam":"establish.csv","informatieobjecttype":"line","verschijningsvorm":"deal","bestandsomvang":1000000,"link":"https://www.williams.net/","creatiedatum":"2026-03-12","begin_registratie":"2026-03-19T06:47:54.172570","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
+    body: '{"uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://moore.org/","identificatie":"7b78f190-742e-4e28-a6ae-b492fee05862","bronorganisatie":"Fletcher-Pineda","titel":"Sometimes
+      organization bank speak above else.","beschrijving":"Statement to deal card
+      few some dinner. Final whole sport administration. Economic particular firm
+      gas. Relate real employee relationship pay condition.","auteur":"William Molina","taal":"om","vertrouwelijkheidaanduiding":"space","status":"much","formaat":"jpg","bestandsnaam":"during.flac","informatieobjecttype":"sea","verschijningsvorm":"gun","bestandsomvang":1000000,"link":"http://www.oneill.com/","creatiedatum":"2026-04-08","begin_registratie":"2026-04-04T13:49:36.135333","last_checked_at":"1970-08-18T00:00:00","next_check_at":"2007-02-07T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"fb2c5655-73cd-444c-9dbb-2a8a16450908","url":"http://leon.com/","identificatie":"0c83afdd-f84c-40d3-b217-f7276675470c","bronorganisatie":"Olson
+      and Sons","verantwoordelijkeOrganisatie":"Moran-Reed","omschrijving":"Whatever
+      far myself country clearly.","toelichting":"Wind information floor study. Behind
+      professional detail.","status":"almost","registratiedatum":"2026-03-19","startdatum":"2026-04-06","zaaktype":"thousand","object_type":"reason","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -127,106 +50,32 @@ interactions:
     uri: http://localhost:9201/document/_doc/ed19d46e-c367-4410-a891-88f20d232a03
   response:
     body:
-      string: '{"_index":"document","_id":"ed19d46e-c367-4410-a891-88f20d232a03","_version":1,"_seq_no":21,"_primary_term":1,"found":true,"_source":{"beschrijving":"Individual
-        practice field from development too. Under home tonight data do event.","verschijningsvorm":"deal","begin_registratie":"2026-03-19T06:47:54.172570","identificatie":"439bd78a-b335-46b7-ae12-5a7704829ad7","bronorganisatie":"Miller
-        LLC","bestandsomvang":1000000,"link":"https://www.williams.net/","uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://www.wright.com/","taal":"yi","auteur":"Jon
-        Ponce","formaat":"mp4","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Consider
-        economy how believe economic.","vertrouwelijkheidaanduiding":"approach","informatieobjecttype":"line","bestandsnaam":"establish.csv","creatiedatum":"2026-03-12","status":"the"}}'
+      string: '{"_index":"document","_id":"ed19d46e-c367-4410-a891-88f20d232a03","_version":1,"_seq_no":21,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Statement
+        to deal card few some dinner. Final whole sport administration. Economic particular
+        firm gas. Relate real employee relationship pay condition.","verschijningsvorm":"gun","begin_registratie":"2026-04-04T13:49:36.135333","identificatie":"7b78f190-742e-4e28-a6ae-b492fee05862","bronorganisatie":"Fletcher-Pineda","bestandsomvang":1000000,"link":"http://www.oneill.com/","next_check_at":"2007-02-07T00:00:00","uuid":"ed19d46e-c367-4410-a891-88f20d232a03","url":"https://moore.org/","taal":"om","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"0c83afdd-f84c-40d3-b217-f7276675470c","object_type":"reason","bronorganisatie":"Olson
+        and Sons","zaaktype":"thousand","registratiedatum":"2026-03-19","uuid":"fb2c5655-73cd-444c-9dbb-2a8a16450908","url":"http://leon.com/","verantwoordelijkeOrganisatie":"Moran-Reed","omschrijving":"Whatever
+        far myself country clearly.","startdatum":"2026-04-06","toelichting":"Wind
+        information floor study. Behind professional detail.","status":"almost"}],"auteur":"William
+        Molina","formaat":"jpg","last_checked_at":"1970-08-18T00:00:00","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Sometimes
+        organization bank speak above else.","vertrouwelijkheidaanduiding":"space","informatieobjecttype":"sea","bestandsnaam":"during.flac","creatiedatum":"2026-04-08","group_slug":"group-1","status":"much"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '851'
+      - '1562'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"da97b6cb-7211-4762-9673-21a08f508e85 ","url":"https://marquez-foley.com/","identificatie":"f14ba200-1d49-4a2e-ab32-edd86af7f666","bronorganisatie":"Heath,
-      Williams and Thompson","titel":"Economic remain why performance catch capital.","beschrijving":"Game
-      single soon everyone establish follow according. Family particularly job tell
-      really.","auteur":"Michael Wilson","taal":"hi","vertrouwelijkheidaanduiding":"blue","status":"them","formaat":"tiff","bestandsnaam":"data.wav","informatieobjecttype":"reality","verschijningsvorm":"officer","bestandsomvang":2000,"link":"http://www.mitchell.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-10T01:02:25.674929","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
+    body: '{"uuid":"da97b6cb-7211-4762-9673-21a08f508e85 ","url":"https://www.collins.info/","identificatie":"a8053af1-266f-4266-bfb4-35cd5ac73075","bronorganisatie":"Brown,
+      Walker and Davis","titel":"Station different health research on then.","beschrijving":"Authority
+      hot discussion again remain number thousand. Million network use alone.","auteur":"Dr.
+      Justin Kane","taal":"ja","vertrouwelijkheidaanduiding":"star","status":"despite","formaat":"mp4","bestandsnaam":"movement.wav","informatieobjecttype":"everyone","verschijningsvorm":"particularly","bestandsomvang":2000,"link":"http://bean-jones.com/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-16T08:48:36.188174","last_checked_at":"2020-02-10T00:00:00","next_check_at":"2022-07-23T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"cafd7143-a0f2-490d-9704-de5e924ec339","url":"https://jones.com/","identificatie":"18ec9eb5-c4c4-4bc5-940a-4c5e71b7e525","bronorganisatie":"Golden
+      Group","verantwoordelijkeOrganisatie":"Khan, Anthony and Nelson","omschrijving":"Show
+      successful same late.","toelichting":"Bring room school executive central none
+      kid meet. Detail so action. Walk mission special force so morning save.","status":"economic","registratiedatum":"2026-04-02","startdatum":"2026-03-29","zaaktype":"if","object_type":"attorney","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -270,17 +119,21 @@ interactions:
     uri: http://localhost:9201/document/_doc/da97b6cb-7211-4762-9673-21a08f508e85%20
   response:
     body:
-      string: '{"_index":"document","_id":"da97b6cb-7211-4762-9673-21a08f508e85 ","_version":1,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"beschrijving":"Game
-        single soon everyone establish follow according. Family particularly job tell
-        really.","verschijningsvorm":"officer","begin_registratie":"2026-03-10T01:02:25.674929","identificatie":"f14ba200-1d49-4a2e-ab32-edd86af7f666","bronorganisatie":"Heath,
-        Williams and Thompson","bestandsomvang":2000,"link":"http://www.mitchell.com/","uuid":"da97b6cb-7211-4762-9673-21a08f508e85
-        ","url":"https://marquez-foley.com/","taal":"hi","auteur":"Michael Wilson","formaat":"tiff","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Economic
-        remain why performance catch capital.","vertrouwelijkheidaanduiding":"blue","informatieobjecttype":"reality","bestandsnaam":"data.wav","creatiedatum":"2026-03-15","status":"them"}}'
+      string: '{"_index":"document","_id":"da97b6cb-7211-4762-9673-21a08f508e85 ","_version":1,"_seq_no":22,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Authority
+        hot discussion again remain number thousand. Million network use alone.","verschijningsvorm":"particularly","begin_registratie":"2026-03-16T08:48:36.188174","identificatie":"a8053af1-266f-4266-bfb4-35cd5ac73075","bronorganisatie":"Brown,
+        Walker and Davis","bestandsomvang":2000,"link":"http://bean-jones.com/","next_check_at":"2022-07-23T00:00:00","uuid":"da97b6cb-7211-4762-9673-21a08f508e85
+        ","url":"https://www.collins.info/","taal":"ja","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"18ec9eb5-c4c4-4bc5-940a-4c5e71b7e525","object_type":"attorney","bronorganisatie":"Golden
+        Group","zaaktype":"if","registratiedatum":"2026-04-02","uuid":"cafd7143-a0f2-490d-9704-de5e924ec339","url":"https://jones.com/","verantwoordelijkeOrganisatie":"Khan,
+        Anthony and Nelson","omschrijving":"Show successful same late.","startdatum":"2026-03-29","toelichting":"Bring
+        room school executive central none kid meet. Detail so action. Walk mission
+        special force so morning save.","status":"economic"}],"auteur":"Dr. Justin
+        Kane","formaat":"mp4","last_checked_at":"2020-02-10T00:00:00","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Station
+        different health research on then.","vertrouwelijkheidaanduiding":"star","informatieobjecttype":"everyone","bestandsnaam":"movement.wav","creatiedatum":"2026-03-14","group_slug":"group-1","status":"despite"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '891'
+      - '1577'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -316,96 +169,19 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:45:02 GMT
+      - Fri, 10 Apr 2026 12:29:44 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"https://ross.info/","identificatie":"794471bd-671a-4704-a6ee-b772290dc427","bronorganisatie":"Smith-Jackson","titel":"Face
-      home often think month stock.","beschrijving":"Never its sport thought. National
-      listen question foreign husband throughout spend.","auteur":"Randy Garcia","taal":"wo","vertrouwelijkheidaanduiding":"describe","status":"time","formaat":"wav","bestandsnaam":"sell.wav","informatieobjecttype":"interesting","verschijningsvorm":"front","bestandsomvang":800,"link":"https://davidson.info/","creatiedatum":"2026-03-02","begin_registratie":"2026-03-08T17:35:38.561104","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
+    body: '{"uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"https://rasmussen.com/","identificatie":"7ef9ec92-fca6-45aa-9db3-e53d4d206108","bronorganisatie":"Brown
+      and Sons","titel":"Difference imagine manage for.","beschrijving":"Loss painting
+      nature hotel alone positive issue task. Role exactly statement activity effort
+      since.","auteur":"Jennifer Foster","taal":"bhb","vertrouwelijkheidaanduiding":"write","status":"billion","formaat":"mp3","bestandsnaam":"capital.csv","informatieobjecttype":"by","verschijningsvorm":"old","bestandsomvang":800,"link":"https://thompson-cain.info/","creatiedatum":"2026-03-22","begin_registratie":"2026-03-12T14:36:09.488872","last_checked_at":"2012-12-11T00:00:00","next_check_at":"2009-06-20T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"9bf99ade-aec3-41d1-bde3-bee2797cb3de","url":"https://shah.com/","identificatie":"60852d37-9f1b-44ee-a29b-543b24ca1d19","bronorganisatie":"Morrow-Terry","verantwoordelijkeOrganisatie":"Wood
+      PLC","omschrijving":"Design modern huge throughout mean.","toelichting":"Think
+      life music artist network. Leg though police start message.","status":"without","registratiedatum":"2026-03-31","startdatum":"2026-03-27","zaaktype":"view","object_type":"type","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -449,16 +225,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/554be64c-e6af-49b5-8af5-80e83155212d
   response:
     body:
-      string: '{"_index":"document","_id":"554be64c-e6af-49b5-8af5-80e83155212d","_version":1,"_seq_no":23,"_primary_term":1,"found":true,"_source":{"beschrijving":"Never
-        its sport thought. National listen question foreign husband throughout spend.","verschijningsvorm":"front","begin_registratie":"2026-03-08T17:35:38.561104","identificatie":"794471bd-671a-4704-a6ee-b772290dc427","bronorganisatie":"Smith-Jackson","bestandsomvang":800,"link":"https://davidson.info/","uuid":"554be64c-e6af-49b5-8af5-80e83155212d","url":"https://ross.info/","taal":"wo","auteur":"Randy
-        Garcia","formaat":"wav","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Face
-        home often think month stock.","vertrouwelijkheidaanduiding":"describe","document_data":[{"attachment":{"content":"Document
-        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"interesting","bestandsnaam":"sell.wav","creatiedatum":"2026-03-02","status":"time"}}'
+      string: '{"_index":"document","_id":"554be64c-e6af-49b5-8af5-80e83155212d","_version":1,"_seq_no":23,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Loss
+        painting nature hotel alone positive issue task. Role exactly statement activity
+        effort since.","verschijningsvorm":"old","bronorganisatie":"Brown and Sons","link":"https://thompson-cain.info/","next_check_at":"2009-06-20T00:00:00","uuid":"554be64c-e6af-49b5-8af5-80e83155212d","formaat":"mp3","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Difference
+        imagine manage for.","informatieobjecttype":"by","bestandsnaam":"capital.csv","creatiedatum":"2026-03-22","group_slug":"group-1","begin_registratie":"2026-03-12T14:36:09.488872","identificatie":"7ef9ec92-fca6-45aa-9db3-e53d4d206108","bestandsomvang":800,"url":"https://rasmussen.com/","taal":"bhb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"60852d37-9f1b-44ee-a29b-543b24ca1d19","object_type":"type","bronorganisatie":"Morrow-Terry","zaaktype":"view","registratiedatum":"2026-03-31","uuid":"9bf99ade-aec3-41d1-bde3-bee2797cb3de","url":"https://shah.com/","verantwoordelijkeOrganisatie":"Wood
+        PLC","omschrijving":"Design modern huge throughout mean.","startdatum":"2026-03-27","toelichting":"Think
+        life music artist network. Leg though police start message.","status":"without"}],"auteur":"Jennifer
+        Foster","last_checked_at":"2012-12-11T00:00:00","vertrouwelijkheidaanduiding":"write","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"status":"billion"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '942'
+      - '1596'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

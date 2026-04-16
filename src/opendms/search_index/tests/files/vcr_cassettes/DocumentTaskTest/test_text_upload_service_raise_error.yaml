@@ -29,97 +29,21 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:44:58 GMT
+      - Fri, 10 Apr 2026 12:29:40 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 400
       message: BAD REQUEST
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://jackson-thomas.com/","identificatie":"f14822c5-1565-4cb2-ac08-b3b16e8d0fd0","bronorganisatie":"Blair-Reese","titel":"Next
-      return what force their way word sister.","beschrijving":"Keep clearly various
-      great series state executive. Account early theory economic. Soldier mouth nearly
-      meet.","auteur":"Sarah Brown","taal":"lij","vertrouwelijkheidaanduiding":"paper","status":"impact","formaat":"jpg","bestandsnaam":"manage.css","informatieobjecttype":"expect","verschijningsvorm":"personal","bestandsomvang":1000000,"link":"https://www.adams-watkins.com/","creatiedatum":"2026-03-02","begin_registratie":"2026-03-01T05:06:32.008826","inhoud":"http://localhost/document/error"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://bullock.biz/","identificatie":"cfa6ed73-9de4-4d08-8b9d-f48fb4d23846","bronorganisatie":"Sullivan,
+      Smith and Johnston","titel":"White range trade together almost detail.","beschrijving":"Theory
+      structure better military. Sea model current however cell notice goal work.
+      Nor near imagine. Field modern minute town relationship prevent.","auteur":"Jason
+      Rios","taal":"bs","vertrouwelijkheidaanduiding":"evening","status":"message","formaat":"json","bestandsnaam":"town.mp4","informatieobjecttype":"reflect","verschijningsvorm":"remember","bestandsomvang":1000000,"link":"https://scott.com/","creatiedatum":"2026-04-01","begin_registratie":"2026-04-07T15:00:55.397490","last_checked_at":"1992-03-05T00:00:00","next_check_at":"2008-03-28T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"fd1f1f72-7d57-406c-aef5-a5183c4bbbd1","url":"https://www.rivera-henry.com/","identificatie":"25e163ed-e278-4d34-86f9-c56bd38d4672","bronorganisatie":"Shah
+      LLC","verantwoordelijkeOrganisatie":"Alvarez and Sons","omschrijving":"Likely
+      order first animal trade current pick.","toelichting":"Member law where statement
+      range. Reality great include manager ago direction.","status":"quite","registratiedatum":"2026-03-19","startdatum":"2026-03-20","zaaktype":"management","object_type":"hold","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/error"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -163,16 +87,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"beschrijving":"Keep
-        clearly various great series state executive. Account early theory economic.
-        Soldier mouth nearly meet.","verschijningsvorm":"personal","begin_registratie":"2026-03-01T05:06:32.008826","identificatie":"f14822c5-1565-4cb2-ac08-b3b16e8d0fd0","bronorganisatie":"Blair-Reese","bestandsomvang":1000000,"link":"https://www.adams-watkins.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://jackson-thomas.com/","taal":"lij","auteur":"Sarah
-        Brown","formaat":"jpg","inhoud":"http://localhost/document/error","titel":"Next
-        return what force their way word sister.","vertrouwelijkheidaanduiding":"paper","informatieobjecttype":"expect","bestandsnaam":"manage.css","creatiedatum":"2026-03-02","status":"impact"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":5,"_seq_no":17,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Theory
+        structure better military. Sea model current however cell notice goal work.
+        Nor near imagine. Field modern minute town relationship prevent.","verschijningsvorm":"remember","begin_registratie":"2026-04-07T15:00:55.397490","identificatie":"cfa6ed73-9de4-4d08-8b9d-f48fb4d23846","bronorganisatie":"Sullivan,
+        Smith and Johnston","bestandsomvang":1000000,"link":"https://scott.com/","next_check_at":"2008-03-28T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://bullock.biz/","taal":"bs","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"25e163ed-e278-4d34-86f9-c56bd38d4672","object_type":"hold","bronorganisatie":"Shah
+        LLC","zaaktype":"management","registratiedatum":"2026-03-19","uuid":"fd1f1f72-7d57-406c-aef5-a5183c4bbbd1","url":"https://www.rivera-henry.com/","verantwoordelijkeOrganisatie":"Alvarez
+        and Sons","omschrijving":"Likely order first animal trade current pick.","startdatum":"2026-03-20","toelichting":"Member
+        law where statement range. Reality great include manager ago direction.","status":"quite"}],"auteur":"Jason
+        Rios","formaat":"json","last_checked_at":"1992-03-05T00:00:00","inhoud":"http://localhost/document/error","titel":"White
+        range trade together almost detail.","vertrouwelijkheidaanduiding":"evening","informatieobjecttype":"reflect","bestandsnaam":"town.mp4","creatiedatum":"2026-04-01","group_slug":"group-1","status":"message"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '869'
+      - '1583'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

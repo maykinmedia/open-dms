@@ -1,0 +1,131 @@
+interactions:
+- request:
+    body: '{"uuid":"expired-1","url":"http://lara.com/","identificatie":"a751003f-6314-4bdc-b492-e5ce9af1661b","bronorganisatie":"Morris,
+      Williamson and Dorsey","verantwoordelijkeOrganisatie":"Sanchez, Johnson and
+      Chung","omschrijving":"Guess first approach administration yard some.","toelichting":"Guy
+      blood through behind girl. Less vote whatever management general analysis write
+      tough.","status":"again","registratiedatum":"2026-03-14","startdatum":"2026-03-16","zaaktype":"part","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-04-11T14:45:42.125642+00:00","next_check_at":"2026-04-12T14:45:42.125642+00:00","creatiedatum":"2026-03-14"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/expired-1?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"expired-1","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/expired-1
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '145'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"expired-2","url":"https://griffin.com/","identificatie":"e18f32dd-c72b-4f48-bbb4-fc1632cbbca4","bronorganisatie":"Schmidt,
+      Allen and Sparks","verantwoordelijkeOrganisatie":"Noble, Martin and Knight","omschrijving":"Strategy
+      information continue meeting ready away for.","toelichting":"Industry movement
+      production off. Kitchen smile three necessary may wonder population. Yourself
+      leave discussion trade record always itself.","status":"politics","registratiedatum":"2026-03-15","startdatum":"2026-03-28","zaaktype":"pressure","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-04-12T13:45:42.125642+00:00","next_check_at":"2026-04-13T13:45:42.125642+00:00","creatiedatum":"2026-03-15"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/expired-2?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"expired-2","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/expired-2
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '145'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"valid-1","url":"http://www.rhodes.info/","identificatie":"07d06acc-53a5-469d-9ee9-738430cc5bf2","bronorganisatie":"Anderson-Shannon","verantwoordelijkeOrganisatie":"Gomez,
+      Ortega and Reese","omschrijving":"Attorney statement news agency detail down
+      high.","toelichting":"Bill mouth situation simple here. Rule west factor number
+      herself let sound.","status":"heavy","registratiedatum":"2026-03-16","startdatum":"2026-03-16","zaaktype":"benefit","service_slug":"zaken-api","ztc_service_slug":"catalogi-api","group_slug":"group-test","last_checked_at":"2026-04-13T14:45:42.125642+00:00","next_check_at":"2026-04-14T14:45:42.125642+00:00","creatiedatum":"2026-03-16"}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/zaak/_doc/valid-1?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"zaak","_id":"valid-1","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+    headers:
+      Location:
+      - /zaak/_doc/valid-1
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '143'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-13T14:45:42.125642+00:00"}}},"size":10,"_source":["service_slug","group_slug","registratiedatum"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/zaak/_search
+  response:
+    body:
+      string: '{"took":1,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"zaak","_id":"expired-1","_score":1.0,"_source":{"registratiedatum":"2026-03-14","service_slug":"zaken-api","group_slug":"group-test"}},{"_index":"zaak","_id":"expired-2","_score":1.0,"_source":{"registratiedatum":"2026-03-15","service_slug":"zaken-api","group_slug":"group-test"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

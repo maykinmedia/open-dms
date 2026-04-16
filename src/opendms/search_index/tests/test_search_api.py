@@ -616,13 +616,17 @@ class SearchLastDocumentCreatiedatumTests(VCRMixin, ElasticSearchAPITestCase):
                 IndexDocumentFactory.build(
                     uuid="62fdeb92-98ad-475c-b184-49ee8a274787",
                     creatiedatum=date(2024, 1, 1),
-                )
+                ),
+                service="test",
+                group_slug="test-group",
             )
             client.index_document(
                 IndexDocumentFactory.build(
                     uuid="13fceb92-98bd-475c-b184-49ee8a274787",
                     creatiedatum=date(2025, 2, 1),
-                )
+                ),
+                service="test",
+                group_slug="test-group",
             )
             result = client.get_last_document_creatiedatum()
 

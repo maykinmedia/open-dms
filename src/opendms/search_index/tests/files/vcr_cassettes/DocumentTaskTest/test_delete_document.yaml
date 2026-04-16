@@ -52,89 +52,13 @@ interactions:
       code: 404
       message: Not Found
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
-      Alvarez and Mclaughlin","titel":"Former mission threat.","beschrijving":"Use
-      quite send four development drop. Trial government lot.","auteur":"Charles Roman","taal":"nl","vertrouwelijkheidaanduiding":"race","status":"because","formaat":"bmp","bestandsnaam":"air.mp3","informatieobjecttype":"new","verschijningsvorm":"machine","bestandsomvang":1000000,"link":"https://mcbride.com/","creatiedatum":"2026-03-12","begin_registratie":"2026-03-18T13:09:08.151316"}'
+    body: '{"uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.russo-hoffman.info/","identificatie":"af248814-a6fd-40cd-9c9e-12f8dca1ca40","bronorganisatie":"Duffy,
+      Johnston and Chavez","titel":"Do capital one coach.","beschrijving":"Situation
+      building anyone moment total break single brother. Now company food fill.","auteur":"Rhonda
+      Combs","taal":"nb","vertrouwelijkheidaanduiding":"modern","status":"shoulder","formaat":"js","bestandsnaam":"prevent.html","informatieobjecttype":"morning","verschijningsvorm":"shoulder","bestandsomvang":1000000,"link":"https://lewis.com/","creatiedatum":"2026-04-06","begin_registratie":"2026-03-31T02:15:57.078100","last_checked_at":"2020-11-07T00:00:00","next_check_at":"1988-07-27T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"67517092-0484-4e3b-b7e3-59ffec63ca8d","url":"https://bradley-rowe.com/","identificatie":"31470346-f535-40ef-b0e5-731a6c15d1da","bronorganisatie":"Moore,
+      Anderson and Hayes","verantwoordelijkeOrganisatie":"Singh-Kaiser","omschrijving":"She
+      card theory right throw.","toelichting":"Add call something campaign response
+      history forget. Want sing economic.","status":"occur","registratiedatum":"2026-03-25","startdatum":"2026-03-23","zaaktype":"mother","object_type":"form","service_slug":"zaken-api"}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -178,15 +102,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Use
-        quite send four development drop. Trial government lot.","verschijningsvorm":"machine","begin_registratie":"2026-03-18T13:09:08.151316","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
-        Alvarez and Mclaughlin","bestandsomvang":1000000,"link":"https://mcbride.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","taal":"nl","auteur":"Charles
-        Roman","formaat":"bmp","titel":"Former mission threat.","vertrouwelijkheidaanduiding":"race","informatieobjecttype":"new","bestandsnaam":"air.mp3","creatiedatum":"2026-03-12","status":"because"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Situation
+        building anyone moment total break single brother. Now company food fill.","verschijningsvorm":"shoulder","begin_registratie":"2026-03-31T02:15:57.078100","identificatie":"af248814-a6fd-40cd-9c9e-12f8dca1ca40","bronorganisatie":"Duffy,
+        Johnston and Chavez","bestandsomvang":1000000,"link":"https://lewis.com/","next_check_at":"1988-07-27T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.russo-hoffman.info/","taal":"nb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"31470346-f535-40ef-b0e5-731a6c15d1da","object_type":"form","bronorganisatie":"Moore,
+        Anderson and Hayes","zaaktype":"mother","registratiedatum":"2026-03-25","uuid":"67517092-0484-4e3b-b7e3-59ffec63ca8d","url":"https://bradley-rowe.com/","verantwoordelijkeOrganisatie":"Singh-Kaiser","omschrijving":"She
+        card theory right throw.","startdatum":"2026-03-23","toelichting":"Add call
+        something campaign response history forget. Want sing economic.","status":"occur"}],"auteur":"Rhonda
+        Combs","formaat":"js","last_checked_at":"2020-11-07T00:00:00","titel":"Do
+        capital one coach.","vertrouwelijkheidaanduiding":"modern","informatieobjecttype":"morning","bestandsnaam":"prevent.html","creatiedatum":"2026-04-06","group_slug":"group-1","status":"shoulder"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '750'
+      - '1450'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -207,15 +135,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/d9fe4844-bdf8-4d66-b613-4efa71598105
   response:
     body:
-      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"beschrijving":"Use
-        quite send four development drop. Trial government lot.","verschijningsvorm":"machine","begin_registratie":"2026-03-18T13:09:08.151316","identificatie":"cf263665-a1a0-4795-836f-1bc33b217db6","bronorganisatie":"Levy,
-        Alvarez and Mclaughlin","bestandsomvang":1000000,"link":"https://mcbride.com/","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.tyler.com/","taal":"nl","auteur":"Charles
-        Roman","formaat":"bmp","titel":"Former mission threat.","vertrouwelijkheidaanduiding":"race","informatieobjecttype":"new","bestandsnaam":"air.mp3","creatiedatum":"2026-03-12","status":"because"}}'
+      string: '{"_index":"document","_id":"d9fe4844-bdf8-4d66-b613-4efa71598105","_version":1,"_seq_no":0,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Situation
+        building anyone moment total break single brother. Now company food fill.","verschijningsvorm":"shoulder","begin_registratie":"2026-03-31T02:15:57.078100","identificatie":"af248814-a6fd-40cd-9c9e-12f8dca1ca40","bronorganisatie":"Duffy,
+        Johnston and Chavez","bestandsomvang":1000000,"link":"https://lewis.com/","next_check_at":"1988-07-27T00:00:00","uuid":"d9fe4844-bdf8-4d66-b613-4efa71598105","url":"https://www.russo-hoffman.info/","taal":"nb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"31470346-f535-40ef-b0e5-731a6c15d1da","object_type":"form","bronorganisatie":"Moore,
+        Anderson and Hayes","zaaktype":"mother","registratiedatum":"2026-03-25","uuid":"67517092-0484-4e3b-b7e3-59ffec63ca8d","url":"https://bradley-rowe.com/","verantwoordelijkeOrganisatie":"Singh-Kaiser","omschrijving":"She
+        card theory right throw.","startdatum":"2026-03-23","toelichting":"Add call
+        something campaign response history forget. Want sing economic.","status":"occur"}],"auteur":"Rhonda
+        Combs","formaat":"js","last_checked_at":"2020-11-07T00:00:00","titel":"Do
+        capital one coach.","vertrouwelijkheidaanduiding":"modern","informatieobjecttype":"morning","bestandsnaam":"prevent.html","creatiedatum":"2026-04-06","group_slug":"group-1","status":"shoulder"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '750'
+      - '1450'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

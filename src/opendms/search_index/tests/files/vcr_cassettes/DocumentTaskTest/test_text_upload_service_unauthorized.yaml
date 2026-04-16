@@ -1,89 +1,12 @@
 interactions:
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.peterson.org/","identificatie":"4ec009df-df19-4000-8d52-9cb4a53d09c7","bronorganisatie":"Fernandez
-      and Sons","titel":"Few community common feeling senior two remain whom.","beschrijving":"Quality
-      there sport as must environment. Good prepare yard director everybody middle
-      though. Rich to yeah image.","auteur":"Jason West","taal":"ss","vertrouwelijkheidaanduiding":"billion","status":"offer","formaat":"tiff","bestandsnaam":"simply.odp","informatieobjecttype":"daughter","verschijningsvorm":"determine","bestandsomvang":1000000,"link":"http://wilson-king.com/","creatiedatum":"2026-03-10","begin_registratie":"2026-03-04T22:55:16.151938","inhoud":"https://www.example.com/downloads/1"}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://braun.com/","identificatie":"b1ee2bd8-c0f5-42fc-bdb7-915d5f2538ea","bronorganisatie":"Simpson
+      Inc","titel":"Nearly attention travel campaign nearly site back ahead.","beschrijving":"Space
+      wrong local yourself alone yeah. Grow pass media lot. Stuff us after.","auteur":"Jeff
+      Lewis","taal":"tg","vertrouwelijkheidaanduiding":"ever","status":"more","formaat":"css","bestandsnaam":"nice.html","informatieobjecttype":"law","verschijningsvorm":"protect","bestandsomvang":1000000,"link":"http://sawyer-jensen.org/","creatiedatum":"2026-03-18","begin_registratie":"2026-03-29T03:12:43.225425","last_checked_at":"2011-10-03T00:00:00","next_check_at":"1976-08-15T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"a30bc117-e557-4b42-abcd-bba17951c8ab","url":"http://www.rivera.com/","identificatie":"e6b24828-e73a-4109-81b3-a09735b0edf9","bronorganisatie":"Moore-Patterson","verantwoordelijkeOrganisatie":"Baker-Oliver","omschrijving":"Which
+      run science away read.","toelichting":"Early town whom young impact mind tough.
+      Fill then worker skin fall and question. Amount never produce federal cover
+      job example.","status":"stage","registratiedatum":"2026-04-06","startdatum":"2026-03-15","zaaktype":"join","object_type":"buy","service_slug":"zaken-api"}],"inhoud":"https://www.example.com/downloads/1"}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -127,17 +50,19 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"beschrijving":"Quality
-        there sport as must environment. Good prepare yard director everybody middle
-        though. Rich to yeah image.","verschijningsvorm":"determine","begin_registratie":"2026-03-04T22:55:16.151938","identificatie":"4ec009df-df19-4000-8d52-9cb4a53d09c7","bronorganisatie":"Fernandez
-        and Sons","bestandsomvang":1000000,"link":"http://wilson-king.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://www.peterson.org/","taal":"ss","auteur":"Jason
-        West","formaat":"tiff","inhoud":"https://www.example.com/downloads/1","titel":"Few
-        community common feeling senior two remain whom.","vertrouwelijkheidaanduiding":"billion","informatieobjecttype":"daughter","bestandsnaam":"simply.odp","creatiedatum":"2026-03-10","status":"offer"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":7,"_seq_no":19,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Space
+        wrong local yourself alone yeah. Grow pass media lot. Stuff us after.","verschijningsvorm":"protect","begin_registratie":"2026-03-29T03:12:43.225425","identificatie":"b1ee2bd8-c0f5-42fc-bdb7-915d5f2538ea","bronorganisatie":"Simpson
+        Inc","bestandsomvang":1000000,"link":"http://sawyer-jensen.org/","next_check_at":"1976-08-15T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://braun.com/","taal":"tg","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"e6b24828-e73a-4109-81b3-a09735b0edf9","object_type":"buy","bronorganisatie":"Moore-Patterson","zaaktype":"join","registratiedatum":"2026-04-06","uuid":"a30bc117-e557-4b42-abcd-bba17951c8ab","url":"http://www.rivera.com/","verantwoordelijkeOrganisatie":"Baker-Oliver","omschrijving":"Which
+        run science away read.","startdatum":"2026-03-15","toelichting":"Early town
+        whom young impact mind tough. Fill then worker skin fall and question. Amount
+        never produce federal cover job example.","status":"stage"}],"auteur":"Jeff
+        Lewis","formaat":"css","last_checked_at":"2011-10-03T00:00:00","inhoud":"https://www.example.com/downloads/1","titel":"Nearly
+        attention travel campaign nearly site back ahead.","vertrouwelijkheidaanduiding":"ever","informatieobjecttype":"law","bestandsnaam":"nice.html","creatiedatum":"2026-03-18","group_slug":"group-1","status":"more"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '885'
+      - '1529'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

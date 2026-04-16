@@ -29,97 +29,18 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:45:03 GMT
+      - Fri, 10 Apr 2026 12:29:45 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://pham.com/","identificatie":"6ff700cf-868e-4163-96e8-a1a2a449f605","bronorganisatie":"Jordan-Wells","titel":"Relationship
-      window important per change when eat work.","beschrijving":"Note common officer
-      plant. Us bed cell tend force. Pm main quite language attorney everything truth.","auteur":"Connie
-      Blake","taal":"de","vertrouwelijkheidaanduiding":"prove","status":"mouth","formaat":"docx","bestandsnaam":"beyond.flac","informatieobjecttype":"alone","verschijningsvorm":"country","bestandsomvang":1000,"link":"https://gordon.com/","creatiedatum":"2026-03-07","begin_registratie":"2026-02-24T16:34:37.992550","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://lewis.com/","identificatie":"9a030dce-50c1-48b8-a4c6-80980fdffd44","bronorganisatie":"Snyder-Weaver","titel":"Decide
+      take institution picture.","beschrijving":"Carry relate next dream cell forget
+      pass. Whatever gas huge important.","auteur":"Jeanne Smith","taal":"so","vertrouwelijkheidaanduiding":"week","status":"phone","formaat":"mov","bestandsnaam":"election.doc","informatieobjecttype":"senior","verschijningsvorm":"outside","bestandsomvang":1000,"link":"https://www.rodriguez.biz/","creatiedatum":"2026-03-17","begin_registratie":"2026-04-06T01:32:43.762709","last_checked_at":"2016-05-03T00:00:00","next_check_at":"2006-05-02T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"c06587cf-972c-4375-b84a-acf6cf680049","url":"https://www.martin.com/","identificatie":"a1377357-d04e-4897-9f53-b9a447c8492c","bronorganisatie":"Mitchell-Dean","verantwoordelijkeOrganisatie":"Taylor
+      and Sons","omschrijving":"Source plan tend attack away do.","toelichting":"These
+      many age under. Above various whose matter key hot suffer.","status":"increase","registratiedatum":"2026-03-31","startdatum":"2026-04-03","zaaktype":"also","object_type":"mother","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","document_data":[{"document_data":"RG9jdW1lbnQgJ2ZmMmMxOGNmLTgxNjUtNDVkMy04NzNkLWI2OGU2NzZmOTlmZic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -163,17 +84,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"beschrijving":"Note
-        common officer plant. Us bed cell tend force. Pm main quite language attorney
-        everything truth.","verschijningsvorm":"country","begin_registratie":"2026-02-24T16:34:37.992550","identificatie":"6ff700cf-868e-4163-96e8-a1a2a449f605","bronorganisatie":"Jordan-Wells","bestandsomvang":1000,"link":"https://gordon.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://pham.com/","taal":"de","auteur":"Connie
-        Blake","formaat":"docx","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Relationship
-        window important per change when eat work.","vertrouwelijkheidaanduiding":"prove","document_data":[{"attachment":{"content":"Document
-        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"informatieobjecttype":"alone","bestandsnaam":"beyond.flac","creatiedatum":"2026-03-07","status":"mouth"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":1,"_seq_no":27,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Carry
+        relate next dream cell forget pass. Whatever gas huge important.","verschijningsvorm":"outside","bronorganisatie":"Snyder-Weaver","link":"https://www.rodriguez.biz/","next_check_at":"2006-05-02T00:00:00","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","formaat":"mov","inhoud":"http://localhost/document/ff2c18cf-8165-45d3-873d-b68e676f99ff","titel":"Decide
+        take institution picture.","informatieobjecttype":"senior","bestandsnaam":"election.doc","creatiedatum":"2026-03-17","group_slug":"group-1","begin_registratie":"2026-04-06T01:32:43.762709","identificatie":"9a030dce-50c1-48b8-a4c6-80980fdffd44","bestandsomvang":1000,"url":"https://lewis.com/","taal":"so","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"a1377357-d04e-4897-9f53-b9a447c8492c","object_type":"mother","bronorganisatie":"Mitchell-Dean","zaaktype":"also","registratiedatum":"2026-03-31","uuid":"c06587cf-972c-4375-b84a-acf6cf680049","url":"https://www.martin.com/","verantwoordelijkeOrganisatie":"Taylor
+        and Sons","omschrijving":"Source plan tend attack away do.","startdatum":"2026-04-03","toelichting":"These
+        many age under. Above various whose matter key hot suffer.","status":"increase"}],"auteur":"Jeanne
+        Smith","last_checked_at":"2016-05-03T00:00:00","vertrouwelijkheidaanduiding":"week","document_data":[{"attachment":{"content":"Document
+        ''ff2c18cf-8165-45d3-873d-b68e676f99ff''"}}],"status":"phone"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '973'
+      - '1579'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:
@@ -209,97 +131,19 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:45:04 GMT
+      - Fri, 10 Apr 2026 12:29:46 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://wilson.com/","identificatie":"2713febf-9f6e-4870-9f57-e78ec6ede01e","bronorganisatie":"Brown,
-      Gonzalez and Adams","titel":"Stop thousand scene customer individual.","beschrijving":"Glass
-      light voice away itself. Wrong sort none authority forward. Top goal them bank
-      owner health difference reason.","auteur":"Rhonda Johnson","taal":"hi","vertrouwelijkheidaanduiding":"nature","status":"soon","formaat":"mp3","bestandsnaam":"minute.tiff","informatieobjecttype":"sometimes","verschijningsvorm":"however","bestandsomvang":1000,"link":"https://evans-conner.com/","creatiedatum":"2026-03-09","begin_registratie":"2026-03-08T22:43:37.230153","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
+    body: '{"uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"http://howard-lawrence.com/","identificatie":"600d16e7-21f7-48e5-8f44-7cf2413cb26f","bronorganisatie":"Williams-Gregory","titel":"Friend
+      two particularly health thousand hold.","beschrijving":"Last daughter will staff
+      some administration they. Water number I outside.","auteur":"Kristin Andrews","taal":"so","vertrouwelijkheidaanduiding":"high","status":"special","formaat":"wav","bestandsnaam":"image.numbers","informatieobjecttype":"brother","verschijningsvorm":"away","bestandsomvang":1000,"link":"https://www.kemp-murray.info/","creatiedatum":"2026-03-25","begin_registratie":"2026-03-21T09:31:33.955233","last_checked_at":"2021-04-29T00:00:00","next_check_at":"2024-10-19T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"93bd6c84-71d2-4cdf-ac8d-deaf264693fe","url":"http://www.george-ford.com/","identificatie":"8a4a6e1e-0302-4cf8-9e7d-7ee77686847d","bronorganisatie":"Watkins
+      Ltd","verantwoordelijkeOrganisatie":"Brown, Ortiz and Fox","omschrijving":"Society
+      at not cover force every cultural.","toelichting":"Hear study thought effort
+      reason.","status":"baby","registratiedatum":"2026-03-18","startdatum":"2026-04-01","zaaktype":"which","object_type":"offer","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","document_data":[{"document_data":"RG9jdW1lbnQgJzhkZWNmZWZjLTk4NzktNDVlOC04NjQxLTIwOTZiYmQ1ZGJhOCc="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -341,18 +185,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/e62db63f-9e99-41a4-88a9-be9cc3d7509a
   response:
     body:
-      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"beschrijving":"Glass
-        light voice away itself. Wrong sort none authority forward. Top goal them
-        bank owner health difference reason.","verschijningsvorm":"however","begin_registratie":"2026-03-08T22:43:37.230153","identificatie":"2713febf-9f6e-4870-9f57-e78ec6ede01e","bronorganisatie":"Brown,
-        Gonzalez and Adams","bestandsomvang":1000,"link":"https://evans-conner.com/","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","url":"https://wilson.com/","taal":"hi","auteur":"Rhonda
-        Johnson","formaat":"mp3","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Stop
-        thousand scene customer individual.","vertrouwelijkheidaanduiding":"nature","document_data":[{"attachment":{"content":"Document
-        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"informatieobjecttype":"sometimes","bestandsnaam":"minute.tiff","creatiedatum":"2026-03-09","status":"soon"}}'
+      string: '{"_index":"document","_id":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","_version":2,"_seq_no":28,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Last
+        daughter will staff some administration they. Water number I outside.","verschijningsvorm":"away","bronorganisatie":"Williams-Gregory","link":"https://www.kemp-murray.info/","next_check_at":"2024-10-19T00:00:00","uuid":"e62db63f-9e99-41a4-88a9-be9cc3d7509a","formaat":"wav","inhoud":"http://localhost/document/8decfefc-9879-45e8-8641-2096bbd5dba8","titel":"Friend
+        two particularly health thousand hold.","informatieobjecttype":"brother","bestandsnaam":"image.numbers","creatiedatum":"2026-03-25","group_slug":"group-1","begin_registratie":"2026-03-21T09:31:33.955233","identificatie":"600d16e7-21f7-48e5-8f44-7cf2413cb26f","bestandsomvang":1000,"url":"http://howard-lawrence.com/","taal":"so","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"8a4a6e1e-0302-4cf8-9e7d-7ee77686847d","object_type":"offer","bronorganisatie":"Watkins
+        Ltd","zaaktype":"which","registratiedatum":"2026-03-18","uuid":"93bd6c84-71d2-4cdf-ac8d-deaf264693fe","url":"http://www.george-ford.com/","verantwoordelijkeOrganisatie":"Brown,
+        Ortiz and Fox","omschrijving":"Society at not cover force every cultural.","startdatum":"2026-04-01","toelichting":"Hear
+        study thought effort reason.","status":"baby"}],"auteur":"Kristin Andrews","last_checked_at":"2021-04-29T00:00:00","vertrouwelijkheidaanduiding":"high","document_data":[{"attachment":{"content":"Document
+        ''8decfefc-9879-45e8-8641-2096bbd5dba8''"}}],"status":"special"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '1001'
+      - '1597'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

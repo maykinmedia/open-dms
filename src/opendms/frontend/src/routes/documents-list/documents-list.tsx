@@ -6,7 +6,7 @@ import {
   useAlert,
 } from "@maykin-ui/admin-ui";
 import { invariant } from "@maykin-ui/client-common";
-import { type MouseEventHandler, useCallback, useMemo } from "react";
+import { type MouseEventHandler, useCallback, useEffect, useMemo } from "react";
 import {
   useLoaderData,
   useParams,
@@ -40,6 +40,7 @@ export const DocumentsList = () => {
 
   const alert = useAlert();
   const { revalidate } = useRevalidator();
+  const highlight = searchParams.get("highlight");
 
   /**
    * Polls the backend for the documents list.
@@ -66,6 +67,13 @@ export const DocumentsList = () => {
     },
     [serviceSlug, zaaktypeUuid, zaakId, fetchDocuments, page, data?.results],
   );
+
+  useEffect(() => {
+    if (!highlight || !data) return;
+    document
+      .getElementById(`${highlight}-info`)
+      ?.scrollIntoView({ behavior: "smooth", block: "center" });
+  }, [highlight, data]);
 
   /**
    * Handles the upload of a document by fetching the resource from the provided link
@@ -109,6 +117,8 @@ export const DocumentsList = () => {
     return (
       data?.results.map((doc) => {
         return {
+          id: doc.uuid,
+          highlighted: doc.uuid === highlight,
           title: doc.titel,
           icon: <Outline.DocumentIcon />,
           informationLines: [doc.formaat],
@@ -168,7 +178,14 @@ export const DocumentsList = () => {
         };
       }) ?? []
     );
-  }, [data?.results, serviceSlug, zaaktypeUuid, zaakId, handleUpload]);
+  }, [
+    data?.results,
+    serviceSlug,
+    zaaktypeUuid,
+    zaakId,
+    handleUpload,
+    highlight,
+  ]);
 
   if (!data) return null;
   invariant(rootData?.zaaktype?.identificatie, "Zaaktype not loaded!");

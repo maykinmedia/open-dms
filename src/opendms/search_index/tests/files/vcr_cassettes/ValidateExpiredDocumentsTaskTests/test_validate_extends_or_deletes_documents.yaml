@@ -1,0 +1,606 @@
+interactions:
+- request:
+    body: '{"uuid":"11111111-1111-1111-1111-111111111111","url":"http://www.roberts.info/","identificatie":"4a04daec-2e48-49ee-a0f5-8a1498931b3e","bronorganisatie":"Clements,
+      Hernandez and Wright","titel":"Need put what record evidence.","beschrijving":"Place
+      second easy line child stock prepare. Time administration impact system treat
+      exactly. Yet sound financial address no.","auteur":"Shane Khan","taal":"sv","vertrouwelijkheidaanduiding":"audience","status":"war","formaat":"mov","bestandsnaam":"travel.wav","informatieobjecttype":"brother","verschijningsvorm":"sell","bestandsomvang":1000000,"link":"https://www.lopez.com/","creatiedatum":"2026-03-28","begin_registratie":"2026-03-09T01:12:08.243192","last_checked_at":"2026-03-28T12:00:00+00:00","next_check_at":"2026-03-29T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"d1e94ae6-9490-42a6-9b85-37bcc10fa43c","url":"https://mills-andrews.biz/","identificatie":"91700e53-65b4-416a-805f-846aef50185b","bronorganisatie":"Welch-Norris","verantwoordelijkeOrganisatie":"Morris
+      PLC","omschrijving":"Minute avoid customer church.","toelichting":"Become name
+      whose him. Late important break fast. Magazine mind perform institution lawyer.","status":"through","registratiedatum":"2026-03-11","startdatum":"2026-03-01","zaaktype":"whole","object_type":"phone","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":8,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/11111111-1111-1111-1111-111111111111
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"22222222-2222-2222-2222-222222222222","url":"https://www.barber.info/","identificatie":"37876e07-0a1a-41eb-9379-c0a1f5964618","bronorganisatie":"Rocha
+      Group","titel":"Board compare wind often.","beschrijving":"Sport employee career
+      small. Official family manage before use build PM. Large seek north third growth
+      whole threat position.","auteur":"Sarah Fitzpatrick","taal":"mg","vertrouwelijkheidaanduiding":"fact","status":"rate","formaat":"xlsx","bestandsnaam":"despite.odt","informatieobjecttype":"question","verschijningsvorm":"travel","bestandsomvang":1000000,"link":"https://www.mccullough.com/","creatiedatum":"2026-03-29","begin_registratie":"2026-03-06T18:43:58.311256","last_checked_at":"2026-03-29T11:00:00+00:00","next_check_at":"2026-03-30T11:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"578ede62-86a0-4a07-b938-9e441a892bc9","url":"http://schwartz.org/","identificatie":"f095fb1c-afb1-445d-8283-ae694ed86fab","bronorganisatie":"Lam-Anderson","verantwoordelijkeOrganisatie":"Blackwell,
+      Wilson and Galloway","omschrijving":"Weight simply concern laugh while system
+      establish.","toelichting":"Later live forget reduce energy catch son.","status":"wife","registratiedatum":"2026-03-13","startdatum":"2026-03-09","zaaktype":"first","object_type":"catch","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":9,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/22222222-2222-2222-2222-222222222222
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '176'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"33333333-3333-3333-3333-333333333333","url":"http://miller.com/","identificatie":"ee7caa62-9687-4e2c-b51c-80b5990ab1ac","bronorganisatie":"Santos,
+      Thomas and Landry","titel":"Drug course wear of should morning town or.","beschrijving":"Girl
+      thus nor grow our Congress. Human strategy least could. Over pick center marriage
+      suddenly experience performance late.","auteur":"Gabrielle Perez","taal":"fr","vertrouwelijkheidaanduiding":"realize","status":"state","formaat":"jpg","bestandsnaam":"language.avi","informatieobjecttype":"goal","verschijningsvorm":"amount","bestandsomvang":1000000,"link":"http://ramos-mack.biz/","creatiedatum":"2026-03-30","begin_registratie":"2026-03-16T17:44:08.081997","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-04T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"0f9abaee-f964-4e7b-b802-a1a9ca46d75e","url":"http://johnson.com/","identificatie":"8cd16852-cafb-42ee-8511-6c0786fdbe31","bronorganisatie":"Sutton
+      Ltd","verantwoordelijkeOrganisatie":"Petty Inc","omschrijving":"Author decision
+      prove employee decide consider to.","toelichting":"Sister explain yard pattern
+      rest. Ahead build from teach child. Still rate because imagine huge day race
+      generation.","status":"hear","registratiedatum":"2026-03-09","startdatum":"2026-03-12","zaaktype":"lawyer","object_type":"produce","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/33333333-3333-3333-3333-333333333333?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":10,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/33333333-3333-3333-3333-333333333333
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"44444444-4444-4444-4444-444444444444","url":"https://andrews.com/","identificatie":"4b631bea-98ab-42fe-bb32-da9c9af1d71c","bronorganisatie":"Bennett,
+      Lopez and Payne","titel":"Improve prove institution friend should stay give.","beschrijving":"Once
+      model girl chair picture because.","auteur":"Maria Doyle","taal":"doi","vertrouwelijkheidaanduiding":"watch","status":"require","formaat":"docx","bestandsnaam":"artist.tiff","informatieobjecttype":"direction","verschijningsvorm":"organization","bestandsomvang":1000000,"link":"http://smith-lee.org/","creatiedatum":"2026-03-25","begin_registratie":"2026-03-13T23:19:57.997463","last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"dbfe8aa3-5a09-43a0-a2f8-927f9bf87eab","url":"http://jackson.com/","identificatie":"dd424330-e7a2-49c0-a634-4b62a7425b10","bronorganisatie":"Montes,
+      Johnson and Barry","verantwoordelijkeOrganisatie":"Jones, Kennedy and Hodges","omschrijving":"Improve
+      no indicate letter science main.","toelichting":"Gas art think artist course.
+      Until write movement recognize around any.","status":"central","registratiedatum":"2026-03-22","startdatum":"2026-03-23","zaaktype":"such","object_type":"actually","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/44444444-4444-4444-4444-444444444444?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":11,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/44444444-4444-4444-4444-444444444444
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://wilson.com/","identificatie":"7493f253-0c1d-4fd2-a062-8097cc4034bd","bronorganisatie":"Scott
+      LLC","titel":"Want cause wear myself world.","beschrijving":"Me indeed something
+      none. Understand number hear thought writer so rather. Paper must head different
+      personal.","auteur":"Alicia Stewart","taal":"es","vertrouwelijkheidaanduiding":"might","status":"anything","formaat":"webm","bestandsnaam":"lead.jpeg","informatieobjecttype":"defense","verschijningsvorm":"main","bestandsomvang":1000000,"link":"https://pennington-harvey.com/","creatiedatum":"2026-03-20","begin_registratie":"2026-03-30T03:00:04.131798","last_checked_at":"2026-03-29T12:00:00+00:00","next_check_at":"2026-03-30T10:00:00+00:00","service_slug":"documenten-api","group_slug":"zgw-api-group-2","zaak_referenties":[{"uuid":"c7129d15-c105-4e20-affd-78d2426d9dc4","url":"http://pope.biz/","identificatie":"1cc2b34d-8ec7-42db-92ea-1000420ffd89","bronorganisatie":"Miranda,
+      Stanley and Madden","verantwoordelijkeOrganisatie":"Sanchez Group","omschrijving":"Sure
+      join huge into.","toelichting":"Most affect together nice bit relate. Up attack
+      start put base relationship medical.","status":"student","registratiedatum":"2026-03-03","startdatum":"2026-03-19","zaaktype":"certainly","object_type":"represent","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":12,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-03-30T12:00:00+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0512933,"hits":[{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2"}},{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0512933,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten?creatiedatum__gte=2026-03-20&creatiedatum__lte=2026-03-29&objectinformatieobjecten__objectType=zaak
+  response:
+    body:
+      string: '{"count":2,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594","identificatie":"DOCUMENT-2026-0000000001","bronorganisatie":"000000255","creatiedatum":"2026-03-21","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Dean Gnodde","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:51:10.096000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}},{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","identificatie":"DOCUMENT-2026-0000000004","bronorganisatie":"000000280","creatiedatum":"2026-03-24","titel":"aanvraag
+        formulier","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Mason van
+        Breukeleveen","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-03-25T13:50:33.793000Z","bestandsnaam":"","inhoud":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d/download?versie=1","bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":false,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"_expand":{}}]}'
+    headers:
+      API-version:
+      - 1.4.2
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Length:
+      - '1942'
+      Content-Security-Policy:
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; object-src ''none''; worker-src ''self'' blob:; frame-ancestors
+        ''none''; form-action ''self''; base-uri ''self''; frame-src ''self''; script-src
+        ''self'' ''unsafe-inline'' cdnjs.cloudflare.com cdn.jsdelivr.net; font-src
+        ''self'' fonts.gstatic.com; default-src ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111
+  response:
+    body:
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":1,"_seq_no":8,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Place
+        second easy line child stock prepare. Time administration impact system treat
+        exactly. Yet sound financial address no.","verschijningsvorm":"sell","begin_registratie":"2026-03-09T01:12:08.243192","identificatie":"4a04daec-2e48-49ee-a0f5-8a1498931b3e","bronorganisatie":"Clements,
+        Hernandez and Wright","bestandsomvang":1000000,"link":"https://www.lopez.com/","next_check_at":"2026-03-29T12:00:00+00:00","uuid":"11111111-1111-1111-1111-111111111111","url":"http://www.roberts.info/","taal":"sv","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"ztc-service","identificatie":"91700e53-65b4-416a-805f-846aef50185b","object_type":"phone","bronorganisatie":"Welch-Norris","zaaktype":"whole","registratiedatum":"2026-03-11","uuid":"d1e94ae6-9490-42a6-9b85-37bcc10fa43c","url":"https://mills-andrews.biz/","verantwoordelijkeOrganisatie":"Morris
+        PLC","omschrijving":"Minute avoid customer church.","startdatum":"2026-03-01","toelichting":"Become
+        name whose him. Late important break fast. Magazine mind perform institution
+        lawyer.","status":"through"}],"auteur":"Shane Khan","formaat":"mov","last_checked_at":"2026-03-28T12:00:00+00:00","titel":"Need
+        put what record evidence.","vertrouwelijkheidaanduiding":"audience","informatieobjecttype":"brother","bestandsnaam":"travel.wav","creatiedatum":"2026-03-28","group_slug":"zgw-api-group-2","status":"war"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '1552'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: DELETE
+    uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111?if_primary_term=1&if_seq_no=8&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":13,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222
+  response:
+    body:
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":1,"_seq_no":9,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Sport
+        employee career small. Official family manage before use build PM. Large seek
+        north third growth whole threat position.","verschijningsvorm":"travel","begin_registratie":"2026-03-06T18:43:58.311256","identificatie":"37876e07-0a1a-41eb-9379-c0a1f5964618","bronorganisatie":"Rocha
+        Group","bestandsomvang":1000000,"link":"https://www.mccullough.com/","next_check_at":"2026-03-30T11:00:00+00:00","uuid":"22222222-2222-2222-2222-222222222222","url":"https://www.barber.info/","taal":"mg","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"ztc-service","identificatie":"f095fb1c-afb1-445d-8283-ae694ed86fab","object_type":"catch","bronorganisatie":"Lam-Anderson","zaaktype":"first","registratiedatum":"2026-03-13","uuid":"578ede62-86a0-4a07-b938-9e441a892bc9","url":"http://schwartz.org/","verantwoordelijkeOrganisatie":"Blackwell,
+        Wilson and Galloway","omschrijving":"Weight simply concern laugh while system
+        establish.","startdatum":"2026-03-09","toelichting":"Later live forget reduce
+        energy catch son.","status":"wife"}],"auteur":"Sarah Fitzpatrick","formaat":"xlsx","last_checked_at":"2026-03-29T11:00:00+00:00","titel":"Board
+        compare wind often.","vertrouwelijkheidaanduiding":"fact","informatieobjecttype":"question","bestandsnaam":"despite.odt","creatiedatum":"2026-03-29","group_slug":"zgw-api-group-2","status":"rate"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '1527'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: DELETE
+    uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222?if_primary_term=1&if_seq_no=9&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","_version":2,"result":"deleted","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":14,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"doc":{"last_checked_at":"2026-03-30T12:00:00+00:00","next_check_at":"2026-04-09T12:00:00+00:00"}}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_update/c4a2d123-1817-4b3a-a330-67c1282b1594?refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":2,"result":"updated","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":15,"_primary_term":1}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '177'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"match_all":{}},"from":0,"size":10}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":3,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":3,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Girl
+        thus nor grow our Congress. Human strategy least could. Over pick center marriage
+        suddenly experience performance late.","verschijningsvorm":"amount","begin_registratie":"2026-03-16T17:44:08.081997","identificatie":"ee7caa62-9687-4e2c-b51c-80b5990ab1ac","bronorganisatie":"Santos,
+        Thomas and Landry","bestandsomvang":1000000,"link":"http://ramos-mack.biz/","next_check_at":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"http://miller.com/","taal":"fr","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"ztc-service","identificatie":"8cd16852-cafb-42ee-8511-6c0786fdbe31","object_type":"produce","bronorganisatie":"Sutton
+        Ltd","zaaktype":"lawyer","registratiedatum":"2026-03-09","uuid":"0f9abaee-f964-4e7b-b802-a1a9ca46d75e","url":"http://johnson.com/","verantwoordelijkeOrganisatie":"Petty
+        Inc","omschrijving":"Author decision prove employee decide consider to.","startdatum":"2026-03-12","toelichting":"Sister
+        explain yard pattern rest. Ahead build from teach child. Still rate because
+        imagine huge day race generation.","status":"hear"}],"auteur":"Gabrielle Perez","formaat":"jpg","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Drug
+        course wear of should morning town or.","vertrouwelijkheidaanduiding":"realize","informatieobjecttype":"goal","bestandsnaam":"language.avi","creatiedatum":"2026-03-30","group_slug":"zgw-api-group-2","status":"state"}},{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Once
+        model girl chair picture because.","verschijningsvorm":"organization","begin_registratie":"2026-03-13T23:19:57.997463","identificatie":"4b631bea-98ab-42fe-bb32-da9c9af1d71c","bronorganisatie":"Bennett,
+        Lopez and Payne","bestandsomvang":1000000,"link":"http://smith-lee.org/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://andrews.com/","taal":"doi","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"ztc-service","identificatie":"dd424330-e7a2-49c0-a634-4b62a7425b10","object_type":"actually","bronorganisatie":"Montes,
+        Johnson and Barry","zaaktype":"such","registratiedatum":"2026-03-22","uuid":"dbfe8aa3-5a09-43a0-a2f8-927f9bf87eab","url":"http://jackson.com/","verantwoordelijkeOrganisatie":"Jones,
+        Kennedy and Hodges","omschrijving":"Improve no indicate letter science main.","startdatum":"2026-03-23","toelichting":"Gas
+        art think artist course. Until write movement recognize around any.","status":"central"}],"auteur":"Maria
+        Doyle","formaat":"docx","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Improve
+        prove institution friend should stay give.","vertrouwelijkheidaanduiding":"watch","informatieobjecttype":"direction","bestandsnaam":"artist.tiff","creatiedatum":"2026-03-25","group_slug":"zgw-api-group-2","status":"require"}},{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_score":1.0,"_source":{"service_slug":"documenten-api","beschrijving":"Me
+        indeed something none. Understand number hear thought writer so rather. Paper
+        must head different personal.","verschijningsvorm":"main","begin_registratie":"2026-03-30T03:00:04.131798","identificatie":"7493f253-0c1d-4fd2-a062-8097cc4034bd","bronorganisatie":"Scott
+        LLC","bestandsomvang":1000000,"link":"https://pennington-harvey.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://wilson.com/","taal":"es","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"ztc-service","identificatie":"1cc2b34d-8ec7-42db-92ea-1000420ffd89","object_type":"represent","bronorganisatie":"Miranda,
+        Stanley and Madden","zaaktype":"certainly","registratiedatum":"2026-03-03","uuid":"c7129d15-c105-4e20-affd-78d2426d9dc4","url":"http://pope.biz/","verantwoordelijkeOrganisatie":"Sanchez
+        Group","omschrijving":"Sure join huge into.","startdatum":"2026-03-19","toelichting":"Most
+        affect together nice bit relate. Up attack start put base relationship medical.","status":"student"}],"auteur":"Alicia
+        Stewart","formaat":"webm","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Want
+        cause wear myself world.","vertrouwelijkheidaanduiding":"might","informatieobjecttype":"defense","bestandsnaam":"lead.jpeg","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"anything"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/c4a2d123-1817-4b3a-a330-67c1282b1594
+  response:
+    body:
+      string: '{"_index":"document","_id":"c4a2d123-1817-4b3a-a330-67c1282b1594","_version":2,"_seq_no":15,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Me
+        indeed something none. Understand number hear thought writer so rather. Paper
+        must head different personal.","verschijningsvorm":"main","begin_registratie":"2026-03-30T03:00:04.131798","identificatie":"7493f253-0c1d-4fd2-a062-8097cc4034bd","bronorganisatie":"Scott
+        LLC","bestandsomvang":1000000,"link":"https://pennington-harvey.com/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"c4a2d123-1817-4b3a-a330-67c1282b1594","url":"https://wilson.com/","taal":"es","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"ztc-service","identificatie":"1cc2b34d-8ec7-42db-92ea-1000420ffd89","object_type":"represent","bronorganisatie":"Miranda,
+        Stanley and Madden","zaaktype":"certainly","registratiedatum":"2026-03-03","uuid":"c7129d15-c105-4e20-affd-78d2426d9dc4","url":"http://pope.biz/","verantwoordelijkeOrganisatie":"Sanchez
+        Group","omschrijving":"Sure join huge into.","startdatum":"2026-03-19","toelichting":"Most
+        affect together nice bit relate. Up attack start put base relationship medical.","status":"student"}],"auteur":"Alicia
+        Stewart","formaat":"webm","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Want
+        cause wear myself world.","vertrouwelijkheidaanduiding":"might","informatieobjecttype":"defense","bestandsnaam":"lead.jpeg","creatiedatum":"2026-03-20","group_slug":"zgw-api-group-2","status":"anything"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '1526'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/33333333-3333-3333-3333-333333333333
+  response:
+    body:
+      string: '{"_index":"document","_id":"33333333-3333-3333-3333-333333333333","_version":1,"_seq_no":10,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Girl
+        thus nor grow our Congress. Human strategy least could. Over pick center marriage
+        suddenly experience performance late.","verschijningsvorm":"amount","begin_registratie":"2026-03-16T17:44:08.081997","identificatie":"ee7caa62-9687-4e2c-b51c-80b5990ab1ac","bronorganisatie":"Santos,
+        Thomas and Landry","bestandsomvang":1000000,"link":"http://ramos-mack.biz/","next_check_at":"2026-04-04T12:00:00+00:00","uuid":"33333333-3333-3333-3333-333333333333","url":"http://miller.com/","taal":"fr","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"ztc-service","identificatie":"8cd16852-cafb-42ee-8511-6c0786fdbe31","object_type":"produce","bronorganisatie":"Sutton
+        Ltd","zaaktype":"lawyer","registratiedatum":"2026-03-09","uuid":"0f9abaee-f964-4e7b-b802-a1a9ca46d75e","url":"http://johnson.com/","verantwoordelijkeOrganisatie":"Petty
+        Inc","omschrijving":"Author decision prove employee decide consider to.","startdatum":"2026-03-12","toelichting":"Sister
+        explain yard pattern rest. Ahead build from teach child. Still rate because
+        imagine huge day race generation.","status":"hear"}],"auteur":"Gabrielle Perez","formaat":"jpg","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Drug
+        course wear of should morning town or.","vertrouwelijkheidaanduiding":"realize","informatieobjecttype":"goal","bestandsnaam":"language.avi","creatiedatum":"2026-03-30","group_slug":"zgw-api-group-2","status":"state"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '1598'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/44444444-4444-4444-4444-444444444444
+  response:
+    body:
+      string: '{"_index":"document","_id":"44444444-4444-4444-4444-444444444444","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Once
+        model girl chair picture because.","verschijningsvorm":"organization","begin_registratie":"2026-03-13T23:19:57.997463","identificatie":"4b631bea-98ab-42fe-bb32-da9c9af1d71c","bronorganisatie":"Bennett,
+        Lopez and Payne","bestandsomvang":1000000,"link":"http://smith-lee.org/","next_check_at":"2026-04-09T12:00:00+00:00","uuid":"44444444-4444-4444-4444-444444444444","url":"https://andrews.com/","taal":"doi","zaak_referenties":[{"service_slug":"zaken-api","ztc_service_slug":"ztc-service","identificatie":"dd424330-e7a2-49c0-a634-4b62a7425b10","object_type":"actually","bronorganisatie":"Montes,
+        Johnson and Barry","zaaktype":"such","registratiedatum":"2026-03-22","uuid":"dbfe8aa3-5a09-43a0-a2f8-927f9bf87eab","url":"http://jackson.com/","verantwoordelijkeOrganisatie":"Jones,
+        Kennedy and Hodges","omschrijving":"Improve no indicate letter science main.","startdatum":"2026-03-23","toelichting":"Gas
+        art think artist course. Until write movement recognize around any.","status":"central"}],"auteur":"Maria
+        Doyle","formaat":"docx","last_checked_at":"2026-03-30T12:00:00+00:00","titel":"Improve
+        prove institution friend should stay give.","vertrouwelijkheidaanduiding":"watch","informatieobjecttype":"direction","bestandsnaam":"artist.tiff","creatiedatum":"2026-03-25","group_slug":"zgw-api-group-2","status":"require"}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '1505'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/11111111-1111-1111-1111-111111111111
+  response:
+    body:
+      string: '{"_index":"document","_id":"11111111-1111-1111-1111-111111111111","found":false}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '80'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 404
+      message: Not Found
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: GET
+    uri: http://localhost:9201/document/_doc/22222222-2222-2222-2222-222222222222
+  response:
+    body:
+      string: '{"_index":"document","_id":"22222222-2222-2222-2222-222222222222","found":false}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '80'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 404
+      message: Not Found
+version: 1

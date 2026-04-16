@@ -27,97 +27,20 @@ interactions:
       Content-Type:
       - text/html; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:44:56 GMT
+      - Fri, 10 Apr 2026 12:29:38 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 204
       message: NO CONTENT
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://jones.com/","identificatie":"a28e1a7d-c84c-4d82-9625-074f40778826","bronorganisatie":"Smith,
-      Peck and Simmons","titel":"Data woman window short.","beschrijving":"Degree
-      ten task history quickly forward. Worry set evidence medical.","auteur":"Matthew
-      Shannon","taal":"ca","vertrouwelijkheidaanduiding":"word","status":"direction","formaat":"xlsx","bestandsnaam":"now.ppt","informatieobjecttype":"skill","verschijningsvorm":"piece","bestandsomvang":1000000,"link":"http://www.pham.com/","creatiedatum":"2026-03-02","begin_registratie":"2026-02-24T14:20:22.919001","inhoud":"http://localhost/document/empty","document_data":[{"document_data":""}]}'
+    body: '{"uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"https://www.perez-cooke.com/","identificatie":"b0a49bc4-6156-4a6f-8383-989ee55a2fd3","bronorganisatie":"Barron,
+      Woodard and Santiago","titel":"Grow point feeling.","beschrijving":"Paper both
+      environmental security staff early may. Strategy believe style to significant
+      necessary.","auteur":"Brian Powell","taal":"csb","vertrouwelijkheidaanduiding":"whether","status":"direction","formaat":"mp3","bestandsnaam":"executive.mp4","informatieobjecttype":"board","verschijningsvorm":"any","bestandsomvang":1000000,"link":"http://www.mata-morgan.info/","creatiedatum":"2026-03-22","begin_registratie":"2026-03-29T05:59:58.825926","last_checked_at":"1989-08-13T00:00:00","next_check_at":"2018-10-16T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"6348c934-d26f-4bbd-9d34-cb09776647c7","url":"http://www.mcbride.com/","identificatie":"b79a665e-f92a-4968-bb42-7b4e96136b93","bronorganisatie":"Lawson,
+      Moore and Jordan","verantwoordelijkeOrganisatie":"Strong-Flores","omschrijving":"Letter
+      notice up either check.","toelichting":"Behind everyone population either usually
+      number once. Need factor close less police weight.","status":"save","registratiedatum":"2026-03-25","startdatum":"2026-04-05","zaaktype":"cut","object_type":"despite","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/empty","document_data":[{"document_data":""}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -161,16 +84,20 @@ interactions:
     uri: http://localhost:9201/document/_doc/9acc8148-b498-4c15-b2df-0f26d41ff4c2
   response:
     body:
-      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":1,"_seq_no":13,"_primary_term":1,"found":true,"_source":{"beschrijving":"Degree
-        ten task history quickly forward. Worry set evidence medical.","verschijningsvorm":"piece","begin_registratie":"2026-02-24T14:20:22.919001","identificatie":"a28e1a7d-c84c-4d82-9625-074f40778826","bronorganisatie":"Smith,
-        Peck and Simmons","bestandsomvang":1000000,"link":"http://www.pham.com/","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","url":"http://jones.com/","taal":"ca","auteur":"Matthew
-        Shannon","formaat":"xlsx","inhoud":"http://localhost/document/empty","titel":"Data
-        woman window short.","vertrouwelijkheidaanduiding":"word","document_data":[{"attachment":{}}],"informatieobjecttype":"skill","bestandsnaam":"now.ppt","creatiedatum":"2026-03-02","status":"direction"}}'
+      string: '{"_index":"document","_id":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","_version":1,"_seq_no":13,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Paper
+        both environmental security staff early may. Strategy believe style to significant
+        necessary.","verschijningsvorm":"any","bronorganisatie":"Barron, Woodard and
+        Santiago","link":"http://www.mata-morgan.info/","next_check_at":"2018-10-16T00:00:00","uuid":"9acc8148-b498-4c15-b2df-0f26d41ff4c2","formaat":"mp3","inhoud":"http://localhost/document/empty","titel":"Grow
+        point feeling.","informatieobjecttype":"board","bestandsnaam":"executive.mp4","creatiedatum":"2026-03-22","group_slug":"group-1","begin_registratie":"2026-03-29T05:59:58.825926","identificatie":"b0a49bc4-6156-4a6f-8383-989ee55a2fd3","bestandsomvang":1000000,"url":"https://www.perez-cooke.com/","taal":"csb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"b79a665e-f92a-4968-bb42-7b4e96136b93","object_type":"despite","bronorganisatie":"Lawson,
+        Moore and Jordan","zaaktype":"cut","registratiedatum":"2026-03-25","uuid":"6348c934-d26f-4bbd-9d34-cb09776647c7","url":"http://www.mcbride.com/","verantwoordelijkeOrganisatie":"Strong-Flores","omschrijving":"Letter
+        notice up either check.","startdatum":"2026-04-05","toelichting":"Behind everyone
+        population either usually number once. Need factor close less police weight.","status":"save"}],"auteur":"Brian
+        Powell","last_checked_at":"1989-08-13T00:00:00","vertrouwelijkheidaanduiding":"whether","document_data":[{"attachment":{}}],"status":"direction"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '836'
+      - '1570'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

@@ -1,7 +1,7 @@
 import os
 from collections.abc import Sequence
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import UTC, date, datetime, timedelta
 from typing import TYPE_CHECKING
 
 from elasticsearch.dsl import (
@@ -19,6 +19,8 @@ from elasticsearch.dsl import (
 )
 
 from .typing import IndexName, SearchResultItem
+
+CHECK_EXTENSION_DAYS = 10
 
 DEFAULT_ANALYZER = os.environ.get("ELASTICSEARCH_ANALYZER", "dutch")
 
@@ -40,6 +42,11 @@ class ZaakReferenties(InnerDoc):
     startdatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
     zaaktype: M[str] = mapped_field(Keyword(required=True))
     object_type: M[str] = mapped_field(Keyword(required=True))
+
+    service_slug: M[str | None] = mapped_field(Keyword())
+    ztc_service_slug: M[str | None] = mapped_field(Keyword())
+    ztc_uuid: M[str | None] = mapped_field(Keyword())
+    startjaar: M[str | None] = mapped_field(Keyword())
 
 
 # create empty base mapping instance
@@ -81,6 +88,12 @@ class Document(ES_Document):
 
     zaak_referenties: M[list[ZaakReferenties]] = mapped_field(Nested(ZaakReferenties))
 
+    last_checked_at: M[datetime] = mapped_field(Date())
+    next_check_at: M[datetime] = mapped_field(Date())
+
+    service_slug: M[str] = mapped_field(Keyword())
+    group_slug: M[str | None] = mapped_field(Keyword())
+
     if TYPE_CHECKING:
         # help the type checkers a little bit
         _id: str
@@ -90,6 +103,17 @@ class Document(ES_Document):
 
     class Index:
         name: IndexName = "document"
+
+    def save(self, **kwargs):
+        now = datetime.now(UTC)
+
+        if not self.last_checked_at:
+            self.last_checked_at = now
+
+        if not self.next_check_at:
+            self.next_check_at = now + timedelta(days=CHECK_EXTENSION_DAYS)
+
+        return super().save(**kwargs)
 
 
 class Zaak(ES_Document):
@@ -115,11 +139,22 @@ class Zaak(ES_Document):
     startjaar: M[str | None] = mapped_field(Keyword())
     creatiedatum: M[date] = mapped_field(Date(format="yyyy-MM-dd"))
 
+    last_checked_at: M[datetime] = mapped_field(Date())
+    next_check_at: M[datetime] = mapped_field(Date())
+
     class Index:
         name: IndexName = "zaak"
 
     def save(self, **kwargs):
         self.creatiedatum = self.registratiedatum
+
+        now = datetime.now(UTC)
+        if not self.last_checked_at:
+            self.last_checked_at = now
+
+        if not self.next_check_at:
+            self.next_check_at = now + timedelta(days=CHECK_EXTENSION_DAYS)
+
         return super().save(**kwargs)
 
 
@@ -127,6 +162,12 @@ class Zaak(ES_Document):
 class DocumentResults:
     total_count: int
     results: Sequence[Document]
+
+
+@dataclass
+class ZaakResults:
+    total_count: int
+    results: Sequence[Zaak]
 
 
 @dataclass

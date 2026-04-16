@@ -37,6 +37,8 @@ class NestedzaakFactory(factory.Factory):
     startdatum = factory.Faker("past_date")
     zaaktype = factory.Faker("word")
     object_type = factory.Faker("word")
+    service_slug = "zaken-api"
+    ztc_service_slug = "ztc-service"
 
     class Meta:
         model = dict
@@ -61,6 +63,12 @@ class IndexDocumentFactory(factory.Factory):
     link = factory.Faker("url")
     creatiedatum = factory.Faker("past_date")
     begin_registratie = factory.Faker("past_datetime")
+
+    last_checked_at = factory.Faker("date")
+    next_check_at = factory.Faker("date")
+
+    service_slug = "documenten-api"
+    group_slug = "group-1"
 
     zaak_referenties = factory.List([factory.SubFactory(NestedzaakFactory)])
 

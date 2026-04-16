@@ -29,96 +29,20 @@ interactions:
       Content-Type:
       - text/plain; charset=utf-8
       Date:
-      - Thu, 26 Mar 2026 11:44:55 GMT
+      - Fri, 10 Apr 2026 12:29:37 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://www.wheeler.org/","identificatie":"bedd0265-69eb-4558-86b9-0a2c2b893339","bronorganisatie":"Moss-Daniels","titel":"Hair
-      debate blood now.","beschrijving":"Green fast talk believe. Industry bit phone
-      crime central.","auteur":"Jason Forbes","taal":"ayc","vertrouwelijkheidaanduiding":"attention","status":"forget","formaat":"mov","bestandsnaam":"floor.ppt","informatieobjecttype":"trip","verschijningsvorm":"become","bestandsomvang":1000000,"link":"https://barrera.com/","creatiedatum":"2026-03-01","begin_registratie":"2026-03-14T05:48:01.477040","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
+    body: '{"uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://smith.org/","identificatie":"e7104900-dc46-4390-8ac1-5edc3a6b5f42","bronorganisatie":"Stevens
+      Inc","titel":"Speak citizen it.","beschrijving":"Break fly customer become factor
+      believe. Term specific church although however my sign. Administration item
+      style drive its Mrs still.","auteur":"Carla Robinson","taal":"unm","vertrouwelijkheidaanduiding":"amount","status":"whom","formaat":"flac","bestandsnaam":"there.csv","informatieobjecttype":"big","verschijningsvorm":"news","bestandsomvang":1000000,"link":"https://www.coleman-snyder.com/","creatiedatum":"2026-04-02","begin_registratie":"2026-03-27T19:08:34.088562","last_checked_at":"1980-11-15T00:00:00","next_check_at":"2019-11-23T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"7d12e932-ae62-4e48-bae0-1f7795f0c1f4","url":"http://www.oneal.com/","identificatie":"9c99cc5c-6c5f-46a7-83a1-b6b026d350c9","bronorganisatie":"Garcia
+      Ltd","verantwoordelijkeOrganisatie":"Cunningham-Brown","omschrijving":"Debate
+      experience big again him.","toelichting":"Minute huge her into dark guy. Society
+      open artist two.","status":"community","registratiedatum":"2026-03-17","startdatum":"2026-03-14","zaaktype":"response","object_type":"effect","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","document_data":[{"document_data":"RG9jdW1lbnQgJ2M4MGZjYjQwLWY2YWYtNDRhNC05MGFiLTA3Zjc1YjQ3ZTljYic="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -162,16 +86,21 @@ interactions:
     uri: http://localhost:9201/document/_doc/e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54
   response:
     body:
-      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"beschrijving":"Green
-        fast talk believe. Industry bit phone crime central.","verschijningsvorm":"become","begin_registratie":"2026-03-14T05:48:01.477040","identificatie":"bedd0265-69eb-4558-86b9-0a2c2b893339","bronorganisatie":"Moss-Daniels","bestandsomvang":1000000,"link":"https://barrera.com/","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","url":"http://www.wheeler.org/","taal":"ayc","auteur":"Jason
-        Forbes","formaat":"mov","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Hair
-        debate blood now.","vertrouwelijkheidaanduiding":"attention","document_data":[{"attachment":{"content":"Document
-        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"informatieobjecttype":"trip","bestandsnaam":"floor.ppt","creatiedatum":"2026-03-01","status":"forget"}}'
+      string: '{"_index":"document","_id":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","_version":1,"_seq_no":11,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"Break
+        fly customer become factor believe. Term specific church although however
+        my sign. Administration item style drive its Mrs still.","verschijningsvorm":"news","bronorganisatie":"Stevens
+        Inc","link":"https://www.coleman-snyder.com/","next_check_at":"2019-11-23T00:00:00","uuid":"e90b8ea2-1ac2-4ef9-80ed-059d69eb3c54","formaat":"flac","inhoud":"http://localhost/document/c80fcb40-f6af-44a4-90ab-07f75b47e9cb","titel":"Speak
+        citizen it.","informatieobjecttype":"big","bestandsnaam":"there.csv","creatiedatum":"2026-04-02","group_slug":"group-1","begin_registratie":"2026-03-27T19:08:34.088562","identificatie":"e7104900-dc46-4390-8ac1-5edc3a6b5f42","bestandsomvang":1000000,"url":"http://smith.org/","taal":"unm","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"9c99cc5c-6c5f-46a7-83a1-b6b026d350c9","object_type":"effect","bronorganisatie":"Garcia
+        Ltd","zaaktype":"response","registratiedatum":"2026-03-17","uuid":"7d12e932-ae62-4e48-bae0-1f7795f0c1f4","url":"http://www.oneal.com/","verantwoordelijkeOrganisatie":"Cunningham-Brown","omschrijving":"Debate
+        experience big again him.","startdatum":"2026-03-14","toelichting":"Minute
+        huge her into dark guy. Society open artist two.","status":"community"}],"auteur":"Carla
+        Robinson","last_checked_at":"1980-11-15T00:00:00","vertrouwelijkheidaanduiding":"amount","document_data":[{"attachment":{"content":"Document
+        ''c80fcb40-f6af-44a4-90ab-07f75b47e9cb''"}}],"status":"whom"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '910'
+      - '1622'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

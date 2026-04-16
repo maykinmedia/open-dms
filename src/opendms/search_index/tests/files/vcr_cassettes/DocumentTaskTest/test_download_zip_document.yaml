@@ -21,11 +21,11 @@ interactions:
   response:
     body:
       string: !!binary |
-        UEsDBBQAAAAAAJpdelzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAACaXXpc
-        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAAJpdelzfwKkADgAAAA4AAAAK
-        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAAml16XOLcsooFAAAABQAAAAgA
-        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAAml16XFiNuxMFAAAABQAAAAkAAAAA
-        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAAJpdelzfwKkADgAAAA4AAAAKAAAAAAAA
+        UEsDBBQAAAAAALFjilzi3LKKBQAAAAUAAAAIAAAAdGVzdC50eHR0ZXN0MVBLAwQUAAAAAACxY4pc
+        WI27EwUAAAAFAAAACQAAAHRlc3QyLnR4dHRlc3QyUEsDBBQAAAAAALFjilzfwKkADgAAAA4AAAAK
+        AAAAdGVzdDMuanNvbnsiZm9vIjogImJhciJ9UEsBAhQDFAAAAAAAsWOKXOLcsooFAAAABQAAAAgA
+        AAAAAAAAAAAAAIABAAAAAHRlc3QudHh0UEsBAhQDFAAAAAAAsWOKXFiNuxMFAAAABQAAAAkAAAAA
+        AAAAAAAAAIABKwAAAHRlc3QyLnR4dFBLAQIUAxQAAAAAALFjilzfwKkADgAAAA4AAAAKAAAAAAAA
         AAAAAACAgVcAAAB0ZXN0My5qc29uUEsFBgAAAAADAAMApQAAAI0AAAAAAA==
     headers:
       Connection:
@@ -35,96 +35,18 @@ interactions:
       Content-Type:
       - application/zip
       Date:
-      - Thu, 26 Mar 2026 11:44:52 GMT
+      - Fri, 10 Apr 2026 12:29:34 GMT
       Server:
       - Werkzeug/3.1.6 Python/3.12.13
     status:
       code: 200
       message: OK
 - request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: HEAD
-    uri: http://localhost:9201/document
-  response:
-    body:
-      string: ''
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: null
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: GET
-    uri: http://localhost:9201/document/_settings
-  response:
-    body:
-      string: '{"document":{"settings":{"index":{"routing":{"allocation":{"include":{"_tier_preference":"data_content"}}},"number_of_shards":"1","provided_name":"document","creation_date":"1774525488077","number_of_replicas":"1","uuid":"IkbChDV4STmVSjmgM_XNlA","version":{"created":"8521000"}}}}}'
-    headers:
-      Transfer-Encoding:
-      - chunked
-      X-elastic-product:
-      - Elasticsearch
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"properties":{"document_data":{"properties":{"attachment":{"properties":{"content":{"analyzer":"dutch","type":"text"}},"type":"object"}},"type":"object"},"bestandsnaam":{"analyzer":"dutch","type":"text"},"formaat":{"analyzer":"dutch","type":"text"},"beschrijving":{"analyzer":"dutch","type":"text"},"creatiedatum":{"format":"yyyy-MM-dd","type":"date"},"begin_registratie":{"type":"date"},"identificatie":{"type":"keyword"},"informatieobjecttype":{"analyzer":"dutch","type":"text"},"taal":{"analyzer":"dutch","type":"text"},"status":{"analyzer":"dutch","type":"text"},"vertrouwelijkheidaanduiding":{"analyzer":"dutch","type":"text"},"auteur":{"analyzer":"dutch","type":"text"},"verschijningsvorm":{"analyzer":"dutch","type":"text"},"bestandsomvang":{"type":"long"},"link":{"analyzer":"dutch","type":"text"},"inhoud":{"type":"text"},"bronorganisatie":{"type":"keyword"},"uuid":{"type":"keyword"},"url":{"type":"keyword"},"titel":{"analyzer":"dutch","type":"text"}}}'
-    headers:
-      accept:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      connection:
-      - keep-alive
-      content-type:
-      - application/vnd.elasticsearch+json; compatible-with=8
-      user-agent:
-      - elasticsearch-dsl-py/8.19.3
-      x-elastic-client-meta:
-      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
-    method: PUT
-    uri: http://localhost:9201/document/_mapping
-  response:
-    body:
-      string: '{"acknowledged":true}'
-    headers:
-      X-elastic-product:
-      - Elasticsearch
-      content-length:
-      - '21'
-      content-type:
-      - application/vnd.elasticsearch+json;compatible-with=8
-    status:
-      code: 200
-      message: OK
-- request:
-    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"https://howard.com/","identificatie":"759f831e-b870-4048-be53-c5384ef9ee03","bronorganisatie":"Fisher,
-      Goodman and Goodwin","titel":"Guy why address factor without another.","beschrijving":"Will
-      fly total understand.","auteur":"Patrick Jones","taal":"af","vertrouwelijkheidaanduiding":"model","status":"million","formaat":"txt","bestandsnaam":"hear.xls","informatieobjecttype":"ten","verschijningsvorm":"risk","bestandsomvang":1000,"link":"http://www.hughes-decker.org/","creatiedatum":"2026-03-14","begin_registratie":"2026-03-09T10:06:30.747380","inhoud":"http://localhost/document/zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
+    body: '{"uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"https://wolfe-taylor.com/","identificatie":"dc2f1f76-49c0-47fa-9c10-4f36e3e7aa4b","bronorganisatie":"Ingram,
+      Hernandez and Gould","titel":"Yet gun much material whether particular investment
+      body.","beschrijving":"After discover role mother yourself call beat prevent.
+      Score real choice where talk start town.","auteur":"Anna Davis","taal":"bhb","vertrouwelijkheidaanduiding":"list","status":"daughter","formaat":"ods","bestandsnaam":"picture.css","informatieobjecttype":"class","verschijningsvorm":"style","bestandsomvang":1000,"link":"http://www.williams.com/","creatiedatum":"2026-04-07","begin_registratie":"2026-04-07T08:43:09.725434","last_checked_at":"1997-09-20T00:00:00","next_check_at":"1991-12-20T00:00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"1dea7679-5c4f-4c98-8388-89328249b4f0","url":"http://faulkner.com/","identificatie":"9d355b36-9ae2-40e0-9160-35ff710f3d39","bronorganisatie":"Vance-King","verantwoordelijkeOrganisatie":"Brown-Banks","omschrijving":"Chance
+      hold too outside.","toelichting":"Pattern son government bank identify participant.","status":"age","registratiedatum":"2026-03-29","startdatum":"2026-03-29","zaaktype":"term","object_type":"fast","service_slug":"zaken-api"}],"inhoud":"http://localhost/document/zip","document_data":[{"document_data":"dGVzdDE="},{"document_data":"dGVzdDI="}]}'
     headers:
       accept:
       - application/vnd.elasticsearch+json; compatible-with=8
@@ -168,16 +90,18 @@ interactions:
     uri: http://localhost:9201/document/_doc/f5a98468-92ef-49a1-8dff-4a7c682347f8
   response:
     body:
-      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"beschrijving":"Will
-        fly total understand.","verschijningsvorm":"risk","begin_registratie":"2026-03-09T10:06:30.747380","identificatie":"759f831e-b870-4048-be53-c5384ef9ee03","bronorganisatie":"Fisher,
-        Goodman and Goodwin","bestandsomvang":1000,"link":"http://www.hughes-decker.org/","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","url":"https://howard.com/","taal":"af","auteur":"Patrick
-        Jones","formaat":"txt","inhoud":"http://localhost/document/zip","titel":"Guy
-        why address factor without another.","vertrouwelijkheidaanduiding":"model","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"informatieobjecttype":"ten","bestandsnaam":"hear.xls","creatiedatum":"2026-03-14","status":"million"}}'
+      string: '{"_index":"document","_id":"f5a98468-92ef-49a1-8dff-4a7c682347f8","_version":1,"_seq_no":6,"_primary_term":1,"found":true,"_source":{"service_slug":"documenten-api","beschrijving":"After
+        discover role mother yourself call beat prevent. Score real choice where talk
+        start town.","verschijningsvorm":"style","bronorganisatie":"Ingram, Hernandez
+        and Gould","link":"http://www.williams.com/","next_check_at":"1991-12-20T00:00:00","uuid":"f5a98468-92ef-49a1-8dff-4a7c682347f8","formaat":"ods","inhoud":"http://localhost/document/zip","titel":"Yet
+        gun much material whether particular investment body.","informatieobjecttype":"class","bestandsnaam":"picture.css","creatiedatum":"2026-04-07","group_slug":"group-1","begin_registratie":"2026-04-07T08:43:09.725434","identificatie":"dc2f1f76-49c0-47fa-9c10-4f36e3e7aa4b","bestandsomvang":1000,"url":"https://wolfe-taylor.com/","taal":"bhb","zaak_referenties":[{"service_slug":"zaken-api","identificatie":"9d355b36-9ae2-40e0-9160-35ff710f3d39","object_type":"fast","bronorganisatie":"Vance-King","zaaktype":"term","registratiedatum":"2026-03-29","uuid":"1dea7679-5c4f-4c98-8388-89328249b4f0","url":"http://faulkner.com/","verantwoordelijkeOrganisatie":"Brown-Banks","omschrijving":"Chance
+        hold too outside.","startdatum":"2026-03-29","toelichting":"Pattern son government
+        bank identify participant.","status":"age"}],"auteur":"Anna Davis","last_checked_at":"1997-09-20T00:00:00","vertrouwelijkheidaanduiding":"list","document_data":[{"attachment":{"content":"test1"}},{"attachment":{"content":"test2"}}],"status":"daughter"}}'
     headers:
       X-elastic-product:
       - Elasticsearch
       content-length:
-      - '864'
+      - '1565'
       content-type:
       - application/vnd.elasticsearch+json;compatible-with=8
     status:

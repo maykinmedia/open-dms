@@ -1,5 +1,5 @@
 import re
-from datetime import date
+from datetime import date, datetime
 from typing import Literal, assert_never
 from urllib.parse import urlsplit
 
@@ -13,7 +13,7 @@ from elasticsearch.dsl import Q, Search
 from elasticsearch.exceptions import NotFoundError
 
 from .constants import DOCUMENT_ATTACHMENT_PIPELINE_ID, DOCUMENT_INDEX, ZAAK_INDEX
-from .index import Document, DocumentResults, Results, Zaak
+from .index import Document, DocumentResults, Results, Zaak, ZaakResults
 from .utils import download_document
 
 logger = structlog.get_logger(__name__)
@@ -262,6 +262,23 @@ class ElasticSearchClient:
             results=[hit for hit in response.hits],
         )
 
+    def get_all_zaken(self, page: int = 1, page_size: int = 10) -> ZaakResults:
+        """
+        Retrieve all documents from the index, paginated.
+        """
+        search = Search(index=self.zaak_index, doc_type=Zaak)
+
+        page_from = page_size * (page - 1)
+        search = search[page_from : page_from + page_size]
+        search = search.query("match_all")
+        search = search.using(self.client)
+        response = search.execute()
+        # process the results
+        return ZaakResults(
+            total_count=response.hits.total.value,  # pyright: ignore[reportAttributeAccessIssue]
+            results=[hit for hit in response.hits],
+        )
+
     def get_total_count(self, index: str, doc_type: type) -> int:
         """
         Count documents in the index
@@ -270,16 +287,24 @@ class ElasticSearchClient:
         search = Search(index=index, doc_type=doc_type).using(self.client)
         return search.count()
 
-    def get_last_document_creatiedatum(self) -> str:
+    def get_last_document_creatiedatum(self, service_slug: str | None = None) -> str:
         """
-        Return the latest creatiedatum of documents in Elasticsearch
+        Return the latest creatiedatum of documents in Elasticsearch,
+        optionally filtered by service_slug.
         """
+        query = {"exists": {"field": "creatiedatum"}}
+        if service_slug:
+            query = {
+                "bool": {"must": [query, {"term": {"service_slug": service_slug}}]}
+            }
+
         response = self.client.search(
             index=self.index,
             size=0,
-            query={"exists": {"field": "creatiedatum"}},
+            query=query,
             aggs={"latest_date": {"max": {"field": "creatiedatum"}}},
         )
+
         return (
             response.get("aggregations", {})
             .get("latest_date", {})
@@ -313,7 +338,9 @@ class ElasticSearchClient:
 
         return dates[1]["key_as_string"]
 
-    def index_document(self, document: Document) -> None:
+    def index_document(
+        self, document: Document, service: str, group_slug: str | None
+    ) -> None:
         if (
             document.inhoud
             and document.bestandsomvang
@@ -321,8 +348,10 @@ class ElasticSearchClient:
         ):
             document.document_data = download_document(document_url=document.inhoud)
 
+        document.service_slug = service
+        document.group_slug = group_slug
+
         # TODO check if create or raise error ?
-        Document.init(using=self.client)
         document.save(
             id=str(document.uuid),
             using=self.client,
@@ -368,6 +397,69 @@ class ElasticSearchClient:
             logger.error("failed_to_delete_document")
             return False
 
+    # def update_check_times(
+    #     self, uuid: str, last_checked_at: datetime, next_check_at: datetime
+    # ) -> bool:
+    #     """
+    #     Update the check times for a document.
+    #     """
+    #     try:
+    #         self.client.update(
+    #             index=self.index,
+    #             id=uuid,
+    #             body={
+    #                 "doc": {
+    #                     "last_checked_at": last_checked_at,
+    #                     "next_check_at": next_check_at,
+    #                 }
+    #             },
+    #             refresh=self._settings["REFRESH"],
+    #         )
+    #         return True
+    #     except NotFoundError:
+    #         return False
+    #     except Exception:
+    #         logger.exception("failed_to_update_update_check_times", uuid=uuid)
+    #         return False
+
+    def get_expired_documents(
+        self, now: datetime, batch_size: int = 100, service_slug: str | None = None
+    ) -> list[dict]:
+        """
+        Retrieve expired documents with UUID, service_slug, and group_slug.
+        """
+        try:
+            query = {"range": {"next_check_at": {"lte": now}}}
+            if service_slug:
+                query = {
+                    "bool": {"must": [query, {"term": {"service_slug": service_slug}}]}
+                }
+            response = self.client.search(
+                index=self.index,
+                size=batch_size,
+                _source=["service_slug", "group_slug", "creatiedatum"],
+                query=query,
+            )
+            hits = response.get("hits", {}).get("hits", [])
+            results = []
+
+            for hit in hits:
+                source = hit.get("_source", {})
+                results.append(
+                    {
+                        "uuid": hit.get("_id"),
+                        "service_slug": source.get("service_slug"),
+                        "group_slug": source.get("group_slug"),
+                        "creatiedatum": source.get("creatiedatum"),
+                    }
+                )
+
+            return results
+
+        except Exception:
+            logger.exception("failed_to_fetch_expired_documents")
+            return []
+
     def index_zaken(
         self, zaak: Zaak, service_slug: str, group_slug: str | None
     ) -> None:
@@ -378,6 +470,83 @@ class ElasticSearchClient:
             using=self.client,
             refresh=settings.SEARCH_INDEX["REFRESH"],
         )
+
+    def get_expired_zaken(
+        self, now: datetime, batch_size: int = 100, service_slug: str | None = None
+    ) -> list[dict]:
+        """
+        Retrieve expired zaken with UUID, service_slug, and group_slug.
+        """
+        try:
+            query = {"range": {"next_check_at": {"lte": now}}}
+            if service_slug:
+                query = {
+                    "bool": {"must": [query, {"term": {"service_slug": service_slug}}]}
+                }
+            response = self.client.search(
+                index=self.zaak_index,
+                size=batch_size,
+                _source=["service_slug", "group_slug", "registratiedatum"],
+                query=query,
+            )
+            hits = response.get("hits", {}).get("hits", [])
+            results = []
+
+            for hit in hits:
+                source = hit.get("_source", {})
+                results.append(
+                    {
+                        "uuid": hit.get("_id"),
+                        "service_slug": source.get("service_slug"),
+                        "group_slug": source.get("group_slug"),
+                        "registratiedatum": source.get("registratiedatum"),
+                    }
+                )
+
+            return results
+
+        except Exception:
+            logger.exception("failed_to_fetch_expired_zaken")
+            return []
+
+    def update_check_times(
+        self, uuid: str, last_checked_at: datetime, next_check_at: datetime
+    ) -> bool:
+        """
+        Update the check times for a document.
+        """
+        try:
+            self.client.update(
+                index=self.zaak_index,
+                id=uuid,
+                body={
+                    "doc": {
+                        "last_checked_at": last_checked_at,
+                        "next_check_at": next_check_at,
+                    }
+                },
+                refresh=self._settings["REFRESH"],
+            )
+            return True
+        except NotFoundError:
+            return False
+        except Exception:
+            logger.exception("failed_to_update_update_check_times", uuid=uuid)
+            return False
+
+    def delete_zaak(self, uuid: str) -> bool:
+        """
+        Delete a Zaak from Elasticsearch by its UUID.
+        """
+        try:
+            doc = Zaak.get(id=uuid, using=self.client)
+            doc.delete(using=self.client, refresh=settings.SEARCH_INDEX["REFRESH"])
+            return True
+        except NotFoundError:
+            return False
+        except Exception:
+            logger.error("failed_to_delete_zaak")
+            return False
 
 
 def get_elasticsearch_client() -> ElasticSearchClient:

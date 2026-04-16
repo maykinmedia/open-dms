@@ -1,0 +1,118 @@
+interactions:
+- request:
+    body: '{"uuid":"doc-valid","url":"http://allison.org/","identificatie":"b63eab19-714a-486b-821b-ea77ab2db9f1","bronorganisatie":"Moore
+      LLC","titel":"Crime head generation identify agreement.","beschrijving":"Short
+      point tree personal campaign quite. Example simple south college whom wrong.","auteur":"Morgan
+      Day","taal":"pl","vertrouwelijkheidaanduiding":"hospital","status":"bank","formaat":"jpg","bestandsnaam":"area.mp3","informatieobjecttype":"they","verschijningsvorm":"room","bestandsomvang":1000000,"link":"https://smith-jones.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-30T15:46:35.838376","last_checked_at":"2026-04-13T08:57:41.772863+00:00","next_check_at":"2026-04-18T08:57:41.772867+00:00","service_slug":"documenten-api","group_slug":"group-1","zaak_referenties":[{"uuid":"cb0eae2b-fa8a-4070-a635-71e2aecbc58a","url":"http://www.blanchard.com/","identificatie":"29e86481-2572-4c85-9e33-d35f5d8319e4","bronorganisatie":"White-Smith","verantwoordelijkeOrganisatie":"Melendez
+      Inc","omschrijving":"Reflect story right suddenly until heart.","toelichting":"Road
+      hope issue marriage. Learn especially goal consider. Painting key education
+      though.","status":"couple","registratiedatum":"2026-03-18","startdatum":"2026-03-14","zaaktype":"Democrat","object_type":"now","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/doc-valid?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"doc-valid","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":6,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/doc-valid
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '149'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_count
+  response:
+    body:
+      string: '{"count":1,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '71'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: '{"query":{"bool":{"must":[{"range":{"next_check_at":{"lte":"2026-04-13T08:57:42.571558+00:00"}}},{"term":{"service_slug":"documenten-api"}}]}},"size":100,"_source":["service_slug","group_slug","creatiedatum"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-py/8.19.3 (Python/3.12.3; elastic-transport/8.17.1)
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":4,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_count
+  response:
+    body:
+      string: '{"count":1,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0}}'
+    headers:
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '71'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1

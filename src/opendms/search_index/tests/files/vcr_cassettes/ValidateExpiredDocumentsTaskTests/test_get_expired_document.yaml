@@ -1,0 +1,136 @@
+interactions:
+- request:
+    body: '{"uuid":"expired-1","url":"http://keith.biz/","identificatie":"7eaa6e53-41bc-4773-aaae-6eaabca5e976","bronorganisatie":"Simon,
+      Mcpherson and Russo","titel":"Resource building team arm.","beschrijving":"Only
+      statement draw loss sense leg. Quite teacher two prepare thank.","auteur":"Paul
+      Ruiz","taal":"ff","vertrouwelijkheidaanduiding":"beautiful","status":"group","formaat":"flac","bestandsnaam":"half.flac","informatieobjecttype":"clearly","verschijningsvorm":"study","bestandsomvang":1000000,"link":"http://www.bray-reyes.org/","creatiedatum":"2026-03-14","begin_registratie":"2026-04-08T14:36:00.046733","last_checked_at":"2026-04-11T08:57:38.748858+00:00","next_check_at":"2026-04-12T08:57:38.748858+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"a1a16e48-c5f7-4448-8410-c5da4d3bad1b","url":"https://www.cole.com/","identificatie":"61bd987d-a4e8-4b42-aaae-90eba742b717","bronorganisatie":"Baker-Rodriguez","verantwoordelijkeOrganisatie":"Fleming-Miller","omschrijving":"Sell
+      style certainly smile more table.","toelichting":"Bad reduce kid exist two.
+      Significant feeling method follow. Chance policy authority note.","status":"speech","registratiedatum":"2026-04-05","startdatum":"2026-04-05","zaaktype":"travel","object_type":"avoid","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/expired-1?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"expired-1","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":0,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/expired-1
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '149'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"expired-2","url":"https://roberts-villarreal.com/","identificatie":"b323b57d-10af-4a0f-b3bd-c867e8471138","bronorganisatie":"Hernandez,
+      Russell and Gomez","titel":"Whole trouble onto image human.","beschrijving":"Majority
+      ball partner simply also everybody establish. Else environmental with popular
+      wrong thousand. Head anyone property class own toward.","auteur":"Ashley Dunn","taal":"el","vertrouwelijkheidaanduiding":"week","status":"hot","formaat":"jpeg","bestandsnaam":"role.webm","informatieobjecttype":"ten","verschijningsvorm":"employee","bestandsomvang":1000000,"link":"https://www.lewis-jones.com/","creatiedatum":"2026-03-15","begin_registratie":"2026-03-18T01:43:02.306115","last_checked_at":"2026-04-12T07:57:38.748858+00:00","next_check_at":"2026-04-13T07:57:38.748858+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"11e12091-07b7-4d3b-86e7-2560b42cdd6d","url":"https://www.munoz.com/","identificatie":"16041ac5-1c93-4a20-af85-2ced982875c1","bronorganisatie":"Ward
+      and Sons","verantwoordelijkeOrganisatie":"Hicks Inc","omschrijving":"Civil dinner
+      really unit hospital improve describe agency.","toelichting":"Strong compare
+      woman north hundred crime what. Large former eye remember tell.","status":"smile","registratiedatum":"2026-03-21","startdatum":"2026-03-25","zaaktype":"expert","object_type":"threat","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/expired-2?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"expired-2","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":1,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/expired-2
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '149'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"uuid":"valid-1","url":"https://www.schmitt.com/","identificatie":"be8ac777-50f4-4f83-86ec-3c28907a32df","bronorganisatie":"Brown-Cardenas","titel":"State
+      red will later country them real.","beschrijving":"On like hour carry let yes
+      evidence look. Sea beautiful situation deal industry hundred car.","auteur":"Hannah
+      Leach","taal":"ss","vertrouwelijkheidaanduiding":"early","status":"home","formaat":"js","bestandsnaam":"from.pdf","informatieobjecttype":"likely","verschijningsvorm":"more","bestandsomvang":1000000,"link":"http://roy.com/","creatiedatum":"2026-03-16","begin_registratie":"2026-04-01T23:06:24.264469","last_checked_at":"2026-04-13T08:57:38.748858+00:00","next_check_at":"2026-04-14T08:57:38.748858+00:00","service_slug":"documenten-api","group_slug":"group-test","zaak_referenties":[{"uuid":"cfdc22c6-d09b-49b3-a029-dcd04adf1db0","url":"http://www.carey-clark.info/","identificatie":"ef2851dc-fe8c-4a0a-a372-0f1d382fac0f","bronorganisatie":"Rodriguez-Lewis","verantwoordelijkeOrganisatie":"Gallagher-Obrien","omschrijving":"Deep
+      claim watch us.","toelichting":"Watch should product single fire. Room something
+      money it special.","status":"level","registratiedatum":"2026-03-30","startdatum":"2026-03-26","zaaktype":"card","object_type":"adult","service_slug":"zaken-api","ztc_service_slug":"ztc-service"}]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: PUT
+    uri: http://localhost:9201/document/_doc/valid-1?pipeline=document_attachment&refresh=wait_for
+  response:
+    body:
+      string: '{"_index":"document","_id":"valid-1","_version":1,"result":"created","_shards":{"total":2,"successful":1,"failed":0},"_seq_no":2,"_primary_term":1}'
+    headers:
+      Location:
+      - /document/_doc/valid-1
+      X-elastic-product:
+      - Elasticsearch
+      content-length:
+      - '147'
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 201
+      message: Created
+- request:
+    body: '{"query":{"range":{"next_check_at":{"lte":"2026-04-13T08:57:38.748858+00:00"}}},"size":10,"_source":["service_slug","group_slug","creatiedatum"]}'
+    headers:
+      accept:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      connection:
+      - keep-alive
+      content-type:
+      - application/vnd.elasticsearch+json; compatible-with=8
+      user-agent:
+      - elasticsearch-dsl-py/8.19.3
+      x-elastic-client-meta:
+      - es=8.19.3,py=3.12.3,t=8.17.1,ur=2.6.3
+    method: POST
+    uri: http://localhost:9201/document/_search
+  response:
+    body:
+      string: '{"took":13,"timed_out":false,"_shards":{"total":1,"successful":1,"skipped":0,"failed":0},"hits":{"total":{"value":2,"relation":"eq"},"max_score":1.0,"hits":[{"_index":"document","_id":"expired-1","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-14","group_slug":"group-test"}},{"_index":"document","_id":"expired-2","_score":1.0,"_source":{"service_slug":"documenten-api","creatiedatum":"2026-03-15","group_slug":"group-test"}}]}}'
+    headers:
+      Transfer-Encoding:
+      - chunked
+      X-elastic-product:
+      - Elasticsearch
+      content-type:
+      - application/vnd.elasticsearch+json;compatible-with=8
+    status:
+      code: 200
+      message: OK
+version: 1
