@@ -83,7 +83,8 @@ export const AuthenticatedLayout = () => {
 
       const zaak = item.data.zaakReferenties?.[0];
       if (!zaak?.ztcServiceSlug || !zaak.ztcUuid) return [];
-      const zaakYear = zaak.startjaar ?? new Date(zaak.startdatum).getFullYear();
+      const zaakYear =
+        zaak.startjaar ?? new Date(zaak.startdatum).getFullYear();
       return [
         {
           title: item.data.titel,
