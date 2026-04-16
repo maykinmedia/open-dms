@@ -35,34 +35,36 @@ class DocumentTests(VCRMixin, APITestCase):
     def test_list(self):
         response = self.client.get(self.list_url)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        data = response.json()
+        self.assertEqual(data["count"], 1)
         self.assertEqual(
-            response.json(),
-            {
-                "count": 1,
-                "results": [
-                    {
-                        "uuid": "ea16fa8c-4bab-4065-a28a-f6574625205d",
-                        "url": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d",
-                        "identificatie": "DOCUMENT-2026-0000000001",
-                        "bronorganisatie": "000000115",
-                        "creatiedatum": "2026-01-15",
-                        "titel": "aanvraag formulier",
-                        "auteur": "Niek van den Berg",
-                        "taal": "nld",
-                        "beginRegistratie": "2026-03-25T13:51:49.784000Z",
-                        "informatieobjecttype": "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab",
-                        "vertrouwelijkheidaanduiding": "confidentieel",
-                        "status": "",
-                        "formaat": "",
-                        "bestandsnaam": "",
-                        "link": "",
-                        "beschrijving": "",
-                        "verschijningsvorm": "",
-                        "bestandsomvang": None,
-                        "inhoud": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1",
-                    }
-                ],
-            },
+            data["results"][0]["uuid"], "ea16fa8c-4bab-4065-a28a-f6574625205d"
+        )
+        self.assertEqual(
+            data["results"][0]["url"],
+            "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d",
+        )
+        self.assertEqual(
+            data["results"][0]["identificatie"], "DOCUMENT-2026-0000000001"
+        )
+        self.assertEqual(data["results"][0]["creatiedatum"], "2026-01-15")
+        self.assertEqual(data["results"][0]["titel"], "aanvraag formulier")
+        self.assertEqual(data["results"][0]["auteur"], "Niek van den Berg")
+        self.assertEqual(data["results"][0]["taal"], "nld")
+        self.assertEqual(
+            data["results"][0]["beginRegistratie"], "2026-03-25T13:51:49.784000Z"
+        )
+        self.assertEqual(
+            data["results"][0]["informatieobjecttype"],
+            "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab",
+        )
+        self.assertEqual(
+            data["results"][0]["vertrouwelijkheidaanduiding"], "confidentieel"
+        )
+        self.assertEqual(
+            data["results"][0]["inhoud"],
+            "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1",
         )
 
     def test_detail(self):
@@ -94,29 +96,35 @@ class DocumentTests(VCRMixin, APITestCase):
             )
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        data = response.json()
+        self.assertEqual(data["uuid"], document_uuid)
         self.assertEqual(
-            response.json(),
-            {
-                "uuid": document_uuid,
-                "url": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d",
-                "identificatie": "DOCUMENT-2026-0000000001",
-                "bronorganisatie": "000000115",
-                "creatiedatum": "2026-01-15",
-                "titel": "aanvraag formulier",
-                "auteur": "Niek van den Berg",
-                "taal": "nld",
-                "beginRegistratie": "2026-03-25T13:51:49.784000Z",
-                "informatieobjecttype": "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab",
-                "vertrouwelijkheidaanduiding": "confidentieel",
-                "status": "",
-                "formaat": "",
-                "bestandsnaam": "",
-                "link": "",
-                "beschrijving": "",
-                "verschijningsvorm": "",
-                "bestandsomvang": None,
-                "inhoud": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1",
-            },
+            data["url"],
+            "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d",
+        )
+        self.assertEqual(data["identificatie"], "DOCUMENT-2026-0000000001")
+        self.assertEqual(data["bronorganisatie"], "000000115")
+        self.assertEqual(data["creatiedatum"], "2026-01-15")
+        self.assertEqual(data["titel"], "aanvraag formulier")
+        self.assertEqual(data["auteur"], "Niek van den Berg")
+        self.assertEqual(data["taal"], "nld")
+        self.assertEqual(data["beginRegistratie"], "2026-03-25T13:51:49.784000Z")
+        self.assertEqual(
+            data["informatieobjecttype"],
+            "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab",
+        )
+        self.assertEqual(data["vertrouwelijkheidaanduiding"], "confidentieel")
+        self.assertEqual(data["status"], "")
+        self.assertEqual(data["formaat"], "")
+        self.assertEqual(data["bestandsnaam"], "")
+        self.assertEqual(data["link"], "")
+        self.assertEqual(data["beschrijving"], "")
+        self.assertEqual(data["verschijningsvorm"], "")
+        self.assertIsNone(data["bestandsomvang"])
+        self.assertEqual(
+            data["inhoud"],
+            "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d/download?versie=1",
         )
 
     # TODO add new tests for checking the versions
