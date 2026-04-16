@@ -119,7 +119,7 @@ export const DocumentsList = () => {
         highlighted: doc.uuid === highlight,
         title: doc.titel,
         icon: <Outline.DocumentIcon />,
-        informationLines: [doc.identificatie].filter(Boolean),
+        informationLines: [doc.identificatie, doc.formaat].filter(Boolean),
         actions: doc.hasPendingUpdates
           ? [
               {
