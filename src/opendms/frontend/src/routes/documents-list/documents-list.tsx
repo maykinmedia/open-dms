@@ -113,79 +113,74 @@ export const DocumentsList = () => {
     [alert, revalidate],
   );
 
-  const items = useMemo<ItemGridItemProps[]>(() => {
-    return (
-      data?.results.map((doc) => {
-        return {
-          id: doc.uuid,
-          highlighted: doc.uuid === highlight,
-          title: doc.titel,
-          icon: <Outline.DocumentIcon />,
-          informationLines: [doc.formaat],
-          actions: doc.hasPendingUpdates
-            ? [
-                {
-                  as: "a",
-                  children: <Outline.ArrowDownOnSquareIcon />,
-                  download: true,
-                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
-                  title: "Bestand downloaden",
-                },
-                {
-                  as: "a",
-                  children: <Outline.PencilSquareIcon />,
-                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
-                  title: "Bestand bewerken",
-                  target: "_blank",
-                },
-                {
-                  as: "a",
-                  children: (
-                    <>
-                      <Outline.CloudArrowUpIcon />
-                      Opslaan
-                    </>
-                  ),
-                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/upload`,
-                  square: false,
-                  target: "_blank",
-                  title: "Bestand opslaan in Open Zaak",
-                  onClick: handleUpload,
-                },
-              ]
-            : [
-                {
-                  as: "a",
-                  children: <Outline.ArrowDownOnSquareIcon />,
-                  download: true,
-                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
-                  title: "Bestand downloaden",
-                },
-                {
-                  as: "a",
-                  children: (
-                    <>
-                      <Outline.PencilSquareIcon />
-                      Bewerken
-                    </>
-                  ),
-                  href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
-                  square: false,
-                  title: "Bestand bewerken",
-                  target: "_blank",
-                },
-              ],
-        };
-      }) ?? []
-    );
-  }, [
-    data?.results,
-    serviceSlug,
-    zaaktypeUuid,
-    zaakId,
-    handleUpload,
-    highlight,
-  ]);
+  const items = useMemo<ItemGridItemProps[]>(
+    () =>
+      data?.results.map((doc) => ({
+        highlighted: doc.uuid === highlight,
+        title: doc.titel,
+        icon: <Outline.DocumentIcon />,
+        informationLines: [doc.identificatie].filter(Boolean),
+        actions: doc.hasPendingUpdates
+          ? [
+              {
+                as: "a",
+                children: <Outline.ArrowDownOnSquareIcon />,
+                download: true,
+                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
+                size: "xs",
+                title: "Bestand downloaden",
+              },
+              {
+                as: "a",
+                children: <Outline.PencilSquareIcon />,
+                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
+                size: "xs",
+                title: "Bestand bewerken",
+                target: "_blank",
+              },
+              {
+                as: "a",
+                children: (
+                  <>
+                    <Outline.CloudArrowUpIcon />
+                    Opslaan
+                  </>
+                ),
+                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/upload`,
+                square: false,
+                target: "_blank",
+                size: "xs",
+                title: "Bestand opslaan in Open Zaak",
+                onClick: handleUpload,
+              },
+            ]
+          : [
+              {
+                as: "a",
+                children: <Outline.ArrowDownOnSquareIcon />,
+                download: true,
+                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
+                size: "xs",
+                title: "Bestand downloaden",
+              },
+              {
+                as: "a",
+                children: (
+                  <>
+                    <Outline.PencilSquareIcon />
+                    Bewerken
+                  </>
+                ),
+                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
+                square: false,
+                size: "xs",
+                title: "Bestand bewerken",
+                target: "_blank",
+              },
+            ],
+      })) ?? [],
+    [data?.results, serviceSlug, zaaktypeUuid, zaakId, highlight, handleUpload],
+  );
 
   if (!data) return null;
   invariant(rootData?.zaaktype?.identificatie, "Zaaktype not loaded!");
@@ -193,7 +188,7 @@ export const DocumentsList = () => {
   return (
     <ItemGridTemplate
       title={`${rootData.zaaktype.identificatie} / ${zaakYear} / documenten`}
-      itemGridProps={{ ellipsis: true, items }}
+      itemGridProps={{ direction: "v", ellipsis: true, items }}
       paginatorProps={{
         count: data.count,
         page: getPageFromSearchParams(searchParams),
