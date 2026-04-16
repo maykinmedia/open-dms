@@ -12,6 +12,8 @@ from maykin_2fa.urls import urlpatterns, webauthn_urlpatterns
 from maykin_common.accounts.views import PasswordResetView
 from mozilla_django_oidc_db.views import AdminLoginFailure
 
+from opendms.api.viewsets import MsAuthCallbackView, WebhookView
+
 # Configure admin
 
 monkeypatch_admin()
@@ -39,6 +41,9 @@ urlpatterns = [
     # OIDC urls
     path("admin/login/failure/", AdminLoginFailure.as_view(), name="admin-oidc-error"),
     path("auth/oidc/", include("mozilla_django_oidc.urls")),
+    # TODO OneDrive check this URL
+    path("oidc/callback/", MsAuthCallbackView.as_view(), name="ms_auth_callback"),
+    path("webhook", WebhookView.as_view(), name="webhook"),
     # Use custom login views for the admin + support hardware tokens
     path("admin/", include((urlpatterns, "maykin_2fa"))),
     path("admin/", include((webauthn_urlpatterns, "two_factor"))),

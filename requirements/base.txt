@@ -75,6 +75,8 @@ cryptography==46.0.6
     #   django-simple-certmanager
     #   josepy
     #   mozilla-django-oidc
+    #   msal
+    #   pyjwt
     #   pyopenssl
     #   webauthn
 django==5.2.12
@@ -284,6 +286,8 @@ mozilla-django-oidc==5.0.2
     # via mozilla-django-oidc-db
 mozilla-django-oidc-db==1.1.1
     # via open-api-framework
+msal==1.35.1
+    # via -r requirements/base.in
 multivolumefile==0.2.3
     # via py7zr
 notifications-api-common==0.10.1
@@ -419,6 +423,7 @@ pyjwt==2.12.1
     # via
     #   commonground-api-common
     #   mozilla-django-oidc
+    #   msal
     #   zgw-consumers
 pyopenssl==26.0.0
     # via webauthn
@@ -469,6 +474,7 @@ requests==2.33.1
     #   django-rosetta
     #   maykin-common
     #   mozilla-django-oidc
+    #   msal
     #   open-api-framework
     #   opentelemetry-exporter-otlp-proto-http
     #   zgw-consumers

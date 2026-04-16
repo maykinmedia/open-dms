@@ -1,7 +1,13 @@
+import base64
+import mimetypes
+
 from django.http import StreamingHttpResponse
 from django.utils.translation import gettext_lazy as _
 
-from rest_framework import exceptions
+import magic
+import structlog
+from requests.exceptions import RequestException, Timeout
+from rest_framework import exceptions, status
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
@@ -17,6 +23,9 @@ from ..typing import (
 from ..utils.mixins import HttpRequestMixin
 
 CRS_HEADERS = {"Content-Crs": "EPSG:4326", "Accept-Crs": "EPSG:4326"}
+
+
+logger = structlog.stdlib.get_logger(__name__)
 
 
 class DocumentClient(HttpRequestMixin, NLXClient):
@@ -52,10 +61,60 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         if response.status_code == 204:
             return StreamingHttpResponse(status=204)
 
+        first_chunk = next(response.iter_content(chunk_size=8192))
+        mime_type = magic.from_buffer(first_chunk, mime=True)
+        extension = mimetypes.guess_extension(mime_type) or ""
+
+        def stream():
+            yield first_chunk
+            for chunk in response.iter_content(chunk_size=8192):  # noqa
+                yield chunk
+
         file_response = StreamingHttpResponse(
-            response.iter_content(chunk_size=8192), headers=response.headers
+            stream(), headers={**response.headers, "File-Extension": extension}
         )
         return file_response
+
+    def upload_document(
+        self,
+        document_uuid: str,
+        content: bytes,
+        size: int,
+        mime_type: str = "application/octet-stream",
+    ) -> int:
+        """
+        Upload a document to the API.
+        Locks the resource, uploads the content, then unlocks it.
+        The lock is always released even if the upload fails.
+
+        """
+        try:
+            lock_response = self.post(f"{self.endpoint}/{document_uuid}/lock")
+            lock_response.raise_for_status()
+            lock = lock_response.json().get("lock", "")
+
+            try:
+                response = self.patch(
+                    f"{self.endpoint}/{document_uuid}",
+                    json={
+                        "inhoud": base64.b64encode(content).decode("utf-8"),
+                        "lock": lock,
+                        "bestandsomvang": size,
+                    },
+                )
+                response.raise_for_status()
+                return status.HTTP_200_OK, "Document Uploaded"
+            finally:
+                unlock_response = self.post(f"{self.endpoint}/{document_uuid}/unlock")
+                unlock_response.raise_for_status()
+
+        except Timeout:
+            logger.exception("timeout__request", document_uuid=document_uuid)
+            return status.HTTP_408_REQUEST_TIMEOUT, "Request Timeout"
+
+        except RequestException:
+            logger.exception("error_request", document_uuid=document_uuid)
+            return status.HTTP_503_SERVICE_UNAVAILABLE, "Service Unavailable"
 
     def get_paginated_items_by_zaak(
         self, zaak_url: str, params: dict | None = None

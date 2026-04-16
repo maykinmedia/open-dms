@@ -71,6 +71,24 @@
     "model": "admin_index.appgroup",
     "fields": {
         "order": 3,
+        "name": "docedit",
+        "slug": "docedit",
+        "models": [
+            [
+                "doc_edit",
+                "basedrivesubscription"
+            ],
+            [
+                "doc_edit",
+                "basedrivedocument"
+            ]
+        ]
+    }
+},
+{
+    "model": "admin_index.appgroup",
+    "fields": {
+        "order": 4,
         "translations": {
             "en": "Logging",
             "nl": "Logging"

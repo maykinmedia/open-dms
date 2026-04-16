@@ -1,3 +1,9 @@
+import os
+import tempfile
+
+from django.http import Http404
+from django.shortcuts import redirect
+from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
 
 import structlog
@@ -10,11 +16,15 @@ from drf_spectacular.utils import (
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
+from rest_framework.permissions import AllowAny
+from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from zgw_consumers.constants import APITypes
 from zgw_consumers.models import Service
 
+from opendms.doc_edit.backends.ms_graph_api.backend import MsGraphApiBackend
+from opendms.doc_edit.models import BaseDriveDocument
 from opendms.search_index.client import get_elasticsearch_client
 
 from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_client
@@ -47,10 +57,75 @@ from .utils.schema import (
     ZAAKTYPE_PARAM,
     ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
     ZAKEN_ZAAK_UUID_PARAM,
+    PlainTextRenderer,
     param,
 )
 
 logger = structlog.stdlib.get_logger(__name__)
+
+document_edit_backend = MsGraphApiBackend()
+
+
+class WebhookView(APIView):
+    renderer_classes = [PlainTextRenderer]
+    permission_classes = [AllowAny]
+
+    @extend_schema(
+        summary="Webhook callback",
+        description="Endpoint webhook che riceve notifiche dal backend document_edit.",
+        request=OpenApiTypes.OBJECT,
+        responses={
+            (status.HTTP_200_OK, "text/plain"): OpenApiResponse(
+                description="Webhook verwerkt",
+                response=OpenApiTypes.STR,
+            ),
+            status.HTTP_400_BAD_REQUEST: OpenApiResponse(
+                description="Ongeldige payload",
+            ),
+        },
+    )
+    def post(self, request, *args, **kwargs):
+        return document_edit_backend.updated_callback(request)
+
+
+class MsAuthCallbackView(APIView):
+    @extend_schema(
+        summary="Microsoft authentication callback",
+        description="Callback endpoint voor Microsoft OAuth authenticatie.",
+        responses={
+            status.HTTP_302_FOUND: OpenApiResponse(
+                description="Redirect naar de oorspronkelijke URL na succesvolle authenticatie",
+            ),
+            status.HTTP_400_BAD_REQUEST: OpenApiResponse(
+                description="Invalid callback of fout tijdens authenticatie",
+            ),
+            status.HTTP_401_UNAUTHORIZED: OpenApiResponse(
+                description="Authenticatie mislukt (geen access token)",
+            ),
+        },
+    )
+    def get(self, request, *args, **kwargs):
+        try:
+            # Process callback
+            document_edit_backend.authenticated_callback(request)
+
+            # Redirect to "origin_url"
+            origin_url = request.session.pop("origin_url", "/")
+            return redirect(origin_url)
+        except PermissionError as exc:
+            # When the authentication fails
+            logger.exception(str(exc))
+            return Response(
+                {"status": "error", "detail": _("Authentication failed")},
+                status=403,
+            )
+        except OSError as exc:
+            # When the authentication initialization fails
+            logger.exception(str(exc))
+            return Response(
+                {"status": "error", "detail": "Invalid callback"},
+                status=400,
+            )
 
 
 class SearchView(APIView):
@@ -318,7 +393,109 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         },
     )
     @action(methods=["get"], detail=True, name="document_download")
-    def download(self, request, *args, **kwargs):
+    def download(self, request: Request, *args, **kwargs):
         obj = self.get_object()
         with get_documenten_client(self.zgw_group.drc_service) as client:
             return client.download_document(obj["inhoud"])
+
+    @extend_schema(
+        "document_edit",
+        summary="documentsEdit",
+        description=_("Een document met binaire gegevens bewerken op OneDrive"),
+        parameters=[
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAKEN_ZAAK_UUID_PARAM,
+            DOCUMENT_PARAM,
+        ],
+        responses={
+            (status.HTTP_302_FOUND, "application/octet-stream"): OpenApiResponse(
+                description="Redirect naar de binaire bestandsinhoud",
+            )
+        },
+    )
+    @action(methods=["get"], detail=True, name="document_edit")
+    def edit(self, request: Request, *args, **kwargs):
+        # Get document
+        obj = self.get_object()
+        if not obj:
+            raise Http404
+
+        # Download file contents
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            file_response = client.download_document(obj["inhoud"])
+
+        # Get file meta-information
+        file_ext = file_response.get("File-Extension", "")
+        file_uuid = self.kwargs.get(self.lookup_field)
+        tmp_path = None
+
+        try:
+            # Create the temp file
+            with tempfile.NamedTemporaryFile(
+                suffix=file_ext,
+                delete=False,
+            ) as tmp_file:
+                for chunk in file_response.streaming_content:
+                    tmp_file.write(chunk)
+                tmp_path = tmp_file.name
+
+            # Open temp file in document_edit_backend
+            return document_edit_backend.open(request, tmp_path, file_uuid, file_ext)
+        except PermissionError:
+            # (Re-)authenticate
+            return self._redirect_to_ms_auth(request)
+        finally:
+            if tmp_path and os.path.exists(tmp_path):
+                os.unlink(tmp_path)
+
+    @extend_schema(
+        "document_upload",
+        summary="documentsUpload",
+        description=_("Een nieuwe versie van een document uploaden naar OpenZaak"),
+        parameters=[
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAKEN_ZAAK_UUID_PARAM,
+            DOCUMENT_PARAM,
+        ],
+    )
+    @action(methods=["get"], detail=True, name="document_upload")
+    def upload(self, request: Request, *args, **kwargs):
+        access_token = request.session.get("access_token", None)
+        if not access_token:
+            return self._redirect_to_ms_auth(request)
+
+        document_uuid = self.kwargs.get(self.lookup_field)
+        document = BaseDriveDocument.objects.filter(document_uuid=document_uuid).first()
+
+        if not document:
+            return Response(
+                "Document not found in OneDrive", status=status.HTTP_404_NOT_FOUND
+            )
+
+        document_edit_backend._set_token(access_token)
+        document_drive = document_edit_backend.one_drive_client.download_item(
+            item_id=document.document_drive_id
+        )
+        document_info = document_edit_backend.one_drive_client.get_item_info(
+            item_id=document.document_drive_id
+        )
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            status_code, message = client.upload_document(
+                document_uuid,
+                content=document_drive.content,
+                size=document_info["size"],
+                mime_type=document_info["mimeType"],
+            )
+
+        # Mark as up-to-date
+        document.updated_at = None
+        document.save()
+
+        return Response(message, status=status_code)
+
+    def _redirect_to_ms_auth(self, request: Request):
+        callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
+        request.session["origin_url"] = request.build_absolute_uri()
+        return document_edit_backend.authenticate(request, redirect_url=callback_url)

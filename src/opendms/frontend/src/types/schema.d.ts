@@ -240,6 +240,46 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/edit": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * documentsEdit
+         * @description Een document met binaire gegevens bewerken op OneDrive
+         */
+        get: operations["documentEdit"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/upload": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * documentsUpload
+         * @description Een nieuwe versie van een document uploaden naar OpenZaak
+         */
+        get: operations["documentUpload"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/services/{slug}": {
         parameters: {
             query?: never;
@@ -250,6 +290,46 @@ export interface paths {
         get: operations["apiV1ServicesRetrieve"];
         put?: never;
         post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/oidc/callback/": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Microsoft authentication callback
+         * @description Callback endpoint voor Microsoft OAuth authenticatie.
+         */
+        get: operations["oidcCallbackRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/webhook": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /**
+         * Webhook callback
+         * @description Endpoint webhook che riceve notifiche dal backend document_edit.
+         */
+        post: operations["webhookCreate"];
         delete?: never;
         options?: never;
         head?: never;
@@ -318,6 +398,7 @@ export interface components {
              * @default
              */
             inhoud: string;
+            readonly hasPendingUpdates: boolean;
         };
         ESDocument: {
             /** @description Unieke resource identifier (UUID4) */
@@ -990,6 +1071,57 @@ export interface operations {
             };
         };
     };
+    documentEdit: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                documentUuid: string;
+                serviceSlug: string;
+                zaaktypenZaaktypeUuid: string;
+                zakenZaakUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Redirect naar de binaire bestandsinhoud */
+            302: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    documentUpload: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                documentUuid: string;
+                serviceSlug: string;
+                zaaktypenZaaktypeUuid: string;
+                zakenZaakUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Document"];
+                };
+            };
+        };
+    };
     apiV1ServicesRetrieve: {
         parameters: {
             query?: never;
@@ -1010,6 +1142,81 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["Service"];
                 };
+            };
+        };
+    };
+    oidcCallbackRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Redirect naar de oorspronkelijke URL na succesvolle authenticatie */
+            302: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Invalid callback of fout tijdens authenticatie */
+            400: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Authenticatie mislukt (geen access token) */
+            401: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    webhookCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: {
+            content: {
+                "application/json": {
+                    [key: string]: unknown;
+                };
+            };
+        };
+        responses: {
+            /** @description Webhook verwerkt */
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "text/plain": string;
+                };
+            };
+            /** @description Ongeldige payload */
+            400: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content?: never;
             };
         };
     };

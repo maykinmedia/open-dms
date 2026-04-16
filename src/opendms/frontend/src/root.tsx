@@ -2,6 +2,7 @@ import {
   BaseTemplate,
   ConfigContext,
   Logo,
+  ModalService,
   Outline,
   Sidebar,
   Toolbar,
@@ -44,48 +45,50 @@ export const AuthenticatedLayout = () => {
   };
 
   return (
-    <BaseTemplate
-      primaryNavigationItems={[
-        <Logo abbreviated key={"logo"} />,
-        "spacer",
-        state !== "idle" ? (
-          <Outline.ArrowPathIcon
-            key="loading"
-            aria-label={"Bezig met laden"}
-            spin
-          />
-        ) : undefined,
-        {
-          type: "button",
-          title: "Uitloggen",
-          children: <Outline.ArrowRightOnRectangleIcon />,
-          onClick: handleLogout,
-        },
-      ]}
-      // Use slot to prevent unnecessary re-renders.
-      slotSidebar={
-        <Sidebar>
-          <Toolbar
-            align="space-between"
-            direction="vertical"
-            pad={true}
-            variant="transparent"
-          >
-            <ServiceSelect key="service-select" />
-            <ZaaktypeSelect key="zaaktype-select" />
-            <YearSelect key="year-select" />
-          </Toolbar>
-        </Sidebar>
-      }
-    >
-      <ConfigContext.Provider
-        value={{
-          templatesContentOnly: true,
-          templatesGrid: false,
-        }}
+    <ModalService>
+      <BaseTemplate
+        primaryNavigationItems={[
+          <Logo abbreviated key={"logo"} />,
+          "spacer",
+          state !== "idle" ? (
+            <Outline.ArrowPathIcon
+              key="loading"
+              aria-label={"Bezig met laden"}
+              spin
+            />
+          ) : undefined,
+          {
+            type: "button",
+            title: "Uitloggen",
+            children: <Outline.ArrowRightOnRectangleIcon />,
+            onClick: handleLogout,
+          },
+        ]}
+        // Use slot to prevent unnecessary re-renders.
+        slotSidebar={
+          <Sidebar>
+            <Toolbar
+              align="space-between"
+              direction="vertical"
+              pad={true}
+              variant="transparent"
+            >
+              <ServiceSelect key="service-select" />
+              <ZaaktypeSelect key="zaaktype-select" />
+              <YearSelect key="year-select" />
+            </Toolbar>
+          </Sidebar>
+        }
       >
-        <Outlet />
-      </ConfigContext.Provider>
-    </BaseTemplate>
+        <ConfigContext.Provider
+          value={{
+            templatesContentOnly: true,
+            templatesGrid: false,
+          }}
+        >
+          <Outlet />
+        </ConfigContext.Provider>
+      </BaseTemplate>
+    </ModalService>
   );
 };

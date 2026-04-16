@@ -7,6 +7,7 @@ from drf_spectacular.openapi import AutoSchema as _AutoSchema
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import OpenApiParameter
 from rest_framework import serializers
+from rest_framework.renderers import BaseRenderer
 from vng_api_common.constants import VERSION_HEADER
 
 QUERY_PARAM_FIELD = "search"
@@ -136,3 +137,11 @@ class AnonCSRFSessionAuthenticationExtension(OpenApiAuthenticationExtension):
             "in": "header",
             "name": "X-CSRFToken",
         }
+
+
+class PlainTextRenderer(BaseRenderer):
+    media_type = "text/plain"
+    format = "txt"
+
+    def render(self, data, accepted_media_type=None, renderer_context=None):
+        return data.encode("utf-8") if isinstance(data, str) else data

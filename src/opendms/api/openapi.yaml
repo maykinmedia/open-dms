@@ -493,6 +493,88 @@ paths:
                 type: string
                 format: binary
           description: De binaire bestandsinhoud
+  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/edit:
+    get:
+      operationId: documentEdit
+      description: Een document met binaire gegevens bewerken op OneDrive
+      summary: documentsEdit
+      parameters:
+      - in: path
+        name: documentUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zaaktypenZaaktypeUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zakenZaakUuid
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '302':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description: Redirect naar de binaire bestandsinhoud
+  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/upload:
+    get:
+      operationId: documentUpload
+      description: Een nieuwe versie van een document uploaden naar OpenZaak
+      summary: documentsUpload
+      parameters:
+      - in: path
+        name: documentUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zaaktypenZaaktypeUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zakenZaakUuid
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+          description: ''
   /api/v1/services/{slug}:
     get:
       operationId: apiV1ServicesRetrieve
@@ -522,6 +604,77 @@ paths:
               schema:
                 $ref: '#/components/schemas/Service'
           description: ''
+  /oidc/callback/:
+    get:
+      operationId: oidcCallbackRetrieve
+      description: Callback endpoint voor Microsoft OAuth authenticatie.
+      summary: Microsoft authentication callback
+      tags:
+      - oidc
+      security:
+      - cookieAuth: []
+      responses:
+        '302':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description: Redirect naar de oorspronkelijke URL na succesvolle authenticatie
+        '400':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description: Invalid callback of fout tijdens authenticatie
+        '401':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description: Authenticatie mislukt (geen access token)
+  /webhook:
+    post:
+      operationId: webhookCreate
+      description: Endpoint webhook che riceve notifiche dal backend document_edit.
+      summary: Webhook callback
+      tags:
+      - webhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: {}
+      security:
+      - cookieAuth: []
+      - {}
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Webhook verwerkt
+        '400':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description: Ongeldige payload
 components:
   schemas:
     Auth:
@@ -622,11 +775,15 @@ components:
           default: ''
           description: De inhoud van het INFORMATIEOBJECT, indien deze is opgenomen
             in de index.
+        hasPendingUpdates:
+          type: boolean
+          readOnly: true
       required:
       - auteur
       - beginRegistratie
       - bronorganisatie
       - creatiedatum
+      - hasPendingUpdates
       - identificatie
       - informatieobjecttype
       - taal

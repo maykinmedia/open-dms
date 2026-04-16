@@ -105,6 +105,16 @@ Elastic Search
 * ``REQUESTS_CA_BUNDLE``: Path to a CA bundle file (PEM format) used to verify HTTPS requests. This is used as a fallback if ELASTICSEARCH_CA_CERTS is not provided. Useful when connecting to services secured with a private or self-signed CA. Defaults to: ``None``.
 
 
+Microsoft configuration
+-----------------------
+
+* ``MSGRAPH_API_BACKEND_TENANT_ID``: The Azure Entra ID tenant (directory) ID used by MsGraphApiBackend. Defaults to: ``None``.
+* ``MSGRAPH_API_BACKEND_CLIENT_ID``: The Application (client) ID registered for MsGraphApiBackend in Entra ID. Defaults to: ``None``.
+* ``MSGRAPH_API_BACKEND_CLIENT_SECRET``: The client secret used by MsGraphApiBackend to authenticate against Microsoft Graph API. Defaults to: ``None``.
+* ``MSGRAPH_API_BACKEND_SYNC_FOLDER``: The folder where MsGraphApiBackend syncs data. Defaults to: ``ODS_SYNC``.
+* ``MSGRAPH_API_BACKEND_WEBHOOK_NOTIFICATION_URL``: The callback notification URL to use for subscription webhooks. Defaults to: ``None``.
+
+
 Optional
 --------
 
