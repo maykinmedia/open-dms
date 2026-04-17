@@ -1,7 +1,6 @@
-from django.utils.timezone import get_current_timezone
+from django.db.models import F, Q
 from django.utils.translation import gettext_lazy as _
 
-import dateutil.parser
 from drf_spectacular.utils import (
     PolymorphicProxySerializer,
     extend_schema_field,
@@ -304,12 +303,10 @@ class DocumentSerializer(serializers.Serializer):
     @extend_schema_field(serializers.BooleanField)
     def get_has_pending_updates(self, document: ESDocumentType) -> bool:
         uuid = document["uuid"]
-        created = dateutil.parser.isoparse(document["creatiedatum"])
-        created = created.replace(tzinfo=get_current_timezone())
-
-        qs = BaseDriveDocument.objects.filter(
-            document_uuid=uuid, updated_at__gte=created
+        qs = BaseDriveDocument.objects.filter(document_uuid=uuid).filter(
+            Q(synced_at__isnull=True) | Q(updated_at__gt=F("synced_at"))
         )
+
         return qs.exists()
 
 

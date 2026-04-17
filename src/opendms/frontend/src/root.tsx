@@ -2,6 +2,7 @@ import {
   BaseTemplate,
   ConfigContext,
   Logo,
+  ModalService,
   Outline,
   type SearchResult,
   Sidebar,
@@ -140,14 +141,16 @@ export const AuthenticatedLayout = () => {
         </Sidebar>
       }
     >
-      <ConfigContext.Provider
-        value={{
-          templatesContentOnly: true,
-          templatesGrid: false,
-        }}
-      >
-        <Outlet />
-      </ConfigContext.Provider>
+      <ModalService>
+        <ConfigContext.Provider
+          value={{
+            templatesContentOnly: true,
+            templatesGrid: false,
+          }}
+        >
+          <Outlet />
+        </ConfigContext.Provider>
+      </ModalService>
     </BaseTemplate>
   );
 };

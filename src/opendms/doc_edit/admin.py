@@ -38,7 +38,8 @@ class BaseDriveDocumentAdmin(admin.ModelAdmin):
     readonly_fields = [
         "document_drive_id",
         "document_uuid",
-        "updated_at",
         "created_at",
+        "updated_at",
+        "synced_at",
     ]
     ordering = ["-created_at"]

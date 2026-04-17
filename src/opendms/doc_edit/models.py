@@ -111,6 +111,12 @@ class BaseDriveDocument(models.Model):
             "Timestamp of the last detected modification on the remote file. Null if never updated."
         ),
     )
+    synced_at = models.DateTimeField(
+        null=True,
+        blank=True,
+        help_text=_("Timestamp of the last synchronized."),
+    )
+    etag = models.CharField(max_length=255, blank=True)
 
     class Meta:
         verbose_name = "base drive document"

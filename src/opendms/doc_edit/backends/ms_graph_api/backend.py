@@ -312,6 +312,7 @@ class MsGraphApiBackend(DocumentEditBackend):
             resource="/me/drive/root",
             client_state=client_state,
         )
+
         BaseDriveSubscription.objects.update_or_create(
             subscription_id=subscription["id"],
             defaults={
@@ -358,7 +359,6 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         documents = BaseDriveDocument.objects.filter(created_at__isnull=False)
         if not documents.exists():
-            breakpoint()
             return
 
         drive_items = self.one_drive_client.list_children(
@@ -367,7 +367,6 @@ class MsGraphApiBackend(DocumentEditBackend):
 
         # No items found, bail early
         if not drive_items:
-            breakpoint()
             logger.warning("no_drive_documents_found")
             return
 
@@ -377,7 +376,6 @@ class MsGraphApiBackend(DocumentEditBackend):
             for drive_item in drive_items
         }
 
-        to_update = []
         for document in documents:
             # TODO decide whether to delete or disable the document when no filesystem info is available
             file_system_info = drive_documents_dict.get(document.document_drive_id)
@@ -396,15 +394,11 @@ class MsGraphApiBackend(DocumentEditBackend):
                 continue
 
             # File is within a minimum time frame between created and modified
-            if is_within_threshold(date_created, date_modified):
+            if is_within_threshold(date_created, date_modified, 10):
                 logger.warning("new_file_not_modified")
                 continue
 
             # File is modified, mark is as such
-            if not document.updated_at or document.updated_at < date_modified:
+            if not document.updated_at or document.updated_at <= date_modified:
                 document.updated_at = timezone.now()
-                to_update.append(document)
-        if to_update:
-            # TODO improve logs, with more details
-            BaseDriveDocument.objects.bulk_update(to_update, fields=["updated_at"])
-            logger.info("documents_updated")
+                document.save()

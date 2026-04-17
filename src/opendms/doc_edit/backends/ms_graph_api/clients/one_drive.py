@@ -145,11 +145,7 @@ class OneDriveClient(GraphClient):
         )
         logger.debug("Getting info for: %s", item_url)
         try:
-            data = self._request("GET", f"{item_url}")
-            return {
-                "size": data.get("size", 0),
-                "mimeType": data.get("mimeType", "application/octet-stream"),
-            }
+            return self._get(item_url)
         except RequestException as e:
             handle_exception(e, "Unable to get item info")
 
