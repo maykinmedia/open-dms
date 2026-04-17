@@ -1,5 +1,8 @@
 import os
+import re
 import tempfile
+from datetime import datetime
+from time import sleep
 
 from django.http import Http404
 from django.shortcuts import redirect
@@ -27,6 +30,7 @@ from opendms.doc_edit.backends.ms_graph_api.backend import MsGraphApiBackend
 from opendms.doc_edit.models import BaseDriveDocument
 from opendms.search_index.client import get_elasticsearch_client
 
+from ..doc_edit.utils import is_within_threshold
 from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_client
 from .models import ZGWApiGroupConfig
 from .serializers import (
@@ -462,10 +466,31 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     )
     @action(methods=["get"], detail=True, name="document_upload")
     def upload(self, request: Request, *args, **kwargs):
+        """
+        Updates the document back to Open Zaak by downloading the file from OneDrive and uploading it to Open Zaak.
+
+        TODO: What about versions/publishing?
+
+        FIXME: DATA HAZARD
+        FIXME: OneDrive may fall behind
+        FIXME:
+        FIXME: Due to the fact that One Drive may fall behind, this implements change detection based on unguaranteed
+        FIXME: presence of the version in the "eTag", with an inaccurate "lastModifiedDateTime" check as fallback.
+        FIXME:
+        FIXME: Currently not guaranteed the last version is correctly uploaded.
+
+        FIXME: This implements the ineternals of the OneDrive backend directly instead of relying on the public
+        FIXME: interface
+        """
+
+        # Step 1: Get the access token for future requests.
         access_token = request.session.get("access_token", None)
         if not access_token:
             return self._redirect_to_ms_auth(request)
 
+        document_edit_backend._set_token(access_token)
+
+        # Step 2: Get the BaseDriveDocument.
         document_uuid = self.kwargs.get(self.lookup_field)
         document = BaseDriveDocument.objects.filter(document_uuid=document_uuid).first()
 
@@ -474,26 +499,93 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 "Document not found in OneDrive", status=status.HTTP_404_NOT_FOUND
             )
 
-        document_edit_backend._set_token(access_token)
-        document_drive = document_edit_backend.one_drive_client.download_item(
+        # Step 3: Naive attempt to check if the resolved version on OneDrive is up2date (eventual consistency here).
+        # Each round is delayed by a second, this may be a slow call.
+        #
+        # We check based on:
+        # - eTag version
+        # - lastModifiedDateTime
+
+        retry = True
+        attempts = 0
+        max_retries = 10
+
+        while retry:
+            attempts = attempts + 1
+
+            drive_item_info = document_edit_backend.one_drive_client.get_item_info(
+                item_id=document.document_drive_id
+            )
+
+            last_modified_str = drive_item_info["lastModifiedDateTime"]
+            last_modified = datetime.fromisoformat(
+                last_modified_str.replace("Z", "+00:00")
+            )
+
+            etag_str = drive_item_info["eTag"]
+            document_version = (
+                self._extract_version_from_etag(document.etag)
+                if document.etag
+                else None
+            )
+            onedrive_version = (
+                self._extract_version_from_etag(etag_str) if etag_str else None
+            )
+
+            if document_version is not None and onedrive_version is not None:
+                # OneDrive has a newer version, continue
+                if onedrive_version > document_version:
+                    retry = False
+
+                # OneDrive has an older or equal version, retry?
+                if onedrive_version <= document_version:
+                    retry = True
+
+            if document_version is None or onedrive_version is None:
+                # Actually, the fallback, version is not detected, is "lastModifiedDateTime" newer?
+                if last_modified >= document.updated_at or is_within_threshold(
+                    last_modified, document.updated_at
+                ):
+                    retry = False
+
+            # Timeout
+            if attempts >= max_retries:
+                retry = False
+
+            sleep(1)
+
+        # After polling, we're still going to do another round to allow the data to be persisted on content level.
+        sleep(3)  # ¯\_(ツ)_/¯
+
+        file_response = document_edit_backend.one_drive_client._request(
+            "GET", drive_item_info["@microsoft.graph.downloadUrl"], raw_response=True
+        )
+        drive_item_info = document_edit_backend.one_drive_client.get_item_info(
             item_id=document.document_drive_id
         )
-        document_info = document_edit_backend.one_drive_client.get_item_info(
-            item_id=document.document_drive_id
-        )
+
         with get_documenten_client(self.zgw_group.drc_service) as client:
             status_code, message = client.upload_document(
                 document_uuid,
-                content=document_drive.content,
-                size=document_info["size"],
-                mime_type=document_info["mimeType"],
+                content=file_response.content,
+                size=drive_item_info["size"],
+                mime_type=drive_item_info["file"]["mimeType"],
             )
 
         # Mark as up-to-date
-        document.updated_at = None
+        document.etag = drive_item_info["eTag"]
+        document.synced_at = document.updated_at
         document.save()
 
         return Response(message, status=status_code)
+
+    def _extract_version_from_etag(self, etag: str):
+        """
+        "{A51EDD09-8271-4C43-A73C-DB11808626A1},157" -> 157
+        """
+        version_str = re.search("(?:,)(\d+)", etag).group(1)
+        version = int(version_str) if version_str else None
+        return version
 
     def _redirect_to_ms_auth(self, request: Request):
         callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
