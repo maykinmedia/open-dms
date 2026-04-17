@@ -32,7 +32,7 @@ class DocumentData(InnerDoc):
 class ZaakReferenties(InnerDoc):
     uuid: M[str] = mapped_field(Keyword(required=True))
     url: M[str] = mapped_field(Keyword(required=True))
-    identificatie: M[str] = mapped_field(Keyword(required=True))
+    identificatie: M[str] = mapped_field(Text(analyzer=DEFAULT_ANALYZER, required=True))
     bronorganisatie: M[str] = mapped_field(Keyword(required=True))
     verantwoordelijkeOrganisatie: M[str] = mapped_field(Keyword(required=True))
     omschrijving: M[str | None] = mapped_field(Text(analyzer=DEFAULT_ANALYZER))
@@ -61,7 +61,7 @@ class Document(ES_Document):
     # for typing support.
     uuid: M[str] = mapped_field(Keyword(required=True))
     url: M[str] = mapped_field(Keyword(required=True))
-    identificatie: M[str] = mapped_field(Keyword(required=True))
+    identificatie: M[str] = mapped_field(Text(analyzer=DEFAULT_ANALYZER, required=True))
     bronorganisatie: M[str] = mapped_field(Keyword(required=True))
 
     titel: M[str] = mapped_field(Text(analyzer=DEFAULT_ANALYZER, required=True))
@@ -119,7 +119,7 @@ class Document(ES_Document):
 class Zaak(ES_Document):
     uuid: M[str] = mapped_field(Keyword(required=True))
     url: M[str] = mapped_field(Keyword(required=True))
-    identificatie: M[str] = mapped_field(Keyword(required=True))
+    identificatie: M[str] = mapped_field(Text(analyzer=DEFAULT_ANALYZER, required=True))
     bronorganisatie: M[str] = mapped_field(Keyword(required=True))
     verantwoordelijkeOrganisatie: M[str] = mapped_field(Keyword(required=True))
 
