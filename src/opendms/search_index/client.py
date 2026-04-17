@@ -146,7 +146,6 @@ class ElasticSearchClient:
                     "identificatie^3",
                     "omschrijving^2",
                     "toelichting^1.5",
-                    "status^1.2",
                 ],
                 flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
                 default_operator="AND",
@@ -162,23 +161,60 @@ class ElasticSearchClient:
                         "zaak_referenties.identificatie^3",
                         "zaak_referenties.omschrijving^2",
                         "zaak_referenties.toelichting^1.5",
-                        "zaak_referenties.status^1.2",
                     ],
                     flags="OR|AND|PHRASE|PRECEDENCE|WHITESPACE",
                     default_operator="AND",
                 ),
+                score_mode="max",
+                ignore_unmapped=True,
+            )
+
+            # Fuzzy fallback
+            fuzzy_doc_query = Q(
+                "multi_match",
+                query=query,
+                fields=["titel", "bestandsnaam", "beschrijving"],
+                fuzziness="AUTO",
+                prefix_length=2,
+                boost=0.5,
+            )
+
+            fuzzy_zaak_query = Q(
+                "multi_match",
+                query=query,
+                fields=["omschrijving", "toelichting"],
+                fuzziness="AUTO",
+                prefix_length=2,
+                boost=0.5,
+            )
+
+            fuzzy_nested_zaak_query = Q(
+                "nested",
+                path="zaak_referenties",
+                query=Q(
+                    "multi_match",
+                    query=query,
+                    fields=["zaak_referenties.omschrijving", "zaak_referenties.toelichting"],
+                    fuzziness="AUTO",
+                    prefix_length=2,
+                    boost=0.5,
+                ),
+                score_mode="max",
                 ignore_unmapped=True,
             )
 
             search = search.query(
                 Q(
-                    "bool",
-                    should=[
+                    "dis_max",
+                    queries=[
                         doc_query,
                         nested_zaak_query,
                         zaak_index_query,
+                        fuzzy_doc_query,
+                        fuzzy_zaak_query,
+                        fuzzy_nested_zaak_query,
                     ],
-                    minimum_should_match=1,
+                    tie_breaker=0.3,
                 )
             )
 

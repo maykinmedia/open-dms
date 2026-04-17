@@ -63,6 +63,7 @@ export const AuthenticatedLayout = () => {
       if (item.type === "zaak") {
         const {
           uuid,
+          identificatie,
           startdatum,
           omschrijving,
           ztcServiceSlug,
@@ -73,7 +74,7 @@ export const AuthenticatedLayout = () => {
         const zaakYear = startjaar ?? new Date(startdatum).getFullYear();
         return [
           {
-            title: omschrijving,
+            title: omschrijving || identificatie,
             href: `/${ztcServiceSlug}/${ztcUuid}/${zaakYear}/${uuid}`,
             icon: <Outline.FolderIcon />,
             group: "Zaken",
