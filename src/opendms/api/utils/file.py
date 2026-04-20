@@ -33,6 +33,7 @@ def guess_extension_by_content(content: bytes) -> str:
 
     match guessed_extension:
         case ".zip":
+            # (Most) Office documents are technically .zip files, attempt to find the actual type.
             try:
                 with zipfile.ZipFile(io.BytesIO(content)) as z:
                     names = set(z.namelist())
@@ -52,6 +53,7 @@ def guess_extension_by_content(content: bytes) -> str:
                         if "opendocument.spreadsheet" in mt:
                             return ".ods"
 
+            # Probably not an office document, pass to return guessed_extension.
             except Exception:
                 pass
 
