@@ -1,4 +1,5 @@
 import {
+  type ItemGridButtonProps,
   type ItemGridItemProps,
   ItemGridTemplate,
   Outline,
@@ -31,9 +32,14 @@ export const DocumentsList = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const page = searchParams.get("page") || undefined;
 
-  const [pendingDocumentsState, setPendingDocumentsState] = useState<string[]>(
-    [],
-  );
+  // Active windows for editing.
+  const [activeEditorWindowsState, setActiveEditorWindowsState] =
+    useState<Record<string, Window>>();
+
+  // Document uuid's that are being uploaded.
+  const [pendingDocumentUuidsState, setPendingDocumentUuidsState] = useState<
+    string[]
+  >([]);
 
   // TODO: Validation. See issue gh-#42
   const { serviceSlug, zaaktypeUuid, zaakYear, zaakId } = useParams() as {
@@ -56,6 +62,16 @@ export const DocumentsList = () => {
    */
   usePoll(
     async (signal?: AbortSignal) => {
+      // Remove closed editors from state.
+      const windowEntries = Object.entries(activeEditorWindowsState || {});
+      const openWindowEntries = windowEntries.filter(
+        ([, window]) => !window.closed,
+      );
+      if (openWindowEntries.length !== windowEntries.length) {
+        setActiveEditorWindowsState(Object.fromEntries(openWindowEntries));
+      }
+
+      // Poll for changed documents (revalidate if found).
       if (!serviceSlug || !zaaktypeUuid || !zaakId) return null;
 
       const { data: pollData, response } = await fetchDocuments(
@@ -83,6 +99,23 @@ export const DocumentsList = () => {
       ?.scrollIntoView({ behavior: "smooth", block: "center" });
   }, [highlight, data]);
 
+  const handleEdit = useCallback(
+    async (document: Document, e: React.MouseEvent) => {
+      e.preventDefault();
+      const response = await fetch(
+        `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${document.uuid}/edit`,
+      );
+      const editorUrl = await response.text();
+      const popup = window.open(editorUrl);
+      if (!popup) return;
+      setActiveEditorWindowsState({
+        ...activeEditorWindowsState,
+        [document.uuid]: popup,
+      });
+    },
+    [serviceSlug, zaaktypeUuid, zaakId, activeEditorWindowsState],
+  );
+
   /**
    * Handles the upload of a document by fetching the resource from the provided link
    * (anchor element's href) and processing the response. If the fetch operation
@@ -101,7 +134,10 @@ export const DocumentsList = () => {
     (document: Document, e: React.MouseEvent) => {
       e.preventDefault();
       const target: HTMLAnchorElement = e.target as HTMLAnchorElement;
-      setPendingDocumentsState([...pendingDocumentsState, document.uuid]);
+      setPendingDocumentUuidsState([
+        ...pendingDocumentUuidsState,
+        document.uuid,
+      ]);
 
       const _onConfirm = () =>
         fetch(target.href)
@@ -122,21 +158,71 @@ export const DocumentsList = () => {
             alert("Foutmelding!", "Document kon niet worden opgeslagen.", "Ok"),
           )
           .finally(() =>
-            setPendingDocumentsState(
-              pendingDocumentsState.filter((uuid) => uuid !== document.uuid),
+            setPendingDocumentUuidsState(
+              pendingDocumentUuidsState.filter(
+                (uuid) => uuid !== document.uuid,
+              ),
             ),
           );
 
       confirm(
         "Waarschuwing!",
-        'Sluit altijd de bewerken omgeving en klik dan op "Opslaan"',
+        'Sluit eerst de bewerken omgeving en klik dan op "Opslaan"',
         "Opslaan",
         "Annuleren",
         _onConfirm,
       );
     },
-    [pendingDocumentsState, confirm, alert, revalidate],
+    [pendingDocumentUuidsState, confirm, alert, revalidate],
   );
+
+  const ACTION_DOWNLOAD = (document: Document): ItemGridButtonProps => ({
+    as: "a",
+    children: <Outline.ArrowDownOnSquareIcon />,
+    download: true,
+    href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${document.uuid}/download`,
+    title: "Bestand downloaden",
+  });
+
+  const ACTION_EDIT = (document: Document): ItemGridButtonProps => ({
+    as: "a",
+    children: <Outline.PencilSquareIcon />,
+    href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${document.uuid}/edit`,
+    title: "Bestand bewerken",
+    target: "_blank",
+    onClick: (e: React.MouseEvent) => handleEdit(document, e),
+  });
+
+  const ACTION_UPLOAD = (doc: Document): ItemGridButtonProps => {
+    const isEditing =
+      activeEditorWindowsState !== undefined &&
+      activeEditorWindowsState[doc.uuid] !== undefined &&
+      activeEditorWindowsState[doc.uuid].closed === false;
+
+    const title = isEditing
+      ? 'Sluit eerst de bewerken omgeving en klik dan op "Opslaan"'
+      : "Bestand opslaan in Open Zaak.";
+
+    return {
+      as: "a",
+      children: (
+        <>
+          {pendingDocumentUuidsState.includes(doc.uuid) ? (
+            <Outline.ArrowPathIcon spin />
+          ) : (
+            <Outline.CloudArrowUpIcon />
+          )}
+          Opslaan
+        </>
+      ),
+      disabled: isEditing || pendingDocumentUuidsState.includes(doc.uuid),
+      href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/upload`,
+      square: false,
+      target: "_blank",
+      title,
+      onClick: (e: React.MouseEvent) => handleUpload(doc, e),
+    };
+  };
 
   const items = useMemo<ItemGridItemProps[]>(
     () =>
@@ -145,75 +231,12 @@ export const DocumentsList = () => {
         highlighted: doc.uuid === highlight,
         title: doc.titel,
         icon: <Outline.DocumentIcon />,
-        informationLines: [doc.identificatie, doc.formaat].filter(Boolean),
+        informationLines: [doc.identificatie].filter(Boolean),
         actions: doc.hasPendingUpdates
-          ? [
-              {
-                as: "a",
-                children: <Outline.ArrowDownOnSquareIcon />,
-                download: true,
-                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
-                title: "Bestand downloaden",
-              },
-              {
-                as: "a",
-                children: <Outline.PencilSquareIcon />,
-                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
-                title: "Bestand bewerken",
-                target: "_blank",
-              },
-              {
-                as: "a",
-                children: (
-                  <>
-                    {pendingDocumentsState.includes(doc.uuid) ? (
-                      <Outline.ArrowPathIcon spin />
-                    ) : (
-                      <Outline.CloudArrowUpIcon />
-                    )}
-                    Opslaan
-                  </>
-                ),
-                disabled: pendingDocumentsState.includes(doc.uuid),
-                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/upload`,
-                square: false,
-                target: "_blank",
-                title: "Bestand opslaan in Open Zaak",
-                onClick: (e) => handleUpload(doc, e),
-              },
-            ]
-          : [
-              {
-                as: "a",
-                children: <Outline.ArrowDownOnSquareIcon />,
-                download: true,
-                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/download`,
-                title: "Bestand downloaden",
-              },
-              {
-                as: "a",
-                children: (
-                  <>
-                    <Outline.PencilSquareIcon />
-                    Bewerken
-                  </>
-                ),
-                href: `/api/v1/services/${serviceSlug}/zaaktypen/${zaaktypeUuid}/zaken/${zaakId}/documents/${doc.uuid}/edit`,
-                square: false,
-                title: "Bestand bewerken",
-                target: "_blank",
-              },
-            ],
+          ? [ACTION_DOWNLOAD(doc), ACTION_EDIT(doc), ACTION_UPLOAD(doc)]
+          : [ACTION_DOWNLOAD(doc), ACTION_EDIT(doc)],
       })) ?? [],
-    [
-      pendingDocumentsState,
-      data?.results,
-      serviceSlug,
-      zaaktypeUuid,
-      zaakId,
-      handleUpload,
-      highlight,
-    ],
+    [data?.results, highlight, ACTION_DOWNLOAD, ACTION_EDIT, ACTION_UPLOAD],
   );
 
   if (!data) return null;
