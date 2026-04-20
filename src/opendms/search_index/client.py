@@ -194,7 +194,10 @@ class ElasticSearchClient:
                 query=Q(
                     "multi_match",
                     query=query,
-                    fields=["zaak_referenties.omschrijving", "zaak_referenties.toelichting"],
+                    fields=[
+                        "zaak_referenties.omschrijving",
+                        "zaak_referenties.toelichting",
+                    ],
                     fuzziness="AUTO",
                     prefix_length=2,
                     boost=0.5,
