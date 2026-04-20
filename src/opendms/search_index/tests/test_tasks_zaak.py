@@ -1,6 +1,7 @@
-from datetime import UTC, date, datetime, timedelta
+from datetime import date, timedelta
 
 from django.test import override_settings
+from django.utils import timezone
 
 from celery import current_app
 from freezegun import freeze_time
@@ -97,7 +98,7 @@ class ValidateExpiredZakenTaskTests(VCRMixin, ElasticSearchAPITestCase):
         ZGWApiGroupConfigFactory.create(zrc_service=cls.service1)
 
     def test_get_expired_zaken(self):
-        now = datetime.now(UTC)
+        now = timezone.now()
 
         zaken = [
             IndexZaakFactory.build(
@@ -141,7 +142,7 @@ class ValidateExpiredZakenTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
     @freeze_time("2026-03-30T12:00:00Z")
     def test_validate_extends_or_deletes_zaken(self):
-        now = datetime.now(UTC)
+        now = timezone.now()
         extension_days = 10
 
         zaken = [
@@ -225,8 +226,8 @@ class ValidateExpiredZakenTaskTests(VCRMixin, ElasticSearchAPITestCase):
     def test_no_zaken_due(self):
         doc = IndexZaakFactory.build(
             uuid="zaak-valid",
-            last_checked_at=datetime.now(UTC),
-            next_check_at=datetime.now(UTC) + timedelta(days=5),
+            last_checked_at=timezone.now(),
+            next_check_at=timezone.now() + timedelta(days=5),
         )
         with get_elasticsearch_client() as client:
             client.index_zaken(doc, service_slug="zaken-api", group_slug="group-1")
@@ -241,7 +242,7 @@ class ValidateExpiredZakenTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
     @freeze_time("2026-03-30T12:00:00Z")
     def test_validate_hourly_task_simple_with_schedule(self):
-        now = datetime.now(UTC)
+        now = timezone.now()
         extension_days = 10
 
         docs = [

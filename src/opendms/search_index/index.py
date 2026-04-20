@@ -1,8 +1,10 @@
 import os
 from collections.abc import Sequence
 from dataclasses import dataclass
-from datetime import UTC, date, datetime, timedelta
+from datetime import date, datetime, timedelta
 from typing import TYPE_CHECKING
+
+from django.utils import timezone
 
 from elasticsearch.dsl import (
     Date,
@@ -105,7 +107,7 @@ class Document(ES_Document):
         name: IndexName = "document"
 
     def save(self, **kwargs):
-        now = datetime.now(UTC)
+        now = timezone.now()
 
         if not self.last_checked_at:
             self.last_checked_at = now
@@ -148,7 +150,7 @@ class Zaak(ES_Document):
     def save(self, **kwargs):
         self.creatiedatum = self.registratiedatum
 
-        now = datetime.now(UTC)
+        now = timezone.now()
         if not self.last_checked_at:
             self.last_checked_at = now
 

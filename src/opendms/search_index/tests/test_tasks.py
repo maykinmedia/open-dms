@@ -2,6 +2,7 @@ from datetime import UTC, date, datetime, timedelta
 from unittest.mock import patch
 
 from django.test import override_settings
+from django.utils import timezone
 
 from celery import current_app
 from freezegun import freeze_time
@@ -552,7 +553,7 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
         ZGWApiGroupConfigFactory.create(drc_service=cls.service1)
 
     def test_get_expired_document(self):
-        now = datetime.now(UTC)
+        now = timezone.now()
 
         docs = [
             IndexDocumentFactory.build(
@@ -596,7 +597,7 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
     @freeze_time("2026-03-30T12:00:00Z")
     def test_validate_extends_or_deletes_documents(self):
-        now = datetime.now(UTC)
+        now = timezone.now()
         extension_days = 10
 
         documents = [
@@ -680,8 +681,8 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
     def test_no_documents_due(self):
         doc = IndexDocumentFactory.build(
             uuid="doc-valid",
-            last_checked_at=datetime.now(UTC),
-            next_check_at=datetime.now(UTC) + timedelta(days=5),
+            last_checked_at=timezone.now(),
+            next_check_at=timezone.now() + timedelta(days=5),
         )
         with get_elasticsearch_client() as client:
             client.index_document(doc, service="documenten-api", group_slug="group-1")
@@ -696,7 +697,7 @@ class ValidateExpiredDocumentsTaskTests(VCRMixin, ElasticSearchAPITestCase):
 
     @freeze_time("2026-03-30T12:00:00Z")
     def test_validate_hourly_task_simple_with_schedule(self):
-        now = datetime.now(UTC)
+        now = timezone.now()
         extension_days = 10
 
         docs = [
