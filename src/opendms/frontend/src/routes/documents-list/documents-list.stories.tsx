@@ -7,6 +7,7 @@ import { withCSRF } from "../../../.storybook/decorators.tsx";
 import {
   MOCK_DOCUMENTS,
   MOCK_SERVICE_OPTIONS,
+  MOCK_ZAAK,
   MOCK_ZAAKTYPE,
   MOCK_ZAAKTYPE_OPTIONS,
 } from "../../../.storybook/mocks.ts";
@@ -41,6 +42,7 @@ export const List: Story = {
         MOCK_SERVICE_OPTIONS,
         MOCK_ZAAKTYPE_OPTIONS,
         MOCK_ZAAKTYPE,
+        MOCK_ZAAK,
         MOCK_DOCUMENTS,
       ],
     },
