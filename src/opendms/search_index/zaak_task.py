@@ -1,4 +1,6 @@
-from datetime import UTC, datetime, timedelta
+from datetime import timedelta
+
+from django.utils import timezone
 
 import structlog
 from celery.exceptions import SoftTimeLimitExceeded
@@ -90,7 +92,7 @@ def validate_expired_zaken(batch_size: int = 100):
     if not any(group.zrc_service for group in groups):
         raise ExternalServiceUnavailable("No ZRC API services configured!")
 
-    now = datetime.now(UTC)
+    now = timezone.now()
 
     with get_elasticsearch_client() as es_client:
         seen_zrc_services = set()
