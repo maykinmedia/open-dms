@@ -140,7 +140,7 @@ export const DocumentsList = () => {
 
   const items = useMemo<ItemGridItemProps[]>(
     () =>
-      data?.results.map((doc) => ({
+      data?.results?.map((doc) => ({
         id: doc.uuid,
         highlighted: doc.uuid === highlight,
         title: doc.titel,
@@ -221,7 +221,7 @@ export const DocumentsList = () => {
 
   return (
     <ItemGridTemplate
-      title={`${rootData.zaaktype.identificatie} / ${zaakYear} / documenten`}
+      title={`${rootData.zaaktype.identificatie} / ${zaakYear} / ${data.zaak.identificatie}`}
       itemGridProps={{ direction: "v", ellipsis: true, items }}
       paginatorProps={{
         count: data.count,

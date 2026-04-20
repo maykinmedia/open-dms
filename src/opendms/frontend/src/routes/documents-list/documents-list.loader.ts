@@ -1,3 +1,4 @@
+import { invariant } from "@maykin-ui/client-common";
 import type { LoaderFunctionArgs } from "react-router";
 import { apiClient } from "~/lib";
 
@@ -17,14 +18,29 @@ export async function documentsListLoader({
   const urlSearchParams = new URLSearchParams(url.search);
   const page = Number(urlSearchParams.get("page")) || undefined;
 
-  const { data } = await fetchDocuments(
+  const { data: zaak } = await apiClient.GET(
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zaakUuid}",
+    {
+      params: {
+        path: {
+          serviceSlug: params.serviceSlug,
+          zaaktypenZaaktypeUuid: params.zaaktypeUuid,
+          zaakUuid: params.zaakId,
+        },
+      },
+    },
+  );
+
+  const { data: documentData } = await fetchDocuments(
     params.serviceSlug,
     params.zaaktypeUuid,
     params.zaakId,
     page,
   );
 
-  return data;
+  invariant(zaak);
+  invariant(documentData);
+  return { ...documentData, zaak };
 }
 
 /**
