@@ -1,4 +1,5 @@
 import {
+  Button,
   GlobalSearch,
   Modal,
   Outline,
@@ -27,13 +28,14 @@ export const GlobalSearchButton = ({ search }: GlobalSearchButtonProps) => {
 
   return (
     <>
-      <button
+      <Button
         aria-label="Zoek overal"
+        square
+        variant="transparent"
         onClick={() => setOpen(true)}
-        style={{ background: "none", border: "none", cursor: "pointer" }}
       >
         <Outline.MagnifyingGlassIcon />
-      </button>
+      </Button>
       {/*// TODO: I think a bigger modal would be better*/}
       <Modal
         open={open}
