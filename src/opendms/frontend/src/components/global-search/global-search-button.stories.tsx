@@ -1,7 +1,7 @@
-import type { SearchResult } from "@maykin-ui/admin-ui";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { initialize, mswLoader } from "msw-storybook-addon";
 import { withRouter } from "storybook-addon-remix-react-router";
+import { userEvent, within } from "storybook/test";
 import { GlobalSearchButton } from "~/components";
 
 import { withCSRF } from "../../../.storybook/decorators";
@@ -25,29 +25,13 @@ export default meta;
 
 type Story = StoryObj<typeof GlobalSearchButton>;
 
-const MOCK_RESULTS: SearchResult[] = [
-  {
-    title: "Aanvraag vergunning 2024-001",
-    href: "/service_1/11111111-1111-1111-1111-111111111111/2024/1",
-    subtitle: "aanvraag-vergunning.pdf",
-    group: "Documenten",
-  },
-  {
-    title: "Besluit vergunning 2024-002",
-    href: "/service_1/11111111-1111-1111-1111-111111111111/2024/2",
-    subtitle: "besluit.pdf",
-    group: "Documenten",
-  },
-  {
-    title: "Correspondentie 2024-003",
-    href: "/service_1/11111111-1111-1111-1111-111111111111/2024/3",
-    subtitle: "brief.docx",
-    group: "Documenten",
-  },
-];
-
 export const Default: Story = {
-  args: {
-    search: async () => MOCK_RESULTS,
+  play: async ({ canvasElement }) => {
+    const searchButton = await within(canvasElement).findByLabelText("Zoeken");
+    userEvent.click(searchButton);
+
+    const input = await within(canvasElement).findByRole("textbox");
+    await userEvent.clear(input);
+    await userEvent.type(input, "Aanvraag vergunning", { delay: 30 });
   },
 };
