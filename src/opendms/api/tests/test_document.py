@@ -143,7 +143,7 @@ class DocumentTests(VCRMixin, APITestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(
-            b"".join(chunk for chunk in response.streaming_content),
+            response.content,
             b"Test 1 -> OpenDMS\n",
         )
 
