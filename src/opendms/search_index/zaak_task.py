@@ -14,6 +14,7 @@ from opendms.api.utils.validators import extract_uuid
 from opendms.celery import app
 
 from .client import get_elasticsearch_client
+from .constants import ZAAK_INDEX
 from .index import Zaak
 
 logger = structlog.get_logger(__name__)
@@ -166,6 +167,7 @@ def validate_expired_zaken(batch_size: int = 100):
                         uuid,
                         last_checked_at=last_checked_at,
                         next_check_at=next_check_at,
+                        index=ZAAK_INDEX,
                     )
                     if updated:
                         logger.info("zaak_validated", uuid=uuid, service=service.slug)
