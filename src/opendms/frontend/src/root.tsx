@@ -9,6 +9,7 @@ import {
 } from "@maykin-ui/admin-ui";
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
+import type { MouseEventHandler } from "react";
 import { Outlet, useNavigate, useNavigation } from "react-router";
 import {
   GlobalSearchButton,
@@ -43,6 +44,11 @@ export const Layout = () => {
 export const AuthenticatedLayout = () => {
   const navigate = useNavigate();
   const { state } = useNavigation();
+
+  const handleLogoClick: MouseEventHandler = (e) => {
+    e.preventDefault();
+    return navigate("/");
+  };
 
   const handleLogout = async () => {
     await apiClient.GET("/api/v1/accounts/logout");
@@ -101,7 +107,7 @@ export const AuthenticatedLayout = () => {
   return (
     <BaseTemplate
       primaryNavigationItems={[
-        <Logo abbreviated key={"logo"} />,
+        <Logo abbreviated key={"logo"} href="/" onClick={handleLogoClick} />,
         <GlobalSearchButton key="global-search" search={handleSearch} />,
         "spacer",
         state !== "idle" ? (
