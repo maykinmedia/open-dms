@@ -29,7 +29,7 @@ export const GlobalSearchButton = ({ search }: GlobalSearchButtonProps) => {
   return (
     <>
       <Button
-        aria-label="Zoek overal"
+        aria-label="Zoeken"
         square
         variant="transparent"
         onClick={() => setOpen(true)}
