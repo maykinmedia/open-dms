@@ -3,7 +3,7 @@ import mimetypes
 import secrets
 
 from django.conf import settings
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import redirect
 from django.utils import timezone
 from django.utils.dateparse import parse_datetime
@@ -100,7 +100,7 @@ class MsGraphApiBackend(DocumentEditBackend):
         :param file_path: Full path of the target file.
         :param file_name: File name.
         :param file_ext: File extension.
-        :return: A response that continues the file access/edit flow.
+        :return: A response containing the editor URL as a body.
         :raises BlockingIOError: If the file cannot be accessed at this time.
         :raises PermissionError: If the login is not successful.
         """
@@ -134,7 +134,9 @@ class MsGraphApiBackend(DocumentEditBackend):
         )
 
         self._ensure_subscription()
-        return redirect(self.one_drive_client.get_item_link(item_id=document_drive_id))
+        return HttpResponse(
+            self.one_drive_client.get_item_link(item_id=document_drive_id)
+        )
 
     def updated_callback(self, request) -> Response:
         """
