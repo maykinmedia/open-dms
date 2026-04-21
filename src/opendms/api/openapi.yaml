@@ -504,6 +504,11 @@ paths:
         schema:
           type: string
         required: true
+      - in: query
+        name: originUrl
+        schema:
+          type: string
+        description: URL to redirect to in case of a renewed authentication flow
       - in: path
         name: serviceSlug
         schema:
@@ -524,14 +529,30 @@ paths:
       security:
       - cookieAuth: []
       responses:
-        '302':
+        '200':
           headers:
             API-version:
               schema:
                 type: string
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
-          description: Redirect naar de binaire bestandsinhoud
+          description: Editor URL as a body
+        '403':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description: Authentication URL as body
+        '423':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          description: Empty body, document is locked
   /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/upload:
     get:
       operationId: documentUpload

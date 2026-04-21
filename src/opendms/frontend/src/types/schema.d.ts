@@ -1077,7 +1077,10 @@ export interface operations {
     };
     documentEdit: {
         parameters: {
-            query?: never;
+            query?: {
+                /** @description URL to redirect to in case of a renewed authentication flow */
+                originUrl?: string;
+            };
             header?: never;
             path: {
                 documentUuid: string;
@@ -1089,8 +1092,26 @@ export interface operations {
         };
         requestBody?: never;
         responses: {
-            /** @description Redirect naar de binaire bestandsinhoud */
-            302: {
+            /** @description Editor URL as a body */
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Authentication URL as body */
+            403: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+            /** @description Empty body, document is locked */
+            423: {
                 headers: {
                     /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
                     "API-version"?: string;
