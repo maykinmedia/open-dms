@@ -101,10 +101,10 @@ export const DocumentsList = () => {
     (document: Document, e: React.MouseEvent) => {
       e.preventDefault();
       const target: HTMLAnchorElement = e.target as HTMLAnchorElement;
-      setPendingDocumentsState([...pendingDocumentsState, document.uuid]);
 
-      const _onConfirm = () =>
-        fetch(target.href)
+      const _onConfirm = () => {
+        setPendingDocumentsState([...pendingDocumentsState, document.uuid]);
+        return fetch(target.href)
           .then((response: Response) => {
             if (!response.ok) throw response;
             return response;
@@ -126,6 +126,7 @@ export const DocumentsList = () => {
               pendingDocumentsState.filter((uuid) => uuid !== document.uuid),
             ),
           );
+      };
 
       confirm(
         "Waarschuwing!",
