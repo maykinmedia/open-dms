@@ -1,6 +1,6 @@
 from typing import Protocol
 
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 
 from rest_framework.request import Request
 from rest_framework.response import Response
@@ -31,7 +31,7 @@ class DocumentEditBackend(Protocol):
 
     def open(
         self, request: Request, file_path: str, file_name: str, file_ext: str
-    ) -> HttpResponseRedirect:
+    ) -> HttpResponse:
         """
         Start a process to access or edit a file.
 
@@ -39,7 +39,7 @@ class DocumentEditBackend(Protocol):
         :param file_path: Full path of the target file.
         :param file_name: File name.
         :param file_ext: File extension.
-        :return: A response that continues the file access/edit flow.
+        :return: A response containing the editor URL as a body.
         :raises FileNotFoundError: If the file is not found.
         :raises BlockingIOError: If the file cannot be accessed at this time.
         """

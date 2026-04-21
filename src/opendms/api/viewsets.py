@@ -4,7 +4,7 @@ import tempfile
 from datetime import datetime
 from time import sleep
 
-from django.http import Http404
+from django.http import Http404, HttpResponse, HttpResponseForbidden
 from django.shortcuts import redirect
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
@@ -12,6 +12,7 @@ from django.utils.translation import gettext_lazy as _
 import structlog
 from drf_spectacular.types import OpenApiTypes
 from drf_spectacular.utils import (
+    OpenApiParameter,
     OpenApiResponse,
     extend_schema,
     extend_schema_view,
@@ -412,11 +413,27 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
             ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
             ZAKEN_ZAAK_UUID_PARAM,
             DOCUMENT_PARAM,
+            OpenApiParameter(
+                name="originUrl",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.QUERY,
+                required=False,
+                description=_(
+                    "URL to redirect to in case of a renewed authentication flow"
+                ),
+            ),
         ],
+        # TOOD: Improve
         responses={
-            (status.HTTP_302_FOUND, "application/octet-stream"): OpenApiResponse(
-                description="Redirect naar de binaire bestandsinhoud",
-            )
+            status.HTTP_200_OK: OpenApiResponse(
+                description=_("Editor URL as a body"),
+            ),
+            status.HTTP_403_FORBIDDEN: OpenApiResponse(
+                description=_("Authentication URL as body"),
+            ),
+            status.HTTP_423_LOCKED: OpenApiResponse(
+                description=_("Empty body, document is locked"),
+            ),
         },
     )
     @action(methods=["get"], detail=True, name="document_edit")
@@ -436,7 +453,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         tmp_path = None
 
         try:
-            # Create the temp file
+            # Create the `tmp_file`
             with tempfile.NamedTemporaryFile(
                 suffix=file_ext,
                 delete=False,
@@ -444,11 +461,22 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 tmp_file.write(file_response.content)
                 tmp_path = tmp_file.name
 
-            # Open temp file in document_edit_backend
+            # Open `tmp_file` in document_edit_backend
+            # This returns a response containing the editor URL as a body.
+            # The frontend opens this URL in a new window.
+            # Due to implementation-specific CORS restrictions, we can't reply with a `HttpResponseRedirect` and the target location is set on the
+            #  body.
             return document_edit_backend.open(request, tmp_path, file_uuid, file_ext)
         except PermissionError:
-            # (Re-)authenticate
-            return self._redirect_to_ms_auth(request)
+            # Indicate an authentication failure to the frontend.
+            # The returned `response.url` is used by the frontend to redirect the user through and authentication flow.
+            # Due to implementation-specific CORS restrictions, we can't reply with a `HttpResponseRedirect` and the target location is set on the
+            #  body.
+            request.session["origin_url"] = request.GET.get("originUrl")
+            response = document_edit_backend.authenticate(request)
+            return HttpResponseForbidden(response.url)
+        except BlockingIOError:
+            return HttpResponse(status=status.HTTP_423_LOCKED)
         finally:
             if tmp_path and os.path.exists(tmp_path):
                 os.unlink(tmp_path)
