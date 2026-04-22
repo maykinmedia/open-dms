@@ -4,6 +4,7 @@ import {
   Modal,
   Outline,
   type SearchResult,
+  useKeyboardShortcut,
 } from "@maykin-ui/admin-ui";
 import { useState } from "react";
 import { useNavigate } from "react-router";
@@ -21,6 +22,10 @@ export const GlobalSearchButton = ({ search }: GlobalSearchButtonProps) => {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
+  useKeyboardShortcut({ key: "K", ctrlOrMeta: true }, () =>
+    setOpen((open) => !open),
+  );
+
   const handleNavigate = (href: string) => {
     setOpen(false);
     navigate(href);
@@ -30,6 +35,7 @@ export const GlobalSearchButton = ({ search }: GlobalSearchButtonProps) => {
     <>
       <Button
         aria-label="Zoeken"
+        title="Zoeken (⌘K)"
         square
         variant="transparent"
         onClick={() => setOpen(true)}
