@@ -699,7 +699,7 @@ packaging==26.0
     #   kombu
     #   opentelemetry-instrumentation
     #   sphinx
-pillow==12.1.1
+pillow==12.2.0
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
