@@ -18,7 +18,7 @@ permissions:
 jobs:
   oas:
     name: Checks
-    uses: maykinmedia/open-api-workflows/.github/workflows/oas.yml@v6
+    uses: maykinmedia/open-api-workflows/.github/workflows/oas.yml@v6.2.4
     with:
       python-version: '3.12'
       apt-packages: 'gdal-bin'
