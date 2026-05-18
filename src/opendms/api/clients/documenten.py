@@ -62,14 +62,36 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         if response.status_code == 204:
             return HttpResponse(status=204)
 
-        name = document.get("name", document["identificatie"])
+        bestandsnaam = document.get("bestandsnaam") or ""
         extension = guess_extension_by_response(response)
-        fullname = f"{name}{extension}"
+        if bestandsnaam:
+            fullname = bestandsnaam
+        else:
+            fullname = f"{document['identificatie']}{extension}"
+
+        # Hop-by-hop headers (Connection, Keep-Alive, Transfer-Encoding, …) must
+        # not be forwarded — the WSGI spec rejects them and they don't apply to the
+        # Django response anyway.
+        HOP_BY_HOP = {
+            "connection",
+            "keep-alive",
+            "proxy-authenticate",
+            "proxy-authorization",
+            "te",
+            "trailers",
+            "transfer-encoding",
+            "upgrade",
+        }
+        safe_headers = {
+            k: v
+            for k, v in response.headers.items()
+            if k.lower() not in HOP_BY_HOP
+        }
 
         return HttpResponse(
             response.content,
             headers={
-                **response.headers,
+                **safe_headers,
                 "Content-Disposition": f'attachment; filename="{fullname}"',
                 "File-Name": fullname,
                 "File-Extension": extension,
