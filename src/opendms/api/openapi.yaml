@@ -596,6 +596,131 @@ paths:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
+  /api/v1/services/{serviceSlug}/zaken:
+    get:
+      operationId: apiV1ServicesZakenList
+      description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+      summary: serviceZakenList
+      parameters:
+      - in: query
+        name: identificatie__icontains
+        schema:
+          type: string
+        description: De unieke identificatie van de ZAAK (bevat de identificatie de
+          gegeven waarden (hoofdletterongevoelig))
+      - in: query
+        name: omschrijving
+        schema:
+          type: string
+        description: Een korte omschrijving van de ZAAK (bevat de omschrijving de
+          gegeven waarden (hoofdletterongevoelig))
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: 'Het aantal resultaten terug te geven per pagina. (default: 100,
+          maximum: 500).'
+        schema:
+          type: integer
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: query
+        name: startdatum__gte
+        schema:
+          type: string
+          format: date
+        description: De datum waarop met de uitvoering van de zaak is gestart
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedZaakList'
+          description: ''
+    post:
+      operationId: apiV1ServicesZakenCreate
+      description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+      summary: serviceZakenCreate
+      parameters:
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ZaakCreate'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zaak'
+          description: ''
+  /api/v1/services/{serviceSlug}/zaken/{zaakUuid}:
+    get:
+      operationId: apiV1ServicesZakenRetrieve
+      description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
+      summary: serviceZakenRetrieve
+      parameters:
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zaakUuid
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Zaak'
+          description: ''
   /api/v1/services/{slug}:
     get:
       operationId: apiV1ServicesRetrieve
@@ -1342,6 +1467,26 @@ components:
       - toelichting
       - url
       - uuid
+      - verantwoordelijkeOrganisatie
+      - zaaktype
+    ZaakCreate:
+      type: object
+      properties:
+        zaaktype:
+          type: string
+          format: uri
+        omschrijving:
+          type: string
+        startdatum:
+          type: string
+          format: date
+        bronorganisatie:
+          type: string
+        verantwoordelijkeOrganisatie:
+          type: string
+      required:
+      - bronorganisatie
+      - startdatum
       - verantwoordelijkeOrganisatie
       - zaaktype
     ZaakType:

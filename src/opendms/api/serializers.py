@@ -509,3 +509,12 @@ class SearchResponseSerializer(serializers.Serializer):
         resource_type_field_name="type",
         many=True,
     )
+
+
+class ZaakCreateSerializer(serializers.Serializer):
+    zaaktype = serializers.URLField()
+    omschrijving = serializers.CharField(required=False, allow_blank=True)
+    startdatum = serializers.DateField()
+
+    bronorganisatie = serializers.CharField()
+    verantwoordelijke_organisatie = serializers.CharField()
