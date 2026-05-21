@@ -15,11 +15,11 @@ import {
   useRouteLoaderData,
   useSearchParams,
 } from "react-router";
-import type { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
 import { useModuleBasePath } from "~/hooks/usemodule";
 import { getPageFromSearchParams } from "~/lib";
 import type { Zaak } from "~/types";
 
+import type { zaaktypeLoader } from "../../documents-module.loader";
 import type { zakenListLoader } from "./zaken-list.loader";
 
 export function ZakenList() {
@@ -34,8 +34,7 @@ export function ZakenList() {
     zaakYear: string | undefined;
   };
 
-  const rootData =
-    useRouteLoaderData<typeof authenticatedRootLoader>("authenticated-root");
+  const rootData = useRouteLoaderData<typeof zaaktypeLoader>("documents-root");
 
   const data = useLoaderData<typeof zakenListLoader>();
 
