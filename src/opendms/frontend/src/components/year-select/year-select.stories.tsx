@@ -21,7 +21,7 @@ const meta: Meta<typeof YearSelect> = {
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],
   parameters: {
-    reactRouter: sanitizedReactRouterParameters(),
+    reactRouter: sanitizedReactRouterParameters("/documenten/"),
   },
   render: () => (
     <Sidebar>
