@@ -2,7 +2,8 @@ import { type RouteObject, createBrowserRouter, redirect } from "react-router";
 import { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
 import { authRouterMiddleware, routes as authRoutes } from "~/modules/auth";
 
-import { routes as documentRoutes } from "./modules/documents";
+import { createModuleRoutes as createDocumentRoutes } from "./modules/documents";
+import { createModuleRoutes as createZakenRoutes } from "./modules/zaken";
 import { AuthenticatedLayout, Layout } from "./root.tsx";
 
 export const routes: [RouteObject, ...RouteObject[]] = [
@@ -19,13 +20,11 @@ export const routes: [RouteObject, ...RouteObject[]] = [
     shouldRevalidate: () => true,
     handle: { moduleRoot: true }, // Indicate module root, necessary for modules (apps) to work.
     children: [
-      {
-        path: "documenten",
-        children: documentRoutes,
-      },
+      ...createZakenRoutes("zaken"),
+      ...createDocumentRoutes("documenten"),
       {
         index: true,
-        loader: () => redirect("/documenten"),
+        loader: () => redirect("zaken"),
       },
     ],
   },

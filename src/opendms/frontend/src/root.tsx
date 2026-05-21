@@ -1,5 +1,6 @@
 import {
   BaseTemplate,
+  Button,
   ConfigContext,
   Logo,
   ModalService,
@@ -11,14 +12,9 @@ import {
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
 import type { MouseEventHandler } from "react";
-import { Outlet, useNavigate, useNavigation } from "react-router";
-import {
-  GlobalSearchButton,
-  ServiceSelect,
-  YearSelect,
-  ZaaktypeSelect,
-} from "~/components";
-import { useModuleBasePath } from "~/hooks/usemodule";
+import { NavLink, Outlet, useNavigate, useNavigation } from "react-router";
+import { GlobalSearchButton } from "~/components";
+import { useModuleRouteMatch } from "~/hooks/usemodule";
 import { apiClient } from "~/lib";
 import { logout } from "~/modules/auth";
 
@@ -47,7 +43,7 @@ export const Layout = () => {
 export const AuthenticatedLayout = () => {
   const navigate = useNavigate();
   const { state } = useNavigation();
-  const moduleBasePath = useModuleBasePath();
+  const routeMatch = useModuleRouteMatch();
 
   const handleLogoClick: MouseEventHandler = (e) => {
     e.preventDefault();
@@ -113,6 +109,19 @@ export const AuthenticatedLayout = () => {
       primaryNavigationItems={[
         <Logo abbreviated key={"logo"} href="/" onClick={handleLogoClick} />,
         <GlobalSearchButton key="global-search" search={handleSearch} />,
+
+        <NavLink key="zaken" to="/zaken">
+          <Button variant="transparent" title="Zaken">
+            <Outline.BookOpenIcon />
+          </Button>
+        </NavLink>,
+
+        <NavLink key="documenten" to="/documenten">
+          <Button variant="transparent" title="Documenten">
+            <Outline.DocumentIcon />
+          </Button>
+        </NavLink>,
+
         "spacer",
         state !== "idle" ? (
           <Outline.ArrowPathIcon
@@ -136,11 +145,9 @@ export const AuthenticatedLayout = () => {
             direction="vertical"
             pad={true}
             variant="transparent"
-          >
-            <ServiceSelect key="service-select" basepath={moduleBasePath} />
-            <ZaaktypeSelect key="zaaktype-select" basepath={moduleBasePath} />
-            <YearSelect key="year-select" basepath={moduleBasePath} />
-          </Toolbar>
+            // @ts-expect-error - routerMatch.handle has no type.
+            items={routeMatch.handle?.sidebar?.items}
+          />
         </Sidebar>
       }
     >
