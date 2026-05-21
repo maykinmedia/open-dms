@@ -21,7 +21,7 @@ const meta: Meta<typeof ZaaktypeSelect> = {
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],
   parameters: {
-    reactRouter: sanitizedReactRouterParameters(),
+    reactRouter: sanitizedReactRouterParameters("/documenten/"),
   },
   render: () => (
     <Sidebar>
