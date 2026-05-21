@@ -1,5 +1,6 @@
 import type { RouteObject } from "react-router";
 
+import { zaaktypeLoader } from "./documents-module.loader";
 import {
   DocumentsList,
   ZakenList,
@@ -9,7 +10,9 @@ import {
 
 export const routes: RouteObject[] = [
   {
+    id: "documents-root",
     path: ":serviceSlug?/:zaaktypeUuid?/:zaakYear?",
+    loader: zaaktypeLoader,
     children: [
       {
         index: true,

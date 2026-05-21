@@ -1,5 +1,4 @@
 import { type RouteObject, createBrowserRouter, redirect } from "react-router";
-import { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
 import { authRouterMiddleware, routes as authRoutes } from "~/modules/auth";
 
 import { routes as documentRoutes } from "./modules/documents";
@@ -15,8 +14,6 @@ export const routes: [RouteObject, ...RouteObject[]] = [
     id: "authenticated-root",
     Component: AuthenticatedLayout,
     middleware: [authRouterMiddleware],
-    loader: authenticatedRootLoader,
-    shouldRevalidate: () => true,
     handle: { moduleRoot: true }, // Indicate module root, necessary for modules (apps) to work.
     children: [
       {

@@ -1,6 +1,7 @@
 import { Body, Breakout, Button, Outline } from "@maykin-ui/admin-ui";
 import { useMemo } from "react";
-import { NavLink, useLoaderData, useParams } from "react-router";
+import { NavLink, useParams, useRouteLoaderData } from "react-router";
+import type { zaaktypeLoader } from "~/modules/documents/documents-module.loader";
 
 export type YearSelectProps = {
   basepath?: string;
@@ -11,7 +12,8 @@ export type YearSelectProps = {
  * Updates the route to `/:service_slug/:zaaktype_slug` upon selection
  */
 export function YearSelect({ basepath = "/" }: YearSelectProps) {
-  const { zaaktype } = useLoaderData();
+  const { zaaktype } =
+    useRouteLoaderData<typeof zaaktypeLoader>("documents-root") ?? {};
 
   // TODO: Validation. See issue gh-#42
   const { serviceSlug, zaaktypeUuid, zaakYear } = useParams() as {

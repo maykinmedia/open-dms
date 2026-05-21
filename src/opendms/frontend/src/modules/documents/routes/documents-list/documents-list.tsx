@@ -17,11 +17,11 @@ import {
   useRouteLoaderData,
   useSearchParams,
 } from "react-router";
-import type { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
 import { usePoll } from "~/hooks";
 import { getPageFromSearchParams } from "~/lib";
 import type { Document } from "~/types";
 
+import type { zaaktypeLoader } from "../../documents-module.loader";
 import { documentsListLoader, fetchDocuments } from "./documents-list.loader";
 
 export const DocumentsList = () => {
@@ -46,8 +46,7 @@ export const DocumentsList = () => {
     zaakYear: string | undefined;
     zaakId: string | undefined;
   };
-  const rootData =
-    useRouteLoaderData<typeof authenticatedRootLoader>("authenticated-root");
+  const rootData = useRouteLoaderData<typeof zaaktypeLoader>("documents-root");
 
   const alert = useAlert();
   const confirm = useConfirm();
