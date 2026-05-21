@@ -3,6 +3,8 @@ import { apiClient } from "~/lib";
 import type { ZaakType } from "~/types";
 
 /**
+ * FIXME: Move this to dedicated structure for documents module.
+ *
  * Loads and returns the authenticated root resource for the specified service and zaaktype.
  * Performs an API call to fetch the requested resource based on the given parameters.
  *
@@ -12,6 +14,7 @@ import type { ZaakType } from "~/types";
  * @param {string} args.params.zaaktypeUuid - The UUID of the zaaktype.
  * @return {Promise<{ zaaktype: object | null }>} A promise that resolves to an object containing the zaaktype data,
  * or null if the required parameters are missing or the resource is not found.
+ * @deprecated
  */
 export async function authenticatedRootLoader({
   params,

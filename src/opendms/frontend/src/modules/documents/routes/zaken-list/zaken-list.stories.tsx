@@ -3,18 +3,18 @@ import { initialize, mswLoader } from "msw-storybook-addon";
 import { withRouter } from "storybook-addon-remix-react-router";
 import { expect, userEvent, within } from "storybook/test";
 
-import { withCSRF } from "../../../.storybook/decorators.tsx";
+import { withCSRF } from "../../../../../.storybook/decorators.tsx";
 import {
   MOCK_SERVICE_OPTIONS,
   MOCK_ZAAKTYPE,
   MOCK_ZAAKTYPE_OPTIONS,
   MOCK_ZAKEN,
-} from "../../../.storybook/mocks.ts";
+} from "../../../../../.storybook/mocks.ts";
 import {
   sanitizedReactRouterParameters,
   waitForIdle,
   waitForLoading,
-} from "../../../.storybook/utils.ts";
+} from "../../../../../.storybook/utils.ts";
 import { ZakenList } from "./zaken-list.tsx";
 
 initialize();
@@ -32,14 +32,14 @@ type Story = StoryObj<typeof ZakenList>;
 
 export const Fallback: Story = {
   parameters: {
-    reactRouter: sanitizedReactRouterParameters(),
+    reactRouter: sanitizedReactRouterParameters("/documenten/"),
   },
 };
 
 export const List: Story = {
   parameters: {
     reactRouter: sanitizedReactRouterParameters(
-      "/service_2/22222222-2222-2222-2222-222222222222/2023",
+      "/documenten/service_2/22222222-2222-2222-2222-222222222222/2023",
     ),
     msw: {
       handlers: [

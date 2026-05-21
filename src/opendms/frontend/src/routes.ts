@@ -1,29 +1,15 @@
-import { type RouteObject, createBrowserRouter } from "react-router";
-import { authenticatedRootLoader } from "~/routes/authenticated-root.loader.ts";
-import { documentsListLoader } from "~/routes/documents-list";
-import { DocumentsList } from "~/routes/documents-list/documents-list.tsx";
-import {
-  Login,
-  ZakenList,
-  loginAction,
-  zakenListLoader,
-} from "~/routes/index.ts";
-import { loginLoader } from "~/routes/login/login.loader.ts";
+import { type RouteObject, createBrowserRouter, redirect } from "react-router";
+import { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
+import { authRouterMiddleware, routes as authRoutes } from "~/modules/auth";
 
-import { authRouterMiddleware } from "./middleware/auth.ts";
+import { routes as documentRoutes } from "./modules/documents";
 import { AuthenticatedLayout, Layout } from "./root.tsx";
 
 export const routes: [RouteObject, ...RouteObject[]] = [
   {
     Component: Layout, // Public layout
-    children: [
-      {
-        path: "login",
-        Component: Login,
-        loader: loginLoader,
-        action: loginAction,
-      },
-    ],
+    handle: { moduleRoot: true }, // Indicate module root, necessary for modules (apps) to work.
+    children: authRoutes,
   },
   {
     id: "authenticated-root",
@@ -31,21 +17,15 @@ export const routes: [RouteObject, ...RouteObject[]] = [
     middleware: [authRouterMiddleware],
     loader: authenticatedRootLoader,
     shouldRevalidate: () => true,
+    handle: { moduleRoot: true }, // Indicate module root, necessary for modules (apps) to work.
     children: [
       {
-        path: ":serviceSlug?/:zaaktypeUuid?/:zaakYear?",
-        children: [
-          {
-            index: true,
-            Component: ZakenList,
-            loader: zakenListLoader,
-          },
-          {
-            path: ":zaakId",
-            Component: DocumentsList,
-            loader: documentsListLoader,
-          },
-        ],
+        path: "documenten",
+        children: documentRoutes,
+      },
+      {
+        index: true,
+        loader: () => redirect("/documenten"),
       },
     ],
   },

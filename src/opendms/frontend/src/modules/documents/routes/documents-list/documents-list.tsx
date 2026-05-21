@@ -17,14 +17,12 @@ import {
   useRouteLoaderData,
   useSearchParams,
 } from "react-router";
+import type { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
 import { usePoll } from "~/hooks";
 import { getPageFromSearchParams } from "~/lib";
-import { authenticatedRootLoader } from "~/routes/authenticated-root.loader.ts";
-import {
-  type documentsListLoader,
-  fetchDocuments,
-} from "~/routes/documents-list/documents-list.loader.ts";
 import type { Document } from "~/types";
+
+import { documentsListLoader, fetchDocuments } from "./documents-list.loader";
 
 export const DocumentsList = () => {
   // TODO: Validation. See issue gh-#42

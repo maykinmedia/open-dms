@@ -3,13 +3,13 @@ import { initialize, mswLoader } from "msw-storybook-addon";
 import { withRouter } from "storybook-addon-remix-react-router";
 import { userEvent, within } from "storybook/test";
 
-import { withCSRF } from "../../../.storybook/decorators.tsx";
+import { withCSRF } from "../../../../../.storybook/decorators.tsx";
 import {
   MOCK_CORRECT_LOGIN,
   MOCK_INCORRECT_LOGIN,
   MOCK_WHOAMI,
-} from "../../../.storybook/mocks.ts";
-import { sanitizedReactRouterParameters } from "../../../.storybook/utils.ts";
+} from "../../../../../.storybook/mocks.ts";
+import { sanitizedReactRouterParameters } from "../../../../../.storybook/utils.ts";
 import { Login } from "./login";
 
 initialize();

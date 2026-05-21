@@ -18,7 +18,9 @@ import {
   YearSelect,
   ZaaktypeSelect,
 } from "~/components";
+import { useModuleBasePath } from "~/hooks/usemodule";
 import { apiClient } from "~/lib";
+import { logout } from "~/modules/auth";
 
 /**
  * Represents a layout component tailored for unauthenticated users.
@@ -45,6 +47,7 @@ export const Layout = () => {
 export const AuthenticatedLayout = () => {
   const navigate = useNavigate();
   const { state } = useNavigation();
+  const moduleBasePath = useModuleBasePath();
 
   const handleLogoClick: MouseEventHandler = (e) => {
     e.preventDefault();
@@ -52,7 +55,7 @@ export const AuthenticatedLayout = () => {
   };
 
   const handleLogout = async () => {
-    await apiClient.GET("/api/v1/accounts/logout");
+    await logout();
     navigate("/login");
   };
 
@@ -134,9 +137,9 @@ export const AuthenticatedLayout = () => {
             pad={true}
             variant="transparent"
           >
-            <ServiceSelect key="service-select" />
-            <ZaaktypeSelect key="zaaktype-select" />
-            <YearSelect key="year-select" />
+            <ServiceSelect key="service-select" basepath={moduleBasePath} />
+            <ZaaktypeSelect key="zaaktype-select" basepath={moduleBasePath} />
+            <YearSelect key="year-select" basepath={moduleBasePath} />
           </Toolbar>
         </Sidebar>
       }

@@ -3,11 +3,15 @@ import { invariant } from "@maykin-ui/client-common";
 import { useNavigate, useParams } from "react-router";
 import { apiClient } from "~/lib";
 
+export type ZaaktypeSelectProps = {
+  basepath?: string;
+};
+
 /**
  * Allows selection of a zaaktype, powered by a loader function.
  * Updates the route to `/:serviceSlug/:zaaktypeUuid` upon selection
  */
-export function ZaaktypeSelect() {
+export function ZaaktypeSelect({ basepath = "/" }: ZaaktypeSelectProps) {
   const navigate = useNavigate();
 
   // TODO: Validation. See issue gh-#42
@@ -52,7 +56,7 @@ export function ZaaktypeSelect() {
    */
   const setSelectedZaaktype = (value: string) => {
     invariant(serviceSlug, "Can't select zaaktypeUuid without serviceSlug!");
-    navigate(`/${serviceSlug}/${value}`);
+    navigate(`${basepath}/${serviceSlug}/${value}`);
   };
 
   return (
