@@ -15,8 +15,9 @@ import {
   useRouteLoaderData,
   useSearchParams,
 } from "react-router";
+import type { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
+import { useModuleBasePath } from "~/hooks/usemodule";
 import { getPageFromSearchParams } from "~/lib";
-import { authenticatedRootLoader } from "~/routes/authenticated-root.loader.ts";
 import type { Zaak } from "~/types";
 
 import type { zakenListLoader } from "./zaken-list.loader";
@@ -24,6 +25,7 @@ import type { zakenListLoader } from "./zaken-list.loader";
 export function ZakenList() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
+  const moduleBasePath = useModuleBasePath();
 
   // TODO: Validation. See issue gh-#42
   const { serviceSlug, zaaktypeUuid, zaakYear } = useParams() as {
@@ -62,7 +64,7 @@ export function ZakenList() {
   ];
 
   const objectList = data.results.map((zaak) => {
-    const href = `/${serviceSlug}/${zaaktypeUuid}/${zaakYear}/${zaak.uuid}`;
+    const href = `${moduleBasePath}/${serviceSlug}/${zaaktypeUuid}/${zaakYear}/${zaak.uuid}`;
     return {
       ...zaak,
       identificatie: (

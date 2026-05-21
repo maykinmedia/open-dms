@@ -2,11 +2,15 @@ import { Body, Breakout, Button, Outline } from "@maykin-ui/admin-ui";
 import { useMemo } from "react";
 import { NavLink, useLoaderData, useParams } from "react-router";
 
+export type YearSelectProps = {
+  basepath?: string;
+};
+
 /**
  * Allows selection of a zaaktype, powered by a loader function.
  * Updates the route to `/:service_slug/:zaaktype_slug` upon selection
  */
-export function YearSelect() {
+export function YearSelect({ basepath = "/" }: YearSelectProps) {
   const { zaaktype } = useLoaderData();
 
   // TODO: Validation. See issue gh-#42
@@ -44,7 +48,10 @@ export function YearSelect() {
     zaaktype && (
       <Body allowScroll={true}>
         {years.map((year) => (
-          <NavLink key={year} to={`/${serviceSlug}/${zaaktypeUuid}/${year}`}>
+          <NavLink
+            key={year}
+            to={`${basepath}/${serviceSlug}/${zaaktypeUuid}/${year}`}
+          >
             <Breakout>
               <Button
                 align="space-between"

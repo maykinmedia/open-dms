@@ -1,7 +1,7 @@
 import { type MiddlewareFunction, redirect } from "react-router";
 import { apiClient } from "~/lib";
 
-import { userContext } from "../context.ts";
+import { userContext } from "../contexts";
 
 /**
  * Middleware that checks if a user is authenticated and/or has correct roles

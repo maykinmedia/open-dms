@@ -2,11 +2,15 @@ import { type LoadOptionsFn, type Option, Select } from "@maykin-ui/admin-ui";
 import { useNavigate, useParams } from "react-router";
 import { apiClient } from "~/lib";
 
+export type ServiceSelectProps = {
+  basepath?: string;
+};
+
 /**
  * Allows selection of a service, powered by a loader function.
  * Updates the route to `/:serviceSlug` upon selection
  */
-export function ServiceSelect() {
+export function ServiceSelect({ basepath = "/" }: ServiceSelectProps) {
   const navigate = useNavigate();
   // TODO: Validation. See issue gh-#42
   const { serviceSlug } = useParams() as { serviceSlug: string | undefined };
@@ -40,7 +44,7 @@ export function ServiceSelect() {
    * @param value
    */
   const setSelectedService = (value: string) => {
-    navigate(`/${value}`);
+    navigate(`${basepath}/${value}`);
   };
 
   return (
