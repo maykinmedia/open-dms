@@ -1,8 +1,11 @@
 import {
   Badge,
+  BaseTemplate,
+  Body,
   type Field,
   ListTemplate,
   Outline,
+  P,
   type TypedField,
   Value,
 } from "@maykin-ui/admin-ui";
@@ -43,7 +46,8 @@ export function ZaaktypenList() {
 
   const data = useLoaderData<typeof zaaktypenListLoader>();
 
-  // No service, zaaktype and year selected.
+  // No service selected.
+  if (!serviceSlug) return <NoServiceSelectedMessage />;
   if (!data) return false;
 
   const objectList: ZaaktypeListData[] = data.results.map((zaaktype) => ({
@@ -80,7 +84,6 @@ export function ZaaktypenList() {
             type: "text",
             name: "omschrijving__icontains",
             placeholder: "Zoeken…",
-            labelClear: "Wissen",
             size: "s",
             onBlur: (e: unknown) => {
               const target = (e as React.FocusEvent<HTMLInputElement>).target;
@@ -107,6 +110,25 @@ export function ZaaktypenList() {
         },
       }}
     />
+  );
+}
+
+/**
+ * Renders a message informing the user to select a service.
+ *
+ * @return {JSX.Element} A message component wrapped in a layout structure.
+ */
+function NoServiceSelectedMessage() {
+  return (
+    <BaseTemplate
+      grid
+      gridProps={{ valign: "middle" }}
+      columnProps={{ justify: "center" }}
+    >
+      <Body>
+        <P muted>Selecteer service.</P>
+      </Body>
+    </BaseTemplate>
   );
 }
 

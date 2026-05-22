@@ -12,7 +12,7 @@ import {
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
 import type { MouseEventHandler } from "react";
-import { NavLink, Outlet, useNavigate, useNavigation } from "react-router";
+import { Outlet, useNavigate, useNavigation } from "react-router";
 import { GlobalSearchButton } from "~/components";
 import { useModuleRouteMatch } from "~/hooks/usemodule";
 import { apiClient } from "~/lib";
@@ -110,17 +110,25 @@ export const AuthenticatedLayout = () => {
         <Logo abbreviated key={"logo"} href="/" onClick={handleLogoClick} />,
         <GlobalSearchButton key="global-search" search={handleSearch} />,
 
-        <NavLink key="zaken" to="/zaken">
-          <Button variant="transparent" title="Zaken">
-            <Outline.BookOpenIcon />
-          </Button>
-        </NavLink>,
+        <Button
+          key="zaken"
+          variant="transparent"
+          square
+          title="Zaken"
+          onClick={() => navigate("/zaken")}
+        >
+          <Outline.BookOpenIcon />
+        </Button>,
 
-        <NavLink key="documenten" to="/documenten">
-          <Button variant="transparent" title="Documenten">
-            <Outline.DocumentIcon />
-          </Button>
-        </NavLink>,
+        <Button
+          key="documenten"
+          variant="transparent"
+          square
+          title="Documenten"
+          onClick={() => navigate("/documenten")}
+        >
+          <Outline.DocumentIcon />
+        </Button>,
 
         "spacer",
         state !== "idle" ? (
