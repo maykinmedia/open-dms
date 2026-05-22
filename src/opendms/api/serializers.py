@@ -53,6 +53,41 @@ class ZaakTypeSerializer(serializers.Serializer):
     )
 
 
+class InformatieObjectTypeSerializer(serializers.Serializer):
+    uuid = serializers.CharField(
+        help_text=_("Unieke resource identifier (UUID4)"),
+    )
+    url = serializers.URLField(
+        help_text=_(
+            "URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object."
+        ),
+    )
+    catalogus = serializers.URLField(
+        help_text=_("URL-referentie naar de CATALOGUS waartoe dit INFORMATIEOBJECTTYPE behoort."),
+    )
+    omschrijving = serializers.CharField(
+        help_text=_("Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE."),
+    )
+    vertrouwelijkheidaanduiding = serializers.CharField(
+        required=False,
+        allow_null=True,
+        help_text=_("Aanduiding van de mate waarin informatieobjecten van dit type voor de openbaarheid bestemd zijn."),
+    )
+    beginGeldigheid = serializers.DateField(
+        allow_null=True,
+        required=False,
+        help_text=_("De datum waarop het is ontstaan."),
+    )
+    eindeGeldigheid = serializers.DateField(
+        allow_null=True,
+        required=False,
+        help_text=_("De datum waarop het is opgeheven."),
+    )
+    concept = serializers.BooleanField(
+        help_text=_("Geeft aan of het object een concept betreft."),
+    )
+
+
 class ZaakSerializer(serializers.Serializer):
     uuid = serializers.UUIDField(
         help_text=_(

@@ -97,6 +97,17 @@ class ESDocumentType(TypedDict):
     zaak_referenties: list[ESZaak]
 
 
+class InformatieObjectType(TypedDict):
+    uuid: str
+    url: str
+    catalogus: str
+    omschrijving: str
+    vertrouwelijkheidaanduiding: str | None
+    beginGeldigheid: date | None
+    eindeGeldigheid: date | None
+    concept: bool
+
+
 class ObjectInformatieObjectType(TypedDict):
     url: str
     informatieobject: str
@@ -117,3 +128,4 @@ ZaakTypenPaginatedResponse = PaginatedResponse[ZaakType]
 ZakenPaginatedResponse = PaginatedResponse[Zaak]
 DocumentsPaginatedResponse = PaginatedResponse[DocumentType]
 ESDocumentsPaginatedResponse = PaginatedResponse[ESDocumentType]
+InformatieObjectTypenPaginatedResponse = PaginatedResponse[InformatieObjectType]

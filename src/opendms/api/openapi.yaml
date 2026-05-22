@@ -13,9 +13,9 @@ info:
     name: EUPL 1.2
     url: https://opensource.org/licenses/EUPL-1.2
 paths:
-  /api/v1/accounts/login:
+  /accounts/login:
     post:
-      operationId: apiV1AccountsLoginCreate
+      operationId: accountsLoginCreate
       description: Authenticates the user, returns whoami details on successful login.
       summary: login
       tags:
@@ -65,9 +65,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Fout'
           description: ''
-  /api/v1/accounts/logout:
+  /accounts/logout:
     get:
-      operationId: apiV1AccountsLogoutRetrieve
+      operationId: accountsLogoutRetrieve
       description: Remove the authenticated user's ID from the request and flush their
         session data.
       summary: logout
@@ -84,9 +84,9 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: No response body
-  /api/v1/accounts/whoami:
+  /accounts/whoami:
     get:
-      operationId: apiV1AccountsWhoamiRetrieve
+      operationId: accountsWhoamiRetrieve
       description: Returns the current logged in user.
       summary: whoami
       tags:
@@ -106,11 +106,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/WhoAmI'
           description: ''
-  /api/v1/search:
+  /search:
     post:
       operationId: search
       description: Search the document records.
-      summary: Search
+      summary: Zoeken
       tags:
       - search
       requestBody:
@@ -133,14 +133,14 @@ paths:
               schema:
                 $ref: '#/components/schemas/SearchResponse'
           description: ''
-  /api/v1/services:
+  /services:
     get:
-      operationId: apiV1ServicesList
+      operationId: servicesList
       parameters:
       - name: page
         required: false
         in: query
-        description: A page number within the paginated result set.
+        description: Een pagina binnen de gepagineerde set resultaten.
         schema:
           type: integer
       - name: pageSize
@@ -157,7 +157,7 @@ paths:
         schema:
           type: string
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -173,16 +173,218 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedServiceList'
           description: ''
-  /api/v1/services/{serviceSlug}/zaaktypen:
+  /services/{serviceSlug}/informatieobjecttypen:
     get:
-      operationId: apiV1ServicesZaaktypenList
+      operationId: servicesInformatieobjecttypenList
+      description: Exposes InformatieObjectTypen from /services/<zgw-service>/informatieobjecttypen
+      summary: informatieobjecttypenList
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: 'Het aantal resultaten terug te geven per pagina. (default: 100,
+          maximum: 500).'
+        schema:
+          type: integer
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - services
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedInformatieObjectTypeList'
+          description: ''
+  /services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypenIotUuid}/documents:
+    get:
+      operationId: servicesInformatieobjecttypenDocumentsList
+      description: |-
+        Exposes Documents not linked to any Zaak, grouped by InformatieObjectType.
+        Route: /services/<serviceSlug>/informatieobjecttypen/<iotUuid>/documents
+      summary: onbekendDocumentsList
+      parameters:
+      - in: path
+        name: informatieobjecttypenIotUuid
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: Een pagina binnen de gepagineerde set resultaten.
+        schema:
+          type: integer
+      - name: pageSize
+        required: false
+        in: query
+        description: 'Het aantal resultaten terug te geven per pagina. (default: 100,
+          maximum: 500).'
+        schema:
+          type: integer
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - services
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedDocumentList'
+          description: ''
+  /services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypenIotUuid}/documents/{documentUuid}:
+    get:
+      operationId: servicesInformatieobjecttypenDocumentsRetrieve
+      description: |-
+        Exposes Documents not linked to any Zaak, grouped by InformatieObjectType.
+        Route: /services/<serviceSlug>/informatieobjecttypen/<iotUuid>/documents
+      summary: onbekendDocumentsRetrieve
+      parameters:
+      - in: path
+        name: documentUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: informatieobjecttypenIotUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - services
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+          description: ''
+  /services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypenIotUuid}/documents/{documentUuid}/download:
+    get:
+      operationId: onbekendDocumentDownload
+      description: Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT
+        (onbekend/niet gekoppeld).
+      summary: onbekendDocumentsDownload
+      parameters:
+      - in: path
+        name: documentUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: informatieobjecttypenIotUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - services
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+          description: De binaire bestandsinhoud
+  /services/{serviceSlug}/informatieobjecttypen/{iotUuid}:
+    get:
+      operationId: servicesInformatieobjecttypenRetrieve
+      description: Exposes InformatieObjectTypen from /services/<zgw-service>/informatieobjecttypen
+      summary: informatieobjecttypenRetrieve
+      parameters:
+      - in: path
+        name: iotUuid
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - services
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InformatieObjectType'
+          description: ''
+  /services/{serviceSlug}/zaaktypen:
+    get:
+      operationId: servicesZaaktypenList
       description: Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
       summary: zaaktypenList
       parameters:
       - name: page
         required: false
         in: query
-        description: A page number within the paginated result set.
+        description: Een pagina binnen de gepagineerde set resultaten.
         schema:
           type: integer
       - name: pageSize
@@ -204,7 +406,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -220,9 +422,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedZaakTypeList'
           description: ''
-  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}:
+  /services/{serviceSlug}/zaaktypen/{zaaktypeUuid}:
     get:
-      operationId: apiV1ServicesZaaktypenRetrieve
+      operationId: servicesZaaktypenRetrieve
       description: Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
       summary: zaaktypenRetrieve
       parameters:
@@ -237,7 +439,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -253,9 +455,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ZaakType'
           description: ''
-  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken:
+  /services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken:
     get:
-      operationId: apiV1ServicesZaaktypenZakenList
+      operationId: servicesZaaktypenZakenList
       description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
       summary: zakenList
       parameters:
@@ -274,7 +476,7 @@ paths:
       - name: page
         required: false
         in: query
-        description: A page number within the paginated result set.
+        description: Een pagina binnen de gepagineerde set resultaten.
         schema:
           type: integer
       - name: pageSize
@@ -301,7 +503,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -317,9 +519,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedZaakList'
           description: ''
-  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zaakUuid}:
+  /services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zaakUuid}:
     get:
-      operationId: apiV1ServicesZaaktypenZakenRetrieve
+      operationId: servicesZaaktypenZakenRetrieve
       description: Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
       summary: zakenRetrieve
       parameters:
@@ -339,7 +541,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -355,16 +557,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/Zaak'
           description: ''
-  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents:
+  /services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents:
     get:
-      operationId: apiV1ServicesZaaktypenZakenDocumentsList
+      operationId: servicesZaaktypenZakenDocumentsList
       description: Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
       summary: documentsList
       parameters:
       - name: page
         required: false
         in: query
-        description: A page number within the paginated result set.
+        description: Een pagina binnen de gepagineerde set resultaten.
         schema:
           type: integer
       - name: pageSize
@@ -390,7 +592,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -406,9 +608,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedDocumentList'
           description: ''
-  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}:
+  /services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}:
     get:
-      operationId: apiV1ServicesZaaktypenZakenDocumentsRetrieve
+      operationId: servicesZaaktypenZakenDocumentsRetrieve
       description: Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
       summary: documentsRetrieve
       parameters:
@@ -433,7 +635,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -449,7 +651,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
-  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/download:
+  /services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/download:
     get:
       operationId: documentDownload
       description: Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT.
@@ -476,7 +678,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -493,7 +695,7 @@ paths:
                 type: string
                 format: binary
           description: De binaire bestandsinhoud
-  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/edit:
+  /services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/edit:
     get:
       operationId: documentEdit
       description: Een document met binaire gegevens bewerken op OneDrive
@@ -525,7 +727,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -553,7 +755,7 @@ paths:
               description: 'Geeft een specifieke API-versie aan in de context van
                 een specifieke aanroep. Voorbeeld: 1.2.1.'
           description: Empty body, document is locked
-  /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/upload:
+  /services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/upload:
     get:
       operationId: documentUpload
       description: Een nieuwe versie van een document uploaden naar OpenZaak
@@ -580,7 +782,7 @@ paths:
           type: string
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -596,9 +798,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
-  /api/v1/services/{slug}:
+  /services/{slug}:
     get:
-      operationId: apiV1ServicesRetrieve
+      operationId: servicesRetrieve
       parameters:
       - in: path
         name: slug
@@ -609,7 +811,7 @@ paths:
             useful for cross-instance import/export.
         required: true
       tags:
-      - api
+      - services
       security:
       - cookieAuth: []
       responses:
@@ -625,77 +827,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Service'
           description: ''
-  /oidc/callback/:
-    get:
-      operationId: oidcCallbackRetrieve
-      description: Callback endpoint voor Microsoft OAuth authenticatie.
-      summary: Microsoft authentication callback
-      tags:
-      - oidc
-      security:
-      - cookieAuth: []
-      responses:
-        '302':
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          description: Redirect naar de oorspronkelijke URL na succesvolle authenticatie
-        '400':
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          description: Invalid callback of fout tijdens authenticatie
-        '401':
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          description: Authenticatie mislukt (geen access token)
-  /webhook:
-    post:
-      operationId: webhookCreate
-      description: Endpoint webhook che riceve notifiche dal backend document_edit.
-      summary: Webhook callback
-      tags:
-      - webhook
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              additionalProperties: {}
-      security:
-      - cookieAuth: []
-      - {}
-      responses:
-        '200':
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          content:
-            text/plain:
-              schema:
-                type: string
-          description: Webhook verwerkt
-        '400':
-          headers:
-            API-version:
-              schema:
-                type: string
-              description: 'Geeft een specifieke API-versie aan in de context van
-                een specifieke aanroep. Voorbeeld: 1.2.1.'
-          description: Ongeldige payload
 components:
   schemas:
     Auth:
@@ -704,9 +835,11 @@ components:
         username:
           type: string
           writeOnly: true
+          title: Gebruikersnaam
         password:
           type: string
           writeOnly: true
+          title: Wachtwoord
       required:
       - password
       - username
@@ -1045,6 +1178,49 @@ components:
       - instance
       - status
       - title
+    InformatieObjectType:
+      type: object
+      properties:
+        uuid:
+          type: string
+          description: Unieke resource identifier (UUID4)
+        url:
+          type: string
+          format: uri
+          description: URL-referentie naar dit object. Dit is de unieke identificatie
+            en locatie van dit object.
+        catalogus:
+          type: string
+          format: uri
+          description: URL-referentie naar de CATALOGUS waartoe dit INFORMATIEOBJECTTYPE
+            behoort.
+        omschrijving:
+          type: string
+          description: Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE.
+        vertrouwelijkheidaanduiding:
+          type: string
+          nullable: true
+          description: Aanduiding van de mate waarin informatieobjecten van dit type
+            voor de openbaarheid bestemd zijn.
+        beginGeldigheid:
+          type: string
+          format: date
+          nullable: true
+          description: De datum waarop het is ontstaan.
+        eindeGeldigheid:
+          type: string
+          format: date
+          nullable: true
+          description: De datum waarop het is opgeheven.
+        concept:
+          type: boolean
+          description: Geeft aan of het object een concept betreft.
+      required:
+      - catalogus
+      - concept
+      - omschrijving
+      - url
+      - uuid
     PaginatedDocumentList:
       type: object
       required:
@@ -1058,6 +1234,19 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Document'
+    PaginatedInformatieObjectTypeList:
+      type: object
+      required:
+      - count
+      - results
+      properties:
+        count:
+          type: integer
+          example: 123
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/InformatieObjectType'
     PaginatedServiceList:
       type: object
       required:
@@ -1226,20 +1415,23 @@ components:
           title: ID
         username:
           type: string
-          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
-            only.
+          title: Gebruikersnaam
+          description: Vereist. 150 tekens of minder. Alleen letters, cijfers en de
+            tekens @/,/+/-/_ zijn toegestaan.
           pattern: ^[\w.@+-]+$
           maxLength: 150
         firstName:
           type: string
+          title: Voornaam
           maxLength: 255
         lastName:
           type: string
+          title: Achternaam
           maxLength: 255
         email:
           type: string
           format: email
-          title: Email address
+          title: E-mailadres
           maxLength: 254
       required:
       - pk

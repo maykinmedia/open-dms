@@ -59,6 +59,18 @@ ZAKEN_ZAAK_UUID_PARAM = OpenApiParameter(
     location=OpenApiParameter.PATH,
     required=True,
 )
+IOT_PARAM = OpenApiParameter(
+    name="iot_uuid",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
+INFORMATIEOBJECTTYPEN_IOT_UUID_PARAM = OpenApiParameter(
+    name="informatieobjecttypen_iot_uuid",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
 
 OpenApiTypeLiteral = Literal[
     OpenApiTypes.STR,

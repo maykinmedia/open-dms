@@ -3,9 +3,13 @@ import { authenticatedRootLoader } from "~/routes/authenticated-root.loader.ts";
 import { documentsListLoader } from "~/routes/documents-list";
 import { DocumentsList } from "~/routes/documents-list/documents-list.tsx";
 import {
+  InformatieObjectTypenList,
   Login,
+  OnbekendDocumentsList,
   ZakenList,
+  informatieobjecttypenListLoader,
   loginAction,
+  onbekendDocumentsListLoader,
   zakenListLoader,
 } from "~/routes/index.ts";
 import { loginLoader } from "~/routes/login/login.loader.ts";
@@ -32,6 +36,21 @@ export const routes: [RouteObject, ...RouteObject[]] = [
     loader: authenticatedRootLoader,
     shouldRevalidate: () => true,
     children: [
+      {
+        path: ":serviceSlug/onbekend",
+        children: [
+          {
+            index: true,
+            Component: InformatieObjectTypenList,
+            loader: informatieobjecttypenListLoader,
+          },
+          {
+            path: ":iotUuid",
+            Component: OnbekendDocumentsList,
+            loader: onbekendDocumentsListLoader,
+          },
+        ],
+      },
       {
         path: ":serviceSlug?/:zaaktypeUuid?/:zaakYear?",
         children: [

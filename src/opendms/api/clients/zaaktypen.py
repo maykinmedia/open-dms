@@ -6,7 +6,12 @@ from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
 
-from ..typing import ZaakType, ZaakTypenPaginatedResponse
+from ..typing import (
+    InformatieObjectType,
+    InformatieObjectTypenPaginatedResponse,
+    ZaakType,
+    ZaakTypenPaginatedResponse,
+)
 from ..utils.mixins import HttpRequestMixin
 from ..utils.validators import extract_uuid
 
@@ -41,6 +46,35 @@ class ZaakTypeClient(HttpRequestMixin, NLXClient):
             omschrijving=record["omschrijving"],
             beginGeldigheid=record["beginGeldigheid"],
             eindeGeldigheid=record["eindeGeldigheid"],
+        )
+
+    def get_paginated_informatieobjecttypen(
+        self,
+        params: dict | None = None,
+    ) -> InformatieObjectTypenPaginatedResponse:
+        params = params or {}
+        data = self.make_request("informatieobjecttypen", params)
+        results = sorted(
+            [self._map_iot(record) for record in data.get("results", [])],
+            key=lambda iot: iot["omschrijving"].lower(),
+        )
+        return InformatieObjectTypenPaginatedResponse(count=data["count"], results=results)
+
+    def get_informatieobjecttype_by_uuid(self, uuid: str) -> InformatieObjectType:
+        data = self.make_request(f"informatieobjecttypen/{uuid}")
+        return self._map_iot(data)
+
+    @staticmethod
+    def _map_iot(record: dict) -> InformatieObjectType:
+        return InformatieObjectType(
+            uuid=extract_uuid(record["url"]),
+            url=record["url"],
+            catalogus=record["catalogus"],
+            omschrijving=record["omschrijving"],
+            vertrouwelijkheidaanduiding=record.get("vertrouwelijkheidaanduiding"),
+            beginGeldigheid=record["beginGeldigheid"],
+            eindeGeldigheid=record["eindeGeldigheid"],
+            concept=record["concept"],
         )
 
     def get_paginated_cached_items(

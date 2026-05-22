@@ -129,6 +129,35 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         results = [self._map_document({**record}) for record in data.get("results", [])]
         return DocumentsPaginatedResponse(count=data.get("count", 0), results=results)
 
+    def get_unlinked_documents_by_iot(
+        self,
+        iot_url: str,
+        oio_client: "ObjectInformatieObjectClient",
+        params: dict | None = None,
+    ) -> DocumentsPaginatedResponse:
+        """
+        Return documents of a given informatieobjecttype that have no zaak OIO link.
+        Fetches all pages of EIOs for the IOT, filters against the set of zaak-linked
+        document URLs from the OIO endpoint, and re-paginates in this layer.
+        """
+        params = params or {}
+        page = int(params.get("page", 1))
+        page_size = int(params.get("pageSize", 20))
+
+        linked_urls = oio_client.get_all_zaak_linked_urls()
+
+        first_page = self.make_request(
+            self.endpoint,
+            params={"informatieobjecttype": iot_url},
+        )
+        all_records = list(pagination_helper(self, first_page))
+        unlinked = [r for r in all_records if r["url"] not in linked_urls]
+        mapped = [self._map_document(r) for r in unlinked]
+
+        start = (page - 1) * page_size
+        end = start + page_size
+        return DocumentsPaginatedResponse(count=len(mapped), results=mapped[start:end])
+
     @staticmethod
     def _map_document(record: dict) -> DocumentType:
         return DocumentType(
@@ -174,6 +203,18 @@ class ObjectInformatieObjectClient(HttpRequestMixin, NLXClient):
             headers=CRS_HEADERS,
         )
         return data
+
+    def get_all_zaak_linked_urls(self) -> set[str]:
+        """
+        Return the set of informatieobject URLs that are linked to a zaak via an OIO.
+        OIOs are returned as a flat list (not paginated) by the DRC API.
+        """
+        data = self.make_request(self.endpoint, headers=CRS_HEADERS)
+        return {
+            item["informatieobject"]
+            for item in data
+            if item.get("objectType") == "zaak"
+        }
 
 
 def get_oio_client(service: Service) -> ObjectInformatieObjectClient:

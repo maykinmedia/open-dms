@@ -1,6 +1,6 @@
 import { type LoadOptionsFn, type Option, Select } from "@maykin-ui/admin-ui";
 import { invariant } from "@maykin-ui/client-common";
-import { useNavigate, useParams } from "react-router";
+import { useMatch, useNavigate, useParams } from "react-router";
 import { apiClient } from "~/lib";
 
 /**
@@ -15,6 +15,8 @@ export function ZaaktypeSelect() {
     serviceSlug: string | undefined;
     zaaktypeUuid: string | undefined;
   };
+
+  const ONBEKEND_VALUE = "onbekend";
 
   /**
    * Fetches the service options from the backend (client-side)
@@ -38,22 +40,32 @@ export function ZaaktypeSelect() {
       },
     );
 
-    return (
+    const zaaktypeOptions: Option[] =
       data?.results.map(({ identificatie, uuid }) => ({
         label: identificatie,
         value: uuid,
-      })) || []
-    );
+      })) || [];
+
+    return [...zaaktypeOptions, { label: "Onbekend", value: ONBEKEND_VALUE }];
   };
 
   /**
-   * Routes to `:zaaktypeUuid`
+   * Routes to `:zaaktypeUuid` or `onbekend`
    * @param value
    */
   const setSelectedZaaktype = (value: string) => {
     invariant(serviceSlug, "Can't select zaaktypeUuid without serviceSlug!");
-    navigate(`/${serviceSlug}/${value}`);
+    if (value === ONBEKEND_VALUE) {
+      navigate(`/${serviceSlug}/onbekend`);
+    } else {
+      navigate(`/${serviceSlug}/${value}`);
+    }
   };
+
+  const onbekendMatch =
+    useMatch("/:serviceSlug/onbekend") ||
+    useMatch("/:serviceSlug/onbekend/:iotUuid");
+  const currentValue = onbekendMatch ? ONBEKEND_VALUE : zaaktypeUuid;
 
   return (
     serviceSlug && ( // TODO: https://github.com/maykinmedia/admin-ui/issues/301
@@ -63,7 +75,7 @@ export function ZaaktypeSelect() {
         options={getZaaktypeOptions}
         placeholder="Selecteer zaaktype"
         placeholderSearch="Zoeken"
-        value={zaaktypeUuid}
+        value={currentValue}
         variant="secondary"
         onChange={({ target }) => setSelectedZaaktype(target.value)}
       />

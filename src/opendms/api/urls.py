@@ -7,6 +7,8 @@ from opendms.api.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIVi
 
 from .viewsets import (
     DocumentViewSet,
+    InformatieObjectTypeViewSet,
+    OnbekendDocumentViewSet,
     SearchView,
     ServiceViewSet,
     ZaakTypeViewSet,
@@ -51,6 +53,28 @@ documents_router.register(
     basename="documents",
 )
 
+informatieobjecttypen_router = routers.NestedSimpleRouter(
+    router,
+    r"services",
+    lookup="service",
+)
+informatieobjecttypen_router.register(
+    r"informatieobjecttypen",
+    InformatieObjectTypeViewSet,
+    basename="informatieobjecttypen",
+)
+
+onbekend_documents_router = routers.NestedSimpleRouter(
+    informatieobjecttypen_router,
+    r"informatieobjecttypen",
+    lookup="informatieobjecttypen",
+)
+onbekend_documents_router.register(
+    r"documents",
+    OnbekendDocumentViewSet,
+    basename="onbekend-documents",
+)
+
 urlpatterns = [
     re_path(
         r"^v(?P<version>\d+)/",
@@ -60,6 +84,8 @@ urlpatterns = [
                 re_path(r"^", include(zaaktypen_router.urls)),
                 re_path(r"^", include(zaken_router.urls)),
                 re_path(r"^", include(documents_router.urls)),
+                re_path(r"^", include(informatieobjecttypen_router.urls)),
+                re_path(r"^", include(onbekend_documents_router.urls)),
                 path(
                     "accounts/",
                     include("opendms.accounts.api.urls", namespace="accounts"),

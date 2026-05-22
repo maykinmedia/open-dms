@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-    "/api/v1/accounts/login": {
+    "/accounts/login": {
         parameters: {
             query?: never;
             header?: never;
@@ -17,14 +17,14 @@ export interface paths {
          * login
          * @description Authenticates the user, returns whoami details on successful login.
          */
-        post: operations["apiV1AccountsLoginCreate"];
+        post: operations["accountsLoginCreate"];
         delete?: never;
         options?: never;
         head?: never;
         patch?: never;
         trace?: never;
     };
-    "/api/v1/accounts/logout": {
+    "/accounts/logout": {
         parameters: {
             query?: never;
             header?: never;
@@ -35,7 +35,7 @@ export interface paths {
          * logout
          * @description Remove the authenticated user's ID from the request and flush their session data.
          */
-        get: operations["apiV1AccountsLogoutRetrieve"];
+        get: operations["accountsLogoutRetrieve"];
         put?: never;
         post?: never;
         delete?: never;
@@ -44,7 +44,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/accounts/whoami": {
+    "/accounts/whoami": {
         parameters: {
             query?: never;
             header?: never;
@@ -55,7 +55,7 @@ export interface paths {
          * whoami
          * @description Returns the current logged in user.
          */
-        get: operations["apiV1AccountsWhoamiRetrieve"];
+        get: operations["accountsWhoamiRetrieve"];
         put?: never;
         post?: never;
         delete?: never;
@@ -64,7 +64,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/search": {
+    "/search": {
         parameters: {
             query?: never;
             header?: never;
@@ -74,7 +74,7 @@ export interface paths {
         get?: never;
         put?: never;
         /**
-         * Search
+         * Zoeken
          * @description Search the document records.
          */
         post: operations["search"];
@@ -84,14 +84,14 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services": {
+    "/services": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        get: operations["apiV1ServicesList"];
+        get: operations["servicesList"];
         put?: never;
         post?: never;
         delete?: never;
@@ -100,7 +100,109 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen": {
+    "/services/{serviceSlug}/informatieobjecttypen": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * informatieobjecttypenList
+         * @description Exposes InformatieObjectTypen from /services/<zgw-service>/informatieobjecttypen
+         */
+        get: operations["servicesInformatieobjecttypenList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypenIotUuid}/documents": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * onbekendDocumentsList
+         * @description Exposes Documents not linked to any Zaak, grouped by InformatieObjectType.
+         *     Route: /services/<serviceSlug>/informatieobjecttypen/<iotUuid>/documents
+         */
+        get: operations["servicesInformatieobjecttypenDocumentsList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypenIotUuid}/documents/{documentUuid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * onbekendDocumentsRetrieve
+         * @description Exposes Documents not linked to any Zaak, grouped by InformatieObjectType.
+         *     Route: /services/<serviceSlug>/informatieobjecttypen/<iotUuid>/documents
+         */
+        get: operations["servicesInformatieobjecttypenDocumentsRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypenIotUuid}/documents/{documentUuid}/download": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * onbekendDocumentsDownload
+         * @description Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT (onbekend/niet gekoppeld).
+         */
+        get: operations["onbekendDocumentDownload"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/services/{serviceSlug}/informatieobjecttypen/{iotUuid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * informatieobjecttypenRetrieve
+         * @description Exposes InformatieObjectTypen from /services/<zgw-service>/informatieobjecttypen
+         */
+        get: operations["servicesInformatieobjecttypenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/services/{serviceSlug}/zaaktypen": {
         parameters: {
             query?: never;
             header?: never;
@@ -111,7 +213,7 @@ export interface paths {
          * zaaktypenList
          * @description Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
          */
-        get: operations["apiV1ServicesZaaktypenList"];
+        get: operations["servicesZaaktypenList"];
         put?: never;
         post?: never;
         delete?: never;
@@ -120,7 +222,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}": {
+    "/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}": {
         parameters: {
             query?: never;
             header?: never;
@@ -131,7 +233,7 @@ export interface paths {
          * zaaktypenRetrieve
          * @description Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
          */
-        get: operations["apiV1ServicesZaaktypenRetrieve"];
+        get: operations["servicesZaaktypenRetrieve"];
         put?: never;
         post?: never;
         delete?: never;
@@ -140,7 +242,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken": {
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken": {
         parameters: {
             query?: never;
             header?: never;
@@ -151,7 +253,7 @@ export interface paths {
          * zakenList
          * @description Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
          */
-        get: operations["apiV1ServicesZaaktypenZakenList"];
+        get: operations["servicesZaaktypenZakenList"];
         put?: never;
         post?: never;
         delete?: never;
@@ -160,7 +262,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zaakUuid}": {
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zaakUuid}": {
         parameters: {
             query?: never;
             header?: never;
@@ -171,7 +273,7 @@ export interface paths {
          * zakenRetrieve
          * @description Exposes Zaak from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken
          */
-        get: operations["apiV1ServicesZaaktypenZakenRetrieve"];
+        get: operations["servicesZaaktypenZakenRetrieve"];
         put?: never;
         post?: never;
         delete?: never;
@@ -180,7 +282,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents": {
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents": {
         parameters: {
             query?: never;
             header?: never;
@@ -191,7 +293,7 @@ export interface paths {
          * documentsList
          * @description Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
          */
-        get: operations["apiV1ServicesZaaktypenZakenDocumentsList"];
+        get: operations["servicesZaaktypenZakenDocumentsList"];
         put?: never;
         post?: never;
         delete?: never;
@@ -200,7 +302,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}": {
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}": {
         parameters: {
             query?: never;
             header?: never;
@@ -211,7 +313,7 @@ export interface paths {
          * documentsRetrieve
          * @description Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
          */
-        get: operations["apiV1ServicesZaaktypenZakenDocumentsRetrieve"];
+        get: operations["servicesZaaktypenZakenDocumentsRetrieve"];
         put?: never;
         post?: never;
         delete?: never;
@@ -220,7 +322,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/download": {
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/download": {
         parameters: {
             query?: never;
             header?: never;
@@ -240,7 +342,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/edit": {
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/edit": {
         parameters: {
             query?: never;
             header?: never;
@@ -260,7 +362,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/upload": {
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}/upload": {
         parameters: {
             query?: never;
             header?: never;
@@ -280,56 +382,16 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/v1/services/{slug}": {
+    "/services/{slug}": {
         parameters: {
             query?: never;
             header?: never;
             path?: never;
             cookie?: never;
         };
-        get: operations["apiV1ServicesRetrieve"];
+        get: operations["servicesRetrieve"];
         put?: never;
         post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/oidc/callback/": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        /**
-         * Microsoft authentication callback
-         * @description Callback endpoint voor Microsoft OAuth authenticatie.
-         */
-        get: operations["oidcCallbackRetrieve"];
-        put?: never;
-        post?: never;
-        delete?: never;
-        options?: never;
-        head?: never;
-        patch?: never;
-        trace?: never;
-    };
-    "/webhook": {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        get?: never;
-        put?: never;
-        /**
-         * Webhook callback
-         * @description Endpoint webhook che riceve notifiche dal backend document_edit.
-         */
-        post: operations["webhookCreate"];
         delete?: never;
         options?: never;
         head?: never;
@@ -341,7 +403,9 @@ export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
         Auth: {
+            /** Gebruikersnaam */
             username: string;
+            /** Wachtwoord */
             password: string;
         };
         Document: {
@@ -528,10 +592,45 @@ export interface components {
             /** @description URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld. */
             instance: string;
         };
+        InformatieObjectType: {
+            /** @description Unieke resource identifier (UUID4) */
+            uuid: string;
+            /**
+             * Format: uri
+             * @description URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
+             */
+            url: string;
+            /**
+             * Format: uri
+             * @description URL-referentie naar de CATALOGUS waartoe dit INFORMATIEOBJECTTYPE behoort.
+             */
+            catalogus: string;
+            /** @description Omschrijving van de aard van informatieobjecten van dit INFORMATIEOBJECTTYPE. */
+            omschrijving: string;
+            /** @description Aanduiding van de mate waarin informatieobjecten van dit type voor de openbaarheid bestemd zijn. */
+            vertrouwelijkheidaanduiding?: string | null;
+            /**
+             * Format: date
+             * @description De datum waarop het is ontstaan.
+             */
+            beginGeldigheid?: string | null;
+            /**
+             * Format: date
+             * @description De datum waarop het is opgeheven.
+             */
+            eindeGeldigheid?: string | null;
+            /** @description Geeft aan of het object een concept betreft. */
+            concept: boolean;
+        };
         PaginatedDocumentList: {
             /** @example 123 */
             count: number;
             results: components["schemas"]["Document"][];
+        };
+        PaginatedInformatieObjectTypeList: {
+            /** @example 123 */
+            count: number;
+            results: components["schemas"]["InformatieObjectType"][];
         };
         PaginatedServiceList: {
             /** @example 123 */
@@ -635,12 +734,17 @@ export interface components {
         User: {
             /** ID */
             readonly pk: number;
-            /** @description Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only. */
+            /**
+             * Gebruikersnaam
+             * @description Vereist. 150 tekens of minder. Alleen letters, cijfers en de tekens @/,/+/-/_ zijn toegestaan.
+             */
             username: string;
+            /** Voornaam */
             firstName?: string;
+            /** Achternaam */
             lastName?: string;
             /**
-             * Email address
+             * E-mailadres
              * Format: email
              */
             email?: string;
@@ -739,7 +843,7 @@ export interface components {
 }
 export type $defs = Record<string, never>;
 export interface operations {
-    apiV1AccountsLoginCreate: {
+    accountsLoginCreate: {
         parameters: {
             query?: never;
             header?: never;
@@ -784,7 +888,7 @@ export interface operations {
             };
         };
     };
-    apiV1AccountsLogoutRetrieve: {
+    accountsLogoutRetrieve: {
         parameters: {
             query?: never;
             header?: never;
@@ -804,7 +908,7 @@ export interface operations {
             };
         };
     };
-    apiV1AccountsWhoamiRetrieve: {
+    accountsWhoamiRetrieve: {
         parameters: {
             query?: never;
             header?: never;
@@ -850,10 +954,10 @@ export interface operations {
             };
         };
     };
-    apiV1ServicesList: {
+    servicesList: {
         parameters: {
             query?: {
-                /** @description A page number within the paginated result set. */
+                /** @description Een pagina binnen de gepagineerde set resultaten. */
                 page?: number;
                 /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
                 pageSize?: number;
@@ -878,10 +982,142 @@ export interface operations {
             };
         };
     };
-    apiV1ServicesZaaktypenList: {
+    servicesInformatieobjecttypenList: {
         parameters: {
             query?: {
-                /** @description A page number within the paginated result set. */
+                /** @description Een pagina binnen de gepagineerde set resultaten. */
+                page?: number;
+                /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
+                pageSize?: number;
+            };
+            header?: never;
+            path: {
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedInformatieObjectTypeList"];
+                };
+            };
+        };
+    };
+    servicesInformatieobjecttypenDocumentsList: {
+        parameters: {
+            query?: {
+                /** @description Een pagina binnen de gepagineerde set resultaten. */
+                page?: number;
+                /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
+                pageSize?: number;
+            };
+            header?: never;
+            path: {
+                informatieobjecttypenIotUuid: string;
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedDocumentList"];
+                };
+            };
+        };
+    };
+    servicesInformatieobjecttypenDocumentsRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                documentUuid: string;
+                informatieobjecttypenIotUuid: string;
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Document"];
+                };
+            };
+        };
+    };
+    onbekendDocumentDownload: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                documentUuid: string;
+                informatieobjecttypenIotUuid: string;
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description De binaire bestandsinhoud */
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/octet-stream": string;
+                };
+            };
+        };
+    };
+    servicesInformatieobjecttypenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                iotUuid: string;
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InformatieObjectType"];
+                };
+            };
+        };
+    };
+    servicesZaaktypenList: {
+        parameters: {
+            query?: {
+                /** @description Een pagina binnen de gepagineerde set resultaten. */
                 page?: number;
                 /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
                 pageSize?: number;
@@ -908,7 +1144,7 @@ export interface operations {
             };
         };
     };
-    apiV1ServicesZaaktypenRetrieve: {
+    servicesZaaktypenRetrieve: {
         parameters: {
             query?: never;
             header?: never;
@@ -932,14 +1168,14 @@ export interface operations {
             };
         };
     };
-    apiV1ServicesZaaktypenZakenList: {
+    servicesZaaktypenZakenList: {
         parameters: {
             query?: {
                 /** @description De unieke identificatie van de ZAAK (bevat de identificatie de gegeven waarden (hoofdletterongevoelig)) */
                 identificatie__icontains?: string;
                 /** @description Een korte omschrijving van de ZAAK (bevat de omschrijving de gegeven waarden (hoofdletterongevoelig)) */
                 omschrijving?: string;
-                /** @description A page number within the paginated result set. */
+                /** @description Een pagina binnen de gepagineerde set resultaten. */
                 page?: number;
                 /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
                 pageSize?: number;
@@ -967,7 +1203,7 @@ export interface operations {
             };
         };
     };
-    apiV1ServicesZaaktypenZakenRetrieve: {
+    servicesZaaktypenZakenRetrieve: {
         parameters: {
             query?: never;
             header?: never;
@@ -992,10 +1228,10 @@ export interface operations {
             };
         };
     };
-    apiV1ServicesZaaktypenZakenDocumentsList: {
+    servicesZaaktypenZakenDocumentsList: {
         parameters: {
             query?: {
-                /** @description A page number within the paginated result set. */
+                /** @description Een pagina binnen de gepagineerde set resultaten. */
                 page?: number;
                 /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
                 pageSize?: number;
@@ -1022,7 +1258,7 @@ export interface operations {
             };
         };
     };
-    apiV1ServicesZaaktypenZakenDocumentsRetrieve: {
+    servicesZaaktypenZakenDocumentsRetrieve: {
         parameters: {
             query?: never;
             header?: never;
@@ -1147,7 +1383,7 @@ export interface operations {
             };
         };
     };
-    apiV1ServicesRetrieve: {
+    servicesRetrieve: {
         parameters: {
             query?: never;
             header?: never;
@@ -1167,81 +1403,6 @@ export interface operations {
                 content: {
                     "application/json": components["schemas"]["Service"];
                 };
-            };
-        };
-    };
-    oidcCallbackRetrieve: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: never;
-        responses: {
-            /** @description Redirect naar de oorspronkelijke URL na succesvolle authenticatie */
-            302: {
-                headers: {
-                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
-                    "API-version"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /** @description Invalid callback of fout tijdens authenticatie */
-            400: {
-                headers: {
-                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
-                    "API-version"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-            /** @description Authenticatie mislukt (geen access token) */
-            401: {
-                headers: {
-                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
-                    "API-version"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
-            };
-        };
-    };
-    webhookCreate: {
-        parameters: {
-            query?: never;
-            header?: never;
-            path?: never;
-            cookie?: never;
-        };
-        requestBody?: {
-            content: {
-                "application/json": {
-                    [key: string]: unknown;
-                };
-            };
-        };
-        responses: {
-            /** @description Webhook verwerkt */
-            200: {
-                headers: {
-                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
-                    "API-version"?: string;
-                    [name: string]: unknown;
-                };
-                content: {
-                    "text/plain": string;
-                };
-            };
-            /** @description Ongeldige payload */
-            400: {
-                headers: {
-                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
-                    "API-version"?: string;
-                    [name: string]: unknown;
-                };
-                content?: never;
             };
         };
     };

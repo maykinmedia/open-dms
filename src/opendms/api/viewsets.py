@@ -32,10 +32,16 @@ from opendms.doc_edit.models import BaseDriveDocument
 from opendms.search_index.client import get_elasticsearch_client
 
 from ..doc_edit.utils import is_within_threshold
-from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_client
+from .clients import (
+    get_documenten_client,
+    get_oio_client,
+    get_zaaktypen_client,
+    get_zaken_client,
+)
 from .models import ZGWApiGroupConfig
 from .serializers import (
     DocumentSerializer,
+    InformatieObjectTypeSerializer,
     SearchResponseSerializer,
     SearchSerializer,
     ServiceSerializer,
@@ -45,6 +51,8 @@ from .serializers import (
 from .typing import (
     DocumentsPaginatedResponse,
     DocumentType,
+    InformatieObjectType,
+    InformatieObjectTypenPaginatedResponse,
     SearchParameters,
     Zaak,
     ZaakType,
@@ -55,6 +63,8 @@ from .utils.mixins import ReadOnlyViewSetMixin
 from .utils.pagination import CountedPagination
 from .utils.schema import (
     DOCUMENT_PARAM,
+    INFORMATIEOBJECTTYPEN_IOT_UUID_PARAM,
+    IOT_PARAM,
     QUERY_PARAM,
     QUERY_PARAM_FIELD,
     SERVICE_PARAM,
@@ -619,3 +629,98 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
         request.session["origin_url"] = request.build_absolute_uri()
         return document_edit_backend.authenticate(request, redirect_url=callback_url)
+
+
+@extend_schema_view(
+    list=extend_schema(
+        summary="informatieobjecttypenList",
+        parameters=[SERVICE_PARAM],
+    ),
+    retrieve=extend_schema(
+        summary="informatieobjecttypenRetrieve",
+        parameters=[SERVICE_PARAM, IOT_PARAM],
+    ),
+)
+class InformatieObjectTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
+    """
+    Exposes InformatieObjectTypen from /services/<zgw-service>/informatieobjecttypen
+    """
+
+    serializer_class = InformatieObjectTypeSerializer
+    pagination_class = CountedPagination
+    lookup_field = "iot_uuid"
+    queryset = None
+
+    def get_object(self) -> InformatieObjectType:
+        uuid = self.kwargs.get(self.lookup_field)
+        with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+            return client.get_informatieobjecttype_by_uuid(uuid)
+
+    def get_paginated_queryset(self, params: dict) -> InformatieObjectTypenPaginatedResponse:
+        with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+            return client.get_paginated_informatieobjecttypen(params)
+
+
+@extend_schema_view(
+    list=extend_schema(
+        summary="onbekendDocumentsList",
+        parameters=[SERVICE_PARAM, INFORMATIEOBJECTTYPEN_IOT_UUID_PARAM],
+    ),
+    retrieve=extend_schema(
+        summary="onbekendDocumentsRetrieve",
+        parameters=[SERVICE_PARAM, INFORMATIEOBJECTTYPEN_IOT_UUID_PARAM, DOCUMENT_PARAM],
+    ),
+)
+class OnbekendDocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
+    """
+    Exposes Documents not linked to any Zaak, grouped by InformatieObjectType.
+    Route: /services/<serviceSlug>/informatieobjecttypen/<iotUuid>/documents
+    """
+
+    serializer_class = DocumentSerializer
+    pagination_class = CountedPagination
+    lookup_field = "document_uuid"
+    parent_lookup_field = "informatieobjecttypen_iot_uuid"
+    queryset = None
+    _object = None
+
+    @property
+    def iot_url(self) -> str:
+        iot_uuid = self.kwargs.get(self.parent_lookup_field)
+        with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+            iot = client.get_informatieobjecttype_by_uuid(iot_uuid)
+            return iot["url"]
+
+    def get_object(self) -> DocumentType | None:
+        if not self._object:
+            uuid = self.kwargs.get(self.lookup_field)
+            with get_documenten_client(self.zgw_group.drc_service) as client:
+                self._object = client.get_item_by_uuid(uuid)
+        return self._object
+
+    def get_paginated_queryset(self, params: dict) -> DocumentsPaginatedResponse:
+        with (
+            get_documenten_client(self.zgw_group.drc_service) as doc_client,
+            get_oio_client(self.zgw_group.drc_service) as oio_client,
+        ):
+            return doc_client.get_unlinked_documents_by_iot(
+                self.iot_url, oio_client, params
+            )
+
+    @extend_schema(
+        "onbekend_document_download",
+        summary="onbekendDocumentsDownload",
+        description="Download de binaire data van het (ENKELVOUDIG) INFORMATIEOBJECT (onbekend/niet gekoppeld).",
+        parameters=[SERVICE_PARAM, INFORMATIEOBJECTTYPEN_IOT_UUID_PARAM, DOCUMENT_PARAM],
+        responses={
+            (status.HTTP_200_OK, "application/octet-stream"): OpenApiResponse(
+                description="De binaire bestandsinhoud",
+                response=OpenApiTypes.BINARY,
+            )
+        },
+    )
+    @action(methods=["get"], detail=True, name="onbekend_document_download")
+    def download(self, request: Request, *args, **kwargs):
+        obj = self.get_object()
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            return client.download_document(obj)
