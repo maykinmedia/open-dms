@@ -15,7 +15,7 @@ import { Login } from "./login";
 initialize();
 
 const meta: Meta<typeof Login> = {
-  title: "Routes/Login",
+  title: "Modules/Auth/Routes/Login",
   component: Login,
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],

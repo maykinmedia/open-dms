@@ -81,14 +81,42 @@ export const MOCK_ZAAKTYPE_OPTIONS = http.get(
     }),
 );
 
+export const MOCK_ZAAKTYPEN = http.get(
+  "/api/v1/services/service_2/zaaktypen",
+  () =>
+    HttpResponse.json({
+      count: 2,
+      previous: "http://...",
+      next: "http://...",
+      results: [
+        {
+          identificatie: "Zaaktype 1",
+          omschrijving: "Zaaktype 1",
+          uuid: "11111111-1111-1111-1111-111111111111",
+          versiedatum: "2020-01-01",
+          beginGeldigheid: "2020-01-01",
+          eindeGeldigheid: "2026-01-01",
+        },
+        {
+          identificatie: "Zaaktype 2",
+          omschrijving: "Zaaktype 2",
+          uuid: "22222222-2222-2222-2222-222222222222",
+          versiedatum: "2020-01-01",
+          beginGeldigheid: "2020-01-01",
+          eindeGeldigheid: "2026-01-01",
+        },
+      ],
+    }),
+);
+
 export const MOCK_ZAAKTYPE = http.get(
   "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222",
   () =>
     HttpResponse.json({
       identificatie: "Zaaktype 2",
       uuid: "22222222-2222-2222-2222-222222222222",
-      beginGeldigheid: "01-01-2020",
-      eindeGeldigheid: "01-01-2026",
+      beginGeldigheid: "2020-01-01",
+      eindeGeldigheid: "2026-01-01",
     } as Partial<ZaakType>),
 );
 

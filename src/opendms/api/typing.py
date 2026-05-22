@@ -12,8 +12,10 @@ class ZaakType(TypedDict):
     uuid: UUID
     url: str
     catalogus: str
+    concept: bool
     identificatie: str
     omschrijving: str
+    versiedatum: str
     beginGeldigheid: date | None
     eindeGeldigheid: date | None
 

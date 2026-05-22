@@ -20,7 +20,7 @@ import { ZakenList } from "./zaken-list.tsx";
 initialize();
 
 const meta: Meta<typeof ZakenList> = {
-  title: "Routes/Zaken",
+  title: "Modules/Documents/Routes/Zaken",
   component: ZakenList,
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],

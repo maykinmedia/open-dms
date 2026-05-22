@@ -258,6 +258,11 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                     "Een korte omschrijving van de ZAAK (bevat de omschrijving de gegeven waarden (hoofdletterongevoelig))"
                 ),
             ),
+            param(
+                name="einddatum__isnull",
+                description=_("De datum waarop de uitvoering van de zaak afgerond is."),
+                type_param=OpenApiTypes.BOOL,
+            )
         ],
     ),
     retrieve=extend_schema(

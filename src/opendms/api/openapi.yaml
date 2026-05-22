@@ -260,6 +260,11 @@ paths:
       summary: zakenList
       parameters:
       - in: query
+        name: einddatum__isnull
+        schema:
+          type: boolean
+        description: De datum waarop de uitvoering van de zaak afgerond is.
+      - in: query
         name: identificatie__icontains
         schema:
           type: string
@@ -1361,6 +1366,11 @@ components:
           type: string
           format: uri
           description: URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort.
+        concept:
+          type: boolean
+          description: Geeft aan of het object een concept betreft. Concepten zijn
+            niet-definitieve versies en zouden niet gebruikt moeten worden buiten
+            deze API.
         identificatie:
           type: string
           description: Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin
@@ -1368,6 +1378,11 @@ components:
         omschrijving:
           type: string
           description: Omschrijving van de aard van ZAAKen van het ZAAKTYPE.
+        versiedatum:
+          type: string
+          format: date
+          description: De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE
+            geldig zijn geworden
         beginGeldigheid:
           type: string
           format: date
@@ -1379,11 +1394,13 @@ components:
       required:
       - beginGeldigheid
       - catalogus
+      - concept
       - eindeGeldigheid
       - identificatie
       - omschrijving
       - url
       - uuid
+      - versiedatum
   securitySchemes:
     AnonCSRFSession:
       type: apiKey

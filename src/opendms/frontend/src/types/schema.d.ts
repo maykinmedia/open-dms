@@ -715,10 +715,17 @@ export interface components {
              * @description URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort.
              */
             catalogus: string;
+            /** @description Geeft aan of het object een concept betreft. Concepten zijn niet-definitieve versies en zouden niet gebruikt moeten worden buiten deze API. */
+            concept: boolean;
             /** @description Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin het ZAAKTYPE voorkomt. */
             identificatie: string;
             /** @description Omschrijving van de aard van ZAAKen van het ZAAKTYPE. */
             omschrijving: string;
+            /**
+             * Format: date
+             * @description De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE geldig zijn geworden
+             */
+            versiedatum: string;
             /**
              * Format: date
              * @description De datum waarop het is ontstaan.
@@ -935,6 +942,8 @@ export interface operations {
     apiV1ServicesZaaktypenZakenList: {
         parameters: {
             query?: {
+                /** @description De datum waarop de uitvoering van de zaak afgerond is. */
+                einddatum__isnull?: boolean;
                 /** @description De unieke identificatie van de ZAAK (bevat de identificatie de gegeven waarden (hoofdletterongevoelig)) */
                 identificatie__icontains?: string;
                 /** @description Een korte omschrijving van de ZAAK (bevat de omschrijving de gegeven waarden (hoofdletterongevoelig)) */
