@@ -16,7 +16,7 @@ import { sanitizedReactRouterParameters } from "../../../../../.storybook/utils.
 initialize();
 
 const meta: Meta<typeof DocumentsList> = {
-  title: "Routes/Documents",
+  title: "Modules/Documents/Routes/Documents",
   component: DocumentsList,
   decorators: [withRouter, withCSRF],
   loaders: [mswLoader],

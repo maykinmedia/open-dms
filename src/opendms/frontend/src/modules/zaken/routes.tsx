@@ -1,6 +1,10 @@
 import { Button } from "@maykin-ui/admin-ui";
-import { NavLink, type RouteObject, useParams } from "react-router";
+import { NavLink, type RouteObject, redirect, useParams } from "react-router";
 import { ServiceSelect } from "~/components";
+import {
+  ZaaktypenList,
+  zaaktypenListLoader,
+} from "~/modules/zaken/routes/zaaktypen-list";
 
 type ZakenNavigationProps = {
   path: string;
@@ -14,9 +18,10 @@ function ZakenNavigation({ path }: ZakenNavigationProps) {
       <ServiceSelect key="service-select" basepath={path} />
       {serviceSlug && (
         <>
-          <NavLink to={`${path}/${serviceSlug}/zaken`}>
-            <Button>Zaken</Button>
-          </NavLink>
+          {/* TODO */}
+          {/*<NavLink to={`${path}/${serviceSlug}/zaken`}>*/}
+          {/*  <Button>Zaken</Button>*/}
+          {/*</NavLink>*/}
 
           <NavLink to={`${path}/${serviceSlug}/zaaktypen`}>
             <Button>Zaaktypen</Button>
@@ -52,7 +57,12 @@ export function createModuleRoutes(path: string): RouteObject[] {
             },
             {
               path: "zaaktypen",
-              element: "zaaktypen",
+              loader: zaaktypenListLoader,
+              Component: ZaaktypenList,
+            },
+            {
+              index: true,
+              loader: () => redirect("zaaktypen"),
             },
           ],
         },

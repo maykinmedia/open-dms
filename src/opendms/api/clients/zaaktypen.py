@@ -37,8 +37,10 @@ class ZaakTypeClient(HttpRequestMixin, NLXClient):
             uuid=extract_uuid(record["url"]),
             url=record["url"],
             catalogus=record["catalogus"],
+            concept=record["concept"],
             identificatie=record["identificatie"],
             omschrijving=record["omschrijving"],
+            versiedatum=record["versiedatum"],
             beginGeldigheid=record["beginGeldigheid"],
             eindeGeldigheid=record["eindeGeldigheid"],
         )

@@ -37,6 +37,11 @@ class ZaakTypeSerializer(serializers.Serializer):
     catalogus = serializers.URLField(
         help_text=_("URL-referentie naar de CATALOGUS waartoe dit ZAAKTYPE behoort."),
     )
+    concept = serializers.BooleanField(
+        help_text=_(
+            "Geeft aan of het object een concept betreft. Concepten zijn niet-definitieve versies en zouden niet gebruikt moeten worden buiten deze API."
+        )
+    )
     identificatie = serializers.CharField(
         help_text=_(
             "Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin het ZAAKTYPE voorkomt."
@@ -44,6 +49,11 @@ class ZaakTypeSerializer(serializers.Serializer):
     )
     omschrijving = serializers.CharField(
         help_text=_("Omschrijving van de aard van ZAAKen van het ZAAKTYPE."),
+    )
+    versiedatum = serializers.DateField(
+        help_text=_(
+            "De datum waarop de (gewijzigde) kenmerken van het ZAAKTYPE geldig zijn geworden"
+        )
     )
     beginGeldigheid = serializers.DateField(
         help_text=_("De datum waarop het is ontstaan."),

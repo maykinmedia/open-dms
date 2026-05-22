@@ -25,7 +25,7 @@ export async function zakenListLoader({
   const urlSearchParams = new URLSearchParams(url.search);
 
   const { data } = await apiClient.GET(
-    // @ts-expect-error - API not ready
+    // @ts-expect-error - FIXME
     "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}/zaken",
     {
       params: {
