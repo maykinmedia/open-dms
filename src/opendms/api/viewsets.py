@@ -262,7 +262,7 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
                 name="einddatum__isnull",
                 description=_("De datum waarop de uitvoering van de zaak afgerond is."),
                 type_param=OpenApiTypes.BOOL,
-            )
+            ),
         ],
     ),
     retrieve=extend_schema(
