@@ -43,6 +43,24 @@ export async function documentsListLoader({
   return { ...documentData, zaak };
 }
 
+export async function unlinkedDocumentsListLoader({
+  params,
+  request,
+}: LoaderFunctionArgs) {
+  const url = new URL(request.url);
+  const urlSearchParams = new URLSearchParams(url.search);
+  const page = Number(urlSearchParams.get("page")) || undefined;
+
+  const { data: documentData } = await fetchDocuments(
+    params.serviceSlug,
+    undefined,
+    undefined,
+    page,
+  );
+
+  return documentData;
+}
+
 /**
  * Fetches a paginated list of documents for a given service, zaaktype, and zaak.
  *
@@ -55,11 +73,28 @@ export async function documentsListLoader({
  */
 export async function fetchDocuments(
   serviceSlug: string,
-  zaaktypeUuid: string,
-  zaakId: string,
+  zaaktypeUuid?: string,
+  zaakId?: string,
   page?: number | string,
   signal?: AbortSignal,
 ) {
+  if (!zaaktypeUuid && !zaakId) {
+    return await apiClient.GET(
+      "/api/v1/services/{serviceSlug}/unlinked-documents",
+      {
+        params: {
+          path: {
+            serviceSlug: serviceSlug,
+          },
+          query: {
+            page: page ? parseInt(page as string) : undefined,
+          },
+        },
+        signal,
+      },
+    );
+  }
+
   return await apiClient.GET(
     "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents",
     {
@@ -71,7 +106,6 @@ export async function fetchDocuments(
         },
         query: {
           page: page ? parseInt(page as string) : undefined,
-          pageSize: 20,
         },
       },
       signal,

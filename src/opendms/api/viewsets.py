@@ -624,3 +624,24 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
         request.session["origin_url"] = request.build_absolute_uri()
         return document_edit_backend.authenticate(request, redirect_url=callback_url)
+
+
+@extend_schema_view(
+    list=extend_schema(
+        summary="unlikedDocumentsList",
+        parameters=[
+            SERVICE_PARAM,
+        ],
+    ),
+)
+class UnlinkedDocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
+    """
+    Exposes Documents not linked to any ZAAK.
+    """
+
+    serializer_class = DocumentSerializer
+    pagination_class = CountedPagination
+
+    def get_paginated_queryset(self, params: dict) -> DocumentsPaginatedResponse:
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            return client.get_unlinked_documents(params)

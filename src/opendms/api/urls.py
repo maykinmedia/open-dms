@@ -9,6 +9,7 @@ from .viewsets import (
     DocumentViewSet,
     SearchView,
     ServiceViewSet,
+    UnlinkedDocumentViewSet,
     ZaakTypeViewSet,
     ZaakViewSet,
 )
@@ -27,6 +28,11 @@ zaaktypen_router.register(
     r"zaaktypen",
     ZaakTypeViewSet,
     basename="zaaktypen",
+)
+zaaktypen_router.register(
+    r"unlinked-documents",
+    UnlinkedDocumentViewSet,
+    basename="unlinked-documents",
 )
 
 zaken_router = routers.NestedSimpleRouter(

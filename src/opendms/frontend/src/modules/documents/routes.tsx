@@ -1,12 +1,16 @@
-import type { RouteObject } from "react-router";
+import { type RouteObject } from "react-router";
 import { ServiceSelect, YearSelect, ZaaktypeSelect } from "~/components";
+import { UnlinkedDocumentsButton } from "~/components/unliked-documents-button";
 
 import {
   DocumentsList,
   ZakenList,
   documentsListLoader,
+  unlinkedDocumentsListLoader,
   zakenListLoader,
 } from "./routes/index";
+
+export const ID_UNLINKED_DOCUMENTS = "unlinked-documents";
 
 /**
  * Return ths modules routes made available under `path`.
@@ -23,11 +27,21 @@ export function createModuleRoutes(path: string): RouteObject[] {
           items: [
             <ServiceSelect key="service-select" basepath={path} />,
             <ZaaktypeSelect key="zaaktype-select" basepath={path} />,
+            <UnlinkedDocumentsButton
+              key="unlinked-documents-button"
+              basepath={path}
+            />,
             <YearSelect key="year-select" basepath={path} />,
           ],
         },
       },
       children: [
+        {
+          id: ID_UNLINKED_DOCUMENTS,
+          path: ":serviceSlug?/documenten-zonder-zaak",
+          Component: DocumentsList,
+          loader: unlinkedDocumentsListLoader,
+        },
         {
           path: ":serviceSlug?/:zaaktypeUuid?/:zaakYear?",
           children: [

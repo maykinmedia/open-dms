@@ -12,6 +12,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import * as React from "react";
 import {
   useLoaderData,
+  useMatches,
   useParams,
   useRevalidator,
   useRouteLoaderData,
@@ -20,6 +21,7 @@ import {
 import type { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
 import { usePoll } from "~/hooks";
 import { getPageFromSearchParams } from "~/lib";
+import { ID_UNLINKED_DOCUMENTS } from "~/modules/documents";
 import type { Document } from "~/types";
 
 import { documentsListLoader, fetchDocuments } from "./documents-list.loader";
@@ -46,6 +48,9 @@ export const DocumentsList = () => {
     zaakYear: string | undefined;
     zaakId: string | undefined;
   };
+  const route = [...useMatches()].pop();
+  const isUnlinkedList = route?.id === ID_UNLINKED_DOCUMENTS;
+
   const rootData =
     useRouteLoaderData<typeof authenticatedRootLoader>("authenticated-root");
 
@@ -319,11 +324,14 @@ export const DocumentsList = () => {
   );
 
   if (!data) return null;
-  invariant(rootData?.zaaktype?.identificatie, "Zaaktype not loaded!");
+
+  const title = isUnlinkedList
+    ? "Niet gekoppelde documenten"
+    : `${rootData?.zaaktype?.identificatie} / ${zaakYear} / ${data.zaak.identificatie}`;
 
   return (
     <ItemGridTemplate
-      title={`${rootData.zaaktype.identificatie} / ${zaakYear} / ${data.zaak.identificatie}`}
+      title={title}
       itemGridProps={{ direction: "v", ellipsis: true, items }}
       paginatorProps={{
         count: data.count,

@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 import structlog
 from requests.exceptions import RequestException, Timeout
 from rest_framework import exceptions, status
+from typing_extensions import deprecated
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
@@ -23,7 +24,6 @@ from ..utils.mixins import HttpRequestMixin
 
 CRS_HEADERS = {"Content-Crs": "EPSG:4326", "Accept-Crs": "EPSG:4326"}
 
-
 logger = structlog.stdlib.get_logger(__name__)
 
 
@@ -34,6 +34,7 @@ class DocumentClient(HttpRequestMixin, NLXClient):
 
     endpoint = "enkelvoudiginformatieobjecten"
 
+    @deprecated("This iterates all pages and should be avoided where possible")
     def get_items(self, params: dict | None = None) -> list[DocumentType]:
         """
         Fetch all documenten using pagination
@@ -116,6 +117,19 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         except RequestException:
             logger.exception("error_request", document_uuid=document_uuid)
             return status.HTTP_503_SERVICE_UNAVAILABLE, "Service Unavailable"
+
+    def get_unlinked_documents(
+        self, params: dict | None = None
+    ) -> DocumentsPaginatedResponse:
+        params = params or {}
+        raise NotImplementedError("get_unlinked_documents not implemented")
+        data = self.make_request(
+            self.endpoint,
+            params={**params},
+            headers=CRS_HEADERS,
+        )
+        results = [self._map_document({**record}) for record in data.get("results", [])]
+        return DocumentsPaginatedResponse(count=data.get("count", 0), results=results)
 
     def get_paginated_items_by_zaak(
         self, zaak_url: str, params: dict | None = None
