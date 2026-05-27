@@ -11,8 +11,7 @@ export async function informatieobjecttypenListLoader({
   if (!params.serviceSlug) return null;
 
   const { data } = await apiClient.GET(
-    // @ts-expect-error - API not ready
-    "/api/v1/services/{serviceSlug}/informatieobjecttypen",
+    "/services/{serviceSlug}/informatieobjecttypen",
     {
       params: {
         path: { serviceSlug: params.serviceSlug },

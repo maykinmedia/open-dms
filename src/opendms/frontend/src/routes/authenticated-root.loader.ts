@@ -20,7 +20,7 @@ export async function authenticatedRootLoader({
   const { serviceSlug, zaaktypeUuid } = params;
   if (!serviceSlug || !zaaktypeUuid) return { zaaktype: undefined };
   const { data: zaaktype } = await apiClient.GET(
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}",
+    "/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}",
     {
       params: {
         path: {

@@ -13,7 +13,7 @@ export async function loginAction({ request }: ActionFunctionArgs) {
   const username = formData.get("username") || "";
   const password = formData.get("password") || "";
 
-  const { error } = await apiClient.POST("/api/v1/accounts/login", {
+  const { error } = await apiClient.POST("/accounts/login", {
     body: {
       username: username.toString(),
       password: password.toString(),

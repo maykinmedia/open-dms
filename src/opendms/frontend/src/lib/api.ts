@@ -54,6 +54,7 @@ const csrfClientMiddleware: Middleware = {
  * and adheres to the defined paths structure for endpoint typing and safety.
  */
 export const apiClient = createClient<paths>({
+  baseUrl: "/api/v1",
   fetch: (input: Request) =>
     fetch(input, {
       credentials: "include",

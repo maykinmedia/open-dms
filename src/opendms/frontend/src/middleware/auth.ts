@@ -11,7 +11,7 @@ export const authRouterMiddleware: MiddlewareFunction<unknown> = async (
   { context },
   next,
 ) => {
-  const { data: whoAmI } = await apiClient.GET("/api/v1/accounts/whoami");
+  const { data: whoAmI } = await apiClient.GET("/accounts/whoami");
 
   if (!whoAmI?.isAuthenticated) {
     throw redirect("/login");

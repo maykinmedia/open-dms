@@ -52,7 +52,7 @@ export const AuthenticatedLayout = () => {
   };
 
   const handleLogout = async () => {
-    await apiClient.GET("/api/v1/accounts/logout");
+    await apiClient.GET("/accounts/logout");
     navigate("/login");
   };
 
@@ -61,7 +61,7 @@ export const AuthenticatedLayout = () => {
     { signal }: { signal: AbortSignal },
   ): Promise<SearchResult[]> => {
     if (!query.trim()) return [];
-    const { data } = await apiClient.POST("/api/v1/search", {
+    const { data } = await apiClient.POST("/search", {
       body: { query, page: 1, pageSize: 10, sort: "relevance" },
       signal,
     });

@@ -26,7 +26,7 @@ export async function zakenListLoader({
 
   const { data } = await apiClient.GET(
     // @ts-expect-error - API not ready
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}/zaken",
+    "/services/{serviceSlug}/zaaktypen/{zaaktypeUuid}/zaken",
     {
       params: {
         path: params,

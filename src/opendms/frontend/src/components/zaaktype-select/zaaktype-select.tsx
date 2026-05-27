@@ -29,7 +29,7 @@ export function ZaaktypeSelect() {
     if (!serviceSlug) return [];
 
     const { data } = await apiClient.GET(
-      `/api/v1/services/{serviceSlug}/zaaktypen`,
+      `/services/{serviceSlug}/zaaktypen`,
       {
         params: {
           path: { serviceSlug },

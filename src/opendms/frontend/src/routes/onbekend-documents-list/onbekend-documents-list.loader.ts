@@ -12,8 +12,7 @@ export async function onbekendDocumentsListLoader({
   const page = Number(url.searchParams.get("page")) || undefined;
 
   const { data } = await apiClient.GET(
-    // @ts-expect-error - API not ready
-    "/api/v1/services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypenIotUuid}/documents",
+    "/services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypenIotUuid}/documents",
     {
       params: {
         path: {

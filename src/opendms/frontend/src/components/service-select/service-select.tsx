@@ -19,7 +19,7 @@ export function ServiceSelect() {
   const getServiceOptions: LoadOptionsFn = async (
     search,
   ): Promise<Option[]> => {
-    const { data } = await apiClient.GET("/api/v1/services", {
+    const { data } = await apiClient.GET("/services", {
       params: {
         query: {
           search,

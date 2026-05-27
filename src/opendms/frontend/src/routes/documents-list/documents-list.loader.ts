@@ -19,7 +19,7 @@ export async function documentsListLoader({
   const page = Number(urlSearchParams.get("page")) || undefined;
 
   const { data: zaak } = await apiClient.GET(
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zaakUuid}",
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zaakUuid}",
     {
       params: {
         path: {
@@ -61,7 +61,7 @@ export async function fetchDocuments(
   signal?: AbortSignal,
 ) {
   return await apiClient.GET(
-    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents",
+    "/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents",
     {
       params: {
         path: {
