@@ -62,10 +62,10 @@ export function ZaaktypeSelect() {
     }
   };
 
-  const onbekendMatch =
-    useMatch("/:serviceSlug/onbekend") ||
-    useMatch("/:serviceSlug/onbekend/:iotUuid");
-  const currentValue = onbekendMatch ? ONBEKEND_VALUE : zaaktypeUuid;
+  const onbekendIndexMatch = useMatch("/:serviceSlug/onbekend");
+  const onbekendUuidMatch = useMatch("/:serviceSlug/onbekend/:iotUuid");
+  const currentValue =
+    onbekendIndexMatch || onbekendUuidMatch ? ONBEKEND_VALUE : zaaktypeUuid;
 
   return (
     serviceSlug && ( // TODO: https://github.com/maykinmedia/admin-ui/issues/301
