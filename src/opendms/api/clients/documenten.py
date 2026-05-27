@@ -66,10 +66,27 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         extension = guess_extension_by_response(response)
         fullname = f"{name}{extension}"
 
+        # Hop-by-hop headers must be stripped before forwarding — wsgiref rejects them.
+        hop_by_hop = {
+            "connection",
+            "keep-alive",
+            "proxy-authenticate",
+            "proxy-authorization",
+            "te",
+            "trailers",
+            "transfer-encoding",
+            "upgrade",
+        }
+        safe_headers = {
+            k: v
+            for k, v in response.headers.items()
+            if k.lower() not in hop_by_hop
+        }
+
         return HttpResponse(
             response.content,
             headers={
-                **response.headers,
+                **safe_headers,
                 "Content-Disposition": f'attachment; filename="{fullname}"',
                 "File-Name": fullname,
                 "File-Extension": extension,
