@@ -2,8 +2,12 @@ import { Button } from "@maykin-ui/admin-ui";
 import { NavLink, type RouteObject, useParams } from "react-router";
 import { ServiceSelect } from "~/components";
 import {
+  ZaakDetail,
   ZaaktypenList,
+  ZakenList,
+  zaakDetailLoader,
   zaaktypenListLoader,
+  zakenListLoader,
 } from "~/modules/zaken/routes/index";
 import { ZakenFallback } from "~/modules/zaken/routes/zaken-fallback";
 
@@ -61,6 +65,21 @@ export function createModuleRoutes(path: string): RouteObject[] {
               index: true,
               loader: zaaktypenListLoader,
               Component: ZaaktypenList,
+            },
+            {
+              path: ":zaaktypeUuid",
+              children: [
+                {
+                  index: true,
+                  loader: zakenListLoader,
+                  Component: ZakenList,
+                },
+                {
+                  path: ":zaakUuid",
+                  loader: zaakDetailLoader,
+                  Component: ZaakDetail,
+                },
+              ],
             },
             {
               index: true,

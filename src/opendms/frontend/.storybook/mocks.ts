@@ -220,3 +220,59 @@ export const MOCK_DOCUMENTS = http.get(
     });
   },
 );
+
+export const MOCK_ZAKEN_FOR_ZAAKTYPE = http.get(
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken",
+  ({ request }) => {
+    const pageSize = 100;
+    const count = 5;
+
+    const url = new URL(request.url);
+    const urlSearchParams = new URLSearchParams(url.search);
+    const page = parseInt(urlSearchParams.get("page") || "1");
+    const page0 = page - 1;
+
+    const results = batchFactory(zaakFactory, count, {
+      identificatie: "ZAAK-2023-{index}",
+    }).slice(page0 * pageSize, page0 * pageSize + pageSize);
+
+    return HttpResponse.json({
+      count,
+      previous: null,
+      next: null,
+      results,
+    });
+  },
+);
+
+export const MOCK_CREATE_ZAAK = http.post(
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken",
+  async ({ request }) => {
+    const body = (await request.json()) as {
+      omschrijving: string;
+      startdatum: string;
+    };
+    return HttpResponse.json(
+      zaakFactory({
+        uuid: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        identificatie: "ZAAK-2023-NEW",
+        omschrijving: body.omschrijving,
+        startdatum: body.startdatum,
+      }),
+      { status: 201 },
+    );
+  },
+);
+
+export const MOCK_ZAAK_DETAIL = http.get(
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+  () =>
+    HttpResponse.json(
+      zaakFactory({
+        uuid: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+        identificatie: "ZAAK-2023-NEW",
+        omschrijving: "Nieuwe zaak omschrijving",
+        startdatum: "2023-06-15",
+      }),
+    ),
+);
