@@ -1,0 +1,55 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: http://localhost:8003/zaken/api/v1/zaken?omschrijving=verklaring
+  response:
+    body:
+      string: '{"count":2,"next":null,"previous":null,"results":[{"url":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","uuid":"85169f14-b860-4590-8787-4e026f90703e","identificatie":"ZAAK-2026-0000000011","bronorganisatie":"000000280","omschrijving":"verklaring
+        van vernietiging","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/dd8f86d3-33c5-40cd-9eb1-b45e2db64f03","registratiedatum":"2026-03-28","verantwoordelijkeOrganisatie":"000000152","startdatum":"2026-01-20","einddatum":"2026-02-15","einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2026-02-03","publicatiedatum":null,"laatstGemuteerd":"2026-06-01T12:41:01.316375Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"intern","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"gerelateerdeZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/e8d3e763-79f4-4095-b967-35a1e8c8d976","http://localhost:8003/zaken/api/v1/rollen/6ba1ba36-d58b-4e16-9e02-134b76621438"],"status":"http://localhost:8003/zaken/api/v1/statussen/4b6a9a44-bdad-46e6-b40c-27483b5f65c0","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f40d0d92-56b4-4972-a01c-f5989f9c3f5d"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2027-02-15","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/0babd4ef-1d69-4652-ba93-a8c53c1085c9","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2026-02-15","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}},{"url":"http://localhost:8003/zaken/api/v1/zaken/30876d53-51f3-4d75-a132-d8764f55e1e5","uuid":"30876d53-51f3-4d75-a132-d8764f55e1e5","identificatie":"ZAAK-2025-0000000001","bronorganisatie":"000000255","omschrijving":"verklaring
+        van vernietiging","toelichting":"","zaaktype":"http://localhost:8003/catalogi/api/v1/zaaktypen/d5080f2c-f2f3-4b97-b587-0150f2dced1d","registratiedatum":"2026-03-25","verantwoordelijkeOrganisatie":"000000280","startdatum":"2025-02-05","einddatum":null,"einddatumGepland":null,"uiterlijkeEinddatumAfdoening":"2025-02-27","publicatiedatum":null,"laatstGemuteerd":"2026-06-01T12:41:01.279499Z","laatstGeopend":null,"communicatiekanaal":"","communicatiekanaalNaam":"","productenOfDiensten":[],"vertrouwelijkheidaanduiding":"geheim","betalingsindicatie":"","betalingsindicatieWeergave":"","laatsteBetaaldatum":null,"zaakgeometrie":null,"verlenging":null,"opschorting":{"indicatie":false,"eerdereOpschorting":false,"reden":""},"selectielijstklasse":"","hoofdzaak":null,"deelzaken":[],"relevanteAndereZaken":[],"gerelateerdeZaken":[],"eigenschappen":[],"rollen":["http://localhost:8003/zaken/api/v1/rollen/2fa9d380-56e4-470f-b038-98068a6f5443","http://localhost:8003/zaken/api/v1/rollen/6109e951-f025-4e70-9cbe-14a450fe4ab9"],"status":"http://localhost:8003/zaken/api/v1/statussen/ac1eb458-fe2e-4a42-a400-654fd2c83bfb","zaakinformatieobjecten":["http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f7b8d99e-37b9-420f-a74a-5d8a03e5b391"],"zaakobjecten":[],"kenmerken":[],"archiefnominatie":"vernietigen","archiefstatus":"nog_te_archiveren","archiefactiedatum":"2026-02-26","resultaat":"http://localhost:8003/zaken/api/v1/resultaten/5dc0ef8f-fcde-4330-9f38-e49b8a77a6d8","opdrachtgevendeOrganisatie":"","processobjectaard":"","startdatumBewaartermijn":"2025-02-26","processobject":{"datumkenmerk":"","identificatie":"","objecttype":"","registratie":""},"_expand":{}}]}'
+    headers:
+      API-version:
+      - 1.5.1
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Crs:
+      - EPSG:4326
+      Content-Length:
+      - '3843'
+      Content-Security-Policy:
+      - 'img-src ''self'' data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org;
+        style-src ''self'' ''unsafe-inline'' fonts.googleapis.com cdnjs.cloudflare.com
+        cdn.jsdelivr.net; script-src ''self'' ''unsafe-inline'' cdnjs.cloudflare.com
+        cdn.jsdelivr.net; worker-src ''self'' blob:; font-src ''self'' fonts.gstatic.com;
+        object-src ''none''; default-src ''self''; base-uri ''self''; frame-ancestors
+        ''none''; form-action ''self''; frame-src ''self'''
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

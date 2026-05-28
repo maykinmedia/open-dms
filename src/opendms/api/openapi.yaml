@@ -235,6 +235,7 @@ paths:
         name: zaaktypeUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
@@ -304,6 +305,7 @@ paths:
         name: zaaktypenZaaktypeUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
@@ -337,11 +339,13 @@ paths:
         name: zaakUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: zaaktypenZaaktypeUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
@@ -388,11 +392,13 @@ paths:
         name: zaaktypenZaaktypeUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: zakenZaakUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
@@ -421,6 +427,7 @@ paths:
         name: documentUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: serviceSlug
@@ -431,11 +438,13 @@ paths:
         name: zaaktypenZaaktypeUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: zakenZaakUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
@@ -464,6 +473,7 @@ paths:
         name: documentUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: serviceSlug
@@ -474,11 +484,13 @@ paths:
         name: zaaktypenZaaktypeUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: zakenZaakUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
@@ -508,6 +520,7 @@ paths:
         name: documentUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: query
         name: originUrl
@@ -523,11 +536,13 @@ paths:
         name: zaaktypenZaaktypeUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: zakenZaakUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
@@ -568,6 +583,7 @@ paths:
         name: documentUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: serviceSlug
@@ -578,11 +594,13 @@ paths:
         name: zaaktypenZaaktypeUuid
         schema:
           type: string
+          format: uuid
         required: true
       - in: path
         name: zakenZaakUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
@@ -708,6 +726,7 @@ paths:
         name: zaakUuid
         schema:
           type: string
+          format: uuid
         required: true
       tags:
       - api
