@@ -39,6 +39,7 @@ from .serializers import (
     SearchResponseSerializer,
     SearchSerializer,
     ServiceSerializer,
+    ZaakCreateSerializer,
     ZaakSerializer,
     ZaakTypeSerializer,
 )
@@ -310,6 +311,107 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         with get_zaken_client(self.zgw_group.zrc_service) as client:
             # TODO investigate here if you can use cache
             return client.get_paginated_items_by_zaaktype(self.zaaktype_url, params)
+
+
+class ServiceZaakViewSet(ZaakViewSet):
+    parent_lookup_field = None
+
+    @extend_schema(
+        summary="serviceZakenList",
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            param(
+                name="startdatum__gte",
+                description=_(
+                    "De datum waarop met de uitvoering van de zaak is gestart"
+                ),
+                type_param=OpenApiTypes.DATE,
+            ),
+            param(
+                name="identificatie__icontains",
+                description=_(
+                    "De unieke identificatie van de ZAAK "
+                    "(bevat de identificatie de gegeven waarden "
+                    "(hoofdletterongevoelig))",
+                ),
+            ),
+            param(
+                name="omschrijving",
+                description=_(
+                    "Een korte omschrijving van de ZAAK "
+                    "(bevat de omschrijving de gegeven waarden "
+                    "(hoofdletterongevoelig))"
+                ),
+            ),
+        ],
+    )
+    def list(self, request, *args, **kwargs):
+        return super().list(request, *args, **kwargs)
+
+    @extend_schema(
+        summary="serviceZakenRetrieve",
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            ZAAK_PARAM,
+        ],
+    )
+    def retrieve(self, request, *args, **kwargs):
+        return super().retrieve(request, *args, **kwargs)
+
+    def get_paginated_queryset(
+        self,
+        params: dict,
+    ) -> ZakenPaginatedResponse:
+        with get_zaken_client(self.zgw_group.zrc_service) as client:
+            return client.get_paginated_items(params)
+
+    @extend_schema(
+        summary="serviceZakenCreate",
+        request=ZaakCreateSerializer,
+        responses={201: ZaakSerializer},
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    )
+    def create(
+        self,
+        request: Request,
+        *args,
+        **kwargs,
+    ) -> Response:
+        serializer = ZaakCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        data = serializer.validated_data.copy()
+
+        data["startdatum"] = data["startdatum"].isoformat()
+
+        data["verantwoordelijkeOrganisatie"] = data.pop("verantwoordelijke_organisatie")
+
+        with get_zaken_client(self.zgw_group.zrc_service) as client:
+            zaak = client.create_zaak(data)
+
+        response_serializer = ZaakSerializer(zaak)
+
+        return Response(
+            response_serializer.data,
+            status=status.HTTP_201_CREATED,
+        )
 
 
 @extend_schema_view(

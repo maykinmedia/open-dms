@@ -405,3 +405,88 @@ class ZaakFiltersTests(VCRMixin, APITestCase):
         )
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 0)
+
+
+class ServiceZaakViewSetTests(VCRMixin, APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+
+        cls.ztc_service = ServiceFactory.create(for_ztc_service_docker_compose=True)
+        cls.zrc_service = ServiceFactory.create(for_zrc_service_docker_compose=True)
+
+        cls.configuration = ZGWApiGroupConfigFactory.create(
+            ztc_service=cls.ztc_service,
+            zrc_service=cls.zrc_service,
+        )
+
+        cls.list_url = reverse(
+            "api:service-zaken-list",
+            kwargs={"service_slug": cls.ztc_service.slug},
+        )
+
+        cls.zaaktype_url = (
+            "http://localhost:8003/catalogi/api/v1/zaaktypen/"
+            "d5080f2c-f2f3-4b97-b587-0150f2dced1d"
+        )
+
+    def test_list_service_zaken(self):
+        response = self.client.get(self.list_url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        data = response.json()
+
+        self.assertGreater(data["count"], 0)
+        self.assertGreater(len(data["results"]), 0)
+
+    def test_create_zaak_requires_required_fields(self):
+        payload = {
+            "zaaktype": self.zaaktype_url,
+        }
+
+        response = self.client.post(
+            self.list_url,
+            payload,
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+        invalid_params = response.json()["invalidParams"]
+
+        invalid_param_names = {param["name"] for param in invalid_params}
+
+        self.assertIn("startdatum", invalid_param_names)
+        self.assertIn("bronorganisatie", invalid_param_names)
+        self.assertIn(
+            "verantwoordelijkeOrganisatie",
+            invalid_param_names,
+        )
+
+    def test_create_zaak(self):
+        payload = {
+            "zaaktype": self.zaaktype_url,
+            "omschrijving": "Test zaak",
+            "startdatum": "2026-05-21",
+            "bronorganisatie": "000000000",
+            "verantwoordelijke_organisatie": "000000000",
+        }
+
+        response = self.client.post(
+            self.list_url,
+            payload,
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        data = response.json()
+
+        self.assertEqual(data["omschrijving"], "Test zaak")
+        self.assertEqual(data["bronorganisatie"], "000000000")
+        self.assertEqual(data["startdatum"], "2026-05-21")
+        self.assertEqual(data["zaaktype"], self.zaaktype_url)
+
+        self.assertIn("uuid", data)
+        self.assertIn("url", data)

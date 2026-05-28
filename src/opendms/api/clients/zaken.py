@@ -40,6 +40,25 @@ class ZaakClient(HttpRequestMixin, NLXClient):
         )
         return [self._map_zaak(record) for record in pagination_helper(self, data)]
 
+    def get_paginated_items(
+        self,
+        params: dict | None = None,
+    ) -> ZakenPaginatedResponse:
+        params = params or {}
+
+        data = self.make_request(
+            self.endpoint,
+            params=params,
+            headers=CRS_HEADERS,
+        )
+
+        results = [self._map_zaak(record) for record in data.get("results", [])]
+
+        return ZakenPaginatedResponse(
+            count=data.get("count", len(results)),
+            results=results,
+        )
+
     def get_paginated_items_by_zaaktype(
         self,
         zaaktype_url: str,
@@ -74,6 +93,16 @@ class ZaakClient(HttpRequestMixin, NLXClient):
         )
 
     # TODO investigate for get_cached_items
+
+    def create_zaak(self, data: dict) -> Zaak:
+        response = self.post(
+            self.endpoint,
+            json=data,
+            headers=CRS_HEADERS,
+        )
+        response.raise_for_status()
+
+        return self._map_zaak(response.json())
 
 
 def get_zaken_client(service: Service) -> ZaakClient:
