@@ -1,6 +1,7 @@
 import os
 import re
 import tempfile
+from collections.abc import Mapping
 from datetime import datetime
 from time import sleep
 
@@ -32,13 +33,19 @@ from opendms.doc_edit.models import BaseDriveDocument
 from opendms.search_index.client import get_elasticsearch_client
 
 from ..doc_edit.utils import is_within_threshold
-from .clients import get_documenten_client, get_zaaktypen_client, get_zaken_client
+from .clients import (
+    get_documenten_client,
+    get_statustypen_client,
+    get_zaaktypen_client,
+    get_zaken_client,
+)
 from .models import ZGWApiGroupConfig
 from .serializers import (
     DocumentSerializer,
     SearchResponseSerializer,
     SearchSerializer,
     ServiceSerializer,
+    StatusTypeSerializer,
     ZaakCreateSerializer,
     ZaakSerializer,
     ZaakTypeSerializer,
@@ -46,7 +53,9 @@ from .serializers import (
 from .typing import (
     DocumentsPaginatedResponse,
     DocumentType,
+    PaginatedResponse,
     SearchParameters,
+    StatusType,
     Zaak,
     ZaakType,
     ZaakTypenPaginatedResponse,
@@ -59,6 +68,7 @@ from .utils.schema import (
     QUERY_PARAM,
     QUERY_PARAM_FIELD,
     SERVICE_PARAM,
+    STATUSTYPE_PARAM,
     ZAAK_PARAM,
     ZAAKTYPE_PARAM,
     ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
@@ -434,6 +444,82 @@ class ServiceZaakViewSet(ZaakViewSet):
             response_serializer.data,
             status=status.HTTP_201_CREATED,
         )
+
+
+@extend_schema_view(
+    list=extend_schema(
+        summary="statustypenList",
+        parameters=[SERVICE_PARAM],
+    ),
+    retrieve=extend_schema(
+        summary="statustypenRetrieve",
+        parameters=[SERVICE_PARAM, STATUSTYPE_PARAM],
+    ),
+)
+class StatusTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
+    """Read-only endpoint voor STATUSTYPEn"""
+
+    _service: Service | None = None
+    _zgw_group: ZGWApiGroupConfig | None = None
+
+    serializer_class = StatusTypeSerializer
+    lookup_field = STATUSTYPE_PARAM.name
+    queryset = None
+
+    def get_object(self) -> StatusType:
+        # no queryset, do a service GET
+        uuid = self.kwargs.get(self.lookup_field)
+        assert uuid
+        with get_statustypen_client(self.zgw_group.ztc_service) as client:
+            return client.get_item_by_uuid(uuid)
+
+    def get_paginated_queryset(
+        self, params: Mapping[str, object]
+    ) -> PaginatedResponse[StatusType]:
+        # not queryset, but a paginated Service response
+        with get_statustypen_client(self.zgw_group.ztc_service) as client:
+            return client.get_paginated_items(params)
+
+
+@extend_schema_view(
+    list=extend_schema(
+        summary="statustypenList",
+        parameters=[SERVICE_PARAM, ZAAKTYPEN_ZAAKTYPE_UUID_PARAM],
+    ),
+    retrieve=extend_schema(
+        summary="statustypenRetrieve",
+        parameters=[SERVICE_PARAM, ZAAKTYPEN_ZAAKTYPE_UUID_PARAM, STATUSTYPE_PARAM],
+    ),
+)
+class StatusTypeListViewSet(StatusTypeViewSet):
+    """Read-only endpoint voor alle STATUSTYPEn die mogelijk zijn voor een bepaald ZAAKTYPE."""
+
+    _service: Service | None = None
+    _zgw_group: ZGWApiGroupConfig | None = None
+    _zaaktype_url: str | None = None
+
+    serializer_class = StatusTypeSerializer
+    pagination_class = CountedPagination
+    parent_lookup_field = ZAAKTYPEN_ZAAKTYPE_UUID_PARAM.name
+    lookup_field = STATUSTYPE_PARAM.name
+    queryset = None
+
+    @property
+    def zaaktype_url(self) -> str:
+        if not self._zaaktype_url:
+            zaaktype_uuid = self.kwargs.get(self.parent_lookup_field)
+            assert zaaktype_uuid
+            with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
+                zaaktype = client.get_item_by_uuid(zaaktype_uuid)
+                self._zaaktype_url = zaaktype["url"]
+        return self._zaaktype_url
+
+    def get_paginated_queryset(
+        self, params: Mapping[str, object]
+    ) -> PaginatedResponse[StatusType]:
+        # not a queryset, but a paginated Service response
+        with get_statustypen_client(self.zgw_group.ztc_service) as client:
+            return client.get_paginated_items({"zaaktype": self.zaaktype_url, **params})
 
 
 @extend_schema_view(

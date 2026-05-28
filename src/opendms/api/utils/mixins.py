@@ -1,18 +1,39 @@
+from __future__ import annotations
+
+from abc import abstractmethod
+from collections.abc import Mapping
+from json import JSONDecodeError
+from typing import TYPE_CHECKING, NoReturn
+
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
 import structlog
+from ape_pie import APIClient
 from requests.exceptions import RequestException, Timeout
 from rest_framework import exceptions, status
 from rest_framework.request import Request
 from rest_framework.response import Response
+from rest_framework.viewsets import ReadOnlyModelViewSet
 from zgw_consumers.models import Service
 
 from ..models import ZGWApiGroupConfig
-from ..typing import PaginatedResponse
+from ..typing import JSONValue, PaginatedResponse
 from .exceptions import ExternalServiceUnavailable, ZGWGroupConfigurationMissing
 
 logger = structlog.stdlib.get_logger(__name__)
+
+if TYPE_CHECKING:
+    _HttpRequestMixinBase = APIClient
+
+    class _ViewSetMixinBase(ReadOnlyModelViewSet):
+        # Poor man's Protocol
+        @abstractmethod
+        def get_paginated_queryset(
+            self, params: Mapping[str, object]
+        ) -> PaginatedResponse: ...
+else:
+    _HttpRequestMixinBase = _ViewSetMixinBase = object
 
 
 def get_group_from_ztc_service(service: Service) -> ZGWApiGroupConfig:
@@ -27,7 +48,7 @@ def get_group_from_ztc_service(service: Service) -> ZGWApiGroupConfig:
         ) from exc
 
 
-class HttpRequestMixin:
+class HttpRequestMixin(_HttpRequestMixinBase):
     """
     Mixin to centralize HTTP requests and common error handling.
     """
@@ -35,15 +56,13 @@ class HttpRequestMixin:
     def make_request(
         self,
         url: str,
-        params: dict | None = None,
-        headers: dict | None = None,
-    ) -> dict:
+        params: Mapping = {},
+        headers: Mapping = {},
+    ) -> JSONValue | NoReturn:
         """
         Performs a GET request to `url` with optional query parameters.
         Handles timeouts, connection errors, and 404 responses.
         """
-        params = params or {}
-        headers = headers or {}
 
         try:
             response = self.get(url, params=params, headers=headers)
@@ -73,15 +92,18 @@ class HttpRequestMixin:
         except RequestException as exc:
             logger.exception("error_request")
             raise ExternalServiceUnavailable("External service error") from exc
+        except JSONDecodeError:
+            logger.exception("service_response_json_error")
+            raise
 
 
-class ReadOnlyViewSetMixin:
+class ReadOnlyViewSetMixin(_ViewSetMixinBase):
     _service: Service | None = None
 
     @property
-    def zgw_group(self) -> Service:
+    def zgw_group(self) -> ZGWApiGroupConfig:
         """
-        Return the ZGW service group associated with the relativ ztc_service
+        Return the ZGW service group associated with the relative ztc_service
 
         The service is resolved using the `service_slug` URL parameter.
         The result is cached on first access to avoid repeated lookups
@@ -110,6 +132,7 @@ class ReadOnlyViewSetMixin:
 
     def get_serializer(self, *args, **kwargs):
         kwargs["context"] = self.get_serializer_context()
+        assert self.serializer_class
         return self.serializer_class(*args, **kwargs)
 
     def list(self, request: Request, *args, **kwargs) -> Response:

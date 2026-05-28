@@ -10,6 +10,8 @@ from .viewsets import (
     SearchView,
     ServiceViewSet,
     ServiceZaakViewSet,
+    StatusTypeListViewSet,
+    StatusTypeViewSet,
     ZaakTypeViewSet,
     ZaakViewSet,
 )
@@ -19,24 +21,38 @@ app_name = "api"
 router = routers.DefaultRouter()
 router.register("services", ServiceViewSet)
 
-zaaktypen_router = routers.NestedSimpleRouter(
+service_router = routers.NestedSimpleRouter(
     router,
     r"services",
     lookup="service",
 )
-zaaktypen_router.register(
+service_router.register(
     r"zaaktypen",
     ZaakTypeViewSet,
     basename="zaaktypen",
+    nested=[
+        routers.Nested(
+            r"statustypen",
+            StatusTypeListViewSet,
+            basename="zaaktype-statustypen",
+        ),
+    ],
 )
-zaaktypen_router.register(
+service_router.register(
     r"zaken",
     ServiceZaakViewSet,
     basename="service-zaken",
 )
 
+service_router.register(
+    r"statustypen",
+    StatusTypeViewSet,
+    basename="statustypen",
+)
+
+
 zaken_router = routers.NestedSimpleRouter(
-    zaaktypen_router,
+    service_router,
     r"zaaktypen",
     lookup="zaaktypen",
 )
@@ -62,7 +78,7 @@ urlpatterns = [
         include(
             [
                 re_path(r"^", include(router.urls)),
-                re_path(r"^", include(zaaktypen_router.urls)),
+                re_path(r"^", include(service_router.urls)),
                 re_path(r"^", include(zaken_router.urls)),
                 re_path(r"^", include(documents_router.urls)),
                 path(

@@ -507,6 +507,123 @@ class SearchResultZaakSerializer(serializers.Serializer):
     data = ESZaakSerializer()
 
 
+class CheckListItemSerializer(serializers.Serializer):
+    itemnaam = serializers.CharField(
+        help_text=_("De betekenisvolle benaming van het checklistitem"),
+    )
+    toelichting = serializers.CharField(
+        help_text=_(
+            "Beschrijving van de overwegingen bij het controleren van het aandachtspunt"
+        ),
+        required=False,
+        allow_null=True,
+    )
+    vraagstelling = serializers.CharField(
+        help_text=_(
+            "Een betekenisvolle vraag waaruit blijkt waarop het aandachtspunt "
+            "gecontroleerd moet worden."
+        ),
+    )
+    verplicht = serializers.BooleanField(
+        help_text=_(
+            "Het al dan niet verplicht zijn van controle van het aandachtspunt "
+            "voorafgaand aan het bereiken van de status van het gerelateerde STATUSTYPE."
+        ),
+    )
+
+
+class StatusTypeSerializer(serializers.Serializer):
+    uuid = serializers.UUIDField(
+        help_text=_(
+            "UUID van dit object. Dit is de unieke identificatiecode van dit object."
+        ),
+    )
+    url = serializers.URLField(
+        help_text=_(
+            "URL-referentie naar dit object. Dit is de unieke identificatie "
+            "en locatie van dit object."
+        ),
+    )
+    omschrijving = serializers.CharField(
+        help_text=_(
+            "Een korte, voor de initiator van de zaak relevante, omschrijving "
+            "van de aard van de STATUS van zaken van een ZAAKTYPE."
+        ),
+    )
+    omschrijvingGeneriek = serializers.CharField(
+        help_text=_(
+            "Algemeen gehanteerde omschrijving van de aard van STATUSsen "
+            "van het STATUSTYPE."
+        ),
+        required=False,
+    )
+    statustekst = serializers.CharField(
+        help_text=_(
+            "De tekst die wordt gebruikt om de Initiator te informeren over "
+            "het bereiken van een STATUS van dit STATUSTYPE bij het desbetreffende "
+            "ZAAKTYPE."
+        ),
+        required=False,
+    )
+    zaaktype = serializers.URLField(
+        help_text=_(
+            "URL-referentie naar het ZAAKTYPE van ZAAKen waarin STATUSsen "
+            "van dit STATUSTYPE bereikt kunnen worden."
+        ),
+    )
+    catalogus = serializers.URLField(
+        help_text=_("URL-referentie naar de CATALOGUS waartoe dit STATUSTYPE behoort."),
+    )
+    zaaktypeIdentificatie = serializers.CharField(
+        help_text=_(
+            "Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin "
+            "het ZAAKTYPE voorkomt."
+        ),
+    )
+    volgnummer = serializers.IntegerField(
+        help_text=_(
+            "Een volgnummer voor statussen van het STATUSTYPE binnen een zaak."
+        ),
+    )
+    isEindstatus = serializers.BooleanField(
+        help_text=_("Geeft aan dat dit STATUSTYPE een eindstatus betreft."),
+    )
+    informeren = serializers.BooleanField(
+        help_text=_(
+            "Aanduiding die aangeeft of na het zetten van een STATUS van dit "
+            "STATUSTYPE de Initiator moet worden geïnformeerd over de statusovergang."
+        ),
+    )
+    doorlooptijd = serializers.DurationField(
+        help_text=_(
+            "De door de zaakbehandelende organisatie(s) gestelde norm voor "
+            "de doorlooptijd voor het bereiken van STATUSsen van dit STATUSTYPE."
+        ),
+        required=False,
+        allow_null=True,
+    )
+    toelichting = serializers.CharField(
+        help_text=_("Een eventuele toelichting op dit STATUSTYPE."),
+        required=False,
+        allow_null=True,
+    )
+    checklistitemStatustype = CheckListItemSerializer(
+        help_text=_("De checklistitems behorend bij dit STATUSTYPE."),
+        many=True,
+        required=False,
+        default=list,
+    )
+    eigenschappen = serializers.ListField(
+        help_text=_(
+            "De EIGENSCHAPpen die verplicht een waarde moeten hebben gekregen, "
+            "voordat een STATUS van dit STATUSTYPE kan worden gezet."
+        ),
+        child=serializers.URLField(allow_null=True),
+        required=False,
+        default=list,
+    )
+
+
 class SearchResponseSerializer(serializers.Serializer):
     count = serializers.IntegerField()
 

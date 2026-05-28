@@ -59,6 +59,12 @@ ZAKEN_ZAAK_UUID_PARAM = OpenApiParameter(
     location=OpenApiParameter.PATH,
     required=True,
 )
+STATUSTYPE_PARAM = OpenApiParameter(
+    name="statustype_uuid",
+    type=OpenApiTypes.STR,
+    location=OpenApiParameter.PATH,
+    required=True,
+)
 
 OpenApiTypeLiteral = Literal[
     OpenApiTypes.STR,
