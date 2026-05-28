@@ -1,6 +1,10 @@
+from collections.abc import Mapping, Sequence
 from datetime import date, datetime
 from typing import Literal, TypedDict
 from uuid import UUID
+
+type JSONValue = None | bool | int | float | str | Sequence[JSONValue] | JSONObject
+type JSONObject = Mapping[str, JSONValue]
 
 
 class PaginatedResponse[T](TypedDict):
@@ -113,6 +117,31 @@ class SearchParameters(TypedDict):
     sort: Literal["relevance", "chronological"]
     creatiedatum_vanaf: date | None
     creatiedatum_tot_en_met: date | None
+
+
+class CheckListItem(TypedDict):
+    itemnaam: str
+    toelichting: str | None
+    vraagstelling: str
+    verplicht: bool
+
+
+class StatusType(TypedDict):
+    uuid: UUID
+    url: str
+    omschrijving: str
+    omschrijvingGeneriek: str
+    statustekst: str
+    zaaktype: str
+    catalogus: str
+    zaaktypeIdentificatie: str
+    volgnummer: int
+    isEindstatus: bool
+    informeren: bool
+    doorlooptijd: str | None
+    toelichting: str | None
+    checklistitemStatustype: list[CheckListItem]
+    eigenschappen: list[str | None]
 
 
 ZaakTypenPaginatedResponse = PaginatedResponse[ZaakType]

@@ -2,7 +2,7 @@ import re
 from uuid import UUID
 
 
-def extract_uuid(url: str) -> str:
+def extract_uuid(url: str) -> str | None:
     match = re.search(
         r"[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}",
         url,
