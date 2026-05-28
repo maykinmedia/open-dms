@@ -4,7 +4,7 @@ import { ServiceSelect } from "~/components";
 import {
   ZaaktypenList,
   zaaktypenListLoader,
-} from "~/modules/zaken/routes/zaaktypen-list";
+} from "~/modules/zaken/routes/index";
 
 type ZakenNavigationProps = {
   path: string;
