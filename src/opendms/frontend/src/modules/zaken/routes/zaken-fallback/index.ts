@@ -1,2 +1,1 @@
-export * from "./zaaktypen-list";
 export * from "./zaken-fallback";
