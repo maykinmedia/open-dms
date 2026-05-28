@@ -25,7 +25,7 @@ import type { zaaktypenListLoader } from "./zaaktypen-list.loader";
 type ZaaktypeListData = ZaakType & {
   href?: string;
   status?: JSX.Element;
-  "open zaken"?: JSX.Element;
+  open_zaken?: JSX.Element;
 };
 
 /**
@@ -69,7 +69,7 @@ export function ZaaktypenList() {
         valueTransform: ZaaktypeStatusBadge,
       },
       {
-        name: "open zaken",
+        name: "open_zaken",
         type: "jsx",
         valueTransform: ZaaktypeZakenCount,
       },
