@@ -4,102 +4,79 @@
 Testing
 =======
 
-This document covers the tools to run tests and how to use them.
+
+Prerequisites
+=============
+
+Most tests require PostgreSQL and Redis.
+If you don't have them running already, start them with Docker Compose::
+
+    docker compose up -d db redis
 
 
-Django tests
-============
+Backend tests
+=============
 
-Run the project tests by executing::
+Run all tests::
 
-    python src/manage.py test src --keepdb
+    python src/manage.py test src
 
-To measure coverage, use ``coverage run``::
+Run a single test::
 
-    coverage run src/manage.py test src --keepdb
-
-It may be convenient to add some aliases::
-
-    alias runtests='python src/manage.py test --keepdb'
-    runtests src
-
-and::
-
-    alias cov_runtests='coverage run src/manage.py test --keepdb'
-    cov_runtests src && chromium htmlcov/index.html
+    python src/manage.py test src/opendms/api/tests/test_documents.py::DocumentTests::test_detail
 
 
-Jenkins
--------
+(re-)recording VCR cassettes
+-----------------------------
 
-Run ``./bin/jenkins_django.sh`` to execute the tests for ``develop`` and ``master``.
-This script runs the tests with ``--keepdb``.
+Tests in ``search_index/`` and ``api/tests/`` use
+`VCR cassettes <https://maykin-django-common.readthedocs.io/en/latest/reference/vcr.html>`_
+to record and replay HTTP interactions against Elasticsearch and Open Zaak
+respectively. Cassettes live under ``src/opendms/*/tests/files/vcr_cassettes/``.
 
-To run PR tests, run ``./bin/jenkins_django_pr.sh``. This script drops the test
-database at the end, so it should be safe with different migrations between PR's.
+To (re-)record, start the required containers:
+
+* **Elasticsearch** (``search_index/`` tests, ``localhost:9201``)::
+
+    docker compose -f docker/docker-compose.es.yml up -d
+
+* **Open Zaak** (``api/tests/`` Zaak tests, ``localhost:8003``)::
+
+    docker compose -f docker/docker-compose.open-zaak.yml up -d
+
+Then delete the cassette YAML file you want to re-record and re-run the test.
+In development ``VCR_RECORD_MODE`` defaults to ``once``, so missing cassettes
+are recorded automatically and existing ones are replayed.
+
+See `docker/open-zaak/README.md <https://github.com/maykinmedia/open-dms/blob/main/docker/open-zaak/README.md>`_ for Open Zaak fixture management.
 
 
-SASS build - Jenkins
-====================
+Frontend tests
+==============
 
-There is a simple ``./bin/jenkins_sass.sh`` script that checks if the sass
-compiles successfully.
+From ``src/opendms/frontend/``::
 
-
-Javascript tests
-================
-
-There are quite some options to run the Javascript tests. Karma is used as
-test-runner, and you need to install it globally if you have never done so::
-
-    sudo npm install -g karma
-
-By default, the tests are run against Chrome/Chromium. To run
-the tests, execute::
-
+    npm install
     npm test
 
-If you want to target a single browser, you can run karma directly::
+Lint and type-check::
 
-    karma start karma.conf.js --single-run --browsers=PhantomJS
-
-Coverage reports can be found in ``build/reports/coverage``.
-
-To trigger a test run on file change (source file or test file), run::
-
-    karma start karma.conf.js --single-run=false --browsers=PhantomJS
+    npm lint
+    npm check-types
 
 
-Jenkins
--------
+Coverage
+========
 
-On Jenkins, the tests are run against PhantomJS and Chrome. Therefore, ``xfvb``
-needs to be available.
+Run with coverage and generate a report::
 
-Run the tests by invoking ``./bin/jenkins_js.sh``.
+    coverage run src/manage.py test src
+    coverage html
+
+The report is written to ``htmlcov/index.html``. Ready to open with your browser.
 
 
-Jenkins jobs
-============
+CI
+==
 
-It is recommended to set up the following Jenkins jobs for a project:
-
-**master** branch
------------------
-
-1. ``opendms-django``: backend tests, runs ``./bin/jenkins_django.sh``.
-2. ``opendms-js``: frontend tests, runs ``./bin/jenkins_js.sh``.
-
-**develop** branch
-------------------
-
-1. ``opendms-django-develop``: backend tests, runs ``./bin/jenkins_django.sh``.
-2. ``opendms-django-develop-js``: frontend tests, runs ``./bin/jenkins_js.sh``.
-
-pull requests
--------------
-1. ``opendms-pr-django``: backend tests, runs ``./bin/jenkins_django_pr.sh``.
-2. ``opendms-pr-js``: frontend tests, runs ``./bin/jenkins_js.sh``.
-3. ``opendms-pr-sass``: checks that sass compiles, runs ``./bin/jenkins_sass.sh``.
-4. ``opendms-pr-isort``: checks that imports are correctly
-   sorted, runs ``./bin/jenkins_isort.sh``.
+GitHub Actions runs tests against PostgreSQL 14–17 with Redis. See ``.github/workflows/ci.yml``.
