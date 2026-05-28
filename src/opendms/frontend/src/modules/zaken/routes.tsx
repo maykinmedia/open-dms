@@ -5,6 +5,7 @@ import {
   ZaaktypenList,
   zaaktypenListLoader,
 } from "~/modules/zaken/routes/index";
+import { ZakenFallback } from "~/modules/zaken/routes/zaken-fallback";
 
 type ZakenNavigationProps = {
   path: string;
@@ -56,9 +57,14 @@ export function createModuleRoutes(path: string): RouteObject[] {
               element: "zaken",
             },
             {
+              path: "zaaktypen",
               index: true,
               loader: zaaktypenListLoader,
               Component: ZaaktypenList,
+            },
+            {
+              index: true,
+              Component: ZakenFallback,
             },
           ],
         },
