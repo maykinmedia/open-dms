@@ -5,9 +5,9 @@ import { withRouter } from "storybook-addon-remix-react-router";
 import { withCSRF } from "../../../../../.storybook/decorators.tsx";
 import {
   MOCK_SERVICE_OPTIONS,
-  MOCK_ZAAK_DETAIL,
   MOCK_ZAAKTYPE,
   MOCK_ZAAKTYPE_OPTIONS,
+  MOCK_ZAAK_DETAIL,
 } from "../../../../../.storybook/mocks.ts";
 import { sanitizedReactRouterParameters } from "../../../../../.storybook/utils.ts";
 import { ZaakDetail } from "./zaak-detail.tsx";

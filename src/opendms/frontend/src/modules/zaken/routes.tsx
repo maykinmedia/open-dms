@@ -62,22 +62,26 @@ export function createModuleRoutes(path: string): RouteObject[] {
             },
             {
               path: "zaaktypen",
-              index: true,
-              loader: zaaktypenListLoader,
-              Component: ZaaktypenList,
-            },
-            {
-              path: ":zaaktypeUuid",
               children: [
                 {
                   index: true,
-                  loader: zakenListLoader,
-                  Component: ZakenList,
+                  loader: zaaktypenListLoader,
+                  Component: ZaaktypenList,
                 },
                 {
-                  path: ":zaakUuid",
-                  loader: zaakDetailLoader,
-                  Component: ZaakDetail,
+                  path: ":zaaktypeUuid",
+                  children: [
+                    {
+                      index: true,
+                      loader: zakenListLoader,
+                      Component: ZakenList,
+                    },
+                    {
+                      path: ":zaakUuid",
+                      loader: zaakDetailLoader,
+                      Component: ZaakDetail,
+                    },
+                  ],
                 },
               ],
             },

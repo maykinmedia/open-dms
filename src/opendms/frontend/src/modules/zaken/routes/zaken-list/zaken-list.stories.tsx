@@ -7,9 +7,9 @@ import { withCSRF } from "../../../../../.storybook/decorators.tsx";
 import {
   MOCK_CREATE_ZAAK,
   MOCK_SERVICE_OPTIONS,
-  MOCK_ZAAK_DETAIL,
   MOCK_ZAAKTYPE,
   MOCK_ZAAKTYPE_OPTIONS,
+  MOCK_ZAAK_DETAIL,
   MOCK_ZAKEN_FOR_ZAAKTYPE,
 } from "../../../../../.storybook/mocks.ts";
 import {

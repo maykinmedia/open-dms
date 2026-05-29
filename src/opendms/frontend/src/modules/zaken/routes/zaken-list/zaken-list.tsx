@@ -22,16 +22,15 @@ import type { zakenListLoader } from "./zaken-list.loader";
 type CreateZaakFormData = {
   omschrijving: string;
   startdatum: string;
+  bronorganisatie: string;
+  verantwoordelijkeOrganisatie: string;
 };
 
 export function ZakenList() {
   const navigate = useNavigate();
   const [searchParams, setSearchParams] = useSearchParams();
 
-  const { serviceSlug, zaaktypeUuid } = useParams() as {
-    serviceSlug: string;
-    zaaktypeUuid: string;
-  };
+  const { serviceSlug } = useParams() as { serviceSlug: string };
 
   const data = useLoaderData<typeof zakenListLoader>();
   invariant(data, "Zaken data not loaded!");
@@ -48,7 +47,6 @@ export function ZakenList() {
           name: "omschrijving",
           label: "Omschrijving",
           type: "text",
-          required: true,
         },
         {
           name: "startdatum",
@@ -56,33 +54,40 @@ export function ZakenList() {
           type: "date",
           required: true,
         },
+        {
+          name: "bronorganisatie",
+          label: "Bronorganisatie (RSIN)",
+          type: "text",
+          required: true,
+        },
+        {
+          name: "verantwoordelijkeOrganisatie",
+          label: "Verantwoordelijke organisatie (RSIN)",
+          type: "text",
+          required: true,
+        },
       ],
       "Aanmaken",
       "Annuleren",
       async (formData) => {
-        const { data: newZaak, error } = (await apiClient.POST(
-          // @ts-expect-error - API not ready
-          "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken",
+        const { data: newZaak, error } = await apiClient.POST(
+          "/api/v1/services/{serviceSlug}/zaken",
           {
-            params: {
-              path: {
-                serviceSlug,
-                zaaktypenZaaktypeUuid: zaaktypeUuid,
-              },
-            },
+            params: { path: { serviceSlug } },
             body: {
-              omschrijving: formData.omschrijving,
-              startdatum: formData.startdatum,
+              zaaktype: data.zaaktype.url,
+              omschrijving: String(formData.omschrijving),
+              startdatum: String(formData.startdatum),
+              bronorganisatie: String(formData.bronorganisatie),
+              verantwoordelijkeOrganisatie: String(
+                formData.verantwoordelijkeOrganisatie,
+              ),
             },
           },
-        )) as unknown as { data: Zaak | undefined; error: unknown };
+        );
 
         if (error || !newZaak) {
-          await alert(
-            "Foutmelding!",
-            "Zaak kon niet worden aangemaakt.",
-            "Ok",
-          );
+          await alert("Foutmelding!", "Zaak kon niet worden aangemaakt.", "Ok");
           return;
         }
 
@@ -127,7 +132,7 @@ export function ZakenList() {
   return (
     <ListTemplate
       dataGridProps={{
-        title: `${serviceSlug} / ${zaaktypeUuid}`,
+        title: `${data.zaaktype.identificatie}`,
         objectList: objectList,
         fields: fields,
         filterable: true,
