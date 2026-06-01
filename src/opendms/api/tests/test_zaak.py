@@ -280,6 +280,44 @@ class ZaakTests(VCRMixin, APITestCase):
         self.assertEqual(response.data["code"], "method_not_allowed")
         self.assertEqual(response.data["detail"], 'Methode "DELETE" niet toegestaan.')
 
+    def test_list_without_zaaktype(self):
+        url = reverse(
+            "api:service-zaken-list",
+            kwargs={
+                "service_slug": self.ztc_service.slug,
+            },
+        )
+
+        response = self.client.get(url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        data = response.json()
+
+        self.assertGreater(data["count"], 0)
+        self.assertGreater(len(data["results"]), 0)
+
+        zaaktypes = {item["zaaktype"] for item in data["results"]}
+
+        self.assertGreater(len(zaaktypes), 1)
+
+    def test_list_without_zaaktype_filter_omschrijving(self):
+        url = reverse(
+            "api:service-zaken-list",
+            kwargs={
+                "service_slug": self.ztc_service.slug,
+            },
+        )
+
+        response = self.client.get(
+            url,
+            query_params={"omschrijving": "verklaring"},
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(response.json()["count"], 2)
+        self.assertEqual(len(response.json()["results"]), 2)
+
 
 class ZaakFiltersTests(VCRMixin, APITestCase):
     @classmethod

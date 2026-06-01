@@ -268,7 +268,11 @@ class ZaakTypeViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     ),
     retrieve=extend_schema(
         summary="zakenRetrieve",
-        parameters=[SERVICE_PARAM, ZAAKTYPEN_ZAAKTYPE_UUID_PARAM, ZAAK_PARAM],
+        parameters=[
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAAK_PARAM,
+        ],
     ),
 )
 class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
@@ -284,13 +288,18 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
     _zaaktype_url = None
 
     @property
-    def zaaktype_url(self) -> str:
+    def zaaktype_url(self) -> str | None:
+        zaaktype_uuid = self.kwargs.get(self.parent_lookup_field)
+
+        if not zaaktype_uuid:
+            return None
+
         if not self._zaaktype_url:
-            zaaktype_uuid = self.kwargs.get(self.parent_lookup_field)
             with get_zaaktypen_client(self.zgw_group.ztc_service) as client:
                 # TODO investigate here if you can use cache
                 zaaktype = client.get_item_by_uuid(zaaktype_uuid)
-                return zaaktype["url"]
+                self._zaaktype_url = zaaktype["url"]
+
         return self._zaaktype_url
 
     def get_object(self) -> Zaak:
@@ -315,7 +324,15 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         """
         with get_zaken_client(self.zgw_group.zrc_service) as client:
             # TODO investigate here if you can use cache
-            return client.get_paginated_items_by_zaaktype(self.zaaktype_url, params)
+            zaaktype_url = self.zaaktype_url
+
+            if zaaktype_url:
+                return client.get_paginated_items_by_zaaktype(
+                    zaaktype_url,
+                    params,
+                )
+
+            return client.get_paginated_items(params)
 
 
 class ServiceZaakViewSet(ZaakViewSet):
@@ -718,7 +735,7 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         """
         "{A51EDD09-8271-4C43-A73C-DB11808626A1},157" -> 157
         """
-        version_str = re.search("(?:,)(\d+)", etag).group(1)
+        version_str = re.search(r"(?:,)(\d+)", etag).group(1)
         version = int(version_str) if version_str else None
         return version
 

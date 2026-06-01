@@ -31,31 +31,31 @@ QUERY_PARAM = OpenApiParameter(
 )
 ZAAKTYPE_PARAM = OpenApiParameter(
     name="zaaktype_uuid",
-    type=OpenApiTypes.STR,
+    type=OpenApiTypes.UUID,
     location=OpenApiParameter.PATH,
     required=True,
 )
 ZAAK_PARAM = OpenApiParameter(
     name="zaak_uuid",
-    type=OpenApiTypes.STR,
+    type=OpenApiTypes.UUID,
     location=OpenApiParameter.PATH,
     required=True,
 )
 DOCUMENT_PARAM = OpenApiParameter(
     name="document_uuid",
-    type=OpenApiTypes.STR,
+    type=OpenApiTypes.UUID,
     location=OpenApiParameter.PATH,
     required=True,
 )
 ZAAKTYPEN_ZAAKTYPE_UUID_PARAM = OpenApiParameter(
     name="zaaktypen_zaaktype_uuid",
-    type=OpenApiTypes.STR,
+    type=OpenApiTypes.UUID,
     location=OpenApiParameter.PATH,
     required=True,
 )
 ZAKEN_ZAAK_UUID_PARAM = OpenApiParameter(
     name="zaken_zaak_uuid",
-    type=OpenApiTypes.STR,
+    type=OpenApiTypes.UUID,
     location=OpenApiParameter.PATH,
     required=True,
 )
