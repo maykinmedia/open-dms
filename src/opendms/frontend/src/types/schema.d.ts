@@ -273,7 +273,11 @@ export interface paths {
          */
         get: operations["apiV1ServicesZaaktypenZakenDocumentsList"];
         put?: never;
-        post?: never;
+        /**
+         * documentsCreate
+         * @description Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
+         */
+        post: operations["apiV1ServicesZaaktypenZakenDocumentsCreate"];
         delete?: never;
         options?: never;
         head?: never;
@@ -533,6 +537,26 @@ export interface components {
              */
             inhoud: string;
             readonly hasPendingUpdates: boolean;
+        };
+        DocumentCreate: {
+            identificatie?: string;
+            bronorganisatie: string;
+            /** Format: date */
+            creatiedatum: string;
+            titel: string;
+            auteur: string;
+            taal: string;
+            /** Format: uri */
+            informatieobjecttype: string;
+            inhoud?: string;
+            bestandsnaam?: string;
+            formaat?: string;
+            beschrijving?: string;
+            vertrouwelijkheidaanduiding?: string;
+            status?: string;
+            /** Format: uri */
+            link?: string;
+            trefwoorden?: string[];
         };
         ESDocument: {
             /** @description Unieke resource identifier (UUID4) */
@@ -1320,6 +1344,35 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PaginatedDocumentList"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaaktypenZakenDocumentsCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                serviceSlug: string;
+                zaaktypenZaaktypeUuid: string;
+                zakenZaakUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DocumentCreate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["Document"];
                 };
             };
         };

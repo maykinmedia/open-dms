@@ -174,12 +174,7 @@ class DocumentTests(VCRMixin, APITestCase):
             },
         )
 
-        # POST
         data = {}
-        response = self.client.post(self.list_url, data)
-        self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
-        self.assertEqual(response.data["code"], "method_not_allowed")
-        self.assertEqual(response.data["detail"], 'Methode "POST" niet toegestaan.')
 
         # PATCH
         response = self.client.patch(detail_url, data)
@@ -198,3 +193,99 @@ class DocumentTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_405_METHOD_NOT_ALLOWED)
         self.assertEqual(response.data["code"], "method_not_allowed")
         self.assertEqual(response.data["detail"], 'Methode "DELETE" niet toegestaan.')
+
+    def test_create_document(self):
+        payload = {
+            "bronorganisatie": "000000000",
+            "creatiedatum": "2026-06-02",
+            "titel": "Test document",
+            "auteur": "Test User",
+            "taal": "nld",
+            "informatieobjecttype": (
+                "http://localhost:8003/catalogi/api/v1/"
+                "informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab"
+            ),
+            "bestandsnaam": "test.txt",
+            "formaat": "text/plain",
+            "beschrijving": "Test description",
+        }
+
+        response = self.client.post(
+            self.list_url,
+            payload,
+            format="json",
+        )
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_201_CREATED,
+        )
+
+        data = response.json()
+
+        self.assertEqual(
+            data["bronorganisatie"],
+            payload["bronorganisatie"],
+        )
+        self.assertEqual(
+            data["creatiedatum"],
+            payload["creatiedatum"],
+        )
+        self.assertEqual(
+            data["titel"],
+            payload["titel"],
+        )
+        self.assertEqual(
+            data["auteur"],
+            payload["auteur"],
+        )
+        self.assertEqual(
+            data["taal"],
+            payload["taal"],
+        )
+        self.assertEqual(
+            data["informatieobjecttype"],
+            payload["informatieobjecttype"],
+        )
+        self.assertEqual(
+            data["bestandsnaam"],
+            payload["bestandsnaam"],
+        )
+        self.assertEqual(
+            data["formaat"],
+            payload["formaat"],
+        )
+        self.assertEqual(
+            data["beschrijving"],
+            payload["beschrijving"],
+        )
+
+        self.assertIn("uuid", data)
+        self.assertIn("url", data)
+
+    def test_create_document_invalid_payload(self):
+        response = self.client.post(
+            self.list_url,
+            {},
+            format="json",
+        )
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_400_BAD_REQUEST,
+        )
+
+        invalid_params = response.data["invalid_params"]
+        field_names = {param["name"] for param in invalid_params}
+
+        self.assertEqual(
+            field_names,
+            {
+                "bronorganisatie",
+                "creatiedatum",
+                "titel",
+                "auteur",
+                "taal",
+                "informatieobjecttype",
+            },
+        )

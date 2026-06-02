@@ -41,6 +41,7 @@ from .clients import (
 )
 from .models import ZGWApiGroupConfig
 from .serializers import (
+    DocumentCreateSerializer,
     DocumentSerializer,
     SearchResponseSerializer,
     SearchSerializer,
@@ -816,6 +817,28 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         document.save()
 
         return Response(message, status=status_code)
+
+    @extend_schema(
+        summary="documentsCreate",
+        request=DocumentCreateSerializer,
+        responses={201: DocumentSerializer},
+        parameters=[
+            SERVICE_PARAM,
+            ZAAKTYPEN_ZAAKTYPE_UUID_PARAM,
+            ZAKEN_ZAAK_UUID_PARAM,
+        ],
+    )
+    def create(self, request, *args, **kwargs):
+        serializer = DocumentCreateSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        with get_documenten_client(self.zgw_group.drc_service) as client:
+            document = client.create_document(serializer.validated_data)
+
+        return Response(
+            DocumentSerializer(document).data,
+            status=status.HTTP_201_CREATED,
+        )
 
     def _extract_version_from_etag(self, etag: str):
         """

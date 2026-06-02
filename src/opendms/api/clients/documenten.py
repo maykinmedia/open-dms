@@ -117,6 +117,20 @@ class DocumentClient(HttpRequestMixin, NLXClient):
             logger.exception("error_request", document_uuid=document_uuid)
             return status.HTTP_503_SERVICE_UNAVAILABLE, "Service Unavailable"
 
+    def create_document(self, data: dict) -> DocumentType:
+        payload = data.copy()
+
+        if payload.get("creatiedatum"):
+            payload["creatiedatum"] = payload["creatiedatum"].isoformat()
+
+        response = self.post(
+            self.endpoint,
+            json=payload,
+        )
+        response.raise_for_status()
+
+        return self._map_document(response.json())
+
     def get_paginated_items_by_zaak(
         self, zaak_url: str, params: dict | None = None
     ) -> DocumentsPaginatedResponse:
