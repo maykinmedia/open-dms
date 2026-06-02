@@ -100,6 +100,46 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/services/{serviceSlug}/statustypen": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * statustypenList
+         * @description Read-only endpoint voor STATUSTYPEn
+         */
+        get: operations["apiV1ServicesStatustypenList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/statustypen/{statustypeUuid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * statustypenRetrieve
+         * @description Read-only endpoint voor STATUSTYPEn
+         */
+        get: operations["apiV1ServicesStatustypenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/services/{serviceSlug}/zaaktypen": {
         parameters: {
             query?: never;
@@ -132,6 +172,46 @@ export interface paths {
          * @description Exposes Zaaktypen from /services/<zgw-service>/zaaktypen
          */
         get: operations["apiV1ServicesZaaktypenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/statustypen": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * statustypenList
+         * @description Read-only endpoint voor alle STATUSTYPEn die mogelijk zijn voor een bepaald ZAAKTYPE.
+         */
+        get: operations["apiV1ServicesZaaktypenStatustypenList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/statustypen/{statustypeUuid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * statustypenRetrieve
+         * @description Read-only endpoint voor alle STATUSTYPEn die mogelijk zijn voor een bepaald ZAAKTYPE.
+         */
+        get: operations["apiV1ServicesZaaktypenStatustypenRetrieve"];
         put?: never;
         post?: never;
         delete?: never;
@@ -388,6 +468,16 @@ export interface components {
             username: string;
             password: string;
         };
+        CheckListItem: {
+            /** @description De betekenisvolle benaming van het checklistitem */
+            itemnaam: string;
+            /** @description Beschrijving van de overwegingen bij het controleren van het aandachtspunt */
+            toelichting?: string | null;
+            /** @description Een betekenisvolle vraag waaruit blijkt waarop het aandachtspunt gecontroleerd moet worden. */
+            vraagstelling: string;
+            /** @description Het al dan niet verplicht zijn van controle van het aandachtspunt voorafgaand aan het bereiken van de status van het gerelateerde STATUSTYPE. */
+            verplicht: boolean;
+        };
         Document: {
             /** @description Unieke resource identifier (UUID4) */
             uuid: string;
@@ -582,6 +672,11 @@ export interface components {
             count: number;
             results: components["schemas"]["Service"][];
         };
+        PaginatedStatusTypeList: {
+            /** @example 123 */
+            count: number;
+            results: components["schemas"]["StatusType"][];
+        };
         PaginatedZaakList: {
             /** @example 123 */
             count: number;
@@ -676,6 +771,50 @@ export interface components {
         };
         /** @enum {string} */
         SortEnum: "relevance" | "chronological";
+        StatusType: {
+            /**
+             * Format: uuid
+             * @description UUID van dit object. Dit is de unieke identificatiecode van dit object.
+             */
+            uuid: string;
+            /**
+             * Format: uri
+             * @description URL-referentie naar dit object. Dit is de unieke identificatie en locatie van dit object.
+             */
+            url: string;
+            /** @description Een korte, voor de initiator van de zaak relevante, omschrijving van de aard van de STATUS van zaken van een ZAAKTYPE. */
+            omschrijving: string;
+            /** @description Algemeen gehanteerde omschrijving van de aard van STATUSsen van het STATUSTYPE. */
+            omschrijvingGeneriek?: string;
+            /** @description De tekst die wordt gebruikt om de Initiator te informeren over het bereiken van een STATUS van dit STATUSTYPE bij het desbetreffende ZAAKTYPE. */
+            statustekst?: string;
+            /**
+             * Format: uri
+             * @description URL-referentie naar het ZAAKTYPE van ZAAKen waarin STATUSsen van dit STATUSTYPE bereikt kunnen worden.
+             */
+            zaaktype: string;
+            /**
+             * Format: uri
+             * @description URL-referentie naar de CATALOGUS waartoe dit STATUSTYPE behoort.
+             */
+            catalogus: string;
+            /** @description Unieke identificatie van het ZAAKTYPE binnen de CATALOGUS waarin het ZAAKTYPE voorkomt. */
+            zaaktypeIdentificatie: string;
+            /** @description Een volgnummer voor statussen van het STATUSTYPE binnen een zaak. */
+            volgnummer: number;
+            /** @description Geeft aan dat dit STATUSTYPE een eindstatus betreft. */
+            isEindstatus: boolean;
+            /** @description Aanduiding die aangeeft of na het zetten van een STATUS van dit STATUSTYPE de Initiator moet worden geïnformeerd over de statusovergang. */
+            informeren: boolean;
+            /** @description De door de zaakbehandelende organisatie(s) gestelde norm voor de doorlooptijd voor het bereiken van STATUSsen van dit STATUSTYPE. */
+            doorlooptijd?: string | null;
+            /** @description Een eventuele toelichting op dit STATUSTYPE. */
+            toelichting?: string | null;
+            /** @description De checklistitems behorend bij dit STATUSTYPE. */
+            checklistitemStatustype?: components["schemas"]["CheckListItem"][];
+            /** @description De EIGENSCHAPpen die verplicht een waarde moeten hebben gekregen, voordat een STATUS van dit STATUSTYPE kan worden gezet. */
+            eigenschappen?: (string | null)[];
+        };
         User: {
             /** ID */
             readonly pk: number;
@@ -938,6 +1077,53 @@ export interface operations {
             };
         };
     };
+    apiV1ServicesStatustypenList: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StatusType"][];
+                };
+            };
+        };
+    };
+    apiV1ServicesStatustypenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                serviceSlug: string;
+                statustypeUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StatusType"];
+                };
+            };
+        };
+    };
     apiV1ServicesZaaktypenList: {
         parameters: {
             query?: {
@@ -988,6 +1174,60 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["ZaakType"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaaktypenStatustypenList: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
+                pageSize?: number;
+            };
+            header?: never;
+            path: {
+                serviceSlug: string;
+                zaaktypenZaaktypeUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedStatusTypeList"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaaktypenStatustypenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                serviceSlug: string;
+                statustypeUuid: string;
+                zaaktypenZaaktypeUuid: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["StatusType"];
                 };
             };
         };

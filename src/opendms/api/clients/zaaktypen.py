@@ -1,4 +1,5 @@
 from functools import partial
+from typing import NoReturn
 
 from django.core.cache import cache
 
@@ -27,7 +28,7 @@ class ZaakTypeClient(HttpRequestMixin, NLXClient):
         results = [self._map_zaaktype(record) for record in data.get("results", [])]
         return ZaakTypenPaginatedResponse(count=data["count"], results=results)
 
-    def get_item_by_uuid(self, uuid: str) -> ZaakType | None:
+    def get_item_by_uuid(self, uuid: str) -> ZaakType | NoReturn:
         data = self.make_request(f"{self.endpoint}/{uuid}")
         return self._map_zaaktype(data)
 
