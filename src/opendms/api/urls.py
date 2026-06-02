@@ -7,6 +7,7 @@ from opendms.api.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIVi
 
 from .viewsets import (
     DocumentViewSet,
+    InformatieObjectTypeViewSet,
     SearchView,
     ServiceViewSet,
     ServiceZaakViewSet,
@@ -71,7 +72,11 @@ documents_router.register(
     DocumentViewSet,
     basename="documents",
 )
-
+service_router.register(
+    r"informatieobjecttypen",
+    InformatieObjectTypeViewSet,
+    basename="informatieobjecttypen",
+)
 urlpatterns = [
     re_path(
         r"^v(?P<version>\d+)/",

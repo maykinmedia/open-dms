@@ -645,3 +645,30 @@ class ZaakCreateSerializer(serializers.Serializer):
 
     bronorganisatie = serializers.CharField()
     verantwoordelijke_organisatie = serializers.CharField()
+
+
+class InformatieObjectTypeSerializer(serializers.Serializer):
+    uuid = serializers.UUIDField()
+    url = serializers.URLField()
+
+    catalogus = serializers.URLField()
+
+    omschrijving = serializers.CharField()
+
+    vertrouwelijkheidaanduiding = serializers.CharField()
+
+    beginGeldigheid = serializers.DateField(
+        allow_null=True,
+        required=False,
+    )
+
+    eindeGeldigheid = serializers.DateField(
+        allow_null=True,
+        required=False,
+    )
+
+    concept = serializers.BooleanField()
+
+    informatieobjectcategorie = serializers.CharField()
+
+    zaaktypen = serializers.ListField(child=serializers.URLField())

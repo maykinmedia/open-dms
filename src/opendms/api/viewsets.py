@@ -35,6 +35,7 @@ from opendms.search_index.client import get_elasticsearch_client
 from ..doc_edit.utils import is_within_threshold
 from .clients import (
     get_documenten_client,
+    get_informatieobjecttypen_client,
     get_statustypen_client,
     get_zaaktypen_client,
     get_zaken_client,
@@ -42,6 +43,7 @@ from .clients import (
 from .models import ZGWApiGroupConfig
 from .serializers import (
     DocumentSerializer,
+    InformatieObjectTypeSerializer,
     SearchResponseSerializer,
     SearchSerializer,
     ServiceSerializer,
@@ -53,6 +55,8 @@ from .serializers import (
 from .typing import (
     DocumentsPaginatedResponse,
     DocumentType,
+    InformatieObjectType,
+    InformatieObjectTypenPaginatedResponse,
     PaginatedResponse,
     SearchParameters,
     StatusType,
@@ -829,3 +833,52 @@ class DocumentViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         callback_url = request.build_absolute_uri(reverse("ms_auth_callback"))
         request.session["origin_url"] = request.build_absolute_uri()
         return document_edit_backend.authenticate(request, redirect_url=callback_url)
+
+
+@extend_schema_view(
+    list=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    ),
+    retrieve=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="informatieobjecttype_uuid",
+                type=OpenApiTypes.UUID,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    ),
+)
+class InformatieObjectTypeViewSet(
+    ReadOnlyViewSetMixin,
+    viewsets.ViewSet,
+):
+    serializer_class = InformatieObjectTypeSerializer
+    lookup_url_kwarg = "informatieobjecttype_uuid"
+
+    def get_paginated_queryset(
+        self,
+        params: dict,
+    ) -> InformatieObjectTypenPaginatedResponse:
+        with get_informatieobjecttypen_client(self.service) as client:
+            return client.get_paginated_items(params)
+
+    def get_object(self) -> InformatieObjectType:
+        uuid = self.kwargs[self.lookup_url_kwarg]
+
+        with get_informatieobjecttypen_client(self.service) as client:
+            return client.get_item_by_uuid(uuid)

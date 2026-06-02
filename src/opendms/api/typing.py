@@ -144,7 +144,21 @@ class StatusType(TypedDict):
     eigenschappen: list[str | None]
 
 
+class InformatieObjectType(TypedDict):
+    uuid: UUID
+    url: str
+    catalogus: str
+    omschrijving: str
+    vertrouwelijkheidaanduiding: str
+    beginGeldigheid: str | None
+    eindeGeldigheid: str | None
+    concept: bool
+    informatieobjectcategorie: str
+    zaaktypen: list[str]
+
+
 ZaakTypenPaginatedResponse = PaginatedResponse[ZaakType]
 ZakenPaginatedResponse = PaginatedResponse[Zaak]
 DocumentsPaginatedResponse = PaginatedResponse[DocumentType]
 ESDocumentsPaginatedResponse = PaginatedResponse[ESDocumentType]
+InformatieObjectTypenPaginatedResponse = PaginatedResponse[InformatieObjectType]

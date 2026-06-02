@@ -100,6 +100,38 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/services/{serviceSlug}/informatieobjecttypen": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["apiV1ServicesInformatieobjecttypenList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypeUuid}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["apiV1ServicesInformatieobjecttypenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/services/{serviceSlug}/statustypen": {
         parameters: {
             query?: never;
@@ -662,6 +694,23 @@ export interface components {
             /** @description URI met referentie naar dit specifiek voorkomen van de fout. Deze kan gebruikt worden in combinatie met server logs, bijvoorbeeld. */
             instance: string;
         };
+        InformatieObjectType: {
+            /** Format: uuid */
+            uuid: string;
+            /** Format: uri */
+            url: string;
+            /** Format: uri */
+            catalogus: string;
+            omschrijving: string;
+            vertrouwelijkheidaanduiding: string;
+            /** Format: date */
+            beginGeldigheid?: string | null;
+            /** Format: date */
+            eindeGeldigheid?: string | null;
+            concept: boolean;
+            informatieobjectcategorie: string;
+            zaaktypen: string[];
+        };
         PaginatedDocumentList: {
             /** @example 123 */
             count: number;
@@ -1073,6 +1122,53 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PaginatedServiceList"];
+                };
+            };
+        };
+    };
+    apiV1ServicesInformatieobjecttypenList: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InformatieObjectType"][];
+                };
+            };
+        };
+    };
+    apiV1ServicesInformatieobjecttypenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                informatieobjecttypeUuid: string;
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["InformatieObjectType"];
                 };
             };
         };
