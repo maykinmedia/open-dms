@@ -672,3 +672,27 @@ class InformatieObjectTypeSerializer(serializers.Serializer):
     informatieobjectcategorie = serializers.CharField()
 
     zaaktypen = serializers.ListField(child=serializers.URLField())
+
+
+class DocumentCreateSerializer(serializers.Serializer):
+    identificatie = serializers.CharField(required=False)
+
+    bronorganisatie = serializers.CharField()
+    creatiedatum = serializers.DateField()
+    titel = serializers.CharField()
+    auteur = serializers.CharField()
+    taal = serializers.CharField()
+    informatieobjecttype = serializers.URLField()
+
+    inhoud = serializers.CharField(required=False)
+    bestandsnaam = serializers.CharField(required=False)
+    formaat = serializers.CharField(required=False)
+    beschrijving = serializers.CharField(required=False)
+
+    vertrouwelijkheidaanduiding = serializers.CharField(required=False)
+    status = serializers.CharField(required=False)
+    link = serializers.URLField(required=False)
+    trefwoorden = serializers.ListField(
+        child=serializers.CharField(),
+        required=False,
+    )

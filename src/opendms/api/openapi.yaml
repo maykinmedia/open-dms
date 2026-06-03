@@ -628,6 +628,51 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedDocumentList'
           description: ''
+    post:
+      operationId: apiV1ServicesZaaktypenZakenDocumentsCreate
+      description: Exposes Documents from /services/<zgw-service>/zaaktypen/<zaaktype>/zaken/<zaak>/documents
+      summary: documentsCreate
+      parameters:
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: zaaktypenZaaktypeUuid
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - in: path
+        name: zakenZaakUuid
+        schema:
+          type: string
+          format: uuid
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentCreate'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+          description: ''
   /api/v1/services/{serviceSlug}/zaaktypen/{zaaktypenZaaktypeUuid}/zaken/{zakenZaakUuid}/documents/{documentUuid}:
     get:
       operationId: apiV1ServicesZaaktypenZakenDocumentsRetrieve
@@ -1194,6 +1239,51 @@ components:
       - titel
       - url
       - uuid
+    DocumentCreate:
+      type: object
+      properties:
+        identificatie:
+          type: string
+        bronorganisatie:
+          type: string
+        creatiedatum:
+          type: string
+          format: date
+        titel:
+          type: string
+        auteur:
+          type: string
+        taal:
+          type: string
+        informatieobjecttype:
+          type: string
+          format: uri
+        inhoud:
+          type: string
+        bestandsnaam:
+          type: string
+        formaat:
+          type: string
+        beschrijving:
+          type: string
+        vertrouwelijkheidaanduiding:
+          type: string
+        status:
+          type: string
+        link:
+          type: string
+          format: uri
+        trefwoorden:
+          type: array
+          items:
+            type: string
+      required:
+      - auteur
+      - bronorganisatie
+      - creatiedatum
+      - informatieobjecttype
+      - taal
+      - titel
     ESDocument:
       type: object
       properties:
