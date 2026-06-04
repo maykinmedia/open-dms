@@ -173,6 +173,66 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedServiceList'
           description: ''
+  /api/v1/services/{serviceSlug}/informatieobjecttypen:
+    get:
+      operationId: apiV1ServicesInformatieobjecttypenList
+      parameters:
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/InformatieObjectType'
+          description: ''
+  /api/v1/services/{serviceSlug}/informatieobjecttypen/{informatieobjecttypeUuid}:
+    get:
+      operationId: apiV1ServicesInformatieobjecttypenRetrieve
+      parameters:
+      - in: path
+        name: informatieobjecttypeUuid
+        schema:
+          type: string
+          format: uuid
+        required: true
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      security:
+      - cookieAuth: []
+      responses:
+        '200':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InformatieObjectType'
+          description: ''
   /api/v1/services/{serviceSlug}/statustypen:
     get:
       operationId: apiV1ServicesStatustypenList
@@ -1458,6 +1518,48 @@ components:
       - instance
       - status
       - title
+    InformatieObjectType:
+      type: object
+      properties:
+        uuid:
+          type: string
+          format: uuid
+        url:
+          type: string
+          format: uri
+        catalogus:
+          type: string
+          format: uri
+        omschrijving:
+          type: string
+        vertrouwelijkheidaanduiding:
+          type: string
+        beginGeldigheid:
+          type: string
+          format: date
+          nullable: true
+        eindeGeldigheid:
+          type: string
+          format: date
+          nullable: true
+        concept:
+          type: boolean
+        informatieobjectcategorie:
+          type: string
+        zaaktypen:
+          type: array
+          items:
+            type: string
+            format: uri
+      required:
+      - catalogus
+      - concept
+      - informatieobjectcategorie
+      - omschrijving
+      - url
+      - uuid
+      - vertrouwelijkheidaanduiding
+      - zaaktypen
     PaginatedDocumentList:
       type: object
       required:

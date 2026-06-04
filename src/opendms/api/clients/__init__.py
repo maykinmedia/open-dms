@@ -1,4 +1,5 @@
 from .documenten import get_documenten_client, get_oio_client
+from .informatieobjecttypen import get_informatieobjecttypen_client
 from .statustypen import get_statustypen_client
 from .zaaktypen import get_zaaktypen_client
 from .zaken import get_zaken_client
@@ -8,5 +9,6 @@ __all__ = [
     "get_zaken_client",
     "get_oio_client",
     "get_documenten_client",
+    "get_informatieobjecttypen_client",
     "get_statustypen_client",
 ]
