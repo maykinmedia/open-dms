@@ -39,6 +39,8 @@ export function ZakenList() {
   const formDialog = useFormDialog<CreateZaakFormData>();
 
   const handleCreateZaak = () => {
+    const today = new Date().toISOString().split("T")[0];
+
     formDialog(
       "Zaak aanmaken",
       null,
@@ -53,6 +55,7 @@ export function ZakenList() {
           label: "Startdatum",
           type: "date",
           required: true,
+          value: today,
         },
         {
           name: "bronorganisatie",

@@ -246,7 +246,7 @@ export const MOCK_ZAKEN_FOR_ZAAKTYPE = http.get(
 );
 
 export const MOCK_CREATE_ZAAK = http.post(
-  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken",
+  "/api/v1/services/service_2/zaken",
   async ({ request }) => {
     const body = (await request.json()) as {
       omschrijving: string;

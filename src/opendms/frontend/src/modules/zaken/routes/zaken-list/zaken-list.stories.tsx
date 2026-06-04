@@ -41,7 +41,7 @@ const BASE_HANDLERS = [
 export const List: Story = {
   parameters: {
     reactRouter: sanitizedReactRouterParameters(
-      "/zaken/service_2/22222222-2222-2222-2222-222222222222",
+      "/zaken/service_2/zaaktypen/22222222-2222-2222-2222-222222222222",
     ),
     msw: { handlers: BASE_HANDLERS },
   },
@@ -50,7 +50,7 @@ export const List: Story = {
 export const CreateZaak: Story = {
   parameters: {
     reactRouter: sanitizedReactRouterParameters(
-      "/zaken/service_2/22222222-2222-2222-2222-222222222222",
+      "/zaken/service_2/zaaktypen/22222222-2222-2222-2222-222222222222",
     ),
     msw: {
       handlers: [...BASE_HANDLERS, MOCK_CREATE_ZAAK, MOCK_ZAAK_DETAIL],
@@ -66,10 +66,16 @@ export const CreateZaak: Story = {
 
     const modal = within(document.body);
     const omschrijvingInput = await modal.findByLabelText("Omschrijving");
-    const startdatumInput = await modal.findByLabelText("Startdatum");
+    const bronorganisatieInput = await modal.findByLabelText(
+      "Bronorganisatie (RSIN)",
+    );
+    const verantwoordelijkeInput = await modal.findByLabelText(
+      "Verantwoordelijke organisatie (RSIN)",
+    );
 
     await userEvent.type(omschrijvingInput, "Nieuwe zaak omschrijving");
-    await userEvent.type(startdatumInput, "2023-06-15");
+    await userEvent.type(bronorganisatieInput, "000000000");
+    await userEvent.type(verantwoordelijkeInput, "000000000");
 
     const submitButton = await modal.findByRole("button", {
       name: "Aanmaken",
