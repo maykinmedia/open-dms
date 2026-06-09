@@ -29,9 +29,10 @@ export const zaakFactory = createFactory<Zaak>({
   registratiedatum: "",
   startdatum: "",
   toelichting: "",
-  url: "",
+  url: "http://www.example.com/zaken/api/v1/zaken/00000000-0000-0000-0000-000000000000",
   verantwoordelijkeOrganisatie: "",
-  zaaktype: "",
+  zaaktype:
+    "http://www.example.com/catalogi/api/v1/zaaktypen/22222222-2222-2222-2222-222222222222",
 });
 
 /**

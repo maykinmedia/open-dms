@@ -3,7 +3,9 @@ import { NavLink, type RouteObject, useParams } from "react-router";
 import { ServiceSelect } from "~/components";
 import {
   ZaaktypenList,
+  ZakenList,
   zaaktypenListLoader,
+  zakenListLoader,
 } from "~/modules/zaken/routes/index";
 import { ZakenFallback } from "~/modules/zaken/routes/zaken-fallback";
 
@@ -20,9 +22,9 @@ function ZakenNavigation({ path }: ZakenNavigationProps) {
       {serviceSlug && (
         <>
           {/* TODO */}
-          {/*<NavLink to={`${path}/${serviceSlug}/zaken`}>*/}
-          {/*  <Button>Zaken</Button>*/}
-          {/*</NavLink>*/}
+          <NavLink to={`${path}/${serviceSlug}/zaken`}>
+            <Button>Zaken</Button>
+          </NavLink>
 
           <NavLink to={`${path}/${serviceSlug}/zaaktypen`}>
             <Button>Zaaktypen</Button>
@@ -54,11 +56,11 @@ export function createModuleRoutes(path: string): RouteObject[] {
           children: [
             {
               path: "zaken",
-              element: "zaken",
+              loader: zakenListLoader,
+              Component: ZakenList,
             },
             {
               path: "zaaktypen",
-              index: true,
               loader: zaaktypenListLoader,
               Component: ZaaktypenList,
             },

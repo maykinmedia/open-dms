@@ -114,6 +114,7 @@ export const MOCK_ZAAKTYPE = http.get(
   () =>
     HttpResponse.json({
       identificatie: "Zaaktype 2",
+      omschrijving: "consectetur adipiscing elit",
       uuid: "22222222-2222-2222-2222-222222222222",
       beginGeldigheid: "2020-01-01",
       eindeGeldigheid: "2026-01-01",
@@ -149,48 +150,58 @@ export const MOCK_ZAAKTYPE = http.get(
  */
 export const MOCK_ZAKEN = http.get(
   "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken",
-  ({ request }) => {
-    const pages = 3;
-    const pageSize = 100;
-    const count = pages * pageSize - 50;
-
-    const url = new URL(request.url);
-    const urlSearchParams = new URLSearchParams(url.search);
-    const page = parseInt(urlSearchParams.get("page") || "1");
-    const page0 = page - 1;
-
-    const results = batchFactory(zaakFactory, count, {
-      identificatie: "zaak-{index}",
-    }).filter((zaak, index) => {
-      if (index >= page0 * pageSize && index < page0 * pageSize + pageSize) {
-        const identificatieFilter = urlSearchParams
-          .get("identificatie__icontains")
-          ?.toLowerCase();
-
-        const omschrijvingFilter = urlSearchParams
-          .get("omschrijving")
-          ?.toLowerCase();
-
-        const matchIdentificatie = identificatieFilter
-          ? zaak.identificatie?.toLowerCase().includes(identificatieFilter)
-          : true;
-
-        const matchOmschrijving = omschrijvingFilter
-          ? zaak.omschrijving?.toLowerCase().includes(omschrijvingFilter)
-          : true;
-
-        return matchIdentificatie && matchOmschrijving;
-      }
-    });
-
-    return HttpResponse.json({
-      count,
-      previous: "http://...",
-      next: "http://...",
-      results,
-    });
-  },
+  _mockGetZaken,
 );
+
+/**
+ * Similar to _MOCK_ZAKEN but without the zaaktypen.
+ */
+export const MOCK_SERVICE_ZAKEN = http.get(
+  "/api/v1/services/service_2/zaken",
+  _mockGetZaken,
+);
+
+function _mockGetZaken({ request }: { request: Request }) {
+  const pages = 3;
+  const pageSize = 100;
+  const count = pages * pageSize - 50;
+
+  const url = new URL(request.url);
+  const urlSearchParams = new URLSearchParams(url.search);
+  const page = parseInt(urlSearchParams.get("page") || "1");
+  const page0 = page - 1;
+
+  const results = batchFactory(zaakFactory, count, {
+    identificatie: "zaak-{index}",
+  }).filter((zaak, index) => {
+    if (index >= page0 * pageSize && index < page0 * pageSize + pageSize) {
+      const identificatieFilter = urlSearchParams
+        .get("identificatie__icontains")
+        ?.toLowerCase();
+
+      const omschrijvingFilter = urlSearchParams
+        .get("omschrijving")
+        ?.toLowerCase();
+
+      const matchIdentificatie = identificatieFilter
+        ? zaak.identificatie?.toLowerCase().includes(identificatieFilter)
+        : true;
+
+      const matchOmschrijving = omschrijvingFilter
+        ? zaak.omschrijving?.toLowerCase().includes(omschrijvingFilter)
+        : true;
+
+      return matchIdentificatie && matchOmschrijving;
+    }
+  });
+
+  return HttpResponse.json({
+    count,
+    previous: "http://...",
+    next: "http://...",
+    results,
+  });
+}
 
 export const MOCK_ZAAK = http.get(
   "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken/123",
