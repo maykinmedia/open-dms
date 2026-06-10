@@ -703,3 +703,8 @@ class ZaakInformatieObjectCreateSerializer(serializers.Serializer):
     informatieobject = serializers.URLField()
     titel = serializers.CharField(required=False)
     beschrijving = serializers.CharField(required=False)
+
+
+class DocumentRegistrerenSerializer(serializers.Serializer):
+    enkelvoudiginformatieobject = serializers.DictField()
+    zaakinformatieobject = serializers.DictField()

@@ -1,0 +1,61 @@
+interactions:
+- request:
+    body: '{"enkelvoudiginformatieobject": {"bronorganisatie": "000000280", "creatiedatum":
+      "2026-06-10", "titel": "Test document via Open DMS", "auteur": "Alfvin Rudy",
+      "taal": "nld", "informatieobjecttype": "http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab"},
+      "zaakinformatieobject": {"zaak": "http://localhost:8003/zaken/api/v1/zaken/14f68708-d50d-42c8-abfc-9a186485999a"}}'
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      Content-Length:
+      - '413'
+      Content-Type:
+      - application/json
+      User-Agent:
+      - python-requests/2.33.1
+    method: POST
+    uri: http://localhost:8003/documenten/api/v1/document_registreren
+  response:
+    body:
+      string: '{"enkelvoudiginformatieobject":{"url":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/045b46bb-4d71-40dc-a0f6-915d6b079458","identificatie":"DOCUMENT-2026-0000000024","bronorganisatie":"000000280","creatiedatum":"2026-06-10","titel":"Test
+        document via Open DMS","vertrouwelijkheidaanduiding":"confidentieel","auteur":"Alfvin
+        Rudy","status":"","formaat":"","taal":"nld","versie":1,"beginRegistratie":"2026-06-10T15:24:23.219555Z","bestandsnaam":"","inhoud":null,"bestandsomvang":null,"link":"","beschrijving":"","ontvangstdatum":null,"verzenddatum":null,"indicatieGebruiksrecht":null,"verschijningsvorm":"","ondertekening":null,"integriteit":null,"informatieobjecttype":"http://localhost:8003/catalogi/api/v1/informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab","locked":false,"bestandsdelen":[],"trefwoorden":[],"lock":""},"zaakinformatieobject":{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f524adf0-6090-4c6a-8138-021aa7908c90","uuid":"f524adf0-6090-4c6a-8138-021aa7908c90","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/045b46bb-4d71-40dc-a0f6-915d6b079458","zaak":"http://localhost:8003/zaken/api/v1/zaken/14f68708-d50d-42c8-abfc-9a186485999a","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-06-10T15:24:23.232246Z","vernietigingsdatum":null,"status":null}}'
+    headers:
+      API-version:
+      - 1.4.2
+      Allow:
+      - POST, OPTIONS
+      Content-Length:
+      - '1411'
+      Content-Security-Policy:
+      - 'object-src ''none''; frame-src ''self''; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
+        form-action ''self''; base-uri ''self''; frame-ancestors ''none''; worker-src
+        ''self'' blob:; default-src ''self''; style-src ''self'' ''unsafe-inline''
+        fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net; img-src ''self''
+        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org'
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - Accept, origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 201
+      message: Created
+version: 1

@@ -692,3 +692,126 @@ class ServiceZaakInformatieObjectViewSetTests(VCRMixin, APITestCase):
             result["zaak"],
             "http://example.com/zaak",
         )
+
+
+class ServiceDocumentRegistrerenViewSetTests(VCRMixin, APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+
+        cls.ztc_service = ServiceFactory.create(for_ztc_service_docker_compose=True)
+        cls.zrc_service = ServiceFactory.create(for_zrc_service_docker_compose=True)
+
+        cls.drc_service = ServiceFactory.create(for_drc_service_docker_compose=True)
+
+        cls.configuration = ZGWApiGroupConfigFactory.create(
+            ztc_service=cls.ztc_service,
+            zrc_service=cls.zrc_service,
+            drc_service=cls.drc_service,
+        )
+
+        cls.list_url = reverse(
+            "api:service-document-registreren-list",
+            kwargs={"service_slug": cls.ztc_service.slug},
+        )
+
+    def test_document_registreren(self):
+        url = reverse(
+            "api:service-document-registreren-list",
+            kwargs={"service_slug": self.ztc_service.slug},
+        )
+
+        payload = {
+            "enkelvoudiginformatieobject": {
+                "bronorganisatie": "000000280",
+                "creatiedatum": "2026-06-10",
+                "titel": "Test document via Open DMS",
+                "auteur": "Alfvin Rudy",
+                "taal": "nld",
+                "informatieobjecttype": (
+                    "http://localhost:8003/catalogi/api/v1/"
+                    "informatieobjecttypen/7f420939-2866-4582-8b94-f21d3891daab"
+                ),
+            },
+            "zaakinformatieobject": {
+                "zaak": (
+                    "http://localhost:8003/zaken/api/v1/zaken/"
+                    "14f68708-d50d-42c8-abfc-9a186485999a"
+                )
+            },
+        }
+
+        response = self.client.post(
+            url,
+            data=payload,
+            format="json",
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        data = response.json()
+
+        self.assertEqual(
+            data["enkelvoudiginformatieobject"]["titel"],
+            "Test document via Open DMS",
+        )
+
+        self.assertEqual(
+            data["zaakinformatieobject"]["zaak"],
+            payload["zaakinformatieobject"]["zaak"],
+        )
+
+    def test_document_registreren_requires_required_fields(self):
+        response = self.client.post(
+            self.list_url,
+            {},
+            format="json",
+        )
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_400_BAD_REQUEST,
+        )
+
+        invalid_params = response.json()["invalidParams"]
+        invalid_param_names = {p["name"] for p in invalid_params}
+
+        self.assertIn(
+            "enkelvoudiginformatieobject",
+            invalid_param_names,
+        )
+        self.assertIn(
+            "zaakinformatieobject",
+            invalid_param_names,
+        )
+
+    @patch("opendms.api.viewsets.get_documenten_client")
+    def test_document_registreren_forwards_remote_validation_errors(
+        self,
+        mock_get_documenten_client,
+    ):
+        response_mock = Mock()
+        response_mock.status_code = 400
+        response_mock.json.return_value = {
+            "invalidParams": [
+                {
+                    "name": "titel",
+                    "code": "required",
+                }
+            ]
+        }
+
+        client = Mock()
+        client.document_registreren.side_effect = HTTPError(response=response_mock)
+
+        mock_get_documenten_client.return_value.__enter__.return_value = client
+
+        response = self.client.post(
+            self.list_url,
+            {
+                "enkelvoudiginformatieobject": {},
+                "zaakinformatieobject": {},
+            },
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, 400)

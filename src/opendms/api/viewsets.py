@@ -44,6 +44,7 @@ from .clients import (
 from .models import ZGWApiGroupConfig
 from .serializers import (
     DocumentCreateSerializer,
+    DocumentRegistrerenSerializer,
     DocumentSerializer,
     InformatieObjectTypeSerializer,
     SearchResponseSerializer,
@@ -999,3 +1000,48 @@ class ServiceZaakInformatieObjectViewSet(
             result,
             status=status.HTTP_201_CREATED,
         )
+
+
+class DocumentRegistrerenViewSet(
+    ReadOnlyViewSetMixin,
+    viewsets.ViewSet,
+):
+    http_method_names = ["post"]
+    serializer_class = DocumentRegistrerenSerializer
+
+    @extend_schema(
+        summary="documentRegistreren",
+        request=DocumentRegistrerenSerializer,
+        responses={201: OpenApiTypes.OBJECT},
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    )
+    def create(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            with get_documenten_client(self.zgw_group.drc_service) as client:
+                result = client.document_registreren(serializer.validated_data)
+
+        except HTTPError as exc:
+            return Response(
+                exc.response.json(),
+                status=exc.response.status_code,
+            )
+
+        return Response(
+            result,
+            status=status.HTTP_201_CREATED,
+        )
+
+    def get_paginated_queryset(self, params):
+        # Required by ReadOnlyViewSetMixin but unused because
+        # this endpoint only supports POST.
+        raise NotImplementedError
