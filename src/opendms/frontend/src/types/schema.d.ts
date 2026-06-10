@@ -172,6 +172,39 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/services/{serviceSlug}/zaakinformatieobjecten": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["apiV1ServicesZaakinformatieobjectenList"];
+        put?: never;
+        /** zaakinformatieobjectCreate */
+        post: operations["apiV1ServicesZaakinformatieobjectenCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/api/v1/services/{serviceSlug}/zaakinformatieobjecten/{id}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get: operations["apiV1ServicesZaakinformatieobjectenRetrieve"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/services/{serviceSlug}/zaaktypen": {
         parameters: {
             query?: never;
@@ -750,6 +783,11 @@ export interface components {
             count: number;
             results: components["schemas"]["StatusType"][];
         };
+        PaginatedZaakInformatieObjectCreateList: {
+            /** @example 123 */
+            count: number;
+            results: components["schemas"]["ZaakInformatieObjectCreate"][];
+        };
         PaginatedZaakList: {
             /** @example 123 */
             count: number;
@@ -963,6 +1001,14 @@ export interface components {
             startdatum: string;
             bronorganisatie: string;
             verantwoordelijkeOrganisatie: string;
+        };
+        ZaakInformatieObjectCreate: {
+            /** Format: uri */
+            zaak: string;
+            /** Format: uri */
+            informatieobject: string;
+            titel?: string;
+            beschrijving?: string;
         };
         ZaakType: {
             /**
@@ -1240,6 +1286,87 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["StatusType"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaakinformatieobjectenList: {
+        parameters: {
+            query?: {
+                /** @description A page number within the paginated result set. */
+                page?: number;
+                /** @description Het aantal resultaten terug te geven per pagina. (default: 100, maximum: 500). */
+                pageSize?: number;
+            };
+            header?: never;
+            path: {
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["PaginatedZaakInformatieObjectCreateList"];
+                };
+            };
+        };
+    };
+    apiV1ServicesZaakinformatieobjectenCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["ZaakInformatieObjectCreate"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
+                };
+            };
+        };
+    };
+    apiV1ServicesZaakinformatieobjectenRetrieve: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ZaakInformatieObjectCreate"];
                 };
             };
         };

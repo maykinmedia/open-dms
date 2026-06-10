@@ -1,6 +1,9 @@
+from unittest.mock import Mock, patch
+
 from django.urls import NoReverseMatch
 
 from maykin_common.vcr import VCRMixin
+from requests import HTTPError
 from requests.exceptions import RequestException
 from rest_framework import status
 from vng_api_common.tests import reverse
@@ -8,6 +11,8 @@ from zgw_consumers.constants import APITypes
 
 from opendms.api.tests.factories import ServiceFactory, ZGWApiGroupConfigFactory
 
+from ..clients.documenten import CRS_HEADERS
+from ..clients.zaken import get_zaken_client
 from .api_testcase import APITestCase
 
 
@@ -528,3 +533,162 @@ class ServiceZaakViewSetTests(VCRMixin, APITestCase):
 
         self.assertIn("uuid", data)
         self.assertIn("url", data)
+
+
+class ServiceZaakInformatieObjectViewSetTests(VCRMixin, APITestCase):
+    @classmethod
+    def setUpTestData(cls):
+        super().setUpTestData()
+
+        cls.ztc_service = ServiceFactory.create(for_ztc_service_docker_compose=True)
+        cls.zrc_service = ServiceFactory.create(for_zrc_service_docker_compose=True)
+
+        cls.configuration = ZGWApiGroupConfigFactory.create(
+            ztc_service=cls.ztc_service,
+            zrc_service=cls.zrc_service,
+        )
+
+        cls.list_url = reverse(
+            "api:service-zaakinformatieobjecten-list",
+            kwargs={"service_slug": cls.ztc_service.slug},
+        )
+
+    def test_list_zaakinformatieobjecten(self):
+        response = self.client.get(self.list_url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+        data = response.json()
+
+        self.assertGreater(data["count"], 0)
+        self.assertGreater(len(data["results"]), 0)
+
+    def test_create_requires_required_fields(self):
+        response = self.client.post(
+            self.list_url,
+            {},
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+
+        invalid_params = response.json()["invalidParams"]
+        invalid_param_names = {param["name"] for param in invalid_params}
+
+        self.assertIn("zaak", invalid_param_names)
+        self.assertIn("informatieobject", invalid_param_names)
+
+    def test_create_zaakinformatieobject(self):
+        payload = {
+            "zaak": "http://localhost:8003/zaken/api/v1/zaken/840a1355-dd6d-48a4-a849-38fbf832db44",
+            "informatieobject": "http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d",
+        }
+
+        response = self.client.post(
+            self.list_url,
+            payload,
+            format="json",
+        )
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
+        data = response.json()
+
+        self.assertEqual(data["zaak"], payload["zaak"])
+        self.assertEqual(
+            data["informatieobject"],
+            payload["informatieobject"],
+        )
+
+    @patch("opendms.api.viewsets.get_zaken_client")
+    def test_create_forwards_remote_validation_errors(
+        self,
+        mock_get_zaken_client,
+    ):
+        response_mock = Mock()
+        response_mock.status_code = 400
+        response_mock.json.return_value = {
+            "invalidParams": [
+                {
+                    "name": "nonFieldErrors",
+                    "code": "unique",
+                }
+            ]
+        }
+
+        client = Mock()
+        client.create_zaakinformatieobject.side_effect = HTTPError(
+            response=response_mock
+        )
+        mock_get_zaken_client.return_value.__enter__.return_value = client
+
+        response = self.client.post(
+            self.list_url,
+            {
+                "zaak": "http://example.com/zaak",
+                "informatieobject": "http://example.com/document",
+            },
+            format="json",
+        )
+
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(
+            response.json()["invalidParams"][0]["code"],
+            "unique",
+        )
+
+    def test_detail_zaakinformatieobject(self):
+        zio_uuid = "f931b3f6-f92e-4c46-b484-f68aa68acc18"
+
+        detail_url = reverse(
+            "api:service-zaakinformatieobjecten-detail",
+            kwargs={
+                "service_slug": self.ztc_service.slug,
+                "pk": zio_uuid,
+            },
+        )
+
+        response = self.client.get(detail_url)
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        self.assertEqual(
+            response.json()["zaak"],
+            "http://localhost:8003/zaken/api/v1/zaken/840a1355-dd6d-48a4-a849-38fbf832db44",
+        )
+
+    def test_detail_not_found(self):
+        response = self.client.get(
+            reverse(
+                "api:service-zaakinformatieobjecten-detail",
+                kwargs={
+                    "service_slug": self.ztc_service.slug,
+                    "pk": "00000000-0000-0000-0000-000000000000",
+                },
+            )
+        )
+
+        self.assertEqual(
+            response.status_code,
+            status.HTTP_404_NOT_FOUND,
+        )
+
+    @patch("opendms.api.clients.zaken.ZaakClient.make_request")
+    def test_get_zaakinformatieobject(self, mock_make_request):
+        mock_make_request.return_value = {
+            "zaak": "http://example.com/zaak",
+            "informatieobject": "http://example.com/document",
+        }
+
+        with get_zaken_client(self.zrc_service) as client:
+            result = client.get_zaakinformatieobject(
+                "123e4567-e89b-12d3-a456-426614174000"
+            )
+
+        mock_make_request.assert_called_once_with(
+            "zaakinformatieobjecten/123e4567-e89b-12d3-a456-426614174000",
+            headers=CRS_HEADERS,
+        )
+
+        self.assertEqual(
+            result["zaak"],
+            "http://example.com/zaak",
+        )

@@ -84,7 +84,6 @@ def param(
     location: str = OpenApiParameter.QUERY,
     required: bool = False,
 ) -> OpenApiParameter:
-
     return OpenApiParameter(
         name=name,
         type=type_param,

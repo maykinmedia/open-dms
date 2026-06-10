@@ -10,6 +10,7 @@ from .viewsets import (
     InformatieObjectTypeViewSet,
     SearchView,
     ServiceViewSet,
+    ServiceZaakInformatieObjectViewSet,
     ServiceZaakViewSet,
     StatusTypeListViewSet,
     StatusTypeViewSet,
@@ -44,7 +45,11 @@ service_router.register(
     ServiceZaakViewSet,
     basename="service-zaken",
 )
-
+service_router.register(
+    r"zaakinformatieobjecten",
+    ServiceZaakInformatieObjectViewSet,
+    basename="service-zaakinformatieobjecten",
+)
 service_router.register(
     r"statustypen",
     StatusTypeViewSet,

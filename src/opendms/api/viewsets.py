@@ -18,6 +18,7 @@ from drf_spectacular.utils import (
     extend_schema,
     extend_schema_view,
 )
+from requests import HTTPError
 from rest_framework import status, viewsets
 from rest_framework.decorators import action
 from rest_framework.filters import SearchFilter
@@ -50,6 +51,7 @@ from .serializers import (
     ServiceSerializer,
     StatusTypeSerializer,
     ZaakCreateSerializer,
+    ZaakInformatieObjectCreateSerializer,
     ZaakSerializer,
     ZaakTypeSerializer,
 )
@@ -905,3 +907,95 @@ class InformatieObjectTypeViewSet(
 
         with get_informatieobjecttypen_client(self.service) as client:
             return client.get_item_by_uuid(uuid)
+
+
+@extend_schema_view(
+    list=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ]
+    ),
+    retrieve=extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+            OpenApiParameter(
+                name="id",
+                type=OpenApiTypes.UUID,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    ),
+)
+class ServiceZaakInformatieObjectViewSet(
+    ReadOnlyViewSetMixin,
+    viewsets.ViewSet,
+):
+    serializer_class = ZaakInformatieObjectCreateSerializer
+    pagination_class = CountedPagination
+    queryset = None
+    lookup_field = "pk"
+
+    @extend_schema(
+        summary="zaakinformatieobjectCreate",
+        request=ZaakInformatieObjectCreateSerializer,
+        responses={201: OpenApiTypes.OBJECT},
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+    )
+    def get_paginated_queryset(self, params):
+        with get_zaken_client(self.zgw_group.zrc_service) as client:
+            return client.get_paginated_zaakinformatieobjecten(params)
+
+    def get_object(self):
+        uuid = self.kwargs[self.lookup_field]
+
+        with get_zaken_client(self.zgw_group.zrc_service) as client:
+            return client.get_zaakinformatieobject(uuid)
+
+    @extend_schema(
+        summary="zaakinformatieobjectCreate",
+        parameters=[
+            OpenApiParameter(
+                name="service_slug",
+                type=OpenApiTypes.STR,
+                location=OpenApiParameter.PATH,
+                required=True,
+            ),
+        ],
+        request=ZaakInformatieObjectCreateSerializer,
+        responses={201: OpenApiTypes.OBJECT},
+    )
+    def create(self, request, *args, **kwargs):
+        serializer = self.serializer_class(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        try:
+            with get_zaken_client(self.zgw_group.zrc_service) as client:
+                result = client.create_zaakinformatieobject(serializer.validated_data)
+        except HTTPError as exc:
+            return Response(
+                exc.response.json(),
+                status=exc.response.status_code,
+            )
+
+        return Response(
+            result,
+            status=status.HTTP_201_CREATED,
+        )
