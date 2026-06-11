@@ -37,6 +37,23 @@ class ZaakTests(VCRMixin, APITestCase):
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()["results"]), 12)  # from openzaak container
 
+    def test_list_can_expand_status(self):
+        response = self.client.get(self.list_url, {"expand": "status"})
+
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+        results = response.json()["results"]
+        self.assertEqual(len(results), 12)  # from openzaak container
+
+        # expansion should contain fields needed for "per Zaaktype" Kanban
+        self.assertTrue(
+            all(
+                "_expand" in zaak
+                and "status" in zaak["_expand"]
+                and {"datumStatusGezet", "statustype"} & set(zaak["_expand"]["status"])
+                for zaak in results
+            )
+        )
+
     def test_pagination(self):
         multiple_zaken_url = reverse(
             "api:zaken-list",
