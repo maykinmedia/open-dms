@@ -75,6 +75,7 @@ class ZaakTests(VCRMixin, APITestCase):
                         "startdatum": "2026-01-15",
                         "omschrijving": "",
                         "toelichting": "",
+                        "_expand": {},
                     }
                 ],
             },
@@ -102,6 +103,7 @@ class ZaakTests(VCRMixin, APITestCase):
                         "startdatum": "2026-02-14",
                         "omschrijving": "",
                         "toelichting": "",
+                        "_expand": {},
                     }
                 ],
             },
@@ -241,6 +243,7 @@ class ZaakTests(VCRMixin, APITestCase):
                 "startdatum": "2026-03-03",
                 "omschrijving": "",
                 "toelichting": "",
+                "_expand": {},
             },
         )
 
