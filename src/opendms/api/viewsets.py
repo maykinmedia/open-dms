@@ -64,7 +64,6 @@ from .typing import (
     Zaak,
     ZaakType,
     ZaakTypenPaginatedResponse,
-    ZakenPaginatedResponse,
 )
 from .utils.mixins import ReadOnlyViewSetMixin
 from .utils.pagination import CountedPagination
@@ -329,7 +328,9 @@ class ZaakViewSet(ReadOnlyViewSetMixin, viewsets.ViewSet):
         with get_zaken_client(self.zgw_group.zrc_service) as client:
             return client.get_item_by_uuid(uuid)
 
-    def get_paginated_queryset(self, params: dict) -> ZakenPaginatedResponse:
+    def get_paginated_queryset(
+        self, params: Mapping[str, object]
+    ) -> PaginatedResponse[Zaak]:
         """
         Retrieve all Zaken filtered by a specific Zaaktype.
 
@@ -407,8 +408,8 @@ class ServiceZaakViewSet(ZaakViewSet):
 
     def get_paginated_queryset(
         self,
-        params: dict,
-    ) -> ZakenPaginatedResponse:
+        params: Mapping[str, object],
+    ) -> PaginatedResponse[Zaak]:
         with get_zaken_client(self.zgw_group.zrc_service) as client:
             return client.get_paginated_items(params)
 

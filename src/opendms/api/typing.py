@@ -175,7 +175,6 @@ class InformatieObjectType(TypedDict):
 
 
 ZaakTypenPaginatedResponse = PaginatedResponse[ZaakType]
-ZakenPaginatedResponse = PaginatedResponse[Zaak]
 DocumentsPaginatedResponse = PaginatedResponse[DocumentType]
 ESDocumentsPaginatedResponse = PaginatedResponse[ESDocumentType]
 InformatieObjectTypenPaginatedResponse = PaginatedResponse[InformatieObjectType]
