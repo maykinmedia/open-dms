@@ -2,14 +2,15 @@ from __future__ import annotations
 
 from abc import abstractmethod
 from collections.abc import Mapping
-from json import JSONDecodeError
 from typing import TYPE_CHECKING, NoReturn
 
 from django.shortcuts import get_object_or_404
 from django.utils.translation import gettext_lazy as _
 
+import msgspec
 import structlog
 from ape_pie import APIClient
+from msgspec.json import decode
 from requests.exceptions import RequestException, Timeout
 from rest_framework import exceptions, status
 from rest_framework.request import Request
@@ -18,7 +19,7 @@ from rest_framework.viewsets import ReadOnlyModelViewSet
 from zgw_consumers.models import Service
 
 from ..models import ZGWApiGroupConfig
-from ..typing import JSONValue, PaginatedResponse
+from ..typing import PaginatedResponse
 from .exceptions import ExternalServiceUnavailable, ZGWGroupConfigurationMissing
 
 logger = structlog.stdlib.get_logger(__name__)
@@ -53,12 +54,13 @@ class HttpRequestMixin(_HttpRequestMixinBase):
     Mixin to centralize HTTP requests and common error handling.
     """
 
-    def make_request(
+    def make_request[T](
         self,
         url: str,
         params: Mapping = {},
         headers: Mapping = {},
-    ) -> JSONValue | NoReturn:
+        parse_into: type[T] = object,
+    ) -> T | NoReturn:
         """
         Performs a GET request to `url` with optional query parameters.
         Handles timeouts, connection errors, and 404 responses.
@@ -82,8 +84,15 @@ class HttpRequestMixin(_HttpRequestMixinBase):
                     )
 
             response.raise_for_status()
-
-            return response.json()
+            try:
+                return decode(response.content, type=parse_into)
+            except msgspec.ValidationError:
+                logger.exception(
+                    "service_response_json_error",
+                    expected=parse_into,
+                    received=response.content,
+                )
+                raise  # TODO: return 502 Bad Gateway
 
         except Timeout as exc:
             logger.exception("timeout_request")
@@ -92,9 +101,6 @@ class HttpRequestMixin(_HttpRequestMixinBase):
         except RequestException as exc:
             logger.exception("error_request")
             raise ExternalServiceUnavailable("External service error") from exc
-        except JSONDecodeError:
-            logger.exception("service_response_json_error")
-            raise
 
 
 class ReadOnlyViewSetMixin(_ViewSetMixinBase):
