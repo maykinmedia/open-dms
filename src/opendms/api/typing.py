@@ -1,6 +1,6 @@
 from collections.abc import Mapping, Sequence
 from datetime import date, datetime
-from typing import Literal, TypedDict
+from typing import Literal, NotRequired, TypedDict
 from uuid import UUID
 
 type JSONValue = None | bool | int | float | str | Sequence[JSONValue] | JSONObject
@@ -24,6 +24,22 @@ class ZaakType(TypedDict):
     eindeGeldigheid: date | None
 
 
+class Status(TypedDict):
+    url: str  # self URL
+    uuid: UUID
+    zaak: str  # URL
+    statustype: str  # URL
+    datumStatusGezet: datetime
+    statustoelichting: str
+    indicatieLaatstGezetteStatus: bool
+    gezetdoor: str | None  # URL
+    zaakinformatieobjecten: list[str]  # list[URL]
+
+
+class ZaakExpansion(TypedDict):
+    status: NotRequired[Status]
+
+
 class Zaak(TypedDict):
     uuid: UUID
     url: str
@@ -35,6 +51,7 @@ class Zaak(TypedDict):
     startdatum: date
     omschrijving: str
     toelichting: str
+    _expand: NotRequired[ZaakExpansion]
 
 
 class ESZaak(TypedDict):
