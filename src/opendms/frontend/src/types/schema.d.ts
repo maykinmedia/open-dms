@@ -954,6 +954,8 @@ export interface components {
             omschrijving: string;
             /** @description Een toelichting op de zaak. */
             toelichting: string;
+            /** expand */
+            readonly _expand: Record<string, never>;
         };
         ZaakCreate: {
             /** Format: uri */
