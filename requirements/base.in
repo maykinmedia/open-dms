@@ -15,6 +15,7 @@ django-rosetta
 # API libraries
 open-api-framework[celery,cors,markup,geo,csp,commonground,inclusions,sanitization,server,redis,structlog]
 django-celery-beat
+msgspec
 
 #postgres package
 psycopg2-binary

@@ -176,7 +176,7 @@ cssselect==1.4.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   pyquery
-django==5.2.13
+django==5.2.15
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -619,6 +619,10 @@ mozilla-django-oidc-db==1.1.1
     #   -r requirements/ci.txt
     #   open-api-framework
 msal==1.35.1
+    # via
+    #   -c requirements/ci.txt
+    #   -r requirements/ci.txt
+msgspec==0.21.1
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -1176,7 +1180,7 @@ uritemplate==4.2.0
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   drf-spectacular
-urllib3==2.6.3
+urllib3==2.7.0
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
@@ -1222,7 +1226,7 @@ webencodings==0.5.1
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt
     #   bleach
-webob==1.8.9
+webob==1.8.10
     # via
     #   -c requirements/ci.txt
     #   -r requirements/ci.txt

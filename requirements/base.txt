@@ -79,7 +79,7 @@ cryptography==46.0.7
     #   pyjwt
     #   pyopenssl
     #   webauthn
-django==5.2.13
+django==5.2.15
     # via
     #   commonground-api-common
     #   django-admin-index
@@ -287,6 +287,8 @@ mozilla-django-oidc==5.0.2
 mozilla-django-oidc-db==1.1.1
     # via open-api-framework
 msal==1.35.1
+    # via -r requirements/base.in
+msgspec==0.21.1
     # via -r requirements/base.in
 multivolumefile==0.2.3
     # via py7zr
@@ -545,7 +547,7 @@ tzlocal==5.3.1
     # via celery
 uritemplate==4.2.0
     # via drf-spectacular
-urllib3==2.6.3
+urllib3==2.7.0
     # via
     #   elastic-apm
     #   elastic-transport
