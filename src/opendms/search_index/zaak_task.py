@@ -1,4 +1,5 @@
 from datetime import timedelta
+from itertools import chain
 
 from django.utils import timezone
 
@@ -63,8 +64,9 @@ def index_all_zaken() -> None:
                     else {}
                 )
 
-            logger.info("zaken_fetched", count=len(all_zaken))
-            for zaak in all_zaken:
+            logger.info("zaken_fetched")
+            total = 0
+            for total, zaak in enumerate(all_zaken, 1):  # noqa: B007
                 ztc_uuid = extract_uuid(zaak.get("zaaktype"))
                 startjaar = zaak.get("startdatum", "")[:4]
 
@@ -78,7 +80,7 @@ def index_all_zaken() -> None:
                     obj, service_slug=service.slug, group_slug=group.identifier
                 )
 
-            logger.info("indexing_scheduled", total_zaken=len(all_zaken))
+            logger.info("indexing_scheduled", total_zaken=total)
 
 
 @app.task(autoretry_for=(SoftTimeLimitExceeded,))
@@ -129,8 +131,8 @@ def validate_expired_zaken(batch_size: int = 100):
             if not registratiedatum:
                 continue
 
-            min_registratiedatum = min(registratiedatum)
-            max_registratiedatum = max(registratiedatum)
+            min_registratiedatum = min(filter(None, registratiedatum))
+            max_registratiedatum = max(filter(None, registratiedatum))
 
             # Fetch OpenZaak zaken in range
             with get_zaken_client(service) as zaak_client:
@@ -153,7 +155,10 @@ def validate_expired_zaken(batch_size: int = 100):
                         "registratiedatum": max_registratiedatum,
                     }
                 )
-            oz_uuids = {doc["uuid"] for doc in (oz_docs + oz_min_docs + oz_max_docs)}
+            # ES client returns str
+            oz_uuids: set[str] = {
+                str(doc["uuid"]) for doc in chain(oz_docs, oz_min_docs, oz_max_docs)
+            }
 
             for doc in expired_zaken:
                 uuid = doc.get("uuid")
