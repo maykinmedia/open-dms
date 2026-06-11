@@ -3,11 +3,11 @@ import { authenticatedRootLoader } from "~/authenticated-root.loader.ts";
 import { authRouterMiddleware, routes as authRoutes } from "~/modules/auth";
 
 import { createModuleRoutes as createDocumentRoutes } from "./modules/documents";
-import { createModuleRoutes as createZakenRoutes } from "./modules/zaken";
+// import { createModuleRoutes as createZakenRoutes } from "./modules/zaken";
 import { AuthenticatedLayout, Layout } from "./root.tsx";
 
 const moduleRoutes: RouteObject[] = [
-  ...createZakenRoutes("zaken"),
+  // ...createZakenRoutes("zaken"),
   ...createDocumentRoutes("documenten"),
 ];
 
