@@ -109,6 +109,7 @@ class ZaakSerializer(serializers.Serializer):
     toelichting = serializers.CharField(
         help_text=_("Een toelichting op de zaak."),
     )
+    _expand = serializers.JSONField(read_only=True, required=False)
 
 
 class ESZaakSerializer(serializers.Serializer):
