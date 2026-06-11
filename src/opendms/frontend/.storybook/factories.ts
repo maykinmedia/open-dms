@@ -1,4 +1,5 @@
-import type { Document, Zaak } from "~/types";
+import type { ZaakWithStatus } from "~/modules/zaken/routes/zaaktype-detail";
+import type { Document, StatusType, Zaak } from "~/types";
 
 type FactoryFn<T extends object> = (values?: Partial<T>) => T;
 
@@ -32,6 +33,32 @@ export const zaakFactory = createFactory<Zaak>({
   url: "",
   verantwoordelijkeOrganisatie: "",
   zaaktype: "",
+});
+
+export const zaakWithStatusFactory = createFactory<ZaakWithStatus>({
+  identificatie: "ZAAK-2026-0000000010",
+  omschrijving: "Lorem ipsum dolor sit amet",
+  uuid: "00000000-0000-0000-0000-000000000000",
+  bronorganisatie: "",
+  registratiedatum: "",
+  startdatum: "",
+  toelichting: "",
+  url: "",
+  verantwoordelijkeOrganisatie: "",
+  zaaktype: "",
+  statustype: null,
+});
+
+export const statustypeFactory = createFactory<StatusType>({
+  uuid: "aaaaaaaa-0000-0000-0000-000000000000",
+  url: "http://example.com/statustypen/aaaaaaaa-0000-0000-0000-000000000000",
+  omschrijving: "Status {index}",
+  volgnummer: 1,
+  isEindstatus: false,
+  zaaktype: "",
+  catalogus: "",
+  zaaktypeIdentificatie: "",
+  informeren: false,
 });
 
 /**

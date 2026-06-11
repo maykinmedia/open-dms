@@ -10,5 +10,7 @@ export type Document = components["schemas"]["Document"];
 export type ZaakType = components["schemas"]["ZaakType"];
 export type Zaak = components["schemas"]["Zaak"];
 
+export type StatusType = components["schemas"]["StatusType"];
+
 export type Fout = components["schemas"]["Fout"];
 export type ValidatieFout = components["schemas"]["ValidatieFout"];

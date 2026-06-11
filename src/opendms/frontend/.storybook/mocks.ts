@@ -1,7 +1,13 @@
 import { HttpResponse, http } from "msw";
 import type { ZaakType } from "~/types";
 
-import { batchFactory, documentFactory, zaakFactory } from "./factories.ts";
+import {
+  batchFactory,
+  documentFactory,
+  statustypeFactory,
+  zaakFactory,
+  zaakWithStatusFactory,
+} from "./factories.ts";
 
 //
 // accounts
@@ -114,7 +120,12 @@ export const MOCK_ZAAKTYPE = http.get(
   () =>
     HttpResponse.json({
       identificatie: "Zaaktype 2",
+      omschrijving: "Zaaktype 2",
       uuid: "22222222-2222-2222-2222-222222222222",
+      url: "http://example.com/zaaktypen/22222222-2222-2222-2222-222222222222",
+      concept: false,
+      catalogus: "",
+      versiedatum: "2020-01-01",
       beginGeldigheid: "2020-01-01",
       eindeGeldigheid: "2026-01-01",
     } as Partial<ZaakType>),
@@ -190,6 +201,67 @@ export const MOCK_ZAKEN = http.get(
       results,
     });
   },
+);
+
+export const MOCK_STATUSTYPEN = http.get(
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/statustypen",
+  () =>
+    HttpResponse.json({
+      count: 3,
+      results: [
+        statustypeFactory({
+          uuid: "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+          url: "http://example.com/statustypen/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+          omschrijving: "Ontvangen",
+          volgnummer: 1,
+        }),
+        statustypeFactory({
+          uuid: "bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+          url: "http://example.com/statustypen/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+          omschrijving: "In Behandeling",
+          volgnummer: 2,
+        }),
+        statustypeFactory({
+          uuid: "cccccccc-cccc-cccc-cccc-cccccccccccc",
+          url: "http://example.com/statustypen/cccccccc-cccc-cccc-cccc-cccccccccccc",
+          omschrijving: "Afronden",
+          volgnummer: 3,
+          isEindstatus: true,
+        }),
+      ],
+    }),
+);
+
+export const MOCK_ZAKEN_WITH_STATUS = http.get(
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken",
+  () => {
+    // statustype is a URI — must match url in MOCK_STATUSTYPEN
+    const statustypeUrls = [
+      null,
+      "http://example.com/statustypen/aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+      "http://example.com/statustypen/bbbbbbbb-bbbb-bbbb-bbbb-bbbbbbbbbbbb",
+      "http://example.com/statustypen/cccccccc-cccc-cccc-cccc-cccccccccccc",
+    ];
+
+    const results = batchFactory(zaakWithStatusFactory, 12, {
+      identificatie: "ZAAK-2026-{index}",
+    }).map((zaak, index) => ({
+      ...zaak,
+      statustype: statustypeUrls[index % statustypeUrls.length],
+    }));
+
+    return HttpResponse.json({ count: 12, results });
+  },
+);
+
+export const MOCK_CREATE_STATUS = http.post(
+  "/api/v1/services/service_2/zaaktypen/22222222-2222-2222-2222-222222222222/zaken/:zaakUuid/statussen",
+  () => HttpResponse.json({}, { status: 201 }),
+);
+
+export const MOCK_CREATE_ZAAK = http.post(
+  "/api/v1/services/service_2/zaken",
+  () => HttpResponse.json(zaakWithStatusFactory(), { status: 201 }),
 );
 
 export const MOCK_ZAAK = http.get(
