@@ -6,6 +6,13 @@ import { createModuleRoutes as createDocumentRoutes } from "./modules/documents"
 import { createModuleRoutes as createZakenRoutes } from "./modules/zaken";
 import { AuthenticatedLayout, Layout } from "./root.tsx";
 
+const moduleRoutes: RouteObject[] = [
+  ...createZakenRoutes("zaken"),
+  ...createDocumentRoutes("documenten"),
+];
+
+const fallbackPath = moduleRoutes[0]?.path;
+
 export const routes: [RouteObject, ...RouteObject[]] = [
   {
     Component: Layout, // Public layout
@@ -20,11 +27,10 @@ export const routes: [RouteObject, ...RouteObject[]] = [
     shouldRevalidate: () => true,
     handle: { moduleRoot: true }, // Indicate module root, necessary for modules (apps) to work.
     children: [
-      ...createZakenRoutes("zaken"),
-      ...createDocumentRoutes("documenten"),
+      ...moduleRoutes,
       {
         index: true,
-        loader: () => redirect("zaken"),
+        loader: () => fallbackPath && redirect(fallbackPath),
       },
     ],
   },

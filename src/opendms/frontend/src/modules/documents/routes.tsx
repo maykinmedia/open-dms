@@ -1,3 +1,4 @@
+import { Outline } from "@maykin-ui/admin-ui";
 import type { RouteObject } from "react-router";
 import { ServiceSelect, YearSelect, ZaaktypeSelect } from "~/components";
 
@@ -19,6 +20,7 @@ export function createModuleRoutes(path: string): RouteObject[] {
     {
       path: path,
       handle: {
+        icon: <Outline.DocumentIcon />,
         sidebar: {
           items: [
             <ServiceSelect key="service-select" basepath={path} />,
