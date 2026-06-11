@@ -11,12 +11,14 @@ import {
 } from "@maykin-ui/admin-ui";
 import "@maykin-ui/admin-ui/style";
 import "@maykin-ui/admin-ui/style/themes/blue-suede-shoes.css";
-import type { MouseEventHandler } from "react";
+import { invariant, ucFirst } from "@maykin-ui/client-common";
+import { type MouseEventHandler, useMemo } from "react";
 import { Outlet, useNavigate, useNavigation } from "react-router";
 import { GlobalSearchButton } from "~/components";
 import { useModuleRouteMatch } from "~/hooks/usemodule";
 import { apiClient } from "~/lib";
 import { logout } from "~/modules/auth";
+import { routes } from "~/routes.ts";
 
 /**
  * Represents a layout component tailored for unauthenticated users.
@@ -43,7 +45,62 @@ export const Layout = () => {
 export const AuthenticatedLayout = () => {
   const navigate = useNavigate();
   const { state } = useNavigation();
-  const routeMatch = useModuleRouteMatch();
+  const moduleRouteMatch = useModuleRouteMatch();
+
+  // Authenticated root route.
+  const authenticatedRootRoute = useMemo(
+    () =>
+      routes
+        .flatMap((r) => [r, ...(r.children || [])])
+        .find((r) => r.id === "authenticated-root"),
+    [routes],
+  );
+
+  invariant(
+    authenticatedRootRoute,
+    'No authetnicatedRoot root found! Please set `id: "authenticated-root"` on route.',
+  );
+
+  // Module root route withing authenticated root route.
+  const moduleRootRoute = useMemo(
+    () =>
+      [authenticatedRootRoute, ...(authenticatedRootRoute.children || [])]
+        ?.flatMap((r) => [r, ...(r.children || [])])
+        .find((r) => r.handle),
+    [authenticatedRootRoute],
+  );
+
+  invariant(
+    moduleRootRoute,
+    "No module root found! Please set `handle: { moduleRoot: true }` on parent route of modules within authenticated-root.",
+  );
+
+  // Dynamically created navbar items for modules.
+  const moduleNavbarItems = useMemo(
+    () =>
+      moduleRootRoute.children
+        ?.filter((r) => !r.index)
+        .map((r) => {
+          const path = r.path;
+          const icon = r.handle?.icon;
+
+          invariant(path, "Module route must specify path!");
+          invariant(icon, "Moduler route must specify icon element on handle!");
+
+          return (
+            <Button
+              key={path}
+              variant="transparent"
+              square
+              title={ucFirst(path)}
+              onClick={() => navigate(`/${path}`)}
+            >
+              {icon}
+            </Button>
+          );
+        }) || [],
+    [moduleRootRoute, navigate],
+  );
 
   const handleLogoClick: MouseEventHandler = (e) => {
     e.preventDefault();
@@ -110,25 +167,7 @@ export const AuthenticatedLayout = () => {
         <Logo abbreviated key={"logo"} href="/" onClick={handleLogoClick} />,
         <GlobalSearchButton key="global-search" search={handleSearch} />,
 
-        <Button
-          key="zaken"
-          variant="transparent"
-          square
-          title="Zaken"
-          onClick={() => navigate("/zaken")}
-        >
-          <Outline.BookOpenIcon />
-        </Button>,
-
-        <Button
-          key="documenten"
-          variant="transparent"
-          square
-          title="Documenten"
-          onClick={() => navigate("/documenten")}
-        >
-          <Outline.DocumentIcon />
-        </Button>,
+        ...moduleNavbarItems,
 
         "spacer",
         state !== "idle" ? (
@@ -153,8 +192,8 @@ export const AuthenticatedLayout = () => {
             direction="vertical"
             pad={true}
             variant="transparent"
-            // @ts-expect-error - routerMatch.handle has no type.
-            items={routeMatch.handle?.sidebar?.items}
+            // @ts-expect-error - handle is untyped.
+            items={moduleRouteMatch.handle?.sidebar?.items}
           />
         </Sidebar>
       }

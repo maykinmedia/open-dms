@@ -1,4 +1,4 @@
-import { Button } from "@maykin-ui/admin-ui";
+import { Button, Outline } from "@maykin-ui/admin-ui";
 import { NavLink, type RouteObject, useParams } from "react-router";
 import { ServiceSelect } from "~/components";
 import {
@@ -46,6 +46,7 @@ export function createModuleRoutes(path: string): RouteObject[] {
     {
       path: path,
       handle: {
+        icon: <Outline.BookOpenIcon />,
         sidebar: {
           items: [<ZakenNavigation key="navigation" path={path} />],
         },
