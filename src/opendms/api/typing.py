@@ -61,15 +61,15 @@ class ESZaak(TypedDict):
     zaaktype: str
     bronorganisatie: str
     verantwoordelijkeOrganisatie: str
-    registratiedatum: date
-    startdatum: date
+    registratiedatum: str  # date our ES code doesn't handle date
+    startdatum: str  # date our ES code doesn't handle date
     omschrijving: str
     toelichting: str
-    service_slug: str | None
-    group_slug: str | None
-    ztc_service_slug: str | None
-    ztc_uuid: UUID | None
-    startjaar: str | None
+    service_slug: NotRequired[str | None]  # ZGW Zaken API doesn't return this
+    group_slug: NotRequired[str | None]  # ZGW Zaken API doesn't return this
+    ztc_service_slug: NotRequired[str | None]  # ZGW Zaken API doesn't return this
+    ztc_uuid: NotRequired[UUID | None]  # ZGW Zaken API doesn't return this
+    startjaar: NotRequired[str | None]  # ZGW Zaken API doesn't return this
 
 
 class DocumentType(TypedDict):
