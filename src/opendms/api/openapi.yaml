@@ -1943,7 +1943,12 @@ components:
         toelichting:
           type: string
           description: Een toelichting op de zaak.
+        _expand:
+          readOnly: true
+          title: ' expand'
+          type: object
       required:
+      - _expand
       - bronorganisatie
       - identificatie
       - omschrijving

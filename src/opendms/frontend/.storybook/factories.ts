@@ -33,6 +33,7 @@ export const zaakFactory = createFactory<Zaak>({
   verantwoordelijkeOrganisatie: "",
   zaaktype:
     "http://www.example.com/catalogi/api/v1/zaaktypen/22222222-2222-2222-2222-222222222222",
+  _expand: {},
 });
 
 /**
