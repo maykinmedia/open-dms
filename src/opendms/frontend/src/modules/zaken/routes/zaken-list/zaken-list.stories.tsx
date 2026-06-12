@@ -5,7 +5,8 @@ import { withRouter } from "storybook-addon-remix-react-router";
 import { withCSRF } from "../../../../../.storybook/decorators.tsx";
 import {
   MOCK_SERVICE_OPTIONS,
-  MOCK_SERVICE_ZAKEN,
+  MOCK_SERVICE_STATUS_EXPANDED_ZAKEN,
+  MOCK_STATUSTYPE,
   MOCK_ZAAKTYPE,
 } from "../../../../../.storybook/mocks.ts";
 import { sanitizedReactRouterParameters } from "../../../../../.storybook/utils.ts";
@@ -28,7 +29,12 @@ export const List: Story = {
   parameters: {
     reactRouter: sanitizedReactRouterParameters("/zaken/service_2/zaken"),
     msw: {
-      handlers: [MOCK_SERVICE_OPTIONS, MOCK_SERVICE_ZAKEN, MOCK_ZAAKTYPE],
+      handlers: [
+        MOCK_SERVICE_OPTIONS,
+        MOCK_SERVICE_STATUS_EXPANDED_ZAKEN,
+        MOCK_STATUSTYPE,
+        MOCK_ZAAKTYPE,
+      ],
     },
   },
 };

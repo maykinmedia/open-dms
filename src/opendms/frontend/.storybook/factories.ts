@@ -1,4 +1,4 @@
-import type { Document, Zaak } from "~/types";
+import type { Document, StatusType, Zaak } from "~/types";
 
 type FactoryFn<T extends object> = (values?: Partial<T>) => T;
 
@@ -21,6 +21,18 @@ export const documentFactory = createFactory<Document>({
   uuid: "",
 });
 
+export const statustypeFactory = createFactory<StatusType>({
+  uuid: "00000000-0000-0000-0000-000000000000",
+  url: "http://www.example.com/api/v1/services/catalogi-api/statustypen/00000000-0000-0000-0000-000000000000",
+  catalogus: "",
+  informeren: false,
+  isEindstatus: false,
+  omschrijving: "Sed do eiusmod",
+  volgnummer: 0,
+  zaaktype: "",
+  zaaktypeIdentificatie: "",
+});
+
 export const zaakFactory = createFactory<Zaak>({
   identificatie: "ZAAK-2026-0000000010",
   omschrijving: "Lorem ipsum dolor sit amet",
@@ -33,7 +45,6 @@ export const zaakFactory = createFactory<Zaak>({
   verantwoordelijkeOrganisatie: "",
   zaaktype:
     "http://www.example.com/catalogi/api/v1/zaaktypen/22222222-2222-2222-2222-222222222222",
-  _expand: {},
 });
 
 /**
