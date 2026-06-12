@@ -1,5 +1,6 @@
 import {
   Badge,
+  type BadgeProps,
   BaseTemplate,
   Body,
   type Field,
@@ -18,11 +19,14 @@ import {
 } from "react-router";
 import { apiClient, getPageFromSearchParams } from "~/lib";
 import { getUUIDFromUrl } from "~/lib/url.ts";
-import type { Zaak, ZaakType } from "~/types";
+import type { StatusType, Zaak, ZaakType } from "~/types";
 
 import type { zakenListLoader } from "./zaken-list.loader";
 
-type ZaakListData = Zaak;
+// Loader
+type LoaderData = Awaited<ReturnType<typeof zakenListLoader>>;
+type ExpandedZaak = Exclude<LoaderData, null>["results"][number];
+type ZaakListData = ExpandedZaak & { status: string };
 
 /**
  * Renders a list component that displays a collection of "zaken" (case types) with related metadata in a data grid format.
@@ -49,6 +53,7 @@ export function ZakenList() {
   const objectList: ZaakListData[] = data.results.map((zaak) => ({
     ...zaak,
     href: `zaken/${zaak.uuid}`,
+    status: zaak._expand.status.statustype,
   }));
 
   // The fields to show in the datagrid.
@@ -61,6 +66,11 @@ export function ZakenList() {
       valueTransform: ZaakTypeBadge,
     },
     "startdatum",
+    {
+      name: "status",
+      type: "text",
+      valueTransform: StatusBadge,
+    },
   ];
 
   return (
@@ -172,4 +182,67 @@ function ZaakTypeBadge({ zaaktype: zaaktypeUrl }: Zaak): JSX.Element {
       {zaakTypeState?.omschrijving}
     </Badge>
   );
+}
+
+/**
+ * Renders a Badge component indicating the ZaakType of a Zaak.
+ */
+function StatusBadge(expandedZaak: ExpandedZaak): JSX.Element {
+  const [loadingState, setLoadingState] = useState<boolean>(true);
+  const [statusTypeState, setStatusTypeState] = useState<StatusType>();
+  const { serviceSlug } = useParams();
+  invariant(serviceSlug, `serviceSlug not found!`);
+  const statustypeUuid = getUUIDFromUrl(expandedZaak._expand.status.statustype);
+
+  const fetchStatusType = async (
+    statustypeUuid: string,
+    signal: AbortSignal,
+  ) => {
+    if (signal.aborted) return;
+
+    try {
+      setLoadingState(true);
+      const { data } = await apiClient.GET(
+        "/api/v1/services/{serviceSlug}/statustypen/{statustypeUuid}",
+        {
+          params: {
+            path: {
+              serviceSlug,
+              statustypeUuid,
+            },
+          },
+          signal: signal,
+        },
+      );
+      setStatusTypeState(data);
+      setLoadingState(false);
+    } catch (e) {
+      if (signal.aborted) return;
+      console.warn(e);
+      setStatusTypeState(undefined);
+    } finally {
+      if (!signal.aborted) setLoadingState(false);
+    }
+  };
+
+  useEffect(() => {
+    const controller = new AbortController();
+    fetchStatusType(statustypeUuid, controller.signal);
+    return () => controller.abort("effect cleanup");
+  }, [statustypeUuid]);
+
+  if (loadingState) {
+    return <Outline.ArrowPathIcon spin aria-label="Bezig met laden" />;
+  } else {
+    invariant(statusTypeState, "statusType not loaded!");
+    type Variant = BadgeProps["variant"];
+    const variants: Variant[] = ["info", "info", "warning", "danger"];
+    const index = Math.min(
+      Math.max(statusTypeState.volgnummer - 1, 0),
+      variants.length - 1,
+    );
+    const variant = variants[index];
+
+    return <Badge variant={variant}>{statusTypeState?.omschrijving}</Badge>;
+  }
 }
