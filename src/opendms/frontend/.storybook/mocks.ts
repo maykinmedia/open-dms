@@ -1,7 +1,12 @@
 import { HttpResponse, http } from "msw";
 import type { ZaakType } from "~/types";
 
-import { batchFactory, documentFactory, zaakFactory } from "./factories.ts";
+import {
+  batchFactory,
+  documentFactory,
+  statustypeFactory,
+  zaakFactory,
+} from "./factories.ts";
 
 //
 // accounts
@@ -81,6 +86,11 @@ export const MOCK_ZAAKTYPE_OPTIONS = http.get(
     }),
 );
 
+export const MOCK_STATUSTYPE = http.get(
+  "/api/v1/services/service_2/statustypen/00000000-0000-0000-0000-000000000000",
+  () => HttpResponse.json(statustypeFactory()),
+);
+
 export const MOCK_ZAAKTYPEN = http.get(
   "/api/v1/services/service_2/zaaktypen",
   () =>
@@ -156,12 +166,12 @@ export const MOCK_ZAKEN = http.get(
 /**
  * Similar to _MOCK_ZAKEN but without the zaaktypen.
  */
-export const MOCK_SERVICE_ZAKEN = http.get(
+export const MOCK_SERVICE_STATUS_EXPANDED_ZAKEN = http.get(
   "/api/v1/services/service_2/zaken",
-  _mockGetZaken,
+  _mockGetStatusExpanedZaken,
 );
 
-function _mockGetZaken({ request }: { request: Request }) {
+function _mockGetZaken({ request }: { request: Request }, _expand = {}) {
   const pages = 3;
   const pageSize = 100;
   const count = pages * pageSize - 50;
@@ -173,27 +183,29 @@ function _mockGetZaken({ request }: { request: Request }) {
 
   const results = batchFactory(zaakFactory, count, {
     identificatie: "zaak-{index}",
-  }).filter((zaak, index) => {
-    if (index >= page0 * pageSize && index < page0 * pageSize + pageSize) {
-      const identificatieFilter = urlSearchParams
-        .get("identificatie__icontains")
-        ?.toLowerCase();
+  })
+    .filter((zaak, index) => {
+      if (index >= page0 * pageSize && index < page0 * pageSize + pageSize) {
+        const identificatieFilter = urlSearchParams
+          .get("identificatie__icontains")
+          ?.toLowerCase();
 
-      const omschrijvingFilter = urlSearchParams
-        .get("omschrijving")
-        ?.toLowerCase();
+        const omschrijvingFilter = urlSearchParams
+          .get("omschrijving")
+          ?.toLowerCase();
 
-      const matchIdentificatie = identificatieFilter
-        ? zaak.identificatie?.toLowerCase().includes(identificatieFilter)
-        : true;
+        const matchIdentificatie = identificatieFilter
+          ? zaak.identificatie?.toLowerCase().includes(identificatieFilter)
+          : true;
 
-      const matchOmschrijving = omschrijvingFilter
-        ? zaak.omschrijving?.toLowerCase().includes(omschrijvingFilter)
-        : true;
+        const matchOmschrijving = omschrijvingFilter
+          ? zaak.omschrijving?.toLowerCase().includes(omschrijvingFilter)
+          : true;
 
-      return matchIdentificatie && matchOmschrijving;
-    }
-  });
+        return matchIdentificatie && matchOmschrijving;
+      }
+    })
+    .map((zaak) => ({ ...zaak, _expand }));
 
   return HttpResponse.json({
     count,
@@ -201,6 +213,18 @@ function _mockGetZaken({ request }: { request: Request }) {
     next: "http://...",
     results,
   });
+}
+
+function _mockGetStatusExpanedZaken({ request }: { request: Request }) {
+  return _mockGetZaken(
+    { request },
+    {
+      status: {
+        statustype:
+          "http://localhost:5173/api/v1/services/catalogi-api/statustypen/00000000-0000-0000-0000-000000000000",
+      },
+    },
+  );
 }
 
 export const MOCK_ZAAK = http.get(
