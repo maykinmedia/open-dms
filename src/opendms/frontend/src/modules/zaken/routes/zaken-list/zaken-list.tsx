@@ -175,13 +175,16 @@ function ZaakTypeBadge({ zaaktype: zaaktypeUrl }: Zaak): JSX.Element {
     return () => controller.abort("effect cleanup");
   }, [zaaktypeUrl]);
 
-  return loadingState ? (
-    <Outline.ArrowPathIcon spin aria-label="Bezig met laden" />
-  ) : (
-    <Badge onClick={() => navigate(`../zaaktypen/${zaaktypeUuid}`)}>
-      {zaakTypeState?.omschrijving}
-    </Badge>
-  );
+  if (loadingState) {
+    return <Outline.ArrowPathIcon spin aria-label="Bezig met laden" />;
+  } else {
+    const href = `../zaaktypen/${zaaktypeUuid}`;
+    return (
+      <Badge href={href} onClick={() => navigate(href)}>
+        {zaakTypeState?.omschrijving}
+      </Badge>
+    );
+  }
 }
 
 /**
