@@ -173,6 +173,40 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedServiceList'
           description: ''
+  /api/v1/services/{serviceSlug}/document_registreren:
+    post:
+      operationId: apiV1ServicesDocumentRegistrerenCreate
+      summary: documentRegistreren
+      parameters:
+      - in: path
+        name: serviceSlug
+        schema:
+          type: string
+        required: true
+      tags:
+      - api
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentRegistreren'
+        required: true
+      security:
+      - cookieAuth: []
+      responses:
+        '201':
+          headers:
+            API-version:
+              schema:
+                type: string
+              description: 'Geeft een specifieke API-versie aan in de context van
+                een specifieke aanroep. Voorbeeld: 1.2.1.'
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties: {}
+          description: ''
   /api/v1/services/{serviceSlug}/informatieobjecttypen:
     get:
       operationId: apiV1ServicesInformatieobjecttypenList
@@ -1388,6 +1422,18 @@ components:
       - informatieobjecttype
       - taal
       - titel
+    DocumentRegistreren:
+      type: object
+      properties:
+        enkelvoudiginformatieobject:
+          type: object
+          additionalProperties: {}
+        zaakinformatieobject:
+          type: object
+          additionalProperties: {}
+      required:
+      - enkelvoudiginformatieobject
+      - zaakinformatieobject
     ESDocument:
       type: object
       properties:

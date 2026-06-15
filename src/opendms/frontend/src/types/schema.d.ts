@@ -100,6 +100,23 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/services/{serviceSlug}/document_registreren": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        /** documentRegistreren */
+        post: operations["apiV1ServicesDocumentRegistrerenCreate"];
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/services/{serviceSlug}/informatieobjecttypen": {
         parameters: {
             query?: never;
@@ -622,6 +639,14 @@ export interface components {
             /** Format: uri */
             link?: string;
             trefwoorden?: string[];
+        };
+        DocumentRegistreren: {
+            enkelvoudiginformatieobject: {
+                [key: string]: unknown;
+            };
+            zaakinformatieobject: {
+                [key: string]: unknown;
+            };
         };
         ESDocument: {
             /** @description Unieke resource identifier (UUID4) */
@@ -1192,6 +1217,35 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["PaginatedServiceList"];
+                };
+            };
+        };
+    };
+    apiV1ServicesDocumentRegistrerenCreate: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                serviceSlug: string;
+            };
+            cookie?: never;
+        };
+        requestBody: {
+            content: {
+                "application/json": components["schemas"]["DocumentRegistreren"];
+            };
+        };
+        responses: {
+            201: {
+                headers: {
+                    /** @description Geeft een specifieke API-versie aan in de context van een specifieke aanroep. Voorbeeld: 1.2.1. */
+                    "API-version"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": {
+                        [key: string]: unknown;
+                    };
                 };
             };
         };
