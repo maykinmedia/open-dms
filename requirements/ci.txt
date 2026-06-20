@@ -782,7 +782,7 @@ pydantic-core==2.41.5
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   pydantic
-pydantic-settings==2.13.0
+pydantic-settings==2.14.2
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
