@@ -1,0 +1,73 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: http://localhost:8003/zaken/api/v1/zaakinformatieobjecten
+  response:
+    body:
+      string: '[{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/82810fe8-ad64-4a4c-829b-44b1c4af2d03","uuid":"82810fe8-ad64-4a4c-829b-44b1c4af2d03","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38","zaak":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-06-10T10:06:46.779152Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f477afb0-24c1-47c2-8d74-c424da4e9e61","uuid":"f477afb0-24c1-47c2-8d74-c424da4e9e61","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/547fd056-0bcc-486b-b02a-18b40457d56f","zaak":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-06-04T15:18:16.863518Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/e92f4253-83a6-4f78-8249-458b81b32b91","uuid":"e92f4253-83a6-4f78-8249-458b81b32b91","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/d34816d6-50c6-49ea-9b84-4803cbc45a3a","zaak":"http://localhost:8003/zaken/api/v1/zaken/2ae1c6df-c7f7-43c4-8d69-40db7022ccc2","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:20.571000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f40d0d92-56b4-4972-a01c-f5989f9c3f5d","uuid":"f40d0d92-56b4-4972-a01c-f5989f9c3f5d","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ef55f9ea-4004-4832-803e-2672bb1c6d4d","zaak":"http://localhost:8003/zaken/api/v1/zaken/85169f14-b860-4590-8787-4e026f90703e","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:20.525000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/36f57df2-e0d6-4c7c-979b-905a37aee3f9","uuid":"36f57df2-e0d6-4c7c-979b-905a37aee3f9","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/2f3722d8-c919-495b-a973-0802bd678887","zaak":"http://localhost:8003/zaken/api/v1/zaken/8c8375cf-f780-4c97-9ef5-630d55423a2e","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:20.418000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/1075043c-ee8a-4392-8397-e4ca0a886ac2","uuid":"1075043c-ee8a-4392-8397-e4ca0a886ac2","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/6df0ae09-0f21-4c8e-bc49-5bb23915f606","zaak":"http://localhost:8003/zaken/api/v1/zaken/bc5d35a8-956d-4b94-80af-86796d626f08","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:20.269000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/1cdc89db-7678-46ea-b2cb-03b3d80b1819","uuid":"1cdc89db-7678-46ea-b2cb-03b3d80b1819","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/819c31fc-81e0-4d96-990f-6221cbe987c6","zaak":"http://localhost:8003/zaken/api/v1/zaken/df01f13a-844d-4901-9fe4-dd19603557c2","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:20.187000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/b489a7de-3f66-4fa6-9bb1-12c01befbc35","uuid":"b489a7de-3f66-4fa6-9bb1-12c01befbc35","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/fc58a8f1-f2f0-4eb8-919c-4360f91a3415","zaak":"http://localhost:8003/zaken/api/v1/zaken/2c8c15af-4fdc-4b6a-a29c-75df40df38ed","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:20.095000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/b647cdee-9a95-4681-861d-b57e8eea5021","uuid":"b647cdee-9a95-4681-861d-b57e8eea5021","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/801ddfea-a4a6-4846-9887-1efc0adb910b","zaak":"http://localhost:8003/zaken/api/v1/zaken/3c3f01b0-359b-4f68-9b0a-813e6cce4817","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.985000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/c077f3c3-02ad-44d6-a242-54c7a0413bee","uuid":"c077f3c3-02ad-44d6-a242-54c7a0413bee","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/c4a2d123-1817-4b3a-a330-67c1282b1594","zaak":"http://localhost:8003/zaken/api/v1/zaken/71f05dee-6ded-4e81-bef8-4a141912d73d","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.890000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/5a9acb7b-db93-49b5-9b52-f263a00e1dea","uuid":"5a9acb7b-db93-49b5-9b52-f263a00e1dea","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/dbfe1f09-2803-4a40-862c-f2ca75f384d1","zaak":"http://localhost:8003/zaken/api/v1/zaken/fc35705e-6a27-46c8-8cf1-b3119dba7bde","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.808000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f7b8d99e-37b9-420f-a74a-5d8a03e5b391","uuid":"f7b8d99e-37b9-420f-a74a-5d8a03e5b391","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f7eec7ce-9bae-4b15-8928-2c87d0071def","zaak":"http://localhost:8003/zaken/api/v1/zaken/30876d53-51f3-4d75-a132-d8764f55e1e5","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.702000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/e7a265d7-36ef-4c34-9dea-eff00e8723c6","uuid":"e7a265d7-36ef-4c34-9dea-eff00e8723c6","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/0faee041-27ec-4b81-99a0-42ebab29a7db","zaak":"http://localhost:8003/zaken/api/v1/zaken/511f30e1-7538-48c0-af85-41e76a38cd24","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.563000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/d4ddeace-80fc-4cd4-8c86-e6a4761e7d94","uuid":"d4ddeace-80fc-4cd4-8c86-e6a4761e7d94","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/f8c1d2cc-780e-452a-8871-187048341200","zaak":"http://localhost:8003/zaken/api/v1/zaken/f0502f2c-ace2-42b0-9d3d-84e3543d8b6a","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.484000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/49b83ac3-95ff-4343-b3f7-7adf7bd8efc6","uuid":"49b83ac3-95ff-4343-b3f7-7adf7bd8efc6","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/10e3074d-c0ee-49e0-b099-6abe066cd56a","zaak":"http://localhost:8003/zaken/api/v1/zaken/8687acc6-3386-4a84-98f0-07a1d53db5ae","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.443000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/b7886b37-06d6-4bf3-99b3-4206f194e23a","uuid":"b7886b37-06d6-4bf3-99b3-4206f194e23a","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a2d46f98-baa0-4b33-9c87-c14517ae695b","zaak":"http://localhost:8003/zaken/api/v1/zaken/918b7c32-c0f1-4a1f-b50b-e803e6694fa4","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.334000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/984cc103-cf37-40cb-81d4-14bcbc51d03e","uuid":"984cc103-cf37-40cb-81d4-14bcbc51d03e","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/435b77c7-db8d-47cf-b2df-eea3a91089ee","zaak":"http://localhost:8003/zaken/api/v1/zaken/d89fc6fd-29ce-493d-b27d-b2e4fd4424fe","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.317000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f3c93780-6fd8-47fb-9af6-9b18f81b3b88","uuid":"f3c93780-6fd8-47fb-9af6-9b18f81b3b88","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/630f20a5-b099-4d84-a504-51796b6c5504","zaak":"http://localhost:8003/zaken/api/v1/zaken/6ef989c2-4df9-44fa-8b8a-e48a87a12b3f","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.255000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/2151e4f5-b7a3-4d23-9644-431727cb5b40","uuid":"2151e4f5-b7a3-4d23-9644-431727cb5b40","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/4d5e39b0-e83f-4ff3-b8c8-6b3eb5b24867","zaak":"http://localhost:8003/zaken/api/v1/zaken/94bbcc1c-24ce-49ee-8855-62aed026a830","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.157000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/190f1178-4701-438b-840e-16a1fadaaf10","uuid":"190f1178-4701-438b-840e-16a1fadaaf10","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/bd173e9d-d97d-4a2c-858d-d0c9ba72f7cc","zaak":"http://localhost:8003/zaken/api/v1/zaken/34faf0d8-7dce-460f-8e63-063b137374fb","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:19.043000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f931b3f6-f92e-4c46-b484-f68aa68acc18","uuid":"f931b3f6-f92e-4c46-b484-f68aa68acc18","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38","zaak":"http://localhost:8003/zaken/api/v1/zaken/840a1355-dd6d-48a4-a849-38fbf832db44","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:18.968000Z","vernietigingsdatum":null,"status":null},{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/efef805d-87f2-4e9a-86ed-98a6dfe9deb1","uuid":"efef805d-87f2-4e9a-86ed-98a6dfe9deb1","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/ea16fa8c-4bab-4065-a28a-f6574625205d","zaak":"http://localhost:8003/zaken/api/v1/zaken/da18b89e-e7ac-49b2-9f5d-d6ef327e1b1d","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:18.944000Z","vernietigingsdatum":null,"status":null}]'
+    headers:
+      API-version:
+      - 1.5.1
+      Allow:
+      - GET, POST, HEAD, OPTIONS
+      Content-Length:
+      - '11771'
+      Content-Security-Policy:
+      - 'object-src ''none''; frame-src ''self''; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
+        form-action ''self''; base-uri ''self''; frame-ancestors ''none''; worker-src
+        ''self'' blob:; default-src ''self''; style-src ''self'' ''unsafe-inline''
+        fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net; img-src ''self''
+        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org'
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - Accept, origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

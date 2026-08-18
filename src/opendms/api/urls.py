@@ -6,10 +6,12 @@ from vng_api_common import routers
 from opendms.api.utils.views import SpectacularJSONAPIView, SpectacularYAMLAPIView
 
 from .viewsets import (
+    DocumentRegistrerenViewSet,
     DocumentViewSet,
     InformatieObjectTypeViewSet,
     SearchView,
     ServiceViewSet,
+    ServiceZaakInformatieObjectViewSet,
     ServiceZaakViewSet,
     StatusTypeListViewSet,
     StatusTypeViewSet,
@@ -44,7 +46,11 @@ service_router.register(
     ServiceZaakViewSet,
     basename="service-zaken",
 )
-
+service_router.register(
+    r"zaakinformatieobjecten",
+    ServiceZaakInformatieObjectViewSet,
+    basename="service-zaakinformatieobjecten",
+)
 service_router.register(
     r"statustypen",
     StatusTypeViewSet,
@@ -76,6 +82,11 @@ service_router.register(
     r"informatieobjecttypen",
     InformatieObjectTypeViewSet,
     basename="informatieobjecttypen",
+)
+service_router.register(
+    r"document_registreren",
+    DocumentRegistrerenViewSet,
+    basename="service-document-registreren",
 )
 urlpatterns = [
     re_path(

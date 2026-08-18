@@ -95,6 +95,37 @@ class ZaakClient(HttpRequestMixin, NLXClient):
         response.raise_for_status()
         return decode(response.content, type=Zaak)
 
+    def create_zaakinformatieobject(self, data: dict) -> dict:
+        response = self.post(
+            "zaakinformatieobjecten",
+            json=data,
+        )
+        response.raise_for_status()
+        return response.json()
+
+    def get_paginated_zaakinformatieobjecten(
+        self,
+        params: dict | None = None,
+    ):
+        params = params or {}
+
+        data = self.make_request(
+            "zaakinformatieobjecten",
+            params=params,
+            headers=CRS_HEADERS,
+        )
+
+        return {
+            "count": len(data),
+            "results": data,
+        }
+
+    def get_zaakinformatieobject(self, uuid: str):
+        return self.make_request(
+            f"zaakinformatieobjecten/{uuid}",
+            headers=CRS_HEADERS,
+        )
+
 
 def get_zaken_client(service: Service) -> ZaakClient:
     return build_client(service, client_factory=ZaakClient)

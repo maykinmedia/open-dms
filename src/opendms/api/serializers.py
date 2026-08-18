@@ -697,3 +697,15 @@ class DocumentCreateSerializer(serializers.Serializer):
         child=serializers.CharField(),
         required=False,
     )
+
+
+class ZaakInformatieObjectCreateSerializer(serializers.Serializer):
+    zaak = serializers.URLField()
+    informatieobject = serializers.URLField()
+    titel = serializers.CharField(required=False)
+    beschrijving = serializers.CharField(required=False)
+
+
+class DocumentRegistrerenSerializer(serializers.Serializer):
+    enkelvoudiginformatieobject = serializers.DictField()
+    zaakinformatieobject = serializers.DictField()

@@ -143,6 +143,16 @@ class DocumentClient(HttpRequestMixin, NLXClient):
         results = [self._map_document({**record}) for record in data.get("results", [])]
         return DocumentsPaginatedResponse(count=data.get("count", 0), results=results)
 
+    def document_registreren(self, data: dict):
+        response = self.post(
+            "document_registreren",
+            json=data,
+            headers=CRS_HEADERS,
+        )
+
+        response.raise_for_status()
+        return response.json()
+
     @staticmethod
     def _map_document(record: dict) -> DocumentType:
         return DocumentType(
