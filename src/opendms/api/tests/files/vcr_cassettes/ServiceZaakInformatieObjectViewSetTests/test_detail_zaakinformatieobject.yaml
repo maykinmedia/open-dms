@@ -1,0 +1,54 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Crs:
+      - EPSG:4326
+      Accept-Encoding:
+      - gzip, deflate, br, zstd
+      Connection:
+      - keep-alive
+      Content-Crs:
+      - EPSG:4326
+      User-Agent:
+      - python-requests/2.33.1
+    method: GET
+    uri: http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f931b3f6-f92e-4c46-b484-f68aa68acc18
+  response:
+    body:
+      string: '{"url":"http://localhost:8003/zaken/api/v1/zaakinformatieobjecten/f931b3f6-f92e-4c46-b484-f68aa68acc18","uuid":"f931b3f6-f92e-4c46-b484-f68aa68acc18","informatieobject":"http://localhost:8003/documenten/api/v1/enkelvoudiginformatieobjecten/a9c82615-cee7-4e9d-b7a8-460623882c38","zaak":"http://localhost:8003/zaken/api/v1/zaken/840a1355-dd6d-48a4-a849-38fbf832db44","aardRelatieWeergave":"Hoort
+        bij, omgekeerd: kent","titel":"","beschrijving":"","registratiedatum":"2026-03-25T11:39:18.968000Z","vernietigingsdatum":null,"status":null}'
+    headers:
+      API-version:
+      - 1.5.1
+      Allow:
+      - GET, PUT, PATCH, DELETE, HEAD, OPTIONS
+      Content-Length:
+      - '534'
+      Content-Security-Policy:
+      - 'object-src ''none''; frame-src ''self''; script-src ''self'' ''unsafe-inline''
+        cdnjs.cloudflare.com cdn.jsdelivr.net; font-src ''self'' fonts.gstatic.com;
+        form-action ''self''; base-uri ''self''; frame-ancestors ''none''; worker-src
+        ''self'' blob:; default-src ''self''; style-src ''self'' ''unsafe-inline''
+        fonts.googleapis.com cdnjs.cloudflare.com cdn.jsdelivr.net; img-src ''self''
+        data: cdn.redoc.ly cdnjs.cloudflare.com tile.openstreetmap.org'
+      Content-Type:
+      - application/json
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      ETag:
+      - '"8c0b5e87d0ec32426a0574fcd7f272fd"'
+      Referrer-Policy:
+      - same-origin
+      Vary:
+      - Accept, origin, Cookie
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+    status:
+      code: 200
+      message: OK
+version: 1

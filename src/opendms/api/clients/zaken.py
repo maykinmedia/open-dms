@@ -2,6 +2,7 @@ from collections.abc import Iterable, Mapping
 from typing import NotRequired
 
 from msgspec.json import decode
+from zgw_consumers.api_models.zaken import ZaakInformatieObject
 from zgw_consumers.client import build_client
 from zgw_consumers.models import Service
 from zgw_consumers.nlx import NLXClient
@@ -94,6 +95,40 @@ class ZaakClient(HttpRequestMixin, NLXClient):
         )
         response.raise_for_status()
         return decode(response.content, type=Zaak)
+
+    def create_zaakinformatieobject(self, data: dict) -> dict:
+        response = self.post(
+            "zaakinformatieobjecten",
+            json=data,
+        )
+        response.raise_for_status()
+        return response.json()
+
+    def get_paginated_zaakinformatieobjecten(
+        self,
+        params: Mapping[str, object] = {},
+    ) -> dict:
+        results = self.make_request(
+            "zaakinformatieobjecten",
+            params=params,
+            headers=CRS_HEADERS,
+            parse_into=list[ZaakInformatieObject],
+        )
+
+        return {
+            "count": len(results),
+            "results": results,
+        }
+
+    def get_zaakinformatieobject(
+        self,
+        uuid: str,
+    ) -> ZaakInformatieObject:
+        return self.make_request(
+            f"zaakinformatieobjecten/{uuid}",
+            headers=CRS_HEADERS,
+            parse_into=ZaakInformatieObject,
+        )
 
 
 def get_zaken_client(service: Service) -> ZaakClient:
