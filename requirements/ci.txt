@@ -993,7 +993,7 @@ texttable==1.7.0
     #   -c requirements/base.txt
     #   -r requirements/base.txt
     #   py7zr
-tornado==6.5.5
+tornado==6.5.8
     # via
     #   -c requirements/base.txt
     #   -r requirements/base.txt
